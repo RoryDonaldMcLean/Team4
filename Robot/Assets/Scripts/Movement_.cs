@@ -27,6 +27,8 @@ public class Movement_ : MonoBehaviour
 	public bool grounded = true;
 
 
+
+
 	// Use this for initialization
 	void Start () 
 	{

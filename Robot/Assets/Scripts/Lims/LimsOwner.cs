@@ -9,11 +9,11 @@ public class LimsOwner : MonoBehaviour
 
 	public LimsOwners lim;
 
-	public Transform HingesP1;
-	public Transform HingesP2;
+	//public Transform HingesP1;
+	//public Transform HingesP2;
 
 
-	public GameObject LimbAreaP1, LimbAreaP2;
+	//public GameObject LimbAreaP1, LimbAreaP2;
 
 
 	void Start()

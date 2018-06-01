@@ -9,7 +9,7 @@ public class SCR_player1Initalise : MonoBehaviour
 
 	public GameObject leftArmPrefab;
 	public GameObject LimbArea;
-	GameObject leftArm;
+	private GameObject leftArm;
 
 	// Use this for initialization
 	void Awake () 

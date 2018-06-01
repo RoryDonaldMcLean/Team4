@@ -17,13 +17,15 @@ public class SCR_TradeLimb : MonoBehaviour
 	public List<GameObject> limbs = new List<GameObject>();
 
 	//Used for the Xinput Plug in. Tracks the state of the controllers for player 1 and 2
-	GamePadState state;
-	GamePadState prevState;
+	private GamePadState state;
+	private GamePadState prevState;
 
-	public GameObject p1, p2;
+    //public GameObject p1, p2;
+
+    private GameObject henge1, henge2, henge3, henge4;
 
 	// Use this for initialization
-	void Start () 
+	private void Start () 
 	{
 		//at the start of the game have the left arm be on top of the first hinge.
 		//leftArm = (GameObject)Instantiate (leftArmPrefab, Hinges [0].position, Hinges [0].rotation);
@@ -54,7 +56,7 @@ public class SCR_TradeLimb : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void Update () 
+	private void Update () 
 	{
 		//update the game controller
 		prevState =state;
@@ -86,7 +88,8 @@ public class SCR_TradeLimb : MonoBehaviour
 	{
 		if (gameObject.tag == "Player1")
 		{
-			//limbs [0].GetComponent<LimsOwner> ().lim = LimsOwners.Player2;
+            //limbs [0].GetComponent<LimsOwner> ().lim = LimsOwners.Player2;
+            //Destroy(GameObject.FindGameObjectWithTag("Player2").GetComponent<SCR_TradeLimb>().limbs[referenceNumber]);
 			Transform otherPlayersLimb = GameObject.FindGameObjectWithTag("Player2").GetComponent<SCR_TradeLimb>().limbs[referenceNumber-4].transform;
 
 			//Debug.Log (otherPlayersLimb);

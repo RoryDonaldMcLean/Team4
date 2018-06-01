@@ -25,11 +25,11 @@ public class PickupAndDropdown : MonoBehaviour
         if (!holding)
         {
             //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            Debug.DrawRay(this.GetComponent<Transform>().position - new Vector3(0,1,0), this.GetComponent<Transform>().forward * pickingMaxDistance, Color.red);
+            Debug.DrawRay(this.GetComponent<Transform>().position, this.GetComponent<Transform>().forward * pickingMaxDistance, Color.red);
             RaycastHit hit;
             if (Input.GetMouseButtonDown(0))
             {
-                if (Physics.Raycast(this.GetComponent<Transform>().position - new Vector3(0, 1, 0), this.GetComponent<Transform>().forward, out hit, pickingMaxDistance))//ray cast detection
+                if (Physics.Raycast(this.GetComponent<Transform>().position, this.GetComponent<Transform>().forward, out hit, pickingMaxDistance))//ray cast detection
                 {
                     //Debug.Log("pick");
                     if (hit.collider.tag == "LightBox")

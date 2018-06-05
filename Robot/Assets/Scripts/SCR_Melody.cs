@@ -51,6 +51,8 @@ public class SCR_Melody : MonoBehaviour
 	RawImage[] blankNotes;
 
 
+	public GameObject[] players;
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -99,24 +101,44 @@ public class SCR_Melody : MonoBehaviour
 				if (prevState.DPad.Up == ButtonState.Released &&
 					state.DPad.Up == ButtonState.Pressed)
 				{
-					source.PlayOneShot (chirp1);
-					Robotcode.Add (1);
-					Notes [noteCounter].texture = Arrows [0]; 
+					//if player 1 has the left arm
+					//limbs[0] is left arm. so if it was limbs[1] that would be right arm
+					if(GameObject.FindGameObjectWithTag("Player1").GetComponent<SCR_TradeLimb>().limbs[0].name.Contains("LeftArm"))
+					{
+						//allow you to play the chirp
+						source.PlayOneShot (chirp1);
+						Robotcode.Add (1);
+						Notes [noteCounter].texture = Arrows [0]; 
 
-					//whenever a note is played
-					noteCounter += 1;
+						//whenever a note is played
+						noteCounter += 1;
+
+					} else
+					{
+						//no beep
+						// want to add a cross? to show that you don't have the correct limbs
+						Debug.Log("player 1 has no left arm");
+					}
 				}
 				else if (prevState.DPad.Left == ButtonState.Released &&
 					state.DPad.Left == ButtonState.Pressed)
-				{
-					source.PlayOneShot (chirp2);
-					Robotcode.Add (2);
+					{
+					if (GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [1].name.Contains ("RightArm"))
+					{
 
-					//whenever a note is played
-					Notes [noteCounter].texture = Arrows [1]; 
+						source.PlayOneShot (chirp2);
+						Robotcode.Add (2);
 
-					//whenever a note is played
-					noteCounter += 1;
+						//whenever a note is played
+						Notes [noteCounter].texture = Arrows [1]; 
+
+						//whenever a note is played
+						noteCounter += 1;
+					} 
+					else
+					{
+						Debug.Log ("player 1 has no right arm");
+					}
 
 				}
 				else if (prevState.DPad.Right == ButtonState.Released &&
@@ -165,24 +187,46 @@ public class SCR_Melody : MonoBehaviour
 				if (player2PrevState.DPad.Up == ButtonState.Released &&
 					player2State.DPad.Up == ButtonState.Pressed || Input.GetKey(KeyCode.I))
 				{
-					//source.PlayOneShot (chirp1);
-					Robotcode.Add (5);
-					Notes [noteCounter].texture = Arrows [4]; 
+					
+					if(GameObject.FindGameObjectWithTag("Player2").GetComponent<SCR_TradeLimb>().limbs[0].name.Contains("LeftArm"))
+					{
+						//allow you to play the chirp
+						//source.PlayOneShot (chirp1);
+						Robotcode.Add (5);
+						Notes [noteCounter].texture = Arrows [4]; 
 
-					//whenever a note is played
-					noteCounter += 1;
+						//whenever a note is played
+						noteCounter += 1;
+
+					} else
+					{
+						//no beep
+						// want to add a cross? to show that you don't have the correct limbs
+						Debug.Log("player2 has no left arm");
+					}
+						
+
+				
+
 				}
 				else if (player2PrevState.DPad.Left == ButtonState.Released &&
 					player2State.DPad.Left == ButtonState.Pressed || Input.GetKey(KeyCode.J))
 				{
-					//source.PlayOneShot (chirp2);
-					Robotcode.Add (6);
 
-					//whenever a note is played
-					Notes [noteCounter].texture = Arrows [5]; 
+					if (GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [1].name.Contains ("RightArm"))
+					{
+						//source.PlayOneShot (chirp2);
+						Robotcode.Add (6);
 
-					//whenever a note is played
-					noteCounter += 1;
+						//whenever a note is played
+						Notes [noteCounter].texture = Arrows [5]; 
+
+						//whenever a note is played
+						noteCounter += 1;
+					} else
+					{
+						Debug.Log ("player 2 has no right arm");
+					}
 
 				}
 				else if (player2PrevState.DPad.Right == ButtonState.Released &&

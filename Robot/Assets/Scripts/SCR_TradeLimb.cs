@@ -5,35 +5,31 @@ using XInputDotNetPure;
 
 public class SCR_TradeLimb : MonoBehaviour 
 {
-	//array of Hinges for each Player
-	//0 is left arm
-	//1 is right arm
-	//2 is left leg
-	//3 is right leg
-	//public Transform[] Hinges;
-
-	//public GameObject leftArmPrefab;
-	//GameObject leftArm;
 	public List<GameObject> limbs = new List<GameObject>();
 
 	//Used for the Xinput Plug in. Tracks the state of the controllers for player 1 and 2
+<<<<<<< HEAD
 	private GamePadState state;
 	private GamePadState prevState;
 
     //public GameObject p1, p2;
 
     private GameObject henge1, henge2, henge3, henge4;
+=======
+	GamePadState state;
+	GamePadState prevState;
+	GamePadState player2State;
+	GamePadState player2PrevState;
+
+	//is there 2 players in the game. if so use different controls for player 1 and 2 
+	//but allows it all to be in 1 script
+	public bool player2 = false;
+>>>>>>> master
 
 	// Use this for initialization
 	private void Start () 
 	{
-		//at the start of the game have the left arm be on top of the first hinge.
-		//leftArm = (GameObject)Instantiate (leftArmPrefab, Hinges [0].position, Hinges [0].rotation);
-
-		//make9 the left arm a child of the player
-		//leftArm.transform.parent = gameObject.transform;
-
-		childObjectLimbFinder();
+		InitialisePlayerLimbs();
 	}
 
 	private void childObjectLimbFinder()
@@ -41,7 +37,7 @@ public class SCR_TradeLimb : MonoBehaviour
 		//loop through all the child objects attached to player
 		for(int i=0; i < this.transform.childCount; i++)
 		{
-			//find the object that has the "limb" in it's name
+			//find the object that has the "area" in it's name
 			if (this.transform.GetChild(i).name.Contains("area"))
 			{
 				//loop through all of that objects children, they should all be the hinges OR Limbs
@@ -54,6 +50,17 @@ public class SCR_TradeLimb : MonoBehaviour
 
 		}
 	}
+
+	private void InitialisePlayerLimbs()
+	{
+		childObjectLimbFinder();
+		LimbDetails();
+	}
+
+	protected virtual void LimbDetails()
+	{
+		//to be overwritten by inhertance
+	}
 	
 	// Update is called once per frame
 	private void Update () 
@@ -61,43 +68,165 @@ public class SCR_TradeLimb : MonoBehaviour
 		//update the game controller
 		prevState =state;
 		state = GamePad.GetState (PlayerIndex.One);
+		player2PrevState = player2State;
+		player2State = GamePad.GetState (PlayerIndex.Two);
 
-		//when the trade limb button is pressed
-		if (prevState.Buttons.Y == ButtonState.Released &&
-			state.Buttons.Y == ButtonState.Pressed || Input.GetKey(KeyCode.K))
+
+		if (player2)
 		{
-			//Debug.Log ("123123");
-			for (int i = 0; i < limbs.Count; i++)
+			//when the trade limb button is pressed
+			/*if (prevState.Buttons.Y == ButtonState.Released &&
+			    state.Buttons.Y == ButtonState.Pressed || Input.GetKey (KeyCode.K))
 			{
-				if (limbs [i].name.Contains("Arm"))
-				{
-					//throwcode exchance limb
-					//update limbs list (its a hinge again)
-					Exchange(limbs[i], i);
-				}
+				//Debug.Log ("123123");
+				SpecificLimbExchange ();
+			
+			}*/
+
+			if (prevState.Buttons.Y == ButtonState.Pressed)
+			{
+				
+				SpecificLimbExchange ();
+				
 			}
 
-			//else its a hinge, do nithuing!!!!!
+		} else
+		{
+			//player 2 controls here
 
+			if (player2PrevState.Buttons.Y == ButtonState.Pressed)
+			{
+
+				SpecificLimbExchange ();
+
+			}
+				
 		}
 
 
 	}
 
-	void Exchange(GameObject limbToTrade, int referenceNumber)
+	private void SpecificLimbExchange()
 	{
-		if (gameObject.tag == "Player1")
+		string otherPlayerTag = "";
+		Movement_[] players = GameObject.FindObjectsOfType<Movement_>();
+		foreach(Movement_ player in players)
 		{
+			if(player.tag != this.transform.tag)
+			{
+				otherPlayerTag = player.tag;
+			}
+		}
+		 
+		//this is what would change which limb you exchange
+		//player 1 left arm
+		if (prevState.ThumbSticks.Right.Y > 0.1f)
+		{
+			if (limbs [0].name.Contains ("LeftArm"))
+			{
+				//find the other player
+				Exchange ("LeftArm", otherPlayerTag);
+				RemoveLimb ("LeftArm");
+			}
+		}
+
+		//player2 left arm
+		if (player2PrevState.ThumbSticks.Right.Y > 0.1f)
+		{
+			if (limbs [0].name.Contains ("LeftArm"))
+			{
+				Exchange ("LeftArm", otherPlayerTag);
+				RemoveLimb ("LeftArm");
+			}
+		}
+
+
+		//player1 right arm
+		if (prevState.ThumbSticks.Right.Y < -0.1f)
+		{
+<<<<<<< HEAD
             //limbs [0].GetComponent<LimsOwner> ().lim = LimsOwners.Player2;
             //Destroy(GameObject.FindGameObjectWithTag("Player2").GetComponent<SCR_TradeLimb>().limbs[referenceNumber]);
 			Transform otherPlayersLimb = GameObject.FindGameObjectWithTag("Player2").GetComponent<SCR_TradeLimb>().limbs[referenceNumber-4].transform;
 
 			//Debug.Log (otherPlayersLimb);
 			limbToTrade.GetComponent<LimsOwner>().limbTrade(otherPlayersLimb, GameObject.FindGameObjectWithTag("Player2").GetComponentsInChildren<Transform>()[2]);
+=======
+			if (limbs [1].name.Contains ("RightArm"))
+			{
+				Exchange ("RightArm", otherPlayerTag);
+				RemoveLimb ("RightArm");
+			}
+		}
 
+		//player2 right arm
+		if (player2PrevState.ThumbSticks.Right.Y < -0.1f)
+		{
+			if (limbs [1].name.Contains ("RightArm"))
+			{
+				Exchange ("RightArm", otherPlayerTag);
+				RemoveLimb ("RightArm");
+			}
 		}
 
 
 
+>>>>>>> master
+
+
+	}
+
+	private int LimbNumber(string newLimbName)
+	{
+		int limbNumber = -1;
+		switch(newLimbName)
+		{
+		case "LeftArm":
+			limbNumber = 0;
+			break;
+		case "RightArm":
+			limbNumber = 1;
+			break;
+		case "LeftLeg":
+			limbNumber = 2;
+			break;
+		case "RightLeg":
+			limbNumber = 3;
+			break;
+		}
+		return limbNumber;
+	}
+
+
+	protected void Exchange(string newLimbName, string playerTag)
+	{
+		
+		GameObject player = GameObject.FindGameObjectWithTag(playerTag);
+		int limbNumber = LimbNumber(newLimbName);
+		GameObject newLimb = Instantiate(Resources.Load("Prefabs/" + newLimbName)) as GameObject;
+
+		List<GameObject> tempList = player.GetComponent<SCR_TradeLimb>().limbs;
+		newLimb.transform.position = tempList[limbNumber].transform.position;
+		newLimb.transform.parent = tempList[limbNumber].transform.parent;
+
+		Destroy(tempList[limbNumber]);
+		tempList.RemoveAt(limbNumber);
+
+		tempList.Insert(limbNumber, newLimb);
+	}
+
+	private void RemoveLimb(string limbToRemove)
+	{
+		int limbNumber = LimbNumber(limbToRemove);
+		GameObject hinge = Instantiate(Resources.Load("Prefabs/Hinge")) as GameObject;
+
+		List<GameObject> tempList = this.GetComponent<SCR_TradeLimb>().limbs;
+		hinge.transform.position = tempList[limbNumber].transform.position;
+		hinge.transform.parent = tempList[limbNumber].transform.parent;
+
+		Destroy(tempList[limbNumber]);
+		tempList.RemoveAt(limbNumber);
+
+		tempList.Insert(limbNumber, hinge);
 	}
 }

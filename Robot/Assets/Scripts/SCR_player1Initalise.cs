@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SCR_player1Initalise : MonoBehaviour 
+public class SCR_player1Initalise : SCR_TradeLimb 
 {
+<<<<<<< HEAD
 
 	public Transform[] Hinges;
 
@@ -13,18 +14,14 @@ public class SCR_player1Initalise : MonoBehaviour
 
 	// Use this for initialization
 	void Awake () 
+=======
+	protected override void LimbDetails()
+>>>>>>> master
 	{
-		//at the start of the game have the left arm be on top of the first hinge.
-		leftArm = (GameObject)Instantiate (leftArmPrefab, Hinges [0].position, Hinges [0].rotation);
+		//to be overwritten by inhertance
+		//give player1 the arms to start with
+		Exchange("LeftArm", this.gameObject.tag);
+		Exchange ("RightArm", this.gameObject.tag);
 
-		//make the left arm a child of the player
-		leftArm.transform.parent = LimbArea.transform;
-
-	}
-	
-	// Update is called once per frame
-	void Update () 
-	{
-		
 	}
 }

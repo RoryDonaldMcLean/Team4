@@ -22,13 +22,13 @@ public class Movement_ : MonoBehaviour
 	public float playerSpeed = 4.0f;
 
 	public Rigidbody rb1;
-	public float jumpForce = 10;
+	public float jumpSpeed;
 
 	public bool grounded = true;
 
 	public GameObject EventSystem;
 
-
+    private float timer;
 
 
 	// Use this for initialization
@@ -85,17 +85,36 @@ public class Movement_ : MonoBehaviour
 
 
 
-			//jumping
-			if (grounded == true && prevState.Buttons.A == ButtonState.Released &&
-			    state.Buttons.A == ButtonState.Pressed)
-			{
-				grounded = false;
-				rb1.AddForce (Vector3.up * jumpForce, ForceMode.Impulse);
-			}
-				
+            //jumping
+            if (grounded == true && Input.GetKeyDown(KeyCode.M))
+            {
+                grounded = false;
+                velocity.y = jumpSpeed;
+            }
 
-		} 
-		else
+            //if (grounded == true && Input.GetKeyDown(KeyCode.M))
+            //{
+            //    rb1.AddForce(Vector3.up * jumpForce, ForceMode.Force);
+            //    timer = 0;
+            //}
+            //if (grounded == true && Input.GetKey(KeyCode.M))
+            //{
+            //    timer += Time.deltaTime;
+            //    if (timer <= 0.1f)
+            //    {
+            //        rb1.AddForce(Vector3.up * jumpForce, ForceMode.Force);
+            //    }
+            //}
+            //if (grounded == true && Input.GetKeyUp(KeyCode.M))
+            //{
+            //    grounded = false;
+            //    timer = 0;
+            //}
+
+
+
+        }
+        else
 		{
 			//////////////////////////////////////////////////////////
 			/// //player 2
@@ -141,6 +160,11 @@ public class Movement_ : MonoBehaviour
 		updateMovement (velocity);
 		velocity.z = 0.0f;
 		velocity.x = 0.0f;
+        if (velocity.y >= -1)
+            velocity.y += Physics.gravity.y * Time.deltaTime * 5f;
+        else
+            velocity.y = -1.01f;
+        //Debug.Log(velocity.y);
 	}
 
 	//updates movement using the passed velocity vector
@@ -150,7 +174,7 @@ public class Movement_ : MonoBehaviour
 		rb1.velocity = vel * playerSpeed;
 
 		//will rotate the player to face the direction they are moving
-		transform.LookAt (transform.position + rb1.velocity);
+		transform.LookAt (transform.position + new Vector3(rb1.velocity.x, 0, rb1.velocity.z));
 	}
 
 

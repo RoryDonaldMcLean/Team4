@@ -124,17 +124,39 @@ public class WeightCheckNew : MonoBehaviour
         //resets weight value to ensure only new objects weight is factored. 
         playersWeight = 0;
         //finds all the limbs in the game
-        GameObject[] limbs = GameObject.FindGameObjectsWithTag("Limb");
 
+		//loop through all the child objects attached to player
+		for (int i = 0; i < player.transform.childCount; i++)
+		{
+			if (player.transform.GetChild(i).name.Contains ("area"))
+			{
+				//loop through all of that objects children
+				for (int u = 0; u < player.transform.GetChild (i).childCount; u++)
+				{	//if one of those objects is not a hinge
+					if(!player.transform.GetChild(i).GetChild(u).name.Contains("Hinge"))
+					{
+						//add weight i.e. if 1 limb is on weight is 1 if 4 limbs are there weight is 4
+						playersWeight++;
+					}
+				}
+			}
+		}
+
+
+        //GameObject[] limbs = GameObject.FindGameObjectsWithTag("Limb");
+		/*
         //goes through all the limbs, in order to find which ones are on this player, in order to then find its current weight
         foreach (GameObject limb in limbs)
         {
-            string ownerName = limb.GetComponent<CharacterJoint>().connectedBody.name;
+           //string ownerName = limb.GetComponent<CharacterJoint>().connectedBody.name;
+
+			string ownerName = limb.GetComponent<Transform> ().name;
 
             if (string.Compare(ownerName, player.name) == 0)
             {
                 playersWeight++;
             }
         }
+		*/
     }
 }

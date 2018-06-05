@@ -26,6 +26,8 @@ public class Movement_ : MonoBehaviour
 
 	public bool grounded = true;
 
+	public GameObject EventSystem;
+
 
 
 
@@ -65,17 +67,23 @@ public class Movement_ : MonoBehaviour
 				velocity.z -= 1.0f;
 			}
 
-			//move left
-			if (Input.GetKey (KeyCode.A) || (prevState.ThumbSticks.Left.X < -0.1))
+
+			if (EventSystem.GetComponent<SCR_Travel> ().leftPuzzle == false)
 			{
-				velocity.x -= 1.0f;
+				//move left
+				if (Input.GetKey (KeyCode.A) || (prevState.ThumbSticks.Left.X < -0.1))
+				{
+					velocity.x -= 1.0f;
+				}
+
+				//move right
+				if (Input.GetKey (KeyCode.D) || (prevState.ThumbSticks.Left.X > 0.1))
+				{
+					velocity.x += 1.0f;
+				}
 			}
 
-			//move right
-			if (Input.GetKey (KeyCode.D) || (prevState.ThumbSticks.Left.X > 0.1))
-			{
-				velocity.x += 1.0f;
-			}
+
 
 			//jumping
 			if (grounded == true && prevState.Buttons.A == ButtonState.Released &&
@@ -83,7 +91,7 @@ public class Movement_ : MonoBehaviour
 			{
 				grounded = false;
 				rb1.AddForce (Vector3.up * jumpForce, ForceMode.Impulse);
-			} 
+			}
 				
 
 		} 
@@ -102,25 +110,29 @@ public class Movement_ : MonoBehaviour
 				velocity.z -= 1.0f;
 			}
 
-			//move left
-			if (Input.GetKey (KeyCode.LeftArrow) || (player2PrevState.ThumbSticks.Left.X < -0.1))
+			if (EventSystem.GetComponent<SCR_Travel> ().leftPuzzle == false)
 			{
-				velocity.x -= 1.0f;
-			}
+				//move left
+				if (Input.GetKey (KeyCode.LeftArrow) || (player2PrevState.ThumbSticks.Left.X < -0.1))
+				{
+					velocity.x -= 1.0f;
+				}
 
-			//move right
-			if (Input.GetKey (KeyCode.RightArrow) || (player2PrevState.ThumbSticks.Left.X > 0.1))
-			{
-				velocity.x += 1.0f;
+				//move right
+				if (Input.GetKey (KeyCode.RightArrow) || (player2PrevState.ThumbSticks.Left.X > 0.1))
+				{
+					velocity.x += 1.0f;
+				}
 			}
-
+				
 			//jumping
 			if (grounded == true && player2PrevState.Buttons.A == ButtonState.Released &&
-				player2State.Buttons.A == ButtonState.Pressed || grounded == true && Input.GetKey(KeyCode.G))
+			    player2State.Buttons.A == ButtonState.Pressed || grounded == true && Input.GetKey (KeyCode.G))
 			{
 				grounded = false;
 				//regardless of the jumpforce it only does a tiny hop
-				rb1.AddForce (Vector3.up * jumpForce, ForceMode.Impulse);
+				//rb1.AddForce (Vector3.up * jumpForce, ForceMode.Impulse);
+
 			}
 
 		}
@@ -143,11 +155,27 @@ public class Movement_ : MonoBehaviour
 
 
 
+	void OnTriggerEnter(Collider col)
+	{
+		if (col.gameObject.tag == "Ground")
+		{
+			grounded = true;
+		}
+	}
+
 	void OnTriggerStay(Collider col)
 	{
 		if (col.gameObject.tag == "Ground")
 		{
 			grounded = true;
+		}
+	}
+
+	void OnTriggerExit(Collider col)
+	{
+		if (col.gameObject.tag == "Ground")
+		{
+			grounded = false;
 		}
 	}
 

@@ -130,8 +130,7 @@ public class SCR_TradeLimb : MonoBehaviour
                 RemoveLimb("LeftArm");
             }
         }
-
-
+        
         //player1 right arm
         if (prevState.ThumbSticks.Right.Y < -0.1f)
         {

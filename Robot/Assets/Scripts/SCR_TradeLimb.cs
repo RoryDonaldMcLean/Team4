@@ -7,7 +7,6 @@ public class SCR_TradeLimb : MonoBehaviour
 {
     public List<GameObject> limbs = new List<GameObject>();
 
-
     GamePadState state;
     GamePadState prevState;
     GamePadState player2State;
@@ -16,7 +15,6 @@ public class SCR_TradeLimb : MonoBehaviour
     //is there 2 players in the game. if so use different controls for player 1 and 2 
     //but allows it all to be in 1 script
     public bool player2 = false;
-
 
     // Use this for initialization
     private void Start()
@@ -155,6 +153,50 @@ public class SCR_TradeLimb : MonoBehaviour
             }
         }
 
+        //Leg
+        //player 1 left Leg
+        if (prevState.ThumbSticks.Right.X > 0.1f)
+        {
+            if (limbs[0].name.Contains("LeftLeg"))
+            {
+                //find the other player
+                Exchange("LeftLeg", otherPlayerTag);
+                RemoveLimb("LeftLeg");
+            }
+        }
+
+        //player2 left arm
+        if (player2PrevState.ThumbSticks.Right.X > 0.1f)
+        {
+            if (limbs[0].name.Contains("LeftLeg"))
+            {
+                Exchange("LeftLeg", otherPlayerTag);
+                RemoveLimb("LeftLeg");
+            }
+        }
+
+
+        //player1 right arm
+        if (prevState.ThumbSticks.Right.X < -0.1f)
+        {
+
+            if (limbs[1].name.Contains("RightLeg"))
+            {
+                Exchange("RightLeg", otherPlayerTag);
+                RemoveLimb("RightLeg");
+            }
+        }
+
+        //player2 right arm
+        if (player2PrevState.ThumbSticks.Right.X < -0.1f)
+        {
+            if (limbs[1].name.Contains("RightLeg"))
+            {
+                Exchange("RightLeg", otherPlayerTag);
+                RemoveLimb("RightLeg");
+            }
+        }
+
 
 
     }
@@ -180,15 +222,13 @@ public class SCR_TradeLimb : MonoBehaviour
         return limbNumber;
     }
 
-
     protected void Exchange(string newLimbName, string playerTag)
     {
-
         GameObject player = GameObject.FindGameObjectWithTag(playerTag);
         int limbNumber = LimbNumber(newLimbName);
         GameObject newLimb = Instantiate(Resources.Load("Prefabs/" + newLimbName)) as GameObject;
-
         List<GameObject> tempList = player.GetComponent<SCR_TradeLimb>().limbs;
+   
         newLimb.transform.position = tempList[limbNumber].transform.position;
         newLimb.transform.parent = tempList[limbNumber].transform.parent;
 

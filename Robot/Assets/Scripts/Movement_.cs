@@ -17,16 +17,16 @@ public class Movement_ : MonoBehaviour
 	//is there 2 players in the game. if so use different controls for player 1 and 2 
 	//but allows it all to be in 1 script
 	public bool player2 = false;
-
-
 	public float playerSpeed = 4.0f;
 
 	public Rigidbody rb1;
 	public float jumpSpeed;
+    public float dropdownSpeed;
+    public GameObject EventSystem;
 
-	public bool grounded = true;
+    private bool grounded = true;
 
-	public GameObject EventSystem;
+    private bool doubleJump = false;
 
     private float timer;
 
@@ -86,8 +86,12 @@ public class Movement_ : MonoBehaviour
 
 
             //jumping
-            if (grounded == true && Input.GetKeyDown(KeyCode.M))
+            if ((grounded || doubleJump) && Input.GetKeyDown(KeyCode.M) && this.GetLegQuantity() >= 1)
             {
+                if (grounded && this.GetLegQuantity() >= 2)
+                    doubleJump = true;
+                else
+                    doubleJump = false;
                 grounded = false;
                 velocity.y = jumpSpeed;
             }
@@ -143,25 +147,26 @@ public class Movement_ : MonoBehaviour
 					velocity.x += 1.0f;
 				}
 			}
-				
-			//jumping
-			if (grounded == true && player2PrevState.Buttons.A == ButtonState.Released &&
-			    player2State.Buttons.A == ButtonState.Pressed || grounded == true && Input.GetKey (KeyCode.G))
-			{
-				grounded = false;
-				//regardless of the jumpforce it only does a tiny hop
-				//rb1.AddForce (Vector3.up * jumpForce, ForceMode.Impulse);
 
-			}
+            //jumping
+            if ((grounded || doubleJump) && Input.GetKeyDown(KeyCode.G) && this.GetLegQuantity() >= 1)
+            {
+                if (grounded && this.GetLegQuantity() >= 2)
+                    doubleJump = true;
+                else
+                    doubleJump = false;
+                grounded = false;
+                velocity.y = jumpSpeed;
+            }
 
-		}
+        }
 
 
 		updateMovement (velocity);
 		velocity.z = 0.0f;
 		velocity.x = 0.0f;
         if (velocity.y >= -1)
-            velocity.y += Physics.gravity.y * Time.deltaTime * 5f;
+            velocity.y += Physics.gravity.y * Time.deltaTime * dropdownSpeed;
         else
             velocity.y = -1.01f;
         //Debug.Log(velocity.y);
@@ -203,5 +208,28 @@ public class Movement_ : MonoBehaviour
 		}
 	}
 
+    private int GetLegQuantity()
+    {
+        int quantity = 0;
+        //loop through all the child objects attached to player
+        for (int i = 0; i < this.transform.childCount; i++)
+        {
+            //find the object that has the "area" in it's name
+            if (this.transform.GetChild(i).name.Contains("area"))
+            {
+                //loop through all of that objects children, they should all be the hinges OR Limbs
+                for (int u = 0; u < this.transform.GetChild(i).childCount; u++)
+                {
+                    //find the object that has the "Leg" in it's name
+                    if (this.transform.GetChild(i).transform.GetChild(u).name.Contains("Leg"))
+                    {
+                        quantity++;
+                    }
+                }
+            }
+
+        }
+        return quantity;
+    }
 
 }

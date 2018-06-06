@@ -119,12 +119,12 @@ GameObject:
   - component: {fileID: 27574843}
   - component: {fileID: 27574842}
   - component: {fileID: 27574841}
-  - component: {fileID: 27574849}
   - component: {fileID: 27574845}
   - component: {fileID: 27574846}
   - component: {fileID: 27574847}
   - component: {fileID: 27574848}
   - component: {fileID: 27574850}
+  - component: {fileID: 27574851}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Player2
@@ -242,6 +242,7 @@ MonoBehaviour:
   playerSpeed: 4
   rb1: {fileID: 27574845}
   jumpSpeed: 5
+  dropdownSpeed: 5
   grounded: 1
   EventSystem: {fileID: 1707195948}
 --- !u!65 &27574848
@@ -254,9 +255,9 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 2, z: 2}
+  m_Size: {x: 2, y: 2.06, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &27574849
+--- !u!114 &27574850
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -264,24 +265,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 27574840}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9b1a9f7381528744b2148f1e1768e9b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  limbs: []
-  player2: 0
---- !u!114 &27574850
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 27574840}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f16b27994005255418232123a5040cb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   pickingLocation: {fileID: 552876766}
   pickingMaxDistance: 5
+--- !u!114 &27574851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 27574840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 936495a8fa1e76049bf52450cf076100, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  limbs: []
+  player2: 1
 --- !u!1 &44230072
 GameObject:
   m_ObjectHideFlags: 0
@@ -2981,7 +2982,6 @@ GameObject:
   - component: {fileID: 1603672057}
   - component: {fileID: 1603672058}
   - component: {fileID: 1603672061}
-  - component: {fileID: 1603672060}
   - component: {fileID: 1603672059}
   - component: {fileID: 1603672062}
   - component: {fileID: 1603672063}
@@ -3034,7 +3034,7 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.42
-  m_Height: 3.54
+  m_Height: 2.68
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0.14766729}
 --- !u!33 &1603672055
@@ -3052,7 +3052,7 @@ Transform:
   m_GameObject: {fileID: 1603672052}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.86, y: 1.05, z: -20.99}
-  m_LocalScale: {x: 1.47, y: 0.95, z: 1}
+  m_LocalScale: {x: 1.47, y: 1.18, z: 1}
   m_Children:
   - {fileID: 44230073}
   - {fileID: 669864912}
@@ -3097,21 +3097,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 2, z: 2}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1603672060
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1603672052}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9b1a9f7381528744b2148f1e1768e9b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  limbs: []
-  player2: 0
+  m_Size: {x: 2, y: 2.371181, z: 2}
+  m_Center: {x: 0, y: -0.1555909, z: 0}
 --- !u!114 &1603672061
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3127,6 +3114,7 @@ MonoBehaviour:
   playerSpeed: 4
   rb1: {fileID: 1603672057}
   jumpSpeed: 5
+  dropdownSpeed: 5
   grounded: 1
   EventSystem: {fileID: 1707195948}
 --- !u!114 &1603672062
@@ -3142,14 +3130,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   limbs: []
   player2: 0
-  Hinges:
-  - {fileID: 1288234293}
-  - {fileID: 1096496720}
-  - {fileID: 1878368672}
-  - {fileID: 414764666}
-  leftArmPrefab: {fileID: 1966372897664242, guid: 77e8a92530e3e2f42968fea958de9385,
-    type: 2}
-  LimbArea: {fileID: 669864911}
 --- !u!114 &1603672063
 MonoBehaviour:
   m_ObjectHideFlags: 0

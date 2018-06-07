@@ -63,7 +63,8 @@ public class SCR_TradeLimb : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Space)&&!player2)
         {
-            DropDownLims("LeftArm");
+            if(limbs[0].name.Contains("LeftArm"))
+                DropDownLims("LeftArm");
         }
 
         if (player2)

@@ -18,8 +18,7 @@ public class PickupAndDropdown : MonoBehaviour
     {
         holding = false;
         alpha = 0;
-
-
+        
     }
 
     // Update is called once per frame
@@ -40,6 +39,7 @@ public class PickupAndDropdown : MonoBehaviour
                     {
                         if (this.GetArmQuantity() >= 1)
                         {
+                            
                             holding = true; //set pick up boolean
                             offset = pickingLocation.position.y - hit.collider.gameObject.GetComponent<Transform>().position.y;
                             pickingGameObject = hit.collider.gameObject; // set the pick up object
@@ -98,9 +98,7 @@ public class PickupAndDropdown : MonoBehaviour
                     }
                 }
             }
-
         }
-
         return quantity;
     }
 }

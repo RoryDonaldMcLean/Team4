@@ -61,6 +61,10 @@ public class SCR_TradeLimb : MonoBehaviour
         player2PrevState = player2State;
         player2State = GamePad.GetState(PlayerIndex.Two);
 
+        if(Input.GetKeyDown(KeyCode.Space)&&!player2)
+        {
+            DropDownLims("LeftArm");
+        }
 
         if (player2)
         {
@@ -156,7 +160,7 @@ public class SCR_TradeLimb : MonoBehaviour
         //player 1 left Leg
         if (prevState.ThumbSticks.Right.X > 0.1f)
         {
-            if (limbs[0].name.Contains("LeftLeg"))
+            if (limbs[2].name.Contains("LeftLeg"))
             {
                 //find the other player
                 Exchange("LeftLeg", otherPlayerTag);
@@ -167,7 +171,7 @@ public class SCR_TradeLimb : MonoBehaviour
         //player2 left arm
         if (player2PrevState.ThumbSticks.Right.X > 0.1f)
         {
-            if (limbs[0].name.Contains("LeftLeg"))
+            if (limbs[2].name.Contains("LeftLeg"))
             {
                 Exchange("LeftLeg", otherPlayerTag);
                 RemoveLimb("LeftLeg");
@@ -179,7 +183,7 @@ public class SCR_TradeLimb : MonoBehaviour
         if (prevState.ThumbSticks.Right.X < -0.1f)
         {
 
-            if (limbs[1].name.Contains("RightLeg"))
+            if (limbs[3].name.Contains("RightLeg"))
             {
                 Exchange("RightLeg", otherPlayerTag);
                 RemoveLimb("RightLeg");
@@ -189,13 +193,13 @@ public class SCR_TradeLimb : MonoBehaviour
         //player2 right arm
         if (player2PrevState.ThumbSticks.Right.X < -0.1f)
         {
-            if (limbs[1].name.Contains("RightLeg"))
+            if (limbs[3].name.Contains("RightLeg"))
             {
                 Exchange("RightLeg", otherPlayerTag);
                 RemoveLimb("RightLeg");
             }
         }
-
+        
 
 
     }
@@ -250,5 +254,33 @@ public class SCR_TradeLimb : MonoBehaviour
         tempList.RemoveAt(limbNumber);
 
         tempList.Insert(limbNumber, hinge);
+    }
+
+    private void DropDownLims(string limbToRemove)
+    {
+        List<GameObject> tempList = this.GetComponent<SCR_TradeLimb>().limbs;
+        int limbNumber = LimbNumber(limbToRemove);
+        Vector3 dropDownLimsPosition = tempList[limbNumber].transform.position;
+        RemoveLimb(limbToRemove);
+        GameObject dropDownLims= Instantiate(Resources.Load("Prefabs/" + limbToRemove)) as GameObject;
+
+        dropDownLims.AddComponent<SphereCollider>();
+        dropDownLims.AddComponent<Rigidbody>();
+        dropDownLims.name = limbToRemove;
+        dropDownLims.transform.position = dropDownLimsPosition;
+    }
+
+    private void PickUpLims(GameObject pickUpObject)
+    {
+        string pickupName = pickUpObject.name;
+        Destroy(pickUpObject);
+        Exchange(pickupName, this.gameObject.tag);
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.name == "LeftArm" && Input.GetKeyDown(KeyCode.Z)) 
+            PickUpLims(other.gameObject);
+
     }
 }

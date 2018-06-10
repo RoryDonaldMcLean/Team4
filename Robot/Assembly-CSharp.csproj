@@ -51,23 +51,30 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\ArmRotate.cs" />
-     <Compile Include="Assets\Scripts\CameraControl.cs" />
-     <Compile Include="Assets\Scripts\LeftArmChange.cs" />
-     <Compile Include="Assets\Scripts\Lims\LimsOwner.cs" />
-     <Compile Include="Assets\Scripts\Movement_.cs" />
-     <Compile Include="Assets\Scripts\PlayerController.cs" />
-     <Compile Include="Assets\Scripts\PressurePlateTest.cs" />
-     <Compile Include="Assets\Scripts\SCR_CameraFollow.cs" />
-     <Compile Include="Assets\Scripts\SCR_Door.cs" />
-     <Compile Include="Assets\Scripts\SCR_Melody.cs" />
-     <Compile Include="Assets\Scripts\SCR_player1Initalise.cs" />
-     <Compile Include="Assets\Scripts\SCR_player2Initalise.cs" />
-     <Compile Include="Assets\Scripts\SCR_TestLevelControl.cs" />
-     <Compile Include="Assets\Scripts\SCR_TradeLimb.cs" />
-     <Compile Include="Assets\Scripts\SCR_Travel.cs" />
-     <Compile Include="Assets\Scripts\WeightCheck.cs" />
-     <Compile Include="Assets\Scripts\WeightCheckNew.cs" />
+     <Compile Include="Assets\Scripts\Camera\SCR_CameraFollow.cs" />
+     <Compile Include="Assets\Scripts\Level\LevelControlBaseClass.cs" />
+     <Compile Include="Assets\Scripts\Level\LevelController.cs" />
+     <Compile Include="Assets\Scripts\Level\LightLevelOneControl.cs" />
+     <Compile Include="Assets\Scripts\Level\LightLevelTwoControl.cs" />
+     <Compile Include="Assets\Scripts\Level\SCR_InPuzzle.cs" />
+     <Compile Include="Assets\Scripts\Level\SCR_TestLevelControl.cs" />
+     <Compile Include="Assets\Scripts\Light\BaseCustomMesh.cs" />
+     <Compile Include="Assets\Scripts\Light\BeamPoint.cs" />
+     <Compile Include="Assets\Scripts\Light\LightRedirect.cs" />
+     <Compile Include="Assets\Scripts\Light\LightTrigger.cs" />
+     <Compile Include="Assets\Scripts\Light\MeshCube.cs" />
+     <Compile Include="Assets\Scripts\Light\PrismColourCombo.cs" />
+     <Compile Include="Assets\Scripts\Light\SplineCurve.cs" />
+     <Compile Include="Assets\Scripts\Light\StraightSplineBeam.cs" />
+     <Compile Include="Assets\Scripts\Player\LimsFly.cs" />
+     <Compile Include="Assets\Scripts\Player\Movement_.cs" />
+     <Compile Include="Assets\Scripts\Player\PickupAndDropdown.cs" />
+     <Compile Include="Assets\Scripts\Player\SCR_player1Initalise.cs" />
+     <Compile Include="Assets\Scripts\Player\SCR_player2Initalise.cs" />
+     <Compile Include="Assets\Scripts\Player\SCR_TradeLimb.cs" />
+     <Compile Include="Assets\Scripts\PuzzleMechanics\SCR_Door.cs" />
+     <Compile Include="Assets\Scripts\PuzzleMechanics\SCR_Melody.cs" />
+     <Compile Include="Assets\Scripts\PuzzleMechanics\WeightCheck.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity2017.1/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
@@ -88,6 +95,9 @@
  </Reference>
  <Reference Include="UnityEngine.HoloLens">
  <HintPath>C:/Program Files/Unity2017.1/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
+ </Reference>
+ <Reference Include="XInputDotNetPure">
+ <HintPath>M:/Team4-Combined/Robot/Assets/Plugins/x86_64/XInputDotNetPure.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

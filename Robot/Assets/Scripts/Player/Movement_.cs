@@ -52,7 +52,7 @@ public class Movement_ : MonoBehaviour
         //move forward
         if (player2)
         {
-            if (Input.GetKey(KeyCode.W) || (prevState.ThumbSticks.Left.Y > 0.1))
+            if (Input.GetKey(GameManager.Instance.playerButtons.currentButton[0]) || (prevState.ThumbSticks.Left.Y > 0.1))
             {
                 velocity.z += 1.0f;
 

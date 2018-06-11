@@ -232,6 +232,7 @@ public class SCR_CameraFollow : MonoBehaviour
 				isLerping = false;
 			}
 		}
+        
 	}
 
 

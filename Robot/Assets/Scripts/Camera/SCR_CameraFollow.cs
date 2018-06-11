@@ -104,7 +104,6 @@ public class SCR_CameraFollow : MonoBehaviour
 				//if the players have reached close enough to the end point of the travel section
 				if (smallestDistance <= 5.0f)
 				{
-					Debug.Log ("b0ss");
 					ChangeCameraPoints();
 					endOfTravel = true;
 				}
@@ -167,6 +166,12 @@ public class SCR_CameraFollow : MonoBehaviour
 		//Distance between objects
 		float distance = (t1.position - t2.position).magnitude;
 
+		//set a cap zoom in
+		if (distance <= 5)
+		{
+			distance = 5;
+		}
+
 		//move camera certian distance
 		Vector3 cameraDestination = midpoint - cam.transform.forward *distance*zoomFactor;
 
@@ -183,6 +188,7 @@ public class SCR_CameraFollow : MonoBehaviour
 		//snap when close enough to prevent annoying slerp behavior
 		if ((cameraDestination - cam.transform.position).magnitude <= 0.05f)
 			cam.transform.position = cameraDestination;
+
 	}
 
 
@@ -266,9 +272,10 @@ public class SCR_CameraFollow : MonoBehaviour
 		{
 			if (travelPoint != Travel[level-1].transform)
 			{
-				Debug.Log("sdsd" + travelPoint.transform.position);
 				CameraTransitionPoints.Add (travelPoint.gameObject);
 			}
-		}	 
+		}	
+
+		Debug.Log (level);
 	}
 }

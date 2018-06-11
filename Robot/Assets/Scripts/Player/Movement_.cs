@@ -80,7 +80,7 @@ public class Movement_ : MonoBehaviour
 			//}
 			//jumping add timer
 			if (grounded == true && prevState.Buttons.A == ButtonState.Released &&
-			    state.Buttons.A == ButtonState.Pressed)
+				state.Buttons.A == ButtonState.Pressed || grounded == true && Input.GetKey(KeyCode.LeftControl))
 			{
 				grounded = false;
 				rb1.AddForce (Vector3.up * jumpForce);
@@ -120,7 +120,7 @@ public class Movement_ : MonoBehaviour
 				
 			//jumping
 			if (grounded == true && player2PrevState.Buttons.A == ButtonState.Released &&
-			    player2State.Buttons.A == ButtonState.Pressed || grounded == true && Input.GetKey (KeyCode.G))
+				player2State.Buttons.A == ButtonState.Pressed || grounded == true && Input.GetKey (KeyCode.RightControl))
 			{
 				grounded = false;
 				//regardless of the jumpforce it only does a tiny hop

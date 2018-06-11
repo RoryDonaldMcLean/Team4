@@ -114,7 +114,7 @@ public class WeightCheck : MonoBehaviour
             this.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
             plateOnFloor = true;
 			pressed = true;
-			Debug.Log ("button has been pressed");
+//			Debug.Log ("button has been pressed");
         }
         else if (movePlateUp) 
         {

@@ -266,7 +266,7 @@ public class SCR_CameraFollow : MonoBehaviour
 		{
 			if (travelPoint != Travel[level-1].transform)
 			{
-				Debug.Log("sdsd" + travelPoint.transform.position);
+				//Debug.Log("sdsd" + travelPoint.transform.position);
 				CameraTransitionPoints.Add (travelPoint.gameObject);
 			}
 		}	 

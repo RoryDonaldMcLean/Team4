@@ -165,10 +165,15 @@ public class Movement_ : MonoBehaviour
 		updateMovement (velocity);
 		velocity.z = 0.0f;
 		velocity.x = 0.0f;
-        if (velocity.y >= -1)
-            velocity.y += Physics.gravity.y * Time.deltaTime * dropdownSpeed;
+        if (!grounded)
+        {
+            if (velocity.y >= -1)
+                velocity.y += Physics.gravity.y * Time.deltaTime * dropdownSpeed;
+            else
+                velocity.y = -1.01f;
+        }
         else
-            velocity.y = -1.01f;
+            velocity.y = 0;
         //Debug.Log(velocity.y);
 	}
 

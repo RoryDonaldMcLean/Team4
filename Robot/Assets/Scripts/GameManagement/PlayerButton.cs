@@ -24,12 +24,25 @@ public class PlayerButton
         defaultButton[9] = KeyCode.E;
         defaultButton[10] = KeyCode.F;
 
-        for (int i = 0; i <= 10; i++)
+        for (int i = 0; i < 11; i++)
         {
             currentButton[i] = defaultButton[i];
         }
     }     
     
+    public void sameButton(KeyCode kc, int number)
+    {
+        for (int i = 0; i < 11; i++)
+        {
+            if (number != i)
+            {
+                if (currentButton[i] == currentButton[number])
+                {
+                    currentButton[i] = KeyCode.None;
+                }
+            }
+        }
+    }
       
 }
 

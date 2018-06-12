@@ -58,20 +58,20 @@ public class Movement_ : MonoBehaviour
 
             }
             //move backward
-            if (Input.GetKey(KeyCode.S) || (prevState.ThumbSticks.Left.Y < -0.1))
+            if (Input.GetKey(GameManager.Instance.playerButtons.currentButton[2]) || (prevState.ThumbSticks.Left.Y < -0.1))
             {
                 velocity.z -= 1.0f;
             }
 
 
             //move left
-            if (Input.GetKey(KeyCode.A) || (prevState.ThumbSticks.Left.X < -0.1))
+            if (Input.GetKey(GameManager.Instance.playerButtons.currentButton[1]) || (prevState.ThumbSticks.Left.X < -0.1))
             {
                 velocity.x -= 1.0f;
             }
 
             //move right
-            if (Input.GetKey(KeyCode.D) || (prevState.ThumbSticks.Left.X > 0.1))
+            if (Input.GetKey(GameManager.Instance.playerButtons.currentButton[3]) || (prevState.ThumbSticks.Left.X > 0.1))
             {
                 velocity.x += 1.0f;
             }

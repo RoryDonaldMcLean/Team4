@@ -6,10 +6,13 @@ using UnityEngine.SceneManagement;
 public class UILayout : MonoBehaviour {
 
     private bool settingClicked = false;
-    private bool reboundButton = false;
+    private bool[] reboundButton = new bool[11];
 	// Use this for initialization
 	void Start () {
-		
+        for (int i = 0; i < 11; i++)
+        {
+            reboundButton[i] = false;
+        }
 	}
 	
 	// Update is called once per frame
@@ -19,28 +22,30 @@ public class UILayout : MonoBehaviour {
 
     private void geneLabelButton(float x, float y, string labelString, string button, int keyNumber)
     {
-       
         GUI.Label(new Rect(x, y, 100, 20), labelString);
-        if (!reboundButton)
+        if (!allFalse())
         {
             if (GUI.Button(new Rect(x + 120, y, 100, 20), button))
             {
-                reboundButton = true;
+                reboundButton[keyNumber] = true;
             }
         }
-        else
+        else if(reboundButton[keyNumber])
         {
+            GUI.Label(new Rect(50, 200, 200, 50), "Press a button to rebound" + labelString + '\n' + "Press ESC to cancle");
             //GUI.Window(0, new Rect(0, 0, Screen.width, Screen.height), null, "Press a button to rebound" + '\n' + "Press ESC to cancle");
-            if(Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
-                reboundButton = false;
+                reboundButton[keyNumber] = false;
             }
            if (Input.anyKeyDown)
             {
-                if(!Input.GetKey(KeyCode.Escape))
+                if (!Input.GetKey(KeyCode.Escape) && !Input.GetMouseButton(0) && !Input.GetMouseButton(1) && !Input.GetMouseButton(2))
                 {
-                    reboundButton = false; 
+                    reboundButton[keyNumber] = false;
+                    //Debug.Log(button+keyNumber);
                     GameManager.Instance.playerButtons.currentButton[keyNumber] = Event.current.keyCode;
+                    GameManager.Instance.playerButtons.sameButton(Event.current.keyCode, keyNumber);
                 }
             }
         }
@@ -74,10 +79,20 @@ public class UILayout : MonoBehaviour {
             GUI.Label(new Rect(250 + 50 + widthRemain / 2, 20, 200, 20), "Player2");
 
             geneLabelButton(250 + 50, 40, "Forward", GameManager.Instance.playerButtons.currentButton[0].ToString(), 0);
-            if(reboundButton)
-            {
-                GUI.Label(new Rect(50, 200, 200, 50), "Press a button to rebound" + '\n' + "Press ESC to cancle");
-            }
+            geneLabelButton(250 + 50, 60, "Left", GameManager.Instance.playerButtons.currentButton[1].ToString(), 1);
+            geneLabelButton(250 + 50, 80, "Backward", GameManager.Instance.playerButtons.currentButton[2].ToString(), 2);
+            geneLabelButton(250 + 50, 100, "Right", GameManager.Instance.playerButtons.currentButton[3].ToString(), 3);
+
         }
+    }
+
+    private bool allFalse()
+    {
+        for(int i = 0; i < 11; i++)
+        {
+            if (reboundButton[i])
+                return true;
+        }
+        return false;
     }
 }

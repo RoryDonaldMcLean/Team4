@@ -18,7 +18,7 @@ public class Movement_ : MonoBehaviour
     //but allows it all to be in 1 script
     public bool player2 = false;
 
-    public float playerSpeed = 4.0f;
+    public float playerSpeed;
 
     public Rigidbody rb1;
     float jumpSpeed = 5.0f;
@@ -50,6 +50,18 @@ public class Movement_ : MonoBehaviour
         player2PrevState = player2State;
         player2State = GamePad.GetState(PlayerIndex.Two);
 
+		GetLegQuantity ();
+		if (quantity >= 2)
+		{
+			playerSpeed = 6.0f;
+		} else if (quantity == 1)
+		{
+			playerSpeed = 3.0f;
+		} else
+		{
+			playerSpeed = 1.5f;
+		}
+
         //player 1
         //move forward
         if (player2)
@@ -80,7 +92,7 @@ public class Movement_ : MonoBehaviour
 
 			//if player 1 presses the A button or the left ctrl button AND they are on the ground AND! have at least 1 leg
 			//JUMP!!!
-			if ((grounded ==true || doubleJump == true) && Input.GetKey(KeyCode.LeftControl) && this.GetLegQuantity() >= 1 || 
+			if ((grounded ==true || doubleJump == true) && Input.GetKeyDown(KeyCode.LeftControl) && this.GetLegQuantity() >= 1 || 
 				(grounded ==true || doubleJump == true) && prevState.Buttons.A == ButtonState.Released && state.Buttons.A == ButtonState.Pressed 
 				&& this.GetLegQuantity() >= 1)
             {
@@ -124,7 +136,7 @@ public class Movement_ : MonoBehaviour
             
 
             //jumping
-			if ((grounded ==true || doubleJump == true) && Input.GetKey(KeyCode.RightControl) && this.GetLegQuantity() >= 1 || 
+			if ((grounded ==true || doubleJump == true) && Input.GetKeyDown(KeyCode.RightControl) && this.GetLegQuantity() >= 1 || 
 				(grounded == true || doubleJump == true) && player2PrevState.Buttons.A == ButtonState.Released && player2State.Buttons.A == ButtonState.Pressed
 				&& this.GetLegQuantity() >= 1)
             {

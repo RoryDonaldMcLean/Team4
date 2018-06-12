@@ -30,7 +30,6 @@ public class SCR_CameraFollow : MonoBehaviour
 
 	//the time it takes for the rotation to happen.
 	float speed = 0.2f;
-
 	float timeLeft = 2.0f;
 
 	private bool delay = false;
@@ -61,8 +60,6 @@ public class SCR_CameraFollow : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		//Debug.Log (smallestDistance);
-
 		//if you are still in the travel area
 		if (leftPuzzle == false)
 		{
@@ -131,7 +128,6 @@ public class SCR_CameraFollow : MonoBehaviour
 			CameraTransitionPoints [1].transform.rotation, Time.time * speed);
 
 		leftPuzzle = false;
-
 	}
 
 	void StartLerpingTravelPoint()
@@ -151,7 +147,6 @@ public class SCR_CameraFollow : MonoBehaviour
 			CameraTransitionPoints [0].transform.rotation, Time.time * speed);
 
 		leftPuzzle = true;
-
 	}
 
 	public void FixedCameraFollowSmooth(Camera cam, Transform t1, Transform t2)
@@ -275,7 +270,5 @@ public class SCR_CameraFollow : MonoBehaviour
 				CameraTransitionPoints.Add (travelPoint.gameObject);
 			}
 		}	
-
-		Debug.Log (level);
 	}
 }

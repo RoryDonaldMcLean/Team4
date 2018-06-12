@@ -50,6 +50,7 @@ public class Movement_ : MonoBehaviour
         player2PrevState = player2State;
         player2State = GamePad.GetState(PlayerIndex.Two);
 
+		//as movement speed is based on how many limbs you have, check this during process input
 		GetLegQuantity ();
 		if (quantity >= 2)
 		{

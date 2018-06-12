@@ -181,7 +181,6 @@ public class SCR_TradeLimb : MonoBehaviour
                 Exchange("RightArm", otherPlayerTag);
 
                 ArmAttachSource.Play();
-
             }
         }
 
@@ -214,7 +213,6 @@ public class SCR_TradeLimb : MonoBehaviour
             if (limbs[0].name.Contains("LeftArm"))
             {
                 //find the other player
-                //Exchange("LeftArm", otherPlayerTag);
                 LimFly("LeftArm", otherPlayerTag);
                 RemoveLimb("LeftArm");
 
@@ -227,7 +225,6 @@ public class SCR_TradeLimb : MonoBehaviour
         {
             if (limbs[0].name.Contains("LeftArm"))
             {
-                //Exchange("LeftArm", otherPlayerTag);
                 LimFly("LeftArm", otherPlayerTag);
                 RemoveLimb("LeftArm");
 
@@ -239,10 +236,8 @@ public class SCR_TradeLimb : MonoBehaviour
         //player1 right arm
 		if (prevState.ThumbSticks.Right.Y < -0.1f || Input.GetKey(KeyCode.Alpha2))
         {
-
             if (limbs[1].name.Contains("RightArm"))
             {
-                //Exchange("RightArm", otherPlayerTag);
                 LimFly("RightArm", otherPlayerTag);
                 RemoveLimb("RightArm");
 
@@ -255,7 +250,6 @@ public class SCR_TradeLimb : MonoBehaviour
         {
             if (limbs[1].name.Contains("RightArm"))
             {
-                //Exchange("RightArm", otherPlayerTag);
                 LimFly("RightArm", otherPlayerTag);
                 RemoveLimb("RightArm");
 
@@ -268,7 +262,6 @@ public class SCR_TradeLimb : MonoBehaviour
             if (limbs[2].name.Contains("LeftLeg"))
             {
                 //find the other player
-                //Exchange("LeftArm", otherPlayerTag);
                 LimFly("LeftLeg", otherPlayerTag);
                 RemoveLimb("LeftLeg");
             }
@@ -279,7 +272,6 @@ public class SCR_TradeLimb : MonoBehaviour
         {
             if (limbs[2].name.Contains("LeftLeg"))
             {
-                //Exchange("LeftLeg", otherPlayerTag);
                 LimFly("LeftLeg", otherPlayerTag);
                 RemoveLimb("LeftLeg");
             }
@@ -292,7 +284,6 @@ public class SCR_TradeLimb : MonoBehaviour
 
             if (limbs[3].name.Contains("RightLeg"))
             {
-                //Exchange("RightLeg", otherPlayerTag);
                 LimFly("RightLeg", otherPlayerTag);
                 RemoveLimb("RightLeg");
             }
@@ -303,7 +294,6 @@ public class SCR_TradeLimb : MonoBehaviour
         {
             if (limbs[3].name.Contains("RightLeg"))
             {
-                //Exchange("RightLeg", otherPlayerTag);
                 LimFly("RightLeg", otherPlayerTag);
                 RemoveLimb("RightLeg");
             }
@@ -396,8 +386,12 @@ public class SCR_TradeLimb : MonoBehaviour
         Quaternion q = this.limbs[limbNumber].GetComponent<Transform>().rotation;
         GameObject limToFly = Instantiate(Resources.Load("Prefabs/Player/" + limName), p, q) as GameObject;
 
-		//while the object is flying. turn off its capuslecollider
-		limToFly.GetComponent<CapsuleCollider> ().enabled = false;
+		//while the object is flying. turn off its capusleCollider
+		//if it has limb even has a capsuleCollider
+		if (limToFly.GetComponent<CapsuleCollider> ())
+		{	//if it does turn it off
+			limToFly.GetComponent<CapsuleCollider> ().enabled = false;
+		}
 
         limToFly.AddComponent<LimsFly>();
         limToFly.GetComponent<LimsFly>().SetStartPosition(this.limbs[limbNumber].GetComponent<Transform>().position);

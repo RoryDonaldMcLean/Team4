@@ -108,7 +108,7 @@ public class SCR_Melody : MonoBehaviour
 			{
 				//beeps Y
 				if (prevState.DPad.Up == ButtonState.Released &&
-				state.DPad.Up == ButtonState.Pressed)
+				state.DPad.Up == ButtonState.Pressed || Input.GetKeyDown(KeyCode.Alpha1))
 				{
 					//if player 1 has the left arm
 					//limbs[0] is left arm. so if it was limbs[1] that would be right arm
@@ -129,7 +129,7 @@ public class SCR_Melody : MonoBehaviour
 					}
 				}
 				else if (prevState.DPad.Left == ButtonState.Released &&
-					state.DPad.Left == ButtonState.Pressed)
+				state.DPad.Left == ButtonState.Pressed || Input.GetKeyDown(KeyCode.Alpha2))
 					{
 					if (GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [1].name.Contains ("RightArm"))
 					{
@@ -146,25 +146,37 @@ public class SCR_Melody : MonoBehaviour
 
 				}
 				else if (prevState.DPad.Right == ButtonState.Released &&
-					state.DPad.Right == ButtonState.Pressed)
+				state.DPad.Right == ButtonState.Pressed || Input.GetKeyDown(KeyCode.Alpha3))
 				{
-					source.PlayOneShot (Chirps[2]);
-					Robotcode.Add (3);
-					//whenever a note is played
-					Notes [noteCounter].GetComponent<RawImage> ().texture = Arrows[2].texture;
-					//whenever a note is played
-					noteCounter += 1;
+					if (GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [3].name.Contains ("LeftLeg"))
+					{
+						source.PlayOneShot (Chirps [2]);
+						Robotcode.Add (3);
+						//whenever a note is played
+						Notes [noteCounter].GetComponent<RawImage> ().texture = Arrows [2].texture;
+						//whenever a note is played
+						noteCounter += 1;
+					} else
+					{
+						Debug.Log ("player 1 has no left leg");
+					}
 
 				}
 				else if (prevState.DPad.Down == ButtonState.Released &&
-					state.DPad.Down == ButtonState.Pressed)
+				state.DPad.Down == ButtonState.Pressed || Input.GetKeyDown(KeyCode.Alpha4))
 				{
-					source.PlayOneShot (Chirps[3]);
-					Robotcode.Add (4);
-					//whenever a note is played
-					Notes [noteCounter].GetComponent<RawImage> ().texture = Arrows[3].texture;
-					//whenever a note is played
-					noteCounter += 1;
+					if (GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [4].name.Contains ("RightLeg"))
+					{
+						source.PlayOneShot (Chirps [3]);
+						Robotcode.Add (4);
+						//whenever a note is played
+						Notes [noteCounter].GetComponent<RawImage> ().texture = Arrows [3].texture;
+						//whenever a note is played
+						noteCounter += 1;
+					} else
+					{
+					Debug.Log ("player1 has no right leg");
+					}
 				}
 
 				//once 4 notes have been played check to see if the code is correct or false
@@ -184,7 +196,7 @@ public class SCR_Melody : MonoBehaviour
 			{
 				//beeps Y
 				if (player2PrevState.DPad.Up == ButtonState.Released &&
-					player2State.DPad.Up == ButtonState.Pressed || Input.GetKey(KeyCode.I))
+				player2State.DPad.Up == ButtonState.Pressed || Input.GetKeyDown(KeyCode.Alpha6))
 				{
 					
 					if(GameObject.FindGameObjectWithTag("Player2").GetComponent<SCR_TradeLimb>().limbs[0].name.Contains("LeftArm"))
@@ -202,12 +214,9 @@ public class SCR_Melody : MonoBehaviour
 						Debug.Log("player2 has no left arm");
 					}
 						
-
-				
-
 				}
 				else if (player2PrevState.DPad.Left == ButtonState.Released &&
-					player2State.DPad.Left == ButtonState.Pressed || Input.GetKey(KeyCode.J))
+				player2State.DPad.Left == ButtonState.Pressed || Input.GetKeyDown(KeyCode.Alpha7))
 				{
 
 					if (GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [1].name.Contains ("RightArm"))
@@ -224,22 +233,36 @@ public class SCR_Melody : MonoBehaviour
 
 				}
 				else if (player2PrevState.DPad.Right == ButtonState.Released &&
-					player2State.DPad.Right == ButtonState.Pressed || Input.GetKey(KeyCode.L))
+				player2State.DPad.Right == ButtonState.Pressed || Input.GetKeyDown(KeyCode.Alpha8))
 				{
-					Robotcode.Add (7);
-					//whenever a note is played
-					Notes [noteCounter].GetComponent<RawImage> ().texture = Arrows [6].texture;
-					//whenever a note is played
-					noteCounter += 1;
+					if (GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [2].name.Contains ("LeftLeg"))
+					{
+						Robotcode.Add (7);
+						//whenever a note is played
+						Notes [noteCounter].GetComponent<RawImage> ().texture = Arrows [6].texture;
+						//whenever a note is played
+						noteCounter += 1;
+					} 
+					else
+					{
+						Debug.Log ("player2 has no left leg");
+					}
 				}
 				else if (player2PrevState.DPad.Down == ButtonState.Released &&
-					player2State.DPad.Down == ButtonState.Pressed || Input.GetKey(KeyCode.K))
+				player2State.DPad.Down == ButtonState.Pressed || Input.GetKeyDown(KeyCode.Alpha9))
 				{
-					Robotcode.Add (8);
-					//whenever a note is played
-					Notes [noteCounter].GetComponent<RawImage> ().texture = Arrows [7].texture;
-					//whenever a note is played
-					noteCounter += 1;
+					if (GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [3].name.Contains ("RightLeg"))
+					{
+						Robotcode.Add (8);
+						//whenever a note is played
+						Notes [noteCounter].GetComponent<RawImage> ().texture = Arrows [7].texture;
+						//whenever a note is played
+						noteCounter += 1;
+					}
+					else
+					{
+						Debug.Log ("player 2 has no right leg");
+					}
 				}
 
 				//once 4 notes have been played check to see if the code is correct or false

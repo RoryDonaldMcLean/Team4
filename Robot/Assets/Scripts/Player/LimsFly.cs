@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class LimsFly : MonoBehaviour
 {
-
     public bool isFinish;
     private Vector3 startPosition;
     private Vector3 endPosition;

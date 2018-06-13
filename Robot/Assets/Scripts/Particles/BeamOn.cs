@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ParticleOn : MonoBehaviour {
+public class BeamOn : MonoBehaviour {
 
     public GameObject target;
 

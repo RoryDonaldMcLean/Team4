@@ -22,10 +22,22 @@ public class LimsFly : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Sets new rotation to look at the camera (not needed)
+        //var newRotation = Quaternion.LookRotation(Camera.main.transform.position - transform.position).eulerAngles;
+
+        //Sets the new Rotation
+        //newRotation.x = 5;
+        //newRotation.z = 5;
+        //newRotation.y = 20;
+
         if (alpha <= 1.0f)
             alpha += 0.01f;
         endPosition = targetPlayer.GetComponent<SCR_TradeLimb>().limbs[limsNumber].GetComponent<Transform>().position;
         this.GetComponent<Transform>().position = Vector3.Lerp(startPosition, endPosition, alpha);
+        
+       //Rotates the object while it flys to the player
+        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 0, -900), Time.deltaTime * 1 );
+
 
         if (alpha >= 1)
         {

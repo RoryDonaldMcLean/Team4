@@ -20,6 +20,14 @@ public class PickupAndDropdown : MonoBehaviour
     public AudioClip DropCrystal;
     public AudioSource DropCrystalSource;
 
+
+	public GameObject pole;
+	Vector3 MaxDistance;
+	Vector3 MinDistance;
+	Vector3 PoleSize;
+	float PoleOffset = 1.0f;
+
+
     // Use this for initialization
     private void Start()
     {
@@ -30,6 +38,10 @@ public class PickupAndDropdown : MonoBehaviour
         DropCrystalSource.clip = DropCrystal;
 
 
+		MaxDistance = pole.GetComponent<Collider>().bounds.max;
+		MinDistance = pole.GetComponent<Collider>().bounds.min;
+
+		PoleSize = pole.GetComponent<Collider>().bounds.size;
     }
 
     // Update is called once per frame
@@ -43,42 +55,85 @@ public class PickupAndDropdown : MonoBehaviour
             RaycastHit hit;
             if (Input.GetMouseButtonDown(0))
             {
-                if (ObjectFound(out hit))//ray cast detection
-                {
-                    if ((hit.collider.tag == "LightBox") && (this.GetArmQuantity() >= 1))
-                    {
-                        PickUpObject(hit.transform);
+				//GameObject movable = GameObject.FindGameObjectWithTag ("Movable");
+				//if (movable.GetComponent<SCR_Test> ().Entered == true)
+				//{
+					if (ObjectFound (out hit))//ray cast detection
+					{
+						if (hit.transform.name.Contains ("SlideBox"))
+						{
+							pickedUpGameObject = hit.transform.gameObject;
+							//GenericPickUpCheck(ref hit);
+							Vector3 temp = pickedUpGameObject.transform.position;
+							temp.x = this.transform.position.x;
+							//pickedUpGameObject.transform.position.x = temp.x;
+							pickedUpGameObject.transform.position = temp;
+							pickedUpGameObject.transform.parent.GetComponent<SCR_Test> ().pickedUp = true;
+							pickedUpGameObject.transform.parent.GetComponent<SCR_Test> ().playerTag = this.tag;
+							holding = true;
+							Debug.Log ("test");
+						} 
+						else
+						{
+							//Debug.Log ("hit");
+							GenericPickUpCheck (ref hit);
+						}
+					}
 
 
-                    }
-                    else if ((hit.collider.tag == "HeavyBox") && (this.GetArmQuantity() >= 2))
-                    {
-                        PickUpObject(hit.transform);
 
-
-                    }
-                }
             }
         }
         else
         {
-            if (alpha <= 1.0f)
-                alpha += 0.001f;
+			if (pickedUpGameObject.transform.name.Contains ("SlideBox"))
+			{
+				//sdsd movement stuff
+				Vector3 temp = pickedUpGameObject.transform.position;
+				temp.x = this.transform.position.x;
+				pickedUpGameObject.transform.position = temp;
 
-            pickedUpGameObject.GetComponent<Transform>().position = pickupLocation.transform.position; // set the picking up object position
-            pickedUpGameObject.GetComponent<Transform>().rotation = Quaternion.Lerp(pickedUpGameObject.GetComponent<Transform>().rotation, this.GetComponent<Transform>().rotation, alpha); //make the rotation of object same as camera
-            pickedUpGameObject.GetComponent<Transform>().rotation = new Quaternion(0, pickedUpGameObject.GetComponent<Transform>().rotation.y, 0, pickedUpGameObject.GetComponent<Transform>().rotation.w);
+				if (Input.GetMouseButtonDown(0))
+				{
+					Debug.Log ("dropped on click");
+					LimitDrop();
+				}
+			} 
+			else
+			{
+				if (alpha <= 1.0f)
+					alpha += 0.001f;
 
-            if (Input.GetMouseButtonDown(0))
-            {
-                PutDownObject();
+				pickedUpGameObject.GetComponent<Transform>().position = pickupLocation.transform.position; // set the picking up object position
+				pickedUpGameObject.GetComponent<Transform>().rotation = Quaternion.Lerp(pickedUpGameObject.GetComponent<Transform>().rotation, this.GetComponent<Transform>().rotation, alpha); //make the rotation of object same as camera
+				pickedUpGameObject.GetComponent<Transform>().rotation = new Quaternion(0, pickedUpGameObject.GetComponent<Transform>().rotation.y, 0, pickedUpGameObject.GetComponent<Transform>().rotation.w);
 
-
-
-            }
+				if (Input.GetMouseButtonDown(0))
+				{
+					PutDownObject();
+				}
+			}
+           
         }
     }
 
+	public void LimitDrop()
+	{
+		pickedUpGameObject.transform.parent.GetComponent<SCR_Test>().pickedUp = false;
+		PutDownObject();
+	}
+
+	private void GenericPickUpCheck(ref RaycastHit hit)
+	{
+		if ((hit.collider.tag == "LightBox") && (this.GetArmQuantity () >= 1))
+		{
+			PickUpObject (hit.transform);
+		} else if ((hit.collider.tag == "HeavyBox") && (this.GetArmQuantity () >= 2))
+		{
+			PickUpObject (hit.transform);
+		}
+	}
+		
     private void PutDownObject()
     {
         holding = false; //set pick up bool
@@ -107,11 +162,29 @@ public class PickupAndDropdown : MonoBehaviour
         pickupLocation.GetComponent<BeamPoint>().pickedUpTransform = pickedUpGameObject.transform;
 
         PickCrystalSource.Play();
-
-
-
     }
 
+
+	private void PickUpSlideBox(ref RaycastHit hit)
+	{
+		Transform objectBeingPickedUp = hit.transform;
+		pickedUpGameObject = objectBeingPickedUp.gameObject; // set the pick up object
+		holding = true;
+
+		pickupLocation = Instantiate(Resources.Load("Prefabs/Light/PickLocation"), this.transform) as GameObject;
+		offset = pickupLocation.transform.position.y - objectBeingPickedUp.position.y;
+
+		float x = pickedUpGameObject.GetComponent<BoxCollider>().size.x / pickupLocation.transform.lossyScale.x;
+		float y = pickedUpGameObject.GetComponent<BoxCollider>().size.y / pickupLocation.transform.lossyScale.y;
+		float z = pickedUpGameObject.GetComponent<BoxCollider>().size.z / pickupLocation.transform.lossyScale.z;
+
+		Vector3 colliderScale = new Vector3(x, y, z);
+		pickupLocation.GetComponent<BoxCollider>().size = colliderScale;
+		pickupLocation.GetComponent<BeamPoint>().pickedUpTransform = pickedUpGameObject.transform;
+
+		//PickCrystalSource.Play();
+	}
+		
     private int GetArmQuantity()
     {
         int quantity = 0;

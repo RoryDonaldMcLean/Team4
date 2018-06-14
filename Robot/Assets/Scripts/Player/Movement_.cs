@@ -55,7 +55,8 @@ public class Movement_ : MonoBehaviour
 		if (quantity >= 2)
 		{
 			playerSpeed = 6.0f;
-		} else if (quantity == 1)
+		} 
+		else if (quantity == 1)
 		{
 			playerSpeed = 3.0f;
 		} else

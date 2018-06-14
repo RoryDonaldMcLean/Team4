@@ -148,7 +148,7 @@ public class SCR_Melody : MonoBehaviour
 				else if (prevState.DPad.Right == ButtonState.Released &&
 				state.DPad.Right == ButtonState.Pressed || Input.GetKeyDown(KeyCode.Alpha3))
 				{
-					if (GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [3].name.Contains ("LeftLeg"))
+					if (GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [2].name.Contains ("LeftLeg"))
 					{
 						source.PlayOneShot (Chirps [2]);
 						Robotcode.Add (3);
@@ -165,7 +165,7 @@ public class SCR_Melody : MonoBehaviour
 				else if (prevState.DPad.Down == ButtonState.Released &&
 				state.DPad.Down == ButtonState.Pressed || Input.GetKeyDown(KeyCode.Alpha4))
 				{
-					if (GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [4].name.Contains ("RightLeg"))
+					if (GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [3].name.Contains ("RightLeg"))
 					{
 						source.PlayOneShot (Chirps [3]);
 						Robotcode.Add (4);

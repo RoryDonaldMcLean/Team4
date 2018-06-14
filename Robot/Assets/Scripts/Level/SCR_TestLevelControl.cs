@@ -12,7 +12,7 @@ public class SCR_TestLevelControl : LevelControlBaseClass
 		if (buttons[0].pressed == true)
 		{
             //disable the first door
-			Debug.Log("agag");
+//			Debug.Log("agag");
             barriers[0].gameObject.SetActive(false);
 		}
 

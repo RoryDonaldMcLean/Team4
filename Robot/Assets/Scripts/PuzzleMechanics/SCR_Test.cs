@@ -20,12 +20,14 @@ public class SCR_Test : MonoBehaviour
 		MinDistance = pole.GetComponent<Collider> ().bounds.min;
 	}
 
+	//the far right of the pole
 	private bool RightLimit()
 	{
 		Vector3 position = this.transform.GetChild(1).position;
 		return (position.x >= MaxDistance.x);
 	}
 
+	//the far left of the pole
 	private bool LeftLimit()
 	{
 		Vector3 position = this.transform.GetChild (1).position;

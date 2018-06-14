@@ -55,33 +55,26 @@ public class PickupAndDropdown : MonoBehaviour
             RaycastHit hit;
             if (Input.GetMouseButtonDown(0))
             {
-				//GameObject movable = GameObject.FindGameObjectWithTag ("Movable");
-				//if (movable.GetComponent<SCR_Test> ().Entered == true)
-				//{
-					if (ObjectFound (out hit))//ray cast detection
+				if (ObjectFound (out hit))//ray cast detection
+				{
+					if (hit.transform.name.Contains ("SlideBox"))
 					{
-						if (hit.transform.name.Contains ("SlideBox"))
-						{
-							pickedUpGameObject = hit.transform.gameObject;
-							//GenericPickUpCheck(ref hit);
-							Vector3 temp = pickedUpGameObject.transform.position;
-							temp.x = this.transform.position.x;
-							//pickedUpGameObject.transform.position.x = temp.x;
-							pickedUpGameObject.transform.position = temp;
-							pickedUpGameObject.transform.parent.GetComponent<SCR_Test> ().pickedUp = true;
-							pickedUpGameObject.transform.parent.GetComponent<SCR_Test> ().playerTag = this.tag;
-							holding = true;
-							Debug.Log ("test");
-						} 
-						else
-						{
-							//Debug.Log ("hit");
-							GenericPickUpCheck (ref hit);
-						}
+						pickedUpGameObject = hit.transform.gameObject;
+						//GenericPickUpCheck(ref hit);
+						Vector3 temp = pickedUpGameObject.transform.position;
+						temp.x = this.transform.position.x;
+						//pickedUpGameObject.transform.position.x = temp.x;
+						pickedUpGameObject.transform.position = temp;
+						pickedUpGameObject.transform.parent.GetComponent<SCR_Test> ().pickedUp = true;
+						pickedUpGameObject.transform.parent.GetComponent<SCR_Test> ().playerTag = this.tag;
+						holding = true;
+						Debug.Log ("test");
+					} 
+					else
+					{
+						GenericPickUpCheck (ref hit);
 					}
-
-
-
+				}
             }
         }
         else

@@ -20,7 +20,7 @@ public class UILayout : MonoBehaviour {
 		
 	}
 
-    private void geneLabelButton(float x, float y, string labelString, string button, int keyNumber)
+    private void GeneLabelButton(float x, float y, string labelString, string button, int keyNumber)
     {
         GUI.Label(new Rect(x, y, 100, 20), labelString);
         if (!allFalse())
@@ -32,7 +32,7 @@ public class UILayout : MonoBehaviour {
         }
         else if(reboundButton[keyNumber])
         {
-            GUI.Label(new Rect(50, 200, 200, 50), "Press a button to rebound" + labelString + '\n' + "Press ESC to cancle");
+            GUI.Label(new Rect(50, 200, 200, 50), "Press a button to rebound " + labelString + '\n' + "Press ESC to cancle");
             //GUI.Window(0, new Rect(0, 0, Screen.width, Screen.height), null, "Press a button to rebound" + '\n' + "Press ESC to cancle");
             if (Input.GetKeyDown(KeyCode.Escape))
             {
@@ -78,10 +78,10 @@ public class UILayout : MonoBehaviour {
             GUI.Label(new Rect(250 + 50, 20, 200, 20), "Player1");
             GUI.Label(new Rect(250 + 50 + widthRemain / 2, 20, 200, 20), "Player2");
 
-            geneLabelButton(250 + 50, 40, "Forward", GameManager.Instance.playerButtons.currentButton[0].ToString(), 0);
-            geneLabelButton(250 + 50, 60, "Left", GameManager.Instance.playerButtons.currentButton[1].ToString(), 1);
-            geneLabelButton(250 + 50, 80, "Backward", GameManager.Instance.playerButtons.currentButton[2].ToString(), 2);
-            geneLabelButton(250 + 50, 100, "Right", GameManager.Instance.playerButtons.currentButton[3].ToString(), 3);
+            GeneLabelButton(250 + 50, 40, "Forward", GameManager.Instance.playerButtons.currentButton[0].ToString(), 0);
+            GeneLabelButton(250 + 50, 60, "Left", GameManager.Instance.playerButtons.currentButton[1].ToString(), 1);
+            GeneLabelButton(250 + 50, 80, "Backward", GameManager.Instance.playerButtons.currentButton[2].ToString(), 2);
+            GeneLabelButton(250 + 50, 100, "Right", GameManager.Instance.playerButtons.currentButton[3].ToString(), 3);
 
         }
     }

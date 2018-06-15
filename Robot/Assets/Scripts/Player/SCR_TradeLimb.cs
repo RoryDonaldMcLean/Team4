@@ -20,6 +20,9 @@ public class SCR_TradeLimb : MonoBehaviour
     public AudioClip ArmAttach;
     public AudioSource ArmAttachSource;
 
+    //Affects the particle systems on the children
+    ParticleSystem[] childrenParticleSytems;
+    bool disabledRelevantPSEmissions = false;
     //is there 2 players in the game. if so use different controls for player 1 and 2 
     //but allows it all to be in 1 script
     public bool player2 = false;
@@ -33,6 +36,7 @@ public class SCR_TradeLimb : MonoBehaviour
 
         ArmSwapSource.clip = ArmSwap;
         ArmAttachSource.clip = ArmAttach;
+
     }
 
     private void childObjectLimbFinder()
@@ -80,8 +84,35 @@ public class SCR_TradeLimb : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        //update the game controller
-        prevState = state;
+
+        childrenParticleSytems = gameObject.GetComponentsInChildren<ParticleSystem>();
+
+        // Process each child's particle system and disable its emission module.
+        // For each child, we disable all emission modules of its children.
+        if (!disabledRelevantPSEmissions)
+        {
+            foreach (ParticleSystem childPS in childrenParticleSytems)
+            {
+                // Get the emission module of the current child particle system [childPS].
+                ParticleSystem.EmissionModule childPSEmissionModule = childPS.emission;
+                // Disable the child's emission module.
+                childPSEmissionModule.enabled = false;
+
+                // Get all particle systems from the children of the current child [childPS].
+                ParticleSystem[] grandchildrenParticleSystems = childPS.GetComponentsInChildren<ParticleSystem>();
+
+                foreach (ParticleSystem grandchildPS in grandchildrenParticleSystems)
+                {
+                    // Get the emission module from the particle system of the current grand child.
+                    ParticleSystem.EmissionModule grandchildPSEmissionModule = grandchildPS.emission;
+                    // Disable the grandchild's emission module.
+                    grandchildPSEmissionModule.enabled = false;
+                }
+            }
+        }
+
+            //update the game controller
+            prevState = state;
         state = GamePad.GetState(PlayerIndex.One);
         player2PrevState = player2State;
         player2State = GamePad.GetState(PlayerIndex.Two);
@@ -166,7 +197,6 @@ public class SCR_TradeLimb : MonoBehaviour
                 Destroy(leftArmFly);
                 leftArmFly = null;
                 Exchange("LeftArm", otherPlayerTag);
-
                 ArmAttachSource.Play();
 
             }

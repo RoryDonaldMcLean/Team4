@@ -28,7 +28,6 @@ public class GameManager : MonoBehaviour {
         DontDestroyOnLoad(this);
          
         playerSetting = new PlayerSetting(); 
-        Debug.Log(playerSetting.defaultButton.Length);
     }
 
     // Use this for initialization

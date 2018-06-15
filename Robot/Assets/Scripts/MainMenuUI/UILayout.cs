@@ -8,11 +8,12 @@ public class UILayout : MonoBehaviour
 {
 
     private bool settingClicked = false;
-    private bool[] reboundButton = new bool[12];
+    private bool[] reboundButton;
     // Use this for initialization
 
     private void Awake()
     {
+        reboundButton = new bool[12];
         //if (!File.Exists(Application.persistentDataPath + "/PlayerButtonSetting.txt"))
         //{
         //    SaveNLoad.Save(GameManager.Instance.playerButtons);

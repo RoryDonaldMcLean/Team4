@@ -6,9 +6,7 @@ public class SCR_Rotatable : MonoBehaviour
 {
 	public bool pickedUp = false;
 	public string playerTag;
-
 	public string rotatableObjectString;
-
 	public bool Entered = false;
 
 	// Use this for initialization
@@ -19,7 +17,6 @@ public class SCR_Rotatable : MonoBehaviour
 		newRotatable.transform.position = this.transform.GetChild (1).position;
 		newRotatable.transform.SetParent (this.transform);
 		Destroy (this.transform.GetChild (1).gameObject);
-
 	}
 	
 	// Update is called once per frame

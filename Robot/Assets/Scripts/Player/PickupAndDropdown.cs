@@ -21,33 +21,18 @@ public class PickupAndDropdown : MonoBehaviour
     public AudioSource DropCrystalSource;
 
 
-	public GameObject pole;
-	Vector3 MaxDistance;
-	Vector3 MinDistance;
-	Vector3 PoleSize;
-	float PoleOffset = 1.0f;
-
-
     // Use this for initialization
     private void Start()
     {
         holding = false;
         alpha = 0;
-
         PickCrystalSource.clip = PickCrystal;
         DropCrystalSource.clip = DropCrystal;
-
-
-		MaxDistance = pole.GetComponent<Collider>().bounds.max;
-		MinDistance = pole.GetComponent<Collider>().bounds.min;
-
-		PoleSize = pole.GetComponent<Collider>().bounds.size;
     }
 
     // Update is called once per frame
     private void Update()
     {
-        //Debug.Log(this.ArmQuantity());
         if (!holding)
         {
             RaycastHit hit;
@@ -110,7 +95,6 @@ public class PickupAndDropdown : MonoBehaviour
 			} 
 			else if (pickedUpGameObject.transform.name.Contains ("RotateBox"))
 			{
-
 				float speed = 200.0f;
 				float step = speed * Time.deltaTime;
 				pickedUpGameObject.transform.rotation = Quaternion.RotateTowards (pickedUpGameObject.transform.rotation,
@@ -171,7 +155,6 @@ public class PickupAndDropdown : MonoBehaviour
         pickedUpGameObject = null; //empty the pick up object
         Destroy(pickupLocation);
         DropCrystalSource.Play();
-
     }
 
     private void PickUpObject(Transform objectBeingPickedUp)
@@ -193,27 +176,7 @@ public class PickupAndDropdown : MonoBehaviour
 
         PickCrystalSource.Play();
     }
-
-
-	private void PickUpSlideBox(ref RaycastHit hit)
-	{
-		Transform objectBeingPickedUp = hit.transform;
-		pickedUpGameObject = objectBeingPickedUp.gameObject; // set the pick up object
-		holding = true;
-
-		pickupLocation = Instantiate(Resources.Load("Prefabs/Light/PickLocation"), this.transform) as GameObject;
-		offset = pickupLocation.transform.position.y - objectBeingPickedUp.position.y;
-
-		float x = pickedUpGameObject.GetComponent<BoxCollider>().size.x / pickupLocation.transform.lossyScale.x;
-		float y = pickedUpGameObject.GetComponent<BoxCollider>().size.y / pickupLocation.transform.lossyScale.y;
-		float z = pickedUpGameObject.GetComponent<BoxCollider>().size.z / pickupLocation.transform.lossyScale.z;
-
-		Vector3 colliderScale = new Vector3(x, y, z);
-		pickupLocation.GetComponent<BoxCollider>().size = colliderScale;
-		pickupLocation.GetComponent<BeamPoint>().pickedUpTransform = pickedUpGameObject.transform;
-
-		//PickCrystalSource.Play();
-	}
+		
 		
     private int GetArmQuantity()
     {
@@ -236,17 +199,13 @@ public class PickupAndDropdown : MonoBehaviour
             }
 
         }
-
         return quantity;
     }
 
-     private bool ObjectFound(out RaycastHit hit)
+    private bool ObjectFound(out RaycastHit hit)
     {
         Vector3 tempPoss = this.GetComponent<Transform>().position;
-        //tempPoss.y -= this.GetComponent<CapsuleCollider>().height / 4.0f;
         tempPoss -= this.GetComponent<Transform>().forward * 0.7f;
-
-        //Debug.DrawRay(tempPoss, this.GetComponent<Transform>().forward, Color.red,  pickingMaxDistance);
         return Physics.BoxCast(tempPoss, this.GetComponent<Transform>().localScale, this.GetComponent<Transform>().forward, out hit, this.GetComponent<Transform>().rotation, pickingMaxDistance);
     }
 }

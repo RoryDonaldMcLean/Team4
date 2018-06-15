@@ -6,7 +6,6 @@ public class SCR_Movable : MonoBehaviour
 {
 	public bool pickedUp = false;
 	public string playerTag;
-
 	public string movableObjectString;
 
 	GameObject pole;

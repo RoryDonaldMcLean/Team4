@@ -10,7 +10,6 @@ public class SCR_Door : MonoBehaviour
 	public bool Player1enteredBounds = false;
 	public bool Player2enteredBounds = false;
 
-	//public GameObject[] Panels;
 	List<GameObject> Panels = new List<GameObject>();
 
 	Renderer rend;
@@ -36,10 +35,6 @@ public class SCR_Door : MonoBehaviour
 		}
 
 		//code for the door (1,2,3,4)
-		/*Doorcode.Add (1);
-		Doorcode.Add (2);
-		Doorcode.Add (3);
-		Doorcode.Add (4);*/
 
 		//setting the materials on the panels of the door to match the door code
 		rend = Panels [0].GetComponent<Renderer> ();
@@ -57,7 +52,6 @@ public class SCR_Door : MonoBehaviour
 		rend = Panels [3].GetComponent<Renderer> ();
 		rend.enabled = true;
 		rend.sharedMaterial = Arrows [3];
-
 	}
 	
 	// Update is called once per frame
@@ -70,7 +64,6 @@ public class SCR_Door : MonoBehaviour
 	{
 		if (col.gameObject.tag == "Player1")
 		{
-			//Debug.Log ("entered");
 			Player1enteredBounds = true;
 		}
 
@@ -91,7 +84,6 @@ public class SCR_Door : MonoBehaviour
 
 		if (col.gameObject.tag == "Player2")
 		{
-			//Debug.Log ("leave");
 			Player2enteredBounds = false;
 		}
 	}

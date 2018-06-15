@@ -8,6 +8,7 @@ public class KillParticle : MonoBehaviour {
 
     void Start()
     {
+        //Destroys the particle if its lifetime Is overs
         Destroy(gameObject, lifetime);
     }
 

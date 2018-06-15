@@ -105,7 +105,7 @@ public class SCR_TradeLimb : MonoBehaviour
                 {
                     // Get the emission module from the particle system of the current grand child.
                     ParticleSystem.EmissionModule grandchildPSEmissionModule = grandchildPS.emission;
-                    // Disable the grandchild's mission module.
+                    // Disable the grandchild's emission module.
                     grandchildPSEmissionModule.enabled = false;
                 }
             }

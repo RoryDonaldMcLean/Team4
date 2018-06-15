@@ -15,7 +15,7 @@ public class SplineCurve : MonoBehaviour
     {
         lineRenderer = this.gameObject.AddComponent<LineRenderer>();
         lineRenderer.useWorldSpace = false;
-        lineRenderer.material = new Material(Shader.Find("Particles/Additive"));
+        lineRenderer.material = new Material(Shader.Find("Particles/Alpha Blended"));
         lineRenderer.name = this.name;
         lineRenderer.motionVectorGenerationMode = MotionVectorGenerationMode.ForceNoMotion;
     }

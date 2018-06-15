@@ -10,7 +10,6 @@ public class LightTrigger : MonoBehaviour
     public AudioClip Light;
     public AudioSource LightSource;
 
-
     //sets the door colour indicator to the correct defined colour required in order to open the door
     //an emissive level is added to better match the colour with the bright lightbeams 
     void Start()
@@ -19,7 +18,6 @@ public class LightTrigger : MonoBehaviour
         this.transform.GetChild(0).GetComponent<Renderer>().material.SetColor("_EmissionColor", (correctLightBeamColour*0.5f));
 
         LightSource.clip = Light;
-
     }
 
     //Upon a collison being detected with a Lightbeam 
@@ -35,7 +33,6 @@ public class LightTrigger : MonoBehaviour
         {
             CloseDoor();
         }
-
     }
    
     private void OpenDoor()
@@ -45,7 +42,6 @@ public class LightTrigger : MonoBehaviour
             Debug.Log("DOOROPEN!");
             doorOpen = true;
             LightSource.Play();
-
         }
     }
 

@@ -14,11 +14,11 @@ public class PickupAndDropdown : MonoBehaviour
 
     private float offset;
 
-    public AudioClip PickCrystal;
-    public AudioSource PickCrystalSource;
+    //public AudioClip PickCrystal;
+    //public AudioSource PickCrystalSource;
 
-    public AudioClip DropCrystal;
-    public AudioSource DropCrystalSource;
+    //public AudioClip DropCrystal;
+    //public AudioSource DropCrystalSource;
 
 
     // Use this for initialization
@@ -26,8 +26,14 @@ public class PickupAndDropdown : MonoBehaviour
     {
         holding = false;
         alpha = 0;
+<<<<<<< HEAD
         PickCrystalSource.clip = PickCrystal;
         DropCrystalSource.clip = DropCrystal;
+=======
+
+        //PickCrystalSource.clip = PickCrystal;
+        //DropCrystalSource.clip = DropCrystal;
+>>>>>>> origin/Development-John
     }
 
     // Update is called once per frame
@@ -36,8 +42,16 @@ public class PickupAndDropdown : MonoBehaviour
         if (!holding)
         {
             RaycastHit hit;
-            if (Input.GetMouseButtonDown(0))
+            if(Input.GetMouseButtonDown(0))
             {
+                if (ObjectFound(out hit))//ray cast detection
+                {
+                    GenericPickUpCheck(ref hit);
+                }
+            }
+            else if(Input.GetMouseButtonDown(1))
+            {
+<<<<<<< HEAD
 				if (ObjectFound (out hit))//ray cast detection
 				{
 					//if the object the player is trying to pick up is the SlideBox (object attached to the pole)
@@ -77,10 +91,32 @@ public class PickupAndDropdown : MonoBehaviour
 					}
 
 				}
+=======
+                if (ObjectFound(out hit))//ray cast detection
+                {
+                    if (hit.transform.name.Contains("LimbLight"))
+                    {
+                        LimbLight limbLightBox = hit.transform.GetComponent<LimbLight>();
+                        if (limbLightBox.IsLimbAttached())
+                        {
+                            limbLightBox.RemoveLimbFromLightBox(this.tag);
+                        }
+                        else
+                        {
+                            limbLightBox.AttachLimbToLightBox(this.tag);
+                        }
+                    }
+                    else if(hit.transform.name.Contains("LightEmitter"))
+                    {
+                        hit.transform.GetComponent<LightEmitter>().ToggleLight();
+                    }
+                }
+>>>>>>> origin/Development-John
             }
         }
         else
         {
+<<<<<<< HEAD
 			if (pickedUpGameObject.transform.name.Contains ("SlideBox"))
 			{
 				Vector3 temp = pickedUpGameObject.transform.position;
@@ -148,13 +184,45 @@ public class PickupAndDropdown : MonoBehaviour
 		}
 	}
 		
+=======
+            if (alpha <= 1.0f)
+                alpha += 0.001f;
+
+            pickedUpGameObject.GetComponent<Transform>().position = pickupLocation.transform.position; // set the picking up object position
+            pickedUpGameObject.GetComponent<Transform>().rotation = Quaternion.Lerp(pickedUpGameObject.GetComponent<Transform>().rotation, this.GetComponent<Transform>().rotation, alpha); //make the rotation of object same as camera
+            pickedUpGameObject.GetComponent<Transform>().rotation = new Quaternion(0, pickedUpGameObject.GetComponent<Transform>().rotation.y, 0, pickedUpGameObject.GetComponent<Transform>().rotation.w);
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                PutDownObject();
+            }
+        }
+    }
+
+    private void GenericPickUpCheck(ref RaycastHit hit)
+    {
+        if ((hit.collider.tag == "LightBox") && (this.GetArmQuantity() >= 1))
+        {
+            PickUpObject(hit.transform);
+        }
+        else if ((hit.collider.tag == "HeavyBox") && (this.GetArmQuantity() >= 2))
+        {
+            PickUpObject(hit.transform);
+        }
+    }
+
+>>>>>>> origin/Development-John
     private void PutDownObject()
     {
         holding = false; //set pick up bool
         pickedUpGameObject.GetComponent<Transform>().position = new Vector3(pickedUpGameObject.GetComponent<Transform>().position.x, pickedUpGameObject.GetComponent<Transform>().position.y - offset, pickedUpGameObject.GetComponent<Transform>().position.z);
         pickedUpGameObject = null; //empty the pick up object
         Destroy(pickupLocation);
+<<<<<<< HEAD
         DropCrystalSource.Play();
+=======
+        //DropCrystalSource.Play();
+>>>>>>> origin/Development-John
     }
 
     private void PickUpObject(Transform objectBeingPickedUp)
@@ -174,7 +242,11 @@ public class PickupAndDropdown : MonoBehaviour
         pickupLocation.GetComponent<BoxCollider>().size = colliderScale;
         pickupLocation.GetComponent<BeamPoint>().pickedUpTransform = pickedUpGameObject.transform;
 
+<<<<<<< HEAD
         PickCrystalSource.Play();
+=======
+        //PickCrystalSource.Play();
+>>>>>>> origin/Development-John
     }
 		
 		
@@ -197,7 +269,6 @@ public class PickupAndDropdown : MonoBehaviour
                     }
                 }
             }
-
         }
         return quantity;
     }

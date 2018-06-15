@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class LightRedirect : MonoBehaviour
 {
-    private Color beamColour = Color.white;
+    public Color beamColour = Color.white;
+    public bool beamColourRedirectControl = true;
     private Color arrowDefaultColour = Color.white;
     private StraightSplineBeam splineCurve;
     private bool connectedBeam = false;
@@ -26,7 +27,7 @@ public class LightRedirect : MonoBehaviour
         if ((this.transform.rotation.y != originalBeamInverse) && (this.transform.rotation.y != -originalBeamInverse))
         {
             connectedBeam = true;
-            beamColour = lightBeam.GetComponentInParent<LineRenderer>().startColor;
+            if(beamColourRedirectControl) beamColour = lightBeam.GetComponentInParent<LineRenderer>().startColor;
             CreateExtendedBeam();
         }
     }
@@ -37,7 +38,7 @@ public class LightRedirect : MonoBehaviour
     }
 
     //Upon lightbeam leaving the door trigger
-    void OnTriggerExit(Collider lightbeam)
+    void OnTriggerExit(Collider lightBeam)
     {
         if (splineCurve != null)
         {

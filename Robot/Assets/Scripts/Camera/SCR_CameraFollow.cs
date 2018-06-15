@@ -268,7 +268,10 @@ public class SCR_CameraFollow : MonoBehaviour
 		{
 			if (travelPoint != Travel[level-1].transform)
 			{
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/Development-John
 				CameraTransitionPoints.Add (travelPoint.gameObject);
 			}
 		}	

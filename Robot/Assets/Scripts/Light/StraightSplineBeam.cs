@@ -67,12 +67,34 @@ public class StraightSplineBeam : MonoBehaviour
 
     public void RotateBeam(Vector3 newRot)
     {
-        StartCoroutine(BeamNotification(newRot));
+        StartCoroutine(BeamNotification(Quaternion.Euler(newRot)));
     }
 
-    IEnumerator BeamNotification(Vector3 newRot)
+    IEnumerator BeamNotification(Quaternion newRot)
     {
         yield return new WaitUntil(()=> splineCurve != null);
-        splineCurve.transform.localRotation = Quaternion.Euler(newRot);
+        splineCurve.transform.localRotation = newRot;
+    }
+
+    IEnumerator BeamNotification(Vector3 newPos)
+    {
+        yield return new WaitUntil(() => splineCurve != null);
+        splineCurve.transform.position = newPos;
+    }
+
+    IEnumerator BeamNotification()
+    {
+        yield return new WaitUntil(() => splineCurve != null);
+        Debug.Log("GoBeam");
+    }
+
+    public bool IsBeamAlive()
+    {
+        return ((splineCurve!=null)&&(active));
+    }
+
+    public void ChangePos(Vector3 newPos)
+    {
+        StartCoroutine(BeamNotification(newPos));
     }
 }

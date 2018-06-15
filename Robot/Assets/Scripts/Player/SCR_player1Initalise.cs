@@ -5,12 +5,11 @@ using UnityEngine;
 public class SCR_player1Initalise : SCR_TradeLimb 
 {
 	protected override void LimbDetails()
-
 	{
 		//to be overwritten by inhertance
 		//give player1 the arms to start with
-		Exchange("LeftArm", this.gameObject.tag);
 		Exchange ("RightArm", this.gameObject.tag);
+<<<<<<< HEAD
 
 		Exchange ("LeftLeg", this.gameObject.tag);
 
@@ -19,4 +18,9 @@ public class SCR_player1Initalise : SCR_TradeLimb
 
 
 	}
+=======
+        Exchange("LeftArm", this.gameObject.tag);
+        Exchange("RightLeg", this.gameObject.tag);
+    }
+>>>>>>> origin/Development-John
 }

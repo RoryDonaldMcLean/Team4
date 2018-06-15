@@ -20,17 +20,20 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    public PlayerSetting playerSetting = new PlayerSetting();
+    public PlayerSetting playerSetting;
 
     void Awake()
     {
         _instance = this;
         DontDestroyOnLoad(this);
+         
+        playerSetting = new PlayerSetting(); 
+        Debug.Log(playerSetting.defaultButton.Length);
     }
 
     // Use this for initialization
     void Start () {
-		
+
 	}
 	
 	// Update is called once per frame

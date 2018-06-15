@@ -8,7 +8,7 @@ public class UILayout : MonoBehaviour
 {
 
     private bool settingClicked = false;
-    private bool[] reboundButton = new bool[11];
+    private bool[] reboundButton = new bool[12];
     // Use this for initialization
 
     private void Awake()
@@ -23,7 +23,8 @@ public class UILayout : MonoBehaviour
 
     void Start()
     {
-        for (int i = 0; i < 11; i++)
+
+        for (int i = 0; i < GameManager.Instance.playerSetting.currentButton.Length; i++)
         {
             reboundButton[i] = false;
         }
@@ -32,7 +33,9 @@ public class UILayout : MonoBehaviour
         {
             SaveNLoad.Save(GameManager.Instance.playerSetting);
         }
+        //Debug.Log(GameManager.Instance.playerSetting.currentButton[11]);
         GameManager.Instance.playerSetting = SaveNLoad.Load();
+       
     }
 
     // Update is called once per frame
@@ -73,10 +76,11 @@ public class UILayout : MonoBehaviour
         }
     }
 
-    private void geneLabelSlider(float x, float y)
+    private void GeneLabelSlider(float x, float y)
     {
-        GameManager.Instance.playerSetting.volumn = (int)GUI.HorizontalSlider(new Rect(x + 50, y, Screen.width - x - 50 - 100, 20), GameManager.Instance.playerSetting.volumn, 0.0f, 100.0f);
-        GUI.Label(new Rect(x, y, 50, 20), GameManager.Instance.playerSetting.volumn.ToString());
+        GUI.Label(new Rect(x, y + 30, 100, 20), "Volume");
+        GameManager.Instance.playerSetting.volume = (int)GUI.HorizontalSlider(new Rect(x + 150, y + 30, Screen.width - x - 50 - 100 - 100, 20), GameManager.Instance.playerSetting.volume, 0.0f, 100.0f);
+        GUI.Label(new Rect(x + 100, y + 30, 50, 20), GameManager.Instance.playerSetting.volume.ToString());
         if (Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1) || Input.GetMouseButtonUp(2))
         {
             SaveNLoad.Save(GameManager.Instance.playerSetting);
@@ -86,7 +90,7 @@ public class UILayout : MonoBehaviour
 
     private bool allFalse()
     {
-        for (int i = 0; i < 11; i++)
+        for (int i = 0; i < GameManager.Instance.playerSetting.currentButton.Length; i++)
         {
             if (reboundButton[i])
                 return true;
@@ -103,7 +107,7 @@ public class UILayout : MonoBehaviour
             else
             {
                 settingClicked = false;
-                for (int i = 0; i < 11; i++)
+                for (int i = 0; i < GameManager.Instance.playerSetting.currentButton.Length; i++)
                 {
                     reboundButton[i] = false;
                 }
@@ -124,28 +128,32 @@ public class UILayout : MonoBehaviour
         else
         {
             float widthRemain = Screen.width - 250;
+            float heightRemain = Screen.height - 40 - 140;
+            int amount = GameManager.Instance.playerSetting.currentButton.Length;
             GUI.Label(new Rect(250 + 50, 20, 200, 20), "Player1");
             GUI.Label(new Rect(250 + 50 + widthRemain / 2, 20, 200, 20), "Player2");
 
-            GeneLabelButton(250 + 50, 40, "Forward", GameManager.Instance.playerSetting.currentButton[0].ToString(), 0);
-            GeneLabelButton(250 + 50, 60, "Left", GameManager.Instance.playerSetting.currentButton[1].ToString(), 1);
-            GeneLabelButton(250 + 50, 80, "Backward", GameManager.Instance.playerSetting.currentButton[2].ToString(), 2);
-            GeneLabelButton(250 + 50, 100, "Right", GameManager.Instance.playerSetting.currentButton[3].ToString(), 3);
-            GeneLabelButton(250 + 50, 120, "Emotion1", GameManager.Instance.playerSetting.currentButton[4].ToString(), 4);
-            GeneLabelButton(250 + 50, 140, "Emotion2", GameManager.Instance.playerSetting.currentButton[5].ToString(), 5);
-            GeneLabelButton(250 + 50, 160, "Emotion3", GameManager.Instance.playerSetting.currentButton[6].ToString(), 6);
-            GeneLabelButton(250 + 50, 180, "Emotion4", GameManager.Instance.playerSetting.currentButton[7].ToString(), 7);
-            GeneLabelButton(250 + 50, 200, "Jump", GameManager.Instance.playerSetting.currentButton[8].ToString(), 8);
-            GeneLabelButton(250 + 50, 220, "Interact/Reattach", GameManager.Instance.playerSetting.currentButton[9].ToString(), 9);
-            GeneLabelButton(250 + 50, 240, "Limbos Panel", GameManager.Instance.playerSetting.currentButton[10].ToString(), 10);
+            GeneLabelButton(250 + 50, 60 + heightRemain / (amount + 2) * 1, "Forward", GameManager.Instance.playerSetting.currentButton[0].ToString(), 0);
+            GeneLabelButton(250 + 50, 60 + heightRemain / (amount + 2) * 2, "Left", GameManager.Instance.playerSetting.currentButton[1].ToString(), 1);
+            GeneLabelButton(250 + 50, 60 + heightRemain / (amount + 2) * 3, "Backward", GameManager.Instance.playerSetting.currentButton[2].ToString(), 2);
+            GeneLabelButton(250 + 50, 60 + heightRemain / (amount + 2) * 4, "Right", GameManager.Instance.playerSetting.currentButton[3].ToString(), 3);
+            GeneLabelButton(250 + 50, 60 + heightRemain / (amount + 2) * 5, "Emotion1", GameManager.Instance.playerSetting.currentButton[4].ToString(), 4);
+            GeneLabelButton(250 + 50, 60 + heightRemain / (amount + 2) * 6, "Emotion2", GameManager.Instance.playerSetting.currentButton[5].ToString(), 5);
+            GeneLabelButton(250 + 50, 60 + heightRemain / (amount + 2) * 7, "Emotion3", GameManager.Instance.playerSetting.currentButton[6].ToString(), 6);
+            GeneLabelButton(250 + 50, 60 + heightRemain / (amount + 2) * 8, "Emotion4", GameManager.Instance.playerSetting.currentButton[7].ToString(), 7);
+            GeneLabelButton(250 + 50, 60 + heightRemain / (amount + 2) * 9, "Jump", GameManager.Instance.playerSetting.currentButton[8].ToString(), 8);
+            GeneLabelButton(250 + 50, 60 + heightRemain / (amount + 2) * 10, "Interact/Reattach", GameManager.Instance.playerSetting.currentButton[9].ToString(), 9);
+            GeneLabelButton(250 + 50, 60 + heightRemain / (amount + 2) * 11, "Limbos Panel", GameManager.Instance.playerSetting.currentButton[10].ToString(), 10);
+            GeneLabelButton(250 + 50, 60 + heightRemain / (amount + 2) * 12, "Dunno What Is Used For", GameManager.Instance.playerSetting.currentButton[11].ToString(), 11);
 
             if (!allFalse())
             {
-                geneLabelSlider(250 + 50, 300);
-                if(GUI.Button(new Rect(250 + 50, 330, 200,20), "Default"))
+                GeneLabelSlider(250 + 50, Screen.height - 140);
+                if (GUI.Button(new Rect(250 + 50, Screen.height - 40, 200, 20), "Default"))
                 {
-                    for (int i = 0; i < 11; i++)
+                    for (int i = 0; i < GameManager.Instance.playerSetting.currentButton.Length; i++)
                     {
+                        GameManager.Instance.playerSetting.volume = 50;
                         GameManager.Instance.playerSetting.currentButton[i] = GameManager.Instance.playerSetting.defaultButton[i];
                     }
                     SaveNLoad.Save(GameManager.Instance.playerSetting);

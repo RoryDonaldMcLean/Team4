@@ -8,11 +8,11 @@ using UnityEngine.UI;
 [Serializable]
 public class PlayerSetting
 {
-    public KeyCode[] defaultButton = new KeyCode[11];
+    public KeyCode[] defaultButton = new KeyCode[12];
 
-    public KeyCode[] currentButton = new KeyCode[11];
+    public KeyCode[] currentButton = new KeyCode[12];
 
-    public int volumn;
+    public int volume;
     public PlayerSetting()
     {
         defaultButton[0] = KeyCode.W;
@@ -26,17 +26,20 @@ public class PlayerSetting
         defaultButton[8] = KeyCode.Space;
         defaultButton[9] = KeyCode.E;
         defaultButton[10] = KeyCode.F;
-
-        for (int i = 0; i < 11; i++)
+        defaultButton[11] = KeyCode.Z;
+        
+        for (int i = 0; i < defaultButton.Length; i++)
         {
             currentButton[i] = defaultButton[i];
         }
-        volumn = 50;
+
+        volume = 50;
+        
     }     
     
     public void sameButton(int number)
     {
-        for (int i = 0; i < 11; i++)
+        for (int i = 0; i < defaultButton.Length; i++)
         {
             if (number != i)
             {

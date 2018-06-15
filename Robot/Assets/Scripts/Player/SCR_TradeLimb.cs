@@ -14,11 +14,11 @@ public class SCR_TradeLimb : MonoBehaviour
     private string otherPlayerTag = "";
 
     //Delete on Monday
-    public AudioClip ArmSwap;
-    public AudioSource ArmSwapSource;
+    //public AudioClip ArmSwap;
+    //public AudioSource ArmSwapSource;
 
-    public AudioClip ArmAttach;
-    public AudioSource ArmAttachSource;
+    //public AudioClip ArmAttach;
+    //public AudioSource ArmAttachSource;
 
     //is there 2 players in the game. if so use different controls for player 1 and 2 
     //but allows it all to be in 1 script
@@ -31,8 +31,8 @@ public class SCR_TradeLimb : MonoBehaviour
         InitialisePlayerLimbs();
         SetPlayerTag();
 
-        ArmSwapSource.clip = ArmSwap;
-        ArmAttachSource.clip = ArmAttach;
+        //ArmSwapSource.clip = ArmSwap;
+        //ArmAttachSource.clip = ArmAttach;
     }
 
     private void childObjectLimbFinder()
@@ -174,8 +174,7 @@ public class SCR_TradeLimb : MonoBehaviour
                 leftArmFly = null;
                 Exchange("LeftArm", otherPlayerTag);
 
-                ArmAttachSource.Play();
-
+                //ArmAttachSource.Play();
             }
         }
 
@@ -187,8 +186,7 @@ public class SCR_TradeLimb : MonoBehaviour
                 rightArmFly = null;
                 Exchange("RightArm", otherPlayerTag);
 
-                ArmAttachSource.Play();
-
+                //ArmAttachSource.Play();
             }
         }
 
@@ -225,7 +223,7 @@ public class SCR_TradeLimb : MonoBehaviour
                 LimFly("LeftArm", otherPlayerTag);
                 RemoveLimb("LeftArm");
 
-                ArmSwapSource.Play();
+                //ArmSwapSource.Play();
             }
         }
 
@@ -238,7 +236,7 @@ public class SCR_TradeLimb : MonoBehaviour
                 LimFly("LeftArm", otherPlayerTag);
                 RemoveLimb("LeftArm");
 
-                ArmSwapSource.Play();
+                //ArmSwapSource.Play();
             }
         }
 
@@ -253,7 +251,7 @@ public class SCR_TradeLimb : MonoBehaviour
                 LimFly("RightArm", otherPlayerTag);
                 RemoveLimb("RightArm");
 
-                ArmSwapSource.Play();
+                //ArmSwapSource.Play();
             }
         }
 
@@ -266,7 +264,7 @@ public class SCR_TradeLimb : MonoBehaviour
                 LimFly("RightArm", otherPlayerTag);
                 RemoveLimb("RightArm");
 
-                ArmSwapSource.Play();
+                //ArmSwapSource.Play();
             }
         }
 
@@ -338,13 +336,55 @@ public class SCR_TradeLimb : MonoBehaviour
         return limbNumber;
     }
 
+    public bool LimbLightGiveLimb(string typeOfLimbRequired, GameObject boxLimbObject)
+    {
+        for(int i = 0; i < limbs.Count; i++)
+        {
+            if(limbs[i].name.Contains(typeOfLimbRequired))
+            {
+                //give to box
+                GameObject newLimb = Instantiate(Resources.Load("Prefabs/Player/" + limbs[i].name)) as GameObject;
+                newLimb.name = limbs[i].name;
+                newLimb.transform.position = boxLimbObject.transform.position;
+                newLimb.transform.parent = boxLimbObject.transform.parent;
+
+                Destroy(boxLimbObject);
+
+                //remove limb
+                RemoveLimb(limbs[i].name);
+
+                return true;
+            }
+        }
+        return false;        
+    }
+
+    public bool LimbLightTakeLimb(GameObject boxLimbLocation)
+    {
+        string nameOfLimbToRemoveFromBox = boxLimbLocation.name;
+        int limbNumber = LimbNumber(nameOfLimbToRemoveFromBox);
+        if(limbs[limbNumber].name.Contains("Hinge"))
+        {
+            Exchange(nameOfLimbToRemoveFromBox, this.gameObject.tag);
+
+            GameObject hinge = Instantiate(Resources.Load("Prefabs/Player/Hinge")) as GameObject;
+            hinge.transform.position = boxLimbLocation.transform.position;
+            hinge.transform.parent = boxLimbLocation.transform.parent;
+            hinge.name = "Hinge";
+
+            Destroy(boxLimbLocation);
+
+            return true;
+        }
+        return false;
+    }
 
     protected void Exchange(string newLimbName, string playerTag)
     {
-
         GameObject player = GameObject.FindGameObjectWithTag(playerTag);
         int limbNumber = LimbNumber(newLimbName);
         GameObject newLimb = Instantiate(Resources.Load("Prefabs/Player/" + newLimbName)) as GameObject;
+        newLimb.name = newLimbName;
 
         List<GameObject> tempList = player.GetComponent<SCR_TradeLimb>().limbs;
         newLimb.transform.position = tempList[limbNumber].transform.position;
@@ -360,6 +400,7 @@ public class SCR_TradeLimb : MonoBehaviour
     {
         int limbNumber = LimbNumber(limbToRemove);
         GameObject hinge = Instantiate(Resources.Load("Prefabs/Player/Hinge")) as GameObject;
+        hinge.name = "Hinge";
 
         List<GameObject> tempList = this.GetComponent<SCR_TradeLimb>().limbs;
         hinge.transform.position = tempList[limbNumber].transform.position;
@@ -391,8 +432,7 @@ public class SCR_TradeLimb : MonoBehaviour
         Destroy(pickUpObject);
         Exchange(pickupName, this.gameObject.tag);
 
-        ArmSwapSource.Play();
-
+        //ArmSwapSource.Play();
     }
 
     private void LimFly(string limName, string targetPlayerTag)

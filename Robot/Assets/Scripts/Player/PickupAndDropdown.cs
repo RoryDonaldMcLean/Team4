@@ -14,11 +14,11 @@ public class PickupAndDropdown : MonoBehaviour
 
     private float offset;
 
-    public AudioClip PickCrystal;
-    public AudioSource PickCrystalSource;
+    //public AudioClip PickCrystal;
+    //public AudioSource PickCrystalSource;
 
-    public AudioClip DropCrystal;
-    public AudioSource DropCrystalSource;
+    //public AudioClip DropCrystal;
+    //public AudioSource DropCrystalSource;
 
     // Use this for initialization
     private void Start()
@@ -26,10 +26,8 @@ public class PickupAndDropdown : MonoBehaviour
         holding = false;
         alpha = 0;
 
-        PickCrystalSource.clip = PickCrystal;
-        DropCrystalSource.clip = DropCrystal;
-
-
+        //PickCrystalSource.clip = PickCrystal;
+        //DropCrystalSource.clip = DropCrystal;
     }
 
     // Update is called once per frame
@@ -41,21 +39,32 @@ public class PickupAndDropdown : MonoBehaviour
             //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             //Debug.DrawRay(this.GetComponent<Transform>().position, this.GetComponent<Transform>().forward * pickingMaxDistance, Color.red);
             RaycastHit hit;
-            if (Input.GetMouseButtonDown(0))
+            if(Input.GetMouseButtonDown(0))
             {
                 if (ObjectFound(out hit))//ray cast detection
                 {
-                    if ((hit.collider.tag == "LightBox") && (this.GetArmQuantity() >= 1))
+                    GenericPickUpCheck(ref hit);
+                }
+            }
+            else if(Input.GetMouseButtonDown(1))
+            {
+                if (ObjectFound(out hit))//ray cast detection
+                {
+                    if (hit.transform.name.Contains("LimbLight"))
                     {
-                        PickUpObject(hit.transform);
-
-
+                        LimbLight limbLightBox = hit.transform.GetComponent<LimbLight>();
+                        if (limbLightBox.IsLimbAttached())
+                        {
+                            limbLightBox.RemoveLimbFromLightBox(this.tag);
+                        }
+                        else
+                        {
+                            limbLightBox.AttachLimbToLightBox(this.tag);
+                        }
                     }
-                    else if ((hit.collider.tag == "HeavyBox") && (this.GetArmQuantity() >= 2))
+                    else if(hit.transform.name.Contains("LightEmitter"))
                     {
-                        PickUpObject(hit.transform);
-
-
+                        hit.transform.GetComponent<LightEmitter>().ToggleLight();
                     }
                 }
             }
@@ -72,10 +81,19 @@ public class PickupAndDropdown : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 PutDownObject();
-
-
-
             }
+        }
+    }
+
+    private void GenericPickUpCheck(ref RaycastHit hit)
+    {
+        if ((hit.collider.tag == "LightBox") && (this.GetArmQuantity() >= 1))
+        {
+            PickUpObject(hit.transform);
+        }
+        else if ((hit.collider.tag == "HeavyBox") && (this.GetArmQuantity() >= 2))
+        {
+            PickUpObject(hit.transform);
         }
     }
 
@@ -85,8 +103,7 @@ public class PickupAndDropdown : MonoBehaviour
         pickedUpGameObject.GetComponent<Transform>().position = new Vector3(pickedUpGameObject.GetComponent<Transform>().position.x, pickedUpGameObject.GetComponent<Transform>().position.y - offset, pickedUpGameObject.GetComponent<Transform>().position.z);
         pickedUpGameObject = null; //empty the pick up object
         Destroy(pickupLocation);
-        DropCrystalSource.Play();
-
+        //DropCrystalSource.Play();
     }
 
     private void PickUpObject(Transform objectBeingPickedUp)
@@ -106,10 +123,7 @@ public class PickupAndDropdown : MonoBehaviour
         pickupLocation.GetComponent<BoxCollider>().size = colliderScale;
         pickupLocation.GetComponent<BeamPoint>().pickedUpTransform = pickedUpGameObject.transform;
 
-        PickCrystalSource.Play();
-
-
-
+        //PickCrystalSource.Play();
     }
 
     private int GetArmQuantity()
@@ -131,13 +145,12 @@ public class PickupAndDropdown : MonoBehaviour
                     }
                 }
             }
-
         }
 
         return quantity;
     }
 
-     private bool ObjectFound(out RaycastHit hit)
+    private bool ObjectFound(out RaycastHit hit)
     {
         Vector3 tempPoss = this.GetComponent<Transform>().position;
         //tempPoss.y -= this.GetComponent<CapsuleCollider>().height / 4.0f;

@@ -5,7 +5,7 @@ using UnityEngine;
 public class LevelController : MonoBehaviour
 {
     private List<LevelControlBaseClass> levelScripts = new List<LevelControlBaseClass>();
-    private int currentLevel = 1;
+    private int currentLevel = 4;
 
 	void Start ()
     {

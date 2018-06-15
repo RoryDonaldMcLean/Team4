@@ -24,7 +24,7 @@ public class UILayout : MonoBehaviour
 
     void Start()
     {
-
+        //Debug.Log(GameManager.Instance.playerSetting.currentButton.Length);
         for (int i = 0; i < GameManager.Instance.playerSetting.currentButton.Length; i++)
         {
             reboundButton[i] = false;

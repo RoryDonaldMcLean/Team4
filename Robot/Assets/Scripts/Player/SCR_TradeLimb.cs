@@ -34,14 +34,8 @@ public class SCR_TradeLimb : MonoBehaviour
         InitialisePlayerLimbs();
         SetPlayerTag();
 
-<<<<<<< HEAD
-        ArmSwapSource.clip = ArmSwap;
-        ArmAttachSource.clip = ArmAttach;
-
-=======
         //ArmSwapSource.clip = ArmSwap;
         //ArmAttachSource.clip = ArmAttach;
->>>>>>> origin/Development-John
     }
 
     private void childObjectLimbFinder()
@@ -202,13 +196,8 @@ public class SCR_TradeLimb : MonoBehaviour
                 Destroy(leftArmFly);
                 leftArmFly = null;
                 Exchange("LeftArm", otherPlayerTag);
-<<<<<<< HEAD
-                ArmAttachSource.Play();
-
-=======
 
                 //ArmAttachSource.Play();
->>>>>>> origin/Development-John
             }
         }
 
@@ -220,11 +209,7 @@ public class SCR_TradeLimb : MonoBehaviour
                 rightArmFly = null;
                 Exchange("RightArm", otherPlayerTag);
 
-<<<<<<< HEAD
-                ArmAttachSource.Play();
-=======
                 //ArmAttachSource.Play();
->>>>>>> origin/Development-John
             }
         }
 
@@ -413,12 +398,7 @@ public class SCR_TradeLimb : MonoBehaviour
         GameObject player = GameObject.FindGameObjectWithTag(playerTag);
         int limbNumber = LimbNumber(newLimbName);
         GameObject newLimb = Instantiate(Resources.Load("Prefabs/Player/" + newLimbName)) as GameObject;
-<<<<<<< HEAD
-	
-=======
         newLimb.name = newLimbName;
-
->>>>>>> origin/Development-John
         List<GameObject> tempList = player.GetComponent<SCR_TradeLimb>().limbs;
         newLimb.transform.position = tempList[limbNumber].transform.position;
         newLimb.transform.parent = tempList[limbNumber].transform.parent;

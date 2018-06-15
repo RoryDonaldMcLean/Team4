@@ -52,6 +52,9 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Camera\SCR_CameraFollow.cs" />
+     <Compile Include="Assets\Scripts\GameManagement\GameManager.cs" />
+     <Compile Include="Assets\Scripts\GameManagement\PlayerSetting.cs" />
+     <Compile Include="Assets\Scripts\GameManagement\SaveNLoad.cs" />
      <Compile Include="Assets\Scripts\Level\LevelControlBaseClass.cs" />
      <Compile Include="Assets\Scripts\Level\LevelController.cs" />
      <Compile Include="Assets\Scripts\Level\LightLevelOneControl.cs" />
@@ -66,6 +69,8 @@
      <Compile Include="Assets\Scripts\Light\PrismColourCombo.cs" />
      <Compile Include="Assets\Scripts\Light\SplineCurve.cs" />
      <Compile Include="Assets\Scripts\Light\StraightSplineBeam.cs" />
+     <Compile Include="Assets\Scripts\Lims\LimsOwner.cs" />
+     <Compile Include="Assets\Scripts\MainMenuUI\UILayout.cs" />
      <Compile Include="Assets\Scripts\Player\LimsFly.cs" />
      <Compile Include="Assets\Scripts\Player\Movement_.cs" />
      <Compile Include="Assets\Scripts\Player\PickupAndDropdown.cs" />
@@ -77,30 +82,6 @@
      <Compile Include="Assets\Scripts\PuzzleMechanics\SCR_Movable.cs" />
      <Compile Include="Assets\Scripts\PuzzleMechanics\SCR_Rotatable.cs" />
      <Compile Include="Assets\Scripts\PuzzleMechanics\WeightCheck.cs" />
- <Reference Include="UnityEngine.UI">
- <HintPath>D:/Makinggames/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Networking">
- <HintPath>D:/Makinggames/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.TestRunner">
- <HintPath>D:/Makinggames/Editor/Data/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
- </Reference>
- <Reference Include="nunit.framework">
- <HintPath>D:/Makinggames/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Timeline">
- <HintPath>D:/Makinggames/Editor/Data/UnityExtensions/Unity/Timeline/RuntimeEditor/UnityEngine.Timeline.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Analytics">
- <HintPath>D:/Makinggames/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.HoloLens">
- <HintPath>D:/Makinggames/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
- </Reference>
- <Reference Include="XInputDotNetPure">
- <HintPath>D:/Users/Rory/Documents/GitHub/Team4/Team4/Robot/Assets/Plugins/x86_64/XInputDotNetPure.dll</HintPath>
- </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

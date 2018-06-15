@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SCR_Test : MonoBehaviour 
+public class SCR_Movable : MonoBehaviour 
 {
 	public bool pickedUp = false;
 	public string playerTag;
+
+	public string movableObjectString;
+
 	GameObject pole;
 	Vector3 MaxDistance;
 	Vector3 MinDistance;
@@ -16,22 +19,39 @@ public class SCR_Test : MonoBehaviour
 	void Start () 
 	{
 		pole = this.gameObject.transform.GetChild (0).gameObject;
+		//get the far right and far left bounds of the pole object
 		MaxDistance = pole.GetComponent<Collider> ().bounds.max;
 		MinDistance = pole.GetComponent<Collider> ().bounds.min;
+
+		//on start, create a new movable object determined by the string in the editor
+		GameObject newMovable = Instantiate (Resources.Load ("Prefabs/Light/" + movableObjectString)) as GameObject;
+
+		//force it's name to be "SlideBox"
+		newMovable.name = "SlideBox";
+
+		//set it's position to be the same as the placeholder slideBox
+		newMovable.transform.position = this.transform.GetChild (1).position;
+
+		//become a child of the "Movable" object
+		newMovable.transform.SetParent(this.transform);
+
+		//delete the placeholderbox
+		Destroy(this.transform.GetChild(1).gameObject);
+
 	}
 
 	//the far right of the pole
 	private bool RightLimit()
 	{
-		Vector3 position = this.transform.GetChild(1).position;
-		return (position.x >= MaxDistance.x);
+		Vector3 movableObjectposition = this.transform.GetChild(1).position;
+		return (movableObjectposition.x >= MaxDistance.x);
 	}
 
 	//the far left of the pole
 	private bool LeftLimit()
 	{
-		Vector3 position = this.transform.GetChild (1).position;
-		return (position.x <= MinDistance.x);
+		Vector3 movableObjectposition = this.transform.GetChild (1).position;
+		return (movableObjectposition.x <= MinDistance.x);
 	}
 	
 	// Update is called once per frame

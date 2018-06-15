@@ -328,7 +328,7 @@ public class SCR_TradeLimb : MonoBehaviour
         GameObject player = GameObject.FindGameObjectWithTag(playerTag);
         int limbNumber = LimbNumber(newLimbName);
         GameObject newLimb = Instantiate(Resources.Load("Prefabs/Player/" + newLimbName)) as GameObject;
-
+	
         List<GameObject> tempList = player.GetComponent<SCR_TradeLimb>().limbs;
         newLimb.transform.position = tempList[limbNumber].transform.position;
         newLimb.transform.parent = tempList[limbNumber].transform.parent;

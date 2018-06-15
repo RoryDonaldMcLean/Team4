@@ -208,4 +208,31 @@ public class PickupAndDropdown : MonoBehaviour
         tempPoss -= this.GetComponent<Transform>().forward * 0.7f;
         return Physics.BoxCast(tempPoss, this.GetComponent<Transform>().localScale, this.GetComponent<Transform>().forward, out hit, this.GetComponent<Transform>().rotation, pickingMaxDistance);
     }
+    
+    private void OnTriggerStay(Collider other)
+    {
+        if(other.gameObject.tag == "HugeBox")
+        {
+            if(this.GetArmQuantity()>=2)
+            {
+                Vector3 boxPosition = other.gameObject.GetComponent<Transform>().position;
+                if (Mathf.Abs(boxPosition.z - this.GetComponent<Transform>().position.z) > Mathf.Abs(boxPosition.x - this.GetComponent<Transform>().position.x))
+                    other.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionX;
+                else
+                    other.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ;
+            }
+            else
+            {
+                other.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+            }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "HugeBox")
+        {
+            other.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        }
+    }
 }

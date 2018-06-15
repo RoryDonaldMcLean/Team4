@@ -233,6 +233,7 @@ public class SCR_CameraFollow : MonoBehaviour
 				isLerping = false;
 			}
 		}
+        
 	}
 
 
@@ -267,6 +268,10 @@ public class SCR_CameraFollow : MonoBehaviour
 		{
 			if (travelPoint != Travel[level-1].transform)
 			{
+<<<<<<< HEAD
+=======
+				//Debug.Log("sdsd" + travelPoint.transform.position);
+>>>>>>> origin/Neko
 				CameraTransitionPoints.Add (travelPoint.gameObject);
 			}
 		}	

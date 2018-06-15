@@ -18,6 +18,7 @@ public class Movement_ : MonoBehaviour
     //but allows it all to be in 1 script
     public bool player2 = false;
 
+<<<<<<< HEAD
     public float playerSpeed;
 
     public Rigidbody rb1;
@@ -28,6 +29,16 @@ public class Movement_ : MonoBehaviour
     public bool doubleJump = false;
 
 	int quantity;
+=======
+    public float playerSpeed = 4.0f;
+
+    public Rigidbody rb1;
+    public float jumpSpeed;
+    public float dropdownSpeed;
+
+    public bool grounded = true;
+    private bool doubleJump = false;
+>>>>>>> origin/Neko
 
     // Use this for initialization
     void Start()
@@ -50,6 +61,7 @@ public class Movement_ : MonoBehaviour
         player2PrevState = player2State;
         player2State = GamePad.GetState(PlayerIndex.Two);
 
+<<<<<<< HEAD
 		//as movement speed is based on how many limbs you have, check this during process input
 		GetLegQuantity ();
 		if (quantity >= 2)
@@ -64,10 +76,13 @@ public class Movement_ : MonoBehaviour
 			playerSpeed = 1.5f;
 		}
 
+=======
+>>>>>>> origin/Neko
         //player 1
         //move forward
         if (player2)
         {
+<<<<<<< HEAD
 			if (Input.GetKey(KeyCode.W) || (prevState.ThumbSticks.Left.Y > 0.1))
             {
                 velocity.z += 1.0f;
@@ -75,28 +90,49 @@ public class Movement_ : MonoBehaviour
 
             //move backward
 			if (Input.GetKey(KeyCode.S) || (prevState.ThumbSticks.Left.Y < -0.1))
+=======
+            if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[0]) || (prevState.ThumbSticks.Left.Y > 0.1))
+            {
+                velocity.z += 1.0f;
+
+            }
+            //move backward
+            if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[2]) || (prevState.ThumbSticks.Left.Y < -0.1))
+>>>>>>> origin/Neko
             {
                 velocity.z -= 1.0f;
             }
 
 
             //move left
+<<<<<<< HEAD
 			if (Input.GetKey(KeyCode.A) || (prevState.ThumbSticks.Left.X < -0.1))
+=======
+            if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[1]) || (prevState.ThumbSticks.Left.X < -0.1))
+>>>>>>> origin/Neko
             {
                 velocity.x -= 1.0f;
             }
 
             //move right
+<<<<<<< HEAD
 			if (Input.GetKey(KeyCode.D) || (prevState.ThumbSticks.Left.X > 0.1))
+=======
+            if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[3]) || (prevState.ThumbSticks.Left.X > 0.1))
+>>>>>>> origin/Neko
             {
                 velocity.x += 1.0f;
             }
 
+<<<<<<< HEAD
 			//if player 1 presses the A button or the left ctrl button AND they are on the ground AND! have at least 1 leg
 			//JUMP!!!
 			if ((grounded ==true || doubleJump == true) && Input.GetKeyDown(KeyCode.LeftControl) && this.GetLegQuantity() >= 1 || 
 				(grounded ==true || doubleJump == true) && prevState.Buttons.A == ButtonState.Released && state.Buttons.A == ButtonState.Pressed 
 				&& this.GetLegQuantity() >= 1)
+=======
+            if ((grounded || doubleJump) && Input.GetKeyDown(KeyCode.M) && this.GetLegQuantity() >= 1)
+>>>>>>> origin/Neko
             {
                 if (grounded && this.GetLegQuantity() >= 2)
                     doubleJump = true;
@@ -123,7 +159,12 @@ public class Movement_ : MonoBehaviour
                 velocity.z -= 1.0f;
             }
 
+<<<<<<< HEAD
 
+=======
+            //if (gameController.GetComponent<SCR_CameraFollow> ().leftPuzzle == false)
+            //{
+>>>>>>> origin/Neko
             //move left
             if (Input.GetKey(KeyCode.LeftArrow) || (player2PrevState.ThumbSticks.Left.X < -0.1))
             {
@@ -135,6 +176,7 @@ public class Movement_ : MonoBehaviour
             {
                 velocity.x += 1.0f;
             }
+<<<<<<< HEAD
             
 
             //jumping
@@ -143,6 +185,13 @@ public class Movement_ : MonoBehaviour
 				&& this.GetLegQuantity() >= 1)
             {
 				Debug.Log (quantity);
+=======
+            //}
+
+            //jumping
+            if ((grounded || doubleJump) && Input.GetKeyDown(KeyCode.G) && this.GetLegQuantity() >= 1)
+            {
+>>>>>>> origin/Neko
                 if (grounded && this.GetLegQuantity() >= 2)
                     doubleJump = true;
                 else
@@ -152,6 +201,7 @@ public class Movement_ : MonoBehaviour
             }
 
         }
+<<<<<<< HEAD
 
 		//if you are in the air then apply a downward force
 		if (!grounded)
@@ -173,11 +223,29 @@ public class Movement_ : MonoBehaviour
 		updateMovement(velocity);
 		velocity.z = 0.0f;
 		velocity.x = 0.0f;
+=======
+        updateMovement(velocity);
+        velocity.z = 0.0f;
+        velocity.x = 0.0f;
+        if (!grounded)
+        {
+            if (velocity.y >= -1)
+                velocity.y += Physics.gravity.y * Time.deltaTime * dropdownSpeed;
+            else
+                velocity.y = -1.01f;
+        }
+        else
+            velocity.y = 0;
+>>>>>>> origin/Neko
     }
 
     //updates movement using the passed velocity vector
     void updateMovement(Vector3 vel)
     {
+<<<<<<< HEAD
+=======
+        //Rigidbody rb1 = GetComponent<Rigidbody> ();
+>>>>>>> origin/Neko
         rb1.velocity = vel * playerSpeed;
 
         //will rotate the player to face the direction they are moving
@@ -210,7 +278,11 @@ public class Movement_ : MonoBehaviour
 
     private int GetLegQuantity()
     {
+<<<<<<< HEAD
         quantity = 0;
+=======
+        int quantity = 0;
+>>>>>>> origin/Neko
         //loop through all the child objects attached to player
         for (int i = 0; i < this.transform.childCount; i++)
         {

@@ -1,16 +1,19 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 
-
-public class PlayerButton
+[Serializable]
+public class PlayerSetting
 {
     public KeyCode[] defaultButton = new KeyCode[11];
 
     public KeyCode[] currentButton = new KeyCode[11];
 
-    public PlayerButton()
+    public int volumn;
+    public PlayerSetting()
     {
         defaultButton[0] = KeyCode.W;
         defaultButton[1] = KeyCode.A;
@@ -28,9 +31,10 @@ public class PlayerButton
         {
             currentButton[i] = defaultButton[i];
         }
+        volumn = 50;
     }     
     
-    public void sameButton(KeyCode kc, int number)
+    public void sameButton(int number)
     {
         for (int i = 0; i < 11; i++)
         {

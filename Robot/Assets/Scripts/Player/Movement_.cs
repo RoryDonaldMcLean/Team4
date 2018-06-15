@@ -52,26 +52,26 @@ public class Movement_ : MonoBehaviour
         //move forward
         if (player2)
         {
-            if (Input.GetKey(GameManager.Instance.playerButtons.currentButton[0]) || (prevState.ThumbSticks.Left.Y > 0.1))
+            if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[0]) || (prevState.ThumbSticks.Left.Y > 0.1))
             {
                 velocity.z += 1.0f;
 
             }
             //move backward
-            if (Input.GetKey(GameManager.Instance.playerButtons.currentButton[2]) || (prevState.ThumbSticks.Left.Y < -0.1))
+            if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[2]) || (prevState.ThumbSticks.Left.Y < -0.1))
             {
                 velocity.z -= 1.0f;
             }
 
 
             //move left
-            if (Input.GetKey(GameManager.Instance.playerButtons.currentButton[1]) || (prevState.ThumbSticks.Left.X < -0.1))
+            if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[1]) || (prevState.ThumbSticks.Left.X < -0.1))
             {
                 velocity.x -= 1.0f;
             }
 
             //move right
-            if (Input.GetKey(GameManager.Instance.playerButtons.currentButton[3]) || (prevState.ThumbSticks.Left.X > 0.1))
+            if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[3]) || (prevState.ThumbSticks.Left.X > 0.1))
             {
                 velocity.x += 1.0f;
             }

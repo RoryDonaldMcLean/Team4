@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    public PlayerButton playerButtons = new PlayerButton();
+    public PlayerSetting playerSetting = new PlayerSetting();
 
     void Awake()
     {

@@ -27,6 +27,8 @@ public class Movement_ : MonoBehaviour
     public bool grounded = true;
     private bool doubleJump = false;
 
+
+    private float groundY;
     // Use this for initialization
     void Start()
     {
@@ -159,15 +161,28 @@ public class Movement_ : MonoBehaviour
         if (col.gameObject.tag == "Ground")
         {
             grounded = true;
+            groundY = this.GetComponent<Transform>().position.y;
         }
     }
 
     void OnTriggerStay(Collider col)
     {
-        if (col.gameObject.tag == "Ground")
-        {
-            grounded = true;
-        }
+        //if (col.gameObject.tag != "Ground" && col.gameObject.tag != "PuzzleArea" && !grounded)
+        //{
+        //    if (this.GetComponent<Transform>().position.y > groundY)
+        //    {
+        //        if (velocity.y < 0)
+        //        {
+        //            collision = true;
+        //            this.GetComponent<Transform>().position += new Vector3(0, velocity.y , 0);
+        //        }
+        //    }
+        //    else
+        //    {
+        //        collision = false;
+        //        this.GetComponent<Transform>().position = new Vector3(this.GetComponent<Transform>().position.x, groundY, this.GetComponent<Transform>().position.z);
+        //    }
+        //}
     }
 
     void OnTriggerExit(Collider col)

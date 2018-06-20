@@ -40,32 +40,9 @@ public class PickupAndDropdown : MonoBehaviour
             if(Input.GetMouseButtonDown(0))
             {
                 if (ObjectFound(out hit))//ray cast detection
-                {
-                    GenericPickUpCheck(ref hit);
-                }
-            }
-            else if(Input.GetMouseButtonDown(1))
-            {
-				if (ObjectFound (out hit))//ray cast detection
-				{
-					if (hit.transform.name.Contains("LimbLight"))
-					{
-						LimbLight limbLightBox = hit.transform.GetComponent<LimbLight>();
-						if (limbLightBox.IsLimbAttached())
-						{
-							limbLightBox.RemoveLimbFromLightBox(this.tag);
-						}
-						else
-						{
-							limbLightBox.AttachLimbToLightBox(this.tag);
-						}
-					}
-					else if(hit.transform.name.Contains("LightEmitter"))
-					{
-						hit.transform.GetComponent<LightEmitter>().ToggleLight();
-					}
+                {             
 					//if the object the player is trying to pick up is the SlideBox (object attached to the pole)
-					else if (hit.transform.name.Contains ("SlideBox"))
+					if (hit.transform.name.Contains ("SlideBox"))
 					{
 						pickedUpGameObject = hit.transform.gameObject;
 						Vector3 temp = pickedUpGameObject.transform.position;
@@ -93,6 +70,28 @@ public class PickupAndDropdown : MonoBehaviour
 					else
 					{
 						GenericPickUpCheck (ref hit);
+					}
+				}
+            }
+            else if(Input.GetMouseButtonDown(1))
+            {
+				if (ObjectFound (out hit))//ray cast detection
+				{
+					if (hit.transform.name.Contains("LimbLight"))
+					{
+						LimbLight limbLightBox = hit.transform.GetComponent<LimbLight>();
+						if (limbLightBox.IsLimbAttached())
+						{
+							limbLightBox.RemoveLimbFromLightBox(this.tag);
+						}
+						else
+						{
+							limbLightBox.AttachLimbToLightBox(this.tag);
+						}
+					}
+					else if(hit.transform.name.Contains("LightEmitter"))
+					{
+						hit.transform.GetComponent<LightEmitter>().ToggleLight();
 					}
 				}
         	}

@@ -8,7 +8,7 @@ public class SCR_player2Initalise : SCR_TradeLimb
 	{
         //to be overwritten by inhertance
         //Exchange("LeftArm", this.gameObject.tag);
-        Exchange("RightLeg", this.gameObject.tag);
+        //Exchange("RightLeg", this.gameObject.tag);
     }
 
 }

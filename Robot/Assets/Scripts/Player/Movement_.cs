@@ -72,7 +72,6 @@ public class Movement_ : MonoBehaviour
             if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[0]) || (prevState.ThumbSticks.Left.Y > 0.1))
             {
                 velocity.z += 1.0f;
-
             }
             //move backward
             if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[2]) || (prevState.ThumbSticks.Left.Y < -0.1))
@@ -105,6 +104,7 @@ public class Movement_ : MonoBehaviour
 				&& this.GetLegQuantity() >= 1)
 
             {
+				Debug.Log ("jump");
                 if (grounded && this.GetLegQuantity() >= 2)
                     doubleJump = true;
                 else

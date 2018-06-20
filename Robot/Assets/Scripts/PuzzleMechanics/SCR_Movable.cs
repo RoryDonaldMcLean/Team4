@@ -65,12 +65,14 @@ public class SCR_Movable : MonoBehaviour
 				Vector3 position = this.transform.GetChild(1).position;
 				position.x = MaxDistance.x;
 				GameObject.FindGameObjectWithTag (playerTag).GetComponent<PickupAndDropdown>().LimitDrop();
+				Debug.Log ("right limit");
 			}
 			else if (LeftLimit ())
 			{
 				Vector3 position = this.transform.GetChild (1).position;
 				position.x = MinDistance.x;
 				GameObject.FindGameObjectWithTag (playerTag).GetComponent<PickupAndDropdown> ().LimitDrop ();
+				Debug.Log ("left limit");
 			}
 
 			//if the player leaves the movable trigger box then drop the box thing

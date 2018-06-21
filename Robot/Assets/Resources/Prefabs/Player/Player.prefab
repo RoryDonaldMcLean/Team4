@@ -841,10 +841,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   limbs: []
-  ArmSwap: {fileID: 8300000, guid: 2b07335ee9e71344b85e9924d9729d19, type: 3}
-  ArmSwapSource: {fileID: 82351087364479606}
-  ArmAttach: {fileID: 8300000, guid: 79f264e033d978d479bdc0224eb562ac, type: 3}
-  ArmAttachSource: {fileID: 82368644793677430}
   player2: 1
 --- !u!114 &114191680458344422
 MonoBehaviour:
@@ -858,10 +854,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickingMaxDistance: 5
-  PickCrystal: {fileID: 8300000, guid: f719488b2f4b11443b9708f78882b71b, type: 3}
-  PickCrystalSource: {fileID: 82138019200201358}
-  DropCrystal: {fileID: 8300000, guid: 410fb76c535428d4597f258d6f20dae0, type: 3}
-  DropCrystalSource: {fileID: 82260341613374756}
 --- !u!114 &114424539973579312
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -877,6 +869,7 @@ MonoBehaviour:
   playerSpeed: 6
   rb1: {fileID: 54043911327761894}
   grounded: 1
+  doubleJump: 0
 --- !u!136 &136411249463573852
 CapsuleCollider:
   m_ObjectHideFlags: 1

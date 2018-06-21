@@ -14,7 +14,9 @@ public class SCR_player1Initalise : SCR_TradeLimb
 
 		Exchange ("RightLeg", this.gameObject.tag);
 
+        Exchange("LeftArm", this.gameObject.tag);
 
 
-	}
+
+    }
 }

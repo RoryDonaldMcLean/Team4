@@ -33,10 +33,10 @@ public class MaterialChange : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.N))
         {
             rend.sharedMaterial = material[index];
-            index--;
-            if (index == 0)
+            
+            if (index == maxMaterialNumber)
             {
-                index = 4;
+                index--;
             }
         }
     }

@@ -8,15 +8,23 @@ public class SCR_Rotatable : MonoBehaviour
 	public string playerTag;
 	public string rotatableObjectString;
 	public bool Entered = false;
+    public Color beamColour = Color.white;
+    public int beamLength = 5;
 
 	// Use this for initialization
 	void Start () 
 	{
 		GameObject newRotatable = Instantiate (Resources.Load ("Prefabs/Light/" + rotatableObjectString)) as GameObject;
 		newRotatable.name = "RotateBox";
-		newRotatable.transform.position = this.transform.GetChild (1).position;
-		newRotatable.transform.SetParent (this.transform);
-		Destroy (this.transform.GetChild (1).gameObject);
+		newRotatable.transform.position = this.transform.GetChild(1).position;
+		newRotatable.transform.SetParent(this.transform);
+
+        if (rotatableObjectString.Contains("Emitter"))
+        {
+            newRotatable.GetComponent<LightEmitter>().colouredBeam = beamColour;
+            newRotatable.GetComponent<LightEmitter>().beamLength = beamLength;
+        }
+        Destroy(this.transform.GetChild(1).gameObject);
 	}
 	
 	// Update is called once per frame

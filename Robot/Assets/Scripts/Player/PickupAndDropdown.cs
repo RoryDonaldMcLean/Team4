@@ -20,7 +20,6 @@ public class PickupAndDropdown : MonoBehaviour
     //public AudioClip DropCrystal;
     //public AudioSource DropCrystalSource;
 
-
     // Use this for initialization
     private void Start()
     {
@@ -41,7 +40,36 @@ public class PickupAndDropdown : MonoBehaviour
             {
                 if (ObjectFound(out hit))//ray cast detection
                 {
-                    GenericPickUpCheck(ref hit);
+                    //if the object the player is trying to pick up is the SlideBox (object attached to the pole)
+                    if (hit.transform.name.Contains("SlideBox"))
+                    {
+                        pickedUpGameObject = hit.transform.gameObject;
+
+                        AxisAlignedMovableObject();
+
+                        pickedUpGameObject.transform.parent.GetComponent<SCR_Movable>().pickedUp = true;
+                        pickedUpGameObject.transform.parent.GetComponent<SCR_Movable>().playerTag = this.tag;
+                        holding = true;
+                    }
+                    //if the object the player is trying to pick up is the RotateBox
+                    else if (hit.transform.name.Contains("RotateBox"))
+                    {
+                        pickedUpGameObject = hit.transform.gameObject;
+
+                        //when you "pick up" the box it will rotate to face the same direction as the player
+                        float speed = 200.0f;
+                        float step = speed * Time.deltaTime;
+                        pickedUpGameObject.transform.rotation = Quaternion.RotateTowards(pickedUpGameObject.transform.rotation,
+                            this.transform.rotation, step);
+
+                        pickedUpGameObject.transform.parent.GetComponent<SCR_Rotatable>().pickedUp = true;
+                        pickedUpGameObject.transform.parent.GetComponent<SCR_Rotatable>().playerTag = this.tag;
+                        holding = true;
+                    }
+                    else
+                    {
+                        GenericPickUpCheck(ref hit);
+                    }
                 }
             }
             else if(Input.GetMouseButtonDown(1))
@@ -64,63 +92,37 @@ public class PickupAndDropdown : MonoBehaviour
 					{
 						hit.transform.GetComponent<LightEmitter>().ToggleLight();
 					}
-					//if the object the player is trying to pick up is the SlideBox (object attached to the pole)
-					else if (hit.transform.name.Contains ("SlideBox"))
-					{
-						pickedUpGameObject = hit.transform.gameObject;
-						Vector3 temp = pickedUpGameObject.transform.position;
-						temp.x = this.transform.position.x;
-						pickedUpGameObject.transform.position = temp;
-						pickedUpGameObject.transform.parent.GetComponent<SCR_Movable> ().pickedUp = true;
-						pickedUpGameObject.transform.parent.GetComponent<SCR_Movable> ().playerTag = this.tag;
-						holding = true;
-					} 
-					//if the object the player is trying to pick up is the RotateBox
-					else if (hit.transform.name.Contains ("RotateBox"))
-					{
-						pickedUpGameObject = hit.transform.gameObject;
-
-						//when you "pick up" the box it will rotate to face the same direction as the player
-						float speed = 200.0f;
-						float step = speed * Time.deltaTime;
-						pickedUpGameObject.transform.rotation = Quaternion.RotateTowards (pickedUpGameObject.transform.rotation,
-							this.transform.rotation, step);
-
-						pickedUpGameObject.transform.parent.GetComponent<SCR_Rotatable> ().pickedUp = true;
-						pickedUpGameObject.transform.parent.GetComponent<SCR_Rotatable> ().playerTag = this.tag;
-						holding = true;
-					} 
-					else
-					{
-						GenericPickUpCheck (ref hit);
-					}
+                    else if(hit.transform.name.Contains("RotateBox"))
+                    {
+                        if(hit.transform.parent.GetComponent<SCR_Rotatable>().rotatableObjectString.Contains("LightEmitter"))
+                        {
+                            hit.transform.GetComponent<LightEmitter>().ToggleLight();
+                        }
+                    }
 				}
         	}
 		}
         else
         {
-			if (pickedUpGameObject.transform.name.Contains ("SlideBox"))
+			if (pickedUpGameObject.transform.name.Contains("SlideBox"))
 			{
-				Vector3 temp = pickedUpGameObject.transform.position;
-				temp.x = this.transform.position.x;
-				pickedUpGameObject.transform.position = temp;
+                AxisAlignedMovableObject();
 
-				if (Input.GetMouseButtonDown (0))
+                if (Input.GetMouseButtonDown(0))
 				{
 					Debug.Log ("dropped on click");
-					LimitDrop ();
+					LimitDrop();
 				}
 			} 
-			else if (pickedUpGameObject.transform.name.Contains ("RotateBox"))
+			else if (pickedUpGameObject.transform.name.Contains("RotateBox"))
 			{
 				float speed = 200.0f;
 				float step = speed * Time.deltaTime;
-				pickedUpGameObject.transform.rotation = Quaternion.RotateTowards (pickedUpGameObject.transform.rotation,
-					this.transform.rotation, step);
+				pickedUpGameObject.transform.rotation = Quaternion.RotateTowards (pickedUpGameObject.transform.rotation, this.transform.rotation, step);
 
-				if (Input.GetMouseButtonDown (0))
+				if (Input.GetMouseButtonDown(0))
 				{
-					RotateDrop ();
+					RotateDrop();
 				}
 			}
 			else
@@ -139,6 +141,25 @@ public class PickupAndDropdown : MonoBehaviour
 			}
            
         }
+    }
+
+    private void AxisAlignedMovableObject()
+    {
+        Vector3 temp = pickedUpGameObject.transform.position;
+        SCR_Movable fixedMoveObject = pickedUpGameObject.transform.parent.GetComponent<SCR_Movable>();
+
+        if (fixedMoveObject.xAxisForward)
+        {
+            temp.x = this.transform.position.x;
+            fixedMoveObject.playerDistanceCheck = this.transform.position.z;
+        }
+        else
+        {
+            temp.z = this.transform.position.z;
+            fixedMoveObject.playerDistanceCheck = this.transform.position.x;
+        }
+
+        pickedUpGameObject.transform.position = temp;
     }
 
 	public void LimitDrop()

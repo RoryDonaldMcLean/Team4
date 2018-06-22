@@ -6,13 +6,16 @@ public class LightEmitter : MonoBehaviour
 {
     public Color colouredBeam;
     private StraightSplineBeam lineBeam;
-    private float beamLength;
+    public int beamLength;
+    public bool switchedOn = false;
 
     void Start()
     {
         lineBeam = this.gameObject.AddComponent<StraightSplineBeam>();
         lineBeam.beamColour = colouredBeam;
-        beamLength = lineBeam.beamLength * 2;
+        lineBeam.beamLength = beamLength;
+        beamLength = beamLength * 2;
+        if (!switchedOn) ToggleLight();
     }
 
     public void ToggleLight()

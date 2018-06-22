@@ -7,7 +7,7 @@ public class LightLevelTwoControl : LevelControlBaseClass
 	// Update is called once per frame
 	void Update ()
     {
-        if (lightDoors[0].GetComponent<LightTrigger>().doorOpen)
+        if (lightDoors[0].GetComponent<LightTrigger>().correctLight)
         {
             Debug.Log("NEXT LEVEL DONE");
         }

@@ -179,7 +179,6 @@ public class Movement_ : MonoBehaviour
         if (col.gameObject.tag == "Ground")
         {
             grounded = true;
-            groundY = this.GetComponent<Transform>().position.y;
 
             doubleJump = false;
             velocity.y = 0;

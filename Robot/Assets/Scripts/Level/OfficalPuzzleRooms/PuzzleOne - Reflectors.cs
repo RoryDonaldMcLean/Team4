@@ -4,15 +4,28 @@ using UnityEngine;
 
 public class PuzzleOneReflectors : LevelControlBaseClass
 {
-	// Use this for initialization
-	void Start ()
+    bool doorStateOpen = false;
+
+    void Awake()
     {
-		
-	}
-	
-	// Update is called once per frame
-	void Update ()
+        PuzzleIdentifier = "PuzzleOne";
+    }
+
+    // Update is called once per frame
+    void Update ()
     {
-		
-	}
+        if ((IsAllLightTriggersActive()) && (!doorStateOpen))
+        {        
+            Debug.Log("open");
+            doorStateOpen = !doorStateOpen;
+            exitDoor.OpenDoor();
+        }
+        else if ((!IsAllLightTriggersActive()) && (doorStateOpen))
+        {
+            //counter--;
+            Debug.Log("close");
+            doorStateOpen = !doorStateOpen;
+            exitDoor.CloseDoor();
+        }
+    }
 }

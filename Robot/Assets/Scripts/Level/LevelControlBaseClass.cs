@@ -11,6 +11,7 @@ public class LevelControlBaseClass : MonoBehaviour
     protected List<StraightSplineBeam> beams;
     protected List<LightTrigger> lightDoors;
     protected PuzzleExitDoor exitDoor;
+    protected string PuzzleIdentifier;
 
     void Start()
     {
@@ -21,6 +22,7 @@ public class LevelControlBaseClass : MonoBehaviour
         SpecficPuzzleSetup("LightDoors");
         GameObject door = GameObject.FindGameObjectWithTag("PuzzleExitDoor");
         exitDoor = door.transform.GetChild(0).GetComponent<PuzzleExitDoor>();
+        Debug.Log(">" + lightDoors.Count);
     }
 
     protected bool IsAllLightTriggersActive()
@@ -40,15 +42,22 @@ public class LevelControlBaseClass : MonoBehaviour
     private List<GameObject> InitialiseGenericPuzzleElements(string parentTag)
     {
         List<GameObject> puzzleObjects = new List<GameObject>();
-        GameObject parentObject = GameObject.FindGameObjectWithTag(parentTag);
+        
+        //GameObject puzzleContainer = GameObject.FindGameObjectWithTag(PuzzleIdentifier);
+        GameObject[] parentObjects = GameObject.FindGameObjectsWithTag(parentTag);
 
-        if (parentObject != null)
+        if (parentObjects != null)
         {
-            Transform puzzleContainer = parentObject.transform;
-           
-            for (int i = 0; i < puzzleContainer.childCount; i++)
+            foreach (GameObject parentObject in parentObjects)
             {
-                puzzleObjects.Add(puzzleContainer.GetChild(i).gameObject);
+                Transform puzzleObjectContainer = parentObject.transform;
+                if (puzzleObjectContainer.parent.name.Contains(PuzzleIdentifier))
+                {
+                    for (int i = 0; i < puzzleObjectContainer.childCount; i++)
+                    {
+                        puzzleObjects.Add(puzzleObjectContainer.GetChild(i).gameObject);
+                    }
+                }
             }
         }
         return puzzleObjects;

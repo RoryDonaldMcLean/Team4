@@ -22,10 +22,10 @@ public class LightEmitter : MonoBehaviour
     {
         lineBeam.ToggleBeam();
 
-        RaycastHit hit;
-        if(ObjectFoundInfrontOfBeam(out hit))
+        //RaycastHit hit;
+        //if(ObjectFoundInfrontOfBeam(out hit))
         {
-            TriggerExitControl(hit.transform);
+            //TriggerExitControl(hit.transform);
         }
     }
 

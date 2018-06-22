@@ -23,7 +23,6 @@ public class LightTrigger : MonoBehaviour
     //Upon a collison being detected with a Lightbeam 
     void OnTriggerEnter(Collider lightbeam)
     {
-        Debug.Log("Hit");
         LineRenderer line = lightbeam.GetComponentInParent<LineRenderer>();
         //checks to see if the predefined colour that is required to open this door, matches the lightbeams colour.
         if (CheckBeamColour(line.startColor))

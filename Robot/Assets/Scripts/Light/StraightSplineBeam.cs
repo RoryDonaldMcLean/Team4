@@ -32,6 +32,7 @@ public class StraightSplineBeam : MonoBehaviour
 
         CreateBeam();
         DestroyBeam();
+        StartCoroutine(LightResizeToggleControl(active));
     }
     //either creates or destroys the beam depending on the active state of the beam.
     public void ToggleCustomBeam(Vector3 startPoint, List<Vector3> midPoints, Vector3 endPoint)
@@ -77,6 +78,12 @@ public class StraightSplineBeam : MonoBehaviour
     public void RotateBeam(Vector3 newRot)
     {
         StartCoroutine(BeamNotification(Quaternion.Euler(newRot)));
+    }
+
+    IEnumerator LightResizeToggleControl(bool active)
+    {
+        yield return new WaitUntil(() => dynamicLightBeam != null);
+        dynamicLightBeam.ToggleLight(active);
     }
 
     IEnumerator BeamNotification(Quaternion newRot)

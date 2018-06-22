@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LightRedirect : MonoBehaviour
 {
+    public int beamLength = 5;
     public Color beamColour = Color.white;
     public bool beamColourRedirectControl = true;
     private Color arrowDefaultColour = Color.white;
@@ -18,18 +19,16 @@ public class LightRedirect : MonoBehaviour
     {
         if((!lightBeam.transform.IsChildOf(this.transform)) && (lightBeam.gameObject.layer != LayerMask.NameToLayer("BeamLayer")))
         {
-            Debug.Log("forcetrigger2" + lightBeam.name);
-			Debug.Log("forcetrigger3" + lightBeam.transform.parent.GetComponent<SplineCurve>().color);
+            //Debug.Log("232");
             if (splineCurve != null)
             {
-				Debug.Log("beamdestroy");
                 DestroyBeam();
             }
 
-            InverseBeamCalculate(lightBeam.transform.rotation);
+            //InverseBeamCalculate(lightBeam.transform.rotation);
 
             //this check ensures that the extended beam is not facing the original beam.
-            if ((this.transform.rotation.y != originalBeamInverse) && (this.transform.rotation.y != -originalBeamInverse))
+            //if ((this.transform.rotation.y != originalBeamInverse) && (this.transform.rotation.y != -originalBeamInverse))
             {
                 connectedBeam = true;
                 if (beamColourRedirectControl) beamColour = lightBeam.GetComponentInParent<LineRenderer>().startColor;
@@ -114,6 +113,7 @@ public class LightRedirect : MonoBehaviour
     {
         splineCurve = this.gameObject.AddComponent<StraightSplineBeam>();
         splineCurve.beamColour = beamColour;
+        splineCurve.beamLength = beamLength;
 
         BlinkingArrowsSetup();
     }
@@ -128,7 +128,8 @@ public class LightRedirect : MonoBehaviour
         {
             arrowDefaultColour = Color.white;
         }
-       
+
+        CancelInvoke("ColourOverTime");
         InvokeRepeating("ColourOverTime", 0.3f, 0.75f);
     }
     

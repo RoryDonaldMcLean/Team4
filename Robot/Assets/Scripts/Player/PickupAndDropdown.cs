@@ -48,7 +48,7 @@ public class PickupAndDropdown : MonoBehaviour
         if (!holding)
         {
             RaycastHit hit;
-			if(Input.GetKey(KeyCode.E))
+			if(Input.GetKeyDown(KeyCode.E))
             {
                 if (ObjectFound(out hit))//ray cast detection
                 {             
@@ -84,7 +84,7 @@ public class PickupAndDropdown : MonoBehaviour
 					}
 				}
             }
-			else if(Input.GetKey(KeyCode.R))
+			else if(Input.GetKeyDown(KeyCode.R))
             {
 				if (ObjectFound (out hit))//ray cast detection
 				{
@@ -142,7 +142,7 @@ public class PickupAndDropdown : MonoBehaviour
 				pickedUpGameObject.GetComponent<Transform>().rotation = Quaternion.Lerp(pickedUpGameObject.GetComponent<Transform>().rotation, this.GetComponent<Transform>().rotation, alpha); //make the rotation of object same as camera
 				pickedUpGameObject.GetComponent<Transform>().rotation = new Quaternion(0, pickedUpGameObject.GetComponent<Transform>().rotation.y, 0, pickedUpGameObject.GetComponent<Transform>().rotation.w);
 
-				if (Input.GetMouseButtonDown(0))
+				if (Input.GetKey(KeyCode.X))
 				{
 					PutDownObject();
 				}

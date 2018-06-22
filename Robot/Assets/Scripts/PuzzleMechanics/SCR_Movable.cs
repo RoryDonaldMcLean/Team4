@@ -102,7 +102,6 @@ public class SCR_Movable : MonoBehaviour
 
         if (difference > maxDistFromBox)
         {
-            Debug.Log("Too far");
             DropBox();
         }
     }

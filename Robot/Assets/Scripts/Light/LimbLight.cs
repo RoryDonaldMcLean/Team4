@@ -5,11 +5,13 @@ using UnityEngine;
 public class LimbLight : MonoBehaviour
 {
     public bool ArmsBox = false;
+    public int beamLength = 5;
 
     private bool lightOn = true;
     private Color beamColour = Color.white;
     private LightRedirect lightRedirect;
     private GameObject limbJoint;
+
     // Use this for initialization
     void Start()
     {
@@ -74,6 +76,7 @@ public class LimbLight : MonoBehaviour
         if (lightOn)
         {
             lightRedirect = this.gameObject.AddComponent<LightRedirect>();
+            lightRedirect.beamLength = beamLength;
             if (!ArmsBox)
             {
                 lightRedirect.beamColourRedirectControl = false;

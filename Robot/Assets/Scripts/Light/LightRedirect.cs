@@ -16,24 +16,31 @@ public class LightRedirect : MonoBehaviour
     //Upon a collison being detected with a Lightbeam 
     void OnTriggerEnter(Collider lightBeam)
     {
-        if (splineCurve != null)
+        if((!lightBeam.transform.IsChildOf(this.transform)) && (lightBeam.gameObject.layer != LayerMask.NameToLayer("BeamLayer")))
         {
-            DestroyBeam();
-        }
+            Debug.Log("forcetrigger2" + lightBeam.name);
+			Debug.Log("forcetrigger3" + lightBeam.transform.parent.GetComponent<SplineCurve>().color);
+            if (splineCurve != null)
+            {
+				Debug.Log("beamdestroy");
+                DestroyBeam();
+            }
 
-        InverseBeamCalculate(lightBeam.transform.rotation);
+            InverseBeamCalculate(lightBeam.transform.rotation);
 
-        //this check ensures that the extended beam is not facing the original beam.
-        if ((this.transform.rotation.y != originalBeamInverse) && (this.transform.rotation.y != -originalBeamInverse))
-        {
-            connectedBeam = true;
-            if(beamColourRedirectControl) beamColour = lightBeam.GetComponentInParent<LineRenderer>().startColor;
-            CreateExtendedBeam();
+            //this check ensures that the extended beam is not facing the original beam.
+            if ((this.transform.rotation.y != originalBeamInverse) && (this.transform.rotation.y != -originalBeamInverse))
+            {
+                connectedBeam = true;
+                if (beamColourRedirectControl) beamColour = lightBeam.GetComponentInParent<LineRenderer>().startColor;
+                CreateExtendedBeam();
+            }
         }
     }
 
     public void TriggerEnterFunction(Collider lightBeam)
     {
+        Debug.Log("forcetrigger" + lightBeam.name);
         OnTriggerEnter(lightBeam);
     }
 

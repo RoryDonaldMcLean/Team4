@@ -5,7 +5,7 @@ using UnityEngine;
 public class LevelController : MonoBehaviour
 {
     private List<LevelControlBaseClass> levelScripts = new List<LevelControlBaseClass>();
-    private int currentLevel = 4;
+    private int currentLevel = -1;
 
 	void Start ()
     {
@@ -18,6 +18,9 @@ public class LevelController : MonoBehaviour
         if (levelScripts.Count > 0) CleanUp();
         switch (levelNumber)
         {
+            case 0:
+            LevelZero();
+            break;
             case 1:
             LevelOne();
             break;
@@ -27,22 +30,43 @@ public class LevelController : MonoBehaviour
             case 3:
             LevelThree();
             break;
+            case 4:
+            LevelFour();
+            break;
+            case 5:
+            LevelFive();
+            break;
         }
+    }
+
+    private void LevelZero()
+    {
+        levelScripts.Add(this.gameObject.AddComponent<PuzzleOnBoardingProcess>());
     }
 
     private void LevelOne()
     {
-        levelScripts.Add(this.gameObject.AddComponent<SCR_TestLevelControl>());
+        levelScripts.Add(this.gameObject.AddComponent<PuzzleOneReflectors>());
     }
 
     private void LevelTwo()
     {
-        levelScripts.Add(this.gameObject.AddComponent<LightLevelOneControl>());
+        levelScripts.Add(this.gameObject.AddComponent<PuzzleTwoColourChanging>());
     }
 
     private void LevelThree()
     {
-        levelScripts.Add(this.gameObject.AddComponent<LightLevelTwoControl>());
+        levelScripts.Add(this.gameObject.AddComponent<PuzzleThreeCombinersandRefractors>());
+    }
+
+    private void LevelFour()
+    {
+        levelScripts.Add(this.gameObject.AddComponent<PuzzleFourCombination>());
+    }
+
+    private void LevelFive()
+    {
+        levelScripts.Add(this.gameObject.AddComponent<PuzzleFiveFinal>());
     }
 
     private void CleanUp()

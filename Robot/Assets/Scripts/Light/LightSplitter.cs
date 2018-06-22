@@ -20,20 +20,29 @@ public class LightSplitter : MonoBehaviour
     //Upon a collison being detected with a Lightbeam 
     void OnTriggerEnter(Collider lightBeam)
     {
-        beamColour = lightBeam.GetComponentInParent<LineRenderer>().startColor;
-        CreateExtendedBeam();
-        if (splitColour) SplitColourBetweenBeams();
+        if ((!lightBeam.transform.IsChildOf(this.transform)) && (lightBeam.gameObject.layer != LayerMask.NameToLayer("BeamLayer")))
+        {
+            beamColour = lightBeam.GetComponentInParent<LineRenderer>().startColor;
+            CreateExtendedBeam();
+        }
     }
 
     //Upon lightbeam leaving the door trigger
     void OnTriggerExit(Collider lightBeam)
     {
-        DestroyBeam();
+        if (splitBeams.Count > 0)
+        {
+            DestroyBeam();
+        }
     }
 
     public void ForceTriggerExit()
     {
-        StartCoroutine(BeamNotification());
+        //StartCoroutine(BeamNotification());
+        if(splitBeams.Count > 0)
+        {
+            DestroyBeam();
+        }
     }
 
     IEnumerator BeamNotification()
@@ -58,13 +67,17 @@ public class LightSplitter : MonoBehaviour
     //taking away the original beams colour.
     private void CreateExtendedBeam()
     {
-        for(int i = 0; i < totalLightSplits; i++)
+        if (splitBeams.Count > 0) DestroyBeam();
+
+        for (int i = 0; i < totalLightSplits; i++)
         {
             splitBeams.Add(this.gameObject.AddComponent<StraightSplineBeam>());
             splitBeams[i].beamColour = beamColour;
         }
         splitBeams[0].RotateBeam(new Vector3(0, 45, 0));
         splitBeams[1].RotateBeam(new Vector3(0, -45, 0));
+
+        if (splitColour) SplitColourBetweenBeams();
     }
 
     private void SplitColourBetweenBeams()

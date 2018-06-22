@@ -38,7 +38,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4470057276892784}
   - component: {fileID: 33512611795395256}
-  - component: {fileID: 65874383946054694}
   - component: {fileID: 23286153333966578}
   m_Layer: 0
   m_Name: Pedistal
@@ -85,7 +84,7 @@ Transform:
   m_GameObject: {fileID: 1310819343420994}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 0.1, z: 5}
+  m_LocalScale: {x: 2, y: 0.1, z: 2}
   m_Children: []
   m_Father: {fileID: 4549768030050300}
   m_RootOrder: 0
@@ -97,7 +96,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1396194740279482}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.67, z: -15.51}
+  m_LocalPosition: {x: -8, y: 0, z: 24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4470057276892784}
@@ -193,7 +192,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 6, y: 1, z: 6}
+  m_Size: {x: 4, y: 1, z: 4}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &65335505055913118
 BoxCollider:
@@ -201,18 +200,6 @@ BoxCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1216355736232290}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &65874383946054694
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1310819343420994}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
@@ -232,5 +219,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickedUp: 0
   playerTag: 
-  rotatableObjectString: LightRedirect
+  rotatableObjectString: LightEmitter
   Entered: 0
+  beamColour: {r: 1, g: 1, b: 1, a: 1}
+  beamLength: 15

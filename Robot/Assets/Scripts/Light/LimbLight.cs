@@ -79,7 +79,7 @@ public class LimbLight : MonoBehaviour
                 lightRedirect.beamColourRedirectControl = false;
                 lightRedirect.beamColour = beamColour;
             }
-            BeamFoundNearObject();
+            //BeamFoundNearObject();
         }
         else
         {
@@ -106,7 +106,7 @@ public class LimbLight : MonoBehaviour
     {
         if(RayCast(direction, nearDistance, out hit))
         {
-            lightRedirect.TriggerEnterFunction(hit.collider);
+            //lightRedirect.TriggerEnterFunction(hit.collider);
             //Debug.Log(hit.transform.name);
         }
     }
@@ -121,31 +121,5 @@ public class LimbLight : MonoBehaviour
         Debug.DrawRay(pos, direction, Color.red, length);
         return Physics.BoxCast(pos, this.GetComponent<Transform>().localScale, direction, out hit, this.GetComponent<Transform>().rotation, length, layermask);
     }
-
-    //void OnDrawGizmos()
-    //{
-    //    Gizmos.color = Color.red;
-    //    Vector3 pos = this.GetComponent<Transform>().position;
-    //    pos.z += 1.1f;
-    //    RaycastHit hit;
-    //    float nearDistance = 1.0f;
-
-    //    //Check if there has been a hit yet
-    //    if (Physics.BoxCast(pos, this.GetComponent<Transform>().localScale, -this.GetComponent<Transform>().forward, out hit, this.GetComponent<Transform>().rotation, nearDistance))
-    //    {
-    //        //Draw a Ray forward from GameObject toward the hit
-    //        Gizmos.DrawRay(transform.position, -transform.forward * hit.distance);
-    //        //Draw a cube that extends to where the hit exists
-    //        Gizmos.DrawWireCube(transform.position - transform.forward * hit.distance, transform.localScale);
-    //    }
-    //    //If there hasn't been a hit yet, draw the ray at the maximum distance
-    //    else
-    //    {
-    //        //Draw a Ray forward from GameObject toward the maximum distance
-    //        Gizmos.DrawRay(transform.position, -transform.forward * nearDistance);
-    //        //Draw a cube at the maximum distance
-    //        Gizmos.DrawWireCube(pos - transform.forward * nearDistance, transform.localScale);
-    //    }
-    //}
 }
 

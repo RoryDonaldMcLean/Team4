@@ -25,7 +25,7 @@ public class BeamPoint : MonoBehaviour
     private void LightRedirectInitial(ref Collider lightBeam)
     {
         //finds the point where the picked up object hit the lightbeam, only in z since its the axis right represents the length of the beam and forward for the object.
-        float newZ = lightBeam.gameObject.GetComponent<Collider>().ClosestPointOnBounds(transform.position).z - lightBeam.transform.root.position.z;
+        float newZ = lightBeam.gameObject.GetComponent<Collider>().ClosestPointOnBounds(transform.position).z;// - lightBeam.transform.root.position.z;
         //finds the collider object attached to every lightbeam, that is used as the collider for most of the lightbeam code
         Transform lightBeamColliderObject = lightBeam.transform.GetChild(0).transform;
         //To prevent the code from being repeated pointlessly, a check is done to ensure that its a new, unique point, before proceeding. 

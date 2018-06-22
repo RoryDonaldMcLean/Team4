@@ -4,18 +4,27 @@ using UnityEngine;
 
 public class StraightSplineBeam : MonoBehaviour
 {
+    private LightResize dynamicLightBeam;
     private GameObject splineCurve;
     public Color beamColour = Color.white;
     public bool active = true; 
     public bool notStraightBeam = false;
     //defines a length range from 1 to 10 to ensure an invalid length is not inputted.
-    [Range(1, 10)]
+    [Range(1, 20)]
     public int beamLength = 5;
     // Use this for initialization
-    void Start ()
+    void Start()
     {
         CreateBeam();
+        dynamicLightBeam = this.gameObject.AddComponent<LightResize>();
+        dynamicLightBeam.lineBeam = this;
     }
+
+    void OnDestroy()
+    {
+        Destroy(dynamicLightBeam);
+    }
+
 	//either creates or destroys the beam depending on the active state of the beam.
     public void ToggleBeam()
     {

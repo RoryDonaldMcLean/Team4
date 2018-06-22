@@ -10,6 +10,7 @@ public class LevelControlBaseClass : MonoBehaviour
     protected List<SCR_Melody> doors;
     protected List<StraightSplineBeam> beams;
     protected List<LightTrigger> lightDoors;
+    protected PuzzleExitDoor exitDoor;
 
     void Start()
     {
@@ -18,6 +19,20 @@ public class LevelControlBaseClass : MonoBehaviour
         SpecficPuzzleSetup("Doors");
         SpecficPuzzleSetup("Beams");
         SpecficPuzzleSetup("LightDoors");
+        GameObject door = GameObject.FindGameObjectWithTag("PuzzleExitDoor");
+        exitDoor = door.transform.GetChild(0).GetComponent<PuzzleExitDoor>();
+    }
+
+    protected bool IsAllLightTriggersActive()
+    {
+        bool activeState = false;
+        foreach(LightTrigger trigger in lightDoors)
+        {
+            activeState = trigger.correctLight;
+            if (!activeState) return activeState;
+        }
+
+        return activeState;
     }
 
     //adds up all the objects in this level into their respective data containers

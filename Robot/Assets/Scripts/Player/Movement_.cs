@@ -29,8 +29,6 @@ public class Movement_ : MonoBehaviour
 
 
 
-
-    private float groundY;
     // Use this for initialization
     void Start()
     {
@@ -150,8 +148,6 @@ public class Movement_ : MonoBehaviour
 				(grounded == true || doubleJump == true) && player2PrevState.Buttons.A == ButtonState.Released && player2State.Buttons.A == ButtonState.Pressed
 				&& this.GetLegQuantity() >= 1)
             {
-				//Debug.Log (quantity);
-
                 if (grounded && this.GetLegQuantity() >= 2)
                     doubleJump = true;
                 else
@@ -162,29 +158,20 @@ public class Movement_ : MonoBehaviour
 
         }
 
-        updateMovement(velocity);
+        UpdateMovement(velocity);
         velocity.z = 0.0f;
         velocity.x = 0.0f;
         if (!grounded)
         {
-            if (velocity.y >= -1)
+            if (velocity.y >= -1.01f)
+            {
                 velocity.y += Physics.gravity.y * Time.deltaTime * dropdownSpeed;
+            }
             else
+            {
                 velocity.y = -1.01f;
+            }
         }
-        else
-            velocity.y = 0;
-
-    }
-
-    //updates movement using the passed velocity vector
-    void updateMovement(Vector3 vel)
-    {
-
-        rb1.velocity = vel * playerSpeed;
-
-        //will rotate the player to face the direction they are moving
-        transform.LookAt(transform.position + new Vector3(rb1.velocity.x, 0, rb1.velocity.z));
     }
 
     void OnTriggerEnter(Collider col)
@@ -193,35 +180,29 @@ public class Movement_ : MonoBehaviour
         {
             grounded = true;
             groundY = this.GetComponent<Transform>().position.y;
-        }
-    }
 
-    void OnTriggerStay(Collider col)
-    {
-        //if (col.gameObject.tag != "Ground" && col.gameObject.tag != "PuzzleArea" && !grounded)
-        //{
-        //    if (this.GetComponent<Transform>().position.y > groundY)
-        //    {
-        //        if (velocity.y < 0)
-        //        {
-        //            collision = true;
-        //            this.GetComponent<Transform>().position += new Vector3(0, velocity.y , 0);
-        //        }
-        //    }
-        //    else
-        //    {
-        //        collision = false;
-        //        this.GetComponent<Transform>().position = new Vector3(this.GetComponent<Transform>().position.x, groundY, this.GetComponent<Transform>().position.z);
-        //    }
-        //}
+            doubleJump = false;
+            velocity.y = 0;
+        }
     }
 
     void OnTriggerExit(Collider col)
     {
-        if (col.gameObject.tag == "Ground")
+
+        if ((col.gameObject.tag == "Ground") &&(rb1.velocity.y < 0))
         {
             grounded = false;
+            doubleJump = true;
         }
+    }
+
+    //updates movement using the passed velocity vector
+    void UpdateMovement(Vector3 vel)
+    {
+        rb1.velocity = vel * playerSpeed;
+
+        //will rotate the player to face the direction they are moving
+        transform.LookAt(transform.position + new Vector3(rb1.velocity.x, 0, rb1.velocity.z));
     }
 
     private int GetLegQuantity()

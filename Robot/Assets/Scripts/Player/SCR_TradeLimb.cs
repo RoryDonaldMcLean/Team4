@@ -98,6 +98,7 @@ public class SCR_TradeLimb : MonoBehaviour
     public void Update()
     {
 		ProcessInput ();
+
         childrenParticleSytems = gameObject.GetComponentsInChildren<ParticleSystem>();
 
         // Process each child's particle system and disable its emission module.
@@ -464,6 +465,9 @@ public class SCR_TradeLimb : MonoBehaviour
                 newLimb.name = limbs[i].name;
                 newLimb.transform.position = boxLimbObject.transform.position;
                 newLimb.transform.parent = boxLimbObject.transform.parent;
+
+                newLimb.layer = LayerMask.NameToLayer("LightTrigger");
+           
                 Destroy(boxLimbObject);
 
                 //remove limb
@@ -486,6 +490,10 @@ public class SCR_TradeLimb : MonoBehaviour
             hinge.transform.position = boxLimbLocation.transform.position;
             hinge.transform.parent = boxLimbLocation.transform.parent;
             hinge.name = "Hinge";
+
+
+            hinge.GetComponent<ParticleSystem>().Stop();
+
             Destroy(boxLimbLocation);
 
             return true;

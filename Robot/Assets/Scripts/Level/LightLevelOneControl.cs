@@ -6,7 +6,7 @@ public class LightLevelOneControl : LevelControlBaseClass
 {
    void Update()
     {
-        if(lightDoors[0].GetComponent<LightTrigger>().doorOpen)
+        if(lightDoors[0].GetComponent<LightTrigger>().correctLight)
         {
             Debug.Log("LEVEL DONE");
         }

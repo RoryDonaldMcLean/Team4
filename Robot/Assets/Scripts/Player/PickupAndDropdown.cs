@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using XInputDotNetPure;
 
 public class PickupAndDropdown : MonoBehaviour
 {
@@ -20,6 +21,10 @@ public class PickupAndDropdown : MonoBehaviour
     //public AudioClip DropCrystal;
     //public AudioSource DropCrystalSource;
 
+	GamePadState state;
+	GamePadState prevState;
+	GamePadState player2State;
+	GamePadState player2PrevState;
 
     // Use this for initialization
     private void Start()
@@ -34,10 +39,16 @@ public class PickupAndDropdown : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+		prevState = state;
+		state = GamePad.GetState(PlayerIndex.One);
+
+		player2PrevState = player2State;
+		player2State = GamePad.GetState(PlayerIndex.Two);
+
         if (!holding)
         {
             RaycastHit hit;
-            if(Input.GetMouseButtonDown(0))
+			if(Input.GetKey(KeyCode.E))
             {
                 if (ObjectFound(out hit))//ray cast detection
                 {             
@@ -73,7 +84,7 @@ public class PickupAndDropdown : MonoBehaviour
 					}
 				}
             }
-            else if(Input.GetMouseButtonDown(1))
+			else if(Input.GetKey(KeyCode.R))
             {
 				if (ObjectFound (out hit))//ray cast detection
 				{
@@ -104,7 +115,7 @@ public class PickupAndDropdown : MonoBehaviour
 				temp.x = this.transform.position.x;
 				pickedUpGameObject.transform.position = temp;
 
-				if (Input.GetMouseButtonDown (0))
+				if(Input.GetKey(KeyCode.E))
 				{
 					Debug.Log ("dropped on click");
 					LimitDrop ();
@@ -117,7 +128,7 @@ public class PickupAndDropdown : MonoBehaviour
 				pickedUpGameObject.transform.rotation = Quaternion.RotateTowards (pickedUpGameObject.transform.rotation,
 					this.transform.rotation, step);
 
-				if (Input.GetMouseButtonDown (0))
+				if(Input.GetKey(KeyCode.E))
 				{
 					RotateDrop ();
 				}

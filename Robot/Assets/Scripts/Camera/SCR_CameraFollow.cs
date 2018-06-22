@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SCR_CameraFollow : MonoBehaviour 
 {
+    //
 	Camera cam;
 	Transform t1, t2, followThis;
 

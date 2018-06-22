@@ -30,7 +30,7 @@ public class UILayout : MonoBehaviour
             reboundButton[i] = false;
         }
 
-        if (!File.Exists(Application.persistentDataPath + "/PlayerButtonSetting.txt"))
+        if (!File.Exists(Application.persistentDataPath + "/PlayerButtonSetting.setting"))
         {
             SaveNLoad.Save(GameManager.Instance.playerSetting);
         }
@@ -77,16 +77,18 @@ public class UILayout : MonoBehaviour
         }
     }
 
-    private void GeneLabelSlider(float x, float y)
+    private int GeneLabelSlider(float x, float y, int volume)
     {
+        //volume = GameManager.Instance.playerSetting.volume;
         GUI.Label(new Rect(x, y + 30, 100, 20), "Volume");
-        GameManager.Instance.playerSetting.volume = (int)GUI.HorizontalSlider(new Rect(x + 150, y + 30, Screen.width - x - 50 - 100 - 100, 20), GameManager.Instance.playerSetting.volume, 0.0f, 100.0f);
-        GUI.Label(new Rect(x + 100, y + 30, 50, 20), GameManager.Instance.playerSetting.volume.ToString());
-        if (Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1) || Input.GetMouseButtonUp(2))
+        volume = (int)GUI.HorizontalSlider(new Rect(x + 150, y + 30, Screen.width - x - 50 - 100 - 100, 20), volume, 0.0f, 100.0f);
+        GUI.Label(new Rect(x + 100, y + 30, 50, 20), volume.ToString());
+        if ((Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1) || Input.GetMouseButtonUp(2)) 
+            && GameManager.Instance.playerSetting.volume != volume)
         {
             SaveNLoad.Save(GameManager.Instance.playerSetting);
         }
-        return;
+        return volume;
     }
 
     private bool allFalse()
@@ -149,7 +151,7 @@ public class UILayout : MonoBehaviour
 
             if (!allFalse())
             {
-                GeneLabelSlider(250 + 50, Screen.height - 140);
+                GameManager.Instance.playerSetting.volume = GeneLabelSlider(250 + 50, Screen.height - 140, GameManager.Instance.playerSetting.volume);
                 if (GUI.Button(new Rect(250 + 50, Screen.height - 40, 200, 20), "Default"))
                 {
                     for (int i = 0; i < GameManager.Instance.playerSetting.currentButton.Length; i++)

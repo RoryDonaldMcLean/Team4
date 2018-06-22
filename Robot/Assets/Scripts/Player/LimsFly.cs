@@ -11,11 +11,19 @@ public class LimsFly : MonoBehaviour
     private float alpha;
     private int limsNumber;
 
+    private Vector3 currentPosition;
+    private float parabolaVariable;
+
     // Use this for initialization
     void Start()
     {
         isFinish = false;
         alpha = 0;
+        parabolaVariable = -25;
+        if(this.GetComponent<CapsuleCollider>())
+        {
+            this.GetComponent<CapsuleCollider>().enabled = false;
+        }
     }
 
     // Update is called once per frame
@@ -32,12 +40,20 @@ public class LimsFly : MonoBehaviour
         if (alpha <= 1.0f)
             alpha += 0.01f;
         endPosition = targetPlayer.GetComponent<SCR_TradeLimb>().limbs[limsNumber].GetComponent<Transform>().position;
+<<<<<<< HEAD
         this.GetComponent<Transform>().position = Vector3.Lerp(startPosition, endPosition, alpha);
         
        //Rotates the object while it flys to the player
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 0, -900), Time.deltaTime * 1 );
 
+=======
+        currentPosition.x = Mathf.Lerp(startPosition.x, endPosition.x, alpha);
+        currentPosition.z = Mathf.Lerp(startPosition.z, endPosition.z, alpha);
+        currentPosition.y = startPosition.y + parabolaVariable * alpha * alpha + (endPosition.y - parabolaVariable) * alpha;
+        this.GetComponent<Transform>().position = currentPosition;
+>>>>>>> origin/Neko
 
+        //this.GetComponent<Transform>().position = Vector3.Lerp(startPosition, endPosition, alpha);
         if (alpha >= 1)
         {
             isFinish = true;

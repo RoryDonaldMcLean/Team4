@@ -4,7 +4,13 @@
 		<WorkUnit Name="Default Work Unit" ID="{6BAE9174-7CEB-4131-99B7-F2EC621355E0}" PersistMode="Standalone">
 			<ChildrenList>
 				<ActorMixer Name="Robots" ID="{753C1F64-B6D2-415E-A1AB-B272E79F90EA}" ShortID="159600976">
+					<PropertyList>
+						<Property Name="PositioningType" Type="int16" Value="1"/>
+					</PropertyList>
 					<ReferenceList>
+						<Reference Name="Attenuation">
+							<ObjectRef Name="Main_Attentuation" ID="{7AFFEEA2-FEA6-4C5E-9350-4292CD58F98F}" WorkUnitID="{69E5E085-C55B-46C1-B440-1CB36DA8E2EE}"/>
+						</Reference>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
 						</Reference>
@@ -14,7 +20,25 @@
 					</ReferenceList>
 					<ChildrenList>
 						<SwitchContainer Name="Chirps" ID="{E92E8D85-A090-467B-B2B0-062EC79B08EA}" ShortID="20010917">
+							<PropertyList>
+								<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
+								<Property Name="MaxSoundPerInstance" Type="int16">
+									<ValueList>
+										<Value>3</Value>
+									</ValueList>
+								</Property>
+								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+								<Property Name="PositioningType" Type="int16" Value="1"/>
+								<Property Name="UseMaxSoundPerInstance" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
+								<Reference Name="Attenuation">
+									<ObjectRef Name="Main_Attentuation" ID="{7AFFEEA2-FEA6-4C5E-9350-4292CD58F98F}" WorkUnitID="{69E5E085-C55B-46C1-B440-1CB36DA8E2EE}"/>
+								</Reference>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
 								</Reference>
@@ -23,7 +47,19 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<RandomSequenceContainer Name="Player1" ID="{79092839-FA8A-4A87-AD5B-451028C09EE5}" ShortID="917902992">
+								<SwitchContainer Name="Type_P1" ID="{B724D9E1-33CE-4B99-9DD6-FDF658D5F3C3}" ShortID="227076438">
+									<PropertyList>
+										<Property Name="MaxSoundPerInstance" Type="int16">
+											<ValueList>
+												<Value>1</Value>
+											</ValueList>
+										</Property>
+										<Property Name="UseMaxSoundPerInstance" Type="bool">
+											<ValueList>
+												<Value>True</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
@@ -33,7 +69,14 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<Sound Name="Chirp 1" ID="{F4E8DDE7-AE5C-432A-A4D8-B035F676EBCE}" ShortID="179703040">
+										<RandomSequenceContainer Name="Happy" ID="{2102E809-4B35-4C05-B9F8-392456619F0C}" ShortID="833224020">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-3</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
@@ -43,16 +86,85 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="Chirp 1" ID="{32D7CB37-755F-43FD-87D7-892D8E4CCC34}" ShortID="914616042">
-													<Language>SFX</Language>
-													<AudioFile>Chirp 1.wav</AudioFile>
-												</AudioFileSource>
+												<Sound Name="Chirp 1" ID="{F4E8DDE7-AE5C-432A-A4D8-B035F676EBCE}" ShortID="179703040">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Robots" ID="{2CF2209D-D7EA-4591-BE9C-0A89A9A34326}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Chirp 1" ID="{32D7CB37-755F-43FD-87D7-892D8E4CCC34}" ShortID="914616042">
+															<Language>SFX</Language>
+															<AudioFile>Chirp 1.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Chirp 1" ID="{32D7CB37-755F-43FD-87D7-892D8E4CCC34}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Chirp 2" ID="{662841D0-4C90-495E-A02E-6D39024A213C}" ShortID="909050941">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Robots" ID="{2CF2209D-D7EA-4591-BE9C-0A89A9A34326}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Chirp 2" ID="{A3F2BF54-A13F-404C-B6C3-5CC796A063DB}" ShortID="352650002">
+															<Language>SFX</Language>
+															<AudioFile>Chirp 2.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Chirp 2" ID="{A3F2BF54-A13F-404C-B6C3-5CC796A063DB}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Chirp 3" ID="{BA009EEE-7829-4AF5-8BFC-94339B6C2B54}" ShortID="446512115">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Robots" ID="{2CF2209D-D7EA-4591-BE9C-0A89A9A34326}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Chirp 3" ID="{F7733768-6389-4D0C-8671-ADC635BA7B45}" ShortID="658668300">
+															<Language>SFX</Language>
+															<AudioFile>Chirp 3.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Chirp 3" ID="{F7733768-6389-4D0C-8671-ADC635BA7B45}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Chirp 4" ID="{D49F1FB4-5713-40A7-8C81-8D42BD3E1B90}" ShortID="930786849">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Robots" ID="{2CF2209D-D7EA-4591-BE9C-0A89A9A34326}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Chirp 4" ID="{3D75B391-5F92-4856-B7B9-8D54D85E0AF0}" ShortID="898621401">
+															<Language>SFX</Language>
+															<AudioFile>Chirp 4.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Chirp 4" ID="{3D75B391-5F92-4856-B7B9-8D54D85E0AF0}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
 											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="Chirp 1" ID="{32D7CB37-755F-43FD-87D7-892D8E4CCC34}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="Chirp 2" ID="{662841D0-4C90-495E-A02E-6D39024A213C}" ShortID="909050941">
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="Sad" ID="{91CA8C38-8AD6-48A0-BA57-FD1CA4A35107}" ShortID="126755793">
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
@@ -61,89 +173,72 @@
 													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
 												</Reference>
 											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Chirp 2" ID="{A3F2BF54-A13F-404C-B6C3-5CC796A063DB}" ShortID="352650002">
-													<Language>SFX</Language>
-													<AudioFile>Chirp 2.wav</AudioFile>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="Chirp 2" ID="{A3F2BF54-A13F-404C-B6C3-5CC796A063DB}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="Chirp 3" ID="{BA009EEE-7829-4AF5-8BFC-94339B6C2B54}" ShortID="446512115">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Chirp 3" ID="{F7733768-6389-4D0C-8671-ADC635BA7B45}" ShortID="658668300">
-													<Language>SFX</Language>
-													<AudioFile>Chirp 3.wav</AudioFile>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="Chirp 3" ID="{F7733768-6389-4D0C-8671-ADC635BA7B45}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="Chirp 4" ID="{D49F1FB4-5713-40A7-8C81-8D42BD3E1B90}" ShortID="930786849">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Chirp 4" ID="{3D75B391-5F92-4856-B7B9-8D54D85E0AF0}" ShortID="898621401">
-													<Language>SFX</Language>
-													<AudioFile>Chirp 4.wav</AudioFile>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="Chirp 4" ID="{3D75B391-5F92-4856-B7B9-8D54D85E0AF0}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
+										</RandomSequenceContainer>
 									</ChildrenList>
-								</RandomSequenceContainer>
-								<RandomSequenceContainer Name="Player2" ID="{E7D45A10-35DE-4E01-A0E9-D914A6138972}" ShortID="968500950">
+									<GroupingInfo>
+										<GroupRef Name="Chirp_Type" ID="{98EBFAA5-4FEE-4E71-90CD-0B730B7E07B7}"/>
+										<DefaultSwitchRef Name="" ID="{00000000-0000-0000-0000-000000000000}"/>
+										<GroupingBehaviorList>
+											<GroupingBehavior>
+												<ItemRef Name="Happy" ID="{2102E809-4B35-4C05-B9F8-392456619F0C}"/>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="Sad" ID="{91CA8C38-8AD6-48A0-BA57-FD1CA4A35107}"/>
+											</GroupingBehavior>
+										</GroupingBehaviorList>
+										<GroupingList>
+											<Grouping>
+												<SwitchRef Name="Sad" ID="{40ECCE0E-4C73-4F37-A8EA-50B4C67DDC81}"/>
+												<ItemList>
+													<ItemRef Name="Sad" ID="{91CA8C38-8AD6-48A0-BA57-FD1CA4A35107}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="Happy" ID="{8159EF55-F4EC-4B8F-8798-01F730CE0B04}"/>
+												<ItemList>
+													<ItemRef Name="Happy" ID="{2102E809-4B35-4C05-B9F8-392456619F0C}"/>
+												</ItemList>
+											</Grouping>
+										</GroupingList>
+									</GroupingInfo>
+								</SwitchContainer>
+								<SwitchContainer Name="Type_P2" ID="{54076BB4-4DBF-4E0B-B7A3-45A6236B551D}" ShortID="790627824">
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
 										</Reference>
 										<Reference Name="OutputBus">
-											<ObjectRef Name="Robots" ID="{2CF2209D-D7EA-4591-BE9C-0A89A9A34326}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
 										</Reference>
 									</ReferenceList>
-								</RandomSequenceContainer>
+									<GroupingInfo>
+										<GroupRef Name="" ID="{00000000-0000-0000-0000-000000000000}"/>
+										<DefaultSwitchRef Name="" ID="{00000000-0000-0000-0000-000000000000}"/>
+									</GroupingInfo>
+								</SwitchContainer>
 							</ChildrenList>
 							<GroupingInfo>
 								<GroupRef Name="PlayerID" ID="{0B1758AD-368C-468E-96D5-4A550B0524FF}"/>
 								<DefaultSwitchRef Name="Player_1" ID="{6E833DCC-3FA9-4C0A-8558-F454CDA5F3DB}"/>
 								<GroupingBehaviorList>
 									<GroupingBehavior>
-										<ItemRef Name="Player2" ID="{E7D45A10-35DE-4E01-A0E9-D914A6138972}"/>
+										<ItemRef Name="Type_P2" ID="{54076BB4-4DBF-4E0B-B7A3-45A6236B551D}"/>
 									</GroupingBehavior>
 									<GroupingBehavior>
-										<ItemRef Name="Player1" ID="{79092839-FA8A-4A87-AD5B-451028C09EE5}"/>
+										<ItemRef Name="Type_P1" ID="{B724D9E1-33CE-4B99-9DD6-FDF658D5F3C3}"/>
 									</GroupingBehavior>
 								</GroupingBehaviorList>
 								<GroupingList>
 									<Grouping>
 										<SwitchRef Name="Player_2" ID="{6CA7EC1D-3760-4AE3-8123-C5A6D695980E}"/>
 										<ItemList>
-											<ItemRef Name="Player2" ID="{E7D45A10-35DE-4E01-A0E9-D914A6138972}"/>
+											<ItemRef Name="Type_P2" ID="{54076BB4-4DBF-4E0B-B7A3-45A6236B551D}"/>
 										</ItemList>
 									</Grouping>
 									<Grouping>
 										<SwitchRef Name="Player_1" ID="{6E833DCC-3FA9-4C0A-8558-F454CDA5F3DB}"/>
 										<ItemList>
-											<ItemRef Name="Player1" ID="{79092839-FA8A-4A87-AD5B-451028C09EE5}"/>
+											<ItemRef Name="Type_P1" ID="{B724D9E1-33CE-4B99-9DD6-FDF658D5F3C3}"/>
 										</ItemList>
 									</Grouping>
 								</GroupingList>

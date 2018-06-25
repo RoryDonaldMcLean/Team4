@@ -8,30 +8,11 @@
 						<Action Name="" ID="{940E1BC4-43F4-49C5-9E46-B7C8B1E7BE5E}" ShortID="778739752">
 							<PropertyList>
 								<Property Name="ActionType" Type="int16" Value="1"/>
-								<Property Name="Inclusion" Type="bool">
-									<ValueList>
-										<Value>False</Value>
-									</ValueList>
-								</Property>
+								<Property Name="Delay" Type="Real64" Value="0.3"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="Chirps" ID="{C20DA0F8-7DC3-4A2E-8494-63BA85318019}" WorkUnitID="{C54CF3E9-0E60-4A5A-AD10-EFD580D533AD}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-						<Action Name="" ID="{6ABD4DA1-6851-42E7-BF0E-B8C72E55B91D}" ShortID="793164372">
-							<PropertyList>
-								<Property Name="ActionType" Type="int16" Value="1"/>
-								<Property Name="Inclusion" Type="bool">
-									<ValueList>
-										<Value>False</Value>
-									</ValueList>
-								</Property>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Chirp_Combo" ID="{69529A3D-9EB8-4B0E-B47B-DAD2E6E4F783}" WorkUnitID="{C54CF3E9-0E60-4A5A-AD10-EFD580D533AD}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -42,20 +23,6 @@
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="Chirps" ID="{E92E8D85-A090-467B-B2B0-062EC79B08EA}" WorkUnitID="{6BAE9174-7CEB-4131-99B7-F2EC621355E0}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
-				<Event Name="ChirpCombo" ID="{687537D1-4F14-42F6-9B0C-BB8838F6403F}">
-					<ChildrenList>
-						<Action Name="" ID="{85E5F568-C0BE-49A4-843C-62766E1E3193}" ShortID="842313478">
-							<PropertyList>
-								<Property Name="ActionType" Type="int16" Value="1"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Chirp_Combo" ID="{69529A3D-9EB8-4B0E-B47B-DAD2E6E4F783}" WorkUnitID="{C54CF3E9-0E60-4A5A-AD10-EFD580D533AD}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -84,6 +51,16 @@
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="DRONE" ID="{B5632B42-79DC-4E3D-86B5-BFE5138A3B20}" WorkUnitID="{D9329DB3-E4D7-45AA-BD40-6EB28C6C4D39}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{CB2BBB73-F755-45E5-81FE-A16C70AD6CD0}" ShortID="834125943">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="DRONE2" ID="{F3E38ECF-C85B-47C8-8FDB-FF4C1388A8FA}" WorkUnitID="{D9329DB3-E4D7-45AA-BD40-6EB28C6C4D39}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

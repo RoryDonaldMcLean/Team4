@@ -10,10 +10,6 @@
 							<Position X="0" Y="0"/>
 						</Module>
 						<Module>
-							<ObjectRef Name="ChirpCombo" ID="{687537D1-4F14-42F6-9B0C-BB8838F6403F}" WorkUnitID="{9208E778-4B37-4421-9C2A-46AAA42FFE85}"/>
-							<Position X="1" Y="0"/>
-						</Module>
-						<Module>
 							<ObjectRef Name="Music_Start" ID="{3B88EE9D-A4F2-4C37-9601-6A387E91D0D0}" WorkUnitID="{9208E778-4B37-4421-9C2A-46AAA42FFE85}"/>
 							<Position X="2" Y="0"/>
 						</Module>
@@ -36,6 +32,14 @@
 							<Value>50</Value>
 						</RTPCValue>
 						<RTPCValue>
+							<GameParameterRef Name="DroneDIST_Volume" ID="{A1797806-8F02-46EB-9924-0E07F2614516}"/>
+							<Value>100</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="Chirps_Combine" ID="{F12155E7-E290-4705-A9D3-8E95B7457F07}"/>
+							<Value>100</Value>
+						</RTPCValue>
+						<RTPCValue>
 							<GameParameterRef Name="SS_Air_Size" ID="{1329EBEF-A193-472E-A38C-64668B494879}"/>
 							<Value>50</Value>
 						</RTPCValue>
@@ -48,8 +52,20 @@
 							<Value>75</Value>
 						</RTPCValue>
 						<RTPCValue>
+							<GameParameterRef Name="Drone_Beat_Freq" ID="{5023862A-73FF-49FE-BC62-CD509DEBC88F}"/>
+							<Value>0</Value>
+						</RTPCValue>
+						<RTPCValue>
 							<GameParameterRef Name="SS_Air_TimeOfDay" ID="{536FA72C-8C7E-4C8B-AE03-EF34FDADC314}"/>
 							<Value>6</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="Drone_Tremelo_ON" ID="{AD8934EA-598C-4D08-872E-AB9F32993429}"/>
+							<Value>0</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="Drone_FMDistortion" ID="{939E4A38-C218-4D6C-9030-73680FB3E6E9}"/>
+							<Value>0</Value>
 						</RTPCValue>
 						<RTPCValue>
 							<GameParameterRef Name="SS_Air_Freefall" ID="{2F2DFE37-4F9E-4D94-83D8-53CCA39781AD}"/>
@@ -57,12 +73,16 @@
 						</RTPCValue>
 						<RTPCValue>
 							<GameParameterRef Name="SS_Air_Fear" ID="{F72E0659-4346-4E1C-A1B1-DAB46A05101E}"/>
-							<Value>50</Value>
+							<Value>56</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="Drone_Chorus_ON" ID="{F99D4D9D-2954-4FE2-89E7-2D88A35A3B4B}"/>
+							<Value>100</Value>
 						</RTPCValue>
 					</RTPCValueList>
 					<CurrentStateList ShowAll="true">
 						<CurrentStateRef Name="E1T1" ID="{8560F98D-A0AB-460C-B0B1-3650BB884DC1}"/>
-						<CurrentStateRef Name="Stage3" ID="{85B64610-FADE-4DD0-A09F-8B53AB68EC9B}"/>
+						<CurrentStateRef Name="Happy" ID="{8159EF55-F4EC-4B8F-8798-01F730CE0B04}"/>
 					</CurrentStateList>
 					<CurrentSwitchList ShowAll="true">
 						<CurrentSwitchRef Name="Concrete" ID="{C238A2AA-1701-4871-AACD-CAD08E807EA5}"/>
@@ -88,18 +108,26 @@
 						</RTPCValue>
 						<RTPCValue>
 							<GameParameterRef Name="SS_Air_Month" ID="{09E2B445-C4A3-447F-B3CA-818A1D925EF7}"/>
-							<Value>6</Value>
+							<Value>6.2</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="Drone_Beat" ID="{A6DF1E7D-626D-4506-925E-A2C3E96628BC}"/>
+							<Value>0</Value>
 						</RTPCValue>
 						<RTPCValue>
 							<GameParameterRef Name="SS_Air_RPM" ID="{A34890AB-B9D5-4526-A64D-5290C43EF2DC}"/>
-							<Value>50</Value>
+							<Value>54</Value>
 						</RTPCValue>
 						<RTPCValue>
 							<GameParameterRef Name="SS_Air_Fury" ID="{A2AE79DC-CA3A-46BA-9652-9986C322A87B}"/>
 							<Value>50</Value>
 						</RTPCValue>
 						<RTPCValue>
-							<GameParameterRef Name="Drone_Volume" ID="{A1797806-8F02-46EB-9924-0E07F2614516}"/>
+							<GameParameterRef Name="DroneDIST_Volume" ID="{A1797806-8F02-46EB-9924-0E07F2614516}"/>
+							<Value>100</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="Chirps_Combine" ID="{F12155E7-E290-4705-A9D3-8E95B7457F07}"/>
 							<Value>100</Value>
 						</RTPCValue>
 						<RTPCValue>
@@ -112,11 +140,15 @@
 						</RTPCValue>
 						<RTPCValue>
 							<GameParameterRef Name="SS_Air_Presence" ID="{E3B7811A-7B2F-490F-B44F-5FE51B468041}"/>
-							<Value>75</Value>
+							<Value>77</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="Drone_PulseWidth" ID="{8CE1C911-B286-49D7-8766-A161A2E764D6}"/>
+							<Value>100</Value>
 						</RTPCValue>
 						<RTPCValue>
 							<GameParameterRef Name="Drone_Beat_Freq" ID="{5023862A-73FF-49FE-BC62-CD509DEBC88F}"/>
-							<Value>47</Value>
+							<Value>0</Value>
 						</RTPCValue>
 						<RTPCValue>
 							<GameParameterRef Name="SS_Air_TimeOfDay" ID="{536FA72C-8C7E-4C8B-AE03-EF34FDADC314}"/>
@@ -128,7 +160,7 @@
 						</RTPCValue>
 						<RTPCValue>
 							<GameParameterRef Name="Drone_FMDistortion" ID="{939E4A38-C218-4D6C-9030-73680FB3E6E9}"/>
-							<Value>0</Value>
+							<Value>72</Value>
 						</RTPCValue>
 						<RTPCValue>
 							<GameParameterRef Name="SS_Air_Freefall" ID="{2F2DFE37-4F9E-4D94-83D8-53CCA39781AD}"/>
@@ -145,6 +177,8 @@
 					</RTPCValueList>
 					<CurrentStateList ShowAll="true">
 						<CurrentStateRef Name="E1T1" ID="{8560F98D-A0AB-460C-B0B1-3650BB884DC1}"/>
+						<CurrentStateRef Name="Hit_Switch" ID="{5DBE742A-FF4B-4888-A989-F0958DD1AA8E}"/>
+						<CurrentStateRef Name="Happy" ID="{8159EF55-F4EC-4B8F-8798-01F730CE0B04}"/>
 					</CurrentStateList>
 					<CurrentSwitchList ShowAll="true">
 						<CurrentSwitchRef Name="Concrete" ID="{C238A2AA-1701-4871-AACD-CAD08E807EA5}"/>

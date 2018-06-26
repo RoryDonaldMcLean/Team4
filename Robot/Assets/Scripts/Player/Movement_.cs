@@ -27,8 +27,6 @@ public class Movement_ : MonoBehaviour
     public bool grounded = true;
     public bool doubleJump = false;
 
-
-
     // Use this for initialization
     void Start()
     {
@@ -104,7 +102,6 @@ public class Movement_ : MonoBehaviour
 				&& this.GetLegQuantity() >= 1)
 
             {
-				Debug.Log ("jump");
                 if (grounded && this.GetLegQuantity() >= 2)
                     doubleJump = true;
                 else

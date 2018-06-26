@@ -32,6 +32,7 @@ public class StraightSplineBeam : MonoBehaviour
 
         CreateBeam();
         DestroyBeam();
+
         StartCoroutine(LightResizeToggleControl(active));
     }
     //either creates or destroys the beam depending on the active state of the beam.
@@ -41,6 +42,7 @@ public class StraightSplineBeam : MonoBehaviour
 
         CustomBeam(startPoint, midPoints, endPoint);
         DestroyBeam();
+        //StartCoroutine(LightResizeToggleControl(active));
     }
 
     private void CustomBeam(Vector3 startPoint, List<Vector3> midPoints, Vector3 endPoint)
@@ -98,10 +100,14 @@ public class StraightSplineBeam : MonoBehaviour
         splineCurve.transform.position = newPos;
     }
 
-    IEnumerator BeamNotification()
+    public void WaitForBeamDestruction()
+    {
+        StartCoroutine(BeamNotification());
+    }
+
+    public IEnumerator BeamNotification()
     {
         yield return new WaitUntil(() => splineCurve != null);
-        Debug.Log("GoBeam");
     }
 
     public bool IsBeamAlive()

@@ -21,30 +21,33 @@ public class LightEmitter : MonoBehaviour
     public void ToggleLight()
     {
         lineBeam.ToggleBeam();
-
-        //RaycastHit hit;
-        //if(ObjectFoundInfrontOfBeam(out hit))
-        {
-            //TriggerExitControl(hit.transform);
-        }
+        if(switchedOn) WaitForBeamDestruction();
     }
 
-    private void TriggerExitControl(Transform objectBlocked)
+    private void WaitForBeamDestruction()
     {
-        switch (objectBlocked.name)
+        StartCoroutine(CollisionControl());
+    }
+
+    private IEnumerator CollisionControl()
+    {
+        yield return StartCoroutine(lineBeam.BeamNotification());
+        CollisionCheck();
+    }
+
+    private void CollisionCheck()
+    {
+        RaycastHit hit;
+        if (ObjectFoundInfrontOfBeam(out hit))
         {
-            case "LightSplitter":
-                objectBlocked.GetComponent<LightSplitter>().ForceTriggerExit();
-                break;
-            case "ColourBarrier":
-                objectBlocked.GetComponent<LightBarrier>().ForceTriggerExit();
-                break;
+            Debug.Log("EmitterHit" + hit.transform.name);
+            this.GetComponent<LightResize>().TriggerExitControl(hit.transform);
         }
     }
 
     private bool ObjectFoundInfrontOfBeam(out RaycastHit hit)
     {
-        Debug.DrawRay(this.GetComponent<Transform>().position, this.GetComponent<Transform>().forward, Color.red, beamLength);
-        return Physics.BoxCast(this.GetComponent<Transform>().position, this.GetComponent<Transform>().localScale, this.GetComponent<Transform>().forward, out hit, this.GetComponent<Transform>().rotation, beamLength);
+        Debug.DrawRay(this.GetComponent<Transform>().position, this.GetComponent<Transform>().forward, Color.green, lineBeam.beamLength * 2);
+        return Physics.BoxCast(this.GetComponent<Transform>().position, this.GetComponent<Transform>().localScale, this.GetComponent<Transform>().forward, out hit, this.GetComponent<Transform>().rotation, lineBeam.beamLength * 2);
     }
 }

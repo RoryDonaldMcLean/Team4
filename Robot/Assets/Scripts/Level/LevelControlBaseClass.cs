@@ -20,9 +20,20 @@ public class LevelControlBaseClass : MonoBehaviour
         SpecficPuzzleSetup("Doors");
         SpecficPuzzleSetup("Beams");
         SpecficPuzzleSetup("LightDoors");
-        GameObject door = GameObject.FindGameObjectWithTag("PuzzleExitDoor");
-        exitDoor = door.transform.GetChild(0).GetComponent<PuzzleExitDoor>();
-        Debug.Log(">" + lightDoors.Count);
+
+        DoorSetup();
+    }
+
+    private void DoorSetup()
+    {
+        GameObject[] doorObjects = GameObject.FindGameObjectsWithTag("PuzzleExitDoor");
+        foreach (GameObject doorObject in doorObjects)
+        {
+            if (doorObject.transform.parent.name.Contains(PuzzleIdentifier))
+            {
+                exitDoor = doorObject.transform.GetChild(0).GetComponent<PuzzleExitDoor>();
+            }
+        }
     }
 
     protected bool IsAllLightTriggersActive()
@@ -43,7 +54,6 @@ public class LevelControlBaseClass : MonoBehaviour
     {
         List<GameObject> puzzleObjects = new List<GameObject>();
         
-        //GameObject puzzleContainer = GameObject.FindGameObjectWithTag(PuzzleIdentifier);
         GameObject[] parentObjects = GameObject.FindGameObjectsWithTag(parentTag);
 
         if (parentObjects != null)

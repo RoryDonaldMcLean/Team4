@@ -34,7 +34,24 @@ public class LightTrigger : MonoBehaviour
             IncorrectColour();
         }
     }
-   
+
+    void OnTriggerExit(Collider lightbeam)
+    {
+        LineRenderer line = lightbeam.GetComponentInParent<LineRenderer>();
+        if (CheckBeamColour(line.startColor))
+        {
+            IncorrectColour();
+        }
+    }
+
+    public void ForceOnTriggerExit(Color colour)
+    {
+        if (CheckBeamColour(colour))
+        {
+            IncorrectColour();
+        }
+    }
+
     private void CorrectColour()
     {
         if(!correctLight)

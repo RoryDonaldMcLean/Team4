@@ -18,7 +18,6 @@ public class SCR_TradeLimb : MonoBehaviour
     GamePadState player2PrevState;
     private string otherPlayerTag = "";
 
-
     //Affects the particle systems on the children
     ParticleSystem[] childrenParticleSytems;
     bool disabledRelevantPSEmissions = false;
@@ -38,18 +37,22 @@ public class SCR_TradeLimb : MonoBehaviour
         SetPlayerTag();
 		//get all the limbUI images, add them to a list and set them all to inactive to start
 		UILimbImage = GameObject.FindGameObjectWithTag ("UILimb");
-		for (int i = 0; i < UILimbImage.transform.childCount; i++)
+		if (UILimbImage != null) 
 		{
-			limbsUI.Add (UILimbImage.transform.GetChild (i).gameObject);
-			limbsUI [i].SetActive (false);
+			for (int i = 0; i < UILimbImage.transform.childCount; i++) 
+			{
+				limbsUI.Add (UILimbImage.transform.GetChild (i).gameObject);
+				limbsUI [i].SetActive (false);
+			}
 		}
-
-
 		UILimbImage2 = GameObject.FindGameObjectWithTag ("UILimb2");
-		for (int i = 0; i < UILimbImage2.transform.childCount; i++)
+		if (UILimbImage2 != null) 
 		{
-			limbsUI2.Add (UILimbImage2.transform.GetChild (i).gameObject);
-			limbsUI2 [i].SetActive (false);
+			for (int i = 0; i < UILimbImage2.transform.childCount; i++) 
+			{
+				limbsUI2.Add (UILimbImage2.transform.GetChild (i).gameObject);
+				limbsUI2 [i].SetActive (false);
+			}
 		}
     }
 
@@ -207,7 +210,8 @@ public class SCR_TradeLimb : MonoBehaviour
 			{
 				limbsUI [3].SetActive (false);
 			}
-		} else
+		} 
+		else
 		{
 			//player 2
 			if (limbs [0].name.Contains ("LeftArm"))
@@ -261,7 +265,8 @@ public class SCR_TradeLimb : MonoBehaviour
 		//DropDown
 		if (player2)
 		{	//player 1 controls
-			UICheck ();
+			if((UILimbImage != null)&&(UILimbImage2 != null)) UICheck();
+
 			if (prevState.Buttons.RightShoulder == ButtonState.Pressed || Input.GetKey(KeyCode.Z))
 			{
 				if (prevState.ThumbSticks.Right.Y > 0.1f || Input.GetKey(KeyCode.Alpha1))
@@ -288,7 +293,8 @@ public class SCR_TradeLimb : MonoBehaviour
 		}
 		else
 		{	//player 2 controls
-			UICheck ();
+			if((UILimbImage != null)&&(UILimbImage2 != null)) UICheck();
+
 			if (player2PrevState.Buttons.RightShoulder == ButtonState.Released && player2State.Buttons.RightShoulder == ButtonState.Pressed || Input.GetKey(KeyCode.L))
 			{
 				if (player2PrevState.ThumbSticks.Right.Y > 0.1f || Input.GetKey(KeyCode.Alpha6))
@@ -319,13 +325,16 @@ public class SCR_TradeLimb : MonoBehaviour
 			if ((prevState.Buttons.LeftShoulder == ButtonState.Pressed) || (Input.GetKey (KeyCode.LeftShift)))
 			{
 				Vector3 UIposition = Camera.main.WorldToScreenPoint (this.transform.position);
-				UILimbImage.transform.position = UIposition;
-				UILimbImage.SetActive (true);
-				SpecificLimbExchange ();
+				if (UILimbImage != null) 
+				{
+					UILimbImage.transform.position = UIposition;
+					UILimbImage.SetActive (true);
+				}
+				SpecificLimbExchange();
 			} 
 			else
 			{
-				UILimbImage.SetActive (false);
+				if(UILimbImage != null) UILimbImage.SetActive (false);
 			}
 		}
 		else
@@ -334,13 +343,16 @@ public class SCR_TradeLimb : MonoBehaviour
 			if (player2PrevState.Buttons.LeftShoulder == ButtonState.Pressed || Input.GetKey (KeyCode.RightShift))
 			{
 				Vector3 UIposition = Camera.main.WorldToScreenPoint (this.transform.position);
-				UILimbImage2.transform.position = UIposition;
-				UILimbImage2.SetActive (true);
-				SpecificLimbExchange ();
+				if (UILimbImage2 != null) 
+				{
+					UILimbImage2.transform.position = UIposition;
+					UILimbImage2.SetActive (true);
+				}
+				SpecificLimbExchange();
 			}
 			else
 			{
-				UILimbImage2.SetActive (false);
+				if(UILimbImage2 != null) UILimbImage2.SetActive (false);
 			}
 		}
 	}

@@ -6,7 +6,7 @@ public class LightResize : MonoBehaviour
 {
     private Collider puzzleObject;
     public StraightSplineBeam lineBeam;
-    //private float colliderXPoint;
+
     private float colliderWidth;
     private float oldBeamEndPoint;
     private float newBeamEndPoint;
@@ -30,7 +30,21 @@ public class LightResize : MonoBehaviour
         }
     }
 
-	private void RaycastControl()
+    private void CheckForPrevCollidedObject()
+    {
+        if (puzzleObject != null)
+        {
+            RaycastHit hit;
+            if (ObjectFoundBehindBlockedBeam(out hit))
+            {            
+                Debug.Log("ObjectBehind" + hit.transform.name);
+                Debug.Log("whatItIs" + this.transform.name);
+                TriggerExitControl(hit.transform);
+            }
+        }
+    }
+
+    private void RaycastControl()
 	{
 		CancelInvoke("BeamRaycast");
 		InvokeRepeating("BeamRaycast", 0.0f, 1.0f);
@@ -56,10 +70,10 @@ public class LightResize : MonoBehaviour
     //Upon a collison being detected with a object 
     void OnTriggerEnter(Collider collidedObject)
     {
-        if ((!collidedObject.name.Contains("Pole"))&&(!collidedObject.name.Contains("LineColliderObject"))&&((collidedObject.gameObject.layer != LayerMask.NameToLayer("BeamLayer")))) BeamResizeController(ref collidedObject);
+        if ((!collidedObject.name.Contains("Player")) && (!collidedObject.name.Contains("Pole"))&&(!collidedObject.name.Contains("LineColliderObject"))&&((collidedObject.gameObject.layer != LayerMask.NameToLayer("BeamLayer")))) BeamResizeController(ref collidedObject);
     }
 
-    private void TriggerExitControl(Transform objectBlocked)
+    public void TriggerExitControl(Transform objectBlocked)
     {
         string objectBlockedName = objectBlocked.name;
         if (objectBlockedName.Contains("SlideBox"))
@@ -81,6 +95,12 @@ public class LightResize : MonoBehaviour
                 break;
             case "LightPrismColourCombo":
                 objectBlocked.GetComponent<PrismColourCombo>().TriggerExitFunction(lineBeam.beamColour);
+                break;
+            case "LightTrigger":
+                objectBlocked.GetComponent<LightTrigger>().ForceOnTriggerExit(lineBeam.beamColour);
+                break;
+            case "LightRedirect":
+                objectBlocked.GetComponent<LightRedirect>().TriggerExitFunction();
                 break;
         }
     }
@@ -111,7 +131,6 @@ public class LightResize : MonoBehaviour
         contact = false;
         puzzleObject = null;
 		RaycastControl();
-        //Invoke("CreateNewBody", 0.3f);
     }
 
     private void CreateNewBody()
@@ -137,17 +156,13 @@ public class LightResize : MonoBehaviour
     {
         //finds the point where the picked up object hit the lightbeam, only in z since its the axis right represents the length of the beam and forward for the object.
         Vector3 collisionPoint = this.transform.GetChild(1).GetComponent<Collider>().ClosestPointOnBounds(collidedObject.transform.position);// - lightBeam.transform.root.position.z;     
-        collisionPoint.z -= collidedObject.transform.root.position.z;
 
         newBeamEndPoint = Vector3.Dot(collisionPoint, this.transform.forward);
         float objectPoint = Vector3.Dot(collidedObject.transform.position, this.transform.forward);
         //finds the collider object attached to every lightbeam, that is used as the collider for most of the lightbeam code
         Transform endPointBeam = this.transform.GetChild(1).GetChild(0).transform;
-        //Means the object is in Z area, but the beam needs to be resized
-        //Debug.Log("meh" + collidedObject.name);
-        //Debug.Log("objectpoint" + objectPoint);
-        //Debug.Log("newbeamendpoint" + newBeamEndPoint);
-        
+  
+        //Means the object is in Z area, but the beam needs to be resized       
         if (newBeamEndPoint != objectPoint)
         {
             //stay within beams length
@@ -173,7 +188,7 @@ public class LightResize : MonoBehaviour
         //To prevent the code from being repeated pointlessly, a check is done to ensure that its a new, unique point, before proceeding. 
         else
         {
-            float endPointBeamPoint = (Vector3.Dot(endPointBeam.position, this.transform.forward));// - 8.2f);
+            float endPointBeamPoint = (Vector3.Dot(endPointBeam.position, this.transform.forward));
             if(endPointBeamPoint != newBeamEndPoint)
             {
                 BeamResize(ref endPointBeam, ref collidedObject);
@@ -205,6 +220,7 @@ public class LightResize : MonoBehaviour
     private void BeamResize(ref Transform endPointBeam, ref Collider collidedObject)
     {
         puzzleObject = collidedObject;
+
         oldBeamEndPoint = Vector3.Dot(endPointBeam.position, this.transform.forward);
 
         CalculateNewBeam(ref endPointBeam);
@@ -212,23 +228,10 @@ public class LightResize : MonoBehaviour
         //finds the width of the possible collision, using the real scale of and size of the objects being collided with. Used to ascertain if the beam is no longer in range. (in order to stop checking)
         colliderWidth = (puzzleObject.transform.lossyScale.x /2.0f) + (endPointBeam.transform.lossyScale.x / 4.0f);
 
-        RaycastHit hit;
-        if (ObjectFoundBehindBlockedBeam(out hit))
-        {
-            //Debug.Log("hit" + hit.transform.name);
-            //TriggerExitControl(hit.transform);
-        }
+        CheckForPrevCollidedObject();
 
-		CancelInvoke("BeamRaycast");
+        CancelInvoke("BeamRaycast");
 
-        //Destroy(this.GetComponent<Rigidbody>());
-		//Destroy(collidedObject.GetComponent<Rigidbody>());
-		/*
-		Rigidbody rigid = collidedObject.transform.gameObject.AddComponent<Rigidbody>();
-		rigid.useGravity = false;
-		rigid.isKinematic = true;
-		rigid.angularDrag = 0.0f;
-*/
         contact = true;
     }
 

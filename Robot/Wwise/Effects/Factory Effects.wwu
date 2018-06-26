@@ -621,7 +621,7 @@
 									<PropertyList>
 										<Property Name="FilterTypeBand1" Type="int32" Value="1"/>
 										<Property Name="FilterTypeBand3" Type="int32" Value="0"/>
-										<Property Name="FrequencyBand3" Type="Real32" Value="20000"/>
+										<Property Name="FrequencyBand3" Type="Real32" Value="9828"/>
 										<Property Name="OnOffBand1" Type="bool" Value="False"/>
 										<Property Name="OnOffBand2" Type="bool" Value="False"/>
 									</PropertyList>
@@ -1603,42 +1603,14 @@
 						</Folder>
 						<Effect Name="Vibrato" ID="{D9586A30-FF0D-4DCC-89C5-04CDC4716ED6}" PluginName="Wwise Flanger" CompanyID="0" PluginID="125" PluginType="3">
 							<PropertyList>
-								<Property Name="DelayTime" Type="Real32" Value="17.5"/>
+								<Property Name="DelayTime" Type="Real32" Value="40.6"/>
 								<Property Name="DryLevel" Type="Real32" Value="0.3"/>
 								<Property Name="FeedBackLevel" Type="Real32" Value="0.9"/>
-								<Property Name="ModDepth" Type="Real32" Value="46.3">
-									<RTPCList>
-										<RTPC Name="" ID="{24F973DC-F532-4222-A19A-0BB9E7185A6A}" ShortID="1012488070">
-											<ReferenceList>
-												<Reference Name="ControlInput">
-													<ObjectRef Name="Drone_Beat_Freq" ID="{5023862A-73FF-49FE-BC62-CD509DEBC88F}" WorkUnitID="{6FAB8A0D-1E75-4FC9-8CF4-258F9AA56D77}"/>
-												</Reference>
-											</ReferenceList>
-											<Curve Name="" ID="{2AF3E1E3-9756-44FB-AD92-4E8F0C69CCDD}">
-												<PropertyList>
-													<Property Name="Flags" Type="int32" Value="1"/>
-												</PropertyList>
-												<PointList>
-													<Point>
-														<XPos>0</XPos>
-														<YPos>76.77419</YPos>
-														<Flags>5</Flags>
-													</Point>
-													<Point>
-														<XPos>100</XPos>
-														<YPos>98.3871</YPos>
-														<Flags>37</Flags>
-													</Point>
-												</PointList>
-											</Curve>
-										</RTPC>
-									</RTPCList>
-								</Property>
+								<Property Name="ModDepth" Type="Real32" Value="46.3"/>
 								<Property Name="ModFrequency" Type="Real32" Value="8.82"/>
 								<Property Name="ModPWM" Type="Real32" Value="0"/>
 								<Property Name="ModSmoothing" Type="Real32" Value="69"/>
 								<Property Name="OutputLevel" Type="Real32" Value="-3"/>
-								<Property Name="WetDryMix" Type="Real32" Value="3"/>
 							</PropertyList>
 						</Effect>
 						<Effect Name="Special_Effect_1" ID="{83317D8A-9D4C-438E-BE8C-BC7D27CAD1B0}" PluginName="Wwise Flanger" CompanyID="0" PluginID="125" PluginType="3">
@@ -1915,34 +1887,7 @@
 						<Effect Name="Very_Slow_Modulation" ID="{6082F901-3CE1-4D78-8F2D-B2B72CF28085}" PluginName="Wwise Tremolo" CompanyID="0" PluginID="131" PluginType="3">
 							<PropertyList>
 								<Property Name="ModDepth" Type="Real32" Value="96.3"/>
-								<Property Name="ModFrequency" Type="Real32" Value="0.36">
-									<RTPCList>
-										<RTPC Name="" ID="{802E261A-0261-45D8-B593-2FC360F81F1E}" ShortID="657168812">
-											<ReferenceList>
-												<Reference Name="ControlInput">
-													<ObjectRef Name="Drone_Beat_Freq" ID="{5023862A-73FF-49FE-BC62-CD509DEBC88F}" WorkUnitID="{6FAB8A0D-1E75-4FC9-8CF4-258F9AA56D77}"/>
-												</Reference>
-											</ReferenceList>
-											<Curve Name="" ID="{A651FA10-37F4-4B4C-8E04-393C6C00CF64}">
-												<PropertyList>
-													<Property Name="Flags" Type="int32" Value="5"/>
-												</PropertyList>
-												<PointList>
-													<Point>
-														<XPos>0</XPos>
-														<YPos>11.6</YPos>
-														<Flags>5</Flags>
-													</Point>
-													<Point>
-														<XPos>100</XPos>
-														<YPos>50.4</YPos>
-														<Flags>37</Flags>
-													</Point>
-												</PointList>
-											</Curve>
-										</RTPC>
-									</RTPCList>
-								</Property>
+								<Property Name="ModFrequency" Type="Real32" Value="0.36"/>
 								<Property Name="ModPWM" Type="Real32" Value="18"/>
 								<Property Name="ModPhaseOffset" Type="Real32" Value="-180"/>
 								<Property Name="ModPhaseSpread" Type="Real32" Value="58"/>

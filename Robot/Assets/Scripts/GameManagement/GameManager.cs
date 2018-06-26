@@ -31,6 +31,11 @@ public class GameManager : MonoBehaviour {
         playerSetting = new PlayerSetting(); 
     }
 
+    private void OnDestroy()
+    {
+        _instance = null;
+    }
+
     // Use this for initialization
     void Start () {
 

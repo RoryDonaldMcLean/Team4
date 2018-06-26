@@ -120,8 +120,9 @@ GameObject:
   - component: {fileID: 251687167}
   - component: {fileID: 251687166}
   - component: {fileID: 251687165}
-  - component: {fileID: 251687164}
   - component: {fileID: 251687169}
+  - component: {fileID: 251687170}
+  - component: {fileID: 251687164}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -129,13 +130,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &251687164
-AudioListener:
+--- !u!114 &251687164
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 251687163}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b4f15da87d94e94d8df3f519243d02e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDefaultListener: 1
+  listenerId: 0
 --- !u!124 &251687165
 Behaviour:
   m_ObjectHideFlags: 0
@@ -210,6 +217,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7971d24f1e1f42346a7418f22c58f58f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &251687170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 251687163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb191167caef1d34fa9e4ac3fca351b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_positionOffsetData:
+    positionOffset: {x: 0, y: 0, z: 0}
+    KeepMe: 0
+  isEnvironmentAware: 0
+  isStaticObject: 0
+  m_listeners:
+    initialListenerList: []
+  m_posOffsetData: {fileID: 0}
+  listenerMask: 1
 --- !u!1 &535743289
 GameObject:
   m_ObjectHideFlags: 0
@@ -866,6 +893,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6ce2bbe901d46d4c8e67c19f2da50d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerSetting:
+    defaultButton: 77000000610000007300000064000000310000003200000033000000340000002000000065000000660000007a000000
+    currentButton: 77000000610000007300000064000000310000003200000033000000340000002000000065000000660000007a000000
+    volume: 50
+    player1Controller: 0
 --- !u!1 &1702670722
 GameObject:
   m_ObjectHideFlags: 0

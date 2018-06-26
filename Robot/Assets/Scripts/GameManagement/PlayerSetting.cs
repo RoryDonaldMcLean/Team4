@@ -12,6 +12,8 @@ public class PlayerSetting
     public KeyCode[] currentButton = new KeyCode[12];
 
     public int volume;
+
+    public bool player1Controller;
     public PlayerSetting()
     {
         defaultButton[0] = KeyCode.W;
@@ -26,30 +28,28 @@ public class PlayerSetting
         defaultButton[9] = KeyCode.E;
         defaultButton[10] = KeyCode.F;
         defaultButton[11] = KeyCode.Z;
-        
+
         for (int i = 0; i < defaultButton.Length; i++)
         {
             currentButton[i] = defaultButton[i];
         }
 
         volume = 50;
-        
-    }     
-    
+
+        player1Controller = false;
+    }
+
     public void sameButton(int number)
     {
         for (int i = 0; i < defaultButton.Length; i++)
         {
-            if (number != i)
+            if (number != i && currentButton[i] == currentButton[number])
             {
-                if (currentButton[i] == currentButton[number])
-                {
-                    currentButton[i] = KeyCode.None;
-                }
+                currentButton[i] = KeyCode.None;
             }
         }
     }
-      
+
 }
 
 /*
@@ -64,8 +64,7 @@ public class PlayerSetting
  * 8 - jump
  * 9 - interact/reattach
  * 10 - lims panel
- * 11 - ANOTHER KEY
- * 
+ * 11 - Another Button
  * 
  * 
  * 

@@ -16,92 +16,301 @@ MonoBehaviour:
   - PhysicalPath: Events\Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{9208E778-4B37-4421-9C2A-46AAA42FFE85}'
-    m_lastTimePsrt1: 2068354304
-    m_lastTimePart2: -1999251372
+    m_lastTimePsrt1: 965862536
+    m_lastTimePart2: -1999250534
     List:
-    - Name: Chirp
-      Path: Default Work Unit\Chirp
+    - Name: Activate_Crystal
+      Path: Default Work Unit\Objects\Activate_Crystal
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
+      - ElementName: Objects
+        ObjectType: 4
+      - ElementName: Activate_Crystal
+        ObjectType: 3
+      ID: -513485415
+      Guid: 1b77e87928ede74487b1ccc32fea5571
+      maxAttenuation: 0
+    - Name: Ambient
+      Path: Default Work Unit\Environment\Ambient
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Environment
+        ObjectType: 4
+      - ElementName: Ambient
+        ObjectType: 3
+      ID: 77978275
+      Guid: dbf532625ab62c4c995e200b86589351
+      maxAttenuation: 0
+    - Name: Arm_Attach
+      Path: Default Work Unit\Robots\Arm_Attach
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Robots
+        ObjectType: 4
+      - ElementName: Arm_Attach
+        ObjectType: 3
+      ID: -574900281
+      Guid: 6236ba93c9e3c44b91ec8779ebd7f508
+      maxAttenuation: 100
+    - Name: Arm_Break
+      Path: Default Work Unit\Robots\Arm_Break
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Robots
+        ObjectType: 4
+      - ElementName: Arm_Break
+        ObjectType: 3
+      ID: -963702315
+      Guid: 87d72b544a0737438ca3df0cb3664434
+      maxAttenuation: 100
+    - Name: Arm_Detatch
+      Path: Default Work Unit\Robots\Arm_Detatch
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Robots
+        ObjectType: 4
+      - ElementName: Arm_Detatch
+        ObjectType: 3
+      ID: -127625071
+      Guid: f7c9c9a4a34b604fb7d6a3e9c8ec0265
+      maxAttenuation: 100
+    - Name: Chirp
+      Path: Default Work Unit\Robots\Chirp
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Robots
+        ObjectType: 4
       - ElementName: Chirp
         ObjectType: 3
       ID: 167209695
       Guid: 0a5505bc7d26c841b984ab934261ab34
       maxAttenuation: 0
-    - Name: ChirpCombo
-      Path: Default Work Unit\ChirpCombo
-      PathAndIcons:
-      - ElementName: Default Work Unit
-        ObjectType: 12
-      - ElementName: ChirpCombo
-        ObjectType: 3
-      ID: -612817773
-      Guid: d1377568144ff6429b0cbb8838f6403f
-      maxAttenuation: 0
     - Name: DRONE
-      Path: Default Work Unit\DRONE
+      Path: Default Work Unit\Music\DRONE
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
+      - ElementName: Music
+        ObjectType: 4
       - ElementName: DRONE
         ObjectType: 3
       ID: -1555128655
       Guid: f08388c412048a45afbcc283eb37e271
       maxAttenuation: 0
-    - Name: Music_Start
-      Path: Default Work Unit\Music_Start
+    - Name: Footstep
+      Path: Default Work Unit\Robots\Footstep
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
+      - ElementName: Robots
+        ObjectType: 4
+      - ElementName: Footstep
+        ObjectType: 3
+      ID: 1866025847
+      Guid: fa4e48f5bfed294698eaf71c55ec26c1
+      maxAttenuation: 100
+    - Name: Insects
+      Path: Default Work Unit\Emitters\Insects
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Emitters
+        ObjectType: 4
+      - ElementName: Insects
+        ObjectType: 3
+      ID: -461623692
+      Guid: c1f7b33395942540bdf8e5c0b533c97f
+      maxAttenuation: 100
+    - Name: Light_Hits_Crystal
+      Path: Default Work Unit\Objects\Light_Hits_Crystal
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Objects
+        ObjectType: 4
+      - ElementName: Light_Hits_Crystal
+        ObjectType: 3
+      ID: -867545941
+      Guid: a86385551598dd4d8936140cd8278e22
+      maxAttenuation: 0
+    - Name: LightBuzz
+      Path: Default Work Unit\Emitters\LightBuzz
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Emitters
+        ObjectType: 4
+      - ElementName: LightBuzz
+        ObjectType: 3
+      ID: 1863820488
+      Guid: 67964d7de81e534ea829ec0786adcdfc
+      maxAttenuation: 100
+    - Name: Music_Start
+      Path: Default Work Unit\Music\Music_Start
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Music
+        ObjectType: 4
       - ElementName: Music_Start
         ObjectType: 3
       ID: -569063489
       Guid: 9dee883bf2a4374c96016a387e91d0d0
       maxAttenuation: 0
+    - Name: PickUp_Crystal
+      Path: Default Work Unit\Objects\PickUp_Crystal
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Objects
+        ObjectType: 4
+      - ElementName: PickUp_Crystal
+        ObjectType: 3
+      ID: 1187533030
+      Guid: 55364a1ba4b3404aa7628fb46453b9bc
+      maxAttenuation: 0
+    - Name: Place_Crystal
+      Path: Default Work Unit\Objects\Place_Crystal
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Objects
+        ObjectType: 4
+      - ElementName: Place_Crystal
+        ObjectType: 3
+      ID: -145671699
+      Guid: 0d74d6e61c0a61409089479983affa24
+      maxAttenuation: 0
+    - Name: TarpFlap
+      Path: Default Work Unit\Emitters\TarpFlap
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Emitters
+        ObjectType: 4
+      - ElementName: TarpFlap
+        ObjectType: 3
+      ID: 1728682787
+      Guid: 3c7ead58b93d764d93abdc62a761a9e4
+      maxAttenuation: 100
+    - Name: TheCore
+      Path: Default Work Unit\Emitters\TheCore
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Emitters
+        ObjectType: 4
+      - ElementName: TheCore
+        ObjectType: 3
+      ID: 1875437039
+      Guid: db45d3d9f325fe4bb98d9456bd384e02
+      maxAttenuation: 100
   AuxBusWwu:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{2653943A-432D-488E-9B26-028C9F2C6C6D}'
-    m_lastTimePsrt1: 1971948032
-    m_lastTimePart2: -1999251415
+    m_lastTimePsrt1: -191355475
+    m_lastTimePart2: -1999250536
     List: []
   StateWwu:
   - PhysicalPath: States\Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{217B9AB9-B641-4200-BF39-9F61C2C8E9A4}'
-    m_lastTimePsrt1: 1971948032
-    m_lastTimePart2: -1999251415
+    m_lastTimePsrt1: -184139625
+    m_lastTimePart2: -1999250536
     List:
-    - Name: Chirp_Stage
-      Path: Default Work Unit\Chirp_Stage
+    - Name: Chirp_Type
+      Path: Default Work Unit\Chirp_Type
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
-      - ElementName: Chirp_Stage
+      - ElementName: Chirp_Type
         ObjectType: 9
-      ID: 850560560
+      ID: 1441557762
       Guid: a5faeb98ee4f714e90cd0b730b7e07b7
       values:
+      - Happy
+      - Here
       - None
-      - Stage1
-      - Stage2
-      - Stage3
+      - Sad
+      - There
       ValueIcons:
+      - ElementName: Happy
+        ObjectType: 8
+      - ElementName: Here
+        ObjectType: 8
       - ElementName: None
         ObjectType: 8
-      - ElementName: Stage1
+      - ElementName: Sad
         ObjectType: 8
-      - ElementName: Stage2
+      - ElementName: There
         ObjectType: 8
-      - ElementName: Stage3
-        ObjectType: 8
-      valueIDs: db3ba32c7a5cd537795cd537785cd537
+      valueIDs: 25541255a36688bedb3ba32c9b61701a5d849e3f
       ValueGuids:
-      - bytes: f81cdf85f0495143b72031378b0f5222
       - bytes: 55ef5981ecf48f4b879801f730ce0b04
-      - bytes: 0eceec40734c374fa8ea50b4c67ddc81
       - bytes: 1046b685defad04da09f8b53ab68ec9b
+      - bytes: f81cdf85f0495143b72031378b0f5222
+      - bytes: 0eceec40734c374fa8ea50b4c67ddc81
+      - bytes: 395d66bf3fc27145b25ad81f4353f74f
+    - Name: Drone_Modulator
+      Path: Default Work Unit\Drone_Modulator
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Drone_Modulator
+        ObjectType: 9
+      ID: -1316484469
+      Guid: e3de9e6f63d86445b5ff2e703969af54
+      values:
+      - Colour_Change
+      - Combiner
+      - Complete
+      - Hit_Switch
+      - Hit_Wall
+      - None
+      - Reflector
+      - Splitter
+      - Start
+      - Through_Barrier
+      ValueIcons:
+      - ElementName: Colour_Change
+        ObjectType: 8
+      - ElementName: Combiner
+        ObjectType: 8
+      - ElementName: Complete
+        ObjectType: 8
+      - ElementName: Hit_Switch
+        ObjectType: 8
+      - ElementName: Hit_Wall
+        ObjectType: 8
+      - ElementName: None
+        ObjectType: 8
+      - ElementName: Reflector
+        ObjectType: 8
+      - ElementName: Splitter
+        ObjectType: 8
+      - ElementName: Start
+        ObjectType: 8
+      - ElementName: Through_Barrier
+        ObjectType: 8
+      valueIDs: 185338971af68f6624ebd39c03015d0befeb9df4db3ba32c3bc65faad8879a4ef7e1664ca49024c5
+      ValueGuids:
+      - bytes: 3982d55293face4ca3e28e4c3e0e91b2
+      - bytes: 9e631db60f408743bc00375a61ad9377
+      - bytes: a5df425bf9e7a0478e1c22a385ce8dc2
+      - bytes: 2a74be5d4bff8848a989f0958dd1aa8e
+      - bytes: 91ba32169c32df42b8c464f6c03b69bb
+      - bytes: c3741733d6e4554a9d043e408e218369
+      - bytes: 7716fdf093121e4083c0409a107a0ed2
+      - bytes: 2e739ad9128423468a82c396413a931c
+      - bytes: 0598dbd1b102bf44a049f23022b18534
+      - bytes: 83395ba7db3f8248baedd345bbaa0523
     - Name: Environment
       Path: Default Work Unit\Environment
       PathAndIcons:
@@ -171,8 +380,8 @@ MonoBehaviour:
   - PhysicalPath: Switches\Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{58100D4C-AF7E-4F01-9581-C8921E80B431}'
-    m_lastTimePsrt1: 1971948032
-    m_lastTimePart2: -1999251415
+    m_lastTimePsrt1: -738433626
+    m_lastTimePart2: -1999250537
     List:
     - Name: Footsteps
       Path: Default Work Unit\Footsteps
@@ -265,8 +474,8 @@ MonoBehaviour:
   - PhysicalPath: SoundBanks\Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{99ADC241-66DB-450E-A27C-F54B78415578}'
-    m_lastTimePsrt1: -2027659520
-    m_lastTimePart2: -1999251404
+    m_lastTimePsrt1: 427999566
+    m_lastTimePart2: -1999250534
     List:
     - Name: Music
       Path: Default Work Unit\Music
@@ -290,156 +499,42 @@ MonoBehaviour:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{6FAB8A0D-1E75-4FC9-8CF4-258F9AA56D77}'
-    m_lastTimePsrt1: -1651514880
-    m_lastTimePart2: -1999251369
+    m_lastTimePsrt1: -191455520
+    m_lastTimePart2: -1999250536
     List:
-    - Name: Drone_Beat_Freq
-      Path: Default Work Unit\Drone_Beat_Freq
+    - Name: Chirps_Combine
+      Path: Default Work Unit\Chirps_Combine
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
-      - ElementName: Drone_Beat_Freq
+      - ElementName: Chirps_Combine
         ObjectType: 13
-      ID: 1881348445
-      Guid: 2a862350ff73fe49bc62cd509debc88f
-    - Name: Drone_Chorus_ON
-      Path: Default Work Unit\Drone_Chorus_ON
+      ID: -146312648
+      Guid: e75521f190e20547a9d38e95b7457f07
+    - Name: EnvironmentEffects
+      Path: Default Work Unit\EnvironmentEffects
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
-      - ElementName: Drone_Chorus_ON
+      - ElementName: EnvironmentEffects
         ObjectType: 13
-      ID: 932103314
-      Guid: 9d4d9df95429e24f89e72d88a35a3b4b
-    - Name: Drone_FMDistortion
-      Path: Default Work Unit\Drone_FMDistortion
+      ID: -2057263990
+      Guid: d49a0e6c561d134482833e258ed2c076
+    - Name: Wind_Speed
+      Path: Default Work Unit\Wind_Speed
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
-      - ElementName: Drone_FMDistortion
+      - ElementName: Wind_Speed
         ObjectType: 13
-      ID: 1012982690
-      Guid: 384a9e9318c26c4d903073680fb3e6e9
-    - Name: Drone_Tremelo_ON
-      Path: Default Work Unit\Drone_Tremelo_ON
-      PathAndIcons:
-      - ElementName: Default Work Unit
-        ObjectType: 12
-      - ElementName: Drone_Tremelo_ON
-        ObjectType: 13
-      ID: 1652415162
-      Guid: ea3489ad8c59084d872eab9f32993429
-    - Name: Drone_Volume
-      Path: Default Work Unit\Drone_Volume
-      PathAndIcons:
-      - ElementName: Default Work Unit
-        ObjectType: 12
-      - ElementName: Drone_Volume
-        ObjectType: 13
-      ID: -1428117086
-      Guid: 067879a1028feb4699240e07f2614516
-  - PhysicalPath: Game Parameters\Factory SoundSeed Air Game Syncs.wwu
-    ParentPhysicalPath: 
-    Guid: '{3B167755-FB42-458B-98BF-96F557AFB3B9}'
-    m_lastTimePsrt1: 2031948032
-    m_lastTimePart2: -1999251415
-    List:
-    - Name: SS_Air_Fear
-      Path: Factory SoundSeed Air Game Syncs\SS_Air_Fear
-      PathAndIcons:
-      - ElementName: Factory SoundSeed Air Game Syncs
-        ObjectType: 12
-      - ElementName: SS_Air_Fear
-        ObjectType: 13
-      ID: 1351367891
-      Guid: 59062ef746431c4ea1b1dab46a05101e
-    - Name: SS_Air_Freefall
-      Path: Factory SoundSeed Air Game Syncs\SS_Air_Freefall
-      PathAndIcons:
-      - ElementName: Factory SoundSeed Air Game Syncs
-        ObjectType: 12
-      - ElementName: SS_Air_Freefall
-        ObjectType: 13
-      ID: -1292209176
-      Guid: 37fe2d2f9e4f944d83d853cca39781ad
-    - Name: SS_Air_Fury
-      Path: Factory SoundSeed Air Game Syncs\SS_Air_Fury
-      PathAndIcons:
-      - ElementName: Factory SoundSeed Air Game Syncs
-        ObjectType: 12
-      - ElementName: SS_Air_Fury
-        ObjectType: 13
-      ID: 1029930033
-      Guid: dc79aea23acaba4696529986c322a87b
-    - Name: SS_Air_Month
-      Path: Factory SoundSeed Air Game Syncs\SS_Air_Month
-      PathAndIcons:
-      - ElementName: Factory SoundSeed Air Game Syncs
-        ObjectType: 12
-      - ElementName: SS_Air_Month
-        ObjectType: 13
-      ID: -1646418679
-      Guid: 45b4e209a3c47f44b3ca818a1d925ef7
-    - Name: SS_Air_Presence
-      Path: Factory SoundSeed Air Game Syncs\SS_Air_Presence
-      PathAndIcons:
-      - ElementName: Factory SoundSeed Air Game Syncs
-        ObjectType: 12
-      - ElementName: SS_Air_Presence
-        ObjectType: 13
-      ID: -447042342
-      Guid: 1a81b7e32f7b0f49b44f5fe51b468041
-    - Name: SS_Air_RPM
-      Path: Factory SoundSeed Air Game Syncs\SS_Air_RPM
-      PathAndIcons:
-      - ElementName: Factory SoundSeed Air Game Syncs
-        ObjectType: 12
-      - ElementName: SS_Air_RPM
-        ObjectType: 13
-      ID: 822163944
-      Guid: ab9048a3d5b92645a64d5290c43ef2dc
-    - Name: SS_Air_Size
-      Path: Factory SoundSeed Air Game Syncs\SS_Air_Size
-      PathAndIcons:
-      - ElementName: Factory SoundSeed Air Game Syncs
-        ObjectType: 12
-      - ElementName: SS_Air_Size
-        ObjectType: 13
-      ID: -1220270574
-      Guid: efeb291393a12e47a38c64668b494879
-    - Name: SS_Air_Storm
-      Path: Factory SoundSeed Air Game Syncs\SS_Air_Storm
-      PathAndIcons:
-      - ElementName: Factory SoundSeed Air Game Syncs
-        ObjectType: 12
-      - ElementName: SS_Air_Storm
-        ObjectType: 13
-      ID: -579304704
-      Guid: db8c3fe9d1063747acaf7cd44bbed783
-    - Name: SS_Air_TimeOfDay
-      Path: Factory SoundSeed Air Game Syncs\SS_Air_TimeOfDay
-      PathAndIcons:
-      - ElementName: Factory SoundSeed Air Game Syncs
-        ObjectType: 12
-      - ElementName: SS_Air_TimeOfDay
-        ObjectType: 13
-      ID: -1091570167
-      Guid: 2ca76f537e8c8b4cae03ef34fdadc314
-    - Name: SS_Air_Turbulence
-      Path: Factory SoundSeed Air Game Syncs\SS_Air_Turbulence
-      PathAndIcons:
-      - ElementName: Factory SoundSeed Air Game Syncs
-        ObjectType: 12
-      - ElementName: SS_Air_Turbulence
-        ObjectType: 13
-      ID: -134719478
-      Guid: 197ba8edaa73a0409f192073606db710
+      ID: -1184372585
+      Guid: 263698417c5bac4eacaf7d0e11ecef10
   TriggerWwu:
   - PhysicalPath: Triggers\Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{1445E234-9FFD-40E4-A0A0-B6CF9F4F5BEA}'
-    m_lastTimePsrt1: 2031948032
-    m_lastTimePart2: -1999251415
+    m_lastTimePsrt1: -738413613
+    m_lastTimePart2: -1999250537
     List: []
   ExpandedItems:
   - /Androids

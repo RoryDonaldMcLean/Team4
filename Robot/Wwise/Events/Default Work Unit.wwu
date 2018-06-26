@@ -3,69 +3,93 @@
 	<Events>
 		<WorkUnit Name="Default Work Unit" ID="{9208E778-4B37-4421-9C2A-46AAA42FFE85}" PersistMode="Standalone">
 			<ChildrenList>
-				<Event Name="Chirp" ID="{BC05550A-267D-41C8-B984-AB934261AB34}">
+				<Folder Name="Robots" ID="{070DF160-3972-4472-8412-E6A6E67CFC59}" ShortID="612491014">
 					<ChildrenList>
-						<Action Name="" ID="{940E1BC4-43F4-49C5-9E46-B7C8B1E7BE5E}" ShortID="778739752">
-							<PropertyList>
-								<Property Name="ActionType" Type="int16" Value="1"/>
-								<Property Name="Delay" Type="Real64" Value="0.3"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Chirps" ID="{C20DA0F8-7DC3-4A2E-8494-63BA85318019}" WorkUnitID="{C54CF3E9-0E60-4A5A-AD10-EFD580D533AD}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-						<Action Name="" ID="{488E6895-8FD8-41C6-AADF-9DF95892760F}" ShortID="984131991">
-							<PropertyList>
-								<Property Name="ActionType" Type="int16" Value="1"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Chirps" ID="{E92E8D85-A090-467B-B2B0-062EC79B08EA}" WorkUnitID="{6BAE9174-7CEB-4131-99B7-F2EC621355E0}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
+						<Event Name="Arm_Attach" ID="{93BA3662-E3C9-4BC4-91EC-8779EBD7F508}"/>
+						<Event Name="Arm_Break" ID="{542BD787-074A-4337-8CA3-DF0CB3664434}"/>
+						<Event Name="Arm_Detatch" ID="{A4C9C9F7-4BA3-4F60-B7D6-A3E9C8EC0265}"/>
+						<Event Name="Chirp" ID="{BC05550A-267D-41C8-B984-AB934261AB34}">
+							<ChildrenList>
+								<Action Name="" ID="{940E1BC4-43F4-49C5-9E46-B7C8B1E7BE5E}" ShortID="778739752">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="Delay" Type="Real64" Value="0.3"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Chirps" ID="{C20DA0F8-7DC3-4A2E-8494-63BA85318019}" WorkUnitID="{C54CF3E9-0E60-4A5A-AD10-EFD580D533AD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{488E6895-8FD8-41C6-AADF-9DF95892760F}" ShortID="984131991">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Chirps" ID="{E92E8D85-A090-467B-B2B0-062EC79B08EA}" WorkUnitID="{6BAE9174-7CEB-4131-99B7-F2EC621355E0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Footstep" ID="{F5484EFA-EDBF-4629-98EA-F71C55EC26C1}"/>
 					</ChildrenList>
-				</Event>
-				<Event Name="Music_Start" ID="{3B88EE9D-A4F2-4C37-9601-6A387E91D0D0}">
+				</Folder>
+				<Folder Name="Environment" ID="{89027853-6CF6-4DEA-83BB-542659A31EE8}" ShortID="1010853535">
 					<ChildrenList>
-						<Action Name="" ID="{E40B13B7-EA7A-4E3E-A853-59DF15EA8787}" ShortID="604854379">
-							<PropertyList>
-								<Property Name="ActionType" Type="int16" Value="1"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Music Zone" ID="{3AA7E4D3-B0D6-4D71-B638-3A8FFC9FE1FD}" WorkUnitID="{C54CF3E9-0E60-4A5A-AD10-EFD580D533AD}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
+						<Event Name="Ambient" ID="{6232F5DB-B65A-4C2C-995E-200B86589351}"/>
 					</ChildrenList>
-				</Event>
-				<Event Name="DRONE" ID="{C48883F0-0412-458A-AFBC-C283EB37E271}">
+				</Folder>
+				<Folder Name="Music" ID="{4C115309-9DDC-47C9-B306-F439A7F86784}" ShortID="520774510">
 					<ChildrenList>
-						<Action Name="" ID="{2AFD008B-4CBB-4894-8FFB-8194CBAE4E45}" ShortID="907143013">
-							<PropertyList>
-								<Property Name="ActionType" Type="int16" Value="1"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="DRONE" ID="{B5632B42-79DC-4E3D-86B5-BFE5138A3B20}" WorkUnitID="{D9329DB3-E4D7-45AA-BD40-6EB28C6C4D39}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-						<Action Name="" ID="{CB2BBB73-F755-45E5-81FE-A16C70AD6CD0}" ShortID="834125943">
-							<PropertyList>
-								<Property Name="ActionType" Type="int16" Value="1"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="DRONE2" ID="{F3E38ECF-C85B-47C8-8FDB-FF4C1388A8FA}" WorkUnitID="{D9329DB3-E4D7-45AA-BD40-6EB28C6C4D39}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
+						<Event Name="DRONE" ID="{C48883F0-0412-458A-AFBC-C283EB37E271}">
+							<ChildrenList>
+								<Action Name="" ID="{2AFD008B-4CBB-4894-8FFB-8194CBAE4E45}" ShortID="907143013">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DRONE" ID="{B5632B42-79DC-4E3D-86B5-BFE5138A3B20}" WorkUnitID="{D9329DB3-E4D7-45AA-BD40-6EB28C6C4D39}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{CB2BBB73-F755-45E5-81FE-A16C70AD6CD0}" ShortID="834125943">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DRONE2" ID="{F3E38ECF-C85B-47C8-8FDB-FF4C1388A8FA}" WorkUnitID="{D9329DB3-E4D7-45AA-BD40-6EB28C6C4D39}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Music_Start" ID="{3B88EE9D-A4F2-4C37-9601-6A387E91D0D0}">
+							<ChildrenList>
+								<Action Name="" ID="{E40B13B7-EA7A-4E3E-A853-59DF15EA8787}" ShortID="604854379">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Music Zone" ID="{3AA7E4D3-B0D6-4D71-B638-3A8FFC9FE1FD}" WorkUnitID="{C54CF3E9-0E60-4A5A-AD10-EFD580D533AD}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
-				</Event>
+				</Folder>
+				<Folder Name="Objects" ID="{D4A4E6D9-1EB5-4EC1-8A15-F9900F778EB6}" ShortID="442883587">
+					<ChildrenList>
+						<Event Name="Activate_Crystal" ID="{79E8771B-ED28-44E7-87B1-CCC32FEA5571}"/>
+						<Event Name="PickUp_Crystal" ID="{1B4A3655-B3A4-4A40-A762-8FB46453B9BC}"/>
+						<Event Name="Place_Crystal" ID="{E6D6740D-0A1C-4061-9089-479983AFFA24}"/>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

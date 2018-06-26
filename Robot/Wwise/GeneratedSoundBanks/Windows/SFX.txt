@@ -1,6 +1,6 @@
 Event	ID	Name			Wwise Object Path	Notes
 	167209695	Chirp			\Default Work Unit\Chirp	
-	3682149523	ChirpCombo			\Default Work Unit\ChirpCombo	
+	2739838641	DRONE			\Default Work Unit\DRONE	
 	3725903807	Music_Start			\Default Work Unit\Music_Start	
 
 Switch Group	ID	Name			Wwise Object Path	Notes
@@ -10,18 +10,46 @@ Switch	ID	Name	Switch Group			Notes
 	2768693345	Player_2	PlayerID			
 	2768693346	Player_1	PlayerID			
 
+State Group	ID	Name			Wwise Object Path	Notes
+	1441557762	Chirp_Type			\Default Work Unit\Chirp_Type	
+	2978482827	Drone_Modulator			\Default Work Unit\Drone_Modulator	
+
+State	ID	Name	State Group			Notes
+	443572635	Sad	Chirp_Type			
+	748895195	None	Chirp_Type			
+	1067353181	There	Chirp_Type			
+	1427264549	Happy	Chirp_Type			
+	3196610211	Here	Chirp_Type			
+	190644483	Hit_Switch	Drone_Modulator			
+	748895195	None	Drone_Modulator			
+	1318750168	Splitter	Drone_Modulator			
+	1720710682	Combiner	Drone_Modulator			
+	2537050904	Colour_Change	Drone_Modulator			
+	2858403387	Reflector	Drone_Modulator			
+	3307507876	Through_Barrier	Drone_Modulator			
+	4103990255	Hit_Wall	Drone_Modulator			
+
+Custom State	ID	Name	State Group	Owner		Notes
+	1024122084	Splitter	Drone_Modulator	\Actor-Mixer Hierarchy\Factory Synth One\DRONE\DRONE		
+
 Game Parameter	ID	Name			Wwise Object Path	Notes
 	129	MIDI note velocity			\MIDI note velocity	
 	132	MIDI note frequency			\MIDI note frequency	
+	422931154	DroneDIST_Volume			\Default Work Unit\DroneDIST_Volume	
 	822163944	SS_Air_RPM			\Factory SoundSeed Air Game Syncs\SS_Air_RPM	
+	880920216	Drone_Beat			\Default Work Unit\Drone_Beat	
+	932103314	Drone_Chorus_ON			\Default Work Unit\Drone_Chorus_ON	
+	1012982690	Drone_FMDistortion			\Default Work Unit\Drone_FMDistortion	
 	1029930033	SS_Air_Fury			\Factory SoundSeed Air Game Syncs\SS_Air_Fury	
 	1351367891	SS_Air_Fear			\Factory SoundSeed Air Game Syncs\SS_Air_Fear	
+	1652415162	Drone_Tremelo_ON			\Default Work Unit\Drone_Tremelo_ON	
 	2648548617	SS_Air_Month			\Factory SoundSeed Air Game Syncs\SS_Air_Month	
 	3002758120	SS_Air_Freefall			\Factory SoundSeed Air Game Syncs\SS_Air_Freefall	
 	3074696722	SS_Air_Size			\Factory SoundSeed Air Game Syncs\SS_Air_Size	
 	3203397129	SS_Air_TimeOfDay			\Factory SoundSeed Air Game Syncs\SS_Air_TimeOfDay	
 	3715662592	SS_Air_Storm			\Factory SoundSeed Air Game Syncs\SS_Air_Storm	
 	3847924954	SS_Air_Presence			\Factory SoundSeed Air Game Syncs\SS_Air_Presence	
+	4148654648	Chirps_Combine			\Default Work Unit\Chirps_Combine	
 	4160247818	SS_Air_Turbulence			\Factory SoundSeed Air Game Syncs\SS_Air_Turbulence	
 
 Modulator LFO	ID	Name			Wwise Object Path	Notes
@@ -79,6 +107,7 @@ Modulator LFO	ID	Name			Wwise Object Path	Notes
 	825918249	Modulator LFO (Custom)				
 	829827508	Modulator LFO (Custom)				
 	830652842	Modulator LFO (Custom)				
+	849978283	Drone_Pulsewidth			\Default Work Unit\Drone_Pulsewidth	
 	850976877	Modulator LFO (Custom)				
 	854650823	Modulator LFO (Custom)				
 	862808494	Modulator LFO (Custom)				
@@ -325,6 +354,7 @@ Source plug-ins	ID	Name	Type		Wwise Object Path	Notes
 	365762760	SoundSeed Woosh	SoundSeed Air/SoundSeed Woosh		\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects\Static Presets (wave file substitutions)\Non-Windy Ambiences\Urban Scene\Random Car Pass-by_03\Car Pass-by\SoundSeed Woosh	
 	372799448	Wwise Silence	Wwise Silence		\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects\Static Presets (wave file substitutions)\Non-Windy Ambiences\Urban Scene\Random Car Pass-by_02\Silence\Wwise Silence	
 	400146702	SoundSeed Air Woosh	SoundSeed Air/SoundSeed Woosh		\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects\Game Driven Presets\Vehicles\Locomotive\SoundSeed Air Woosh	Variations on a mechanical theme. Made for looping.
+	410119929	Wwise Synth One	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\DRONE\DRONE\Wwise Synth One	
 	412472127	MAGIC 03	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFX\MAGIC 03\MAGIC 03	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	414142681	Wwise Silence	Wwise Silence		\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects\Static Presets (wave file substitutions)\Weapons\Arrows\Arrows_03\Silence\Wwise Silence	
 	416705626	RING 01	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\Instruments\RING 01\RING 01	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
@@ -370,6 +400,7 @@ Source plug-ins	ID	Name	Type		Wwise Object Path	Notes
 	745928427	Wwise Silence	Wwise Silence		\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects\Static Presets (wave file substitutions)\Non-Windy Ambiences\Urban Scene\Random Car Pass-by_06\Silence\Wwise Silence	
 	750600072	WHA	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFX\WHA\WHA	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	753303888	MAGIC 02	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFX\MAGIC 02\MAGIC 02	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
+	756547488	Wwise Synth One	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\DRONE\DRONE2\Wwise Synth One	
 	761686719	SoundSeed Woosh	SoundSeed Air/SoundSeed Woosh		\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects\Game Driven Presets\Weapons\Wooden Staff\SoundSeed Woosh	
 	762230594	SQUARE 8va	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\Instruments\SQUARE 8va\SQUARE 8va	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	767342224	SoundSeed Wind	SoundSeed Air/SoundSeed Wind		\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects\Game Driven Presets\Waterfall\SoundSeed Wind	
@@ -405,26 +436,34 @@ Source plug-ins	ID	Name	Type		Wwise Object Path	Notes
 	1066203827	SAW	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\Instruments\SAW\SAW	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	116995206	ChirpCombo4	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\ChirpCombo4_F17FB28C.wem		\Interactive Music Hierarchy\Default Work Unit\Chirp_Combo\Combo_Stage3\Combo4\ChirpCombo4		1536064
-	148045885	Travel 1 Loop1	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Travel 1 Loop1_F17FB28C.wem		\Interactive Music Hierarchy\Default Work Unit\Music Zone\Env1\Env 1 - Travel 1 - Introduction\Travel 1 Loop1\Travel 1 Loop1		9216064
-	192738852	Puzzle 2 (Factory)	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Puzzle 2 (Factory)_F17FB28C.wem		\Interactive Music Hierarchy\Default Work Unit\Music Zone\Env3\Env 3 - Puzzle 2 - Factory\Puzzle 2 (Factory)\Puzzle 2 (Factory)		6912064
-	275231454	Percussion2	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Percussion2_F17FB28C.wem		\Interactive Music Hierarchy\Default Work Unit\Music Zone\Env2\Env 2 - Travel 2 - Industrial Park\Percussion2\Percussion2		3456064
-	309217538	PercussionOutro	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\PercussionOutro_F17FB28C.wem		\Interactive Music Hierarchy\Default Work Unit\Music Zone\Env2\Env 2 - Travel 2 - Industrial Park\PercussionOutro\PercussionOutro		2304064
-	328936192	Percussion1	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Percussion1_F17FB28C.wem		\Interactive Music Hierarchy\Default Work Unit\Music Zone\Env2\Env 2 - Travel 2 - Industrial Park\Percussion1\Percussion1		3456064
-	351639100	Puzzle 2_2 (Factory)	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Puzzle 2.2 (Factory)_F17FB28C.wem		\Interactive Music Hierarchy\Default Work Unit\Music Zone\Env3\Env 3 - Puzzle 2 - Factory\Puzzle 2_2 (Factory)\Puzzle 2_2 (Factory)		5184064
-	352650002	Chirp 2	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Chirp 2_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Robots\Chirps\Player1\Chirp 2		384064
-	493212140	ChirpCombo1	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\ChirpCombo1_F17FB28C.wem		\Interactive Music Hierarchy\Default Work Unit\Chirp_Combo\Combo_Stage3\Combo1\ChirpCombo1		1536064
-	573477729	ChirpCombo2	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\ChirpCombo2_F17FB28C.wem		\Interactive Music Hierarchy\Default Work Unit\Chirp_Combo\Combo_Stage3\Combo2\ChirpCombo2		1536064
-	658668300	Chirp 3	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Chirp 3_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Robots\Chirps\Player1\Chirp 3		384064
-	689645300	Metal Pad 1	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Metal Pad 1_F17FB28C.wem		\Interactive Music Hierarchy\Default Work Unit\Music Zone\Env3\Env 3 - Puzzle 3 - Factory\Metal Pad 1\Metal Pad 1		19819420
-	726991005	Puzzle - Warehouse	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Puzzle - Warehouse_F17FB28C.wem		\Interactive Music Hierarchy\Default Work Unit\Music Zone\Env1\Env 1 - Puzzle 1 - Warehouse\Puzzle - Warehouse\Puzzle - Warehouse		19819420
-	776090718	Travel 1 - Viewpoint	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Travel 1 - Viewpoint_F17FB28C.wem		\Interactive Music Hierarchy\Default Work Unit\Music Zone\Env1\Env 1 - Travel 1 - Introduction\Travel 1 - Viewpoint\Travel 1 - Viewpoint		13248064
-	782761703	Percussion3DelayLayer	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Percussion3DelayLayer_F17FB28C.wem		\Interactive Music Hierarchy\Default Work Unit\Music Zone\Env2\Env 2 - Travel 2 - Industrial Park\Percussion3DelayLayer\Percussion3DelayLayer		3456064
-	785212714	Percussion3	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Percussion3_F17FB28C.wem		\Interactive Music Hierarchy\Default Work Unit\Music Zone\Env2\Env 2 - Travel 2 - Industrial Park\Percussion3\Percussion3		2304064
-	806103223	ChirpCombo3	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\ChirpCombo3_F17FB28C.wem		\Interactive Music Hierarchy\Default Work Unit\Chirp_Combo\Combo_Stage3\Combo3\ChirpCombo3		1536064
-	898621401	Chirp 4	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Chirp 4_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Robots\Chirps\Player1\Chirp 4		384064
-	914616042	Chirp 1	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Chirp 1_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Robots\Chirps\Player1\Chirp 1		384064
-	921875708	Travel 2 Piano	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Travel 2 Piano_F17FB28C.wem		\Interactive Music Hierarchy\Default Work Unit\Music Zone\Env2\Env 2 - Travel 2 - Industrial Park\Travel 2 Piano\Travel 2 Piano		6912064
-	934684993	Puzzle - Warehouse Success	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Puzzle - Warehouse Success_F17FB28C.wem		\Interactive Music Hierarchy\Default Work Unit\Music Zone\Env1\Env 1 - Travel 1 - Introduction\Puzzle - Warehouse Success\Puzzle - Warehouse Success		9909744
-	974316838	Travel 2	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Travel 2 _F17FB28C.wem		\Interactive Music Hierarchy\Default Work Unit\Music Zone\Env2\Env 2 - Travel 2 - Industrial Park\Travel 2\Travel 2		11520064
+	3057744	Chirp3A	\\StuHome\HomeDrive8$\1405188\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Chirp3A_F17FB28C.wem		\Interactive Music Hierarchy\Default Work Unit\Chirps\Chirp_P1_ Happy\Note3\Chirp3A		1536064
+	74694613	Chirp2A	\\StuHome\HomeDrive8$\1405188\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Chirp2A_F17FB28C.wem		\Interactive Music Hierarchy\Default Work Unit\Chirps\Chirp_P1_ Happy\Note2\Chirp2A		1536064
+	148045885	Travel 1 Loop1	\\StuHome\HomeDrive8$\1405188\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Travel 1 Loop1_F17FB28C.wem		\Interactive Music Hierarchy\Default Work Unit\Music Zone\Env1\Env 1 - Travel 1 - Introduction\Travel 1 Loop1\Travel 1 Loop1		9216064
+	161124012	Chirp2B	\\StuHome\HomeDrive8$\1405188\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Chirp2B_F17FB28C.wem		\Interactive Music Hierarchy\Default Work Unit\Chirps\Chirp_P2_ Happy\Chirp2B\Chirp2B		1536064
+	192738852	Puzzle 2 (Factory)	\\StuHome\HomeDrive8$\1405188\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Puzzle 2 (Factory)_F17FB28C.wem		\Interactive Music Hierarchy\Default Work Unit\Music Zone\Env3\Env 3 - Puzzle 2 - Factory\Puzzle 2 (Factory)\Puzzle 2 (Factory)		6912064
+	275231454	Percussion2	\\StuHome\HomeDrive8$\1405188\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Percussion2_F17FB28C.wem		\Interactive Music Hierarchy\Default Work Unit\Music Zone\Env2\Env 2 - Travel 2 - Industrial Park\Percussion2\Percussion2		3456064
+	309217538	PercussionOutro	\\StuHome\HomeDrive8$\1405188\Github\Team4\Robot\Wwise\.cache\Windows\SFX\PercussionOutro_F17FB28C.wem		\Interactive Music Hierarchy\Default Work Unit\Music Zone\Env2\Env 2 - Travel 2 - Industrial Park\PercussionOutro\PercussionOutro		2304064
+	328936192	Percussion1	\\StuHome\HomeDrive8$\1405188\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Percussion1_F17FB28C.wem		\Interactive Music Hierarchy\Default Work Unit\Music Zone\Env2\Env 2 - Travel 2 - Industrial Park\Percussion1\Percussion1		3456064
+	351639100	Puzzle 2_2 (Factory)	\\StuHome\HomeDrive8$\1405188\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Puzzle 2.2 (Factory)_F17FB28C.wem		\Interactive Music Hierarchy\Default Work Unit\Music Zone\Env3\Env 3 - Puzzle 2 - Factory\Puzzle 2_2 (Factory)\Puzzle 2_2 (Factory)		5184064
+	352650002	Chirp 2	\\StuHome\HomeDrive8$\1405188\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Chirp 2_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Robots\Chirps\Type_P1\Happy\Chirp 2		384064
+	354130550	Chirp3B	\\StuHome\HomeDrive8$\1405188\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Chirp3B_F17FB28C.wem		\Interactive Music Hierarchy\Default Work Unit\Chirps\Chirp_P2_ Happy\Chirp3B\Chirp3B		1536064
+	393536708	Chirp4B	\\StuHome\HomeDrive8$\1405188\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Chirp4B_F17FB28C.wem		\Interactive Music Hierarchy\Default Work Unit\Chirps\Chirp_P2_ Happy\Chirp4B\Chirp4B		1536064
+	428733254	Chirp4A	\\StuHome\HomeDrive8$\1405188\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Chirp4A_F17FB28C.wem		\Interactive Music Hierarchy\Default Work Unit\Chirps\Chirp_P1_ Happy\Note4\Chirp4A		1536064
+	499575005	Chirp3C	\\StuHome\HomeDrive8$\1405188\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Chirp3C_F17FB28C.wem		\Interactive Music Hierarchy\Default Work Unit\Chirps\Chirp_P1_ Happy\Chirp3C\Chirp3C		1536064
+	503432355	Chirp4C	\\StuHome\HomeDrive8$\1405188\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Chirp4C_F17FB28C.wem		\Interactive Music Hierarchy\Default Work Unit\Chirps\Chirp_P1_ Happy\Chirp4C\Chirp4C		1536064
+	651259921	Chirp1A	\\StuHome\HomeDrive8$\1405188\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Chirp1A_F17FB28C.wem		\Interactive Music Hierarchy\Default Work Unit\Chirps\Chirp_P1_ Happy\Note1\Chirp1A		1536064
+	658668300	Chirp 3	\\StuHome\HomeDrive8$\1405188\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Chirp 3_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Robots\Chirps\Type_P1\Happy\Chirp 3		384064
+	680104423	Chirp1B	\\StuHome\HomeDrive8$\1405188\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Chirp1B_F17FB28C.wem		\Interactive Music Hierarchy\Default Work Unit\Chirps\Chirp_P2_ Happy\Chirp1B\Chirp1B		1536064
+	689645300	Metal Pad 1	\\StuHome\HomeDrive8$\1405188\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Metal Pad 1_F17FB28C.wem		\Interactive Music Hierarchy\Default Work Unit\Music Zone\Env3\Env 3 - Puzzle 3 - Factory\Metal Pad 1\Metal Pad 1		19819420
+	726991005	Puzzle - Warehouse	\\StuHome\HomeDrive8$\1405188\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Puzzle - Warehouse_F17FB28C.wem		\Interactive Music Hierarchy\Default Work Unit\Music Zone\Env1\Env 1 - Puzzle 1 - Warehouse\Puzzle - Warehouse\Puzzle - Warehouse		19819420
+	776090718	Travel 1 - Viewpoint	\\StuHome\HomeDrive8$\1405188\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Travel 1 - Viewpoint_F17FB28C.wem		\Interactive Music Hierarchy\Default Work Unit\Music Zone\Env1\Env 1 - Travel 1 - Introduction\Travel 1 - Viewpoint\Travel 1 - Viewpoint		13248064
+	782761703	Percussion3DelayLayer	\\StuHome\HomeDrive8$\1405188\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Percussion3DelayLayer_F17FB28C.wem		\Interactive Music Hierarchy\Default Work Unit\Music Zone\Env2\Env 2 - Travel 2 - Industrial Park\Percussion3DelayLayer\Percussion3DelayLayer		3456064
+	785212714	Percussion3	\\StuHome\HomeDrive8$\1405188\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Percussion3_F17FB28C.wem		\Interactive Music Hierarchy\Default Work Unit\Music Zone\Env2\Env 2 - Travel 2 - Industrial Park\Percussion3\Percussion3		2304064
+	898621401	Chirp 4	\\StuHome\HomeDrive8$\1405188\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Chirp 4_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Robots\Chirps\Type_P1\Happy\Chirp 4		384064
+	914616042	Chirp 1	\\StuHome\HomeDrive8$\1405188\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Chirp 1_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Robots\Chirps\Type_P1\Happy\Chirp 1		384064
+	921875708	Travel 2 Piano	\\StuHome\HomeDrive8$\1405188\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Travel 2 Piano_F17FB28C.wem		\Interactive Music Hierarchy\Default Work Unit\Music Zone\Env2\Env 2 - Travel 2 - Industrial Park\Travel 2 Piano\Travel 2 Piano		6912064
+	934684993	Puzzle - Warehouse Success	\\StuHome\HomeDrive8$\1405188\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Puzzle - Warehouse Success_F17FB28C.wem		\Interactive Music Hierarchy\Default Work Unit\Music Zone\Env1\Env 1 - Travel 1 - Introduction\Puzzle - Warehouse Success\Puzzle - Warehouse Success		9909744
+	940076752	Chirp2C	\\StuHome\HomeDrive8$\1405188\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Chirp2C_F17FB28C.wem		\Interactive Music Hierarchy\Default Work Unit\Chirps\Chirp_P1_ Happy\Chirp2C\Chirp2C		1536064
+	974316838	Travel 2	\\StuHome\HomeDrive8$\1405188\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Travel 2 _F17FB28C.wem		\Interactive Music Hierarchy\Default Work Unit\Music Zone\Env2\Env 2 - Travel 2 - Industrial Park\Travel 2\Travel 2		11520064
+	1027153236	Chirp1C	\\StuHome\HomeDrive8$\1405188\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Chirp1C_F17FB28C.wem		\Interactive Music Hierarchy\Default Work Unit\Chirps\Chirp_P1_ Happy\Chirp1C\Chirp1C		1536064
 

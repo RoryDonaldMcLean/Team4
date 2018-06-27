@@ -10,11 +10,19 @@ public class TimelineTriggerArea : MonoBehaviour
 
     [Header("Settings")]
     public string playerString = "Player1";
+    public string playerString2 = "Player1";
 
 
     void OnTriggerEnter(Collider theCollision)
     {
-        timelinePlaybackManager.PlayerEnteredZone();
+        if (theCollision.gameObject.name == "Crate" && theCollision.gameObject.name == "Crate2")
+        {
+            timelinePlaybackManager.PlayerEnteredZone();
+        }
+        else
+        {
+            timelinePlaybackManager.PlayerEnteredZone();
+        }
     }
 
     void OnTriggerExit(Collider theCollision)

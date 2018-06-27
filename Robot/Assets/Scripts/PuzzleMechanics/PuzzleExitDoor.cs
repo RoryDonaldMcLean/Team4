@@ -40,6 +40,9 @@ public class PuzzleExitDoor : MonoBehaviour
         if(doorOpen)
         {
             currentColour = correctLightBeamColour;
+			AkSoundEngine.PostEvent("Activate_Crystal", gameObject);
+			AkSoundEngine.SetState("Drone_Modulator", "Complete");
+
         }
         else
         {

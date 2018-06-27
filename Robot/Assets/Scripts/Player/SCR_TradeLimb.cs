@@ -136,6 +136,8 @@ public class SCR_TradeLimb : MonoBehaviour
                 Destroy(leftArmFly);
                 leftArmFly = null;
                 Exchange("LeftArm", otherPlayerTag);
+				AkSoundEngine.PostEvent("Arm_Attach", gameObject);
+
             }
         }
 
@@ -146,6 +148,8 @@ public class SCR_TradeLimb : MonoBehaviour
                 Destroy(rightArmFly);
                 rightArmFly = null;
                 Exchange("RightArm", otherPlayerTag);
+				AkSoundEngine.PostEvent("Arm_Attach", gameObject);
+
             }
         }
 
@@ -156,6 +160,8 @@ public class SCR_TradeLimb : MonoBehaviour
                 Destroy(leftLegFly);
                 leftLegFly = null;
                 Exchange("LeftLeg", otherPlayerTag);
+				AkSoundEngine.PostEvent("Arm_Attach", gameObject);
+
             }
         }
         if (rightLegFly)
@@ -165,6 +171,8 @@ public class SCR_TradeLimb : MonoBehaviour
                 Destroy(rightLegFly);
                 rightLegFly = null;
                 Exchange("RightLeg", otherPlayerTag);
+				AkSoundEngine.PostEvent("Arm_Attach", gameObject);
+
             }
         }
     }
@@ -527,6 +535,7 @@ public class SCR_TradeLimb : MonoBehaviour
         tempList.RemoveAt(limbNumber);
 
         tempList.Insert(limbNumber, newLimb);
+
     }
 
     private void RemoveLimb(string limbToRemove)
@@ -540,6 +549,8 @@ public class SCR_TradeLimb : MonoBehaviour
 
         Destroy(tempList[limbNumber]);
         tempList.RemoveAt(limbNumber);
+		AkSoundEngine.PostEvent("Arm_Drop", gameObject);
+
 
         tempList.Insert(limbNumber, hinge);
     }
@@ -563,6 +574,8 @@ public class SCR_TradeLimb : MonoBehaviour
         string pickupName = pickUpObject.name;
         Destroy(pickUpObject);
         Exchange(pickupName, this.gameObject.tag);
+		AkSoundEngine.PostEvent("Arm_Attach", gameObject);
+
     }
 
     private void LimFly(string limName, string targetPlayerTag)
@@ -589,15 +602,19 @@ public class SCR_TradeLimb : MonoBehaviour
         {
             case "LeftArm":
                 leftArmFly = limToFly;
+			AkSoundEngine.PostEvent("Arm_Detatch", gameObject);
                 break;
             case "RightArm":
                 rightArmFly = limToFly;
+			AkSoundEngine.PostEvent("Arm_Detatch", gameObject);
                 break;
             case "LeftLeg":
                 leftLegFly = limToFly;
+			AkSoundEngine.PostEvent("Arm_Detatch", gameObject);
                 break;
             case "RightLeg":
                 rightLegFly = limToFly;
+			AkSoundEngine.PostEvent("Arm_Detatch", gameObject);
                 break;
         }
     }

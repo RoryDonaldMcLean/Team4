@@ -91,6 +91,8 @@ public class PickupAndDropdown : MonoBehaviour
 						GenericPickUpCheck (ref hit);
 					}
 				}
+
+
             }
 			else if(Input.GetKeyDown(KeyCode.R))
             {
@@ -142,6 +144,7 @@ public class PickupAndDropdown : MonoBehaviour
 				{
 					Debug.Log("dropped on click");
 					LimitDrop();
+
 				}
 			} 
 			else if (pickedUpGameObject.transform.name.Contains("RotateBox"))
@@ -154,13 +157,13 @@ public class PickupAndDropdown : MonoBehaviour
 				if(Input.GetKeyDown(KeyCode.E))
 				{
 					RotateDrop();
+
 				}
 			}
 			else
 			{
 				if (alpha <= 1.0f)
 					alpha += 0.001f;
-
 				pickedUpGameObject.GetComponent<Transform>().position = pickupLocation.transform.position; // set the picking up object position
 				pickedUpGameObject.GetComponent<Transform>().rotation = Quaternion.Lerp(pickedUpGameObject.GetComponent<Transform>().rotation, this.GetComponent<Transform>().rotation, alpha); //make the rotation of object same as camera
 				pickedUpGameObject.GetComponent<Transform>().rotation = new Quaternion(0, pickedUpGameObject.GetComponent<Transform>().rotation.y, 0, pickedUpGameObject.GetComponent<Transform>().rotation.w);
@@ -168,6 +171,7 @@ public class PickupAndDropdown : MonoBehaviour
 				if (Input.GetKeyDown(KeyCode.E))
 				{
 					PutDownObject();
+
 				}
 			}
            
@@ -206,7 +210,7 @@ public class PickupAndDropdown : MonoBehaviour
         pickedUpGameObject = null; //empty the pick up object
         Destroy(pickupLocation);
 
-        //DropCrystalSource.Play();
+		AkSoundEngine.PostEvent("Place_Crystal", gameObject);
     }
 
     private void PickUpObject(Transform objectBeingPickedUp)
@@ -227,7 +231,7 @@ public class PickupAndDropdown : MonoBehaviour
         pickupLocation.GetComponent<BeamPoint>().pickedUpTransform = pickedUpGameObject.transform;
 
 
-        //PickCrystalSource.Play();
+		AkSoundEngine.PostEvent("PickUp_Crystal", gameObject);
     }
 		
 		

@@ -115,7 +115,9 @@ public class SCR_Melody : MonoBehaviour
 					if(GameObject.FindGameObjectWithTag("Player1").GetComponent<SCR_TradeLimb>().limbs[0].name.Contains("LeftArm"))
 					{
 						//allow you to play the chirp
-						source.PlayOneShot (Chirps[0]);
+					AkSoundEngine.SetSwitch("Chirps_Type", "Happy", gameObject);
+					AkSoundEngine.PostEvent("Chirp", gameObject);
+
 						Robotcode.Add (1);
 						Notes[noteCounter].GetComponent<RawImage>().texture = Arrows[0].texture;
 						//whenever a note is played
@@ -133,7 +135,10 @@ public class SCR_Melody : MonoBehaviour
 					{
 					if (GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [1].name.Contains ("RightArm"))
 					{
-						source.PlayOneShot (Chirps[1]);
+					
+					AkSoundEngine.SetSwitch("Chirps_Type", "Happy",  gameObject);
+					AkSoundEngine.PostEvent("Chirp", gameObject);
+
 						Robotcode.Add (2);
 						Notes [noteCounter].GetComponent<RawImage> ().texture = Arrows[1].texture;
 						//whenever a note is played
@@ -150,8 +155,10 @@ public class SCR_Melody : MonoBehaviour
 				{
 					if (GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [2].name.Contains ("LeftLeg"))
 					{
-						source.PlayOneShot (Chirps [2]);
-						Robotcode.Add (3);
+					AkSoundEngine.SetSwitch("Chirps_Type", "Happy",  gameObject);
+					AkSoundEngine.PostEvent("Chirp", gameObject);
+
+					Robotcode.Add (3);
 						//whenever a note is played
 						Notes [noteCounter].GetComponent<RawImage> ().texture = Arrows [2].texture;
 						//whenever a note is played
@@ -167,8 +174,10 @@ public class SCR_Melody : MonoBehaviour
 				{
 					if (GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [3].name.Contains ("RightLeg"))
 					{
-						source.PlayOneShot (Chirps [3]);
-						Robotcode.Add (4);
+					AkSoundEngine.SetSwitch("Chirps_Type", "Happy",  gameObject);
+					AkSoundEngine.PostEvent("Chirp", gameObject);
+
+					Robotcode.Add (4);
 						//whenever a note is played
 						Notes [noteCounter].GetComponent<RawImage> ().texture = Arrows [3].texture;
 						//whenever a note is played

@@ -24,6 +24,8 @@ GameObject:
   - component: {fileID: 65886942965814302}
   - component: {fileID: 54213534270553304}
   - component: {fileID: 114807337219981180}
+  - component: {fileID: 114117449616828572}
+  - component: {fileID: 114087318402019846}
   m_Layer: 13
   m_Name: PressurePlate
   m_TagString: Untagged
@@ -110,6 +112,49 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 10, y: 0.050173387, z: 10.315609}
   m_Center: {x: 0, y: -0.024913304, z: -0.15780449}
+--- !u!114 &114087318402019846
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1842501466804342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7999ea7310cf3db408b1eb3ad84d3f23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: 
+  useOtherObject: 0
+  actionOnEventType: 0
+  curveInterpolation: 4
+  enableActionOnEvent: 0
+  eventID: -156361427
+  m_callbackData: {fileID: 0}
+  playingId: 0
+  soundEmitterObject: {fileID: 0}
+  transitionDuration: 0
+  valueGuid: 3cb03ce66761f245bf52957ae1af9a3a
+--- !u!114 &114117449616828572
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1842501466804342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb191167caef1d34fa9e4ac3fca351b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_listeners:
+    initialListenerList: []
+    useDefaultListeners: 1
+  isEnvironmentAware: 1
+  isStaticObject: 0
+  m_positionOffsetData:
+    KeepMe: 0
+    positionOffset: {x: 0, y: 0, z: 0}
+  m_posOffsetData: {fileID: 0}
+  listenerMask: 1
 --- !u!114 &114807337219981180
 MonoBehaviour:
   m_ObjectHideFlags: 1

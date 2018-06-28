@@ -17,7 +17,7 @@ public class LightBarrier : MonoBehaviour
         transparentVersionOfColour.a = 0.5f;
 
         this.transform.GetComponent<Renderer>().material.color = transparentVersionOfColour;
-        this.transform.GetComponent<Renderer>().material.SetColor("_EmissionColor", (colourToBlock * 0.5f));
+        //this.transform.GetComponent<Renderer>().material.SetColor("_EmissionColor", (colourToBlock * 0.5f));
     }
 
     //Upon a collison being detected with a Lightbeam 
@@ -51,15 +51,15 @@ public class LightBarrier : MonoBehaviour
 
     private void AllowOnlyChosenColour()
     {
-        if(resultantColour.Equals(colourToBlock)) CreateExtendedBeam();
+        if (resultantColour.Equals(colourToBlock)) CreateExtendedBeam();
     }
 
     void Update()
     {
         if(lineBeam != null)
         {
-            Vector3 newPos = originalLightBeam.ClosestPointOnBounds(transform.position);// - originalLightBeam.transform.root.position;
-            newPos.y = originalLightBeam.transform.position.y;
+            Vector3 newPos = lineBeam.transform.position;
+            newPos.y = Vector3.Dot(this.transform.up, originalLightBeam.transform.position);
 
             lineBeam.ChangePos(newPos);
         }
@@ -91,5 +91,6 @@ public class LightBarrier : MonoBehaviour
     {
         lineBeam = this.gameObject.AddComponent<StraightSplineBeam>();
         lineBeam.beamColour = resultantColour;
+        lineBeam.beamLength = 10;
     }
 }

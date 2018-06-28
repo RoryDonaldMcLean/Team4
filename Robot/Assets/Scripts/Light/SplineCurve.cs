@@ -53,9 +53,17 @@ public class SplineCurve : MonoBehaviour
     void Start()
     {
        DrawLine();
-       CalculateColliders();
-       this.transform.localPosition = Vector3.zero;
-       this.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 0));
+    }
+
+    public void Initialise()
+    {
+        CalculateColliders();
+
+        Vector3 globalParentScale = this.transform.parent.lossyScale;
+        if(globalParentScale != Vector3.one) this.transform.localScale = new Vector3(1/ globalParentScale.x, 1 / globalParentScale.y, 1 / globalParentScale.z);
+
+        this.transform.localPosition = Vector3.zero;
+        this.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 0));
     }
 
     private void CreateCollider(Vector3 location)

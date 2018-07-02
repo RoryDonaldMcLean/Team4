@@ -22,6 +22,7 @@ public class StraightSplineBeam : MonoBehaviour
 
     void OnDestroy()
     {
+        dynamicLightBeam.TriggerConnectedObjectsExit();
         Destroy(dynamicLightBeam);
     }
 
@@ -29,11 +30,11 @@ public class StraightSplineBeam : MonoBehaviour
     public void ToggleBeam()
     {
         active = !active;
-
+    
         CreateBeam();
         DestroyBeam();
 
-        StartCoroutine(LightResizeToggleControl(active));
+        if(this.gameObject.activeInHierarchy) StartCoroutine(LightResizeToggleControl(active));
     }
     //either creates or destroys the beam depending on the active state of the beam.
     public void ToggleCustomBeam(Vector3 startPoint, List<Vector3> midPoints, Vector3 endPoint)
@@ -52,8 +53,9 @@ public class StraightSplineBeam : MonoBehaviour
             splineCurve = Instantiate(Resources.Load("Prefabs/Light/LineRender")) as GameObject;
             splineCurve.name = "splineLine";
             splineCurve.GetComponent<SplineCurve>().color = beamColour;
-            splineCurve.GetComponent<SplineCurve>().CustomLine(beamLength, startPoint, midPoints, endPoint);
+            splineCurve.GetComponent<SplineCurve>().CustomLine(beamLength, startPoint, midPoints, endPoint);            
             splineCurve.transform.SetParent(this.transform);
+            splineCurve.GetComponent<SplineCurve>().Initialise();
         }
     }
 
@@ -66,6 +68,7 @@ public class StraightSplineBeam : MonoBehaviour
             splineCurve.GetComponent<SplineCurve>().color = beamColour;
             splineCurve.GetComponent<SplineCurve>().StraightLine(beamLength);
             splineCurve.transform.SetParent(this.transform);
+            splineCurve.GetComponent<SplineCurve>().Initialise();
         }
     }
 
@@ -103,6 +106,17 @@ public class StraightSplineBeam : MonoBehaviour
     public void WaitForBeamDestruction()
     {
         StartCoroutine(BeamNotification());
+    }
+
+    public IEnumerator LayerControl()
+    {
+        yield return StartCoroutine(BeamNotification());
+        SetCorrectLayer();
+    }
+
+    private void SetCorrectLayer()
+    {
+        splineCurve.gameObject.layer = LayerMask.NameToLayer("BeamLayer");
     }
 
     public IEnumerator BeamNotification()

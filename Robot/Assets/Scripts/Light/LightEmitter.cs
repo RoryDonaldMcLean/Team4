@@ -40,7 +40,6 @@ public class LightEmitter : MonoBehaviour
         RaycastHit hit;
         if (ObjectFoundInfrontOfBeam(out hit))
         {
-            Debug.Log("EmitterHit" + hit.transform.name);
             this.GetComponent<LightResize>().TriggerExitControl(hit.transform);
         }
     }

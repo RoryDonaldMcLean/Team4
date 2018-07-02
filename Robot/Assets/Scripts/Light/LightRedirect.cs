@@ -39,7 +39,6 @@ public class LightRedirect : MonoBehaviour
 
     public void TriggerEnterFunction(Collider lightBeam)
     {
-        Debug.Log("forcetrigger" + lightBeam.name);
         OnTriggerEnter(lightBeam);
     }
 
@@ -102,9 +101,15 @@ public class LightRedirect : MonoBehaviour
         splineCurve.ToggleBeam();
         Destroy(splineCurve);
 
+        if (arrowDefaultColour.Equals(Color.grey))
+        {
+            arrowDefaultColour = Color.white;
+        }
+
         Color newColour = arrowDefaultColour;
         //if object is picked up, and is therefore, faded, carry over this change in the blinking arrow code
         if (IsPickedUp()) newColour.a = fadedColourAlpha;
+
         this.transform.GetComponent<Renderer>().material.color = newColour;
     }
     //creates a beam that functions as an extension of the beam that this object has collided with

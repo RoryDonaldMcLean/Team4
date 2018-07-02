@@ -56,6 +56,8 @@ Shader "Custom/PlayerDiffuse"
 		Pass
 		{
 			ZWrite On
+			ZTest LEqual
+
 			CGPROGRAM
 			#include "Lighting.cginc" 
 			sampler2D _MainTex;

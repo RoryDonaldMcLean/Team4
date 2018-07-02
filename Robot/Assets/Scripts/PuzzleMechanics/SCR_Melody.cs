@@ -78,12 +78,13 @@ public class SCR_Melody : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		ProcessInput ();
+
 		//player1 touching the door, if the correct code is inputted then no longer show the UI
 		if (this.GetComponent<SCR_Door>().Player1enteredBounds == true && correctCode == false || 
 			this.GetComponent<SCR_Door>().Player2enteredBounds == true && correctCode == false)
 		{
 			CanvasNoteSheet.SetActive (true);
+			//Debug.Log ("yeyeye");
 		} 
 		else
 		{
@@ -108,7 +109,7 @@ public class SCR_Melody : MonoBehaviour
 			{
 				//beeps Y
 				if (prevState.DPad.Up == ButtonState.Released &&
-				state.DPad.Up == ButtonState.Pressed || Input.GetKeyDown(KeyCode.Alpha1))
+				state.DPad.Up == ButtonState.Pressed || Input.GetKeyDown(GameManager.Instance.playerSetting.currentButton[4]))
 				{
 					//if player 1 has the left arm
 					//limbs[0] is left arm. so if it was limbs[1] that would be right arm
@@ -129,7 +130,7 @@ public class SCR_Melody : MonoBehaviour
 					}
 				}
 				else if (prevState.DPad.Left == ButtonState.Released &&
-				state.DPad.Left == ButtonState.Pressed || Input.GetKeyDown(KeyCode.Alpha2))
+				state.DPad.Left == ButtonState.Pressed || Input.GetKeyDown(GameManager.Instance.playerSetting.currentButton[5]))
 					{
 					if (GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [1].name.Contains ("RightArm"))
 					{
@@ -146,7 +147,7 @@ public class SCR_Melody : MonoBehaviour
 
 				}
 				else if (prevState.DPad.Right == ButtonState.Released &&
-				state.DPad.Right == ButtonState.Pressed || Input.GetKeyDown(KeyCode.Alpha3))
+				state.DPad.Right == ButtonState.Pressed || Input.GetKeyDown(GameManager.Instance.playerSetting.currentButton[6]))
 				{
 					if (GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [2].name.Contains ("LeftLeg"))
 					{
@@ -163,7 +164,7 @@ public class SCR_Melody : MonoBehaviour
 
 				}
 				else if (prevState.DPad.Down == ButtonState.Released &&
-				state.DPad.Down == ButtonState.Pressed || Input.GetKeyDown(KeyCode.Alpha4))
+				state.DPad.Down == ButtonState.Pressed || Input.GetKeyDown(GameManager.Instance.playerSetting.currentButton[7]))
 				{
 					if (GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [3].name.Contains ("RightLeg"))
 					{

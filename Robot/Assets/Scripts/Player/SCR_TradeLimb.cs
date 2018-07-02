@@ -608,27 +608,32 @@ public class SCR_TradeLimb : MonoBehaviour
     /// <param name="other"></param>
     private void OnTriggerStay(Collider other)
     {	//player 1
-        if (player2)
-        {
-			if (other.name == "LeftArm" && prevState.Buttons.B == ButtonState.Pressed || other.name == "LeftArm" && Input.GetKey(KeyCode.Q))
-                PickUpLims(other.gameObject);
-			if (other.name == "RightArm" && prevState.Buttons.B == ButtonState.Pressed || other.name == "RightArm" && Input.GetKey(KeyCode.Q))
-                PickUpLims(other.gameObject);
-			if (other.name == "LeftLeg" && prevState.Buttons.B == ButtonState.Pressed || other.name == "LeftLeg" && Input.GetKey(KeyCode.Q))
-                PickUpLims(other.gameObject);
-			if (other.name == "RightLeg" && prevState.Buttons.B == ButtonState.Pressed || other.name == "RightLeg" && Input.GetKey(KeyCode.Q))
-                PickUpLims(other.gameObject);
-        }
-        else
-        {	//player 2
-			if (other.name == "LeftArm" && player2PrevState.Buttons.B == ButtonState.Pressed || other.name == "LeftArm" && Input.GetKey(KeyCode.K))
-                PickUpLims(other.gameObject);
-			if (other.name == "RightArm" && player2PrevState.Buttons.B == ButtonState.Pressed || other.name == "RightArm" && Input.GetKey(KeyCode.K))
-                PickUpLims(other.gameObject);
-			if (other.name == "LeftLeg" && player2PrevState.Buttons.B == ButtonState.Pressed || other.name == "LeftLeg" && Input.GetKey(KeyCode.K))
-                PickUpLims(other.gameObject);
-			if (other.name == "RightLeg" && player2PrevState.Buttons.B == ButtonState.Pressed || other.name == "RightLeg" && Input.GetKey(KeyCode.K))
-                PickUpLims(other.gameObject);
-        }
+		if (other.gameObject.transform.parent == null)
+		{
+			if (player2)
+			{
+				if (other.name == "LeftArm" && prevState.Buttons.B == ButtonState.Pressed || other.name == "LeftArm" && Input.GetKey(KeyCode.Q))
+					PickUpLims(other.gameObject);
+				if (other.name == "RightArm" && prevState.Buttons.B == ButtonState.Pressed || other.name == "RightArm" && Input.GetKey(KeyCode.Q))
+					PickUpLims(other.gameObject);
+				if (other.name == "LeftLeg" && prevState.Buttons.B == ButtonState.Pressed || other.name == "LeftLeg" && Input.GetKey(KeyCode.Q))
+					PickUpLims(other.gameObject);
+				if (other.name == "RightLeg" && prevState.Buttons.B == ButtonState.Pressed || other.name == "RightLeg" && Input.GetKey(KeyCode.Q))
+					PickUpLims(other.gameObject);
+			}
+			else
+			{	//player 2
+				if (other.name == "LeftArm" && player2PrevState.Buttons.B == ButtonState.Pressed || other.name == "LeftArm" && Input.GetKey(KeyCode.K))
+					PickUpLims(other.gameObject);
+				if (other.name == "RightArm" && player2PrevState.Buttons.B == ButtonState.Pressed || other.name == "RightArm" && Input.GetKey(KeyCode.K))
+					PickUpLims(other.gameObject);
+				if (other.name == "LeftLeg" && player2PrevState.Buttons.B == ButtonState.Pressed || other.name == "LeftLeg" && Input.GetKey(KeyCode.K))
+					PickUpLims(other.gameObject);
+				if (other.name == "RightLeg" && player2PrevState.Buttons.B == ButtonState.Pressed || other.name == "RightLeg" && Input.GetKey(KeyCode.K))
+					PickUpLims(other.gameObject);
+			}
+
+		}
+			
     }
 }

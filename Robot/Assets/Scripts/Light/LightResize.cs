@@ -37,8 +37,8 @@ public class LightResize : MonoBehaviour
             RaycastHit hit;
             if (ObjectFoundBehindBlockedBeam(out hit))
             {            
-                Debug.Log("ObjectBehind" + hit.transform.name);
-                Debug.Log("whatItIs" + this.transform.name);
+//                Debug.Log("ObjectBehind" + hit.transform.name);
+               // Debug.Log("whatItIs" + this.transform.name);
                 TriggerExitControl(hit.transform);
             }
         }

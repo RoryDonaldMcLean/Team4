@@ -64,7 +64,7 @@ public class Movement_ : MonoBehaviour
 
         //player 1
         //move forward
-        if (player2)
+        if (player2 == GameManager.Instance.whichAndroid.player1ControlRed)
         {
 
             if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[0]) || (prevState.ThumbSticks.Left.Y > 0.1))

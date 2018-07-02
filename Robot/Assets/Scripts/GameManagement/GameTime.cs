@@ -1,5 +1,5 @@
 ﻿public class GameTime  {
-
+    
     private int hour;
     private int min;
     private int sec;

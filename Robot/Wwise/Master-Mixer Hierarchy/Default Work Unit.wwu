@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<WwiseDocument Type="WorkUnit" ID="{2653943A-432D-488E-9B26-028C9F2C6C6D}" SchemaVersion="80">
+<WwiseDocument Type="WorkUnit" ID="{2653943A-432D-488E-9B26-028C9F2C6C6D}" SchemaVersion="85">
 	<Busses>
 		<WorkUnit Name="Default Work Unit" ID="{2653943A-432D-488E-9B26-028C9F2C6C6D}" PersistMode="Standalone">
 			<ChildrenList>
 				<Bus Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}">
+					<ReferenceList>
+						<Reference Name="AudioDevice" PluginName="System" CompanyID="0" PluginID="174" PluginType="7">
+							<ObjectRef Name="System" ID="{A2ECC2FD-A957-49FD-9F98-0A5C4A68F406}" WorkUnitID="{D2A9BA3C-471D-44C7-94D4-0575F47558E3}"/>
+						</Reference>
+					</ReferenceList>
 					<ChildrenList>
 						<Bus Name="Robots" ID="{2CF2209D-D7EA-4591-BE9C-0A89A9A34326}">
 							<PropertyList>
@@ -20,6 +25,18 @@
 									<ObjectRef Name="Main_Attentuation" ID="{7AFFEEA2-FEA6-4C5E-9350-4292CD58F98F}" WorkUnitID="{69E5E085-C55B-46C1-B440-1CB36DA8E2EE}"/>
 								</Reference>
 							</ReferenceList>
+							<DuckingList>
+								<DuckItem>
+									<BusRef Name="Drone" ID="{6BAF7145-A163-40D7-A216-C4BC3B0F1656}"/>
+									<DuckingParam>
+										<Volume>-13</Volume>
+										<FadeInTime>0.5</FadeInTime>
+										<FadeOutTime>0.200000002980232</FadeOutTime>
+										<FadeCurve>FadeExp1</FadeCurve>
+										<TargetProp>BusVolume</TargetProp>
+									</DuckingParam>
+								</DuckItem>
+							</DuckingList>
 						</Bus>
 						<Bus Name="Ambience" ID="{6DA28E5B-02CA-4B3F-8893-AC8791C9BF2D}">
 							<PropertyList>
@@ -35,7 +52,7 @@
 							<PropertyList>
 								<Property Name="BusVolume" Type="Real64">
 									<ValueList>
-										<Value>-16</Value>
+										<Value>-11</Value>
 									</ValueList>
 								</Property>
 								<Property Name="DivergenceCenter" Type="int32">
@@ -44,8 +61,12 @@
 									</ValueList>
 								</Property>
 								<Property Name="EnablePositioning" Type="bool" Value="True"/>
+								<Property Name="PositioningType" Type="int16" Value="1"/>
 							</PropertyList>
 							<ReferenceList>
+								<Reference Name="Attenuation">
+									<ObjectRef Name="Main_Attentuation" ID="{7AFFEEA2-FEA6-4C5E-9350-4292CD58F98F}" WorkUnitID="{69E5E085-C55B-46C1-B440-1CB36DA8E2EE}"/>
+								</Reference>
 								<Reference Name="Effect0">
 									<Custom>
 										<Effect Name="Wwise Tremolo (Custom)" ID="{A5B26D81-8E52-4F6B-9F00-A02F670FF12B}" ShortID="133191268" PluginName="Wwise Tremolo" CompanyID="0" PluginID="131" PluginType="3">
@@ -60,6 +81,11 @@
 						</Bus>
 						<Bus Name="Music" ID="{8B3FDD90-9F59-41B0-831B-94D60F3FFC3C}">
 							<PropertyList>
+								<Property Name="BusVolume" Type="Real64">
+									<ValueList>
+										<Value>-4</Value>
+									</ValueList>
+								</Property>
 								<Property Name="DivergenceCenter" Type="int32">
 									<ValueList>
 										<Value>0</Value>
@@ -67,6 +93,17 @@
 								</Property>
 								<Property Name="EnablePositioning" Type="bool" Value="True"/>
 							</PropertyList>
+							<DuckingList>
+								<DuckItem>
+									<BusRef Name="Drone" ID="{6BAF7145-A163-40D7-A216-C4BC3B0F1656}"/>
+									<DuckingParam>
+										<Volume>-8</Volume>
+										<FadeInTime>1</FadeInTime>
+										<FadeOutTime>1</FadeOutTime>
+										<FadeCurve>FadeLinear</FadeCurve>
+									</DuckingParam>
+								</DuckItem>
+							</DuckingList>
 						</Bus>
 						<Bus Name="Chirps" ID="{CFE7271A-38F8-4E0A-BFAD-CBA746BA6DD4}">
 							<PropertyList>
@@ -124,8 +161,13 @@
 						</Bus>
 					</ChildrenList>
 				</Bus>
-				<Bus Name="Master Secondary Bus" ID="{D2E0BC7E-7B3F-4FFE-A670-FAE02761B631}"/>
-				<MotionBus Name="Master Motion Bus" ID="{20A630BA-3398-4676-B927-1004DFE41FD8}"/>
+				<Bus Name="Master Secondary Bus" ID="{D2E0BC7E-7B3F-4FFE-A670-FAE02761B631}">
+					<ReferenceList>
+						<Reference Name="AudioDevice" PluginName="System" CompanyID="0" PluginID="174" PluginType="7">
+							<ObjectRef Name="System" ID="{A2ECC2FD-A957-49FD-9F98-0A5C4A68F406}" WorkUnitID="{D2A9BA3C-471D-44C7-94D4-0575F47558E3}"/>
+						</Reference>
+					</ReferenceList>
+				</Bus>
 			</ChildrenList>
 		</WorkUnit>
 	</Busses>

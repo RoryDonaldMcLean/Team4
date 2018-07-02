@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<WwiseDocument Type="WorkUnit" ID="{217B9AB9-B641-4200-BF39-9F61C2C8E9A4}" SchemaVersion="80">
+<WwiseDocument Type="WorkUnit" ID="{217B9AB9-B641-4200-BF39-9F61C2C8E9A4}" SchemaVersion="85">
 	<States>
 		<WorkUnit Name="Default Work Unit" ID="{217B9AB9-B641-4200-BF39-9F61C2C8E9A4}" PersistMode="Standalone">
 			<ChildrenList>
 				<StateGroup Name="Environment" ID="{368540B0-9326-43CE-A20D-CD99DFFC54DE}">
 					<ChildrenList>
 						<State Name="None" ID="{EEB0DDCC-1D2E-46C0-8783-269C3657FD16}"/>
-						<State Name="E1P1" ID="{17CB48A6-64BA-43F4-8407-C2EFD429513D}"/>
-						<State Name="E1T1" ID="{8560F98D-A0AB-460C-B0B1-3650BB884DC1}"/>
-						<State Name="E2T2" ID="{83EC0E5B-B3EF-4B40-8059-219FF5CC14A3}"/>
-						<State Name="E3P2" ID="{4FD9111A-31F1-4BD8-919C-71956F22B553}"/>
-						<State Name="E3P3" ID="{A626FA01-F18C-407E-A1E9-0A1D2ABE0873}"/>
-						<State Name="E4T3" ID="{105D851F-5960-4966-B88D-38DE762C4323}"/>
-						<State Name="E5P4" ID="{B1816207-2DCD-4995-AE24-F6B25BA3B97A}"/>
-						<State Name="E6P5" ID="{F68F79EB-353E-4D0B-9F69-E29F4318922F}"/>
-						<State Name="E6T4" ID="{77694197-4E70-44A9-AB36-831F32BB9225}"/>
-						<State Name="E7T5" ID="{CBBB2579-5384-4409-BECC-5A010B7A0564}"/>
-						<State Name="E7T6" ID="{E7CF52EB-286E-4D7C-93AC-91529C9007A5}"/>
 						<State Name="Menu" ID="{3AFA27FF-9639-4444-9C9F-20A568E90221}"/>
+						<State Name="P3_Factory" ID="{79494580-3976-425E-971D-CB193C870700}"/>
+						<State Name="P1_Intro" ID="{FC8BB0BF-7A44-40B1-8D27-D1EA7366289D}"/>
+						<State Name="P2_Warehouse2_Viewpoint" ID="{EB070CD5-C2C2-46D1-9A5B-C15943D11787}"/>
+						<State Name="P2_Warehouse" ID="{E243362C-5106-411D-BE6F-E24C9941659D}"/>
+						<State Name="P4_Construction" ID="{3BD738C0-1FEE-4A31-B833-5BDB23300B01}"/>
+						<State Name="P5_Clouds" ID="{B92ABBFE-ED7C-4AE0-A739-CF81428935A0}"/>
+						<State Name="P6_Core" ID="{6B59E6D1-4DA6-487E-91B0-1AE559B70CD1}"/>
+						<State Name="P2_Warehouse3_LoseArm" ID="{4E5C273A-DEF6-4BAD-A871-FF9DC9B7E05C}"/>
+						<State Name="P3_Factory_LoseArm" ID="{DC03589A-BDD2-45D6-A826-EA9C0315B998}"/>
+						<State Name="P4_Construction_LoseArm" ID="{D695CF3E-305E-4E9C-B0A6-AFFF6B047BB0}"/>
+						<State Name="P7_Sacrifice_End" ID="{B2786363-AAB6-4D23-9F0A-8407408276B0}"/>
 					</ChildrenList>
 				</StateGroup>
 				<StateGroup Name="Chirp_Type" ID="{98EBFAA5-4FEE-4E71-90CD-0B730B7E07B7}">
@@ -41,6 +41,14 @@
 						<State Name="Hit_Switch" ID="{5DBE742A-FF4B-4888-A989-F0958DD1AA8E}"/>
 						<State Name="Complete" ID="{5B42DFA5-E7F9-47A0-8E1C-22A385CE8DC2}"/>
 						<State Name="Start" ID="{D1DB9805-02B1-44BF-A049-F23022B18534}"/>
+					</ChildrenList>
+				</StateGroup>
+				<StateGroup Name="Wind" ID="{0A1EA6A9-E2BB-48E3-B9D4-7751200BE2D9}">
+					<ChildrenList>
+						<State Name="None" ID="{EA5E36B2-0146-41EA-9BE6-30449B4A8B92}"/>
+						<State Name="AboveCloud" ID="{94649626-CB56-4BD8-98A1-752607A6695B}"/>
+						<State Name="City" ID="{CAC57744-77C9-4CF9-86DC-9530AFFEE778}"/>
+						<State Name="Desert" ID="{37CE9BE2-7404-4280-9D1F-0DF04842292F}"/>
 					</ChildrenList>
 				</StateGroup>
 			</ChildrenList>

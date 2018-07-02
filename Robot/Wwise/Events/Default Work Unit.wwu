@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<WwiseDocument Type="WorkUnit" ID="{9208E778-4B37-4421-9C2A-46AAA42FFE85}" SchemaVersion="80">
+<WwiseDocument Type="WorkUnit" ID="{9208E778-4B37-4421-9C2A-46AAA42FFE85}" SchemaVersion="85">
 	<Events>
 		<WorkUnit Name="Default Work Unit" ID="{9208E778-4B37-4421-9C2A-46AAA42FFE85}" PersistMode="Standalone">
 			<ChildrenList>
@@ -131,16 +131,6 @@
 					<ChildrenList>
 						<Event Name="DRONE" ID="{C48883F0-0412-458A-AFBC-C283EB37E271}">
 							<ChildrenList>
-								<Action Name="" ID="{2AFD008B-4CBB-4894-8FFB-8194CBAE4E45}" ShortID="907143013">
-									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="1"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Drone2" ID="{AFE8948E-6573-484D-9B8E-FDC3AF2AB28B}" WorkUnitID="{D9329DB3-E4D7-45AA-BD40-6EB28C6C4D39}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
 								<Action Name="" ID="{CB89F23A-6D44-4BE7-8E4B-F79A21AE3672}" ShortID="1039370998">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="1"/>
@@ -158,6 +148,16 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Drone3" ID="{2FD76A35-9848-4F8F-9F29-E0570451F891}" WorkUnitID="{D9329DB3-E4D7-45AA-BD40-6EB28C6C4D39}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{2AFD008B-4CBB-4894-8FFB-8194CBAE4E45}" ShortID="907143013">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Drone2" ID="{AFE8948E-6573-484D-9B8E-FDC3AF2AB28B}" WorkUnitID="{D9329DB3-E4D7-45AA-BD40-6EB28C6C4D39}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>

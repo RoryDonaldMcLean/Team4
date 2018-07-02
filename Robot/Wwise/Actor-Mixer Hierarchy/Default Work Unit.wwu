@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<WwiseDocument Type="WorkUnit" ID="{6BAE9174-7CEB-4131-99B7-F2EC621355E0}" SchemaVersion="80">
+<WwiseDocument Type="WorkUnit" ID="{6BAE9174-7CEB-4131-99B7-F2EC621355E0}" SchemaVersion="85">
 	<AudioObjects>
 		<WorkUnit Name="Default Work Unit" ID="{6BAE9174-7CEB-4131-99B7-F2EC621355E0}" PersistMode="Standalone">
 			<ChildrenList>
@@ -60,8 +60,14 @@
 								<Reference Name="Conversion">
 									<ObjectRef Name="Low" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
 								</Reference>
+								<Reference Name="DefaultSwitchOrState">
+									<ObjectRef Name="Player_1" ID="{6E833DCC-3FA9-4C0A-8558-F454CDA5F3DB}" WorkUnitID="{58100D4C-AF7E-4F01-9581-C8921E80B431}"/>
+								</Reference>
 								<Reference Name="OutputBus">
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
+								</Reference>
+								<Reference Name="SwitchGroupOrStateGroup">
+									<ObjectRef Name="PlayerID" ID="{0B1758AD-368C-468E-96D5-4A550B0524FF}" WorkUnitID="{58100D4C-AF7E-4F01-9581-C8921E80B431}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
@@ -84,6 +90,9 @@
 										</Reference>
 										<Reference Name="OutputBus">
 											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
+										</Reference>
+										<Reference Name="SwitchGroupOrStateGroup">
+											<ObjectRef Name="Chirp_Type" ID="{98EBFAA5-4FEE-4E71-90CD-0B730B7E07B7}" WorkUnitID="{217B9AB9-B641-4200-BF39-9F61C2C8E9A4}"/>
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
@@ -194,8 +203,6 @@
 										</RandomSequenceContainer>
 									</ChildrenList>
 									<GroupingInfo>
-										<GroupRef Name="Chirp_Type" ID="{98EBFAA5-4FEE-4E71-90CD-0B730B7E07B7}"/>
-										<DefaultSwitchRef Name="" ID="{00000000-0000-0000-0000-000000000000}"/>
 										<GroupingBehaviorList>
 											<GroupingBehavior>
 												<ItemRef Name="Happy" ID="{2102E809-4B35-4C05-B9F8-392456619F0C}"/>
@@ -229,15 +236,10 @@
 											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
 										</Reference>
 									</ReferenceList>
-									<GroupingInfo>
-										<GroupRef Name="" ID="{00000000-0000-0000-0000-000000000000}"/>
-										<DefaultSwitchRef Name="" ID="{00000000-0000-0000-0000-000000000000}"/>
-									</GroupingInfo>
+									<GroupingInfo/>
 								</SwitchContainer>
 							</ChildrenList>
 							<GroupingInfo>
-								<GroupRef Name="PlayerID" ID="{0B1758AD-368C-468E-96D5-4A550B0524FF}"/>
-								<DefaultSwitchRef Name="Player_1" ID="{6E833DCC-3FA9-4C0A-8558-F454CDA5F3DB}"/>
 								<GroupingBehaviorList>
 									<GroupingBehavior>
 										<ItemRef Name="Type_P2" ID="{54076BB4-4DBF-4E0B-B7A3-45A6236B551D}"/>
@@ -273,6 +275,13 @@
 							</ReferenceList>
 							<ChildrenList>
 								<Sound Name="Arm Break" ID="{CA13BAEA-717D-4DC0-96F0-2B5AC1252C0A}" ShortID="986116882">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-5</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Low" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
@@ -389,8 +398,14 @@
 								<Reference Name="Conversion">
 									<ObjectRef Name="Low" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
 								</Reference>
+								<Reference Name="DefaultSwitchOrState">
+									<ObjectRef Name="Dirt" ID="{1AA64321-96E7-443D-BB3D-67DE9300CF00}" WorkUnitID="{58100D4C-AF7E-4F01-9581-C8921E80B431}"/>
+								</Reference>
 								<Reference Name="OutputBus">
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
+								</Reference>
+								<Reference Name="SwitchGroupOrStateGroup">
+									<ObjectRef Name="Footsteps" ID="{7355ED65-F37D-43A6-8AE0-4351725D6A74}" WorkUnitID="{58100D4C-AF7E-4F01-9581-C8921E80B431}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
@@ -508,8 +523,6 @@
 								</RandomSequenceContainer>
 							</ChildrenList>
 							<GroupingInfo>
-								<GroupRef Name="Footsteps" ID="{7355ED65-F37D-43A6-8AE0-4351725D6A74}"/>
-								<DefaultSwitchRef Name="Dirt" ID="{1AA64321-96E7-443D-BB3D-67DE9300CF00}"/>
 								<GroupingBehaviorList>
 									<GroupingBehavior>
 										<ItemRef Name="Dirt" ID="{5A1C3AB5-DC2D-4B45-8EB4-5CFDAF53C319}"/>
@@ -547,6 +560,7 @@
 						<SwitchContainer Name="Ambience Wind" ID="{F5BA30B6-0D15-47FD-8E24-F697C07DC3CB}" ShortID="263144444">
 							<PropertyList>
 								<Property Name="OverrideEffect" Type="bool" Value="True"/>
+								<Property Name="SwitchBehavior" Type="int16" Value="1"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -558,6 +572,9 @@
 								<Reference Name="OutputBus">
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
 								</Reference>
+								<Reference Name="SwitchGroupOrStateGroup">
+									<ObjectRef Name="Wind" ID="{0A1EA6A9-E2BB-48E3-B9D4-7751200BE2D9}" WorkUnitID="{217B9AB9-B641-4200-BF39-9F61C2C8E9A4}"/>
+								</Reference>
 							</ReferenceList>
 							<ChildrenList>
 								<Sound Name="AboveClouds" ID="{6F968439-25F1-4F77-8131-0D84A070E48A}" ShortID="487935870">
@@ -566,7 +583,7 @@ Air currents change during the hours of the day and months of the year.</Comment
 									<PropertyList>
 										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 										<Property Name="PositioningType" Type="int16" Value="1"/>
-										<Property Name="Spatialization" Type="bool" Value="False"/>
+										<Property Name="Spatialization" Type="int16" Value="0"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="OutputBus">
@@ -584,10 +601,10 @@ Air currents change during the hours of the day and months of the year.</Comment
 												<Property Name="DirectionRandom" Type="Real32" Value="15"/>
 												<Property Name="Duration" Type="Real64" Value="20"/>
 												<Property Name="DurationRandom" Type="Real32" Value="20"/>
-												<Property Name="Gustiness" Type="Real32" Value="0.43"/>
+												<Property Name="Gustiness" Type="Real32" Value="0.31"/>
 												<Property Name="GustinessAutomate" Type="bool" Value="True"/>
 												<Property Name="MaxDistance" Type="Real32" Value="20"/>
-												<Property Name="Variability" Type="Real32" Value="0.29"/>
+												<Property Name="Variability" Type="Real32" Value="0.24"/>
 												<Property Name="VariabilityAutomate" Type="bool" Value="True"/>
 												<Property Name="VelocityDynamicRange" Type="Real32" Value="1"/>
 											</PropertyList>
@@ -781,6 +798,63 @@ Air currents change during the hours of the day and months of the year.</Comment
 											</ChildrenList>
 										</Position>
 									</PositioningInfo>
+									<StateInfo>
+										<StateGroupList>
+											<StateGroupInfo>
+												<StateGroupRef Name="Environment" ID="{368540B0-9326-43CE-A20D-CD99DFFC54DE}"/>
+											</StateGroupInfo>
+										</StateGroupList>
+										<CustomStateList>
+											<CustomState>
+												<StateRef Name="P1_Intro" ID="{FC8BB0BF-7A44-40B1-8D27-D1EA7366289D}"/>
+												<State Name="" ID="{9E915A77-6EEA-4615-A521-B1D4A0AC2491}" ShortID="132664473"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P2_Warehouse" ID="{E243362C-5106-411D-BE6F-E24C9941659D}"/>
+												<State Name="" ID="{A92301DD-385B-43D5-8E6E-32648FBB43BF}" ShortID="941306079"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P3_Factory" ID="{79494580-3976-425E-971D-CB193C870700}"/>
+												<State Name="" ID="{BFA1B290-AFD4-4270-BD52-A46940A6DB94}" ShortID="817860621"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="Menu" ID="{3AFA27FF-9639-4444-9C9F-20A568E90221}"/>
+												<State Name="" ID="{E61349F4-6C0F-4CE4-B06F-DD9F8A413B29}" ShortID="1016351485"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P3_Factory_LoseArm" ID="{DC03589A-BDD2-45D6-A826-EA9C0315B998}"/>
+												<State Name="" ID="{C19F4079-3A32-4734-9DEA-DCE050A68B66}" ShortID="123342511"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P2_Warehouse2_Viewpoint" ID="{EB070CD5-C2C2-46D1-9A5B-C15943D11787}"/>
+												<State Name="" ID="{E96146DD-E189-49A9-B8E3-07E0030183C8}" ShortID="472068459"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P6_Core" ID="{6B59E6D1-4DA6-487E-91B0-1AE559B70CD1}"/>
+												<State Name="" ID="{B3D6F8F2-EA8A-4F9D-A7A7-EF97BD5C84B1}" ShortID="878229572"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P4_Construction" ID="{3BD738C0-1FEE-4A31-B833-5BDB23300B01}"/>
+												<State Name="" ID="{4CAE1ED7-D588-4156-845C-EB135440A380}" ShortID="178552515"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P5_Clouds" ID="{B92ABBFE-ED7C-4AE0-A739-CF81428935A0}"/>
+												<State Name="" ID="{5B7F035E-FAE8-4B9B-8A27-3E282E6D55FC}" ShortID="136425700"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P2_Warehouse3_LoseArm" ID="{4E5C273A-DEF6-4BAD-A871-FF9DC9B7E05C}"/>
+												<State Name="" ID="{1CA14F0E-9C87-4791-B0BA-7FDF84DCF0BE}" ShortID="284096563"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P7_Sacrifice_End" ID="{B2786363-AAB6-4D23-9F0A-8407408276B0}"/>
+												<State Name="" ID="{98604DA5-B341-4706-803B-EFAA30B21751}" ShortID="32482784"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P4_Construction_LoseArm" ID="{D695CF3E-305E-4E9C-B0A6-AFFF6B047BB0}"/>
+												<State Name="" ID="{9409770A-DE35-4E9A-B305-5314A7B7F2D4}" ShortID="138589149"/>
+											</CustomState>
+										</CustomStateList>
+									</StateInfo>
 									<ActiveSourceList>
 										<ActiveSource Name="SoundSeed Air Wind" ID="{C1D0AFAA-BC77-4CA5-A592-B80277D27445}" Platform="Linked"/>
 									</ActiveSourceList>
@@ -791,7 +865,7 @@ Air currents change during the hours of the day and months of the year.</Comment
 									<PropertyList>
 										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 										<Property Name="PositioningType" Type="int16" Value="1"/>
-										<Property Name="Spatialization" Type="bool" Value="False"/>
+										<Property Name="Spatialization" Type="int16" Value="0"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="OutputBus">
@@ -1005,7 +1079,7 @@ Air currents change during the hours of the day and foliage changes during  the 
 									<PropertyList>
 										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 										<Property Name="PositioningType" Type="int16" Value="1"/>
-										<Property Name="Spatialization" Type="bool" Value="False"/>
+										<Property Name="Spatialization" Type="int16" Value="0"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="OutputBus">
@@ -1268,52 +1342,70 @@ Air currents change during the hours of the day and foliage changes during  the 
 								</Sound>
 							</ChildrenList>
 							<GroupingInfo>
-								<GroupRef Name="Environment" ID="{368540B0-9326-43CE-A20D-CD99DFFC54DE}"/>
-								<DefaultSwitchRef Name="E1P1" ID="{17CB48A6-64BA-43F4-8407-C2EFD429513D}"/>
 								<GroupingBehaviorList>
 									<GroupingBehavior>
 										<ItemRef Name="AboveClouds" ID="{6F968439-25F1-4F77-8131-0D84A070E48A}"/>
+										<PropertyList>
+											<Property Name="FadeInTime" Type="Real64">
+												<ValueList>
+													<Value>5</Value>
+												</ValueList>
+											</Property>
+											<Property Name="FadeOutTime" Type="Real64">
+												<ValueList>
+													<Value>5</Value>
+												</ValueList>
+											</Property>
+										</PropertyList>
 									</GroupingBehavior>
 									<GroupingBehavior>
 										<ItemRef Name="City" ID="{F285BA88-1BCA-408B-AA63-B96AF8065364}"/>
+										<PropertyList>
+											<Property Name="FadeInTime" Type="Real64">
+												<ValueList>
+													<Value>5</Value>
+												</ValueList>
+											</Property>
+											<Property Name="FadeOutTime" Type="Real64">
+												<ValueList>
+													<Value>5</Value>
+												</ValueList>
+											</Property>
+										</PropertyList>
 									</GroupingBehavior>
 									<GroupingBehavior>
 										<ItemRef Name="Desert" ID="{F884DF91-8E8A-459D-B125-996761ECD3E1}"/>
+										<PropertyList>
+											<Property Name="FadeInTime" Type="Real64">
+												<ValueList>
+													<Value>5</Value>
+												</ValueList>
+											</Property>
+											<Property Name="FadeOutTime" Type="Real64">
+												<ValueList>
+													<Value>5</Value>
+												</ValueList>
+											</Property>
+										</PropertyList>
 									</GroupingBehavior>
 								</GroupingBehaviorList>
-								<GroupingList>
-									<Grouping>
-										<SwitchRef Name="E4T3" ID="{105D851F-5960-4966-B88D-38DE762C4323}"/>
-										<ItemList>
-											<ItemRef Name="Desert" ID="{F884DF91-8E8A-459D-B125-996761ECD3E1}"/>
-										</ItemList>
-									</Grouping>
-									<Grouping>
-										<SwitchRef Name="E2T2" ID="{83EC0E5B-B3EF-4B40-8059-219FF5CC14A3}"/>
-										<ItemList>
-											<ItemRef Name="City" ID="{F285BA88-1BCA-408B-AA63-B96AF8065364}"/>
-										</ItemList>
-									</Grouping>
-									<Grouping>
-										<SwitchRef Name="E6P5" ID="{F68F79EB-353E-4D0B-9F69-E29F4318922F}"/>
-										<ItemList>
-											<ItemRef Name="AboveClouds" ID="{6F968439-25F1-4F77-8131-0D84A070E48A}"/>
-										</ItemList>
-									</Grouping>
-								</GroupingList>
 							</GroupingInfo>
 						</SwitchContainer>
 					</ChildrenList>
 				</ActorMixer>
 				<ActorMixer Name="Objects" ID="{56AE881C-CDC3-40E4-953B-D4DFE256E5F3}" ShortID="152755625">
 					<PropertyList>
+						<Property Name="PositioningType" Type="int16" Value="1"/>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>-6</Value>
+								<Value>-4</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>
 					<ReferenceList>
+						<Reference Name="Attenuation">
+							<ObjectRef Name="Main_Attentuation" ID="{7AFFEEA2-FEA6-4C5E-9350-4292CD58F98F}" WorkUnitID="{69E5E085-C55B-46C1-B440-1CB36DA8E2EE}"/>
+						</Reference>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Medium" ID="{4F59B053-4973-48C9-8D17-57A6EB5E8E75}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
 						</Reference>
@@ -1333,6 +1425,13 @@ Air currents change during the hours of the day and foliage changes during  the 
 							</ReferenceList>
 							<ChildrenList>
 								<Sound Name="Place Crystal" ID="{B2492B43-F2BA-4B13-9AE5-898FCDE3D2F4}" ShortID="304968162">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-7</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Low" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
@@ -1352,6 +1451,13 @@ Air currents change during the hours of the day and foliage changes during  the 
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Pick Up Crystal" ID="{E0BF3494-C19C-42B0-865D-146CCA9D8187}" ShortID="1056123097">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-12</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Low" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
@@ -1371,6 +1477,13 @@ Air currents change during the hours of the day and foliage changes during  the 
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Activate Crystal" ID="{5560BC86-06A7-472F-ADF1-305227C6E751}" ShortID="432626833">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-3</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Low" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
@@ -1411,6 +1524,13 @@ Air currents change during the hours of the day and foliage changes during  the 
 							</ChildrenList>
 						</ActorMixer>
 						<RandomSequenceContainer Name="Pressure Plate" ID="{4BDDCCEB-9EE5-44C0-8960-4EEC650BD897}" ShortID="474777977">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-4</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Low" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>

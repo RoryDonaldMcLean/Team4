@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<WwiseDocument Type="WorkUnit" ID="{2653943A-432D-488E-9B26-028C9F2C6C6D}" SchemaVersion="80">
+<WwiseDocument Type="WorkUnit" ID="{2653943A-432D-488E-9B26-028C9F2C6C6D}" SchemaVersion="85">
 	<Busses>
 		<WorkUnit Name="Default Work Unit" ID="{2653943A-432D-488E-9B26-028C9F2C6C6D}" PersistMode="Standalone">
 			<ChildrenList>
 				<Bus Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}">
+					<ReferenceList>
+						<Reference Name="AudioDevice" PluginName="System" CompanyID="0" PluginID="174" PluginType="7">
+							<ObjectRef Name="System" ID="{3D59B176-1451-4C28-AF22-0DE651D7BB42}" WorkUnitID="{D2A9BA3C-471D-44C7-94D4-0575F47558E3}"/>
+						</Reference>
+					</ReferenceList>
 					<ChildrenList>
 						<Bus Name="Robots" ID="{2CF2209D-D7EA-4591-BE9C-0A89A9A34326}">
 							<PropertyList>
@@ -44,8 +49,12 @@
 									</ValueList>
 								</Property>
 								<Property Name="EnablePositioning" Type="bool" Value="True"/>
+								<Property Name="PositioningType" Type="int16" Value="1"/>
 							</PropertyList>
 							<ReferenceList>
+								<Reference Name="Attenuation">
+									<ObjectRef Name="Main_Attentuation" ID="{7AFFEEA2-FEA6-4C5E-9350-4292CD58F98F}" WorkUnitID="{69E5E085-C55B-46C1-B440-1CB36DA8E2EE}"/>
+								</Reference>
 								<Reference Name="Effect0">
 									<Custom>
 										<Effect Name="Wwise Tremolo (Custom)" ID="{A5B26D81-8E52-4F6B-9F00-A02F670FF12B}" ShortID="133191268" PluginName="Wwise Tremolo" CompanyID="0" PluginID="131" PluginType="3">
@@ -124,8 +133,13 @@
 						</Bus>
 					</ChildrenList>
 				</Bus>
-				<Bus Name="Master Secondary Bus" ID="{D2E0BC7E-7B3F-4FFE-A670-FAE02761B631}"/>
-				<MotionBus Name="Master Motion Bus" ID="{20A630BA-3398-4676-B927-1004DFE41FD8}"/>
+				<Bus Name="Master Secondary Bus" ID="{D2E0BC7E-7B3F-4FFE-A670-FAE02761B631}">
+					<ReferenceList>
+						<Reference Name="AudioDevice" PluginName="System" CompanyID="0" PluginID="174" PluginType="7">
+							<ObjectRef Name="System" ID="{3D59B176-1451-4C28-AF22-0DE651D7BB42}" WorkUnitID="{D2A9BA3C-471D-44C7-94D4-0575F47558E3}"/>
+						</Reference>
+					</ReferenceList>
+				</Bus>
 			</ChildrenList>
 		</WorkUnit>
 	</Busses>

@@ -30,15 +30,12 @@ public class WeightCheck : MonoBehaviour
 
 	public bool pressed = false;
 
-    public AudioClip Plate;
-    public AudioSource PlateSource;
+   
 
     void Start()
     {
         startPosition = this.transform.position;
         endPosition = new Vector3(startPosition.x, bottomPoint, startPosition.z);
-
-        PlateSource.clip = Plate;
 
     }
 
@@ -80,7 +77,7 @@ public class WeightCheck : MonoBehaviour
     {
       this.GetComponent<Rigidbody>().MovePosition(this.transform.position + this.transform.up * Time.deltaTime);
 
-        PlateSource.Play();
+		AkSoundEngine.PostEvent("Pressure_Plate", gameObject);
 
     }
 
@@ -92,7 +89,7 @@ public class WeightCheck : MonoBehaviour
             this.GetComponent<Rigidbody>().useGravity = true;
             this.GetComponent<Rigidbody>().isKinematic = false;
 
-            PlateSource.Play();
+			AkSoundEngine.PostEvent("Pressure_Plate", gameObject);
 
         }
     }

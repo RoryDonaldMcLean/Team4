@@ -86,6 +86,8 @@ public class PrismColourCombo : MonoBehaviour
             newBeamColour = colourBeams[0];
         }
         CreateNewLightBeam();
+		AkSoundEngine.SetState("Drone_Modulator", "Combiner");
+
     }
     //adds all the colours from all the beams together, finding the blended colour from it.
     void BlendColours()

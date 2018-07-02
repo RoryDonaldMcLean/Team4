@@ -560,6 +560,7 @@ public class SCR_TradeLimb : MonoBehaviour
 
     private void PickUpLims(GameObject pickUpObject)
     {
+		Debug.Log ("pick up0");
         string pickupName = pickUpObject.name;
         Destroy(pickUpObject);
         Exchange(pickupName, this.gameObject.tag);

@@ -191,7 +191,7 @@ public class PickupAndDropdown : MonoBehaviour
 
 	private void GenericPickUpCheck(ref RaycastHit hit)
 	{
-		Debug.Log ("generic pick up");
+		//Debug.Log ("generic pick up");
 		if ((hit.collider.tag == "LightBox") && (this.GetArmQuantity () >= 1))
 		{
 			PickUpObject (hit.transform);

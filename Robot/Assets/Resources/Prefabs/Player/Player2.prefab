@@ -72,6 +72,7 @@ GameObject:
   - component: {fileID: 136251275200858780}
   - component: {fileID: 23702341512859470}
   - component: {fileID: 54784998369321904}
+  - component: {fileID: 114375315113507016}
   - component: {fileID: 114228376825991478}
   - component: {fileID: 65615034654730226}
   - component: {fileID: 114959210986093164}
@@ -491,8 +492,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 2, z: 2}
-  m_Center: {x: 0, y: -0.26, z: 0}
+  m_Size: {x: 1.2178583, y: 2, z: 0.99786377}
+  m_Center: {x: 0.049199104, y: -0.26, z: 0.30451965}
 --- !u!65 &65858132539828878
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -501,7 +502,7 @@ BoxCollider:
   m_GameObject: {fileID: 1318410619267342}
   m_Material: {fileID: 13400000, guid: 87a307c6bff60c34286ea800b6f84c65, type: 2}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -524,7 +525,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1121144559936194}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dfee9448992e6d149984748930b6565b, type: 3}
   m_Name: 
@@ -534,6 +535,22 @@ MonoBehaviour:
   rb1: {fileID: 54784998369321904}
   grounded: 1
   doubleJump: 0
+--- !u!114 &114375315113507016
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1121144559936194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3e5d89e6cfcf394499e18a11035f80d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerSpeed: 6
+  rb1: {fileID: 54784998369321904}
+  grounded: 1
+  doubleJump: 0
+  playerNum: 1
 --- !u!114 &114959210986093164
 MonoBehaviour:
   m_ObjectHideFlags: 1

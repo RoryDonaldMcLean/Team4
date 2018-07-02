@@ -74,6 +74,7 @@ public class PickupAndDropdown : MonoBehaviour
 					//if the object the player is trying to pick up is the RotateBox
 					else if (hit.transform.name.Contains("RotateBox"))
 					{
+						Debug.Log ("hit the rotate box");
 						pickedUpGameObject = hit.transform.gameObject;
 
 						//when you "pick up" the box it will rotate to face the same direction as the player
@@ -190,6 +191,7 @@ public class PickupAndDropdown : MonoBehaviour
 
 	private void GenericPickUpCheck(ref RaycastHit hit)
 	{
+		Debug.Log ("generic pick up");
 		if ((hit.collider.tag == "LightBox") && (this.GetArmQuantity () >= 1))
 		{
 			PickUpObject (hit.transform);
@@ -211,6 +213,7 @@ public class PickupAndDropdown : MonoBehaviour
 
     private void PickUpObject(Transform objectBeingPickedUp)
     {
+		Debug.Log ("at the pickup function");
         holding = true; //set pick up boolean
         pickedUpGameObject = objectBeingPickedUp.gameObject; // set the pick up object
         alpha = 0;
@@ -257,7 +260,7 @@ public class PickupAndDropdown : MonoBehaviour
     private bool ObjectFound(out RaycastHit hit)
     {
         Vector3 tempPoss = this.GetComponent<Transform>().position;
-        tempPoss -= this.GetComponent<Transform>().forward * 0.7f;
+		tempPoss -= this.GetComponent<Transform> ().forward * 0.3f;
         return Physics.BoxCast(tempPoss, this.GetComponent<Transform>().localScale, this.GetComponent<Transform>().forward, out hit, this.GetComponent<Transform>().rotation, pickingMaxDistance);
     }
     
@@ -287,4 +290,39 @@ public class PickupAndDropdown : MonoBehaviour
             other.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         }
     }
+
+
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        RaycastHit hit;
+
+        float nearDistance = 1.0f;
+      
+        {
+			Vector3 raycastStartLocation = this.GetComponent<Transform>().position;
+			raycastStartLocation -= this.GetComponent<Transform> ().forward * 0.3f;
+
+            //Check if there has been a hit yet
+			if (Physics.BoxCast(raycastStartLocation, this.transform.lossyScale, this.GetComponent<Transform>().forward, out hit, Quaternion.identity, pickingMaxDistance))
+            {
+//                Debug.Log("?>LOP");
+                //Draw a Ray forward from GameObject toward the hit
+                Gizmos.DrawRay(transform.position, transform.forward * hit.distance);
+                //Draw a cube that extends to where the hit exists
+				Gizmos.DrawWireCube(raycastStartLocation + transform.forward * nearDistance, this.GetComponent<Transform>().lossyScale);
+            }
+            //If there hasn't been a hit yet, draw the ray at the maximum distance
+            else
+            {
+                //Debug.Log("sadasd");
+                //Draw a Ray forward from GameObject toward the maximum distance
+                Gizmos.DrawRay(transform.position, transform.forward * nearDistance);
+                //Draw a cube at the maximum distance
+				Gizmos.DrawWireCube(raycastStartLocation + transform.forward * nearDistance, this.GetComponent<Transform>().lossyScale);
+            }
+        }
+    }
+    
 }

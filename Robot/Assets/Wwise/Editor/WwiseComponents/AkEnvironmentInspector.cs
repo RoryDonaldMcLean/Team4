@@ -5,18 +5,22 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-[UnityEditor.CanEditMultipleObjects]
-[UnityEditor.CustomEditor(typeof(AkEnvironment))]
+using UnityEngine;
+using UnityEditor;
+using System;
+
+[CanEditMultipleObjects]
+[CustomEditor(typeof(AkEnvironment))]
 public class AkEnvironmentInspector : AkBaseInspector
 {
-	private AkEnvironment m_AkEnvironment;
+	AkEnvironment m_AkEnvironment;
 
-	private UnityEditor.SerializedProperty m_auxBusId;
-	private UnityEditor.SerializedProperty m_excludeOthers;
-	private UnityEditor.SerializedProperty m_isDefault;
-	private UnityEditor.SerializedProperty m_priority;
+	SerializedProperty m_auxBusId;
+	SerializedProperty m_priority;
+	SerializedProperty m_isDefault;
+	SerializedProperty m_excludeOthers;
 
-	private void OnEnable()
+	void OnEnable()
 	{
 		m_AkEnvironment = target as AkEnvironment;
 
@@ -25,7 +29,8 @@ public class AkEnvironmentInspector : AkBaseInspector
 		m_isDefault = serializedObject.FindProperty("isDefault");
 		m_excludeOthers = serializedObject.FindProperty("excludeOthers");
 
-		m_guidProperty = new[] { serializedObject.FindProperty("valueGuid.Array") };
+		m_guidProperty = new SerializedProperty[1];
+		m_guidProperty[0] = serializedObject.FindProperty("valueGuid.Array");
 
 		//Needed by the base class to know which type of component its working with
 		m_typeName = "AuxBus";
@@ -39,36 +44,36 @@ public class AkEnvironmentInspector : AkBaseInspector
 	{
 		serializedObject.Update();
 
-		UnityEngine.GUILayout.Space(UnityEditor.EditorGUIUtility.standardVerticalSpacing);
+		GUILayout.Space(EditorGUIUtility.standardVerticalSpacing);
 
-		UnityEditor.EditorGUILayout.BeginVertical("Box");
+		EditorGUILayout.BeginVertical("Box");
 		{
-			m_priority.intValue = UnityEditor.EditorGUILayout.IntField("Priority: ", m_priority.intValue);
+			m_priority.intValue = EditorGUILayout.IntField("Priority: ", m_priority.intValue);
 
-			UnityEngine.GUILayout.Space(UnityEditor.EditorGUIUtility.standardVerticalSpacing);
+			GUILayout.Space(EditorGUIUtility.standardVerticalSpacing);
 
-			m_isDefault.boolValue = UnityEditor.EditorGUILayout.Toggle("Default: ", m_isDefault.boolValue);
+			m_isDefault.boolValue = EditorGUILayout.Toggle("Default: ", m_isDefault.boolValue);
 			if (m_isDefault.boolValue)
 				m_excludeOthers.boolValue = false;
 
-			UnityEngine.GUILayout.Space(UnityEditor.EditorGUIUtility.standardVerticalSpacing);
+			GUILayout.Space(EditorGUIUtility.standardVerticalSpacing);
 
-			m_excludeOthers.boolValue = UnityEditor.EditorGUILayout.Toggle("Exclude Others: ", m_excludeOthers.boolValue);
+			m_excludeOthers.boolValue = EditorGUILayout.Toggle("Exclude Others: ", m_excludeOthers.boolValue);
 			if (m_excludeOthers.boolValue)
 				m_isDefault.boolValue = false;
 		}
-		UnityEngine.GUILayout.EndVertical();
+		GUILayout.EndVertical();
 
 		AkGameObjectInspector.RigidbodyCheck(m_AkEnvironment.gameObject);
 
 		serializedObject.ApplyModifiedProperties();
 	}
 
-	public override string UpdateIds(System.Guid[] in_guid)
+	public override string UpdateIds(Guid[] in_guid)
 	{
-		for (var i = 0; i < AkWwiseProjectInfo.GetData().AuxBusWwu.Count; i++)
+		for (int i = 0; i < AkWwiseProjectInfo.GetData().AuxBusWwu.Count; i++)
 		{
-			var akInfo = AkWwiseProjectInfo.GetData().AuxBusWwu[i].List.Find(x => new System.Guid(x.Guid).Equals(in_guid[0]));
+			AkWwiseProjectData.AkInformation akInfo = AkWwiseProjectInfo.GetData().AuxBusWwu[i].List.Find(x => new Guid(x.Guid).Equals(in_guid[0]));
 
 			if (akInfo != null)
 			{
@@ -85,19 +90,19 @@ public class AkEnvironmentInspector : AkBaseInspector
 
 	public void ShakeEnvironment()
 	{
-		var temp = m_AkEnvironment.transform.position;
+		Vector3 temp = m_AkEnvironment.transform.position;
 		temp.x *= 1.0000001f;
 		m_AkEnvironment.transform.position = temp;
 
-		UnityEditor.EditorApplication.update += ReplaceEnvironment;
+		EditorApplication.update += ReplaceEnvironment;
 	}
 
-	private void ReplaceEnvironment()
+	void ReplaceEnvironment()
 	{
-		UnityEditor.EditorApplication.update -= ReplaceEnvironment;
+		EditorApplication.update -= ReplaceEnvironment;
 		if (m_AkEnvironment && m_AkEnvironment.transform)
 		{
-			var temp = m_AkEnvironment.transform.position;
+			Vector3 temp = m_AkEnvironment.transform.position;
 			temp.x /= 1.0000001f;
 			m_AkEnvironment.transform.position = temp;
 		}

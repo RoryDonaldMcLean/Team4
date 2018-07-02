@@ -9,7 +9,6 @@ public class LightEmitter : MonoBehaviour
     public int beamLength;
     public bool switchedOn = false;
 
-
     void Start()
     {
         lineBeam = this.gameObject.AddComponent<StraightSplineBeam>();
@@ -17,23 +16,13 @@ public class LightEmitter : MonoBehaviour
         lineBeam.beamLength = beamLength;
         beamLength = beamLength * 2;
         if (!switchedOn) ToggleLight();
-
-
     }
 
     public void ToggleLight()
     {
         lineBeam.ToggleBeam();
         if(switchedOn) WaitForBeamDestruction();
-
-		if(switchedOn = false)
-		AkSoundEngine.PostEvent ("DRONE_Stop", gameObject);
-
-
-
     }
-
-
 
     private void WaitForBeamDestruction()
     {

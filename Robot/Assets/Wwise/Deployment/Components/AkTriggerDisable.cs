@@ -7,10 +7,12 @@
 
 public class AkTriggerDisable : AkTriggerBase
 {
-	private void OnDisable()
+	void OnDisable()
 	{
-		if (triggerDelegate != null)
+		if(triggerDelegate != null) 
+		{
 			triggerDelegate(null);
+		}
 	}
 }
 

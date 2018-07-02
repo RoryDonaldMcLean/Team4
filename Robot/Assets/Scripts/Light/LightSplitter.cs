@@ -78,9 +78,6 @@ public class LightSplitter : MonoBehaviour
         splitBeams[1].RotateBeam(new Vector3(0, -45, 0));
 
         if (splitColour) SplitColourBetweenBeams();
-
-		AkSoundEngine.SetState("Drone_Modulator", "Splitter");
-
     }
 
     private void SplitColourBetweenBeams()

@@ -91,7 +91,5 @@ public class LightBarrier : MonoBehaviour
     {
         lineBeam = this.gameObject.AddComponent<StraightSplineBeam>();
         lineBeam.beamColour = resultantColour;
-		AkSoundEngine.SetState("Drone_Modulator", "Through_Barrier");
-
     }
 }

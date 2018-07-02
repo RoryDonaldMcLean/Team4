@@ -54,8 +54,6 @@ public class StraightSplineBeam : MonoBehaviour
             splineCurve.GetComponent<SplineCurve>().color = beamColour;
             splineCurve.GetComponent<SplineCurve>().CustomLine(beamLength, startPoint, midPoints, endPoint);
             splineCurve.transform.SetParent(this.transform);
-
-
         }
     }
 
@@ -68,11 +66,6 @@ public class StraightSplineBeam : MonoBehaviour
             splineCurve.GetComponent<SplineCurve>().color = beamColour;
             splineCurve.GetComponent<SplineCurve>().StraightLine(beamLength);
             splineCurve.transform.SetParent(this.transform);
-
-			AkSoundEngine.PostEvent("DRONE", gameObject);
-			AkSoundEngine.SetState("Drone_Modulator", "Start");
-
-
         }
     }
 
@@ -81,11 +74,6 @@ public class StraightSplineBeam : MonoBehaviour
         if (!active)
         {
             Destroy(splineCurve);
-
-			AkSoundEngine.SetState("Drone_Modulator", "Hit_Wall");
-
-
-
         }
     }
 

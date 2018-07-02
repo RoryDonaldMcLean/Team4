@@ -5,85 +5,89 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-[UnityEditor.CustomPropertyDrawer(typeof(AkGameObjListenerList))]
-internal class AkGameObjListenerListDrawer : UnityEditor.PropertyDrawer
-{
-	private const int listenerSpacerWidth = 4;
-	private const int removeButtonWidth = 20;
+using UnityEngine;
+using UnityEditor;
+using System;
+using System.Reflection;
 
-	public override float GetPropertyHeight(UnityEditor.SerializedProperty property, UnityEngine.GUIContent label)
+[CustomPropertyDrawer(typeof(AkGameObjListenerList))]
+class AkGameObjListenerListDrawer : PropertyDrawer
+{
+	const int deltaHeight = 18;
+	const int spacerHeight = 3;
+	const int spacerWidth = 4;
+
+	const int listenerDeltaHeight = 16;
+	const int listenerSpacerHeight = 5;
+	const int listenerSpacerWidth = 4;
+
+	const int removeButtonWidth = 20;
+
+	public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
 	{
-		var height = (UnityEditor.EditorGUIUtility.singleLineHeight + UnityEditor.EditorGUIUtility.standardVerticalSpacing) *
-		             2;
+		float height = deltaHeight * 2 + spacerHeight;
+
 		var listenerListProperty = property.FindPropertyRelative("initialListenerList");
 		if (listenerListProperty != null && listenerListProperty.isArray)
-		{
-			height += (UnityEditor.EditorGUIUtility.singleLineHeight + UnityEditor.EditorGUIUtility.standardVerticalSpacing) *
-			          listenerListProperty.arraySize + UnityEditor.EditorGUIUtility.standardVerticalSpacing;
-		}
+			height += (deltaHeight + spacerHeight) * listenerListProperty.arraySize + spacerHeight;
 
 		return height;
 	}
 
-	public override void OnGUI(UnityEngine.Rect position, UnityEditor.SerializedProperty property,
-		UnityEngine.GUIContent label)
+	public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
 	{
+		Rect initialRect = position;
+
 		// Using BeginProperty / EndProperty on the parent property means that
 		// prefab override logic works on the entire property.
-		UnityEditor.EditorGUI.BeginProperty(position, label, property);
+		EditorGUI.BeginProperty(position, label, property);
 
-		var initialRect = position;
-
-		position = UnityEditor.EditorGUI.PrefixLabel(position,
-			UnityEngine.GUIUtility.GetControlID(UnityEngine.FocusType.Passive),
-			new UnityEngine.GUIContent("Use Default Listeners:"));
-		position.height = UnityEditor.EditorGUIUtility.singleLineHeight +
-		                  UnityEditor.EditorGUIUtility.standardVerticalSpacing;
-
-		var useDefaultListenersProperty = property.FindPropertyRelative("useDefaultListeners");
-		useDefaultListenersProperty.boolValue = UnityEngine.GUI.Toggle(position, useDefaultListenersProperty.boolValue, "");
+		// Draw label
+		position = EditorGUI.PrefixLabel(position, GUIUtility.GetControlID(FocusType.Passive), new GUIContent("Initial Listener List"));
 
 		var listenerListProperty = property.FindPropertyRelative("initialListenerList");
 		if (listenerListProperty.isArray)
 		{
-			position.height = UnityEditor.EditorGUIUtility.singleLineHeight +
-			                  UnityEditor.EditorGUIUtility.standardVerticalSpacing;
+			position.height = deltaHeight;
 
-			for (var ii = 0; ii < listenerListProperty.arraySize; ++ii)
+			bool usedDefaultListeners = true;
+			for (int ii = 0; ii < listenerListProperty.arraySize; ++ii)
+				if (listenerListProperty.GetArrayElementAtIndex(ii).objectReferenceValue != null)
+					usedDefaultListeners = false;
+
+			bool useDefaultListeners = GUI.Toggle(position, usedDefaultListeners, "Use Default Listeners");
+			if (useDefaultListeners && !usedDefaultListeners)
+				listenerListProperty.arraySize = 0;
+
+			for (int ii = 0; ii < listenerListProperty.arraySize; ++ii)
 			{
-				var listenerFieldWidth = initialRect.width - removeButtonWidth;
-				position.y += UnityEditor.EditorGUIUtility.singleLineHeight + UnityEditor.EditorGUIUtility.standardVerticalSpacing;
+				float listenerFieldWidth = initialRect.width - removeButtonWidth;
+				position.y += listenerDeltaHeight + listenerSpacerHeight;
 				position.x = initialRect.x;
 				position.width = listenerFieldWidth - listenerSpacerWidth;
 
 				var listenerProperty = listenerListProperty.GetArrayElementAtIndex(ii);
-				UnityEditor.EditorGUI.PropertyField(position, listenerProperty, new UnityEngine.GUIContent("Listener " + ii));
+				EditorGUI.PropertyField(position, listenerProperty, new GUIContent("Listener " + ii));
 
 				position.x = initialRect.x + listenerFieldWidth;
 				position.width = removeButtonWidth;
 
-				if (UnityEngine.GUI.Button(position, "X"))
+				if (GUI.Button(position, "X"))
 				{
-					UnityEngine.GUIUtility.keyboardControl = 0;
-					UnityEngine.GUIUtility.hotControl = 0;
-
 					listenerProperty.objectReferenceValue = null;
 					listenerListProperty.DeleteArrayElementAtIndex(ii);
 					--ii;
+					continue;
 				}
 			}
 
 			position.x = initialRect.x;
 			position.width = initialRect.width;
-			position.y += UnityEditor.EditorGUIUtility.singleLineHeight + UnityEditor.EditorGUIUtility.standardVerticalSpacing +
-			              UnityEditor.EditorGUIUtility.standardVerticalSpacing;
+			position.y += deltaHeight + spacerHeight;
 
-			if (UnityEngine.GUI.Button(position, "Add Listener"))
+			if (GUI.Button(position, "Add Listener"))
 			{
-				UnityEngine.GUIUtility.keyboardControl = 0;
-				UnityEngine.GUIUtility.hotControl = 0;
-
-				var lastPosition = listenerListProperty.arraySize;
+				int lastPosition = listenerListProperty.arraySize;
 				listenerListProperty.arraySize = lastPosition + 1;
 
 				// Avoid copying the previous last array element into the newly added last position
@@ -92,7 +96,7 @@ internal class AkGameObjListenerListDrawer : UnityEditor.PropertyDrawer
 			}
 		}
 
-		UnityEditor.EditorGUI.EndProperty();
+		EditorGUI.EndProperty();
 	}
 }
 #endif

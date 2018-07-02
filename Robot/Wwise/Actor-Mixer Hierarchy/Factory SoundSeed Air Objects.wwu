@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<WwiseDocument Type="WorkUnit" ID="{BB5DD793-F285-4F74-8D1D-DF7A4B893280}" SchemaVersion="85">
+<WwiseDocument Type="WorkUnit" ID="{BB5DD793-F285-4F74-8D1D-DF7A4B893280}" SchemaVersion="80">
 	<AudioObjects>
 		<WorkUnit Name="Factory SoundSeed Air Objects" ID="{BB5DD793-F285-4F74-8D1D-DF7A4B893280}" PersistMode="Standalone">
 			<ChildrenList>
@@ -26,7 +26,7 @@ An example of trajectories and positioning handled in Wwise as opposed to SS Air
 												<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 												<Property Name="OverridePositioning" Type="bool" Value="True"/>
 												<Property Name="PositioningType" Type="int16" Value="1"/>
-												<Property Name="Spatialization" Type="int16" Value="0"/>
+												<Property Name="Spatialization" Type="bool" Value="False"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="OutputBus">
@@ -299,7 +299,7 @@ An example of trajectories and positioning handled in Wwise as opposed to SS Air
 												<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="0.5"/>
 												<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 												<Property Name="PositioningType" Type="int16" Value="1"/>
-												<Property Name="Spatialization" Type="int16" Value="0"/>
+												<Property Name="Spatialization" Type="bool" Value="False"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="OutputBus">
@@ -1127,7 +1127,7 @@ An example of trajectories and positioning handled in Wwise as opposed to SS Air
 											<PropertyList>
 												<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 												<Property Name="PositioningType" Type="int16" Value="1"/>
-												<Property Name="Spatialization" Type="int16" Value="0"/>
+												<Property Name="Spatialization" Type="bool" Value="False"/>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
 														<Value>-6</Value>
@@ -3245,7 +3245,7 @@ An example of trajectories and positioning handled in Wwise as opposed to SS Air
 									<Comment>Zorro's wooshing signature</Comment>
 									<PropertyList>
 										<Property Name="PositioningType" Type="int16" Value="1"/>
-										<Property Name="Spatialization" Type="int16" Value="0"/>
+										<Property Name="Spatialization" Type="bool" Value="False"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="OutputBus">
@@ -3411,7 +3411,7 @@ An example of trajectories and positioning handled in Wwise as opposed to SS Air
 									<Comment>Sound of a dagger thrown at the listener.</Comment>
 									<PropertyList>
 										<Property Name="PositioningType" Type="int16" Value="1"/>
-										<Property Name="Spatialization" Type="int16" Value="0"/>
+										<Property Name="Spatialization" Type="bool" Value="False"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="OutputBus">
@@ -3566,7 +3566,7 @@ An example of trajectories and positioning handled in Wwise as opposed to SS Air
 									<Comment>This is a good starting point for any sort of weapon being swung.</Comment>
 									<PropertyList>
 										<Property Name="PositioningType" Type="int16" Value="1"/>
-										<Property Name="Spatialization" Type="int16" Value="0"/>
+										<Property Name="Spatialization" Type="bool" Value="False"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="OutputBus">
@@ -3671,7 +3671,7 @@ An example of trajectories and positioning handled in Wwise as opposed to SS Air
 									<Comment>A mighty Ogre is out to get you with his club. This is one of his particular swings, run!</Comment>
 									<PropertyList>
 										<Property Name="PositioningType" Type="int16" Value="1"/>
-										<Property Name="Spatialization" Type="int16" Value="0"/>
+										<Property Name="Spatialization" Type="bool" Value="False"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="OutputBus">
@@ -3902,7 +3902,7 @@ An example of trajectories and positioning handled in Wwise as opposed to SS Air
 									<Comment>A simple wooden staff being wielded.</Comment>
 									<PropertyList>
 										<Property Name="PositioningType" Type="int16" Value="1"/>
-										<Property Name="Spatialization" Type="int16" Value="0"/>
+										<Property Name="Spatialization" Type="bool" Value="False"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="OutputBus">
@@ -4100,7 +4100,7 @@ An example of trajectories and positioning handled in Wwise as opposed to SS Air
 									<Comment>Start several instances and duck!</Comment>
 									<PropertyList>
 										<Property Name="PositioningType" Type="int16" Value="1"/>
-										<Property Name="Spatialization" Type="int16" Value="0"/>
+										<Property Name="Spatialization" Type="bool" Value="False"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="OutputBus">
@@ -4115,7 +4115,7 @@ An example of trajectories and positioning handled in Wwise as opposed to SS Air
 												<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 												<Property Name="PositioningType" Type="int16" Value="1"/>
 												<Property Name="RandomOrSequence" Type="int16" Value="0"/>
-												<Property Name="Spatialization" Type="int16" Value="0"/>
+												<Property Name="Spatialization" Type="bool" Value="False"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="OutputBus">
@@ -4257,7 +4257,7 @@ An example of trajectories and positioning handled in Wwise as opposed to SS Air
 												<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 												<Property Name="PositioningType" Type="int16" Value="1"/>
 												<Property Name="RandomOrSequence" Type="int16" Value="0"/>
-												<Property Name="Spatialization" Type="int16" Value="0"/>
+												<Property Name="Spatialization" Type="bool" Value="False"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="OutputBus">
@@ -4399,7 +4399,7 @@ An example of trajectories and positioning handled in Wwise as opposed to SS Air
 												<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 												<Property Name="PositioningType" Type="int16" Value="1"/>
 												<Property Name="RandomOrSequence" Type="int16" Value="0"/>
-												<Property Name="Spatialization" Type="int16" Value="0"/>
+												<Property Name="Spatialization" Type="bool" Value="False"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="OutputBus">
@@ -4541,7 +4541,7 @@ An example of trajectories and positioning handled in Wwise as opposed to SS Air
 												<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 												<Property Name="PositioningType" Type="int16" Value="1"/>
 												<Property Name="RandomOrSequence" Type="int16" Value="0"/>
-												<Property Name="Spatialization" Type="int16" Value="0"/>
+												<Property Name="Spatialization" Type="bool" Value="False"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="OutputBus">
@@ -4683,7 +4683,7 @@ An example of trajectories and positioning handled in Wwise as opposed to SS Air
 												<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 												<Property Name="PositioningType" Type="int16" Value="1"/>
 												<Property Name="RandomOrSequence" Type="int16" Value="0"/>
-												<Property Name="Spatialization" Type="int16" Value="0"/>
+												<Property Name="Spatialization" Type="bool" Value="False"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="OutputBus">
@@ -4826,7 +4826,7 @@ An example of trajectories and positioning handled in Wwise as opposed to SS Air
 												<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 												<Property Name="PositioningType" Type="int16" Value="1"/>
 												<Property Name="RandomOrSequence" Type="int16" Value="0"/>
-												<Property Name="Spatialization" Type="int16" Value="0"/>
+												<Property Name="Spatialization" Type="bool" Value="False"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="OutputBus">
@@ -4969,7 +4969,7 @@ An example of trajectories and positioning handled in Wwise as opposed to SS Air
 							<Comment>Just add a golf ball.</Comment>
 							<PropertyList>
 								<Property Name="PositioningType" Type="int16" Value="1"/>
-								<Property Name="Spatialization" Type="int16" Value="0"/>
+								<Property Name="Spatialization" Type="bool" Value="False"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="OutputBus">
@@ -5145,7 +5145,7 @@ An example of trajectories and positioning handled in Wwise as opposed to SS Air
 									<PropertyList>
 										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 										<Property Name="PositioningType" Type="int16" Value="1"/>
-										<Property Name="Spatialization" Type="int16" Value="0"/>
+										<Property Name="Spatialization" Type="bool" Value="False"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="OutputBus">
@@ -5358,7 +5358,7 @@ An example of trajectories and positioning handled in Wwise as opposed to SS Air
 									<PropertyList>
 										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 										<Property Name="PositioningType" Type="int16" Value="1"/>
-										<Property Name="Spatialization" Type="int16" Value="0"/>
+										<Property Name="Spatialization" Type="bool" Value="False"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="OutputBus">
@@ -5625,7 +5625,7 @@ An example of trajectories and positioning handled in Wwise as opposed to SS Air
 									<PropertyList>
 										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 										<Property Name="PositioningType" Type="int16" Value="1"/>
-										<Property Name="Spatialization" Type="int16" Value="0"/>
+										<Property Name="Spatialization" Type="bool" Value="False"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="OutputBus">
@@ -5852,7 +5852,7 @@ An example of trajectories and positioning handled in Wwise as opposed to SS Air
 									<PropertyList>
 										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 										<Property Name="PositioningType" Type="int16" Value="1"/>
-										<Property Name="Spatialization" Type="int16" Value="0"/>
+										<Property Name="Spatialization" Type="bool" Value="False"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="OutputBus">
@@ -6083,7 +6083,7 @@ RPM - a throttle control for the engine</Comment>
 									<PropertyList>
 										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 										<Property Name="PositioningType" Type="int16" Value="1"/>
-										<Property Name="Spatialization" Type="int16" Value="0"/>
+										<Property Name="Spatialization" Type="bool" Value="False"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="OutputBus">
@@ -6190,7 +6190,7 @@ RPM - a throttle control for the engine</Comment>
 									<PropertyList>
 										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 										<Property Name="PositioningType" Type="int16" Value="1"/>
-										<Property Name="Spatialization" Type="int16" Value="0"/>
+										<Property Name="Spatialization" Type="bool" Value="False"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="OutputBus">
@@ -6297,7 +6297,7 @@ RPM - Controls the speed at which the car passes by</Comment>
 									<PropertyList>
 										<Property Name="OverridePositioning" Type="bool" Value="True"/>
 										<Property Name="PositioningType" Type="int16" Value="1"/>
-										<Property Name="Spatialization" Type="int16" Value="0"/>
+										<Property Name="Spatialization" Type="bool" Value="False"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Attenuation">
@@ -6713,7 +6713,7 @@ Foes will take more time to load bigger arrows and bolts, unless they're furious
 										<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
 										<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 										<Property Name="PositioningType" Type="int16" Value="1"/>
-										<Property Name="Spatialization" Type="int16" Value="0"/>
+										<Property Name="Spatialization" Type="bool" Value="False"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="OutputBus">
@@ -6853,7 +6853,7 @@ Foes will take more time to load bigger arrows and bolts, unless they're furious
 									<Comment>Sound of a dagger thrown at the listener.</Comment>
 									<PropertyList>
 										<Property Name="PositioningType" Type="int16" Value="1"/>
-										<Property Name="Spatialization" Type="int16" Value="0"/>
+										<Property Name="Spatialization" Type="bool" Value="False"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="OutputBus">
@@ -7008,7 +7008,7 @@ Foes will take more time to load bigger arrows and bolts, unless they're furious
 									<Comment>This is a good starting point for any sort of weapon being swung.</Comment>
 									<PropertyList>
 										<Property Name="PositioningType" Type="int16" Value="1"/>
-										<Property Name="Spatialization" Type="int16" Value="0"/>
+										<Property Name="Spatialization" Type="bool" Value="False"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="OutputBus">
@@ -7113,7 +7113,7 @@ Foes will take more time to load bigger arrows and bolts, unless they're furious
 									<Comment>A mighty Ogre is out to get you with his club. This is one of his particular swings, run!</Comment>
 									<PropertyList>
 										<Property Name="PositioningType" Type="int16" Value="1"/>
-										<Property Name="Spatialization" Type="int16" Value="0"/>
+										<Property Name="Spatialization" Type="bool" Value="False"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="OutputBus">
@@ -7344,7 +7344,7 @@ Foes will take more time to load bigger arrows and bolts, unless they're furious
 									<Comment>A simple wooden staff being wielded.</Comment>
 									<PropertyList>
 										<Property Name="PositioningType" Type="int16" Value="1"/>
-										<Property Name="Spatialization" Type="int16" Value="0"/>
+										<Property Name="Spatialization" Type="bool" Value="False"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="OutputBus">
@@ -7550,7 +7550,7 @@ Presence is roughly related to distance and occlusion</Comment>
 							<PropertyList>
 								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 								<Property Name="PositioningType" Type="int16" Value="1"/>
-								<Property Name="Spatialization" Type="int16" Value="0"/>
+								<Property Name="Spatialization" Type="bool" Value="False"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="OutputBus">
@@ -7695,7 +7695,7 @@ Presence is roughly related to distance and occlusion</Comment>
 							<PropertyList>
 								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 								<Property Name="PositioningType" Type="int16" Value="1"/>
-								<Property Name="Spatialization" Type="int16" Value="0"/>
+								<Property Name="Spatialization" Type="bool" Value="False"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="OutputBus">
@@ -7797,7 +7797,7 @@ Presence is roughly related to distance and occlusion</Comment>
 							<PropertyList>
 								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 								<Property Name="PositioningType" Type="int16" Value="1"/>
-								<Property Name="Spatialization" Type="int16" Value="0"/>
+								<Property Name="Spatialization" Type="bool" Value="False"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="OutputBus">
@@ -7961,24 +7961,7 @@ Presence is roughly related to distance and occlusion</Comment>
 					</ChildrenList>
 				</Folder>
 				<ActorMixer Name="Drone" ID="{02D42E35-7196-42C1-BFBE-B43DFF16ABE9}" ShortID="585957726">
-					<PropertyList>
-						<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
-						<Property Name="MaxSoundPerInstance" Type="int16">
-							<ValueList>
-								<Value>1</Value>
-							</ValueList>
-						</Property>
-						<Property Name="PositioningType" Type="int16" Value="1"/>
-						<Property Name="UseMaxSoundPerInstance" Type="bool">
-							<ValueList>
-								<Value>True</Value>
-							</ValueList>
-						</Property>
-					</PropertyList>
 					<ReferenceList>
-						<Reference Name="Attenuation">
-							<ObjectRef Name="Main_Attentuation" ID="{7AFFEEA2-FEA6-4C5E-9350-4292CD58F98F}" WorkUnitID="{69E5E085-C55B-46C1-B440-1CB36DA8E2EE}"/>
-						</Reference>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Low" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
 						</Reference>

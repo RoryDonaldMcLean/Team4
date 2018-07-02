@@ -1,36 +1,41 @@
 #if ! (UNITY_DASHBOARD_WIDGET || UNITY_WEBPLAYER || UNITY_WII || UNITY_WIIU || UNITY_NACL || UNITY_FLASH || UNITY_BLACKBERRY) // Disable under unsupported platforms.
 #if UNITY_EDITOR
+using System;
+using UnityEngine;
+using UnityEditor;
+
+
 public class AkDragDropData
 {
-	public System.Guid guid;
-	public int ID;
 	public string name;
+	public Guid guid;
+	public int ID;
 	public string typeName;
 }
 
 public class AkDragDropGroupData : AkDragDropData
 {
-	public System.Guid groupGuid;
+	public Guid groupGuid;
 	public int groupID;
 }
 
 
 /// <summary>
-///     @brief This class is used to perform DragAndDrop operations from the AkWwisePicker to any GameObject.
-///     We found out that DragAndDrop operations in Unity do not transfer components, but only scripts. This
-///     prevented us to set the name and ID of our components before performing the drag and drop. To fix this,
-///     the DragAndDrop operation always transfers a AkDragDropHelper component that gets instantiated on the
-///     target GameObject. On its first Update() call, it will parse the DragAndDrop structure, which contains
-///     all necessary information to instantiate the correct component, with the correct information
+///  @brief This class is used to perform DragAndDrop operations from the AkWwisePicker to any GameObject.
+///  We found out that DragAndDrop operations in Unity do not transfer components, but only scripts. This
+///  prevented us to set the name and ID of our components before performing the drag and drop. To fix this,
+///  the DragAndDrop operation always transfers a AkDragDropHelper component that gets instantiated on the 
+///  target GameObject. On its first Update() call, it will parse the DragAndDrop structure, which contains
+///  all necessary information to instantiate the correct component, with the correct information
 /// </summary>
-[UnityEngine.ExecuteInEditMode]
-public class AkDragDropHelper : UnityEngine.MonoBehaviour
+[ExecuteInEditMode]
+public class AkDragDropHelper : MonoBehaviour
 {
 	public static string DragDropIdentifier = "AKWwiseDDInfo";
 
-	private void Awake()
+	void Awake()
 	{
-		var DDData = UnityEditor.DragAndDrop.GetGenericData(DragDropIdentifier) as AkDragDropData;
+		var DDData = DragAndDrop.GetGenericData(DragDropIdentifier) as AkDragDropData;
 		var DDGroupData = DDData as AkDragDropGroupData;
 
 		if (DDGroupData != null)
@@ -61,58 +66,59 @@ public class AkDragDropHelper : UnityEngine.MonoBehaviour
 			}
 		}
 
-		UnityEngine.GUIUtility.hotControl = 0;
+		GUIUtility.hotControl = 0;
 	}
 
-	private void Start()
+	void Start()
 	{
 		// Don't forget to destroy the AkDragDropHelper when we're done!
-		DestroyImmediate(this);
+		Component.DestroyImmediate(this);
 	}
 
-	private bool HasSameEnvironment(System.Guid auxBusGuid)
+	bool HasSameEnvironment(Guid auxBusGuid)
 	{
-		var akEnvironments = gameObject.GetComponents<AkEnvironment>();
-		for (var i = 0; i < akEnvironments.Length; i++)
+		AkEnvironment[] akEnvironments = gameObject.GetComponents<AkEnvironment>();
+		for (int i = 0; i < akEnvironments.Length; i++)
 		{
-			if (new System.Guid(akEnvironments[i].valueGuid).Equals(auxBusGuid))
+			if (new Guid(akEnvironments[i].valueGuid).Equals(auxBusGuid))
 				return true;
 		}
 
 		return false;
 	}
 
-	private void CreateAuxBus(AkDragDropData DDData)
+	void CreateAuxBus(AkDragDropData DDData)
 	{
 		if (HasSameEnvironment(DDData.guid))
 			return;
 
-		var akEnvironment = UnityEditor.Undo.AddComponent<AkEnvironment>(gameObject);
+		AkEnvironment akEnvironment = Undo.AddComponent<AkEnvironment>(gameObject);
 		if (akEnvironment != null)
 			SetTypeValue(ref akEnvironment.valueGuid, ref akEnvironment.m_auxBusID, DDData);
 	}
 
-	private void CreateAmbient(AkDragDropData DDData)
+	void CreateAmbient(AkDragDropData DDData)
 	{
-		var ambient = UnityEditor.Undo.AddComponent<AkAmbient>(gameObject);
+		AkAmbient ambient = Undo.AddComponent<AkAmbient>(gameObject);
 		if (ambient != null)
 			SetTypeValue(ref ambient.valueGuid, ref ambient.eventID, DDData);
 	}
 
-	private void CreateBank(AkDragDropData DDData)
+	void CreateBank(AkDragDropData DDData)
 	{
-		var bank = UnityEditor.Undo.AddComponent<AkBank>(gameObject);
+		AkBank bank = Undo.AddComponent<AkBank>(gameObject);
+
 		if (bank != null)
 		{
-			var valueID = 0;
+			int valueID = 0;
 			SetTypeValue(ref bank.valueGuid, ref valueID, DDData);
 			bank.bankName = DDData.name;
 		}
 	}
 
-	private void CreateState(AkDragDropGroupData DDGroupData)
+	void CreateState(AkDragDropGroupData DDGroupData)
 	{
-		var akState = UnityEditor.Undo.AddComponent<AkState>(gameObject);
+		AkState akState = Undo.AddComponent<AkState>(gameObject);
 		if (akState != null)
 		{
 			SetTypeValue(ref akState.valueGuid, ref akState.valueID, DDGroupData);
@@ -120,9 +126,9 @@ public class AkDragDropHelper : UnityEngine.MonoBehaviour
 		}
 	}
 
-	private void CreateSwitch(AkDragDropGroupData DDGroupData)
+	void CreateSwitch(AkDragDropGroupData DDGroupData)
 	{
-		var akSwitch = UnityEditor.Undo.AddComponent<AkSwitch>(gameObject);
+		AkSwitch akSwitch = Undo.AddComponent<AkSwitch>(gameObject);
 		if (akSwitch != null)
 		{
 			SetTypeValue(ref akSwitch.valueGuid, ref akSwitch.valueID, DDGroupData);
@@ -130,13 +136,13 @@ public class AkDragDropHelper : UnityEngine.MonoBehaviour
 		}
 	}
 
-	private void SetTypeValue(ref byte[] valueGuid, ref int ID, AkDragDropData DDData)
+	void SetTypeValue(ref byte[] valueGuid, ref int ID, AkDragDropData DDData)
 	{
 		DDData.guid.ToByteArray().CopyTo(valueGuid, 0);
 		ID = DDData.ID;
 	}
 
-	private void SetGroupTypeValue(ref byte[] groupGuid, ref int groupID, AkDragDropGroupData DDGroupData)
+	void SetGroupTypeValue(ref byte[] groupGuid, ref int groupID, AkDragDropGroupData DDGroupData)
 	{
 		DDGroupData.groupGuid.ToByteArray().CopyTo(groupGuid, 0);
 		groupID = DDGroupData.groupID;

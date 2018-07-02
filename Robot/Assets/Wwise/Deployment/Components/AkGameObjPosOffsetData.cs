@@ -7,11 +7,12 @@
 
 // *** THIS FILE IS KEPT FOR THE MIGRATION SYSTEM, DO NOT USE THIS CLASS !!! ***
 
+using UnityEngine;
 
 // DEPRECATED
-public class AkGameObjPosOffsetData : UnityEngine.ScriptableObject
+public class AkGameObjPosOffsetData : ScriptableObject
 {
-	public UnityEngine.Vector3 positionOffset;
+	public Vector3 positionOffset;
 }
 
 #endif // #if ! (UNITY_DASHBOARD_WIDGET || UNITY_WEBPLAYER || UNITY_WII || UNITY_WIIU || UNITY_NACL || UNITY_FLASH || UNITY_BLACKBERRY) // Disable under unsupported platforms.

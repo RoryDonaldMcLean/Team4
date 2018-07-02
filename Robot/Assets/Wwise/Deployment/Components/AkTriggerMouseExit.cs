@@ -7,10 +7,12 @@
 
 public class AkTriggerMouseExit : AkTriggerBase
 {
-	private void OnMouseExit()
+	void OnMouseExit()
 	{
-		if (triggerDelegate != null)
+		if(triggerDelegate != null) 
+		{
 			triggerDelegate(null);
+		}
 	}
 }
 

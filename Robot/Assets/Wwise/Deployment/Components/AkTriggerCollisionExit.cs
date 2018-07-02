@@ -4,14 +4,18 @@
 // Copyright (c) 2014 Audiokinetic Inc. / All Rights Reserved
 //
 //////////////////////////////////////////////////////////////////////
+using UnityEngine;
+
 public class AkTriggerCollisionExit : AkTriggerBase
 {
-	public UnityEngine.GameObject triggerObject = null;
+	public GameObject triggerObject = null;
 
-	private void OnCollisionExit(UnityEngine.Collision in_other)
+	void OnCollisionExit(Collision in_other)
 	{
 		if (triggerDelegate != null && (triggerObject == null || triggerObject == in_other.gameObject))
+		{
 			triggerDelegate(in_other.gameObject);
+		}
 	}
 }
 

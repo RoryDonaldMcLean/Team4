@@ -4,20 +4,18 @@
 // Copyright (c) 2014 Audiokinetic Inc. / All Rights Reserved
 //
 //////////////////////////////////////////////////////////////////////
+using UnityEngine;
+
 public class AkTriggerCollisionEnter : AkTriggerBase
 {
-	public UnityEngine.GameObject triggerObject = null;
+	public GameObject triggerObject = null;
 
-	private void OnCollisionEnter(UnityEngine.Collision in_other)
+	void OnCollisionEnter(Collision in_other)
 	{
 		if (triggerDelegate != null && (triggerObject == null || triggerObject == in_other.gameObject))
+		{
 			triggerDelegate(in_other.gameObject);
-	}
-
-	private void OnTriggerEnter(UnityEngine.Collider in_other)
-	{
-		if (triggerDelegate != null && (triggerObject == null || triggerObject == in_other.gameObject))
-			triggerDelegate(in_other.gameObject);
+		}
 	}
 }
 

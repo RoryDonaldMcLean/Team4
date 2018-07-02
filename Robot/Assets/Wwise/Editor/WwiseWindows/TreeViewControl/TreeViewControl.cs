@@ -1,132 +1,140 @@
+using UnityEngine;
+using UnityEditor;
+using System.Collections.Generic;
+
 namespace AK.Wwise.TreeView
 {
 	public class TreeViewControl
 	{
-		public enum DisplayTypes
-		{
-			NONE, //used by the inspector
-			USE_SCROLL_VIEW, //used by panels
-			USE_SCROLL_AREA //used by gameview, sceneview
-		}
-
-		public int Height = 400;
-
-		/// <summary>
-		///     The selected item
-		/// </summary>
-		public TreeViewItem HoverItem = null;
-
-		public bool IsExpanded = false;
-		public bool IsHoverAnimationEnabled = false;
-		public bool IsHoverEnabled = false;
-
-		/// <summary>
-		///     Force to use the button text
-		/// </summary>
-		public bool m_forceButtonText = false;
-
-		/// <summary>
-		///     Use the default skin
-		/// </summary>
-		public bool m_forceDefaultSkin = false;
-
-		/// <summary>
-		///     The root item
-		/// </summary>
-		public TreeViewItem m_roomItem;
-
-		/// <summary>
-		///     Handle the unity scrolling vector
-		/// </summary>
-		protected UnityEngine.Vector2 m_scrollView = UnityEngine.Vector2.zero;
-
-
-		/// <summary>
-		///     Skin used by the tree view
-		/// </summary>
-		public UnityEngine.GUISkin m_skinHover;
-
-		public UnityEngine.GUISkin m_skinSelected;
-		public UnityEngine.GUISkin m_skinUnselected;
-
-		/// <summary>
-		///     Texture skin references
-		/// </summary>
-		public UnityEngine.Texture2D m_textureBlank;
-
-		public UnityEngine.Texture2D m_textureGuide;
-		public UnityEngine.Texture2D m_textureLastSiblingCollapsed;
-		public UnityEngine.Texture2D m_textureLastSiblingExpanded;
-		public UnityEngine.Texture2D m_textureLastSiblingNoChild;
-		public UnityEngine.Texture2D m_textureMiddleSiblingCollapsed;
-		public UnityEngine.Texture2D m_textureMiddleSiblingExpanded;
-		public UnityEngine.Texture2D m_textureMiddleSiblingNoChild;
-		public UnityEngine.Texture2D m_textureNormalChecked;
-		public UnityEngine.Texture2D m_textureNormalUnchecked;
-		public UnityEngine.Texture2D m_textureSelectedBackground;
-		public TreeViewItem SelectedItem;
-		public int Width = 400;
 		public int X = 0;
 		public int Y = 0;
+		public int Width = 400;
+		public int Height = 400;
+		public bool IsExpanded = false;
+		public bool IsHoverEnabled = false;
+		public bool IsHoverAnimationEnabled = false;
 
-		public TreeViewItem RootItem
-		{
-			get
-			{
-				if (null == m_roomItem) m_roomItem = new TreeViewItem(this, null) { Header = "Root item" };
-				return m_roomItem;
-			}
-		}
-
-		/// <summary>
-		///     Accesses the root item header
-		/// </summary>
-		public string Header
-		{
-			get { return RootItem.Header; }
-			set { RootItem.Header = value; }
-		}
-
-		/// <summary>
-		///     Accesses the root data context
-		/// </summary>
-		public object DataContext
-		{
-			get { return RootItem.DataContext; }
-			set { RootItem.DataContext = value; }
-		}
-
-		/// <summary>
-		///     Accessor to the root items
-		/// </summary>
-		public System.Collections.Generic.List<TreeViewItem> Items
-		{
-			get { return RootItem.Items; }
-			set { RootItem.Items = value; }
-		}
-
-		private void Start()
+		void Start()
 		{
 			SelectedItem = null;
 		}
 
 		/// <summary>
-		///     Show the button texture
+		/// The root item
 		/// </summary>
-		/// <param name="texture">
-		///     A <see cref="UnityEngine.Texture2D" />
-		/// </param>
-		/// <returns>
-		///     A <see cref="System.Boolean" />
-		/// </returns>
-		protected bool ShowButtonTexture(UnityEngine.Texture2D texture)
+		public TreeViewItem m_roomItem = null;
+		public TreeViewItem RootItem
 		{
-			return UnityEngine.GUILayout.Button(texture, UnityEngine.GUILayout.MaxWidth(texture.width),
-				UnityEngine.GUILayout.MaxHeight(texture.height));
+			get
+			{
+				if (null == m_roomItem)
+				{
+					m_roomItem = new TreeViewItem(this, null) { Header = "Root item" };
+				}
+				return m_roomItem;
+			}
 		}
 
 		/// <summary>
-		///     Find the button texture/text by enum
+		/// Accesses the root item header
+		/// </summary>
+		public string Header
+		{
+			get
+			{
+				return RootItem.Header;
+			}
+			set
+			{
+				RootItem.Header = value;
+			}
+		}
+
+		/// <summary>
+		/// Accesses the root data context
+		/// </summary>
+		public object DataContext
+		{
+			get
+			{
+				return RootItem.DataContext;
+			}
+			set
+			{
+				RootItem.DataContext = value;
+			}
+		}
+
+		/// <summary>
+		/// Accessor to the root items
+		/// </summary>
+		public List<TreeViewItem> Items
+		{
+			get
+			{
+				return RootItem.Items;
+			}
+			set
+			{
+				RootItem.Items = value;
+			}
+		}
+
+
+		/// <summary>
+		/// Skin used by the tree view
+		/// </summary>
+		public GUISkin m_skinHover = null;
+		public GUISkin m_skinUnselected = null;
+		public GUISkin m_skinSelected = null;
+
+		/// <summary>
+		/// Texture skin references
+		/// </summary>
+		public Texture2D m_textureBlank = null;
+		public Texture2D m_textureGuide = null;
+		public Texture2D m_textureLastSiblingCollapsed = null;
+		public Texture2D m_textureLastSiblingExpanded = null;
+		public Texture2D m_textureLastSiblingNoChild = null;
+		public Texture2D m_textureMiddleSiblingCollapsed = null;
+		public Texture2D m_textureMiddleSiblingExpanded = null;
+		public Texture2D m_textureMiddleSiblingNoChild = null;
+		public Texture2D m_textureNormalChecked = null;
+		public Texture2D m_textureNormalUnchecked = null;
+		public Texture2D m_textureSelectedBackground = null;
+
+		/// <summary>
+		/// Force to use the button text
+		/// </summary>
+		public bool m_forceButtonText = false;
+
+		/// <summary>
+		/// Use the default skin
+		/// </summary>
+		public bool m_forceDefaultSkin = false;
+
+		/// <summary>
+		/// The selected item
+		/// </summary>
+		public TreeViewItem HoverItem = null;
+		public TreeViewItem SelectedItem = null;
+
+		/// <summary>
+		/// Show the button texture 
+		/// </summary>
+		/// <param name="texture">
+		/// A <see cref="Texture2D"/>
+		/// </param>
+		/// <returns>
+		/// A <see cref="System.Boolean"/>
+		/// </returns>
+		protected bool ShowButtonTexture(Texture2D texture)
+		{
+			return GUILayout.Button(texture, GUILayout.MaxWidth(texture.width), GUILayout.MaxHeight(texture.height));
+		}
+
+		/// <summary>
+		/// Find the button texture/text by enum
 		/// </summary>
 		/// <param name="item"></param>
 		/// <param name="x"></param>
@@ -139,79 +147,141 @@ namespace AK.Wwise.TreeView
 			switch (item)
 			{
 				case TreeViewItem.TextureIcons.BLANK:
-					if (null == m_textureGuide || m_forceButtonText)
-						UnityEngine.GUILayout.Label("", UnityEngine.GUILayout.MaxWidth(4));
+					if (null == m_textureGuide ||
+						m_forceButtonText)
+					{
+						GUILayout.Label("", GUILayout.MaxWidth(4));
+					}
 					else
-						UnityEngine.GUILayout.Label(m_textureBlank, UnityEngine.GUILayout.MaxWidth(4),
-							UnityEngine.GUILayout.MaxHeight(16));
+					{
+						GUILayout.Label(m_textureBlank, GUILayout.MaxWidth(4), GUILayout.MaxHeight(16));
+					}
 					return false;
 				case TreeViewItem.TextureIcons.GUIDE:
-					if (null == m_textureGuide || m_forceButtonText)
-						UnityEngine.GUILayout.Label("|", UnityEngine.GUILayout.MaxWidth(16));
+					if (null == m_textureGuide ||
+						m_forceButtonText)
+					{
+						GUILayout.Label("|", GUILayout.MaxWidth(16));
+					}
 					else
-						UnityEngine.GUILayout.Label(m_textureGuide, UnityEngine.GUILayout.MaxWidth(16),
-							UnityEngine.GUILayout.MaxHeight(16));
+					{
+						GUILayout.Label(m_textureGuide, GUILayout.MaxWidth(16), GUILayout.MaxHeight(16));
+					}
 					return false;
 				case TreeViewItem.TextureIcons.LAST_SIBLING_COLLAPSED:
-					if (null == m_textureLastSiblingCollapsed || m_forceButtonText)
-						return UnityEngine.GUILayout.Button("<", UnityEngine.GUILayout.MaxWidth(16));
+					if (null == m_textureLastSiblingCollapsed ||
+						m_forceButtonText)
+					{
+						return GUILayout.Button("<", GUILayout.MaxWidth(16));
+					}
 					else
+					{
 						return ShowButtonTexture(m_textureLastSiblingCollapsed);
+					}
 				case TreeViewItem.TextureIcons.LAST_SIBLING_EXPANDED:
-					if (null == m_textureLastSiblingExpanded || m_forceButtonText)
-						return UnityEngine.GUILayout.Button(">", UnityEngine.GUILayout.MaxWidth(16));
+					if (null == m_textureLastSiblingExpanded ||
+						m_forceButtonText)
+					{
+						return GUILayout.Button(">", GUILayout.MaxWidth(16));
+					}
 					else
+					{
 						return ShowButtonTexture(m_textureLastSiblingExpanded);
+					}
 				case TreeViewItem.TextureIcons.LAST_SIBLING_NO_CHILD:
-					if (null == m_textureLastSiblingNoChild || m_forceButtonText)
-						return UnityEngine.GUILayout.Button("-", UnityEngine.GUILayout.MaxWidth(16));
+					if (null == m_textureLastSiblingNoChild ||
+						m_forceButtonText)
+					{
+						return GUILayout.Button("-", GUILayout.MaxWidth(16));
+					}
 					else
-						return UnityEngine.GUILayout.Button(m_textureLastSiblingNoChild, UnityEngine.GUILayout.MaxWidth(16));
+					{
+						return GUILayout.Button(m_textureLastSiblingNoChild, GUILayout.MaxWidth(16));
+					}
 				case TreeViewItem.TextureIcons.MIDDLE_SIBLING_COLLAPSED:
-					if (null == m_textureMiddleSiblingCollapsed || m_forceButtonText)
-						return UnityEngine.GUILayout.Button("<", UnityEngine.GUILayout.MaxWidth(16));
+					if (null == m_textureMiddleSiblingCollapsed ||
+						m_forceButtonText)
+					{
+						return GUILayout.Button("<", GUILayout.MaxWidth(16));
+					}
 					else
+					{
 						return ShowButtonTexture(m_textureMiddleSiblingCollapsed);
+					}
 				case TreeViewItem.TextureIcons.MIDDLE_SIBLING_EXPANDED:
-					if (null == m_textureMiddleSiblingExpanded || m_forceButtonText)
-						return UnityEngine.GUILayout.Button(">", UnityEngine.GUILayout.MaxWidth(16));
+					if (null == m_textureMiddleSiblingExpanded ||
+						m_forceButtonText)
+					{
+						return GUILayout.Button(">", GUILayout.MaxWidth(16));
+					}
 					else
-						return UnityEngine.GUILayout.Button(m_textureMiddleSiblingExpanded, UnityEngine.GUILayout.MaxWidth(16));
+					{
+						return GUILayout.Button(m_textureMiddleSiblingExpanded, GUILayout.MaxWidth(16));
+					}
 				case TreeViewItem.TextureIcons.MIDDLE_SIBLING_NO_CHILD:
-					if (null == m_textureMiddleSiblingNoChild || m_forceButtonText)
-						return UnityEngine.GUILayout.Button("-", UnityEngine.GUILayout.MaxWidth(16));
+					if (null == m_textureMiddleSiblingNoChild ||
+						m_forceButtonText)
+					{
+						return GUILayout.Button("-", GUILayout.MaxWidth(16));
+					}
 					else
+					{
 						return ShowButtonTexture(m_textureMiddleSiblingNoChild);
+					}
 				case TreeViewItem.TextureIcons.NORMAL_CHECKED:
-					if (null == m_textureNormalChecked || m_forceButtonText)
-						return UnityEngine.GUILayout.Button("x", UnityEngine.GUILayout.MaxWidth(16));
+					if (null == m_textureNormalChecked ||
+						m_forceButtonText)
+					{
+						return GUILayout.Button("x", GUILayout.MaxWidth(16));
+					}
 					else
-						return UnityEngine.GUILayout.Button(m_textureNormalChecked, UnityEngine.GUILayout.MaxWidth(16));
+					{
+						return GUILayout.Button(m_textureNormalChecked, GUILayout.MaxWidth(16));
+					}
 				case TreeViewItem.TextureIcons.NORMAL_UNCHECKED:
-					if (null == m_textureNormalUnchecked || m_forceButtonText)
-						return UnityEngine.GUILayout.Button("o", UnityEngine.GUILayout.MaxWidth(16));
+					if (null == m_textureNormalUnchecked ||
+						m_forceButtonText)
+					{
+						return GUILayout.Button("o", GUILayout.MaxWidth(16));
+					}
 					else
+					{
 						return ShowButtonTexture(m_textureNormalUnchecked);
+					}
 				default:
 					return false;
 			}
 		}
 
 		/// <summary>
-		///     Called from OnGUI or EditorWindow.OnGUI
+		/// Handle the unity scrolling vector
 		/// </summary>
-		public virtual void DisplayTreeView(DisplayTypes displayType)
+		protected Vector2 m_scrollView = Vector2.zero;
+
+		public enum DisplayTypes
 		{
-			UnityEngine.GUILayout.BeginHorizontal("box");
+			NONE, //used by the inspector
+			USE_SCROLL_VIEW, //used by panels
+			USE_SCROLL_AREA, //used by gameview, sceneview
+		}
+
+		/// <summary>
+		/// Called from OnGUI or EditorWindow.OnGUI
+		/// </summary>
+		public virtual void DisplayTreeView(TreeViewControl.DisplayTypes displayType)
+		{
+			GUILayout.BeginHorizontal("box");
 
 			AssignDefaults();
-			if (!m_forceDefaultSkin) ApplySkinKeepingScrollbars();
+			if (!m_forceDefaultSkin)
+			{
+				ApplySkinKeepingScrollbars();
+			}
 
 			switch (displayType)
 			{
-				case DisplayTypes.USE_SCROLL_VIEW:
-					m_scrollView =
-						UnityEngine.GUILayout.BeginScrollView(m_scrollView); //, GUILayout.MaxWidth(Width), GUILayout.MaxHeight(Height));
+				case TreeViewControl.DisplayTypes.USE_SCROLL_VIEW:
+					m_scrollView = GUILayout.BeginScrollView(m_scrollView);//, GUILayout.MaxWidth(Width), GUILayout.MaxHeight(Height));
 					break;
 				//case TreeViewControl.DisplayTypes.USE_SCROLL_AREA:
 				//	GUILayout.BeginArea(new Rect(X, Y, Width, Height));
@@ -223,8 +293,8 @@ namespace AK.Wwise.TreeView
 
 			switch (displayType)
 			{
-				case DisplayTypes.USE_SCROLL_VIEW:
-					UnityEngine.GUILayout.EndScrollView();
+				case TreeViewControl.DisplayTypes.USE_SCROLL_VIEW:
+					GUILayout.EndScrollView();
 					break;
 				//case TreeViewControl.DisplayTypes.USE_SCROLL_AREA:
 				//	GUILayout.EndScrollView();
@@ -232,46 +302,46 @@ namespace AK.Wwise.TreeView
 				//	break;
 			}
 
-			UnityEngine.GUI.skin = null;
+			GUI.skin = null;
 
-			UnityEngine.GUILayout.EndHorizontal();
+			GUILayout.EndHorizontal();
 		}
 
-		private void ApplySkinKeepingScrollbars()
+		void ApplySkinKeepingScrollbars()
 		{
-			var hScroll = UnityEngine.GUI.skin.horizontalScrollbar;
-			var hScrollDButton = UnityEngine.GUI.skin.horizontalScrollbarLeftButton;
-			var hScrollUButton = UnityEngine.GUI.skin.horizontalScrollbarRightButton;
-			var hScrollThumb = UnityEngine.GUI.skin.horizontalScrollbarThumb;
-			var vScroll = UnityEngine.GUI.skin.verticalScrollbar;
-			var vScrollDButton = UnityEngine.GUI.skin.verticalScrollbarDownButton;
-			var vScrollUButton = UnityEngine.GUI.skin.verticalScrollbarUpButton;
-			var vScrollThumb = UnityEngine.GUI.skin.verticalScrollbarThumb;
+			GUIStyle hScroll = GUI.skin.horizontalScrollbar;
+			GUIStyle hScrollDButton = GUI.skin.horizontalScrollbarLeftButton;
+			GUIStyle hScrollUButton = GUI.skin.horizontalScrollbarRightButton;
+			GUIStyle hScrollThumb = GUI.skin.horizontalScrollbarThumb;
+			GUIStyle vScroll = GUI.skin.verticalScrollbar;
+			GUIStyle vScrollDButton = GUI.skin.verticalScrollbarDownButton;
+			GUIStyle vScrollUButton = GUI.skin.verticalScrollbarUpButton;
+			GUIStyle vScrollThumb = GUI.skin.verticalScrollbarThumb;
 
-			UnityEngine.GUI.skin = m_skinUnselected;
+			GUI.skin = m_skinUnselected;
 
-			UnityEngine.GUI.skin.horizontalScrollbar = hScroll;
-			UnityEngine.GUI.skin.horizontalScrollbarLeftButton = hScrollDButton;
-			UnityEngine.GUI.skin.horizontalScrollbarRightButton = hScrollUButton;
-			UnityEngine.GUI.skin.horizontalScrollbarThumb = hScrollThumb;
-			UnityEngine.GUI.skin.verticalScrollbar = vScroll;
-			UnityEngine.GUI.skin.verticalScrollbarDownButton = vScrollDButton;
-			UnityEngine.GUI.skin.verticalScrollbarUpButton = vScrollUButton;
-			UnityEngine.GUI.skin.verticalScrollbarThumb = vScrollThumb;
+			GUI.skin.horizontalScrollbar = hScroll;
+			GUI.skin.horizontalScrollbarLeftButton = hScrollDButton;
+			GUI.skin.horizontalScrollbarRightButton = hScrollUButton;
+			GUI.skin.horizontalScrollbarThumb = hScrollThumb;
+			GUI.skin.verticalScrollbar = vScroll;
+			GUI.skin.verticalScrollbarDownButton = vScrollDButton;
+			GUI.skin.verticalScrollbarUpButton = vScrollUButton;
+			GUI.skin.verticalScrollbarThumb = vScrollThumb;
 		}
 
-		public bool HasFocus(UnityEngine.Vector2 mousePos)
+		public bool HasFocus(Vector2 mousePos)
 		{
-			var rect = new UnityEngine.Rect(m_scrollView.x, m_scrollView.y, 600, 900); // Width, Height);
+			Rect rect = new Rect(m_scrollView.x, m_scrollView.y, 600, 900);// Width, Height);
 			return rect.Contains(mousePos);
 		}
 
 		public void ApplySkin()
 		{
 			// create new skin instance
-			var skinHover = UnityEngine.Object.Instantiate(m_skinHover);
-			var skinSelected = UnityEngine.Object.Instantiate(m_skinSelected);
-			var skinUnselected = UnityEngine.Object.Instantiate(m_skinUnselected);
+			GUISkin skinHover = (GUISkin)Object.Instantiate(m_skinHover);
+			GUISkin skinSelected = (GUISkin)Object.Instantiate(m_skinSelected);
+			GUISkin skinUnselected = (GUISkin)Object.Instantiate(m_skinUnselected);
 
 			// name the skins
 			skinHover.name = "Hover";
@@ -286,19 +356,19 @@ namespace AK.Wwise.TreeView
 		public virtual void AssignDefaults()
 		{
 			// create new skin instance
-			var skinHover = UnityEngine.ScriptableObject.CreateInstance<UnityEngine.GUISkin>();
-			var skinSelected = UnityEngine.ScriptableObject.CreateInstance<UnityEngine.GUISkin>();
-			var skinUnselected = UnityEngine.ScriptableObject.CreateInstance<UnityEngine.GUISkin>();
-			skinHover.hideFlags = UnityEngine.HideFlags.HideAndDontSave;
-			skinSelected.hideFlags = UnityEngine.HideFlags.HideAndDontSave;
-			skinUnselected.hideFlags = UnityEngine.HideFlags.HideAndDontSave;
+			GUISkin skinHover = ScriptableObject.CreateInstance<GUISkin>();
+			GUISkin skinSelected = ScriptableObject.CreateInstance<GUISkin>();
+			GUISkin skinUnselected = ScriptableObject.CreateInstance<GUISkin>();
+			skinHover.hideFlags = HideFlags.HideAndDontSave;
+			skinSelected.hideFlags = HideFlags.HideAndDontSave;
+			skinUnselected.hideFlags = HideFlags.HideAndDontSave;
 
 			// name the skins
 			skinHover.name = "Hover";
 			skinSelected.name = "Selected";
 			skinUnselected.name = "Unselected";
 
-			var tempWwisePath = "Assets/Wwise/Editor/WwiseWindows/TreeViewControl/";
+			string tempWwisePath = "Assets/Wwise/Editor/WwiseWindows/TreeViewControl/";
 
 			m_textureBlank = GetTexture(tempWwisePath + "blank.png");
 			m_textureGuide = GetTexture(tempWwisePath + "guide.png");
@@ -322,8 +392,8 @@ namespace AK.Wwise.TreeView
 			SetButtonFontSize(m_skinHover.toggle);
 			RemoveMargins(m_skinHover.button);
 			RemoveMargins(m_skinHover.toggle);
-			SetTextColor(m_skinHover.button, UnityEngine.Color.yellow);
-			SetTextColor(m_skinHover.toggle, UnityEngine.Color.yellow);
+			SetTextColor(m_skinHover.button, Color.yellow);
+			SetTextColor(m_skinHover.toggle, Color.yellow);
 
 			SetBackground(m_skinSelected.button, m_textureSelectedBackground);
 			SetBackground(m_skinSelected.toggle, m_textureSelectedBackground);
@@ -331,8 +401,8 @@ namespace AK.Wwise.TreeView
 			SetButtonFontSize(m_skinSelected.toggle);
 			RemoveMargins(m_skinSelected.button);
 			RemoveMargins(m_skinSelected.toggle);
-			SetTextColor(m_skinSelected.button, UnityEngine.Color.yellow);
-			SetTextColor(m_skinSelected.toggle, UnityEngine.Color.yellow);
+			SetTextColor(m_skinSelected.button, Color.yellow);
+			SetTextColor(m_skinSelected.toggle, Color.yellow);
 
 			SetBackground(m_skinUnselected.button, null);
 			SetBackground(m_skinUnselected.toggle, null);
@@ -341,19 +411,19 @@ namespace AK.Wwise.TreeView
 			RemoveMargins(m_skinUnselected.button);
 			RemoveMargins(m_skinUnselected.toggle);
 
-			if (UnityEngine.Application.HasProLicense())
+			if (Application.HasProLicense())
 			{
-				SetTextColor(m_skinUnselected.button, UnityEngine.Color.white);
-				SetTextColor(m_skinUnselected.toggle, UnityEngine.Color.white);
+				SetTextColor(m_skinUnselected.button, Color.white);
+				SetTextColor(m_skinUnselected.toggle, Color.white);
 			}
 			else
 			{
-				SetTextColor(m_skinUnselected.button, UnityEngine.Color.black);
-				SetTextColor(m_skinUnselected.toggle, UnityEngine.Color.black);
+				SetTextColor(m_skinUnselected.button, Color.black);
+				SetTextColor(m_skinUnselected.toggle, Color.black);
 			}
 		}
 
-		private void SetBackground(UnityEngine.GUIStyle style, UnityEngine.Texture2D texture)
+		void SetBackground(GUIStyle style, Texture2D texture)
 		{
 			style.active.background = texture;
 			style.focused.background = texture;
@@ -365,7 +435,7 @@ namespace AK.Wwise.TreeView
 			style.onNormal.background = texture;
 		}
 
-		private void SetTextColor(UnityEngine.GUIStyle style, UnityEngine.Color color)
+		void SetTextColor(GUIStyle style, Color color)
 		{
 			style.active.textColor = color;
 			style.focused.textColor = color;
@@ -377,7 +447,7 @@ namespace AK.Wwise.TreeView
 			style.onNormal.textColor = color;
 		}
 
-		private void RemoveMargins(UnityEngine.GUIStyle style)
+		void RemoveMargins(GUIStyle style)
 		{
 			style.margin.bottom = 0;
 			style.margin.left = 0;
@@ -385,25 +455,26 @@ namespace AK.Wwise.TreeView
 			style.margin.top = 0;
 		}
 
-		private void SetButtonFontSize(UnityEngine.GUIStyle style)
+		void SetButtonFontSize(GUIStyle style)
 		{
 			style.fontSize = 12;
 		}
 
-		protected UnityEngine.Texture2D GetTexture(string texturePath)
+		protected Texture2D GetTexture(string texturePath)
 		{
 			try
 			{
 #if UNITY_EDITOR_MAC
-				UnityEditor.TextureImporter importer = UnityEditor.AssetImporter.GetAtPath(texturePath) as UnityEditor.TextureImporter;
-				importer.textureType = UnityEditor.TextureImporterType.Cursor;
-				UnityEditor.AssetDatabase.WriteImportSettingsIfDirty(texturePath);
+			TextureImporter importer = AssetImporter.GetAtPath(texturePath) as TextureImporter;
+			importer.textureType=TextureImporterType.Cursor;
+			AssetDatabase.WriteImportSettingsIfDirty(texturePath);
 #endif
-				return UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.Texture2D>(texturePath);
+				Texture2D item = (Texture2D)AssetDatabase.LoadAssetAtPath(texturePath, typeof(Texture2D));
+				return item;
 			}
 			catch (System.Exception ex)
 			{
-				UnityEngine.Debug.LogError(string.Format("WwiseUnity: Failed to find local texture: {0}", ex));
+				Debug.LogError(string.Format("WwiseUnity: Failed to find local texture: {0}", ex));
 				return null;
 			}
 		}

@@ -1,69 +1,97 @@
 ﻿#if UNITY_EDITOR
 
-public class AkWwiseSettingsWindow : UnityEditor.EditorWindow
+using System;
+using System.IO;
+using UnityEngine;
+using UnityEditor;
+using UnityEditorInternal;
+
+public class AkWwiseSettingsWindow : EditorWindow
 {
-	private static bool m_oldCreateWwiseGlobal = true;
-	private static bool m_oldCreateWwiseListener = true;
-	private static bool m_oldShowMissingRigidBodyWarning = true;
-	private static string m_WwiseVersionString;
+	static bool m_oldCreateWwiseGlobal = true;
+	static bool m_oldCreateWwiseListener = true;
+	static bool m_oldShowMissingRigidBodyWarning = true;
+	static string m_WwiseVersionString;
 
-	private static UnityEngine.GUIStyle VersionStyle;
+	protected static GUIStyle WelcomeStyle = null;
+	protected static GUIStyle HelpStyle = null;
+	protected static GUIStyle VersionStyle = null;
 
-	private bool ApplyNewProject;
-
-	private void SetTextColor(UnityEngine.GUIStyle style, UnityEngine.Color color)
+	void SetTextColor(GUIStyle style, Color color)
 	{
 		style.active.textColor = color;
 		style.focused.textColor = color;
 		style.hover.textColor = color;
 		style.normal.textColor = color;
+		style.onActive.textColor = color;
+		style.onFocused.textColor = color;
+		style.onHover.textColor = color;
+		style.onNormal.textColor = color;
 	}
 
 	// Initialize our required styles
 	protected void InitGuiStyles()
 	{
-		VersionStyle = new UnityEngine.GUIStyle(UnityEditor.EditorStyles.whiteLargeLabel);
-		if (!UnityEngine.Application.HasProLicense())
-			SetTextColor(VersionStyle, UnityEngine.Color.black);
+		WelcomeStyle = new GUIStyle(EditorStyles.whiteLargeLabel);
+		WelcomeStyle.fontSize = 20;
+		WelcomeStyle.alignment = TextAnchor.MiddleCenter;
+		if (!Application.HasProLicense())
+		{
+			SetTextColor(WelcomeStyle, Color.black);
+		}
+
+		VersionStyle = new GUIStyle(EditorStyles.whiteLargeLabel);
+		if (!Application.HasProLicense())
+		{
+			SetTextColor(VersionStyle, Color.black);
+		}
+
+		HelpStyle = GUI.skin.GetStyle("box");
+		HelpStyle.wordWrap = true;
+		HelpStyle.alignment = TextAnchor.UpperLeft;
+		HelpStyle.normal.textColor = EditorStyles.textField.normal.textColor;
+
 	}
 
 	public void DrawSettingsPart()
 	{
 		string description;
 		string tooltip;
-		string labelTitle;
 
+		GUILayout.Label("Wwise Project", EditorStyles.boldLabel);
+		GUILayout.BeginHorizontal("box");
 		description = "Wwise Project Path*:";
-		tooltip =
-			"Location of the Wwise project associated with this game. It is recommended to put it in the Unity Project root folder, outside the Assets folder.";
-		labelTitle = "Wwise Project";
-
-		UnityEngine.GUILayout.Label(labelTitle, UnityEditor.EditorStyles.boldLabel);
-
-		using (new UnityEngine.GUILayout.HorizontalScope("box"))
+		tooltip = "Location of the Wwise project associated with this game. It is recommended to put it in the Unity Project root folder, outside the Assets folder.";
+		GUILayout.Label(new GUIContent(description, tooltip), GUILayout.Width(330));
+		EditorGUILayout.SelectableLabel(WwiseSetupWizard.Settings.WwiseProjectPath, "textfield", GUILayout.Height(17));
+		if (GUILayout.Button("...", GUILayout.Width(30)))
 		{
-			UnityEngine.GUILayout.Label(new UnityEngine.GUIContent(description, tooltip), UnityEngine.GUILayout.Width(330));
-			UnityEditor.EditorGUILayout.SelectableLabel(WwiseSetupWizard.Settings.WwiseProjectPath, "textfield",
-				UnityEngine.GUILayout.Height(17));
-			if (UnityEngine.GUILayout.Button("...", UnityEngine.GUILayout.Width(30)))
+			string OpenInPath = Path.GetDirectoryName(AkUtilities.GetFullPath(Application.dataPath, WwiseSetupWizard.Settings.WwiseProjectPath));
+			string WwiseProjectPathNew = EditorUtility.OpenFilePanel("Select your Wwise Project", OpenInPath, "wproj");
+			if (WwiseProjectPathNew.Length != 0)
 			{
-				var OpenInPath = System.IO.Path.GetDirectoryName(AkUtilities.GetFullPath(UnityEngine.Application.dataPath,
-					WwiseSetupWizard.Settings.WwiseProjectPath));
-				var WwiseProjectPathNew = UnityEditor.EditorUtility.OpenFilePanel("Select your Wwise Project", OpenInPath, "wproj");
-				if (WwiseProjectPathNew.Length != 0)
+				if (WwiseProjectPathNew.EndsWith(".wproj") == false)
 				{
-					if (WwiseProjectPathNew.EndsWith(".wproj") == false)
-						UnityEditor.EditorUtility.DisplayDialog("Error", "Please select a valid .wproj file", "Ok");
-					else
-					{
-						WwiseSetupWizard.Settings.WwiseProjectPath =
-							AkUtilities.MakeRelativePath(UnityEngine.Application.dataPath, WwiseProjectPathNew);
-					}
+					EditorUtility.DisplayDialog("Error", "Please select a valid .wproj file", "Ok");
 				}
+				else
+				{
+					// No need to check if the file exists (the FilePanel does it for us).
 
-				Repaint();
+					// MONO BUG: https://github.com/mono/mono/pull/471
+					// In the editor, Application.dataPath returns <Project Folder>/Assets. There is a bug in
+					// mono for method Uri.GetRelativeUri where if the path ends in a folder, it will
+					// ignore the last part of the path. Thus, we need to add fake depth to get the "real"
+					// relative path.
+					WwiseSetupWizard.Settings.WwiseProjectPath = AkUtilities.MakeRelativePath(Application.dataPath + "/fake_depth", WwiseProjectPathNew);
+				}
 			}
+			Repaint();
 		}
+
+		GUILayout.EndHorizontal();
+
+		string labelTitle;
 
 #if UNITY_EDITOR_OSX
 		description = "Wwise Application:";
@@ -75,264 +103,257 @@ public class AkWwiseSettingsWindow : UnityEditor.EditorWindow
 		labelTitle = "Wwise Windows Installation Path";
 #endif
 
-		UnityEngine.GUILayout.Label(labelTitle, UnityEditor.EditorStyles.boldLabel);
+		GUILayout.Label(labelTitle);
 
-		using (new UnityEngine.GUILayout.HorizontalScope("box"))
+		GUILayout.BeginHorizontal("box");
+
+
+		GUILayout.Label(new GUIContent(description, tooltip), GUILayout.Width(330));
+
+		string wwiseInstallationPath;
+
+#if UNITY_EDITOR_OSX
+		wwiseInstallationPath = WwiseSetupWizard.Settings.WwiseInstallationPathMac;
+#else
+		wwiseInstallationPath = WwiseSetupWizard.Settings.WwiseInstallationPathWindows;
+#endif
+
+		EditorGUILayout.SelectableLabel(wwiseInstallationPath, "textfield", GUILayout.Height(17));
+
+		if (GUILayout.Button("...", GUILayout.Width(30)))
 		{
-			UnityEngine.GUILayout.Label(new UnityEngine.GUIContent(description, tooltip), UnityEngine.GUILayout.Width(330));
-
-			string wwiseInstallationPath;
-
 #if UNITY_EDITOR_OSX
-			wwiseInstallationPath = WwiseSetupWizard.Settings.WwiseInstallationPathMac;
+			string installationPathNew = EditorUtility.OpenFilePanel("Select your Wwise application.", "/Applications/", "");
 #else
-			wwiseInstallationPath = WwiseSetupWizard.Settings.WwiseInstallationPathWindows;
+			string installationPathNew = EditorUtility.OpenFolderPanel("Select your Wwise application.", Environment.GetEnvironmentVariable("ProgramFiles(x86)"), "");
 #endif
 
-			UnityEditor.EditorGUILayout.SelectableLabel(wwiseInstallationPath, "textfield", UnityEngine.GUILayout.Height(17));
-
-			if (UnityEngine.GUILayout.Button("...", UnityEngine.GUILayout.Width(30)))
+			if (installationPathNew.Length != 0)
 			{
-#if UNITY_EDITOR_OSX
-				var installationPathNew = UnityEditor.EditorUtility.OpenFilePanel("Select your Wwise application.",
-					"/Applications/", "");
-#else
-				var installationPathNew = UnityEditor.EditorUtility.OpenFolderPanel("Select your Wwise application.",
-					System.Environment.GetEnvironmentVariable("ProgramFiles(x86)"), "");
-#endif
-
-				if (installationPathNew.Length != 0)
-				{
-					wwiseInstallationPath = System.IO.Path.GetFullPath(installationPathNew);
+				wwiseInstallationPath = Path.GetFullPath(installationPathNew);
 
 #if UNITY_EDITOR_OSX
-					WwiseSetupWizard.Settings.WwiseInstallationPathMac = wwiseInstallationPath;
+				WwiseSetupWizard.Settings.WwiseInstallationPathMac = wwiseInstallationPath;
 #else
-					WwiseSetupWizard.Settings.WwiseInstallationPathWindows = wwiseInstallationPath;
+				WwiseSetupWizard.Settings.WwiseInstallationPathWindows = wwiseInstallationPath;
 #endif
-				}
-
-				Repaint();
 			}
+
+			Repaint();
 		}
 
+		GUILayout.EndHorizontal();
+
+		GUILayout.Label("Asset Management", EditorStyles.boldLabel);
+		GUILayout.BeginVertical("box");
+		GUILayout.BeginHorizontal();
 		description = "SoundBanks Path* (relative to StreamingAssets folder):";
 		tooltip = "Location of the SoundBanks are for the game. This has to reside within the StreamingAssets folder.";
-		labelTitle = "Asset Management";
+		GUILayout.Label(new GUIContent(description, tooltip), GUILayout.Width(330));
+		EditorGUILayout.SelectableLabel(WwiseSetupWizard.Settings.SoundbankPath, "textfield", GUILayout.Height(17));
 
-		UnityEngine.GUILayout.Label(labelTitle, UnityEditor.EditorStyles.boldLabel);
-
-		using (new UnityEngine.GUILayout.VerticalScope("box"))
+		if (GUILayout.Button("...", GUILayout.Width(30)))
 		{
-			using (new UnityEngine.GUILayout.HorizontalScope())
+			string OpenInPath = Path.GetDirectoryName(AkUtilities.GetFullPath(Application.streamingAssetsPath, WwiseSetupWizard.Settings.SoundbankPath));
+			string SoundbankPathNew = EditorUtility.OpenFolderPanel("Select your SoundBanks destination folder", OpenInPath, "");
+			if (SoundbankPathNew.Length != 0)
 			{
-				UnityEngine.GUILayout.Label(new UnityEngine.GUIContent(description, tooltip), UnityEngine.GUILayout.Width(330));
-				UnityEditor.EditorGUILayout.SelectableLabel(WwiseSetupWizard.Settings.SoundbankPath, "textfield",
-					UnityEngine.GUILayout.Height(17));
+				int stremingAssetsIndex = Application.dataPath.Split('/').Length;
+				string[] folders = SoundbankPathNew.Split('/');
 
-				if (UnityEngine.GUILayout.Button("...", UnityEngine.GUILayout.Width(30)))
+				if (folders.Length - 1 < stremingAssetsIndex || !String.Equals(folders[stremingAssetsIndex], "StreamingAssets", StringComparison.OrdinalIgnoreCase))
 				{
-					var OpenInPath = System.IO.Path.GetDirectoryName(
-						AkUtilities.GetFullPath(UnityEngine.Application.streamingAssetsPath, WwiseSetupWizard.Settings.SoundbankPath));
-					var SoundbankPathNew =
-						UnityEditor.EditorUtility.OpenFolderPanel("Select your SoundBanks destination folder", OpenInPath, "");
-					if (SoundbankPathNew.Length != 0)
-					{
-						var stremingAssetsIndex = UnityEngine.Application.dataPath.Split('/').Length;
-						var folders = SoundbankPathNew.Split('/');
-
-						if (folders.Length - 1 < stremingAssetsIndex || !string.Equals(folders[stremingAssetsIndex], "StreamingAssets",
-							    System.StringComparison.OrdinalIgnoreCase))
-						{
-							UnityEditor.EditorUtility.DisplayDialog("Error",
-								"The soundbank destination folder must be located within the Unity project 'StreamingAssets' folder.", "Ok");
-						}
-						else
-						{
-							WwiseSetupWizard.Settings.SoundbankPath =
-								AkUtilities.MakeRelativePath(UnityEngine.Application.streamingAssetsPath, SoundbankPathNew) +
-								"/";
-						}
-					}
-
-					Repaint();
+					EditorUtility.DisplayDialog("Error", "The soundbank destination folder must be located within the Unity project 'StreamingAssets' folder.", "Ok");
+				}
+				else
+				{
+					// MONO BUG: https://github.com/mono/mono/pull/471
+					// Need to add fake depth to the streaming assets path because of this bug. Directories should end in /.
+					WwiseSetupWizard.Settings.SoundbankPath = AkUtilities.MakeRelativePath(Application.streamingAssetsPath + "/fake_depth", SoundbankPathNew) + "/";
 				}
 			}
-
-#if UNITY_5_6_OR_NEWER
-			description = "Enable copying of soundbanks at pre-Build step";
-			tooltip =
-				"Copies the soundbanks in the appropriate location for building and deployment. It is recommended to leave this box checked.";
-
-			using (var toggle = new UnityEditor.EditorGUILayout.ToggleGroupScope(
-				new UnityEngine.GUIContent(description, tooltip), WwiseSetupWizard.Settings.CopySoundBanksAsPreBuildStep))
-			{
-				WwiseSetupWizard.Settings.CopySoundBanksAsPreBuildStep = toggle.enabled;
-
-				description = "Enable soundbank generation at pre-Build step";
-				tooltip =
-					"Generates the soundbanks before copying them during pre-Build step. It is recommended to leave this box unchecked if soundbanks are generated on a specific build machine.";
-				WwiseSetupWizard.Settings.GenerateSoundBanksAsPreBuildStep = UnityEngine.GUILayout.Toggle(
-					WwiseSetupWizard.Settings.GenerateSoundBanksAsPreBuildStep, new UnityEngine.GUIContent(description, tooltip));
-			}
-#endif
-
-			description = "Create WwiseGlobal GameObject";
-			tooltip =
-				"The WwiseGlobal object is a GameObject that contains the Initializing and Terminating scripts for the Wwise Sound Engine. In the Editor workflow, it is added to every scene, so that it can be properly previewed in the Editor. In the game, only one instance is created, in the first scene, and it is persisted throughout the game. It is recommended to leave this box checked.";
-			WwiseSetupWizard.Settings.CreateWwiseGlobal =
-				UnityEngine.GUILayout.Toggle(WwiseSetupWizard.Settings.CreateWwiseGlobal,
-					new UnityEngine.GUIContent(description, tooltip));
-
-			description = "Automatically add Listener to Main Camera";
-			tooltip =
-				"In order for positioning to work, the Ak Audio Listener script needs to be attached to the main camera in every scene. If you wish for your listener to be attached to another GameObject, uncheck this box";
-			WwiseSetupWizard.Settings.CreateWwiseListener = UnityEngine.GUILayout.Toggle(
-				WwiseSetupWizard.Settings.CreateWwiseListener, new UnityEngine.GUIContent(description, tooltip));
+			Repaint();
 		}
 
-		UnityEngine.GUILayout.Label("In Editor Warnings", UnityEditor.EditorStyles.boldLabel);
+		GUILayout.EndHorizontal();
+		description = "Create WwiseGlobal GameObject";
+		tooltip = "The WwiseGlobal object is a GameObject that contains the Initializing and Terminating scripts for the Wwise Sound Engine. In the Editor workflow, it is added to every scene, so that it can be properly be previewed in the Editor. In the game, only one instance is created, in the first scene, and it is persisted throughout the game. It is recommended to leave this box checked.";
+		WwiseSetupWizard.Settings.CreateWwiseGlobal = GUILayout.Toggle(WwiseSetupWizard.Settings.CreateWwiseGlobal, new GUIContent(description, tooltip));
 
-		using (new UnityEngine.GUILayout.VerticalScope("box"))
-		{
-			description = "Show Warning for Missing RigidBody";
-			tooltip =
-				"Interactions between AkGameObj and AkEnvironment or AkRoom require a Rigidbody component on the object or the environment/room. It is recommended to leave this box checked.";
-			WwiseSetupWizard.Settings.ShowMissingRigidBodyWarning = UnityEngine.GUILayout.Toggle(
-				WwiseSetupWizard.Settings.ShowMissingRigidBodyWarning, new UnityEngine.GUIContent(description, tooltip));
-		}
+		description = "Automatically add Listener to Main Camera";
+		tooltip = "In order for positioning to work, the Ak Audio Listener script needs to be attached to the main camera in every scene. If you wish for your listener to be attached to another GameObject, uncheck this box";
+		WwiseSetupWizard.Settings.CreateWwiseListener = GUILayout.Toggle(WwiseSetupWizard.Settings.CreateWwiseListener, new GUIContent(description, tooltip));
 
-		using (new UnityEngine.GUILayout.HorizontalScope())
-		{
-			UnityEngine.GUILayout.Label("* Mandatory settings");
-		}
+		GUILayout.EndVertical();
 
-		UnityEngine.GUILayout.FlexibleSpace();
+		GUILayout.Label("In Editor Warnings", EditorStyles.boldLabel);
+
+		GUILayout.BeginVertical("box");
+		description = "Show Warning for Missing RigidBody";
+		tooltip = "AkGameObj-AkEnvironment interactions require a Rigidbody component on the object or the environment. It is recommended to leave this box checked.";
+		WwiseSetupWizard.Settings.ShowMissingRigidBodyWarning = GUILayout.Toggle(WwiseSetupWizard.Settings.ShowMissingRigidBodyWarning, new GUIContent(description, tooltip));
+		GUILayout.EndVertical();
+
+
+		GUILayout.BeginHorizontal();
+		GUILayout.Label("* Mandatory settings");
+		GUILayout.EndHorizontal();
+
+		GUILayout.BeginHorizontal();
+		GUILayout.EndHorizontal();
 	}
 
-	[UnityEditor.MenuItem("Edit/Wwise Settings...", false, (int) AkWwiseWindowOrder.WwiseSettings)]
+	[MenuItem("Edit/Wwise Settings...", false, (int)AkWwiseWindowOrder.WwiseSettings)]
 	public static void Init()
 	{
 		// Get existing open window or if none, make a new one:
-		var window = GetWindow(typeof(AkWwiseSettingsWindow));
+		EditorWindow window = EditorWindow.GetWindow(typeof(AkWwiseSettingsWindow));
 
-		window.position = new UnityEngine.Rect(100, 100, 850, 360);
+		window.position = new Rect(100, 100, 850, 330);
 
-		window.titleContent = new UnityEngine.GUIContent("Wwise Settings");
+		window.titleContent = new GUIContent("Wwise Settings");
 
 		m_oldCreateWwiseGlobal = WwiseSetupWizard.Settings.CreateWwiseGlobal;
 		m_oldCreateWwiseListener = WwiseSetupWizard.Settings.CreateWwiseListener;
 		m_oldShowMissingRigidBodyWarning = WwiseSetupWizard.Settings.ShowMissingRigidBodyWarning;
 
-		var temp = AkSoundEngine.GetMajorMinorVersion();
-		var temp2 = AkSoundEngine.GetSubminorBuildVersion();
+		uint temp = AkSoundEngine.GetMajorMinorVersion();
+		uint temp2 = AkSoundEngine.GetSubminorBuildVersion();
 		m_WwiseVersionString = "Wwise v" + (temp >> 16) + "." + (temp & 0xFFFF);
-		if (temp2 >> 16 != 0)
+		if ((temp2 >> 16) != 0)
+		{
 			m_WwiseVersionString += "." + (temp2 >> 16);
+		}
 
 		m_WwiseVersionString += " Build " + (temp2 & 0xFFFF) + " Settings.";
 	}
 
-	private void OnGUI()
+	bool ApplyNewProject = false;
+	void OnGUI()
 	{
 		// Make sure everything is initialized
 		// Use soundbank path, because Wwise project path can be empty.
-		if (string.IsNullOrEmpty(WwiseSetupWizard.Settings.SoundbankPath) &&
-		    WwiseSetupWizard.Settings.WwiseProjectPath == null)
+		if (String.IsNullOrEmpty(WwiseSetupWizard.Settings.SoundbankPath) && WwiseSetupWizard.Settings.WwiseProjectPath == null)
+		{
 			WwiseSetupWizard.Settings = WwiseSettings.LoadSettings();
+		}
 
-		var initialProject = WwiseSetupWizard.Settings.WwiseProjectPath;
+		string initialProject = WwiseSetupWizard.Settings.WwiseProjectPath;
 
 		if (VersionStyle == null)
+		{
 			InitGuiStyles();
-		UnityEngine.GUILayout.Label(m_WwiseVersionString, VersionStyle);
+		}
+		GUILayout.Label(m_WwiseVersionString, VersionStyle);
 
 		DrawSettingsPart();
 
-		// DrawSettingsPart modifies WwiseSetupWizard.Settings.WwiseProjectPath directly.
-		var newProject = WwiseSetupWizard.Settings.WwiseProjectPath;
+		string newProject = WwiseSetupWizard.Settings.WwiseProjectPath; // DrawSettingsPart modifies WwiseSetupWizard.Settings.WwiseProjectPath directly.
 		if (initialProject != newProject)
-			ApplyNewProject = true;
-
-		using (new UnityEngine.GUILayout.VerticalScope())
 		{
-			UnityEngine.GUILayout.FlexibleSpace();
+			ApplyNewProject = true;
+		}
 
-			using (new UnityEngine.GUILayout.HorizontalScope())
+		GUILayout.BeginVertical();
+		GUILayout.FlexibleSpace();
+
+		GUILayout.BeginHorizontal();
+		GUILayout.FlexibleSpace();
+		if (GUILayout.Button("OK", GUILayout.Width(60)))
+		{
+			if (string.IsNullOrEmpty(WwiseSetupWizard.Settings.SoundbankPath))
 			{
-				UnityEngine.GUILayout.FlexibleSpace();
-				if (UnityEngine.GUILayout.Button("OK", UnityEngine.GUILayout.Width(60)))
-				{
-					if (string.IsNullOrEmpty(WwiseSetupWizard.Settings.SoundbankPath))
-						UnityEditor.EditorUtility.DisplayDialog("Error", "Please fill in the required settings", "Ok");
-
-					if (m_oldCreateWwiseGlobal != WwiseSetupWizard.Settings.CreateWwiseGlobal)
-					{
-						var AkInitializers = FindObjectsOfType<AkInitializer>();
-						if (WwiseSetupWizard.Settings.CreateWwiseGlobal)
-						{
-							if (AkInitializers.Length == 0)
-							{
-								//No Wwise object in this scene, create one so that the sound engine is initialized and terminated properly even if the scenes are loaded
-								//in the wrong order.
-								var objWwise = new UnityEngine.GameObject("WwiseGlobal");
-
-								//Attach initializer and terminator components
-								var init = UnityEditor.Undo.AddComponent<AkInitializer>(objWwise);
-								AkWwiseProjectInfo.GetData().CopyInitSettings(init);
-							}
-						}
-						else if (AkInitializers.Length != 0 && AkInitializers[0].gameObject.name == "WwiseGlobal")
-							UnityEditor.Undo.DestroyObjectImmediate(AkInitializers[0].gameObject);
-					}
-
-					if (m_oldCreateWwiseListener != WwiseSetupWizard.Settings.CreateWwiseListener)
-					{
-						if (WwiseSetupWizard.Settings.CreateWwiseListener)
-						{
-							AkUtilities.RemoveUnityAudioListenerFromMainCamera();
-							AkUtilities.AddAkAudioListenerToMainCamera();
-						}
-					}
-
-					if (m_oldShowMissingRigidBodyWarning != WwiseSetupWizard.Settings.ShowMissingRigidBodyWarning)
-						UnityEditorInternal.InternalEditorUtility.RepaintAllViews();
-
-					WwiseSettings.SaveSettings(WwiseSetupWizard.Settings);
-
-					CloseWindow();
-
-					// Pop the Picker window so the user can start working right away
-					AkWwiseProjectInfo.GetData(); // Load data
-					if (ApplyNewProject)
-					{
-						//Clear the data, the project path changed.
-						AkWwiseProjectInfo.GetData().Reset();
-						ApplyNewProject = false;
-						AkWwisePicker.WwiseProjectFound = true;
-					}
-
-					AkWwiseProjectInfo.Populate();
-					AkWwisePicker.PopulateTreeview();
-					AkWwisePicker.init();
-				}
-
-				if (UnityEngine.GUILayout.Button("Cancel", UnityEngine.GUILayout.Width(60)))
-				{
-					WwiseSetupWizard.Settings = WwiseSettings.LoadSettings(true);
-					CloseWindow();
-				}
-
-				UnityEngine.GUILayout.Space(UnityEditor.EditorGUIUtility.standardVerticalSpacing);
+				EditorUtility.DisplayDialog("Error", "Please fill in the required settings", "Ok");
 			}
 
-			UnityEngine.GUILayout.Space(UnityEditor.EditorGUIUtility.standardVerticalSpacing);
+			if (AkWwiseSettingsWindow.m_oldCreateWwiseGlobal != WwiseSetupWizard.Settings.CreateWwiseGlobal)
+			{
+				AkInitializer[] AkInitializers = UnityEngine.Object.FindObjectsOfType(typeof(AkInitializer)) as AkInitializer[];
+				if (WwiseSetupWizard.Settings.CreateWwiseGlobal == true)
+				{
+					if (AkInitializers.Length == 0)
+					{
+						//No Wwise object in this scene, create one so that the sound engine is initialized and terminated properly even if the scenes are loaded
+						//in the wrong order.
+						GameObject objWwise = new GameObject("WwiseGlobal");
+
+						//Attach initializer and terminator components
+						AkInitializer init = objWwise.AddComponent<AkInitializer>();
+						AkWwiseProjectInfo.GetData().CopyInitSettings(init);
+					}
+				}
+				else
+				{
+					if (AkInitializers.Length != 0 && AkInitializers[0].gameObject.name == "WwiseGlobal")
+					{
+						GameObject.DestroyImmediate(AkInitializers[0].gameObject);
+					}
+				}
+			}
+
+			if (AkWwiseSettingsWindow.m_oldCreateWwiseListener != WwiseSetupWizard.Settings.CreateWwiseListener)
+			{
+				if (Camera.main != null)
+				{
+					AkAudioListener akListener = Camera.main.GetComponentInChildren<AkAudioListener>();
+
+					if (WwiseSetupWizard.Settings.CreateWwiseListener)
+					{
+						if (akListener == null)
+						{
+							akListener = Undo.AddComponent<AkAudioListener>(Camera.main.gameObject);
+							AkGameObj akGameObj = akListener.GetComponentInChildren<AkGameObj>();
+							akGameObj.isEnvironmentAware = false;
+						}
+
+						// If Unity had already an audio listener, we want to remove it when adding our own.
+						AudioListener unityListener = Camera.main.GetComponentInChildren<AudioListener>();
+						if (unityListener != null)
+						{
+							Component.DestroyImmediate(unityListener);
+						}
+					}
+				}
+			}
+
+			if (m_oldShowMissingRigidBodyWarning != WwiseSetupWizard.Settings.ShowMissingRigidBodyWarning)
+			{
+				InternalEditorUtility.RepaintAllViews();
+			}
+
+			WwiseSettings.SaveSettings(WwiseSetupWizard.Settings);
+
+			CloseWindow();
+
+			// Pop the Picker window so the user can start working right away
+			AkWwiseProjectInfo.GetData(); // Load data
+			if (ApplyNewProject)
+			{
+				//Clear the data, the project path changed.
+				AkWwiseProjectInfo.GetData().Reset();
+				ApplyNewProject = false;
+				AkWwisePicker.WwiseProjectFound = true;
+			}
+			AkWwiseProjectInfo.Populate();
+			AkWwisePicker.PopulateTreeview();
+			AkWwisePicker.init();
 		}
+
+		if (GUILayout.Button("Cancel", GUILayout.Width(60)))
+		{
+			WwiseSetupWizard.Settings = WwiseSettings.LoadSettings(true);
+			CloseWindow();
+		}
+		GUILayout.Space(EditorGUIUtility.standardVerticalSpacing);
+		GUILayout.EndHorizontal();
+
+		GUILayout.Space(EditorGUIUtility.standardVerticalSpacing);
+		GUILayout.EndVertical();
 	}
 
-	private void CloseWindow()
+	void CloseWindow()
 	{
-		var SetupWindow = GetWindow<AkWwiseSettingsWindow>();
+		EditorWindow SetupWindow = EditorWindow.GetWindow(typeof(AkWwiseSettingsWindow));
 		SetupWindow.Close();
 	}
 }

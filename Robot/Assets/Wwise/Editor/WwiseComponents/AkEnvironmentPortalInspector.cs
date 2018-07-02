@@ -5,68 +5,74 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-[UnityEditor.CustomEditor(typeof(AkEnvironmentPortal))]
-public class AkEnvironmentPortalInspector : UnityEditor.Editor
-{
-	private AkEnvironmentPortal m_envPortal;
-	private readonly int[] m_selectedIndex = new int[2];
+using UnityEngine;
+using UnityEditor;
+using System;
 
-	[UnityEditor.MenuItem("GameObject/Wwise/Environment Portal", false, 1)]
+
+[CustomEditor(typeof(AkEnvironmentPortal))]
+public class AkEnvironmentPortalInspector : Editor
+{
+	[MenuItem("GameObject/Wwise/Environment Portal", false, 1)]
 	public static void CreatePortal()
 	{
-		var portal = new UnityEngine.GameObject("EnvironmentPortal");
+		GameObject portal = new GameObject("EnvironmentPortal");
 
-		UnityEditor.Undo.AddComponent<AkEnvironmentPortal>(portal);
-		portal.GetComponent<UnityEngine.Collider>().isTrigger = true;
+		Undo.AddComponent<AkEnvironmentPortal>(portal);
+		portal.GetComponent<Collider>().isTrigger = true;
 
-		UnityEditor.Selection.objects = new UnityEngine.Object[] { portal };
+		Selection.objects = new UnityEngine.Object[] { portal };
 	}
 
-	private void OnEnable()
+	AkEnvironmentPortal m_envPortal;
+	int[] m_selectedIndex = new int[2];
+
+	void OnEnable()
 	{
 		m_envPortal = target as AkEnvironmentPortal;
 		FindOverlappingEnvironments();
-		for (var i = 0; i < 2; i++)
+		for (int i = 0; i < 2; i++)
 		{
-			var index = m_envPortal.envList[i].list.IndexOf(m_envPortal.environments[i]);
+			int index = m_envPortal.envList[i].list.IndexOf(m_envPortal.environments[i]);
 			m_selectedIndex[i] = index == -1 ? 0 : index;
 		}
 	}
 
 	public override void OnInspectorGUI()
 	{
-		UnityEngine.GUILayout.BeginVertical("Box");
+		GUILayout.BeginVertical("Box");
 		{
-			for (var i = 0; i < 2; i++)
+			for (int i = 0; i < 2; i++)
 			{
-				var labels = new string[m_envPortal.envList[i].list.Count];
+				string[] labels = new String[m_envPortal.envList[i].list.Count];
 
-				for (var j = 0; j < labels.Length; j++)
+				for (int j = 0; j < labels.Length; j++)
 				{
 					if (m_envPortal.envList[i].list[j] != null)
-						labels[j] = j + 1 + ". " + GetEnvironmentName(m_envPortal.envList[i].list[j]) + " (" +
-						            m_envPortal.envList[i].list[j].name + ")";
+					{
+						labels[j] = j + 1 + ". " + GetEnvironmentName(m_envPortal.envList[i].list[j]) + " (" + m_envPortal.envList[i].list[j].name + ")";
+					}
 					else
+					{
 						m_envPortal.envList[i].list.RemoveAt(j);
+					}
 				}
 
-				m_selectedIndex[i] = UnityEditor.EditorGUILayout.Popup("Environment #" + (i + 1), m_selectedIndex[i], labels);
+				m_selectedIndex[i] = EditorGUILayout.Popup("Environment #" + (i + 1), m_selectedIndex[i], labels);
 
-				m_envPortal.environments[i] = m_selectedIndex[i] < 0 || m_selectedIndex[i] >= m_envPortal.envList[i].list.Count
-					? null
-					: m_envPortal.envList[i].list[m_selectedIndex[i]];
+				m_envPortal.environments[i] = (m_selectedIndex[i] < 0 || m_selectedIndex[i] >= m_envPortal.envList[i].list.Count) ? null : m_envPortal.envList[i].list[m_selectedIndex[i]];
 			}
 		}
-		UnityEngine.GUILayout.EndVertical();
+		GUILayout.EndVertical();
 
-		UnityEngine.GUILayout.Space(UnityEditor.EditorGUIUtility.standardVerticalSpacing);
+		GUILayout.Space(EditorGUIUtility.standardVerticalSpacing);
 
-		UnityEngine.GUILayout.BeginVertical("Box");
+		GUILayout.BeginVertical("Box");
 		{
 			string[] axisLabels = { "X", "Y", "Z" };
 
-			var index = 0;
-			for (var i = 0; i < 3; i++)
+			int index = 0;
+			for (int i = 0; i < 3; i++)
 			{
 				if (m_envPortal.axis[i] == 1)
 				{
@@ -75,56 +81,65 @@ public class AkEnvironmentPortalInspector : UnityEditor.Editor
 				}
 			}
 
-			index = UnityEditor.EditorGUILayout.Popup("Axis", index, axisLabels);
+			index = EditorGUILayout.Popup("Axis", index, axisLabels);
 
 			if (m_envPortal.axis[index] != 1)
 			{
 				m_envPortal.axis.Set(0, 0, 0);
-				m_envPortal.envList = new[] { new AkEnvironmentPortal.EnvListWrapper(), new AkEnvironmentPortal.EnvListWrapper() };
+				m_envPortal.envList = new AkEnvironmentPortal.EnvListWrapper[]
+				{
+					new AkEnvironmentPortal.EnvListWrapper(),
+					new AkEnvironmentPortal.EnvListWrapper()
+				};
 				m_envPortal.axis[index] = 1;
 
 				//We move and replace the game object to trigger the OnTriggerStay function
 				FindOverlappingEnvironments();
 			}
 		}
-		UnityEngine.GUILayout.EndVertical();
+		GUILayout.EndVertical();
 
 		AkGameObjectInspector.RigidbodyCheck(m_envPortal.gameObject);
 	}
 
-	private string GetEnvironmentName(AkEnvironment in_env)
+	string GetEnvironmentName(AkEnvironment in_env)
 	{
-		for (var i = 0; i < AkWwiseProjectInfo.GetData().AuxBusWwu.Count; i++)
+		for (int i = 0; i < AkWwiseProjectInfo.GetData().AuxBusWwu.Count; i++)
 		{
-			for (var j = 0; j < AkWwiseProjectInfo.GetData().AuxBusWwu[i].List.Count; j++)
-				if (in_env.GetAuxBusID() == (uint) AkWwiseProjectInfo.GetData().AuxBusWwu[i].List[j].ID)
+			for (int j = 0; j < AkWwiseProjectInfo.GetData().AuxBusWwu[i].List.Count; j++)
+			{
+				if (in_env.GetAuxBusID() == (uint)AkWwiseProjectInfo.GetData().AuxBusWwu[i].List[j].ID)
+				{
 					return AkWwiseProjectInfo.GetData().AuxBusWwu[i].List[j].Name;
+				}
+			}
 		}
 
-		return string.Empty;
+		return String.Empty;
 	}
 
 	public void FindOverlappingEnvironments()
 	{
-		var myCollider = m_envPortal.gameObject.GetComponent<UnityEngine.Collider>();
+		Collider myCollider = m_envPortal.gameObject.GetComponent<Collider>();
 		if (myCollider == null)
-			return;
-
-		var environments = FindObjectsOfType<AkEnvironment>();
-		foreach (var environment in environments)
 		{
-			var otherCollider = environment.gameObject.GetComponent<UnityEngine.Collider>();
+			return;
+		}
+
+		AkEnvironment[] environments = FindObjectsOfType<AkEnvironment>();
+		foreach (AkEnvironment environment in environments)
+		{
+			Collider otherCollider = environment.gameObject.GetComponent<Collider>();
 			if (otherCollider == null)
+			{
 				continue;
+			}
 
 			if (myCollider.bounds.Intersects(otherCollider.bounds))
 			{
 				//if index == 0 => the environment is on the negative side of the portal(opposite to the direction of the chosen axis)
 				//if index == 1 => the environment is on the positive side of the portal(same direction as the chosen axis) 
-				var index = UnityEngine.Vector3.Dot(m_envPortal.transform.rotation * m_envPortal.axis,
-					            environment.transform.position - m_envPortal.transform.position) >= 0
-					? 1
-					: 0;
+				int index = (Vector3.Dot(m_envPortal.transform.rotation * m_envPortal.axis, environment.transform.position - m_envPortal.transform.position) >= 0) ? 1 : 0;
 				if (!m_envPortal.envList[index].list.Contains(environment))
 				{
 					m_envPortal.envList[index].list.Add(environment);
@@ -133,8 +148,10 @@ public class AkEnvironmentPortalInspector : UnityEditor.Editor
 			}
 			else
 			{
-				for (var i = 0; i < 2; i++)
+				for (int i = 0; i < 2; i++)
+				{
 					m_envPortal.envList[i].list.Remove(environment);
+				}
 			}
 		}
 	}

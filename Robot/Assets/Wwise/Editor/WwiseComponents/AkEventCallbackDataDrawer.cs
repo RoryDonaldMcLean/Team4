@@ -5,23 +5,26 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-[UnityEditor.CustomPropertyDrawer(typeof(AkEventCallbackData))]
-internal class AkEventCallbackDataDrawer : UnityEditor.PropertyDrawer
+using UnityEngine;
+using UnityEditor;
+using System;
+using AK.Wwise.Editor;
+
+[CustomPropertyDrawer(typeof(AkEventCallbackData))]
+class AkEventCallbackDataDrawer : PropertyDrawer
 {
-	private readonly float callbackDeltaHeight = UnityEditor.EditorGUIUtility.singleLineHeight;
-	private readonly float callbackSpacerHeight = 5;
-	private readonly float callbackSpacerWidth = 4;
+	float deltaHeight = EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
+	float spacerHeight = EditorGUIUtility.standardVerticalSpacing;
 
-	private readonly float deltaHeight = UnityEditor.EditorGUIUtility.singleLineHeight +
-	                                     UnityEditor.EditorGUIUtility.standardVerticalSpacing;
+	float callbackDeltaHeight = EditorGUIUtility.singleLineHeight;
+	float callbackSpacerHeight = 5;
+	float callbackSpacerWidth = 4;
 
-	private readonly float spacerHeight = UnityEditor.EditorGUIUtility.standardVerticalSpacing;
-
-	public override float GetPropertyHeight(UnityEditor.SerializedProperty property, UnityEngine.GUIContent label)
+	public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
 	{
-		var height = deltaHeight;
+		float height = deltaHeight;
 
-		var callbackData = (AkEventCallbackData) property.objectReferenceValue;
+		var callbackData = (AkEventCallbackData)property.objectReferenceValue;
 		if (callbackData != null)
 		{
 			height += (callbackDeltaHeight + callbackSpacerHeight) * callbackData.callbackGameObj.Count;
@@ -31,31 +34,29 @@ internal class AkEventCallbackDataDrawer : UnityEditor.PropertyDrawer
 		return height;
 	}
 
-	public override void OnGUI(UnityEngine.Rect position, UnityEditor.SerializedProperty property,
-		UnityEngine.GUIContent label)
+	public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
 	{
 		// Using BeginProperty / EndProperty on the parent property means that
 		// prefab override logic works on the entire property.
-		UnityEditor.EditorGUI.BeginProperty(position, label, property);
+		EditorGUI.BeginProperty(position, label, property);
 
-		var initialRect = position;
+		Rect initialRect = position;
 
 		// Draw label
-		position = UnityEditor.EditorGUI.PrefixLabel(position,
-			UnityEngine.GUIUtility.GetControlID(UnityEngine.FocusType.Passive), new UnityEngine.GUIContent("Use Callback:"));
+		position = EditorGUI.PrefixLabel(position, GUIUtility.GetControlID(FocusType.Passive), new GUIContent("Use Callback:"));
 		position.height = deltaHeight;
 
-		var useCallback = property.objectReferenceValue != null;
+		bool useCallback = property.objectReferenceValue != null;
 
-		UnityEditor.EditorGUI.BeginChangeCheck();
+		EditorGUI.BeginChangeCheck();
 
-		useCallback = UnityEngine.GUI.Toggle(position, useCallback, "");
+		useCallback = GUI.Toggle(position, useCallback, "");
 
-		if (UnityEditor.EditorGUI.EndChangeCheck())
+		if (EditorGUI.EndChangeCheck())
 		{
 			if (useCallback && property.objectReferenceValue == null)
 			{
-				var callbackData = UnityEngine.ScriptableObject.CreateInstance<AkEventCallbackData>();
+				var callbackData = ScriptableObject.CreateInstance<AkEventCallbackData>();
 				callbackData.callbackFunc.Add(string.Empty);
 				callbackData.callbackFlags.Add(0);
 				callbackData.callbackGameObj.Add(null);
@@ -63,11 +64,11 @@ internal class AkEventCallbackDataDrawer : UnityEditor.PropertyDrawer
 			}
 			else if (!useCallback && property.objectReferenceValue != null)
 			{
-				UnityEditor.Undo.RecordObject(property.objectReferenceValue, "Use Callback Change");
+				Undo.RecordObject(property.objectReferenceValue, "Use Callback Change");
 
 				property.objectReferenceValue = null;
-				UnityEngine.GUIUtility.keyboardControl = 0;
-				UnityEngine.GUIUtility.hotControl = 0;
+				GUIUtility.keyboardControl = 0;
+				GUIUtility.hotControl = 0;
 			}
 		}
 
@@ -75,34 +76,33 @@ internal class AkEventCallbackDataDrawer : UnityEditor.PropertyDrawer
 		{
 			position.y += deltaHeight + spacerHeight;
 			float removeButtonWidth = 20;
-			var callbackFieldsWidth = initialRect.width - removeButtonWidth;
+			float callbackFieldsWidth = initialRect.width - removeButtonWidth;
 			position.width = callbackFieldsWidth / 3 - callbackSpacerWidth;
 
 			position.x = initialRect.x + 0 * callbackFieldsWidth / 3;
-			UnityEngine.GUI.Label(position, "Game Object");
+			GUI.Label(position, "Game Object");
 
 			position.x = initialRect.x + 1 * callbackFieldsWidth / 3;
-			UnityEngine.GUI.Label(position, "Callback Function");
+			GUI.Label(position, "Callback Function");
 
 			position.x = initialRect.x + 2 * callbackFieldsWidth / 3;
-			UnityEngine.GUI.Label(position, "Callback Flags");
+			GUI.Label(position, "Callback Flags");
 
-			var callbackData = (AkEventCallbackData) property.objectReferenceValue;
+			var callbackData = (AkEventCallbackData)property.objectReferenceValue;
 			callbackData.uFlags = 0;
 
-			for (var i = 0; i < callbackData.callbackFunc.Count; i++)
+			for (int i = 0; i < callbackData.callbackFunc.Count; i++)
 			{
-				UnityEditor.EditorGUI.BeginChangeCheck();
+				EditorGUI.BeginChangeCheck();
 
 				position.y += callbackDeltaHeight + callbackSpacerHeight;
 				position.x = initialRect.x + 0 * callbackFieldsWidth / 3;
 				position.width = callbackFieldsWidth / 3 - callbackSpacerWidth;
 
-				var gameObj = (UnityEngine.GameObject) UnityEditor.EditorGUI.ObjectField(position, callbackData.callbackGameObj[i],
-					typeof(UnityEngine.GameObject), true);
+				var gameObj = (GameObject)EditorGUI.ObjectField(position, callbackData.callbackGameObj[i], typeof(GameObject), true);
 
 				position.x = initialRect.x + 1 * callbackFieldsWidth / 3;
-				var func = UnityEditor.EditorGUI.TextField(position, callbackData.callbackFunc[i]);
+				string func = EditorGUI.TextField(position, callbackData.callbackFunc[i]);
 
 				position.x = initialRect.x + 2 * callbackFieldsWidth / 3;
 
@@ -110,14 +110,13 @@ internal class AkEventCallbackDataDrawer : UnityEditor.PropertyDrawer
 				//But when using EditorGUILayout.MaskField, clicking the third flag will set the third bit to one even if the third flag in the AkCallbackType enum is unsupported.
 				//This is a problem because clicking the third supported flag would internally select the third flag in the AkCallbackType enum which is unsupported.
 				//To solve this problem we use a mask for display and another one for the actual callback
-				var displayMask = AK.Wwise.Editor.CallbackFlagsDrawer.GetDisplayMask(callbackData.callbackFlags[i]);
-				displayMask = UnityEditor.EditorGUI.MaskField(position, displayMask,
-					AK.Wwise.Editor.CallbackFlagsDrawer.SupportedCallbackFlags);
-				var flags = AK.Wwise.Editor.CallbackFlagsDrawer.GetWwiseCallbackMask(displayMask);
+				int displayMask = CallbackFlagsDrawer.GetDisplayMask(callbackData.callbackFlags[i]);
+				displayMask = EditorGUI.MaskField(position, displayMask, CallbackFlagsDrawer.SupportedCallbackFlags);
+				int flags = CallbackFlagsDrawer.GetWwiseCallbackMask(displayMask);
 
-				if (UnityEditor.EditorGUI.EndChangeCheck())
+				if (EditorGUI.EndChangeCheck())
 				{
-					UnityEditor.Undo.RecordObject(callbackData, "Modified Callback");
+					Undo.RecordObject(callbackData, "Modified Callback");
 
 					callbackData.callbackGameObj[i] = gameObj;
 					callbackData.callbackFunc[i] = func;
@@ -127,12 +126,12 @@ internal class AkEventCallbackDataDrawer : UnityEditor.PropertyDrawer
 				position.x = initialRect.x + callbackFieldsWidth;
 				position.width = removeButtonWidth;
 
-				if (UnityEngine.GUI.Button(position, "X"))
+				if (GUI.Button(position, "X"))
 				{
-					UnityEditor.Undo.RecordObject(callbackData, "Remove Callback");
+					Undo.RecordObject(callbackData, "Remove Callback");
 
-					UnityEngine.GUIUtility.keyboardControl = 0;
-					UnityEngine.GUIUtility.hotControl = 0;
+					GUIUtility.keyboardControl = 0;
+					GUIUtility.hotControl = 0;
 
 					if (callbackData.callbackFunc.Count == 1)
 					{
@@ -158,9 +157,9 @@ internal class AkEventCallbackDataDrawer : UnityEditor.PropertyDrawer
 			position.width = initialRect.width;
 			position.y += deltaHeight + spacerHeight;
 
-			if (UnityEngine.GUI.Button(position, "Add"))
+			if (GUI.Button(position, "Add"))
 			{
-				UnityEditor.Undo.RecordObject(callbackData, "Add Callback");
+				Undo.RecordObject(callbackData, "Add Callback");
 
 				callbackData.callbackFunc.Add(string.Empty);
 				callbackData.callbackFlags.Add(0);
@@ -168,7 +167,7 @@ internal class AkEventCallbackDataDrawer : UnityEditor.PropertyDrawer
 			}
 		}
 
-		UnityEditor.EditorGUI.EndProperty();
+		EditorGUI.EndProperty();
 	}
 }
 #endif

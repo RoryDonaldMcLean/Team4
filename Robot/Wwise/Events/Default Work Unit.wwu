@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<WwiseDocument Type="WorkUnit" ID="{9208E778-4B37-4421-9C2A-46AAA42FFE85}" SchemaVersion="85">
+<WwiseDocument Type="WorkUnit" ID="{9208E778-4B37-4421-9C2A-46AAA42FFE85}" SchemaVersion="80">
 	<Events>
 		<WorkUnit Name="Default Work Unit" ID="{9208E778-4B37-4421-9C2A-46AAA42FFE85}" PersistMode="Standalone">
 			<ChildrenList>
@@ -25,17 +25,6 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Arm Fly" ID="{17667CBB-5C97-4095-9361-5D11D3DC01E4}" WorkUnitID="{6BAE9174-7CEB-4131-99B7-F2EC621355E0}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-								<Action Name="" ID="{40D58F54-7199-4BB2-A278-724FDDD3E0C8}" ShortID="47492550">
-									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="12"/>
-										<Property Name="FadeTime" Type="Real64" Value="0.5"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Drone" ID="{6BAF7145-A163-40D7-A216-C4BC3B0F1656}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -77,18 +66,6 @@
 										</Reference>
 									</ReferenceList>
 								</Action>
-								<Action Name="" ID="{AFF443DC-805A-4E7B-8273-C03CA1B8C642}" ShortID="202777719">
-									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="11"/>
-										<Property Name="FadeTime" Type="Real64" Value="0.5"/>
-										<Property Name="Volume" Type="Real64" Value="-6"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Drone" ID="{6BAF7145-A163-40D7-A216-C4BC3B0F1656}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
 							</ChildrenList>
 						</Event>
 						<Event Name="Chirp" ID="{BC05550A-267D-41C8-B984-AB934261AB34}">
@@ -125,20 +102,6 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Footsteps" ID="{AF6FDF83-A486-47BE-9CA9-12DDF97386DD}" WorkUnitID="{6BAE9174-7CEB-4131-99B7-F2EC621355E0}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="Arm_Drop" ID="{8A019EC8-1D5F-4D21-BE50-084932976690}">
-							<ChildrenList>
-								<Action Name="" ID="{A97EC052-5849-4B73-BF24-8C9094BB14B6}" ShortID="514385500">
-									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="1"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Detatch Arm" ID="{4352F0CD-BB83-42CF-8379-B533F4172C2D}" WorkUnitID="{6BAE9174-7CEB-4131-99B7-F2EC621355E0}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -214,40 +177,6 @@
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="DRONE_Stop" ID="{11F147F1-540C-419B-8B4D-2513D532C45A}">
-							<ChildrenList>
-								<Action Name="" ID="{F5166E68-8B31-44F9-8FF7-2331FE6E9EA8}" ShortID="209590924">
-									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="2"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Drone1" ID="{A89E3A81-4D6B-45FC-B94A-68F6D1F92A69}" WorkUnitID="{D9329DB3-E4D7-45AA-BD40-6EB28C6C4D39}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-								<Action Name="" ID="{DBCC7F1A-480D-4DF9-8318-61446BC499F6}" ShortID="51743505">
-									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="2"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Drone2" ID="{AFE8948E-6573-484D-9B8E-FDC3AF2AB28B}" WorkUnitID="{D9329DB3-E4D7-45AA-BD40-6EB28C6C4D39}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-								<Action Name="" ID="{12F79DCF-C253-4347-9F32-5A532EF615B8}" ShortID="126487181">
-									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="2"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Drone3" ID="{2FD76A35-9848-4F8F-9F29-E0570451F891}" WorkUnitID="{D9329DB3-E4D7-45AA-BD40-6EB28C6C4D39}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Objects" ID="{D4A4E6D9-1EB5-4EC1-8A15-F9900F778EB6}" ShortID="442883587">
@@ -313,20 +242,6 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="LightHitCrystal" ID="{6477461F-F05B-42F2-8A18-E53AC70E1066}" WorkUnitID="{6BAE9174-7CEB-4131-99B7-F2EC621355E0}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="Pressure_Plate" ID="{E63CB03C-6167-45F2-BF52-957AE1AF9A3A}">
-							<ChildrenList>
-								<Action Name="" ID="{10E542B0-0346-48DD-8FD3-16EF09ED2631}" ShortID="943899736">
-									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="1"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Pressure Plate" ID="{4BDDCCEB-9EE5-44C0-8960-4EEC650BD897}" WorkUnitID="{6BAE9174-7CEB-4131-99B7-F2EC621355E0}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>

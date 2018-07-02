@@ -18,10 +18,8 @@ namespace AK
         static const AkUniqueID ARM_ATTACH = 3720067015U;
         static const AkUniqueID ARM_BREAK = 3331264981U;
         static const AkUniqueID ARM_DETATCH = 4167342225U;
-        static const AkUniqueID ARM_DROP = 844582287U;
         static const AkUniqueID CHIRP = 167209695U;
         static const AkUniqueID DRONE = 2739838641U;
-        static const AkUniqueID DRONE_STOP = 3651986388U;
         static const AkUniqueID FOOTSTEP = 1866025847U;
         static const AkUniqueID INSECTS = 3833343604U;
         static const AkUniqueID LIGHT_HITS_CRYSTAL = 3427421355U;
@@ -29,7 +27,6 @@ namespace AK
         static const AkUniqueID MUSIC_START = 3725903807U;
         static const AkUniqueID PICKUP_CRYSTAL = 1187533030U;
         static const AkUniqueID PLACE_CRYSTAL = 4149295597U;
-        static const AkUniqueID PRESSURE_PLATE = 4138605869U;
         static const AkUniqueID TARPFLAP = 1728682787U;
         static const AkUniqueID THECORE = 1875437039U;
     } // namespace EVENTS
@@ -92,19 +89,6 @@ namespace AK
 
     namespace SWITCHES
     {
-        namespace CHIRPS_TYPE
-        {
-            static const AkUniqueID GROUP = 1850810525U;
-
-            namespace SWITCH
-            {
-                static const AkUniqueID HAPPY = 1427264549U;
-                static const AkUniqueID OVERHERE = 597702409U;
-                static const AkUniqueID OVERTHERE = 3684939759U;
-                static const AkUniqueID SAD = 443572635U;
-            } // namespace SWITCH
-        } // namespace CHIRPS_TYPE
-
         namespace FOOTSTEPS
         {
             static const AkUniqueID GROUP = 2385628198U;
@@ -171,12 +155,6 @@ namespace AK
         static const AkUniqueID OBJECTS = 1695690031U;
         static const AkUniqueID ROBOTS = 2494382374U;
     } // namespace BUSSES
-
-    namespace AUDIO_DEVICES
-    {
-        static const AkUniqueID NO_OUTPUT = 2317455096U;
-        static const AkUniqueID SYSTEM = 3859886410U;
-    } // namespace AUDIO_DEVICES
 
 }// namespace AK
 

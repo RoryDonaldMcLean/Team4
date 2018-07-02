@@ -5,38 +5,34 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-[UnityEngine.AddComponentMenu("Wwise/AkAudioListener")]
-[UnityEngine.RequireComponent(typeof(AkGameObj))]
-[UnityEngine.DisallowMultipleComponent]
+using UnityEngine;
+using System;
+using System.Collections.Generic;
+
+
+[AddComponentMenu("Wwise/AkAudioListener")]
+[RequireComponent(typeof(AkGameObj))]
+[DisallowMultipleComponent]
 ///@brief Add this script on the game object that represent a listener.  This is normally added to the Camera object or the Player object, but can be added to any game object when implementing 3D busses.  \c isDefaultListener determines whether the game object will be considered a default listener - a listener that automatically listens to all game objects that do not have listeners attached to their AkGameObjListenerList's.
 /// \sa
-/// - <a href="https://www.audiokinetic.com/library/edge/?source=SDK&id=soundengine__listeners.html" target="_blank">Integrating Listeners</a> (Note: This is described in the Wwise SDK documentation.)
-public class AkAudioListener : UnityEngine.MonoBehaviour
+/// - \ref soundengine_listeners
+public class AkAudioListener : MonoBehaviour
 {
-	private static readonly DefaultListenerList defaultListeners = new DefaultListenerList();
-	private ulong akGameObjectID = AkSoundEngine.AK_INVALID_GAME_OBJECT;
-	private System.Collections.Generic.List<AkGameObj> EmittersToStartListeningTo = 
-		new System.Collections.Generic.List<AkGameObj>();
-	private System.Collections.Generic.List<AkGameObj> EmittersToStopListeningTo = 
-		new System.Collections.Generic.List<AkGameObj>();
-
 	public bool isDefaultListener = true;
+	private ulong akGameObjectID = AkSoundEngine.AK_INVALID_GAME_OBJECT;
 
-	public static DefaultListenerList DefaultListeners
+	private void Awake()
 	{
-		get { return defaultListeners; }
+		akGameObjectID = AkSoundEngine.GetAkGameObjectID(gameObject);
+		SetIsDefaultListener_NoCheck(isDefaultListener);
 	}
 
-	public void StartListeningToEmitter(AkGameObj emitter)
+	private void SetIsDefaultListener_NoCheck(bool isDefault)
 	{
-		EmittersToStartListeningTo.Add(emitter);
-		EmittersToStopListeningTo.Remove(emitter);
-	}
-
-	public void StopListeningToEmitter(AkGameObj emitter)
-	{
-		EmittersToStartListeningTo.Remove(emitter);
-		EmittersToStopListeningTo.Add(emitter);
+		if (isDefault)
+			DefaultListeners.Add(this);
+		else
+			DefaultListeners.Remove(this);
 	}
 
 	public void SetIsDefaultListener(bool isDefault)
@@ -44,45 +40,24 @@ public class AkAudioListener : UnityEngine.MonoBehaviour
 		if (isDefaultListener != isDefault)
 		{
 			isDefaultListener = isDefault;
-
-			if (isDefault)
-				DefaultListeners.Add(this);
-			else
-				DefaultListeners.Remove(this);
+			SetIsDefaultListener_NoCheck(isDefault);
 		}
-	}
-
-	private void Awake()
-	{
-		var akGameObj = GetComponent<AkGameObj>();
-		UnityEngine.Debug.Assert(akGameObj != null);
-		if (akGameObj)
-			akGameObj.Register();
-
-		akGameObjectID = AkSoundEngine.GetAkGameObjectID(gameObject);
 	}
 
 	private void OnEnable()
 	{
-		if (isDefaultListener)
-			DefaultListeners.Add(this);
+		SetIsDefaultListener_NoCheck(isDefaultListener);
 	}
 
 	private void OnDisable()
 	{
-		if (isDefaultListener)
-			DefaultListeners.Remove(this);
+		SetIsDefaultListener_NoCheck(false);
 	}
 
-	private void Update()
+	private void OnDestroy()
 	{
-		for (var i = 0; i < EmittersToStartListeningTo.Count; ++i)
-			EmittersToStartListeningTo[i].AddListener(this);
-		EmittersToStartListeningTo.Clear();
-
-		for (var i = 0; i < EmittersToStopListeningTo.Count; ++i)
-			EmittersToStopListeningTo[i].RemoveListener(this);
-		EmittersToStopListeningTo.Clear();
+		SetIsDefaultListener(false);
+		akGameObjectID = AkSoundEngine.AK_INVALID_GAME_OBJECT;
 	}
 
 	public ulong GetAkGameObjectID()
@@ -93,22 +68,16 @@ public class AkAudioListener : UnityEngine.MonoBehaviour
 	public class BaseListenerList
 	{
 		// @todo: Use HashSet<ulong> and CopyTo() with a private ulong[]
-		private readonly System.Collections.Generic.List<ulong> listenerIdList = new System.Collections.Generic.List<ulong>();
+		private List<ulong> listenerIdList = new List<ulong>();
 
-		private readonly System.Collections.Generic.List<AkAudioListener> listenerList =
-			new System.Collections.Generic.List<AkAudioListener>();
-
-		public System.Collections.Generic.List<AkAudioListener> ListenerList
-		{
-			get { return listenerList; }
-		}
+		protected bool changed = false;
 
 		/// <summary>
-		///     Uniquely adds listeners to the list
+		/// Uniquely adds listeners to the list
 		/// </summary>
 		/// <param name="listener"></param>
 		/// <returns></returns>
-		public virtual bool Add(AkAudioListener listener)
+		public bool Add(AkAudioListener listener)
 		{
 			if (listener == null)
 				return false;
@@ -118,16 +87,16 @@ public class AkAudioListener : UnityEngine.MonoBehaviour
 				return false;
 
 			listenerIdList.Add(gameObjectId);
-			listenerList.Add(listener);
+			changed = true;
 			return true;
 		}
 
 		/// <summary>
-		///     Removes listeners from the list
+		/// Removes listeners from the list
 		/// </summary>
 		/// <param name="listener"></param>
 		/// <returns></returns>
-		public virtual bool Remove(AkAudioListener listener)
+		public bool Remove(AkAudioListener listener)
 		{
 			if (listener == null)
 				return false;
@@ -137,7 +106,7 @@ public class AkAudioListener : UnityEngine.MonoBehaviour
 				return false;
 
 			listenerIdList.Remove(gameObjectId);
-			listenerList.Remove(listener);
+			changed = true;
 			return true;
 		}
 
@@ -149,28 +118,25 @@ public class AkAudioListener : UnityEngine.MonoBehaviour
 
 	public class DefaultListenerList : BaseListenerList
 	{
-		public override bool Add(AkAudioListener listener)
+		internal void Refresh()
 		{
-			var ret = base.Add(listener);
-			if (ret && AkSoundEngine.IsInitialized())
-				AkSoundEngine.AddDefaultListener(listener.gameObject);
-			return ret;
-		}
-
-		public override bool Remove(AkAudioListener listener)
-		{
-			var ret = base.Remove(listener);
-			if (ret && AkSoundEngine.IsInitialized())
-				AkSoundEngine.RemoveDefaultListener(listener.gameObject);
-			return ret;
+			if (changed)
+			{
+				changed = false;
+				var Ids = GetListenerIds();
+				AkSoundEngine.SetDefaultListeners(Ids, (uint)Ids.Length);
+			}
 		}
 	}
+
+	public static DefaultListenerList DefaultListeners { get { return defaultListeners; } }
+	private static DefaultListenerList defaultListeners = new DefaultListenerList();
 
 	#region WwiseMigration
 
 #pragma warning disable 0414 // private field assigned but not used.
 
-	[UnityEngine.SerializeField]
+	[SerializeField]
 	// Wwise v2016.2 and below supported up to 8 listeners[0-7].
 	public int listenerId = 0;
 
@@ -178,8 +144,8 @@ public class AkAudioListener : UnityEngine.MonoBehaviour
 
 	public void Migrate14()
 	{
-		var wasDefaultListener = listenerId == 0;
-		UnityEngine.Debug.Log("WwiseUnity: AkAudioListener.Migrate14 for " + gameObject.name);
+		bool wasDefaultListener = (listenerId == 0);
+		Debug.Log("WwiseUnity: AkAudioListener.Migrate14 for " + gameObject.name);
 		isDefaultListener = wasDefaultListener;
 	}
 

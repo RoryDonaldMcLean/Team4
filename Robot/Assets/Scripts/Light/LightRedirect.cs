@@ -33,10 +33,6 @@ public class LightRedirect : MonoBehaviour
                 connectedBeam = true;
                 if (beamColourRedirectControl) beamColour = lightBeam.GetComponentInParent<LineRenderer>().startColor;
                 CreateExtendedBeam();
-				AkSoundEngine.PostEvent("Light_Hits_Crystal", gameObject);
-				AkSoundEngine.SetState("Drone_Modulator", "Reflector");
-
-
             }
         }
     }

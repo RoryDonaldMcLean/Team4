@@ -81,12 +81,8 @@ public class LimbLight : MonoBehaviour
             {
                 lightRedirect.beamColourRedirectControl = false;
                 lightRedirect.beamColour = beamColour;
-
-				AkSoundEngine.SetState("Drone_Modulator", "Colour_Change");
-
             }
             //BeamFoundNearObject();
-
         }
         else
         {
@@ -127,8 +123,6 @@ public class LimbLight : MonoBehaviour
 
         Debug.DrawRay(pos, direction, Color.red, length);
         return Physics.BoxCast(pos, this.GetComponent<Transform>().localScale, direction, out hit, this.GetComponent<Transform>().rotation, length, layermask);
-
-
     }
 }
 

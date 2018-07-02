@@ -36,7 +36,6 @@ public class UILayout : MonoBehaviour
         }
         //Debug.Log(GameManager.Instance.playerSetting.currentButton[11]);
         GameManager.Instance.playerSetting = SaveNLoad.Load();
-       
     }
 
     // Update is called once per frame
@@ -77,13 +76,13 @@ public class UILayout : MonoBehaviour
         }
     }
 
-    private int GeneLabelSlider(float x, float y, int volume)
+    private int GeneLabelSlider(float x, float y, ref int volume)
     {
         //volume = GameManager.Instance.playerSetting.volume;
         GUI.Label(new Rect(x, y + 30, 100, 20), "Volume");
         volume = (int)GUI.HorizontalSlider(new Rect(x + 150, y + 30, Screen.width - x - 50 - 100 - 100, 20), volume, 0.0f, 100.0f);
         GUI.Label(new Rect(x + 100, y + 30, 50, 20), volume.ToString());
-        if ((Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1) || Input.GetMouseButtonUp(2)) 
+        if ((Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1) || Input.GetMouseButtonUp(2))
             && GameManager.Instance.playerSetting.volume != volume)
         {
             SaveNLoad.Save(GameManager.Instance.playerSetting);
@@ -134,31 +133,43 @@ public class UILayout : MonoBehaviour
             float heightRemain = Screen.height - 40 - 140;
             int amount = GameManager.Instance.playerSetting.currentButton.Length;
             GUI.Label(new Rect(250 + 50, 20, 200, 20), "Player1");
-            GUI.Label(new Rect(250 + 50 + widthRemain / 2, 20, 200, 20), "Player2");
+            GUI.Label(new Rect(250 + 50 + widthRemain / 2, 20, 200, 20), "Player2 -> Controller");
 
-            GeneLabelButton(250 + 50, 60 + heightRemain / (amount + 2) * 1, "Forward", GameManager.Instance.playerSetting.currentButton[0].ToString(), 0);
-            GeneLabelButton(250 + 50, 60 + heightRemain / (amount + 2) * 2, "Left", GameManager.Instance.playerSetting.currentButton[1].ToString(), 1);
-            GeneLabelButton(250 + 50, 60 + heightRemain / (amount + 2) * 3, "Backward", GameManager.Instance.playerSetting.currentButton[2].ToString(), 2);
-            GeneLabelButton(250 + 50, 60 + heightRemain / (amount + 2) * 4, "Right", GameManager.Instance.playerSetting.currentButton[3].ToString(), 3);
-            GeneLabelButton(250 + 50, 60 + heightRemain / (amount + 2) * 5, "Emotion1", GameManager.Instance.playerSetting.currentButton[4].ToString(), 4);
-            GeneLabelButton(250 + 50, 60 + heightRemain / (amount + 2) * 6, "Emotion2", GameManager.Instance.playerSetting.currentButton[5].ToString(), 5);
-            GeneLabelButton(250 + 50, 60 + heightRemain / (amount + 2) * 7, "Emotion3", GameManager.Instance.playerSetting.currentButton[6].ToString(), 6);
-            GeneLabelButton(250 + 50, 60 + heightRemain / (amount + 2) * 8, "Emotion4", GameManager.Instance.playerSetting.currentButton[7].ToString(), 7);
-            GeneLabelButton(250 + 50, 60 + heightRemain / (amount + 2) * 9, "Jump", GameManager.Instance.playerSetting.currentButton[8].ToString(), 8);
-            GeneLabelButton(250 + 50, 60 + heightRemain / (amount + 2) * 10, "Interact/Reattach", GameManager.Instance.playerSetting.currentButton[9].ToString(), 9);
-            GeneLabelButton(250 + 50, 60 + heightRemain / (amount + 2) * 11, "Limbos Panel", GameManager.Instance.playerSetting.currentButton[10].ToString(), 10);
-            GeneLabelButton(250 + 50, 60 + heightRemain / (amount + 2) * 12, "Dunno What Is Used For", GameManager.Instance.playerSetting.currentButton[11].ToString(), 11);
 
+            if (!GameManager.Instance.playerSetting.player1Controller)
+            {
+                GeneLabelButton(250 + 50, 60 + heightRemain / (amount + 2) * 1, "Forward", GameManager.Instance.playerSetting.currentButton[0].ToString(), 0);
+                GeneLabelButton(250 + 50, 60 + heightRemain / (amount + 2) * 2, "Left", GameManager.Instance.playerSetting.currentButton[1].ToString(), 1);
+                GeneLabelButton(250 + 50, 60 + heightRemain / (amount + 2) * 3, "Backward", GameManager.Instance.playerSetting.currentButton[2].ToString(), 2);
+                GeneLabelButton(250 + 50, 60 + heightRemain / (amount + 2) * 4, "Right", GameManager.Instance.playerSetting.currentButton[3].ToString(), 3);
+                GeneLabelButton(250 + 50, 60 + heightRemain / (amount + 2) * 5, "Emotion1", GameManager.Instance.playerSetting.currentButton[4].ToString(), 4);
+                GeneLabelButton(250 + 50, 60 + heightRemain / (amount + 2) * 6, "Emotion2", GameManager.Instance.playerSetting.currentButton[5].ToString(), 5);
+                GeneLabelButton(250 + 50, 60 + heightRemain / (amount + 2) * 7, "Emotion3", GameManager.Instance.playerSetting.currentButton[6].ToString(), 6);
+                GeneLabelButton(250 + 50, 60 + heightRemain / (amount + 2) * 8, "Emotion4", GameManager.Instance.playerSetting.currentButton[7].ToString(), 7);
+                GeneLabelButton(250 + 50, 60 + heightRemain / (amount + 2) * 9, "Jump", GameManager.Instance.playerSetting.currentButton[8].ToString(), 8);
+                GeneLabelButton(250 + 50, 60 + heightRemain / (amount + 2) * 10, "Interact/Reattach", GameManager.Instance.playerSetting.currentButton[9].ToString(), 9);
+                GeneLabelButton(250 + 50, 60 + heightRemain / (amount + 2) * 11, "Limbos Panel", GameManager.Instance.playerSetting.currentButton[10].ToString(), 10);
+                GeneLabelButton(250 + 50, 60 + heightRemain / (amount + 2) * 12, "Dunno What Is Used For", GameManager.Instance.playerSetting.currentButton[11].ToString(), 11);
+            }
             if (!allFalse())
             {
-                GameManager.Instance.playerSetting.volume = GeneLabelSlider(250 + 50, Screen.height - 140, GameManager.Instance.playerSetting.volume);
+                bool player1Controller = GameManager.Instance.playerSetting.player1Controller;
+                GameManager.Instance.playerSetting.player1Controller = GUI.Toggle(new Rect(380, 20, 100, 30), GameManager.Instance.playerSetting.player1Controller, "Controller");
+
+                if (player1Controller != GameManager.Instance.playerSetting.player1Controller)
+                {
+                    SaveNLoad.Save(GameManager.Instance.playerSetting);
+                }
+
+                GeneLabelSlider(250 + 50, Screen.height - 140, ref GameManager.Instance.playerSetting.volume);
                 if (GUI.Button(new Rect(250 + 50, Screen.height - 40, 200, 20), "Default"))
                 {
                     for (int i = 0; i < GameManager.Instance.playerSetting.currentButton.Length; i++)
                     {
-                        GameManager.Instance.playerSetting.volume = 50;
                         GameManager.Instance.playerSetting.currentButton[i] = GameManager.Instance.playerSetting.defaultButton[i];
                     }
+                    GameManager.Instance.playerSetting.volume = 50;
+                    GameManager.Instance.playerSetting.player1Controller = false;
                     SaveNLoad.Save(GameManager.Instance.playerSetting);
                 }
             }

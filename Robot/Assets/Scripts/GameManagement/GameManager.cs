@@ -22,13 +22,20 @@ public class GameManager : MonoBehaviour {
 
     //public PlayerSetting playerSetting = new PlayerSetting();
     public PlayerSetting playerSetting;
+    public WhichAndroid whichAndroid;
 
     void Awake()
     {
         _instance = this;
         DontDestroyOnLoad(this);
          
-        playerSetting = new PlayerSetting(); 
+        playerSetting = new PlayerSetting();
+        whichAndroid = new WhichAndroid();
+    }
+
+    private void OnDestroy()
+    {
+        _instance = null;
     }
 
     // Use this for initialization

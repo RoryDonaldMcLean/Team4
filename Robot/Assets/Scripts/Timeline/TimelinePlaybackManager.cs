@@ -18,7 +18,11 @@ public class TimelinePlaybackManager : MonoBehaviour
 
     [Header("Player Input Settings")]
     public KeyCode interactKey;
+    public KeyCode interactKey2;
     public bool disablePlayerInput = false;
+
+    [Header("Both Buttons To Interact")]
+    public bool both = false;
 
 
     [Header("Player Timeline Position")]
@@ -32,10 +36,13 @@ public class TimelinePlaybackManager : MonoBehaviour
     public bool displayUI;
     public GameObject interactDisplay;
 
-    [Header("Player Settings")]
-    public string playerTag = "Player";
+    [Header("Player 1 Settings")]
+    public string playerTag = "Player1";
     private GameObject playerObject;
 
+    [Header("Player 2 Settings")]
+    public string player2Tag = "Player2";
+    private GameObject playerObject2;
 
     private bool playerInZone = false;
     private bool timelinePlaying = false;
@@ -43,19 +50,22 @@ public class TimelinePlaybackManager : MonoBehaviour
 
     void Start()
     {
+        //Finds the player objects
         playerObject = GameObject.FindWithTag(playerTag);
-        ToggleInteractUI(false);
+        playerObject2 = GameObject.FindWithTag(player2Tag);
+        //ToggleInteractUI(false);
     }
 
     public void PlayerEnteredZone()
     {
+        //Checks if the players in the set zone
         playerInZone = true;
         ToggleInteractUI(playerInZone);
     }
 
     public void PlayerExitedZone()
     {
-
+        //If he is not
         playerInZone = false;
 
         ToggleInteractUI(playerInZone);
@@ -64,27 +74,58 @@ public class TimelinePlaybackManager : MonoBehaviour
 
     void Update()
     {
-
+        //If his in the zone and the timelines off
         if (playerInZone && !timelinePlaying)
         {
-
+            //Checks the buttons
             var activateTimelineInput = Input.GetKey(interactKey);
+            var activateTimelineInput2 = Input.GetKey(interactKey2);
 
-            if (interactKey == KeyCode.None)
+            //If both players
+            if (both == true)
             {
-                PlayTimeline();
-            }
-            else
-            {
-                if (activateTimelineInput)
+                //If there is no interact key it plays the timeline on collision
+                if (interactKey == KeyCode.None && interactKey2 == KeyCode.None)
                 {
                     PlayTimeline();
-                    ToggleInteractUI(false);
+                }
+                else
+                {
+                    //If both interact keys are hit then you play the timeline
+                    if (activateTimelineInput && activateTimelineInput2)
+                    {
+                        PlayTimeline();
+                        ToggleInteractUI(false);
+
+
+                    }
+
+                }
+
+            }
+            //If one player
+            else if (both == false)
+            {
+                //If there is no interact key it plays the timeline on collision
+                if (interactKey == KeyCode.None && interactKey2 == KeyCode.None)
+                {
+                    PlayTimeline();
+                }
+                else
+                {
+                    //If the interact key is hit then you play the timeline
+                    if (activateTimelineInput)
+                    {
+                        PlayTimeline();
+                        ToggleInteractUI(false);
+
+
+                    }
                 }
             }
 
-        }
 
+        }
     }
 
     public void PlayTimeline()
@@ -92,35 +133,40 @@ public class TimelinePlaybackManager : MonoBehaviour
 
         if (setPlayerTimelinePosition)
         {
+            //Sets the players possition durring the cutscene if stationary
             SetPlayerToTimelinePosition();
         }
 
         if (playableDirector)
         {
-
+            //Plays the directer you set
             playableDirector.Play();
 
         }
 
+        //Sets the zone you just used to false
         triggerZoneObject.SetActive(false);
 
-
+        //Plays the timeline
         timelinePlaying = true;
 
+        //Starts the timer
         StartCoroutine(WaitForTimelineToFinish());
 
     }
 
     IEnumerator WaitForTimelineToFinish()
     {
-
+        //Finds the duration of the timeline
         timelineDuration = (float)playableDirector.duration;
 
+        //Turns off movement
         ToggleInput(false);
         yield return new WaitForSeconds(timelineDuration);
+        //After the duration turns it on
         ToggleInput(true);
 
-
+        //Checks how many times to play yhe timeline 
         if (!playTimelineOnlyOnce)
         {
             triggerZoneObject.SetActive(true);
@@ -138,7 +184,10 @@ public class TimelinePlaybackManager : MonoBehaviour
     {
         if (disablePlayerInput)
         {
-            //Add player disable
+            //Disables the players movement Depending on the cutscene
+            playerObject.GetComponent<Movement_>().enabled = newState;
+            playerObject2.GetComponent<Movement_>().enabled = newState;
+
         }
     }
 
@@ -153,8 +202,12 @@ public class TimelinePlaybackManager : MonoBehaviour
 
     void SetPlayerToTimelinePosition()
     {
+        //Sets the players possition durring the cutscene if stationary
         playerObject.transform.position = playerTimelinePosition.position;
         playerObject.transform.localRotation = playerTimelinePosition.rotation;
+        //Sets the players possition durring the cutscene if stationary
+        playerObject2.transform.position = playerTimelinePosition.position;
+        playerObject2.transform.localRotation = playerTimelinePosition.rotation;
     }
 
 }

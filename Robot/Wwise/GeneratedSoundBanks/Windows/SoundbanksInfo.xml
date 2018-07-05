@@ -16,28 +16,34 @@
 			<ShortName>SFX</ShortName>
 			<Path>SFX.bnk</Path>
 			<IncludedEvents>
-				<Event Id="3781481881" Name="Activate_Crystal" ObjectPath="\Events\Default Work Unit\Objects\Activate_Crystal" MaxAttenuation="50.000000"/>
+				<Event Id="3781481881" Name="Activate_Crystal" ObjectPath="\Events\Default Work Unit\Objects\Activate_Crystal"/>
 				<Event Id="77978275" Name="Ambient" ObjectPath="\Events\Default Work Unit\Environment\Ambient"/>
-				<Event Id="3720067015" Name="Arm_Attach" ObjectPath="\Events\Default Work Unit\Robots\Arm_Attach" MaxAttenuation="50.000000"/>
-				<Event Id="3331264981" Name="Arm_Break" ObjectPath="\Events\Default Work Unit\Robots\Arm_Break" MaxAttenuation="50.000000"/>
-				<Event Id="4167342225" Name="Arm_Detatch" ObjectPath="\Events\Default Work Unit\Robots\Arm_Detatch" MaxAttenuation="50.000000"/>
+				<Event Id="3720067015" Name="Arm_Attach" ObjectPath="\Events\Default Work Unit\Robots\Arm_Attach"/>
+				<Event Id="3331264981" Name="Arm_Break" ObjectPath="\Events\Default Work Unit\Robots\Arm_Break"/>
+				<Event Id="4167342225" Name="Arm_Detatch" ObjectPath="\Events\Default Work Unit\Robots\Arm_Detatch"/>
 				<Event Id="167209695" Name="Chirp" ObjectPath="\Events\Default Work Unit\Robots\Chirp"/>
 				<Event Id="2739838641" Name="DRONE" ObjectPath="\Events\Default Work Unit\Music\DRONE" MaxAttenuation="50.000000"/>
-				<Event Id="1866025847" Name="Footstep" ObjectPath="\Events\Default Work Unit\Robots\Footstep" MaxAttenuation="50.000000"/>
-				<Event Id="3833343604" Name="Insects" ObjectPath="\Events\Default Work Unit\Emitters\Insects" MaxAttenuation="50.000000"/>
-				<Event Id="3427421355" Name="Light_Hits_Crystal" ObjectPath="\Events\Default Work Unit\Objects\Light_Hits_Crystal" MaxAttenuation="50.000000"/>
-				<Event Id="1863820488" Name="LightBuzz" ObjectPath="\Events\Default Work Unit\Emitters\LightBuzz" MaxAttenuation="50.000000"/>
+				<Event Id="1866025847" Name="Footstep" ObjectPath="\Events\Default Work Unit\Robots\Footstep"/>
+				<Event Id="3833343604" Name="Insects" ObjectPath="\Events\Default Work Unit\Emitters\Insects"/>
+				<Event Id="3427421355" Name="Light_Hits_Crystal" ObjectPath="\Events\Default Work Unit\Objects\Light_Hits_Crystal"/>
+				<Event Id="1863820488" Name="LightBuzz" ObjectPath="\Events\Default Work Unit\Emitters\LightBuzz"/>
 				<Event Id="3725903807" Name="Music_Start" ObjectPath="\Events\Default Work Unit\Music\Music_Start"/>
-				<Event Id="1187533030" Name="PickUp_Crystal" ObjectPath="\Events\Default Work Unit\Objects\PickUp_Crystal" MaxAttenuation="50.000000"/>
-				<Event Id="4149295597" Name="Place_Crystal" ObjectPath="\Events\Default Work Unit\Objects\Place_Crystal" MaxAttenuation="50.000000"/>
+				<Event Id="1187533030" Name="PickUp_Crystal" ObjectPath="\Events\Default Work Unit\Objects\PickUp_Crystal"/>
+				<Event Id="4149295597" Name="Place_Crystal" ObjectPath="\Events\Default Work Unit\Objects\Place_Crystal"/>
 				<Event Id="2762482407" Name="Push_Box" ObjectPath="\Events\Default Work Unit\Objects\Push_Box"/>
-				<Event Id="1728682787" Name="TarpFlap" ObjectPath="\Events\Default Work Unit\Emitters\TarpFlap" MaxAttenuation="50.000000"/>
-				<Event Id="1875437039" Name="TheCore" ObjectPath="\Events\Default Work Unit\Emitters\TheCore" MaxAttenuation="50.000000"/>
+				<Event Id="3321400738" Name="Push_Box_Stop" ObjectPath="\Events\Default Work Unit\Objects\Push_Box_Stop" MaxAttenuation="0.000000"/>
+				<Event Id="3202316517" Name="Switch" ObjectPath="\Events\Default Work Unit\Objects\Switch"/>
+				<Event Id="1728682787" Name="TarpFlap" ObjectPath="\Events\Default Work Unit\Emitters\TarpFlap"/>
+				<Event Id="1875437039" Name="TheCore" ObjectPath="\Events\Default Work Unit\Emitters\TheCore"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
+				<File Id="4926836" Language="SFX">
+					<ShortName>Switch1.wav</ShortName>
+					<Path>SFX\Switch1_1A7C0FCB.wem</Path>
+				</File>
 				<File Id="80702525" Language="SFX">
 					<ShortName>Arm Break.wav</ShortName>
-					<Path>SFX\Arm Break_53BC9EC2.wem</Path>
+					<Path>SFX\Arm Break_1A7C0FCB.wem</Path>
 				</File>
 				<File Id="127393820" Language="SFX">
 					<ShortName>Tarp2.wav</ShortName>
@@ -45,11 +51,11 @@
 				</File>
 				<File Id="173025359" Language="SFX">
 					<ShortName>Attach Arm.wav</ShortName>
-					<Path>SFX\Attach Arm_53BC9EC2.wem</Path>
+					<Path>SFX\Attach Arm_1A7C0FCB.wem</Path>
 				</File>
 				<File Id="195856999" Language="SFX">
 					<ShortName>The Core Hum.wav</ShortName>
-					<Path>SFX\The Core Hum_231A6439.wem</Path>
+					<Path>SFX\The Core Hum_B7C36F43.wem</Path>
 				</File>
 				<File Id="205327039" Language="SFX">
 					<ShortName>Tarp1.wav</ShortName>
@@ -61,19 +67,27 @@
 				</File>
 				<File Id="311798698" Language="SFX">
 					<ShortName>Detatch Arm.wav</ShortName>
-					<Path>SFX\Detatch Arm_53BC9EC2.wem</Path>
+					<Path>SFX\Detatch Arm_1A7C0FCB.wem</Path>
 				</File>
 				<File Id="352650002" Language="SFX">
 					<ShortName>Chirp 2.wav</ShortName>
-					<Path>SFX\Chirp 2_53BC9EC2.wem</Path>
+					<Path>SFX\Chirp 2_1A7C0FCB.wem</Path>
 				</File>
 				<File Id="358996613" Language="SFX">
 					<ShortName>Footstep Dirt 1.wav</ShortName>
-					<Path>SFX\Footstep Dirt 1_53BC9EC2.wem</Path>
+					<Path>SFX\Footstep Dirt 1_1A7C0FCB.wem</Path>
+				</File>
+				<File Id="374958260" Language="SFX">
+					<ShortName>Lock2.wav</ShortName>
+					<Path>SFX\Lock2_32F6838A.wem</Path>
 				</File>
 				<File Id="401646730" Language="SFX">
 					<ShortName>Footstep Dirt 3.wav</ShortName>
-					<Path>SFX\Footstep Dirt 3_53BC9EC2.wem</Path>
+					<Path>SFX\Footstep Dirt 3_1A7C0FCB.wem</Path>
+				</File>
+				<File Id="428175454" Language="SFX">
+					<ShortName>Cries.wav</ShortName>
+					<Path>SFX\Cries_9944436E.wem</Path>
 				</File>
 				<File Id="431082495" Language="SFX">
 					<ShortName>Light Flicker 4.wav</ShortName>
@@ -81,7 +95,7 @@
 				</File>
 				<File Id="454014889" Language="SFX">
 					<ShortName>Footstep Dirt 2.wav</ShortName>
-					<Path>SFX\Footstep Dirt 2_53BC9EC2.wem</Path>
+					<Path>SFX\Footstep Dirt 2_1A7C0FCB.wem</Path>
 				</File>
 				<File Id="499842182" Language="SFX">
 					<ShortName>Light Flicker 1.wav</ShortName>
@@ -93,27 +107,31 @@
 				</File>
 				<File Id="604895596" Language="SFX">
 					<ShortName>Arm Fly.wav</ShortName>
-					<Path>SFX\Arm Fly_53BC9EC2.wem</Path>
+					<Path>SFX\Arm Fly_1A7C0FCB.wem</Path>
 				</File>
 				<File Id="658668300" Language="SFX">
 					<ShortName>Chirp 3.wav</ShortName>
-					<Path>SFX\Chirp 3_53BC9EC2.wem</Path>
+					<Path>SFX\Chirp 3_1A7C0FCB.wem</Path>
 				</File>
 				<File Id="687354862" Language="SFX">
 					<ShortName>Activate Crystal.wav</ShortName>
-					<Path>SFX\Activate Crystal_F21B03C9.wem</Path>
+					<Path>SFX\Activate Crystal_1A7C0FCB.wem</Path>
 				</File>
 				<File Id="706977681" Language="SFX">
 					<ShortName>Footstep Dirt 4.wav</ShortName>
-					<Path>SFX\Footstep Dirt 4_53BC9EC2.wem</Path>
+					<Path>SFX\Footstep Dirt 4_1A7C0FCB.wem</Path>
 				</File>
 				<File Id="723507075" Language="SFX">
 					<ShortName>Tarp4.wav</ShortName>
 					<Path>SFX\Tarp4_1A7C0FCB.wem</Path>
 				</File>
+				<File Id="724041815" Language="SFX">
+					<ShortName>Metal Amb.wav</ShortName>
+					<Path>SFX\Metal Amb_61CA09C5.wem</Path>
+				</File>
 				<File Id="742047227" Language="SFX">
 					<ShortName>Place Crystal.wav</ShortName>
-					<Path>SFX\Place Crystal_F21B03C9.wem</Path>
+					<Path>SFX\Place Crystal_1A7C0FCB.wem</Path>
 				</File>
 				<File Id="817374945" Language="SFX">
 					<ShortName>Light Flicker 2.wav</ShortName>
@@ -125,23 +143,23 @@
 				</File>
 				<File Id="871646031" Language="SFX">
 					<ShortName>Pick Up Crystal.wav</ShortName>
-					<Path>SFX\Pick Up Crystal_F21B03C9.wem</Path>
+					<Path>SFX\Pick Up Crystal_1A7C0FCB.wem</Path>
 				</File>
 				<File Id="898621401" Language="SFX">
 					<ShortName>Chirp 4.wav</ShortName>
-					<Path>SFX\Chirp 4_53BC9EC2.wem</Path>
+					<Path>SFX\Chirp 4_1A7C0FCB.wem</Path>
 				</File>
 				<File Id="914616042" Language="SFX">
 					<ShortName>Chirp 1.wav</ShortName>
-					<Path>SFX\Chirp 1_53BC9EC2.wem</Path>
-				</File>
-				<File Id="917644672" Language="SFX">
-					<ShortName>Pressure Plate.wav</ShortName>
-					<Path>SFX\Pressure Plate_F21B03C9.wem</Path>
+					<Path>SFX\Chirp 1_1A7C0FCB.wem</Path>
 				</File>
 				<File Id="1011223190" Language="SFX">
 					<ShortName>LightHitCrystal.wav</ShortName>
-					<Path>SFX\LightHitCrystal_F21B03C9.wem</Path>
+					<Path>SFX\LightHitCrystal_1A7C0FCB.wem</Path>
+				</File>
+				<File Id="1059580032" Language="SFX">
+					<ShortName>Lock1.wav</ShortName>
+					<Path>SFX\Lock1_1A7C0FCB.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>
@@ -163,17 +181,41 @@
 					<ShortName>Chirp3A.wav</ShortName>
 					<Path>SFX\Chirp3A_231A6439.wem</Path>
 				</File>
+				<File Id="43476826" Language="SFX">
+					<ShortName>Puzzle - Warehouse.wav</ShortName>
+					<Path>SFX\Puzzle - Warehouse_231A6439.wem</Path>
+				</File>
+				<File Id="46977225" Language="SFX">
+					<ShortName>AChoice.wav</ShortName>
+					<Path>SFX\AChoice_231A6439.wem</Path>
+				</File>
 				<File Id="74694613" Language="SFX">
 					<ShortName>Chirp2A.wav</ShortName>
 					<Path>SFX\Chirp2A_231A6439.wem</Path>
+				</File>
+				<File Id="120303871" Language="SFX">
+					<ShortName>Puzzle 2 (Factory).wav</ShortName>
+					<Path>SFX\Puzzle 2 (Factory)_231A6439.wem</Path>
 				</File>
 				<File Id="161124012" Language="SFX">
 					<ShortName>Chirp2B.wav</ShortName>
 					<Path>SFX\Chirp2B_231A6439.wem</Path>
 				</File>
+				<File Id="197572328" Language="SFX">
+					<ShortName>Percussion3.wav</ShortName>
+					<Path>SFX\Percussion3_231A6439.wem</Path>
+				</File>
+				<File Id="257705756" Language="SFX">
+					<ShortName>Clouds.wav</ShortName>
+					<Path>SFX\Clouds_231A6439.wem</Path>
+				</File>
 				<File Id="354130550" Language="SFX">
 					<ShortName>Chirp3B.wav</ShortName>
 					<Path>SFX\Chirp3B_231A6439.wem</Path>
+				</File>
+				<File Id="367105548" Language="SFX">
+					<ShortName>Atm_01_Strings.wav</ShortName>
+					<Path>SFX\Atm_01_Strings_231A6439.wem</Path>
 				</File>
 				<File Id="393536708" Language="SFX">
 					<ShortName>Chirp4B.wav</ShortName>
@@ -182,6 +224,10 @@
 				<File Id="428733254" Language="SFX">
 					<ShortName>Chirp4A.wav</ShortName>
 					<Path>SFX\Chirp4A_231A6439.wem</Path>
+				</File>
+				<File Id="450803175" Language="SFX">
+					<ShortName>Atm_01_DroneBass.wav</ShortName>
+					<Path>SFX\Atm_01_DroneBass_231A6439.wem</Path>
 				</File>
 				<File Id="456080624" Language="SFX">
 					<ShortName>Puzzle 2.2 (Factory).wav</ShortName>
@@ -195,11 +241,15 @@
 					<ShortName>Chirp4C.wav</ShortName>
 					<Path>SFX\Chirp4C_231A6439.wem</Path>
 				</File>
-				<File Id="570725919" Language="SFX">
-					<ShortName>Travel 1 Loop1.wav</ShortName>
-					<Path>SFX\Travel 1 Loop1_231A6439.wem</Path>
+				<File Id="539450233" Language="SFX">
+					<ShortName>Menu.wav</ShortName>
+					<Path>SFX\Menu_231A6439.wem</Path>
 				</File>
-				<File Id="624026215" Language="SFX">
+				<File Id="605528760" Language="SFX">
+					<ShortName>Metal Pad 1.wav</ShortName>
+					<Path>SFX\Metal Pad 1_231A6439.wem</Path>
+				</File>
+				<File Id="614653101" Language="SFX">
 					<ShortName>Travel 1 - Viewpoint.wav</ShortName>
 					<Path>SFX\Travel 1 - Viewpoint_231A6439.wem</Path>
 				</File>
@@ -211,13 +261,37 @@
 					<ShortName>Chirp1B.wav</ShortName>
 					<Path>SFX\Chirp1B_231A6439.wem</Path>
 				</File>
+				<File Id="701563146" Language="SFX">
+					<ShortName>Atm_01_Blown.wav</ShortName>
+					<Path>SFX\Atm_01_Blown_231A6439.wem</Path>
+				</File>
+				<File Id="705557722" Language="SFX">
+					<ShortName>Intro.wav</ShortName>
+					<Path>SFX\Intro_231A6439.wem</Path>
+				</File>
+				<File Id="728602149" Language="SFX">
+					<ShortName>PercussionOutro.wav</ShortName>
+					<Path>SFX\PercussionOutro_231A6439.wem</Path>
+				</File>
+				<File Id="729205473" Language="SFX">
+					<ShortName>Percussion3DelayLayer.wav</ShortName>
+					<Path>SFX\Percussion3DelayLayer_231A6439.wem</Path>
+				</File>
+				<File Id="795078363" Language="SFX">
+					<ShortName>IntroCutscene2.wav</ShortName>
+					<Path>SFX\IntroCutscene2_231A6439.wem</Path>
+				</File>
+				<File Id="891380442" Language="SFX">
+					<ShortName>Atm_01_Bells.wav</ShortName>
+					<Path>SFX\Atm_01_Bells_231A6439.wem</Path>
+				</File>
+				<File Id="919062257" Language="SFX">
+					<ShortName>Atm_01_Metal.wav</ShortName>
+					<Path>SFX\Atm_01_Metal_231A6439.wem</Path>
+				</File>
 				<File Id="940076752" Language="SFX">
 					<ShortName>Chirp2C.wav</ShortName>
 					<Path>SFX\Chirp2C_231A6439.wem</Path>
-				</File>
-				<File Id="1016557460" Language="SFX">
-					<ShortName>Puzzle - Warehouse.wav</ShortName>
-					<Path>SFX\Puzzle - Warehouse_231A6439.wem</Path>
 				</File>
 				<File Id="1027153236" Language="SFX">
 					<ShortName>Chirp1C.wav</ShortName>

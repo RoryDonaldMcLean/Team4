@@ -4,6 +4,9 @@
 		<WorkUnit Name="Default Work Unit" ID="{6BAE9174-7CEB-4131-99B7-F2EC621355E0}" PersistMode="Standalone">
 			<ChildrenList>
 				<ActorMixer Name="Main" ID="{D265DB6E-A6E6-4252-81B8-5044904A5CD6}" ShortID="743027540">
+					<PropertyList>
+						<Property Name="UseGameAuxSends" Type="bool" Value="True"/>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Low" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
@@ -437,6 +440,12 @@
 										</Sound>
 										<Sound Name="Detatch Arm" ID="{4352F0CD-BB83-42CF-8379-B533F4172C2D}" ShortID="571022422">
 											<PropertyList>
+												<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+												<Property Name="MaxSoundPerInstance" Type="int16">
+													<ValueList>
+														<Value>1</Value>
+													</ValueList>
+												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
 														<Value>6</Value>
@@ -1520,6 +1529,11 @@
 									<PropertyList>
 										<Property Name="OverrideEffect" Type="bool" Value="True"/>
 										<Property Name="SwitchBehavior" Type="int16" Value="1"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-5</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -1544,10 +1558,19 @@
 Air currents change during the hours of the day and months of the year.</Comment>
 											<PropertyList>
 												<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+												<Property Name="OverrideEffect" Type="bool" Value="True"/>
 												<Property Name="PositioningType" Type="int16" Value="1"/>
 												<Property Name="Spatialization" Type="int16" Value="0"/>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-3</Value>
+													</ValueList>
+												</Property>
 											</PropertyList>
 											<ReferenceList>
+												<Reference Name="Effect0" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+													<ObjectRef Name="New_Wwise_Parametric_EQ_05" ID="{668A5FB4-BD34-4496-BC0C-A811D8F1E28D}" WorkUnitID="{DB5ADB83-997D-43F7-B226-D357913135AD}"/>
+												</Reference>
 												<Reference Name="OutputBus">
 													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
 												</Reference>
@@ -2393,6 +2416,7 @@ Air currents change during the hours of the day and foliage changes during  the 
 								</SwitchContainer>
 								<SwitchContainer Name="Ambient_Env" ID="{32D46D27-B8F0-4AF4-86E9-88AA568A4EF7}" ShortID="904906461">
 									<PropertyList>
+										<Property Name="SwitchBehavior" Type="int16" Value="1"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-11</Value>
@@ -2404,7 +2428,7 @@ Air currents change during the hours of the day and foliage changes during  the 
 											<ObjectRef Name="Low" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
 										</Reference>
 										<Reference Name="DefaultSwitchOrState">
-											<ObjectRef Name="None" ID="{EEB0DDCC-1D2E-46C0-8783-269C3657FD16}" WorkUnitID="{217B9AB9-B641-4200-BF39-9F61C2C8E9A4}"/>
+											<ObjectRef Name="Menu" ID="{3AFA27FF-9639-4444-9C9F-20A568E90221}" WorkUnitID="{217B9AB9-B641-4200-BF39-9F61C2C8E9A4}"/>
 										</Reference>
 										<Reference Name="OutputBus">
 											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
@@ -2454,15 +2478,158 @@ Air currents change during the hours of the day and foliage changes during  the 
 												<ActiveSource Name="Metal Amb" ID="{51AC595C-F9FA-4D16-8F92-6924D84F3F57}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
+										<Sound Name="Rain + Thunder" ID="{725D32BB-F7D6-4C22-8E12-9C6FD38E5E34}" ShortID="190860080">
+											<PropertyList>
+												<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+												<Property Name="OverrideEffect" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Low" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
+												</Reference>
+												<Reference Name="Effect0" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+													<ObjectRef Name="High_Freq_Cut_3" ID="{AB43D98E-8FA5-4C12-AFA0-54483E6AF9C9}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="rainthunder1" ID="{95CBD9FA-ED05-4DDE-A573-258D334E99F6}" ShortID="570689957">
+													<PropertyList>
+														<Property Name="TrimBegin" Type="Real64" Value="0.897201590401786"/>
+														<Property Name="TrimEnd" Type="Real64" Value="66.4676844889323"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>rainthunder1.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="rainthunder1" ID="{95CBD9FA-ED05-4DDE-A573-258D334E99F6}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Thunder" ID="{839BB1E0-D8B4-45E8-A53E-A9351CA19E36}" ShortID="1023861984">
+											<PropertyList>
+												<Property Name="OverrideEffect" Type="bool" Value="True"/>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-13</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Low" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
+												</Reference>
+												<Reference Name="Effect0" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+													<ObjectRef Name="New_Wwise_Parametric_EQ_04" ID="{4D9E24BC-C7A3-4988-BF71-0812D6BD7063}" WorkUnitID="{DB5ADB83-997D-43F7-B226-D357913135AD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="thunder1" ID="{0A9DF7C3-584C-494D-869C-0DD70EBC399E}" ShortID="539810776">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="3.10771414620537"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>thunder1.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="thunder1" ID="{0A9DF7C3-584C-494D-869C-0DD70EBC399E}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Thunder Muted" ID="{8D659920-36BB-4E5F-8B14-84EB97B46B25}" ShortID="555526509">
+											<PropertyList>
+												<Property Name="OverrideEffect" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Low" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
+												</Reference>
+												<Reference Name="Effect0" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+													<ObjectRef Name="New_Wwise_Parametric_EQ_03" ID="{A46C383E-C3DB-4D9A-ABA1-F8F039B2D502}" WorkUnitID="{DB5ADB83-997D-43F7-B226-D357913135AD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="thunder1" ID="{23EEAD41-D21E-476D-B4B5-FE66908FE5D8}" ShortID="364611340">
+													<PropertyList>
+														<Property Name="FadeInDuration" Type="Real64" Value="1.86462848772321"/>
+														<Property Name="FadeOutDuration" Type="Real64" Value="3.10771414620537"/>
+														<Property Name="TrimBegin" Type="Real64" Value="17.2996087472098"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>thunder1.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="thunder1" ID="{23EEAD41-D21E-476D-B4B5-FE66908FE5D8}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
 									</ChildrenList>
 									<GroupingInfo>
 										<GroupingBehaviorList>
 											<GroupingBehavior>
+												<ItemRef Name="Thunder Muted" ID="{8D659920-36BB-4E5F-8B14-84EB97B46B25}"/>
+												<PropertyList>
+													<Property Name="FadeInTime" Type="Real64">
+														<ValueList>
+															<Value>3.5</Value>
+														</ValueList>
+													</Property>
+													<Property Name="FadeOutTime" Type="Real64">
+														<ValueList>
+															<Value>3</Value>
+														</ValueList>
+													</Property>
+												</PropertyList>
+											</GroupingBehavior>
+											<GroupingBehavior>
 												<ItemRef Name="Metal Amb" ID="{B6403DBA-7FDE-4E49-B0B2-B37B54378B81}"/>
 												<PropertyList>
+													<Property Name="FadeInTime" Type="Real64">
+														<ValueList>
+															<Value>3.5</Value>
+														</ValueList>
+													</Property>
 													<Property Name="FadeOutTime" Type="Real64">
 														<ValueList>
 															<Value>5</Value>
+														</ValueList>
+													</Property>
+												</PropertyList>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="Rain + Thunder" ID="{725D32BB-F7D6-4C22-8E12-9C6FD38E5E34}"/>
+												<PropertyList>
+													<Property Name="FadeInTime" Type="Real64">
+														<ValueList>
+															<Value>3.5</Value>
+														</ValueList>
+													</Property>
+													<Property Name="FadeOutTime" Type="Real64">
+														<ValueList>
+															<Value>5</Value>
+														</ValueList>
+													</Property>
+												</PropertyList>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="Thunder" ID="{839BB1E0-D8B4-45E8-A53E-A9351CA19E36}"/>
+												<PropertyList>
+													<Property Name="FadeInTime" Type="Real64">
+														<ValueList>
+															<Value>3.5</Value>
+														</ValueList>
+													</Property>
+													<Property Name="FadeOutTime" Type="Real64">
+														<ValueList>
+															<Value>3</Value>
 														</ValueList>
 													</Property>
 												</PropertyList>
@@ -2479,6 +2646,19 @@ Air currents change during the hours of the day and foliage changes during  the 
 												<SwitchRef Name="P2_FactoryPuzzle2" ID="{DC03589A-BDD2-45D6-A826-EA9C0315B998}"/>
 												<ItemList>
 													<ItemRef Name="Metal Amb" ID="{B6403DBA-7FDE-4E49-B0B2-B37B54378B81}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="P3_ConstructionStorm" ID="{0D1A02F3-9577-4504-8C6C-58D99D7925E6}"/>
+												<ItemList>
+													<ItemRef Name="Rain + Thunder" ID="{725D32BB-F7D6-4C22-8E12-9C6FD38E5E34}"/>
+													<ItemRef Name="Thunder" ID="{839BB1E0-D8B4-45E8-A53E-A9351CA19E36}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="P4_Clouds" ID="{B92ABBFE-ED7C-4AE0-A739-CF81428935A0}"/>
+												<ItemList>
+													<ItemRef Name="Thunder Muted" ID="{8D659920-36BB-4E5F-8B14-84EB97B46B25}"/>
 												</ItemList>
 											</Grouping>
 										</GroupingList>

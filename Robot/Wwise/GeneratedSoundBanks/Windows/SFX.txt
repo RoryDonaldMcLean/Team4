@@ -8,6 +8,8 @@ Event	ID	Name			Wwise Object Path	Notes
 	1875437039	TheCore			\Default Work Unit\Emitters\TheCore	
 	2739838641	DRONE			\Default Work Unit\Music\DRONE	
 	2762482407	Push_Box			\Default Work Unit\Objects\Push_Box	
+	3202316517	Switch			\Default Work Unit\Objects\Switch	
+	3321400738	Push_Box_Stop			\Default Work Unit\Objects\Push_Box_Stop	
 	3331264981	Arm_Break			\Default Work Unit\Robots\Arm_Break	
 	3427421355	Light_Hits_Crystal			\Default Work Unit\Objects\Light_Hits_Crystal	
 	3720067015	Arm_Attach			\Default Work Unit\Robots\Arm_Attach	
@@ -43,18 +45,20 @@ State	ID	Name	State Group			Notes
 	1850388778	Desert	Wind_Type			
 	3888786832	City	Wind_Type			
 	0	None	Environment			
-	402892191	P6_Core	Environment			
-	793747289	P4_Construction_LoseArm	Environment			
-	913535979	P4_Construction	Environment			
+	166810106	P3_Construction	Environment			
+	653832390	P5_CorePuzzle	Environment			
 	948331455	P1_Intro	Environment			
-	1313737055	P3_Factory_LoseArm	Environment			
-	1840983642	P7_Sacrifice_End	Environment			
-	2052122964	P2_Warehouse3_LoseArm	Environment			
-	2116377613	P5_Clouds	Environment			
+	1415136285	P2_FactoryPuzzle1	Environment			
+	1415136286	P2_FactoryPuzzle2	Environment			
+	1766181350	P4_Clouds	Environment			
+	2050591928	P6_EndSacrifice	Environment			
+	2384730535	P1_IntroPuzzle	Environment			
 	2607556080	Menu	Environment			
-	3264965357	P2_Warehouse2_Viewpoint	Environment			
-	3771608615	P2_Warehouse	Environment			
-	3942711001	P3_Factory	Environment			
+	2922828941	P3_ConstructionScenery	Environment			
+	3100461366	P6_EndLeave	Environment			
+	3413512845	P3_ConstructionStorm	Environment			
+	3431111895	P2_FactoryViewpoint	Environment			
+	3932331850	P5_Core	Environment			
 	0	None	Chirp_Type			
 	443572635	Sad	Chirp_Type			
 	1067353181	There	Chirp_Type			
@@ -89,6 +93,7 @@ Custom State	ID	Name	State Group	Owner		Notes
 Game Parameter	ID	Name			Wwise Object Path	Notes
 	129	MIDI note velocity			\MIDI note velocity	
 	132	MIDI note frequency			\MIDI note frequency	
+	2589579194	LimbNumber			\Default Work Unit\LimbNumber	
 	3110594711	Wind_Speed			\Default Work Unit\Wind_Speed	
 
 Modulator LFO	ID	Name			Wwise Object Path	Notes
@@ -352,12 +357,15 @@ Effect plug-ins	ID	Name	Type				Notes
 	1197812857	LowpassFly	Wwise Parametric EQ			
 	1891532784	Wind_Level	Wwise Meter			
 	2453598386	HighPass	Wwise Parametric EQ			
+	2689776681	New_Wwise_Parametric_EQ_01	Wwise Parametric EQ			
+	2689776682	New_Wwise_Parametric_EQ_02	Wwise Parametric EQ			
+	4180247629	New_Wwise_Parametric_EQ	Wwise Parametric EQ			
 
 Source plug-ins	ID	Name	Type		Wwise Object Path	Notes
 	292198	FM 04	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\Instruments\FM 04\FM 04	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	292199	FM 03	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\Instruments\FM 03\FM 03	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	8145371	CONFIRM 02	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\UI Sounds\CONFIRM 02\CONFIRM 02	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
-	25868842	SoundSeed Air Wind	SoundSeed Air/SoundSeed Wind		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Ambience Wind\AboveClouds\SoundSeed Air Wind	
+	25868842	SoundSeed Air Wind	SoundSeed Air/SoundSeed Wind		\Actor-Mixer Hierarchy\Default Work Unit\Main\Ambience\Ambience Wind\AboveClouds\SoundSeed Air Wind	
 	26154250	PAD 02	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\Instruments\PAD 02\PAD 02	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	28380969	FLUTISH	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\Instruments\FLUTISH\FLUTISH	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	39885879	SoundSeed Air Woosh	SoundSeed Air/SoundSeed Woosh		\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects\Game Driven Presets\Weapons\Arrows\Arrow\SoundSeed Air Woosh	
@@ -365,35 +373,35 @@ Source plug-ins	ID	Name	Type		Wwise Object Path	Notes
 	60142098	SoundSeed Air Wind	SoundSeed Air/SoundSeed Wind		\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects\Game Driven Presets\Vehicles\Airplane\Rumble\SoundSeed Air Wind	
 	60410286	Wwise Silence	Wwise Silence		\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects\Game Driven Presets\Weapons\Arrows\Silence\Wwise Silence	
 	71084047	SoundSeed Air Woosh	SoundSeed Air/SoundSeed Woosh		\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects\Static Presets (wave file substitutions)\Weapons\Arrows\Arrows_02\Arrow\SoundSeed Air Woosh	
-	71113179	SoundSeed Air Wind	SoundSeed Air/SoundSeed Wind		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Ambience Wind\City\SoundSeed Air Wind	
+	71113179	SoundSeed Air Wind	SoundSeed Air/SoundSeed Wind		\Actor-Mixer Hierarchy\Default Work Unit\Main\Ambience\Ambience Wind\City\SoundSeed Air Wind	
 	73647974	SoundSeed Wind	SoundSeed Air/SoundSeed Wind		\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects\Static Presets (wave file substitutions)\Non-Windy Ambiences\Surf\Random Wavebreak\Random_Wave02\SoundSeed Wind	
 	85231025	DENIED 03	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\UI Sounds\DENIED 03\DENIED 03	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
-	91834686	NOISE	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFX\NOISE\NOISE	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
+	91834686	NOISE	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFXstuf\NOISE\NOISE	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	97705685	RING 02	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\Instruments\RING 02\RING 02	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	111857556	SoundSeed Air Wind	SoundSeed Air/SoundSeed Wind		\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects\Static Presets (wave file substitutions)\Wind Ambiences\Grove\SoundSeed Air Wind	
 	121596329	BASS 04	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\Instruments\BASS 04\BASS 04	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
-	134695890	DOWNLOAD 01	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFX\DOWNLOAD 01\DOWNLOAD 01	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
+	134695890	DOWNLOAD 01	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFXstuf\DOWNLOAD 01\DOWNLOAD 01	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	137670514	SoundSeed Woosh	SoundSeed Air/SoundSeed Woosh		\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects\Static Presets (wave file substitutions)\Weapons\Wooden Staff\SoundSeed Woosh	
 	158738632	SoundSeed Air Woosh	SoundSeed Air/SoundSeed Woosh		\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects\Static Presets (wave file substitutions)\Weapons\Arrows\Arrows_04\Arrow\SoundSeed Air Woosh	
 	162772315	SoundSeed Woosh	SoundSeed Air/SoundSeed Woosh		\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects\Static Presets (wave file substitutions)\Non-Windy Ambiences\Urban Scene\Random Car Pass-by_05\Car Pass-by\SoundSeed Woosh	
 	169132707	SoundSeed Wind	SoundSeed Air/SoundSeed Wind		\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects\Static Presets (wave file substitutions)\Non-Windy Ambiences\Surf\Random Wavebreak\Random_Wave01\SoundSeed Wind	
-	172843745	OPEN CHEST	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFX\OPEN CHEST\OPEN CHEST	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
+	172843745	OPEN CHEST	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFXstuf\OPEN CHEST\OPEN CHEST	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	174409972	Wwise Silence	Wwise Silence		\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects\Static Presets (wave file substitutions)\Weapons\Arrows\Arrows_04\Silence\Wwise Silence	
 	175138566	HARPSY	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\Instruments\HARPSY\HARPSY	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	179162619	Wwise Synth One	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\DRONE\Drone3\Wwise Synth One	
 	188214797	SoundSeed Woosh	SoundSeed Air/SoundSeed Woosh		\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects\Static Presets (wave file substitutions)\Non-Windy Ambiences\Urban Scene\Random Car Pass-by_04\Car Pass-by\SoundSeed Woosh	
 	208450960	PANEL 02	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\UI Sounds\PANEL 02\PANEL 02	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
-	209227866	COMM 01	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFX\COMM 01\COMM 01	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
-	216132251	WOOSH 02	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFX\WOOSH 02\WOOSH 02	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
+	209227866	COMM 01	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFXstuf\COMM 01\COMM 01	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
+	216132251	WOOSH 02	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFXstuf\WOOSH 02\WOOSH 02	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	223736328	SoundSeed Woosh	SoundSeed Air/SoundSeed Woosh		\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects\Game Driven Presets\Weapons\Generic Weapon Swing\SoundSeed Woosh	
 	229589517	Ville	SoundSeed Air/SoundSeed Wind		\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects\Static Presets (wave file substitutions)\Non-Windy Ambiences\Urban Scene\Background City Noise\Ville	
 	232816868	Wwise Silence	Wwise Silence		\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects\Static Presets (wave file substitutions)\Weapons\Arrows\Arrows_02\Silence\Wwise Silence	
 	283904056	PWM	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\Instruments\PWM\PWM	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	292002125	SoundSeed Woosh	SoundSeed Air/SoundSeed Woosh		\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects\Static Presets (wave file substitutions)\Weapons\Fly-By Dagger\SoundSeed Woosh	
 	309043750	Wwise Silence	Wwise Silence		\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects\Static Presets (wave file substitutions)\Non-Windy Ambiences\Urban Scene\Random Car Pass-by_01\Silence\Wwise Silence	
-	310835311	DRONE 03	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFX\DRONE 03\DRONE 03	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
+	310835311	DRONE 03	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFXstuf\DRONE 03\DRONE 03	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	314911702	PAD 01	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\Instruments\PAD 01\PAD 01	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
-	320371486	Wwise Synth One	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFX_01\DragBox\Wwise Synth One	
+	320371486	Wwise Synth One	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFX\DragBox\Wwise Synth One	
 	328078722	PERC 01	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\Instruments\PERC 01\PERC 01	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	328078723	PERC 03	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\Instruments\PERC 03\PERC 03	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	339952054	FM 01	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\Instruments\FM 01\FM 01	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
@@ -402,7 +410,7 @@ Source plug-ins	ID	Name	Type		Wwise Object Path	Notes
 	365762760	SoundSeed Woosh	SoundSeed Air/SoundSeed Woosh		\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects\Static Presets (wave file substitutions)\Non-Windy Ambiences\Urban Scene\Random Car Pass-by_03\Car Pass-by\SoundSeed Woosh	
 	372799448	Wwise Silence	Wwise Silence		\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects\Static Presets (wave file substitutions)\Non-Windy Ambiences\Urban Scene\Random Car Pass-by_02\Silence\Wwise Silence	
 	400146702	SoundSeed Air Woosh	SoundSeed Air/SoundSeed Woosh		\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects\Game Driven Presets\Vehicles\Locomotive\SoundSeed Air Woosh	Variations on a mechanical theme. Made for looping.
-	412472127	MAGIC 03	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFX\MAGIC 03\MAGIC 03	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
+	412472127	MAGIC 03	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFXstuf\MAGIC 03\MAGIC 03	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	414142681	Wwise Silence	Wwise Silence		\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects\Static Presets (wave file substitutions)\Weapons\Arrows\Arrows_03\Silence\Wwise Silence	
 	416705626	RING 01	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\Instruments\RING 01\RING 01	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	452779266	BEEP 02	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\UI Sounds\BEEP 02\BEEP 02	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
@@ -413,12 +421,12 @@ Source plug-ins	ID	Name	Type		Wwise Object Path	Notes
 	482980946	Wwise Silence	Wwise Silence		\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects\Static Presets (wave file substitutions)\Weapons\Arrows\Arrows_06\Silence\Wwise Silence	
 	485329190	PERC 02	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\Instruments\PERC 02\PERC 02	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	493947499	PANEL 03	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\UI Sounds\PANEL 03\PANEL 03	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
-	497150206	MAGIC 01	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFX\MAGIC 01\MAGIC 01	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
+	497150206	MAGIC 01	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFXstuf\MAGIC 01\MAGIC 01	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	504047276	Wwise Silence	Wwise Silence		\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects\Static Presets (wave file substitutions)\Non-Windy Ambiences\Urban Scene\Random Car Pass-by_04\Silence\Wwise Silence	
 	507728361	DENIED 01	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\UI Sounds\DENIED 01\DENIED 01	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
-	511021499	ALARM 01	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFX\ALARM 01\ALARM 01	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
+	511021499	ALARM 01	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFXstuf\ALARM 01\ALARM 01	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	511713507	Wwise Silence	Wwise Silence		\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects\Static Presets (wave file substitutions)\Non-Windy Ambiences\Surf\Random Wavebreak\Silence\Wwise Silence	
-	513100109	DRONE 01	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFX\DRONE 01\DRONE 01	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
+	513100109	DRONE 01	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFXstuf\DRONE 01\DRONE 01	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	517142054	SoundSeed Woosh	SoundSeed Air/SoundSeed Woosh		\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects\Game Driven Presets\Vehicles\Car Pass-by\SoundSeed Woosh	
 	546019284	FM 02	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\Instruments\FM 02\FM 02	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	553983327	BEEP 01	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\UI Sounds\BEEP 01\BEEP 01	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
@@ -427,12 +435,12 @@ Source plug-ins	ID	Name	Type		Wwise Object Path	Notes
 	588094097	SoundSeed Air Woosh	SoundSeed Air/SoundSeed Woosh		\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects\Static Presets (wave file substitutions)\Weapons\Arrows\Arrows_05\Arrow\SoundSeed Air Woosh	
 	600450823	OCTAVE DANCE	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\Instruments\FALLING OCTAVE\OCTAVE DANCE	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	606150867	SoundSeed Air Wind	SoundSeed Air/SoundSeed Wind		\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects\Static Presets (wave file substitutions)\Wind Ambiences\Polar Winds\SoundSeed Air Wind	
-	629061771	COMM 02	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFX\COMM 02\COMM 02	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
-	632445509	DRONE 02	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFX\DRONE 02\DRONE 02	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
+	629061771	COMM 02	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFXstuf\COMM 02\COMM 02	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
+	632445509	DRONE 02	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFXstuf\DRONE 02\DRONE 02	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	640643725	SoundSeed Air Wind	SoundSeed Air/SoundSeed Wind		\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects\Game Driven Presets\Vehicles\Airplane\Jets\SoundSeed Air Wind	
 	642198329	SoundSeed Air Woosh	SoundSeed Air/SoundSeed Woosh		\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects\Game Driven Presets\Vehicles\Chopper\SoundSeed Air Woosh	Variations on a mechanical theme. Made for looping.
-	651614644	SPELL 01	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFX\SPELL 01\SPELL 01	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
-	652537077	SPELL 02	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFX\SPELL 02\SPELL 02	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
+	651614644	SPELL 01	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFXstuf\SPELL 01\SPELL 01	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
+	652537077	SPELL 02	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFXstuf\SPELL 02\SPELL 02	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	663109749	SoundSeed Air Wind	SoundSeed Air/SoundSeed Wind		\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects\Static Presets (wave file substitutions)\Wind Ambiences\Eerie Tunnel\SoundSeed Air Wind	
 	675627263	SoundSeed Air Wind	SoundSeed Air/SoundSeed Wind		\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects\Static Presets (wave file substitutions)\Wind Ambiences\Weeping Willows\SoundSeed Air Wind	
 	685503655	SoundSeed Woosh	SoundSeed Air/SoundSeed Woosh		\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects\Static Presets (wave file substitutions)\Non-Windy Ambiences\Urban Scene\Random Car Pass-by_02\Car Pass-by\SoundSeed Woosh	
@@ -445,69 +453,73 @@ Source plug-ins	ID	Name	Type		Wwise Object Path	Notes
 	729263766	REVERSE 01	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\UI Sounds\REVERSE 01\REVERSE 01	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	745085744	BASS 05	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\Instruments\BASS 05\BASS 05	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	745928427	Wwise Silence	Wwise Silence		\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects\Static Presets (wave file substitutions)\Non-Windy Ambiences\Urban Scene\Random Car Pass-by_06\Silence\Wwise Silence	
-	750600072	WHA	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFX\WHA\WHA	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
-	753303888	MAGIC 02	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFX\MAGIC 02\MAGIC 02	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
+	750600072	WHA	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFXstuf\WHA\WHA	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
+	753303888	MAGIC 02	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFXstuf\MAGIC 02\MAGIC 02	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	761686719	SoundSeed Woosh	SoundSeed Air/SoundSeed Woosh		\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects\Game Driven Presets\Weapons\Wooden Staff\SoundSeed Woosh	
 	762230594	SQUARE 8va	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\Instruments\SQUARE 8va\SQUARE 8va	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	767342224	SoundSeed Wind	SoundSeed Air/SoundSeed Wind		\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects\Game Driven Presets\Waterfall\SoundSeed Wind	
 	767391609	Wwise Synth One	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\DRONE\Drone2\Wwise Synth One	
-	767856838	ALARM 02	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFX\ALARM 02\ALARM 02	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
+	767856838	ALARM 02	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFXstuf\ALARM 02\ALARM 02	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	773812617	Wwise Silence	Wwise Silence		\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects\Static Presets (wave file substitutions)\Non-Windy Ambiences\Urban Scene\Random Car Pass-by_05\Silence\Wwise Silence	
 	778355531	Wwise Synth One_01	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\DRONE\Drone1\Wwise Synth One_01	
 	787697476	REVERSE 02	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\UI Sounds\REVERSE 02\REVERSE 02	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	789939026	SoundSeed Wind	SoundSeed Air/SoundSeed Wind		\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects\Static Presets (wave file substitutions)\Non-Windy Ambiences\Surf\Random Wavebreak\Random_Wave03\SoundSeed Wind	
 	790704623	Wwise Silence	Wwise Silence		\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects\Static Presets (wave file substitutions)\Non-Windy Ambiences\Urban Scene\Random Car Pass-by_03\Silence\Wwise Silence	
 	809721861	SoundSeed Woosh	SoundSeed Air/SoundSeed Woosh		\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects\Static Presets (wave file substitutions)\Weapons\Generic Weapon Swing\SoundSeed Woosh	
-	847109173	DOWNLOAD 02	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFX\DOWNLOAD 02\DOWNLOAD 02	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
+	847109173	DOWNLOAD 02	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFXstuf\DOWNLOAD 02\DOWNLOAD 02	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	849098007	SoundSeed Air Wind	SoundSeed Air/SoundSeed Wind		\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects\Game Driven Presets\Parachute Jump\SoundSeed Air Wind	
 	862727378	MINI LEAD	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\Instruments\MINI LEAD\MINI LEAD	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
-	877434874	COSMIC WIND	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFX\COSMIC WIND\COSMIC WIND	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
+	877434874	COSMIC WIND	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFXstuf\COSMIC WIND\COSMIC WIND	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	913085549	BASS 02	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\Instruments\BASS 02\BASS 02	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	931078222	OPENING	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\Instruments\OPENING\OPENING	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
-	932020803	SoundSeed Air Wind	SoundSeed Air/SoundSeed Wind		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Ambience Wind\Desert\SoundSeed Air Wind	
+	932020803	SoundSeed Air Wind	SoundSeed Air/SoundSeed Wind		\Actor-Mixer Hierarchy\Default Work Unit\Main\Ambience\Ambience Wind\Desert\SoundSeed Air Wind	
 	936540635	FIFTH DANCE	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\Instruments\FALLING\FIFTH DANCE	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	949017482	SoundSeed Woosh	SoundSeed Air/SoundSeed Woosh		\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects\Static Presets (wave file substitutions)\Non-Windy Ambiences\Urban Scene\Random Car Pass-by_06\Car Pass-by\SoundSeed Woosh	
-	963081078	WOOSH 01	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFX\WOOSH 01\WOOSH 01	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
+	963081078	WOOSH 01	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFXstuf\WOOSH 01\WOOSH 01	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	964146970	SoundSeed Woosh	SoundSeed Air/SoundSeed Woosh		\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects\Game Driven Presets\Weapons\Fly-By Dagger\SoundSeed Woosh	
 	970241952	CONFIRM 01	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\UI Sounds\CONFIRM 01\CONFIRM 01	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	977681632	BASS 01	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\Instruments\BASS 01\BASS 01	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
-	982955812	ALARM 03	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFX\ALARM 03\ALARM 03	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
+	982955812	ALARM 03	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFXstuf\ALARM 03\ALARM 03	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	986046449	DENIED 02	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\UI Sounds\DENIED 02\DENIED 02	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	993923566	SoundSeed Air Woosh	SoundSeed Air/SoundSeed Woosh		\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects\Static Presets (wave file substitutions)\Weapons\Arrows\Arrows_03\Arrow\SoundSeed Air Woosh	
-	1007256781	NOISE RND	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFX\NOISE RND\NOISE RND	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
+	1007256781	NOISE RND	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFXstuf\NOISE RND\NOISE RND	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	1018093596	SoundSeed Woosh	SoundSeed Air/SoundSeed Woosh		\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects\Game Driven Presets\Weapons\Ogre's Club Swing\SoundSeed Woosh	
 	1041870196	BRASSY	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\Instruments\BRASSY\BRASSY	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	1041915561	RING 03	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\Instruments\RING 03\RING 03	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	1055663783	SoundSeed Air Woosh	SoundSeed Air/SoundSeed Woosh		\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects\Game Driven Presets\Wings\SoundSeed Air Woosh	Each wing beating, made for looping.
-	1063992787	SPELL 03	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFX\SPELL 03\SPELL 03	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
+	1063992787	SPELL 03	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFXstuf\SPELL 03\SPELL 03	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	1066203827	SAW	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\Instruments\SAW\SAW	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	80702525	Arm Break	C:\Users\1405188\Downloads\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Arm Break_53BC9EC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Robots\Limbs\Arm Break		637636
-	127393820	Tarp2	C:\Users\1405188\Downloads\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Tarp2_1A7C0FCB.wem		\Actor-Mixer Hierarchy\Default Work Unit\Emitters\Tarp\Tarp2		74690
-	173025359	Attach Arm	C:\Users\1405188\Downloads\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Attach Arm_53BC9EC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Robots\Limbs\Attach Arm		159456
-	195856999	The Core Hum	C:\Users\1405188\Downloads\Github\Team4\Robot\Wwise\.cache\Windows\SFX\The Core Hum_231A6439.wem		\Actor-Mixer Hierarchy\Default Work Unit\Emitters\The Core Hum		560479
-	205327039	Tarp1	C:\Users\1405188\Downloads\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Tarp1_1A7C0FCB.wem		\Actor-Mixer Hierarchy\Default Work Unit\Emitters\Tarp\Tarp1		80232
-	235748016	Tarp3	C:\Users\1405188\Downloads\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Tarp3_1A7C0FCB.wem		\Actor-Mixer Hierarchy\Default Work Unit\Emitters\Tarp\Tarp3		108892
-	311798698	Detatch Arm	C:\Users\1405188\Downloads\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Detatch Arm_53BC9EC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Robots\Limbs\Detatch Arm		199304
-	352650002	Chirp 2	C:\Users\1405188\Downloads\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Chirp 2_53BC9EC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Robots\Chirps\Type_P1\Happy\Chirp 2		352860
-	358996613	Footstep Dirt 1	C:\Users\1405188\Downloads\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Footstep Dirt 1_53BC9EC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Robots\Footsteps\Dirt\Footstep Dirt 1		159456
-	401646730	Footstep Dirt 3	C:\Users\1405188\Downloads\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Footstep Dirt 3_53BC9EC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Robots\Footsteps\Dirt\Footstep Dirt 3		159456
-	431082495	Light Flicker 4	C:\Users\1405188\Downloads\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Light Flicker 4_1A7C0FCB.wem		\Actor-Mixer Hierarchy\Default Work Unit\Emitters\LightFlicker\Light Flicker 4		25893
-	454014889	Footstep Dirt 2	C:\Users\1405188\Downloads\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Footstep Dirt 2_53BC9EC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Robots\Footsteps\Dirt\Footstep Dirt 2		159456
-	499842182	Light Flicker 1	C:\Users\1405188\Downloads\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Light Flicker 1_1A7C0FCB.wem		\Actor-Mixer Hierarchy\Default Work Unit\Emitters\LightFlicker\Light Flicker 1		40859
-	503832832	Insects	C:\Users\1405188\Downloads\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Insects_231A6439.wem		\Actor-Mixer Hierarchy\Default Work Unit\Emitters\Insects		344594
-	604895596	Arm Fly	C:\Users\1405188\Downloads\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Arm Fly_53BC9EC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Robots\Limbs\Arm Fly		1275204
-	658668300	Chirp 3	C:\Users\1405188\Downloads\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Chirp 3_53BC9EC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Robots\Chirps\Type_P1\Happy\Chirp 3		352860
-	687354862	Activate Crystal	C:\Users\1405188\Downloads\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Activate Crystal_F21B03C9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Objects\Crystals\Activate Crystal		235936
-	706977681	Footstep Dirt 4	C:\Users\1405188\Downloads\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Footstep Dirt 4_53BC9EC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Robots\Footsteps\Dirt\Footstep Dirt 4		159456
-	723507075	Tarp4	C:\Users\1405188\Downloads\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Tarp4_1A7C0FCB.wem		\Actor-Mixer Hierarchy\Default Work Unit\Emitters\Tarp\Tarp4		95426
-	742047227	Place Crystal	C:\Users\1405188\Downloads\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Place Crystal_F21B03C9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Objects\Crystals\Place Crystal		129160
-	817374945	Light Flicker 2	C:\Users\1405188\Downloads\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Light Flicker 2_1A7C0FCB.wem		\Actor-Mixer Hierarchy\Default Work Unit\Emitters\LightFlicker\Light Flicker 2		31827
-	828079118	Light Flicker 3	C:\Users\1405188\Downloads\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Light Flicker 3_1A7C0FCB.wem		\Actor-Mixer Hierarchy\Default Work Unit\Emitters\LightFlicker\Light Flicker 3		40605
-	871646031	Pick Up Crystal	C:\Users\1405188\Downloads\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Pick Up Crystal_F21B03C9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Objects\Crystals\Pick Up Crystal		51688
-	898621401	Chirp 4	C:\Users\1405188\Downloads\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Chirp 4_53BC9EC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Robots\Chirps\Type_P1\Happy\Chirp 4		352860
-	914616042	Chirp 1	C:\Users\1405188\Downloads\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Chirp 1_53BC9EC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Robots\Chirps\Type_P1\Happy\Chirp 1		352860
-	917644672	Pressure Plate	C:\Users\1405188\Downloads\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Pressure Plate_F21B03C9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Objects\Pressure Plate\Pressure Plate		23968
-	1011223190	LightHitCrystal	C:\Users\1405188\Downloads\Github\Team4\Robot\Wwise\.cache\Windows\SFX\LightHitCrystal_F21B03C9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Objects\Crystals\LightHitCrystal		237160
+	4926836	Switch1	C:\Users\1405188\Downloads\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Switch1_1A7C0FCB.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Objects\Switch\Switch1		125852
+	80702525	Arm Break	C:\Users\1405188\Downloads\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Arm Break_1A7C0FCB.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Limbs\Arm Break		111131
+	127393820	Tarp2	C:\Users\1405188\Downloads\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Tarp2_1A7C0FCB.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Emitters\Tarp\Tarp2		74690
+	173025359	Attach Arm	C:\Users\1405188\Downloads\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Attach Arm_1A7C0FCB.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Limbs\Attach Arm		25509
+	195856999	The Core Hum	C:\Users\1405188\Downloads\Github\Team4\Robot\Wwise\.cache\Windows\SFX\The Core Hum_B7C36F43.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Emitters\The Core Hum		522871
+	205327039	Tarp1	C:\Users\1405188\Downloads\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Tarp1_1A7C0FCB.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Emitters\Tarp\Tarp1		80232
+	235748016	Tarp3	C:\Users\1405188\Downloads\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Tarp3_1A7C0FCB.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Emitters\Tarp\Tarp3		108892
+	311798698	Detatch Arm	C:\Users\1405188\Downloads\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Detatch Arm_1A7C0FCB.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Limbs\Detatch Arm		34297
+	352650002	Chirp 2	C:\Users\1405188\Downloads\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Chirp 2_1A7C0FCB.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Chirps\Type_P1\Happy\Chirp 2		48315
+	358996613	Footstep Dirt 1	C:\Users\1405188\Downloads\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Footstep Dirt 1_1A7C0FCB.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Footsteps\Dirt\Footstep Dirt 1		27913
+	374958260	Lock2	C:\Users\1405188\Downloads\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Lock2_32F6838A.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Objects\Pressure Plate\Lock2		18052
+	401646730	Footstep Dirt 3	C:\Users\1405188\Downloads\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Footstep Dirt 3_1A7C0FCB.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Footsteps\Dirt\Footstep Dirt 3		29283
+	428175454	Cries	C:\Users\1405188\Downloads\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Cries_9944436E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Hurt Vocals\Cries		39544
+	431082495	Light Flicker 4	C:\Users\1405188\Downloads\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Light Flicker 4_1A7C0FCB.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Emitters\LightFlicker\Light Flicker 4		25893
+	454014889	Footstep Dirt 2	C:\Users\1405188\Downloads\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Footstep Dirt 2_1A7C0FCB.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Footsteps\Dirt\Footstep Dirt 2		25933
+	499842182	Light Flicker 1	C:\Users\1405188\Downloads\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Light Flicker 1_1A7C0FCB.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Emitters\LightFlicker\Light Flicker 1		40859
+	503832832	Insects	C:\Users\1405188\Downloads\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Insects_231A6439.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Emitters\Insects		344594
+	604895596	Arm Fly	C:\Users\1405188\Downloads\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Arm Fly_1A7C0FCB.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Limbs\Arm Fly		284376
+	658668300	Chirp 3	C:\Users\1405188\Downloads\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Chirp 3_1A7C0FCB.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Chirps\Type_P1\Happy\Chirp 3		49926
+	687354862	Activate Crystal	C:\Users\1405188\Downloads\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Activate Crystal_1A7C0FCB.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Objects\Crystals\Activate Crystal		108990
+	706977681	Footstep Dirt 4	C:\Users\1405188\Downloads\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Footstep Dirt 4_1A7C0FCB.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Footsteps\Dirt\Footstep Dirt 4		29555
+	723507075	Tarp4	C:\Users\1405188\Downloads\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Tarp4_1A7C0FCB.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Emitters\Tarp\Tarp4		95426
+	724041815	Metal Amb	C:\Users\1405188\Downloads\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Metal Amb_61CA09C5.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Ambience\Ambient_Env\Metal Amb		863245
+	742047227	Place Crystal	C:\Users\1405188\Downloads\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Place Crystal_1A7C0FCB.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Objects\Crystals\Place Crystal		64748
+	817374945	Light Flicker 2	C:\Users\1405188\Downloads\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Light Flicker 2_1A7C0FCB.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Emitters\LightFlicker\Light Flicker 2		31827
+	828079118	Light Flicker 3	C:\Users\1405188\Downloads\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Light Flicker 3_1A7C0FCB.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Emitters\LightFlicker\Light Flicker 3		40605
+	871646031	Pick Up Crystal	C:\Users\1405188\Downloads\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Pick Up Crystal_1A7C0FCB.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Objects\Crystals\Pick Up Crystal		31587
+	898621401	Chirp 4	C:\Users\1405188\Downloads\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Chirp 4_1A7C0FCB.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Chirps\Type_P1\Happy\Chirp 4		51108
+	914616042	Chirp 1	C:\Users\1405188\Downloads\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Chirp 1_1A7C0FCB.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Chirps\Type_P1\Happy\Chirp 1		47751
+	1011223190	LightHitCrystal	C:\Users\1405188\Downloads\Github\Team4\Robot\Wwise\.cache\Windows\SFX\LightHitCrystal_1A7C0FCB.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Objects\Crystals\LightHitCrystal		92480
+	1059580032	Lock1	C:\Users\1405188\Downloads\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Lock1_1A7C0FCB.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Objects\Switch\Lock1		95779
 

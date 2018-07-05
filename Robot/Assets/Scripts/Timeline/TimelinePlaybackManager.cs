@@ -44,16 +44,23 @@ public class TimelinePlaybackManager : MonoBehaviour
     public string player2Tag = "Player2";
     private GameObject playerObject2;
 
+    [Header("Switch")]
+    public bool Switch = false;
+
     private bool playerInZone = false;
     private bool timelinePlaying = false;
     private float timelineDuration;
+    private GameObject target;
+
+
 
     void Start()
     {
         //Finds the player objects
         playerObject = GameObject.FindWithTag(playerTag);
         playerObject2 = GameObject.FindWithTag(player2Tag);
-        //ToggleInteractUI(false);
+        target = GameObject.FindGameObjectWithTag("Test");
+        ToggleInteractUI(false);
     }
 
     public void PlayerEnteredZone()
@@ -177,6 +184,11 @@ public class TimelinePlaybackManager : MonoBehaviour
         }
 
         timelinePlaying = false;
+
+        if (Switch == true)
+        {
+            target.SetActive(false);
+        }
 
     }
 

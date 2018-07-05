@@ -112,14 +112,59 @@
 				<Effect Name="HighPass" ID="{06AFBDB0-202C-4DBB-99CB-C2082848A9B7}" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
 					<PropertyList>
 						<Property Name="FilterTypeBand1" Type="int32" Value="1"/>
-						<Property Name="FrequencyBand1" Type="Real32" Value="218"/>
+						<Property Name="FrequencyBand1" Type="Real32" Value="318"/>
+						<Property Name="FrequencyBand3" Type="Real32" Value="691"/>
+						<Property Name="GainBand3" Type="Real32" Value="-11"/>
+						<Property Name="OnOffBand2" Type="bool" Value="False"/>
 					</PropertyList>
 				</Effect>
 				<Effect Name="Wind_Level" ID="{D885ED9F-FA4E-4A26-B660-4A247EEF2C90}" PluginName="Wwise Meter" CompanyID="0" PluginID="129" PluginType="3">
 					<PropertyList>
-						<Property Name="MeterMode" Type="int32" Value="1"/>
-						<Property Name="Min" Type="Real32" Value="-80.6"/>
+						<Property Name="ApplyDownstreamVolume" Type="bool" Value="True"/>
+						<Property Name="AttackTime" Type="Real32" Value="0.05"/>
+						<Property Name="Max" Type="Real32" Value="-32.5"/>
+						<Property Name="Min" Type="Real32" Value="-47.1"/>
 					</PropertyList>
+					<StateInfo>
+						<StatePropertyList>
+							<Property Name="Max"/>
+							<Property Name="Min"/>
+						</StatePropertyList>
+						<StateGroupList>
+							<StateGroupInfo>
+								<StateGroupRef Name="Wind_Type" ID="{0A1EA6A9-E2BB-48E3-B9D4-7751200BE2D9}"/>
+							</StateGroupInfo>
+						</StateGroupList>
+						<CustomStateList>
+							<CustomState>
+								<StateRef Name="Desert" ID="{37CE9BE2-7404-4280-9D1F-0DF04842292F}"/>
+								<State Name="" ID="{8D239F53-54B1-46DF-80FA-0C4A434D91CA}" ShortID="293087963">
+									<PropertyList>
+										<Property Name="Max" Type="Real32" Value="-21.7"/>
+										<Property Name="Min" Type="Real32" Value="-32.4"/>
+									</PropertyList>
+								</State>
+							</CustomState>
+							<CustomState>
+								<StateRef Name="AboveCloud" ID="{94649626-CB56-4BD8-98A1-752607A6695B}"/>
+								<State Name="" ID="{1AFB00A6-6908-4F73-BB25-A2AE7EB3CB0C}" ShortID="672011915">
+									<PropertyList>
+										<Property Name="Max" Type="Real32" Value="-31.9"/>
+										<Property Name="Min" Type="Real32" Value="-47.6"/>
+									</PropertyList>
+								</State>
+							</CustomState>
+							<CustomState>
+								<StateRef Name="City" ID="{CAC57744-77C9-4CF9-86DC-9530AFFEE778}"/>
+								<State Name="" ID="{CA9218ED-E129-4B76-AA5B-486D8CB55777}" ShortID="403084289">
+									<PropertyList>
+										<Property Name="Max" Type="Real32" Value="-21.7"/>
+										<Property Name="Min" Type="Real32" Value="-39.5"/>
+									</PropertyList>
+								</State>
+							</CustomState>
+						</CustomStateList>
+					</StateInfo>
 					<PluginData>
 	<GameParameter Name="Wind_Speed" ID="{41983626-5B7C-4EAC-ACAF-7D0E11ECEF10}"/>
 </PluginData>
@@ -128,6 +173,49 @@
 					<PropertyList>
 						<Property Name="FilterTypeBand3" Type="int32" Value="0"/>
 						<Property Name="FrequencyBand3" Type="Real32" Value="1789"/>
+					</PropertyList>
+				</Effect>
+				<Effect Name="Dragbox" ID="{D0E5EBEE-1149-4090-B623-9216B0E0D3CD}" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+					<PropertyList>
+						<Property Name="FrequencyBand1" Type="Real32" Value="376"/>
+						<Property Name="FrequencyBand2" Type="Real32" Value="347"/>
+						<Property Name="FrequencyBand3" Type="Real32" Value="9110"/>
+						<Property Name="GainBand1" Type="Real32" Value="2.5"/>
+						<Property Name="GainBand2" Type="Real32" Value="-24"/>
+						<Property Name="GainBand3" Type="Real32" Value="-5.5"/>
+						<Property Name="OnOffBand1" Type="bool" Value="False"/>
+						<Property Name="QFactorBand2" Type="Real32" Value="0.5"/>
+					</PropertyList>
+				</Effect>
+				<Effect Name="New_Wwise_Gain" ID="{F1658A87-D0F5-44CE-A27C-9B5A14317334}" PluginName="Wwise Gain" CompanyID="0" PluginID="139" PluginType="3">
+					<PropertyList>
+						<Property Name="FullBandGain" Type="Real32" Value="24"/>
+					</PropertyList>
+				</Effect>
+				<Effect Name="New_Wwise_Parametric_EQ" ID="{DF816DAD-679D-4692-88DE-AF6579976FEE}" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+					<PropertyList>
+						<Property Name="FrequencyBand2" Type="Real32" Value="1072"/>
+						<Property Name="GainBand2" Type="Real32" Value="-1"/>
+					</PropertyList>
+				</Effect>
+				<Effect Name="New_Wwise_Parametric_EQ_01" ID="{2E9B8B85-D180-46EA-8E1F-57B3E6219B46}" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+					<PropertyList>
+						<Property Name="FilterTypeBand1" Type="int32" Value="1"/>
+						<Property Name="FilterTypeBand3" Type="int32" Value="0"/>
+						<Property Name="FrequencyBand1" Type="Real32" Value="68"/>
+						<Property Name="FrequencyBand2" Type="Real32" Value="97"/>
+						<Property Name="FrequencyBand3" Type="Real32" Value="9254"/>
+						<Property Name="GainBand2" Type="Real32" Value="-24"/>
+						<Property Name="OnOffBand2" Type="bool" Value="False"/>
+						<Property Name="QFactorBand2" Type="Real32" Value="26.2"/>
+					</PropertyList>
+				</Effect>
+				<Effect Name="New_Wwise_Parametric_EQ_02" ID="{1E6309B2-8B3E-4E0E-8340-5F39885F102F}" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+					<PropertyList>
+						<Property Name="FilterTypeBand1" Type="int32" Value="1"/>
+						<Property Name="FrequencyBand1" Type="Real32" Value="203"/>
+						<Property Name="FrequencyBand3" Type="Real32" Value="1933"/>
+						<Property Name="GainBand3" Type="Real32" Value="-24"/>
 					</PropertyList>
 				</Effect>
 			</ChildrenList>

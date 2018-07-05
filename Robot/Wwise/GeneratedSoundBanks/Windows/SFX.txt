@@ -7,6 +7,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	1866025847	Footstep			\Default Work Unit\Robots\Footstep	
 	1875437039	TheCore			\Default Work Unit\Emitters\TheCore	
 	2739838641	DRONE			\Default Work Unit\Music\DRONE	
+	2762482407	Push_Box			\Default Work Unit\Objects\Push_Box	
 	3331264981	Arm_Break			\Default Work Unit\Robots\Arm_Break	
 	3427421355	Light_Hits_Crystal			\Default Work Unit\Objects\Light_Hits_Crystal	
 	3720067015	Arm_Attach			\Default Work Unit\Robots\Arm_Attach	
@@ -31,20 +32,34 @@ Switch	ID	Name	Switch Group			Notes
 	2768693346	Player_1	PlayerID			
 
 State Group	ID	Name			Wwise Object Path	Notes
+	1024791622	Wind_Type			\Default Work Unit\Wind_Type	
+	1229948536	Environment			\Default Work Unit\Environment	
 	1441557762	Chirp_Type			\Default Work Unit\Chirp_Type	
-	1537061107	Wind			\Default Work Unit\Wind	
 	2978482827	Drone_Modulator			\Default Work Unit\Drone_Modulator	
 
 State	ID	Name	State Group			Notes
+	0	None	Wind_Type			
+	1040669087	AboveCloud	Wind_Type			
+	1850388778	Desert	Wind_Type			
+	3888786832	City	Wind_Type			
+	0	None	Environment			
+	402892191	P6_Core	Environment			
+	793747289	P4_Construction_LoseArm	Environment			
+	913535979	P4_Construction	Environment			
+	948331455	P1_Intro	Environment			
+	1313737055	P3_Factory_LoseArm	Environment			
+	1840983642	P7_Sacrifice_End	Environment			
+	2052122964	P2_Warehouse3_LoseArm	Environment			
+	2116377613	P5_Clouds	Environment			
+	2607556080	Menu	Environment			
+	3264965357	P2_Warehouse2_Viewpoint	Environment			
+	3771608615	P2_Warehouse	Environment			
+	3942711001	P3_Factory	Environment			
 	0	None	Chirp_Type			
 	443572635	Sad	Chirp_Type			
 	1067353181	There	Chirp_Type			
 	1427264549	Happy	Chirp_Type			
 	3196610211	Here	Chirp_Type			
-	0	None	Wind			
-	1040669087	AboveCloud	Wind			
-	1850388778	Desert	Wind			
-	3888786832	City	Wind			
 	0	None	Drone_Modulator			
 	190644483	Hit_Switch	Drone_Modulator			
 	1281810935	Start	Drone_Modulator			
@@ -61,7 +76,10 @@ Custom State	ID	Name	State Group	Owner		Notes
 	53629384	Splitter	Drone_Modulator	\Actor-Mixer Hierarchy\Factory Synth One\DRONE\Drone3		
 	75625864	Reflector	Drone_Modulator	\Actor-Mixer Hierarchy\Factory Synth One\DRONE		
 	100242726	Through_Barrier	Drone_Modulator	\Actor-Mixer Hierarchy\Factory Synth One\DRONE		
+	293087963	Desert	Wind_Type	\Effects\Default Work Unit\Wind_Level		
+	403084289	City	Wind_Type	\Effects\Default Work Unit\Wind_Level		
 	553781249	Combiner	Drone_Modulator	\Actor-Mixer Hierarchy\Factory Synth One\DRONE\Drone2		
+	672011915	AboveCloud	Wind_Type	\Effects\Default Work Unit\Wind_Level		
 	759155778	Hit_Wall	Drone_Modulator	\Actor-Mixer Hierarchy\Factory Synth One\DRONE		
 	807873760	Complete	Drone_Modulator	\Actor-Mixer Hierarchy\Factory Synth One\DRONE\Drone3		
 	822551941	Hit_Switch	Drone_Modulator	\Actor-Mixer Hierarchy\Factory Synth One\DRONE		
@@ -196,6 +214,7 @@ Modulator Envelope	ID	Name			Wwise Object Path	Notes
 	456441409	Modulator Envelope (Custom)				
 	469465049	Modulator Envelope (Custom)				
 	470182418	Modulator Envelope (Custom)				
+	471289825	Modulator Envelope (Custom)				
 	477905125	Modulator Envelope (Custom)				
 	488336431	Modulator Envelope (Custom)				
 	519925862	Modulator Envelope (Custom)				
@@ -318,6 +337,7 @@ Effect plug-ins	ID	Name	Type				Notes
 	776490616	Wwise Parametric EQ (Custom)	Wwise Parametric EQ			
 	796249169	Wwise Parametric EQ (Custom)	Wwise Parametric EQ			
 	830079984	Wwise Pitch Shifter (Custom)	Wwise Pitch Shifter			
+	870563022	Dragbox	Wwise Parametric EQ			
 	887496620	Wwise Parametric EQ (Custom)	Wwise Parametric EQ			
 	917880623	Wwise Parametric EQ (Custom)	Wwise Parametric EQ			
 	923032550	Wwise Parametric EQ (Custom)	Wwise Parametric EQ			
@@ -331,11 +351,13 @@ Effect plug-ins	ID	Name	Type				Notes
 	1059488289	Wwise Parametric EQ (Custom)	Wwise Parametric EQ			
 	1197812857	LowpassFly	Wwise Parametric EQ			
 	1891532784	Wind_Level	Wwise Meter			
+	2453598386	HighPass	Wwise Parametric EQ			
 
 Source plug-ins	ID	Name	Type		Wwise Object Path	Notes
 	292198	FM 04	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\Instruments\FM 04\FM 04	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	292199	FM 03	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\Instruments\FM 03\FM 03	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	8145371	CONFIRM 02	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\UI Sounds\CONFIRM 02\CONFIRM 02	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
+	25868842	SoundSeed Air Wind	SoundSeed Air/SoundSeed Wind		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Ambience Wind\AboveClouds\SoundSeed Air Wind	
 	26154250	PAD 02	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\Instruments\PAD 02\PAD 02	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	28380969	FLUTISH	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\Instruments\FLUTISH\FLUTISH	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	39885879	SoundSeed Air Woosh	SoundSeed Air/SoundSeed Woosh		\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects\Game Driven Presets\Weapons\Arrows\Arrow\SoundSeed Air Woosh	
@@ -343,6 +365,7 @@ Source plug-ins	ID	Name	Type		Wwise Object Path	Notes
 	60142098	SoundSeed Air Wind	SoundSeed Air/SoundSeed Wind		\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects\Game Driven Presets\Vehicles\Airplane\Rumble\SoundSeed Air Wind	
 	60410286	Wwise Silence	Wwise Silence		\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects\Game Driven Presets\Weapons\Arrows\Silence\Wwise Silence	
 	71084047	SoundSeed Air Woosh	SoundSeed Air/SoundSeed Woosh		\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects\Static Presets (wave file substitutions)\Weapons\Arrows\Arrows_02\Arrow\SoundSeed Air Woosh	
+	71113179	SoundSeed Air Wind	SoundSeed Air/SoundSeed Wind		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Ambience Wind\City\SoundSeed Air Wind	
 	73647974	SoundSeed Wind	SoundSeed Air/SoundSeed Wind		\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects\Static Presets (wave file substitutions)\Non-Windy Ambiences\Surf\Random Wavebreak\Random_Wave02\SoundSeed Wind	
 	85231025	DENIED 03	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\UI Sounds\DENIED 03\DENIED 03	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	91834686	NOISE	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFX\NOISE\NOISE	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
@@ -370,6 +393,7 @@ Source plug-ins	ID	Name	Type		Wwise Object Path	Notes
 	309043750	Wwise Silence	Wwise Silence		\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects\Static Presets (wave file substitutions)\Non-Windy Ambiences\Urban Scene\Random Car Pass-by_01\Silence\Wwise Silence	
 	310835311	DRONE 03	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFX\DRONE 03\DRONE 03	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	314911702	PAD 01	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\Instruments\PAD 01\PAD 01	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
+	320371486	Wwise Synth One	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFX_01\DragBox\Wwise Synth One	
 	328078722	PERC 01	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\Instruments\PERC 01\PERC 01	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	328078723	PERC 03	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\Instruments\PERC 03\PERC 03	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	339952054	FM 01	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\Instruments\FM 01\FM 01	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
@@ -440,6 +464,7 @@ Source plug-ins	ID	Name	Type		Wwise Object Path	Notes
 	877434874	COSMIC WIND	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFX\COSMIC WIND\COSMIC WIND	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	913085549	BASS 02	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\Instruments\BASS 02\BASS 02	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	931078222	OPENING	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\Instruments\OPENING\OPENING	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
+	932020803	SoundSeed Air Wind	SoundSeed Air/SoundSeed Wind		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Ambience Wind\Desert\SoundSeed Air Wind	
 	936540635	FIFTH DANCE	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\Instruments\FALLING\FIFTH DANCE	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	949017482	SoundSeed Woosh	SoundSeed Air/SoundSeed Woosh		\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects\Static Presets (wave file substitutions)\Non-Windy Ambiences\Urban Scene\Random Car Pass-by_06\Car Pass-by\SoundSeed Woosh	
 	963081078	WOOSH 01	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFX\WOOSH 01\WOOSH 01	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon

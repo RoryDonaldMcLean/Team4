@@ -30,6 +30,7 @@
 				<Event Id="3725903807" Name="Music_Start" ObjectPath="\Events\Default Work Unit\Music\Music_Start"/>
 				<Event Id="1187533030" Name="PickUp_Crystal" ObjectPath="\Events\Default Work Unit\Objects\PickUp_Crystal" MaxAttenuation="50.000000"/>
 				<Event Id="4149295597" Name="Place_Crystal" ObjectPath="\Events\Default Work Unit\Objects\Place_Crystal" MaxAttenuation="50.000000"/>
+				<Event Id="2762482407" Name="Push_Box" ObjectPath="\Events\Default Work Unit\Objects\Push_Box"/>
 				<Event Id="1728682787" Name="TarpFlap" ObjectPath="\Events\Default Work Unit\Emitters\TarpFlap" MaxAttenuation="50.000000"/>
 				<Event Id="1875437039" Name="TheCore" ObjectPath="\Events\Default Work Unit\Emitters\TheCore" MaxAttenuation="50.000000"/>
 			</IncludedEvents>
@@ -166,33 +167,9 @@
 					<ShortName>Chirp2A.wav</ShortName>
 					<Path>SFX\Chirp2A_231A6439.wem</Path>
 				</File>
-				<File Id="148045885" Language="SFX">
-					<ShortName>Travel 1 Loop1.wav</ShortName>
-					<Path>SFX\Travel 1 Loop1_231A6439.wem</Path>
-				</File>
 				<File Id="161124012" Language="SFX">
 					<ShortName>Chirp2B.wav</ShortName>
 					<Path>SFX\Chirp2B_231A6439.wem</Path>
-				</File>
-				<File Id="192738852" Language="SFX">
-					<ShortName>Puzzle 2 (Factory).wav</ShortName>
-					<Path>SFX\Puzzle 2 (Factory)_231A6439.wem</Path>
-				</File>
-				<File Id="275231454" Language="SFX">
-					<ShortName>Percussion2.wav</ShortName>
-					<Path>SFX\Percussion2_231A6439.wem</Path>
-				</File>
-				<File Id="309217538" Language="SFX">
-					<ShortName>PercussionOutro.wav</ShortName>
-					<Path>SFX\PercussionOutro_231A6439.wem</Path>
-				</File>
-				<File Id="328936192" Language="SFX">
-					<ShortName>Percussion1.wav</ShortName>
-					<Path>SFX\Percussion1_231A6439.wem</Path>
-				</File>
-				<File Id="351639100" Language="SFX">
-					<ShortName>Puzzle 2.2 (Factory).wav</ShortName>
-					<Path>SFX\Puzzle 2.2 (Factory)_231A6439.wem</Path>
 				</File>
 				<File Id="354130550" Language="SFX">
 					<ShortName>Chirp3B.wav</ShortName>
@@ -206,6 +183,10 @@
 					<ShortName>Chirp4A.wav</ShortName>
 					<Path>SFX\Chirp4A_231A6439.wem</Path>
 				</File>
+				<File Id="456080624" Language="SFX">
+					<ShortName>Puzzle 2.2 (Factory).wav</ShortName>
+					<Path>SFX\Puzzle 2.2 (Factory)_231A6439.wem</Path>
+				</File>
 				<File Id="499575005" Language="SFX">
 					<ShortName>Chirp3C.wav</ShortName>
 					<Path>SFX\Chirp3C_231A6439.wem</Path>
@@ -213,6 +194,14 @@
 				<File Id="503432355" Language="SFX">
 					<ShortName>Chirp4C.wav</ShortName>
 					<Path>SFX\Chirp4C_231A6439.wem</Path>
+				</File>
+				<File Id="570725919" Language="SFX">
+					<ShortName>Travel 1 Loop1.wav</ShortName>
+					<Path>SFX\Travel 1 Loop1_231A6439.wem</Path>
+				</File>
+				<File Id="624026215" Language="SFX">
+					<ShortName>Travel 1 - Viewpoint.wav</ShortName>
+					<Path>SFX\Travel 1 - Viewpoint_231A6439.wem</Path>
 				</File>
 				<File Id="651259921" Language="SFX">
 					<ShortName>Chirp1A.wav</ShortName>
@@ -222,41 +211,13 @@
 					<ShortName>Chirp1B.wav</ShortName>
 					<Path>SFX\Chirp1B_231A6439.wem</Path>
 				</File>
-				<File Id="689645300" Language="SFX">
-					<ShortName>Metal Pad 1.wav</ShortName>
-					<Path>SFX\Metal Pad 1_231A6439.wem</Path>
-				</File>
-				<File Id="726991005" Language="SFX">
-					<ShortName>Puzzle - Warehouse.wav</ShortName>
-					<Path>SFX\Puzzle - Warehouse_231A6439.wem</Path>
-				</File>
-				<File Id="776090718" Language="SFX">
-					<ShortName>Travel 1 - Viewpoint.wav</ShortName>
-					<Path>SFX\Travel 1 - Viewpoint_231A6439.wem</Path>
-				</File>
-				<File Id="782761703" Language="SFX">
-					<ShortName>Percussion3DelayLayer.wav</ShortName>
-					<Path>SFX\Percussion3DelayLayer_231A6439.wem</Path>
-				</File>
-				<File Id="785212714" Language="SFX">
-					<ShortName>Percussion3.wav</ShortName>
-					<Path>SFX\Percussion3_231A6439.wem</Path>
-				</File>
-				<File Id="921875708" Language="SFX">
-					<ShortName>Travel 2 Piano.wav</ShortName>
-					<Path>SFX\Travel 2 Piano_231A6439.wem</Path>
-				</File>
-				<File Id="934684993" Language="SFX">
-					<ShortName>Puzzle - Warehouse Success.wav</ShortName>
-					<Path>SFX\Puzzle - Warehouse Success_231A6439.wem</Path>
-				</File>
 				<File Id="940076752" Language="SFX">
 					<ShortName>Chirp2C.wav</ShortName>
 					<Path>SFX\Chirp2C_231A6439.wem</Path>
 				</File>
-				<File Id="974316838" Language="SFX">
-					<ShortName>Travel 2 .wav</ShortName>
-					<Path>SFX\Travel 2 _231A6439.wem</Path>
+				<File Id="1016557460" Language="SFX">
+					<ShortName>Puzzle - Warehouse.wav</ShortName>
+					<Path>SFX\Puzzle - Warehouse_231A6439.wem</Path>
 				</File>
 				<File Id="1027153236" Language="SFX">
 					<ShortName>Chirp1C.wav</ShortName>

@@ -1,32 +1,32 @@
 State Group	ID	Name			Wwise Object Path	Notes
+	1024791622	Wind_Type			\Default Work Unit\Wind_Type	
 	1229948536	Environment			\Default Work Unit\Environment	
 	1441557762	Chirp_Type			\Default Work Unit\Chirp_Type	
-	1537061107	Wind			\Default Work Unit\Wind	
 	2978482827	Drone_Modulator			\Default Work Unit\Drone_Modulator	
 
 State	ID	Name	State Group			Notes
+	0	None	Wind_Type			
+	1040669087	AboveCloud	Wind_Type			
+	1850388778	Desert	Wind_Type			
+	3888786832	City	Wind_Type			
 	0	None	Environment			
-	101103479	E5P4	Environment			
-	134805810	E2T2	Environment			
-	302832230	E3P3	Environment			
-	302832231	E3P2	Environment			
-	335548861	E6P5	Environment			
-	402659296	E6T4	Environment			
-	437347370	E1T1	Environment			
-	470063997	E4T3	Environment			
-	503472104	E7T5	Environment			
-	503472107	E7T6	Environment			
-	504457814	E1P1	Environment			
+	402892191	P6_Core	Environment			
+	793747289	P4_Construction_LoseArm	Environment			
+	913535979	P4_Construction	Environment			
+	948331455	P1_Intro	Environment			
+	1313737055	P3_Factory_LoseArm	Environment			
+	1840983642	P7_Sacrifice_End	Environment			
+	2052122964	P2_Warehouse3_LoseArm	Environment			
+	2116377613	P5_Clouds	Environment			
 	2607556080	Menu	Environment			
+	3264965357	P2_Warehouse2_Viewpoint	Environment			
+	3771608615	P2_Warehouse	Environment			
+	3942711001	P3_Factory	Environment			
 	0	None	Chirp_Type			
 	443572635	Sad	Chirp_Type			
 	1067353181	There	Chirp_Type			
 	1427264549	Happy	Chirp_Type			
 	3196610211	Here	Chirp_Type			
-	0	None	Wind			
-	1040669087	AboveCloud	Wind			
-	1850388778	Desert	Wind			
-	3888786832	City	Wind			
 	0	None	Drone_Modulator			
 	190644483	Hit_Switch	Drone_Modulator			
 	1281810935	Start	Drone_Modulator			
@@ -37,6 +37,11 @@ State	ID	Name	State Group			Notes
 	2858403387	Reflector	Drone_Modulator			
 	3307507876	Through_Barrier	Drone_Modulator			
 	4103990255	Hit_Wall	Drone_Modulator			
+
+Custom State	ID	Name	State Group	Owner		Notes
+	293087963	Desert	Wind_Type	\Effects\Default Work Unit\Wind_Level		
+	403084289	City	Wind_Type	\Effects\Default Work Unit\Wind_Level		
+	672011915	AboveCloud	Wind_Type	\Effects\Default Work Unit\Wind_Level		
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
 	504532776	Brick			\Factory Reflect Acoustic Textures\Textures\Brick	
@@ -49,6 +54,7 @@ Game Parameter	ID	Name			Wwise Object Path	Notes
 	2412606308	Carpet			\Factory Reflect Acoustic Textures\Textures\Carpet	
 	2637588553	Tile			\Factory Reflect Acoustic Textures\Textures\Tile	
 	2928161104	Curtains			\Factory Reflect Acoustic Textures\Textures\Curtains	
+	3110594711	Wind_Speed			\Default Work Unit\Wind_Speed	
 	3195498748	Cork_Tiles			\Factory Reflect Acoustic Textures\Textures\Cork_Tiles	
 	3670307564	Drywall			\Factory Reflect Acoustic Textures\Textures\Drywall	
 	4168643977	Acoustic_Banner			\Factory Reflect Acoustic Textures\Textures\Acoustic_Banner	
@@ -64,8 +70,13 @@ Audio Bus	ID	Name			Wwise Object Path	Notes
 	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
 	3991942870	Music			\Default Work Unit\Master Audio Bus\Music	
 
+Auxiliary Bus	ID	Name			Wwise Object Path	Notes
+	348963605	REVERB			\Default Work Unit\Master Audio Bus\REVERB	
+
 Effect plug-ins	ID	Name	Type				Notes
 	133191268	Wwise Tremolo (Custom)	Wwise Tremolo			
+	484890516	Church_Small_Wood	Wwise RoomVerb			
+	1891532784	Wind_Level	Wwise Meter			
 
 Audio Devices	ID	Name	Type				Notes
 	2317455096	No_Output	No Output			

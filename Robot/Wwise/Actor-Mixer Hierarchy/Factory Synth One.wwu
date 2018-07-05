@@ -1738,7 +1738,7 @@ Content provided by Vincent Gagnon
 						</Sound>
 					</ChildrenList>
 				</Folder>
-				<Folder Name="SFX" ID="{3DB737F0-EA3C-4EFE-9744-4CB5B432D997}" ShortID="630299464">
+				<Folder Name="SFXstuf" ID="{3DB737F0-EA3C-4EFE-9744-4CB5B432D997}" ShortID="630299464">
 					<ChildrenList>
 						<Sound Name="MAGIC 02" ID="{38781695-80FA-4DBD-9B09-634988F63B4F}" ShortID="1005430341">
 							<Comment>Audiokinetic Inc. All rights reserved.
@@ -11880,6 +11880,7 @@ Content provided by Vincent Gagnon
 							</ValueList>
 						</Property>
 						<Property Name="PositioningType" Type="int16" Value="1"/>
+						<Property Name="UseGameAuxSends" Type="bool" Value="True"/>
 						<Property Name="UserAuxSendVolume0" Type="Real64">
 							<ValueList>
 								<Value>-96</Value>
@@ -12391,6 +12392,123 @@ Content provided by Vincent Gagnon
 							</CustomState>
 						</CustomStateList>
 					</StateInfo>
+				</ActorMixer>
+				<ActorMixer Name="SFX" ID="{95173208-F41E-4001-A83F-02E59204AE42}" ShortID="487927318">
+					<PropertyList>
+						<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+						<Property Name="MaxSoundPerInstance" Type="int16">
+							<ValueList>
+								<Value>1</Value>
+							</ValueList>
+						</Property>
+						<Property Name="UseMaxSoundPerInstance" Type="bool">
+							<ValueList>
+								<Value>True</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Low" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="DragBox" ID="{1019012E-B020-43CF-9360-00186234E5F6}" ShortID="823119821">
+							<PropertyList>
+								<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
+								<Property Name="MaxSoundPerInstance" Type="int16">
+									<ValueList>
+										<Value>5</Value>
+									</ValueList>
+								</Property>
+								<Property Name="OverrideEffect" Type="bool" Value="True"/>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{95FB6CFC-C086-4FB2-9E07-4AA9C62C7DB1}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="51"/>
+													<Property Name="Min" Type="Real64" Value="-25"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="UseMaxSoundPerInstance" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Low" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
+								</Reference>
+								<Reference Name="Effect0" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+									<ObjectRef Name="Dragbox" ID="{D0E5EBEE-1149-4090-B623-9216B0E0D3CD}" WorkUnitID="{DB5ADB83-997D-43F7-B226-D357913135AD}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<SourcePlugin Name="Wwise Synth One" ID="{3F21CE51-D755-4740-AA25-8E3FC90F95B0}" ShortID="320371486" PluginName="Wwise Synth One" CompanyID="0" PluginID="148">
+									<PropertyList>
+										<Property Name="BaseFrequency" Type="Real32" Value="232"/>
+										<Property Name="FmAmount" Type="Real32" Value="11.6"/>
+										<Property Name="NoiseLevel" Type="Real32" Value="0"/>
+										<Property Name="NoiseShape" Type="int32" Value="2"/>
+										<Property Name="Osc1Level" Type="Real32" Value="-11"/>
+										<Property Name="Osc1Pwm" Type="Real32" Value="78"/>
+										<Property Name="Osc1Transpose" Type="int32" Value="-2349"/>
+										<Property Name="Osc1Waveform" Type="int32" Value="3"/>
+										<Property Name="Osc2Level" Type="Real32" Value="-4"/>
+										<Property Name="Osc2Pwm" Type="Real32" Value="20"/>
+										<Property Name="Osc2Transpose" Type="int32" Value="-3600"/>
+										<Property Name="Osc2Waveform" Type="int32" Value="1"/>
+										<Property Name="OutputLevel" Type="Real32" Value="-3">
+											<RTPCList>
+												<RTPC Name="" ID="{331EAF77-6909-41FC-B67B-0AD91325ED19}" ShortID="554650054">
+													<ReferenceList>
+														<Reference Name="ControlInput">
+															<Custom>
+																<ModulatorEnvelope Name="Modulator Envelope (Custom)" ID="{A928CDC2-2DF4-4296-BEE1-DBABA4D9FDBF}" ShortID="471289825"/>
+															</Custom>
+														</Reference>
+													</ReferenceList>
+													<Curve Name="" ID="{75252ED5-8E0F-43E4-9D5D-94EB8C7B5A88}">
+														<PropertyList>
+															<Property Name="Flags" Type="int32" Value="3"/>
+														</PropertyList>
+														<PointList>
+															<Point>
+																<XPos>0</XPos>
+																<YPos>-96</YPos>
+																<Flags>21</Flags>
+															</Point>
+															<Point>
+																<XPos>1</XPos>
+																<YPos>0</YPos>
+																<Flags>53</Flags>
+															</Point>
+														</PointList>
+													</Curve>
+												</RTPC>
+											</RTPCList>
+										</Property>
+									</PropertyList>
+									<Language>SFX</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Wwise Synth One" ID="{3F21CE51-D755-4740-AA25-8E3FC90F95B0}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
 				</ActorMixer>
 			</ChildrenList>
 		</WorkUnit>

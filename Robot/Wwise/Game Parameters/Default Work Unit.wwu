@@ -13,6 +13,15 @@
 					</PropertyList>
 				</GameParameter>
 				<GameParameter Name="Wind_Speed" ID="{41983626-5B7C-4EAC-ACAF-7D0E11ECEF10}"/>
+				<GameParameter Name="LimbNumber" ID="{9D2C0198-110B-4E07-BCC0-FA350FF658CF}">
+					<PropertyList>
+						<Property Name="FilterTimeDown" Type="Real64" Value="0.3"/>
+						<Property Name="FilterTimeUp" Type="Real64" Value="0.3"/>
+						<Property Name="InitialValue" Type="Real64" Value="4"/>
+						<Property Name="Max" Type="Real64" Value="4"/>
+						<Property Name="RTPCRamping" Type="int16" Value="2"/>
+					</PropertyList>
+				</GameParameter>
 			</ChildrenList>
 		</WorkUnit>
 	</GameParameters>

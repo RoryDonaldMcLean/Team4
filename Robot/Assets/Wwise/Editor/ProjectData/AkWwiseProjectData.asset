@@ -13,14 +13,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AcousticTextureWwu:
   - Guid: '{9A660050-CC7E-4205-9EBF-1683A965AFB3}'
-    m_lastTimePart2: -1999250407
-    m_lastTimePsrt1: 334545006
+    m_lastTimePart2: -1999249411
+    m_lastTimePsrt1: -1617883039
     ParentPhysicalPath: 
     PhysicalPath: Virtual Acoustics\Default Work Unit.wwu
     List: []
   - Guid: '{463D666B-3CA8-4FA5-8B4A-5FEF12B883F6}'
-    m_lastTimePart2: -1999250407
-    m_lastTimePsrt1: 334485122
+    m_lastTimePart2: -1999249411
+    m_lastTimePsrt1: -1617672481
     ParentPhysicalPath: 
     PhysicalPath: Virtual Acoustics\Factory Reflect Acoustic Textures.wwu
     List:
@@ -181,15 +181,26 @@ MonoBehaviour:
   autoPopulateEnabled: 1
   AuxBusWwu:
   - Guid: '{2653943A-432D-488E-9B26-028C9F2C6C6D}'
-    m_lastTimePart2: -1999250365
-    m_lastTimePsrt1: -493327733
+    m_lastTimePart2: -1999249205
+    m_lastTimePsrt1: -883032862
     ParentPhysicalPath: 
     PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
-    List: []
+    List:
+    - Guid: a7cab601d81a51469fbe2eee4364eb69
+      ID: 348963605
+      Name: REVERB
+      Path: Default Work Unit\Master Audio Bus\REVERB
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+      - ElementName: REVERB
+        ObjectType: 1
   BankWwu:
   - Guid: '{99ADC241-66DB-450E-A27C-F54B78415578}'
-    m_lastTimePart2: -1999250407
-    m_lastTimePsrt1: 333582816
+    m_lastTimePart2: -1999249411
+    m_lastTimePsrt1: -1617009344
     ParentPhysicalPath: 
     PhysicalPath: SoundBanks\Default Work Unit.wwu
     List:
@@ -217,8 +228,8 @@ MonoBehaviour:
   defaultPoolSize: 4096
   EventWwu:
   - Guid: '{9208E778-4B37-4421-9C2A-46AAA42FFE85}'
-    m_lastTimePart2: -1999250365
-    m_lastTimePsrt1: -493363068
+    m_lastTimePart2: -1999249213
+    m_lastTimePsrt1: 1765078122
     ParentPhysicalPath: 
     PhysicalPath: Events\Default Work Unit.wwu
     List:
@@ -233,7 +244,7 @@ MonoBehaviour:
         ObjectType: 4
       - ElementName: Activate_Crystal
         ObjectType: 3
-      maxAttenuation: 0
+      maxAttenuation: 50
       maxDuration: 0
       minDuration: 0
     - Guid: dbf532625ab62c4c995e200b86589351
@@ -261,7 +272,7 @@ MonoBehaviour:
         ObjectType: 4
       - ElementName: Arm_Attach
         ObjectType: 3
-      maxAttenuation: 100
+      maxAttenuation: 50
       maxDuration: 0
       minDuration: 0
     - Guid: 87d72b544a0737438ca3df0cb3664434
@@ -275,7 +286,7 @@ MonoBehaviour:
         ObjectType: 4
       - ElementName: Arm_Break
         ObjectType: 3
-      maxAttenuation: 100
+      maxAttenuation: 50
       maxDuration: 0
       minDuration: 0
     - Guid: f7c9c9a4a34b604fb7d6a3e9c8ec0265
@@ -289,21 +300,7 @@ MonoBehaviour:
         ObjectType: 4
       - ElementName: Arm_Detatch
         ObjectType: 3
-      maxAttenuation: 100
-      maxDuration: 0
-      minDuration: 0
-    - Guid: c89e018a5f1d214dbe50084932976690
-      ID: 844582287
-      Name: Arm_Drop
-      Path: Default Work Unit\Robots\Arm_Drop
-      PathAndIcons:
-      - ElementName: Default Work Unit
-        ObjectType: 12
-      - ElementName: Robots
-        ObjectType: 4
-      - ElementName: Arm_Drop
-        ObjectType: 3
-      maxAttenuation: 100
+      maxAttenuation: 50
       maxDuration: 0
       minDuration: 0
     - Guid: 0a5505bc7d26c841b984ab934261ab34
@@ -331,21 +328,7 @@ MonoBehaviour:
         ObjectType: 4
       - ElementName: DRONE
         ObjectType: 3
-      maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
-    - Guid: f147f1110c549b418b4d2513d532c45a
-      ID: -642980908
-      Name: DRONE_Stop
-      Path: Default Work Unit\Music\DRONE_Stop
-      PathAndIcons:
-      - ElementName: Default Work Unit
-        ObjectType: 12
-      - ElementName: Music
-        ObjectType: 4
-      - ElementName: DRONE_Stop
-        ObjectType: 3
-      maxAttenuation: 0
+      maxAttenuation: 50
       maxDuration: 0
       minDuration: 0
     - Guid: fa4e48f5bfed294698eaf71c55ec26c1
@@ -359,7 +342,7 @@ MonoBehaviour:
         ObjectType: 4
       - ElementName: Footstep
         ObjectType: 3
-      maxAttenuation: 100
+      maxAttenuation: 50
       maxDuration: 0
       minDuration: 0
     - Guid: c1f7b33395942540bdf8e5c0b533c97f
@@ -373,7 +356,7 @@ MonoBehaviour:
         ObjectType: 4
       - ElementName: Insects
         ObjectType: 3
-      maxAttenuation: 100
+      maxAttenuation: 50
       maxDuration: 0
       minDuration: 0
     - Guid: a86385551598dd4d8936140cd8278e22
@@ -387,7 +370,7 @@ MonoBehaviour:
         ObjectType: 4
       - ElementName: Light_Hits_Crystal
         ObjectType: 3
-      maxAttenuation: 0
+      maxAttenuation: 50
       maxDuration: 0
       minDuration: 0
     - Guid: 67964d7de81e534ea829ec0786adcdfc
@@ -401,7 +384,7 @@ MonoBehaviour:
         ObjectType: 4
       - ElementName: LightBuzz
         ObjectType: 3
-      maxAttenuation: 100
+      maxAttenuation: 50
       maxDuration: 0
       minDuration: 0
     - Guid: 9dee883bf2a4374c96016a387e91d0d0
@@ -429,7 +412,7 @@ MonoBehaviour:
         ObjectType: 4
       - ElementName: PickUp_Crystal
         ObjectType: 3
-      maxAttenuation: 0
+      maxAttenuation: 50
       maxDuration: 0
       minDuration: 0
     - Guid: 0d74d6e61c0a61409089479983affa24
@@ -443,19 +426,19 @@ MonoBehaviour:
         ObjectType: 4
       - ElementName: Place_Crystal
         ObjectType: 3
-      maxAttenuation: 0
+      maxAttenuation: 50
       maxDuration: 0
       minDuration: 0
-    - Guid: 3cb03ce66761f245bf52957ae1af9a3a
-      ID: -156361427
-      Name: Pressure_Plate
-      Path: Default Work Unit\Objects\Pressure_Plate
+    - Guid: af4015d0202cf9499d320bf3db5ae982
+      ID: -1532484889
+      Name: Push_Box
+      Path: Default Work Unit\Objects\Push_Box
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
       - ElementName: Objects
         ObjectType: 4
-      - ElementName: Pressure_Plate
+      - ElementName: Push_Box
         ObjectType: 3
       maxAttenuation: 0
       maxDuration: 0
@@ -471,7 +454,7 @@ MonoBehaviour:
         ObjectType: 4
       - ElementName: TarpFlap
         ObjectType: 3
-      maxAttenuation: 100
+      maxAttenuation: 50
       maxDuration: 0
       minDuration: 0
     - Guid: db45d3d9f325fe4bb98d9456bd384e02
@@ -485,14 +468,14 @@ MonoBehaviour:
         ObjectType: 4
       - ElementName: TheCore
         ObjectType: 3
-      maxAttenuation: 100
+      maxAttenuation: 50
       maxDuration: 0
       minDuration: 0
   ExpandedItems:
   - /Androids
-  - /Androids/Events
-  - /Androids/Events/Default Work Unit
-  - /Androids/Events/Default Work Unit/Robots
+  - /Androids/Auxiliary Busses
+  - /Androids/Auxiliary Busses/Default Work Unit
+  - /Androids/Auxiliary Busses/Default Work Unit/Master Audio Bus
   language: English(US)
   lowerPoolSize: 10000
   m_lastPopulateTimePart2: 0
@@ -501,8 +484,8 @@ MonoBehaviour:
   preparePoolSize: 0
   RtpcWwu:
   - Guid: '{6FAB8A0D-1E75-4FC9-8CF4-258F9AA56D77}'
-    m_lastTimePart2: -1999250407
-    m_lastTimePsrt1: 333483706
+    m_lastTimePart2: -1999249411
+    m_lastTimePsrt1: -1617344985
     ParentPhysicalPath: 
     PhysicalPath: Game Parameters\Default Work Unit.wwu
     List:
@@ -535,8 +518,8 @@ MonoBehaviour:
         ObjectType: 13
   StateWwu:
   - Guid: '{217B9AB9-B641-4200-BF39-9F61C2C8E9A4}'
-    m_lastTimePart2: -1999250407
-    m_lastTimePsrt1: 333458638
+    m_lastTimePart2: -1999249206
+    m_lastTimePsrt1: 161949522
     ParentPhysicalPath: 
     PhysicalPath: States\Default Work Unit.wwu
     List:
@@ -636,98 +619,98 @@ MonoBehaviour:
       - ElementName: Environment
         ObjectType: 9
       ValueGuids:
-      - bytes: a648cb17ba64f4438407c2efd429513d
-      - bytes: 8df96085aba00c46b0b13650bb884dc1
-      - bytes: 5b0eec83efb3404b8059219ff5cc14a3
-      - bytes: 1a11d94ff131d84b919c71956f22b553
-      - bytes: 01fa26a68cf17e40a1e90a1d2abe0873
-      - bytes: 1f855d1060596649b88d38de762c4323
-      - bytes: 076281b1cd2d9549ae24f6b25ba3b97a
-      - bytes: eb798ff63e350b4d9f69e29f4318922f
-      - bytes: 97416977704ea944ab36831f32bb9225
-      - bytes: 7925bbcb84530944becc5a010b7a0564
-      - bytes: eb52cfe76e287c4d93ac91529c9007a5
       - bytes: ff27fa3a399644449c9f20a568e90221
       - bytes: ccddb0ee2e1dc0468783269c3657fd16
+      - bytes: bfb08bfc447ab1408d27d1ea7366289d
+      - bytes: 2c3643e206511d41be6fe24c9941659d
+      - bytes: d50c07ebc2c2d1469a5bc15943d11787
+      - bytes: 3a275c4ef6dead4ba871ff9dc9b7e05c
+      - bytes: 8045497976395e42971dcb193c870700
+      - bytes: 9a5803dcd2bdd645a826ea9c0315b998
+      - bytes: c038d73bee1f314ab8335bdb23300b01
+      - bytes: 3ecf95d65e309c4eb0a6afff6b047bb0
+      - bytes: febb2ab97cede04aa739cf81428935a0
+      - bytes: d1e6596ba64d7e4891b01ae559b70cd1
+      - bytes: 636378b2b6aa234d9f0a8407408276b0
       ValueIcons:
-      - ElementName: E1P1
-        ObjectType: 8
-      - ElementName: E1T1
-        ObjectType: 8
-      - ElementName: E2T2
-        ObjectType: 8
-      - ElementName: E3P2
-        ObjectType: 8
-      - ElementName: E3P3
-        ObjectType: 8
-      - ElementName: E4T3
-        ObjectType: 8
-      - ElementName: E5P4
-        ObjectType: 8
-      - ElementName: E6P5
-        ObjectType: 8
-      - ElementName: E6T4
-        ObjectType: 8
-      - ElementName: E7T5
-        ObjectType: 8
-      - ElementName: E7T6
-        ObjectType: 8
       - ElementName: Menu
         ObjectType: 8
       - ElementName: None
         ObjectType: 8
-      valueIDs: 566a111e2a64111a32f9080867da0c1266da0c127d9b041c77b70606bd110014e0170018e85f021eeb5f021ef0256c9bdb3ba32c
+      - ElementName: P1_Intro
+        ObjectType: 8
+      - ElementName: P2_Warehouse
+        ObjectType: 8
+      - ElementName: P2_Warehouse2_Viewpoint
+        ObjectType: 8
+      - ElementName: P2_Warehouse3_LoseArm
+        ObjectType: 8
+      - ElementName: P3_Factory
+        ObjectType: 8
+      - ElementName: P3_Factory_LoseArm
+        ObjectType: 8
+      - ElementName: P4_Construction
+        ObjectType: 8
+      - ElementName: P4_Construction_LoseArm
+        ObjectType: 8
+      - ElementName: P5_Clouds
+        ObjectType: 8
+      - ElementName: P6_Core
+        ObjectType: 8
+      - ElementName: P7_Sacrifice_End
+        ObjectType: 8
+      valueIDs: f0256c9bdb3ba32cbf638638272ecee0ed6a9bc254e9507ad9fe00eb5f094e4eeb737336599f4f2f0d5c257e9fa503185a2ebb6d
       values:
-      - E1P1
-      - E1T1
-      - E2T2
-      - E3P2
-      - E3P3
-      - E4T3
-      - E5P4
-      - E6P5
-      - E6T4
-      - E7T5
-      - E7T6
       - Menu
+      - None
+      - P1_Intro
+      - P2_Warehouse
+      - P2_Warehouse2_Viewpoint
+      - P2_Warehouse3_LoseArm
+      - P3_Factory
+      - P3_Factory_LoseArm
+      - P4_Construction
+      - P4_Construction_LoseArm
+      - P5_Clouds
+      - P6_Core
+      - P7_Sacrifice_End
+    - Guid: a9a61e0abbe2e348b9d47751200be2d9
+      ID: 1024791622
+      Name: Wind_Type
+      Path: Default Work Unit\Wind_Type
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Wind_Type
+        ObjectType: 9
+      ValueGuids:
+      - bytes: 2696649456cbd84b98a1752607a6695b
+      - bytes: 4477c5cac977f94c86dc9530affee778
+      - bytes: e29bce37047480429d1f0df04842292f
+      - bytes: b2365eea4601ea419be630449b4a8b92
+      ValueIcons:
+      - ElementName: AboveCloud
+        ObjectType: 8
+      - ElementName: City
+        ObjectType: 8
+      - ElementName: Desert
+        ObjectType: 8
+      - ElementName: None
+        ObjectType: 8
+      valueIDs: 9f59073e902dcae72ab14a6edb3ba32c
+      values:
+      - AboveCloud
+      - City
+      - Desert
       - None
   streamingPoolSize: 2048
   SwitchWwu:
   - Guid: '{58100D4C-AF7E-4F01-9581-C8921E80B431}'
-    m_lastTimePart2: -1999250394
-    m_lastTimePsrt1: 2030638395
+    m_lastTimePart2: -1999249411
+    m_lastTimePsrt1: -1617199783
     ParentPhysicalPath: 
     PhysicalPath: Switches\Default Work Unit.wwu
     List:
-    - Guid: bea3fe239bbec1438b73cefc58acc4cd
-      ID: 1850810525
-      Name: Chirps_Type
-      Path: Default Work Unit\Chirps_Type
-      PathAndIcons:
-      - ElementName: Default Work Unit
-        ObjectType: 12
-      - ElementName: Chirps_Type
-        ObjectType: 11
-      ValueGuids:
-      - bytes: 2aa40e03a675c9418355366eb7446d28
-      - bytes: c40eaa5dde75a046ab5ce24528b179e1
-      - bytes: b8fc3f35e65c3246ae154aa8662db6c2
-      - bytes: 635e8cf81823874bba6a1cc0cc5cb926
-      ValueIcons:
-      - ElementName: Happy
-        ObjectType: 10
-      - ElementName: OverHere
-        ObjectType: 10
-      - ElementName: OverThere
-        ObjectType: 10
-      - ElementName: Sad
-        ObjectType: 10
-      valueIDs: 255412550937a023efb7a3db9b61701a
-      values:
-      - Happy
-      - OverHere
-      - OverThere
-      - Sad
     - Guid: 65ed55737df3a6438ae04351725d6a74
       ID: -1909339098
       Name: Footsteps
@@ -817,8 +800,8 @@ MonoBehaviour:
       - Player_2
   TriggerWwu:
   - Guid: '{1445E234-9FFD-40E4-A0A0-B6CF9F4F5BEA}'
-    m_lastTimePart2: -1999250407
-    m_lastTimePsrt1: 334525196
+    m_lastTimePart2: -1999249411
+    m_lastTimePsrt1: -1617827893
     ParentPhysicalPath: 
     PhysicalPath: Triggers\Default Work Unit.wwu
     List: []

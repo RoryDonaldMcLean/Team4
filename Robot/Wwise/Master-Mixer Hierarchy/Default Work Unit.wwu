@@ -47,6 +47,11 @@
 								</Property>
 								<Property Name="EnablePositioning" Type="bool" Value="True"/>
 							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Effect0" PluginName="Wwise Meter" CompanyID="0" PluginID="129" PluginType="3">
+									<ObjectRef Name="Wind_Level" ID="{D885ED9F-FA4E-4A26-B660-4A247EEF2C90}" WorkUnitID="{DB5ADB83-997D-43F7-B226-D357913135AD}"/>
+								</Reference>
+							</ReferenceList>
 						</Bus>
 						<Bus Name="Drone" ID="{6BAF7145-A163-40D7-A216-C4BC3B0F1656}">
 							<PropertyList>
@@ -54,6 +59,32 @@
 									<ValueList>
 										<Value>-11</Value>
 									</ValueList>
+									<RTPCList>
+										<RTPC Name="" ID="{4F431EAF-C451-4B24-B0B6-494939B274BC}" ShortID="148271566">
+											<ReferenceList>
+												<Reference Name="ControlInput">
+													<ObjectRef Name="Wind_Speed" ID="{41983626-5B7C-4EAC-ACAF-7D0E11ECEF10}" WorkUnitID="{6FAB8A0D-1E75-4FC9-8CF4-258F9AA56D77}"/>
+												</Reference>
+											</ReferenceList>
+											<Curve Name="" ID="{521924B6-39D1-424B-8C03-BCB5289BB732}">
+												<PropertyList>
+													<Property Name="Flags" Type="int32" Value="3"/>
+												</PropertyList>
+												<PointList>
+													<Point>
+														<XPos>0</XPos>
+														<YPos>-45</YPos>
+														<Flags>5</Flags>
+													</Point>
+													<Point>
+														<XPos>100</XPos>
+														<YPos>0</YPos>
+														<Flags>37</Flags>
+													</Point>
+												</PointList>
+											</Curve>
+										</RTPC>
+									</RTPCList>
 								</Property>
 								<Property Name="DivergenceCenter" Type="int32">
 									<ValueList>
@@ -159,6 +190,27 @@
 								</DuckItem>
 							</DuckingList>
 						</Bus>
+						<AuxBus Name="REVERB_Outdoors" ID="{01B6CAA7-1AD8-4651-9FBE-2EEE4364EB69}">
+							<ReferenceList>
+								<Reference Name="Effect0" CompanyID="4095" PluginID="65535" PluginType="15">
+									<ObjectRef Name="Church_Small_Wood" ID="{940CCB47-F031-4C6A-B0E6-726CAC418C02}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+								</Reference>
+							</ReferenceList>
+						</AuxBus>
+						<AuxBus Name="REVERB_Warehouse" ID="{A50C71E5-8DBC-4978-88CE-C8892376B389}">
+							<ReferenceList>
+								<Reference Name="Effect0" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
+									<ObjectRef Name="Machine_Gun_Hangar" ID="{B8FD966C-FC0F-4CD3-8236-B28DF27CDE7D}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+								</Reference>
+							</ReferenceList>
+						</AuxBus>
+						<AuxBus Name="REVERB_Factory" ID="{4B5A10A7-D381-462D-9759-45BCF44EE239}">
+							<ReferenceList>
+								<Reference Name="Effect0" CompanyID="4095" PluginID="65535" PluginType="15">
+									<ObjectRef Name="Metal_Hangar" ID="{C4A4605C-42EF-476A-B53C-E31C7A442C24}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+								</Reference>
+							</ReferenceList>
+						</AuxBus>
 					</ChildrenList>
 				</Bus>
 				<Bus Name="Master Secondary Bus" ID="{D2E0BC7E-7B3F-4FFE-A670-FAE02761B631}">

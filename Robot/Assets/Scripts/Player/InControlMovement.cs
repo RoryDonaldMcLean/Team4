@@ -64,11 +64,6 @@ public class InControlMovement : MonoBehaviour
 		//forward and backwards movement
 		velocity.z = inputDevice.LeftStickY;
 
-		/*if (inputDevice.DPadUp.WasPressed)
-		{
-			Debug.Log ("AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH");
-		}*/
-
 
 		//jumping
 		if ((grounded == true || doubleJump == true) && inputDevice.Action1 && this.GetLegQuantity () >= 1)

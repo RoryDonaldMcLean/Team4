@@ -78,7 +78,7 @@ public class SCR_Melody : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-
+		ProcessInput ();
 		//player1 touching the door, if the correct code is inputted then no longer show the UI
 		if (this.GetComponent<SCR_Door>().Player1enteredBounds == true && correctCode == false || 
 			this.GetComponent<SCR_Door>().Player2enteredBounds == true && correctCode == false)
@@ -129,14 +129,14 @@ public class SCR_Melody : MonoBehaviour
 						Debug.Log("player 1 has no left arm");
 					}
 				}
-				else if (prevState.DPad.Left == ButtonState.Released &&
+				else if (prevState.DPad.Down == ButtonState.Released &&
 				state.DPad.Left == ButtonState.Pressed || Input.GetKeyDown(GameManager.Instance.playerSetting.currentButton[5]))
 					{
 					if (GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [1].name.Contains ("RightArm"))
 					{
 						source.PlayOneShot (Chirps[1]);
 						Robotcode.Add (2);
-						Notes [noteCounter].GetComponent<RawImage> ().texture = Arrows[1].texture;
+						Notes [noteCounter].GetComponent<RawImage> ().texture = Arrows[3].texture;
 						//whenever a note is played
 						noteCounter += 1;
 					} 
@@ -146,7 +146,7 @@ public class SCR_Melody : MonoBehaviour
 					}
 
 				}
-				else if (prevState.DPad.Right == ButtonState.Released &&
+				else if (prevState.DPad.Left == ButtonState.Released &&
 				state.DPad.Right == ButtonState.Pressed || Input.GetKeyDown(GameManager.Instance.playerSetting.currentButton[6]))
 				{
 					if (GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [2].name.Contains ("LeftLeg"))
@@ -154,7 +154,7 @@ public class SCR_Melody : MonoBehaviour
 						source.PlayOneShot (Chirps [2]);
 						Robotcode.Add (3);
 						//whenever a note is played
-						Notes [noteCounter].GetComponent<RawImage> ().texture = Arrows [2].texture;
+						Notes [noteCounter].GetComponent<RawImage> ().texture = Arrows [1].texture;
 						//whenever a note is played
 						noteCounter += 1;
 					} else
@@ -163,7 +163,7 @@ public class SCR_Melody : MonoBehaviour
 					}
 
 				}
-				else if (prevState.DPad.Down == ButtonState.Released &&
+				else if (prevState.DPad.Right == ButtonState.Released &&
 				state.DPad.Down == ButtonState.Pressed || Input.GetKeyDown(GameManager.Instance.playerSetting.currentButton[7]))
 				{
 					if (GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [3].name.Contains ("RightLeg"))
@@ -171,7 +171,7 @@ public class SCR_Melody : MonoBehaviour
 						source.PlayOneShot (Chirps [3]);
 						Robotcode.Add (4);
 						//whenever a note is played
-						Notes [noteCounter].GetComponent<RawImage> ().texture = Arrows [3].texture;
+						Notes [noteCounter].GetComponent<RawImage> ().texture = Arrows [2].texture;
 						//whenever a note is played
 						noteCounter += 1;
 					} else
@@ -224,7 +224,7 @@ public class SCR_Melody : MonoBehaviour
 					{
 						Robotcode.Add (6);
 						//whenever a note is played
-						Notes [noteCounter].GetComponent<RawImage> ().texture = Arrows [5].texture;
+						Notes [noteCounter].GetComponent<RawImage> ().texture = Arrows [7].texture;
 						//whenever a note is played
 						noteCounter += 1;
 					} else
@@ -240,7 +240,7 @@ public class SCR_Melody : MonoBehaviour
 					{
 						Robotcode.Add (7);
 						//whenever a note is played
-						Notes [noteCounter].GetComponent<RawImage> ().texture = Arrows [6].texture;
+						Notes [noteCounter].GetComponent<RawImage> ().texture = Arrows [5].texture;
 						//whenever a note is played
 						noteCounter += 1;
 					} 
@@ -256,7 +256,7 @@ public class SCR_Melody : MonoBehaviour
 					{
 						Robotcode.Add (8);
 						//whenever a note is played
-						Notes [noteCounter].GetComponent<RawImage> ().texture = Arrows [7].texture;
+						Notes [noteCounter].GetComponent<RawImage> ().texture = Arrows [6].texture;
 						//whenever a note is played
 						noteCounter += 1;
 					}

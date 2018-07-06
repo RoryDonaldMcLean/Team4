@@ -129,7 +129,7 @@ public class LightResize : MonoBehaviour
             }
             else if(AwayFromBeam())
             {
-                Debug.Log("error");
+//                Debug.Log("error");
                 CleanUpCollidedObject();
             }
             else if(ShouldResizeBeam())

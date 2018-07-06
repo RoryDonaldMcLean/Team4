@@ -95,6 +95,8 @@ GameObject:
   - component: {fileID: 65952816884110126}
   - component: {fileID: 114082107317421390}
   - component: {fileID: 114191680458344422}
+  - component: {fileID: 114513570299914002}
+  - component: {fileID: 95332535467281090}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player1
@@ -156,7 +158,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1629342049434996}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.36, y: 1.05, z: 66.09}
+  m_LocalPosition: {x: 2.4, y: 1.05, z: 50.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4580605617148710}
@@ -506,6 +508,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.2178583, y: 2, z: 0.99786377}
   m_Center: {x: 0.049199104, y: -0.26, z: 0.30451965}
+--- !u!95 &95332535467281090
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1629342049434996}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114082107317421390
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -519,6 +538,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   limbs: []
   player2: 1
+  playerNum: 0
 --- !u!114 &114191680458344422
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -531,6 +551,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickingMaxDistance: 1
+  playerNum: 0
 --- !u!114 &114424539973579312
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -542,7 +563,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfee9448992e6d149984748930b6565b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player2: 1
+  player2: 0
   playerSpeed: 6
   rb1: {fileID: 54043911327761894}
   grounded: 1
@@ -563,6 +584,19 @@ MonoBehaviour:
   grounded: 1
   doubleJump: 0
   playerNum: 0
+--- !u!114 &114513570299914002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1629342049434996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30d29fa05a56fe640a79555b163c62dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerNum: 0
+  player2: 1
 --- !u!136 &136411249463573852
 CapsuleCollider:
   m_ObjectHideFlags: 1

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using XInputDotNetPure;
+using InControl;
 
 public class PickupAndDropdown : MonoBehaviour
 {
@@ -15,16 +16,12 @@ public class PickupAndDropdown : MonoBehaviour
 
     private float offset;
 
-    //public AudioClip PickCrystal;
-    //public AudioSource PickCrystalSource;
-
-    //public AudioClip DropCrystal;
-    //public AudioSource DropCrystalSource;
-
 	GamePadState state;
 	GamePadState prevState;
 	GamePadState player2State;
 	GamePadState player2PrevState;
+
+	public int playerNum;
 
     // Use this for initialization
     private void Start()
@@ -32,8 +29,6 @@ public class PickupAndDropdown : MonoBehaviour
         holding = false;
         alpha = 0;
 
-        //PickCrystalSource.clip = PickCrystal;
-        //DropCrystalSource.clip = DropCrystal;
     }
 
     // Update is called once per frame
@@ -45,134 +40,145 @@ public class PickupAndDropdown : MonoBehaviour
 		player2PrevState = player2State;
 		player2State = GamePad.GetState(PlayerIndex.Two);
 
-        if (!holding)
-        {
-            RaycastHit hit;
-			if(Input.GetKeyDown(KeyCode.E))
-            {
-                if (ObjectFound(out hit))//ray cast detection
-                {             
-					//if the object the player is trying to pick up is the SlideBox (object attached to the pole)
-					if (hit.transform.name.Contains("SlideBox"))
-					{
-						pickedUpGameObject = hit.transform.gameObject;
-						Vector3 temp = pickedUpGameObject.transform.position;
-						if ((int)pickedUpGameObject.transform.right.x == 0) 
+		var inputDevice = (InputManager.Devices.Count > playerNum) ? InputManager.Devices [playerNum] : null;
+		if (inputDevice == null)
+		{
+			//Debug.Log ("no controllers plugged in");
+		} 
+		else
+		{
+			if (!holding)
+			{
+				RaycastHit hit;
+				if(Input.GetKeyDown(KeyCode.E) || inputDevice.Action2.WasPressed)
+				{
+					if (ObjectFound(out hit))//ray cast detection
+					{             
+						//if the object the player is trying to pick up is the SlideBox (object attached to the pole)
+						if (hit.transform.name.Contains("SlideBox"))
 						{
-							temp.z = this.transform.position.z;
+							pickedUpGameObject = hit.transform.gameObject;
+							Vector3 temp = pickedUpGameObject.transform.position;
+							if ((int)pickedUpGameObject.transform.right.x == 0) 
+							{
+								temp.z = this.transform.position.z;
+							} 
+							else 
+							{
+								temp.x = this.transform.position.x;
+							}
+
+							pickedUpGameObject.transform.position = temp;
+							pickedUpGameObject.transform.parent.GetComponent<SCR_Movable>().pickedUp = true;
+							pickedUpGameObject.transform.parent.GetComponent<SCR_Movable>().playerTag = this.tag;
+							holding = true;
 						} 
-						else 
+						//if the object the player is trying to pick up is the RotateBox
+						else if (hit.transform.name.Contains("RotateBox"))
 						{
-							temp.x = this.transform.position.x;
+							Debug.Log ("hit the rotate box");
+							pickedUpGameObject = hit.transform.gameObject;
+
+							//when you "pick up" the box it will rotate to face the same direction as the player
+							float speed = 200.0f;
+							float step = speed * Time.deltaTime;
+							pickedUpGameObject.transform.rotation = Quaternion.RotateTowards (pickedUpGameObject.transform.rotation,
+								this.transform.rotation, step);
+
+							pickedUpGameObject.transform.parent.GetComponent<SCR_Rotatable>().pickedUp = true;
+							pickedUpGameObject.transform.parent.GetComponent<SCR_Rotatable>().playerTag = this.tag;
+							holding = true;
+						} 
+						else
+						{
+							GenericPickUpCheck (ref hit);
 						}
-
-						pickedUpGameObject.transform.position = temp;
-						pickedUpGameObject.transform.parent.GetComponent<SCR_Movable>().pickedUp = true;
-						pickedUpGameObject.transform.parent.GetComponent<SCR_Movable>().playerTag = this.tag;
-						holding = true;
-					} 
-					//if the object the player is trying to pick up is the RotateBox
-					else if (hit.transform.name.Contains("RotateBox"))
-					{
-						Debug.Log ("hit the rotate box");
-						pickedUpGameObject = hit.transform.gameObject;
-
-						//when you "pick up" the box it will rotate to face the same direction as the player
-						float speed = 200.0f;
-						float step = speed * Time.deltaTime;
-						pickedUpGameObject.transform.rotation = Quaternion.RotateTowards (pickedUpGameObject.transform.rotation,
-							this.transform.rotation, step);
-
-						pickedUpGameObject.transform.parent.GetComponent<SCR_Rotatable>().pickedUp = true;
-						pickedUpGameObject.transform.parent.GetComponent<SCR_Rotatable>().playerTag = this.tag;
-						holding = true;
-					} 
-					else
-					{
-						GenericPickUpCheck (ref hit);
 					}
 				}
-            }
-			else if(Input.GetKeyDown(KeyCode.R))
-            {
-				if (ObjectFound (out hit))//ray cast detection
+				else if(Input.GetKeyDown(KeyCode.R) || inputDevice.Action4.WasPressed)
 				{
-					if (hit.transform.name.Contains("LimbLight")) 
+					if (ObjectFound (out hit))//ray cast detection
 					{
-						LimbLight limbLightBox = hit.transform.GetComponent<LimbLight>();
-						if (limbLightBox.IsLimbAttached()) 
+						if (hit.transform.name.Contains("LimbLight")) 
 						{
-							limbLightBox.RemoveLimbFromLightBox (this.tag);
+							LimbLight limbLightBox = hit.transform.GetComponent<LimbLight>();
+							if (limbLightBox.IsLimbAttached()) 
+							{
+								limbLightBox.RemoveLimbFromLightBox (this.tag);
+							} 
+							else 
+							{
+								limbLightBox.AttachLimbToLightBox (this.tag);
+							}
 						} 
-						else 
-						{
-							limbLightBox.AttachLimbToLightBox (this.tag);
-						}
-					} 
-					else if (hit.transform.name.Contains("LightEmitter")) 
-					{
-                        hit.transform.GetComponent<LightEmitter>().ToggleLight();
-                        hit.transform.GetComponent<LightEmitter>().switchedOn = !hit.transform.GetComponent<LightEmitter>().switchedOn;
-                    }
-					else if (hit.transform.name.Contains("RotateBox")) 
-					{
-						if (hit.transform.parent.GetComponent<SCR_Rotatable>().rotatableObjectString.Contains("LightEmitter")) 
+						else if (hit.transform.name.Contains("LightEmitter")) 
 						{
 							hit.transform.GetComponent<LightEmitter>().ToggleLight();
+							hit.transform.GetComponent<LightEmitter>().switchedOn = !hit.transform.GetComponent<LightEmitter>().switchedOn;
+						}
+						else if (hit.transform.name.Contains("RotateBox")) 
+						{
+							if (hit.transform.parent.GetComponent<SCR_Rotatable>().rotatableObjectString.Contains("LightEmitter")) 
+							{
+								hit.transform.GetComponent<LightEmitter>().ToggleLight();
+							}
 						}
 					}
-				}
-        	}
-		}
-        else
-        {
-			if (pickedUpGameObject.transform.name.Contains("SlideBox"))
-			{
-				Vector3 temp = pickedUpGameObject.transform.position;
-				if ((int)pickedUpGameObject.transform.right.x == 0) 
-				{
-					temp.z = this.transform.position.z;
-				} 
-				else 
-				{
-					temp.x = this.transform.position.x;
-				}
-				pickedUpGameObject.transform.position = temp;
-
-				if(Input.GetKeyDown(KeyCode.E))
-				{
-					Debug.Log("dropped on click");
-					LimitDrop();
-				}
-			} 
-			else if (pickedUpGameObject.transform.name.Contains("RotateBox"))
-			{
-				float speed = 200.0f;
-				float step = speed * Time.deltaTime;
-				pickedUpGameObject.transform.rotation = Quaternion.RotateTowards (pickedUpGameObject.transform.rotation,
-					this.transform.rotation, step);
-
-				if(Input.GetKeyDown(KeyCode.E))
-				{
-					RotateDrop();
 				}
 			}
 			else
 			{
-				if (alpha <= 1.0f)
-					alpha += 0.001f;
-
-				pickedUpGameObject.GetComponent<Transform>().position = pickupLocation.transform.position; // set the picking up object position
-				pickedUpGameObject.GetComponent<Transform>().rotation = Quaternion.Lerp(pickedUpGameObject.GetComponent<Transform>().rotation, this.GetComponent<Transform>().rotation, alpha); //make the rotation of object same as camera
-				pickedUpGameObject.GetComponent<Transform>().rotation = new Quaternion(0, pickedUpGameObject.GetComponent<Transform>().rotation.y, 0, pickedUpGameObject.GetComponent<Transform>().rotation.w);
-
-				if (Input.GetKeyDown(KeyCode.E))
+				if (pickedUpGameObject.transform.name.Contains("SlideBox"))
 				{
-					PutDownObject();
+					Vector3 temp = pickedUpGameObject.transform.position;
+					if ((int)pickedUpGameObject.transform.right.x == 0) 
+					{
+						temp.z = this.transform.position.z;
+					} 
+					else 
+					{
+						temp.x = this.transform.position.x;
+					}
+					pickedUpGameObject.transform.position = temp;
+
+					if(Input.GetKeyDown(KeyCode.E) || inputDevice.Action2.WasPressed)
+					{
+						Debug.Log("dropped on click");
+						LimitDrop();
+					}
+				} 
+				else if (pickedUpGameObject.transform.name.Contains("RotateBox"))
+				{
+					float speed = 200.0f;
+					float step = speed * Time.deltaTime;
+					pickedUpGameObject.transform.rotation = Quaternion.RotateTowards (pickedUpGameObject.transform.rotation,
+						this.transform.rotation, step);
+
+					if(Input.GetKeyDown(KeyCode.E))
+					{
+						RotateDrop();
+					}
 				}
+				else
+				{
+					if (alpha <= 1.0f)
+						alpha += 0.001f;
+
+					pickedUpGameObject.GetComponent<Transform>().position = pickupLocation.transform.position; // set the picking up object position
+					pickedUpGameObject.GetComponent<Transform>().rotation = Quaternion.Lerp(pickedUpGameObject.GetComponent<Transform>().rotation, this.GetComponent<Transform>().rotation, alpha); //make the rotation of object same as camera
+					pickedUpGameObject.GetComponent<Transform>().rotation = new Quaternion(0, pickedUpGameObject.GetComponent<Transform>().rotation.y, 0, pickedUpGameObject.GetComponent<Transform>().rotation.w);
+
+					if (Input.GetKeyDown(KeyCode.E) || inputDevice.Action2.WasPressed)
+					{
+						PutDownObject();
+					}
+				}
+
 			}
-           
-        }
+		}
+
+
+        
     }
 
 	public void LimitDrop()

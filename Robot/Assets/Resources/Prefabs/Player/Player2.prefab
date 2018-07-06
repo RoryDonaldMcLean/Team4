@@ -77,6 +77,8 @@ GameObject:
   - component: {fileID: 65615034654730226}
   - component: {fileID: 114959210986093164}
   - component: {fileID: 114062010090050198}
+  - component: {fileID: 114169318741848714}
+  - component: {fileID: 95543614036592990}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Player2
@@ -143,7 +145,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1121144559936194}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.11, y: 1.05, z: 61.37}
+  m_LocalPosition: {x: 19.3, y: 1.05, z: 51.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4262836210719514}
@@ -506,6 +508,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &95543614036592990
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1121144559936194}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114062010090050198
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -519,6 +538,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   limbs: []
   player2: 0
+  playerNum: 1
+--- !u!114 &114169318741848714
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1121144559936194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30d29fa05a56fe640a79555b163c62dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerNum: 1
+  player2: 0
 --- !u!114 &114228376825991478
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -530,7 +563,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfee9448992e6d149984748930b6565b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player2: 0
+  player2: 1
   playerSpeed: 6
   rb1: {fileID: 54784998369321904}
   grounded: 1
@@ -563,6 +596,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickingMaxDistance: 1
+  playerNum: 1
 --- !u!136 &136251275200858780
 CapsuleCollider:
   m_ObjectHideFlags: 1

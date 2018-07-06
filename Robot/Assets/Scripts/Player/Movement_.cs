@@ -28,7 +28,6 @@ public class Movement_ : MonoBehaviour
     public bool doubleJump = false;
 
 
-
     // Use this for initialization
     void Start()
     {

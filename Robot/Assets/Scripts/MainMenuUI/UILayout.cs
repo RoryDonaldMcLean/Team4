@@ -9,11 +9,12 @@ public class UILayout : MonoBehaviour
 
     private bool settingClicked = false;
     private bool[] reboundButton;
+
     // Use this for initialization
 
     private void Awake()
     {
-        reboundButton = new bool[12];
+        reboundButton = new bool[24];
         //if (!File.Exists(Application.persistentDataPath + "/PlayerButtonSetting.txt"))
         //{
         //    SaveNLoad.Save(GameManager.Instance.playerButtons);
@@ -131,9 +132,9 @@ public class UILayout : MonoBehaviour
         {
             float widthRemain = Screen.width - 250;
             float heightRemain = Screen.height - 40 - 140;
-            int amount = GameManager.Instance.playerSetting.currentButton.Length;
+            int amount = GameManager.Instance.playerSetting.currentButton.Length / 2;
             GUI.Label(new Rect(250 + 50, 20, 200, 20), "Player1");
-            GUI.Label(new Rect(250 + 50 + widthRemain / 2, 20, 200, 20), "Player2 -> Controller");
+            GUI.Label(new Rect(250 + 50 + widthRemain / 2, 20, 200, 20), "Player2");
 
 
             if (!GameManager.Instance.playerSetting.player1Controller)
@@ -150,11 +151,24 @@ public class UILayout : MonoBehaviour
                 GeneLabelButton(250 + 50, 60 + heightRemain / (amount + 2) * 10, "Interact/Reattach", GameManager.Instance.playerSetting.currentButton[9].ToString(), 9);
                 GeneLabelButton(250 + 50, 60 + heightRemain / (amount + 2) * 11, "Limbos Panel", GameManager.Instance.playerSetting.currentButton[10].ToString(), 10);
                 GeneLabelButton(250 + 50, 60 + heightRemain / (amount + 2) * 12, "Dunno What Is Used For", GameManager.Instance.playerSetting.currentButton[11].ToString(), 11);
+
+                GeneLabelButton(250 + 50 + widthRemain / 2, 60 + heightRemain / (amount + 2) * 1, "Forward", GameManager.Instance.playerSetting.currentButton[12].ToString(), 12);
+                GeneLabelButton(250 + 50 + widthRemain / 2, 60 + heightRemain / (amount + 2) * 2, "Left", GameManager.Instance.playerSetting.currentButton[13].ToString(), 13);
+                GeneLabelButton(250 + 50 + widthRemain / 2, 60 + heightRemain / (amount + 2) * 3, "Backward", GameManager.Instance.playerSetting.currentButton[14].ToString(), 14);
+                GeneLabelButton(250 + 50 + widthRemain / 2, 60 + heightRemain / (amount + 2) * 4, "Right", GameManager.Instance.playerSetting.currentButton[15].ToString(), 15);
+                GeneLabelButton(250 + 50 + widthRemain / 2, 60 + heightRemain / (amount + 2) * 5, "Emotion1", GameManager.Instance.playerSetting.currentButton[16].ToString(), 16);
+                GeneLabelButton(250 + 50 + widthRemain / 2, 60 + heightRemain / (amount + 2) * 6, "Emotion2", GameManager.Instance.playerSetting.currentButton[17].ToString(), 17);
+                GeneLabelButton(250 + 50 + widthRemain / 2, 60 + heightRemain / (amount + 2) * 7, "Emotion3", GameManager.Instance.playerSetting.currentButton[18].ToString(), 18);
+                GeneLabelButton(250 + 50 + widthRemain / 2, 60 + heightRemain / (amount + 2) * 8, "Emotion4", GameManager.Instance.playerSetting.currentButton[19].ToString(), 19);
+                GeneLabelButton(250 + 50 + widthRemain / 2, 60 + heightRemain / (amount + 2) * 9, "Jump", GameManager.Instance.playerSetting.currentButton[20].ToString(), 20);
+                GeneLabelButton(250 + 50 + widthRemain / 2, 60 + heightRemain / (amount + 2) * 10, "Interact/Reattach", GameManager.Instance.playerSetting.currentButton[21].ToString(), 21);
+                GeneLabelButton(250 + 50 + widthRemain / 2, 60 + heightRemain / (amount + 2) * 11, "Limbos Panel", GameManager.Instance.playerSetting.currentButton[22].ToString(), 22);
+                GeneLabelButton(250 + 50 + widthRemain / 2, 60 + heightRemain / (amount + 2) * 12, "Dunno What Is Used For", GameManager.Instance.playerSetting.currentButton[23].ToString(), 23);
             }
             if (!allFalse())
             {
                 bool player1Controller = GameManager.Instance.playerSetting.player1Controller;
-                GameManager.Instance.playerSetting.player1Controller = GUI.Toggle(new Rect(380, 20, 100, 30), GameManager.Instance.playerSetting.player1Controller, "Controller");
+                GameManager.Instance.playerSetting.player1Controller = GUI.Toggle(new Rect(550, Screen.height - 40, 200, 20), GameManager.Instance.playerSetting.player1Controller, "Controller");
 
                 if (player1Controller != GameManager.Instance.playerSetting.player1Controller)
                 {

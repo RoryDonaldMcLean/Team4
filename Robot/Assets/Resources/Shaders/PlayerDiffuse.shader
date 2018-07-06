@@ -7,6 +7,7 @@ Shader "Custom/PlayerDiffuse"
 		_Color("Color", Color) = (1,1,1,1)
 		_MainTex("Base 2D", 2D) = "white"{}
 		_XRayColor("XRay Color", Color) = (1,1,1,1)
+		//_EdgeColor("Edge Color" ,Color) = (1,1,1,1)
 	}
 
 	SubShader
@@ -19,6 +20,7 @@ Shader "Custom/PlayerDiffuse"
 			Blend SrcAlpha One
 			ZWrite Off
 			ZTest Greater
+			Cull Back
 
 			CGPROGRAM
 			#include "Lighting.cginc"  
@@ -44,7 +46,7 @@ Shader "Custom/PlayerDiffuse"
 			{
 				float3 normal = normalize(i.normal);
 				float3 viewDir = normalize(i.viewDir);
-				float rim = 1 - dot(normal, viewDir);
+				float rim = 1 - max(0, dot(normal, viewDir));
 				return _XRayColor * rim;
 			}
 			#pragma vertex vert  
@@ -57,9 +59,15 @@ Shader "Custom/PlayerDiffuse"
 		{
 			ZWrite On
 			ZTest LEqual
+			Cull Back
 
 			CGPROGRAM
 			#include "Lighting.cginc" 
+
+			/*********************************************************************
+			********Lighting******************************************************
+			*********************************************************************/
+
 			sampler2D _MainTex;
 			float4 _MainTex_ST;
 			fixed4 _Color;
@@ -97,6 +105,53 @@ Shader "Custom/PlayerDiffuse"
 
 				return textureColor * color;
 			}
+
+			/****************************************************************
+			**********OutLine************************************************
+			****************************************************************/
+
+			//struct v2f
+			//{
+			//	float2 uv : TEXCOORD0;
+			//	float4 vertex : SV_POSITION;
+			//	float3 normal : NORMAL;
+			//	float3 viewDir : TEXCOORD1;
+			//};
+
+			//sampler2D _MainTex;
+			//float4 _MainTex_ST;
+			//fixed4 _Color;
+			//fixed4 _EdgeColor;
+
+			//v2f vert(appdata_base v)
+			//{
+			//	v2f o;
+			//	o.vertex = UnityObjectToClipPos(v.vertex);
+			//	o.uv = TRANSFORM_TEX(v.texcoord, _MainTex);
+			//	o.normal = v.normal;
+			//	o.viewDir = ObjSpaceViewDir(v.vertex);
+
+			//	return o;
+			//}
+
+			//fixed4 frag(v2f i) : SV_Target
+			//{
+			//	float3 normal = normalize(i.normal);
+			//	float3 viewDir = normalize(i.viewDir);
+			//	float rim = 1 - max(0, dot(normal, viewDir));
+			//	// sample the texture
+			//	fixed4 col = tex2D(_MainTex, i.uv) * lerp(_Color, _EdgeColor, rim);
+			//	return col;
+			//}
+
+			//fixed4 lerp(fixed a, fixed b, float alpha)
+			//{
+			//	return a * (1 - alpha) + b * alpha;
+			//}
+
+			/******************************************************************************************************************
+			****************END*********DO NOT COMMENTS The CODING FOLLOWING***************************************************
+			******************************************************************************************************************/
 
 			#pragma vertex vert  
 			#pragma fragment frag     

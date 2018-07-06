@@ -29,7 +29,8 @@ public class ParticleGenerator : MonoBehaviour
         { // Is it time already for spawning a new particle?
             GameObject newElecParticle = (GameObject)Instantiate(Resources.Load("Prefabs/Particle/ParticleElec")); //Spawn a particle
             newElecParticle.GetComponent<ParticlesLife>().SetLifeTime(PARTICLE_LIFETIME);
-            switch(direction)
+            newElecParticle.GetComponent<ParticlesLife>().SetStartPosition(this.transform.position);
+            switch (direction)
             {
                 case Direction.Left:
                     newElecParticle.GetComponent<ParticlesLife>().SetDirection(-this.transform.right);

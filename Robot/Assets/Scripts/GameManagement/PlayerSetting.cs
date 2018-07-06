@@ -7,9 +7,9 @@ using UnityEngine;
 [Serializable]
 public class PlayerSetting
 {
-    public KeyCode[] defaultButton = new KeyCode[12];
+    public KeyCode[] defaultButton = new KeyCode[24];
 
-    public KeyCode[] currentButton = new KeyCode[12];
+    public KeyCode[] currentButton = new KeyCode[24];
 
     public int volume;
 
@@ -29,11 +29,24 @@ public class PlayerSetting
         defaultButton[10] = KeyCode.F;
         defaultButton[11] = KeyCode.Z;
 
+        defaultButton[12] = KeyCode.UpArrow;
+        defaultButton[13] = KeyCode.LeftArrow;
+        defaultButton[14] = KeyCode.DownArrow;
+        defaultButton[15] = KeyCode.RightArrow;
+        defaultButton[16] = KeyCode.Keypad1;
+        defaultButton[17] = KeyCode.Keypad2;
+        defaultButton[18] = KeyCode.Keypad3;
+        defaultButton[19] = KeyCode.Keypad4;
+        defaultButton[20] = KeyCode.Keypad0;
+        defaultButton[21] = KeyCode.Keypad7;
+        defaultButton[22] = KeyCode.Keypad8;
+        defaultButton[23] = KeyCode.Keypad9;
+
         for (int i = 0; i < defaultButton.Length; i++)
         {
             currentButton[i] = defaultButton[i];
         }
-
+        
         volume = 50;
 
         player1Controller = false;
@@ -53,6 +66,8 @@ public class PlayerSetting
 }
 
 /*
+ * Player1:
+ * 
  * 0 - forward
  * 1 - left
  * 2 - backward
@@ -66,7 +81,8 @@ public class PlayerSetting
  * 10 - lims panel
  * 11 - Another Button
  * 
- * 
+ * Player2:
+ * plus 12
  * 
  * 
  * 

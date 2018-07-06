@@ -18,7 +18,7 @@ public class ScrollingBackground : MonoBehaviour {
     public void Scroll(Vector2 pos)
     {
         //adds the Y and X possitions to the offset
-        offset.x += pos.x * xSpeed;
+        offset.x -= pos.x * xSpeed;
         offset.y += pos.y * ySpeed;
 
         //Checks the X offset and adjusts it 

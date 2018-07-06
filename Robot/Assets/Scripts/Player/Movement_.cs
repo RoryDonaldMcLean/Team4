@@ -179,7 +179,7 @@ public class Movement_ : MonoBehaviour
             grounded = true;
 
             doubleJump = false;
-            velocity.y = 0;
+            velocity.y = -1;
         }
     }
 

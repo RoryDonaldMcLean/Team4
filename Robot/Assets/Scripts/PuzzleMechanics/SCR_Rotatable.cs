@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SCR_Rotatable : MonoBehaviour 
 {
+    public bool switchOn = false;
 	public bool pickedUp = false;
 	public string playerTag;
 	public string rotatableObjectString;
@@ -14,7 +15,7 @@ public class SCR_Rotatable : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		GameObject newRotatable = Instantiate (Resources.Load ("Prefabs/Light/" + rotatableObjectString)) as GameObject;
+		GameObject newRotatable = Instantiate(Resources.Load("Prefabs/Light/" + rotatableObjectString)) as GameObject;
 		newRotatable.name = "RotateBox";
 		newRotatable.transform.position = this.transform.GetChild(1).position;
 		newRotatable.transform.SetParent(this.transform);
@@ -23,6 +24,7 @@ public class SCR_Rotatable : MonoBehaviour
         {
             newRotatable.GetComponent<LightEmitter>().colouredBeam = beamColour;
             newRotatable.GetComponent<LightEmitter>().beamLength = beamLength;
+            if (switchOn) newRotatable.GetComponent<LightEmitter>().switchedOn = true;
         }
         Destroy(this.transform.GetChild(1).gameObject);
 	}
@@ -35,7 +37,7 @@ public class SCR_Rotatable : MonoBehaviour
 			//if the player leaves the movable trigger box then drop the box thing
 			if (Entered == false)
 			{
-				GameObject.FindGameObjectWithTag (playerTag).GetComponent<PickupAndDropdown> ().RotateDrop ();
+				GameObject.FindGameObjectWithTag (playerTag).GetComponent<PickupAndDropdown>().RotateDrop();
 			}
 		}
 	}

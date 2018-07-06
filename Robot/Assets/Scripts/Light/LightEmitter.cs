@@ -8,6 +8,7 @@ public class LightEmitter : MonoBehaviour
     private StraightSplineBeam lineBeam;
     public int beamLength;
     public bool switchedOn = false;
+    public bool canBeTurnedOff = true;
 
 
     void Start()
@@ -21,7 +22,20 @@ public class LightEmitter : MonoBehaviour
 
     }
 
-    public void ToggleLight()
+    public void InteractWithEmitter()
+    {
+        switchedOn = !switchedOn;
+        if (canBeTurnedOff) ToggleLight();
+    }
+
+    public void TurnOffForGood()
+    {
+        switchedOn = false;
+        ToggleLight();
+        canBeTurnedOff = false;
+    }
+
+    private void ToggleLight()
     {
         lineBeam.ToggleBeam();
         if(switchedOn) WaitForBeamDestruction();
@@ -51,7 +65,6 @@ public class LightEmitter : MonoBehaviour
         RaycastHit hit;
         if (ObjectFoundInfrontOfBeam(out hit))
         {
-            Debug.Log("EmitterHit" + hit.transform.name);
             this.GetComponent<LightResize>().TriggerExitControl(hit.transform);
         }
     }

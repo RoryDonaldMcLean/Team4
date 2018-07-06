@@ -24,9 +24,6 @@ public class LightBlock : MonoBehaviour
             case "LightSplitter":
             objectBlocked.GetComponent<LightSplitter>().ForceTriggerExit();
             break;
-            case "LightBarrier":
-            objectBlocked.GetComponent<LightBarrier>().ForceTriggerExit();
-            break;
             case "LightPrismColourCombo":
             objectBlocked.GetComponent<PrismColourCombo>().TriggerExitFunction(lineBeam.beamColour);
             break;

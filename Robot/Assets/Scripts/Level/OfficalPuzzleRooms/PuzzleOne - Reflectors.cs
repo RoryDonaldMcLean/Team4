@@ -4,28 +4,28 @@ using UnityEngine;
 
 public class PuzzleOneReflectors : LevelControlBaseClass
 {
-    bool doorStateOpen = false;
-
     void Awake()
     {
-        PuzzleIdentifier = "PuzzleOne";
+        puzzleIdentifier = "PuzzleOne";
     }
 
     // Update is called once per frame
-    void Update ()
+    void Update()
     {
         if ((IsAllLightTriggersActive()) && (!doorStateOpen))
         {        
             Debug.Log("open");
             doorStateOpen = !doorStateOpen;
             exitDoor.OpenDoor();
-        }
-        else if ((!IsAllLightTriggersActive()) && (doorStateOpen))
-        {
-            //counter--;
-            Debug.Log("close");
-            doorStateOpen = !doorStateOpen;
-            exitDoor.CloseDoor();
+			GameObject walkway = Instantiate(Resources.Load("Prefabs/PuzzleGenericItems/tempFloor")) as GameObject;
+			walkway.name = "tempFloor";
+
+			Vector3 pos = walkway.transform.position;
+			pos.z += 54.4f;
+			walkway.transform.position = pos;
+
+			GameObject.FindGameObjectWithTag("GameController").GetComponent<LevelController>().Level(1);
+            EndOfLevel();
         }
     }
 }

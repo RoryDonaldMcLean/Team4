@@ -368,11 +368,13 @@ public class SCR_TradeLimb : MonoBehaviour
 
     private void SpecificLimbExchange()
     {
+        GameObject targetPlayer = GameObject.FindGameObjectWithTag(otherPlayerTag);
         //this is what would change which limb you exchange
         //player 1 left arm
-		if (prevState.ThumbSticks.Right.Y > 0.1f || Input.GetKey(KeyCode.Alpha1))
+        if (prevState.ThumbSticks.Right.Y > 0.1f || Input.GetKey(KeyCode.Alpha1))
         {
-            if (limbs[0].name.Contains("LeftArm"))
+            
+            if (limbs[0].name.Contains("LeftArm") && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[0].name.Contains("LeftArm"))
             {
                 //find the other player
                 LimFly("LeftArm", otherPlayerTag);
@@ -383,7 +385,7 @@ public class SCR_TradeLimb : MonoBehaviour
         //player2 left arm
 		if (player2PrevState.ThumbSticks.Right.Y > 0.1f || Input.GetKey(KeyCode.Alpha6))
         {
-            if (limbs[0].name.Contains("LeftArm"))
+            if (limbs[0].name.Contains("LeftArm") && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[0].name.Contains("LeftArm"))
             {
                 LimFly("LeftArm", otherPlayerTag);
                 RemoveLimb("LeftArm");
@@ -394,7 +396,7 @@ public class SCR_TradeLimb : MonoBehaviour
         //player1 right arm
 		if (prevState.ThumbSticks.Right.Y < -0.1f || Input.GetKey(KeyCode.Alpha2))
         {
-            if (limbs[1].name.Contains("RightArm"))
+            if (limbs[1].name.Contains("RightArm") && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[1].name.Contains("RightArm"))
             {
                 LimFly("RightArm", otherPlayerTag);
                 RemoveLimb("RightArm");
@@ -404,7 +406,7 @@ public class SCR_TradeLimb : MonoBehaviour
         //player2 right arm
 		if (player2PrevState.ThumbSticks.Right.Y < -0.1f || Input.GetKey(KeyCode.Alpha7))
         {
-            if (limbs[1].name.Contains("RightArm"))
+            if (limbs[1].name.Contains("RightArm") && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[1].name.Contains("RightArm"))
             {
                 LimFly("RightArm", otherPlayerTag);
                 RemoveLimb("RightArm");
@@ -414,7 +416,7 @@ public class SCR_TradeLimb : MonoBehaviour
 		//player 1 left leg
 		if (prevState.ThumbSticks.Right.X > 0.1f || Input.GetKey(KeyCode.Alpha3))
         {
-			if (limbs[3].name.Contains("RightLeg"))
+			if (limbs[3].name.Contains("RightLeg") && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[3].name.Contains("RightLeg"))
 			{
 				LimFly("RightLeg", otherPlayerTag);
 				RemoveLimb("RightLeg");
@@ -424,7 +426,7 @@ public class SCR_TradeLimb : MonoBehaviour
         //player2 right leg
 		if (player2PrevState.ThumbSticks.Right.X > 0.1f || Input.GetKey(KeyCode.Alpha8))
         {
-			if (limbs[3].name.Contains("RightLeg"))
+			if (limbs[3].name.Contains("RightLeg") && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[3].name.Contains("RightLeg"))
 			{
 				LimFly("RightLeg", otherPlayerTag);
 				RemoveLimb("RightLeg");
@@ -434,7 +436,7 @@ public class SCR_TradeLimb : MonoBehaviour
         //player1 right leg
 		if (prevState.ThumbSticks.Right.X < -0.1f || Input.GetKey(KeyCode.Alpha4))
         {
-			if (limbs[2].name.Contains("LeftLeg"))
+			if (limbs[2].name.Contains("LeftLeg") && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[2].name.Contains("LeftLeg"))
 			{
 				//find the other player
 				LimFly("LeftLeg", otherPlayerTag);
@@ -445,7 +447,7 @@ public class SCR_TradeLimb : MonoBehaviour
         //player2 left leg
 		if (player2PrevState.ThumbSticks.Right.X < -0.1f || Input.GetKey(KeyCode.Alpha9))
         {
-			if (limbs[2].name.Contains("LeftLeg"))
+			if (limbs[2].name.Contains("LeftLeg") && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[2].name.Contains("LeftLeg"))
 			{
 				LimFly("LeftLeg", otherPlayerTag);
 				RemoveLimb("LeftLeg");
@@ -571,6 +573,7 @@ public class SCR_TradeLimb : MonoBehaviour
 
     private void PickUpLims(GameObject pickUpObject)
     {
+		Debug.Log ("pick up0");
         string pickupName = pickUpObject.name;
         Destroy(pickUpObject);
         Exchange(pickupName, this.gameObject.tag);
@@ -625,27 +628,32 @@ public class SCR_TradeLimb : MonoBehaviour
     /// <param name="other"></param>
     private void OnTriggerStay(Collider other)
     {	//player 1
-        if (player2)
-        {
-			if (other.name == "LeftArm" && prevState.Buttons.B == ButtonState.Pressed || other.name == "LeftArm" && Input.GetKey(KeyCode.Q))
-                PickUpLims(other.gameObject);
-			if (other.name == "RightArm" && prevState.Buttons.B == ButtonState.Pressed || other.name == "RightArm" && Input.GetKey(KeyCode.Q))
-                PickUpLims(other.gameObject);
-			if (other.name == "LeftLeg" && prevState.Buttons.B == ButtonState.Pressed || other.name == "LeftLeg" && Input.GetKey(KeyCode.Q))
-                PickUpLims(other.gameObject);
-			if (other.name == "RightLeg" && prevState.Buttons.B == ButtonState.Pressed || other.name == "RightLeg" && Input.GetKey(KeyCode.Q))
-                PickUpLims(other.gameObject);
-        }
-        else
-        {	//player 2
-			if (other.name == "LeftArm" && player2PrevState.Buttons.B == ButtonState.Pressed || other.name == "LeftArm" && Input.GetKey(KeyCode.K))
-                PickUpLims(other.gameObject);
-			if (other.name == "RightArm" && player2PrevState.Buttons.B == ButtonState.Pressed || other.name == "RightArm" && Input.GetKey(KeyCode.K))
-                PickUpLims(other.gameObject);
-			if (other.name == "LeftLeg" && player2PrevState.Buttons.B == ButtonState.Pressed || other.name == "LeftLeg" && Input.GetKey(KeyCode.K))
-                PickUpLims(other.gameObject);
-			if (other.name == "RightLeg" && player2PrevState.Buttons.B == ButtonState.Pressed || other.name == "RightLeg" && Input.GetKey(KeyCode.K))
-                PickUpLims(other.gameObject);
-        }
+		if (other.gameObject.transform.parent == null)
+		{
+			if (player2)
+			{
+				if (other.name == "LeftArm" && prevState.Buttons.B == ButtonState.Pressed || other.name == "LeftArm" && Input.GetKey(KeyCode.Q) && !GetComponent<SCR_TradeLimb>().limbs[0].name.Contains("LeftArm"))
+					PickUpLims(other.gameObject);
+				if (other.name == "RightArm" && prevState.Buttons.B == ButtonState.Pressed || other.name == "RightArm" && Input.GetKey(KeyCode.Q) && !GetComponent<SCR_TradeLimb>().limbs[1].name.Contains("RightArm"))
+					PickUpLims(other.gameObject);
+				if (other.name == "LeftLeg" && prevState.Buttons.B == ButtonState.Pressed || other.name == "LeftLeg" && Input.GetKey(KeyCode.Q) && !GetComponent<SCR_TradeLimb>().limbs[2].name.Contains("LeftLeg"))
+					PickUpLims(other.gameObject);
+				if (other.name == "RightLeg" && prevState.Buttons.B == ButtonState.Pressed || other.name == "RightLeg" && Input.GetKey(KeyCode.Q) && !GetComponent<SCR_TradeLimb>().limbs[3].name.Contains("RightLeg"))
+					PickUpLims(other.gameObject);
+			}
+			else
+			{	//player 2
+				if (other.name == "LeftArm" && player2PrevState.Buttons.B == ButtonState.Pressed || other.name == "LeftArm" && Input.GetKey(KeyCode.K) && !GetComponent<SCR_TradeLimb>().limbs[0].name.Contains("LeftArm"))
+					PickUpLims(other.gameObject);
+				if (other.name == "RightArm" && player2PrevState.Buttons.B == ButtonState.Pressed || other.name == "RightArm" && Input.GetKey(KeyCode.K) && !GetComponent<SCR_TradeLimb>().limbs[1].name.Contains("RightArm"))
+					PickUpLims(other.gameObject);
+				if (other.name == "LeftLeg" && player2PrevState.Buttons.B == ButtonState.Pressed || other.name == "LeftLeg" && Input.GetKey(KeyCode.K) && !GetComponent<SCR_TradeLimb>().limbs[2].name.Contains("LeftLeg"))
+					PickUpLims(other.gameObject);
+				if (other.name == "RightLeg" && player2PrevState.Buttons.B == ButtonState.Pressed || other.name == "RightLeg" && Input.GetKey(KeyCode.K) && !GetComponent<SCR_TradeLimb>().limbs[3].name.Contains("RightLeg"))
+					PickUpLims(other.gameObject);
+			}
+
+		}
+			
     }
 }

@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class PuzzleThreeCombinersandRefractors : LevelControlBaseClass
 {
-	// Use this for initialization
-	void Start ()
+    void Awake()
     {
-		
-	}
-	
-	// Update is called once per frame
-	void Update ()
+        puzzleIdentifier = "PuzzleThree";
+    }
+
+    // Update is called once per frame
+    void Update()
     {
-		
-	}
+        if ((IsAllLightTriggersActive()) && (!doorStateOpen))
+        {
+            Debug.Log("open");
+            doorStateOpen = !doorStateOpen;
+            exitDoor.OpenDoor();
+            EndOfLevel();
+        }
+    }
 }

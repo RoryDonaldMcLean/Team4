@@ -27,6 +27,8 @@ public class Movement_ : MonoBehaviour
     public bool grounded = true;
     public bool doubleJump = false;
 
+
+
     // Use this for initialization
     void Start()
     {
@@ -64,7 +66,7 @@ public class Movement_ : MonoBehaviour
 
         //player 1
         //move forward
-        if (player2)
+        if (player2 == GameManager.Instance.whichAndroid.player1ControlRed)
         {
 
             if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[0]) || (prevState.ThumbSticks.Left.Y > 0.1))
@@ -97,9 +99,8 @@ public class Movement_ : MonoBehaviour
 
 			//if player 1 presses the A button or the left ctrl button AND they are on the ground AND! have at least 1 leg
 			//JUMP!!!
-			if ((grounded ==true || doubleJump == true) && Input.GetKeyDown(KeyCode.LeftControl) && this.GetLegQuantity() >= 1 || 
-				(grounded ==true || doubleJump == true) && prevState.Buttons.A == ButtonState.Released && state.Buttons.A == ButtonState.Pressed 
-				&& this.GetLegQuantity() >= 1)
+			if ((grounded ==true || doubleJump == true) && Input.GetKeyDown(GameManager.Instance.playerSetting.currentButton[8]) && this.GetLegQuantity() >= 1 || 
+				(grounded ==true || doubleJump == true) && prevState.Buttons.A == ButtonState.Released && state.Buttons.A == ButtonState.Pressed && this.GetLegQuantity() >= 1)
 
             {
                 if (grounded && this.GetLegQuantity() >= 2)
@@ -178,7 +179,7 @@ public class Movement_ : MonoBehaviour
             grounded = true;
 
             doubleJump = false;
-            velocity.y = 0;
+            velocity.y = -1;
         }
     }
 

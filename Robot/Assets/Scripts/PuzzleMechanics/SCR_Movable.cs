@@ -11,19 +11,13 @@ public class SCR_Movable : MonoBehaviour
 	GameObject pole;
 	float maxDistance;
 	float minDistance;
-    public bool xAxisForward = true;
-
-	public bool entered = false;
 
     public Color beamColour = Color.white;
     public int beamLength = 5;
     public bool lightOn = false;
-    public float playerDistanceCheck;
-
-    private float playerOriginalDistFromBox;
 
     // Use this for initialization
-    void Start () 
+    void Start() 
 	{
         LimitFind();
 
@@ -48,6 +42,10 @@ public class SCR_Movable : MonoBehaviour
             newMovable.GetComponent<LightEmitter>().beamLength = beamLength;
             newMovable.GetComponent<LightEmitter>().switchedOn = lightOn;
         }
+        else if(movableObjectString.Contains("LightRedirect"))
+        {
+            newMovable.GetComponent<LightRedirect>().beamLength = beamLength;
+        }
 
         //delete the placeholderbox
         Destroy(this.transform.GetChild(1).gameObject);
@@ -56,25 +54,16 @@ public class SCR_Movable : MonoBehaviour
     private void LimitFind()
     {
         pole = this.gameObject.transform.GetChild(0).gameObject;
-        //get the far right and far left bounds of the pole object
-        Vector3 MaxDist = pole.GetComponent<Collider>().bounds.max;
-        Vector3 MinDist = pole.GetComponent<Collider>().bounds.min;
-        Vector3 difference = MaxDist - MinDist;
 
-        if(difference.z > difference.x)
-        {
-            maxDistance = MaxDist.z;
-            minDistance = MinDist.z;
-            playerOriginalDistFromBox = this.gameObject.transform.GetChild(1).position.x;
-            xAxisForward = false;
-        }
-        else
-        {
-            maxDistance = MaxDist.x;
-            minDistance = MinDist.x;
-            playerOriginalDistFromBox = this.gameObject.transform.GetChild(1).position.z;
-            xAxisForward = true;
-        }
+		maxDistance = Vector3.Dot(pole.GetComponent<Collider>().bounds.max, this.transform.right);
+		minDistance = Vector3.Dot(pole.GetComponent<Collider>().bounds.min, this.transform.right);
+
+		if (maxDistance < minDistance) 
+		{
+			float temp = minDistance;
+			minDistance = maxDistance;
+			maxDistance = temp;
+		}
     }
 
 	//the far right of the pole
@@ -82,7 +71,7 @@ public class SCR_Movable : MonoBehaviour
 	{
         if (movableObjectPosition >= maxDistance)
         {
-            LimitBreachResponse(maxDistance - 1);
+			LimitBreachResponse(maxDistance - (this.gameObject.transform.GetChild(1).lossyScale.x / 2.0f));
         }
 	}
 
@@ -91,50 +80,40 @@ public class SCR_Movable : MonoBehaviour
 	{
 		if (movableObjectPosition <= minDistance)
         {
-            LimitBreachResponse(minDistance + 1);
+			LimitBreachResponse(minDistance + (this.gameObject.transform.GetChild(1).lossyScale.x / 2.0f));
         }
 	}
 
     private void AwayFromBox()
     {
-        float difference = Mathf.Abs(Mathf.Abs(playerDistanceCheck) - Mathf.Abs(playerOriginalDistFromBox));
+		Transform playerTransform = GameObject.FindGameObjectWithTag(playerTag).transform;
+
+		float boxPos = Vector3.Dot(this.gameObject.transform.GetChild(1).position, this.transform.forward);
+		float playerPos = Vector3.Dot(playerTransform.position, this.transform.forward);
+		float difference = Mathf.Abs(playerPos - boxPos);
         float maxDistFromBox = 2.5f;
 
         if (difference > maxDistFromBox)
         {
-            DropBox();
+			DropBox(ref playerTransform);
         }
     }
 
     private void LimitBreachResponse(float limitPoint)
     {
-        //past its limit
-        Vector3 position = this.transform.GetChild(1).position;
-        if (xAxisForward)
-        {
-            position.x = limitPoint;
-        }
-        else
-        {
-            position.z = limitPoint;
-        }
-        DropBox();
+		Transform boxTransform = this.gameObject.transform.GetChild(1);
+	    //past its limit
+		Vector3 boxPos = Vector3.Scale(this.transform.right, Vector3.one) * (limitPoint + -Vector3.Dot(boxTransform.position, this.transform.right));
+		Vector3 newBoxPos = boxPos + boxTransform.position;;
+		boxTransform.position = newBoxPos;
+
+		Transform playerTransform = GameObject.FindGameObjectWithTag(playerTag).transform;
+		DropBox(ref playerTransform);
     }
 
     private void LimitCheck()
     {
-        Vector3 objectPos = this.transform.GetChild(1).position;
-
-        float movableObjectScrollingPosition;
-
-        if (xAxisForward)
-        {
-            movableObjectScrollingPosition = objectPos.x;
-        }
-        else
-        {
-            movableObjectScrollingPosition = objectPos.z;
-        }
+		float movableObjectScrollingPosition = Vector3.Dot(this.transform.GetChild(1).position, this.transform.right);
 
         RightLimit(ref movableObjectScrollingPosition);
         LeftLimit(ref movableObjectScrollingPosition);
@@ -151,9 +130,9 @@ public class SCR_Movable : MonoBehaviour
         }
 	}
 
-    private void DropBox()
+	private void DropBox(ref Transform playerTransform)
     {
-        //if the player leaves the movable trigger box then drop the box 
-        GameObject.FindGameObjectWithTag(playerTag).GetComponent<PickupAndDropdown>().LimitDrop();
+        //if the player leaves the movable trigger box then drop the box
+		playerTransform.GetComponent<PickupAndDropdown>().LimitDrop();
     }
 }

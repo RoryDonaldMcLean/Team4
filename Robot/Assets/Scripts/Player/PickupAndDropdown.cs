@@ -51,9 +51,16 @@ public class PickupAndDropdown : MonoBehaviour
 			if(Input.GetKeyDown(KeyCode.E))
             {
                 if (ObjectFound(out hit))//ray cast detection
-                {             
-					//if the object the player is trying to pick up is the SlideBox (object attached to the pole)
-					if (hit.transform.name.Contains("SlideBox"))
+                {
+                    string objectName = hit.transform.name;
+                    if (objectName.Contains("CarryCrate"))
+                    {
+                        Debug.Log("Go");
+                        objectName = hit.transform.parent.name;
+                    }
+
+                    //if the object the player is trying to pick up is the SlideBox (object attached to the pole)
+                    if (objectName.Contains("SlideBox"))
 					{
 						pickedUpGameObject = hit.transform.gameObject;
 						Vector3 temp = pickedUpGameObject.transform.position;
@@ -72,7 +79,7 @@ public class PickupAndDropdown : MonoBehaviour
 						holding = true;
 					} 
 					//if the object the player is trying to pick up is the RotateBox
-					else if (hit.transform.name.Contains("RotateBox"))
+					else if (objectName.Contains("RotateBox"))
 					{
 						pickedUpGameObject = hit.transform.gameObject;
 
@@ -88,7 +95,7 @@ public class PickupAndDropdown : MonoBehaviour
 					} 
 					else
 					{
-						GenericPickUpCheck (ref hit);
+						GenericPickUpCheck(ref hit);
 					}
 				}
 
@@ -98,7 +105,13 @@ public class PickupAndDropdown : MonoBehaviour
             {
 				if (ObjectFound (out hit))//ray cast detection
 				{
-					if (hit.transform.name.Contains("LimbLight")) 
+                    string objectName = hit.transform.name;
+                    if (objectName.Contains("CarryCrate"))
+                    {
+                        objectName = hit.transform.parent.name;
+                    }
+
+                    if (objectName.Contains("LimbLight")) 
 					{
 						LimbLight limbLightBox = hit.transform.GetComponent<LimbLight>();
 						if (limbLightBox.IsLimbAttached()) 
@@ -110,16 +123,16 @@ public class PickupAndDropdown : MonoBehaviour
 							limbLightBox.AttachLimbToLightBox (this.tag);
 						}
 					} 
-					else if (hit.transform.name.Contains("LightEmitter")) 
+					else if (objectName.Contains("LightEmitter")) 
 					{
-                        hit.transform.GetComponent<LightEmitter>().ToggleLight();
+                        hit.transform.GetComponent<LightEmitter>().InteractWithEmitter();
                         hit.transform.GetComponent<LightEmitter>().switchedOn = !hit.transform.GetComponent<LightEmitter>().switchedOn;
                     }
-					else if (hit.transform.name.Contains("RotateBox")) 
+					else if (objectName.Contains("RotateBox")) 
 					{
 						if (hit.transform.parent.GetComponent<SCR_Rotatable>().rotatableObjectString.Contains("LightEmitter")) 
 						{
-							hit.transform.GetComponent<LightEmitter>().ToggleLight();
+							hit.transform.GetComponent<LightEmitter>().InteractWithEmitter();
 						}
 					}
 				}
@@ -187,9 +200,9 @@ public class PickupAndDropdown : MonoBehaviour
 
 	public void RotateDrop()
 	{
-		pickedUpGameObject.transform.parent.GetComponent<SCR_Rotatable> ().pickedUp = false;
+		pickedUpGameObject.transform.parent.GetComponent<SCR_Rotatable>().pickedUp = false;
 		offset = 0;
-		PutDownObject ();
+		PutDownObject();
 	}
 
 	private void GenericPickUpCheck(ref RaycastHit hit)
@@ -197,9 +210,10 @@ public class PickupAndDropdown : MonoBehaviour
 		if ((hit.collider.tag == "LightBox") && (this.GetArmQuantity () >= 1))
 		{
 			PickUpObject (hit.transform);
-		} else if ((hit.collider.tag == "HeavyBox") && (this.GetArmQuantity () >= 2))
+		}
+        else if ((hit.collider.tag == "HeavyBox") && (this.GetArmQuantity () >= 2))
 		{
-			PickUpObject (hit.transform);
+			PickUpObject(hit.transform);
 		}
 	}
 		
@@ -228,13 +242,10 @@ public class PickupAndDropdown : MonoBehaviour
 
         Vector3 colliderScale = new Vector3(x, y, z);
         pickupLocation.GetComponent<BoxCollider>().size = colliderScale;
-        pickupLocation.GetComponent<BeamPoint>().pickedUpTransform = pickedUpGameObject.transform;
-
 
 		AkSoundEngine.PostEvent("PickUp_Crystal", gameObject);
     }
-		
-		
+				
     private int GetArmQuantity()
     {
         int quantity = 0;

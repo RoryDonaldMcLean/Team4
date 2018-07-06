@@ -17,6 +17,12 @@ public class PuzzleTwoColourChanging : LevelControlBaseClass
             Debug.Log("open");
             doorStateOpen = !doorStateOpen;
             exitDoor.OpenDoor();
+			GameObject walkway = Instantiate(Resources.Load("Prefabs/PuzzleGenericItems/tempFloor")) as GameObject;
+			walkway.name = "tempFloor";
+			Vector3 pos = walkway.transform.position;
+			pos.z += 54.4f * 2.0f;
+			walkway.transform.position = pos;
+			GameObject.FindGameObjectWithTag("GameController").GetComponent<LevelController>().Level(1);
             EndOfLevel();
         }
     }

@@ -33,13 +33,13 @@ public class InControlMelody : MonoBehaviour
 	Sprite[] Arrows;
 
 	//array of rawimages that are being used in the UI for the melodies
-	public List<GameObject> Notes = new List<GameObject>();
+	List<GameObject> Notes = new List<GameObject>();
 
 	//Blank array which is used to take all the textures off the rawimages when a code is wrong or finished with
 	List<GameObject> blankNotes = new List<GameObject>();
 
 
-	int playerNum;
+	//int playerNum;
 
 	// Use this for initialization
 	void Start () 
@@ -76,17 +76,23 @@ public class InControlMelody : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		var inputDevice = (InputManager.Devices.Count > playerNum) ? InputManager.Devices [playerNum] : null;
 
-		//var inputDevice = InputManager.ActiveDevice;
-		if(inputDevice == null)
+
+
+		//var inputDevice = (InputManager.Devices.Count > playerNum) ? InputManager.Devices [playerNum] : null;
+
+		var inputDevice = InputManager.ActiveDevice;
+		if(InputManager.Devices.Count <= 0)
 		{
+			//Debug.Log ("no controllers");
 			ProcessInput();
 		}
 		else
 		{
 			ProcessInputIncontrol (inputDevice);
 		}
+
+		//Debug.Log (playerNum);
 
 		//player1 touching the door, if the correct code is inputted then no longer show the UI
 		if (MelodyDoor.GetComponent<SCR_Door>().Player1enteredBounds == true && correctCode == false || 

@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using InControl;
+using UnityEngine.UI;
 
 public class MelodyInput : MonoBehaviour 
 {
 	public int playerNum;
-
 	GameObject MelodyDoor;
 
 	// Use this for initialization
@@ -110,37 +110,44 @@ public class MelodyInput : MonoBehaviour
 					{
 						MelodyDoor.GetComponent<InControlMelody> ().Robotcode.Add (5);
 						MelodyDoor.GetComponent<InControlMelody> ().noteCounter += 1;
-					} else
+					} 
+					else
 					{
 						Debug.Log ("Player2 has no left arm");
 					}
-				} else if (inputDevice.DPadDown.WasPressed)
+				} 
+				else if (inputDevice.DPadDown.WasPressed)
 				{
 					if (GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [1].name.Contains ("RightArm"))
 					{
 						MelodyDoor.GetComponent<InControlMelody> ().Robotcode.Add (6);
 						MelodyDoor.GetComponent<InControlMelody> ().noteCounter += 1;
-					} else
+					} 
+					else
 					{
 						Debug.Log ("Player2 has no right arm");
 					}
-				} else if (inputDevice.DPadLeft.WasPressed)
+				} 
+				else if (inputDevice.DPadLeft.WasPressed)
 				{
 					if (GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [2].name.Contains ("LeftLeg"))
 					{
 						MelodyDoor.GetComponent<InControlMelody> ().Robotcode.Add (7);
 						MelodyDoor.GetComponent<InControlMelody> ().noteCounter += 1;
-					} else
+					} 
+					else
 					{
 						Debug.Log ("Player2 has no left leg");
 					}
-				} else if (inputDevice.DPadRight.WasPressed)
+				} 
+				else if (inputDevice.DPadRight.WasPressed)
 				{
 					if (GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [3].name.Contains ("RightLeg"))
 					{
 						MelodyDoor.GetComponent<InControlMelody> ().Robotcode.Add (8);
 						MelodyDoor.GetComponent<InControlMelody> ().noteCounter += 1;
-					} else
+					} 
+					else
 					{
 						Debug.Log ("Player2 has no right leg");
 					}

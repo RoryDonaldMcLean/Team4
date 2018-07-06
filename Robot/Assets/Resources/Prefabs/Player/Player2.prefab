@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4249687799557674}
   - component: {fileID: 33973702104081554}
   - component: {fileID: 23503834821286168}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Hinge1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4831582112145038}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: limb area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,7 +53,7 @@ GameObject:
   - component: {fileID: 4901938768762268}
   - component: {fileID: 33759095105682264}
   - component: {fileID: 23410657429523422}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Hinge4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -77,7 +77,8 @@ GameObject:
   - component: {fileID: 65615034654730226}
   - component: {fileID: 114959210986093164}
   - component: {fileID: 114062010090050198}
-  m_Layer: 0
+  - component: {fileID: 95234650861864980}
+  m_Layer: 14
   m_Name: Player2
   m_TagString: Player2
   m_Icon: {fileID: 0}
@@ -95,7 +96,7 @@ GameObject:
   - component: {fileID: 33592017023973082}
   - component: {fileID: 65858132539828878}
   - component: {fileID: 23380267835856826}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Face
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,7 +113,7 @@ GameObject:
   - component: {fileID: 4396161810131624}
   - component: {fileID: 33359878872596322}
   - component: {fileID: 23509256957987684}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Hinge2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,7 +130,7 @@ GameObject:
   - component: {fileID: 4376512140276858}
   - component: {fileID: 33860124676120364}
   - component: {fileID: 23265105355649408}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Hinge3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,7 +144,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1121144559936194}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.11, y: 1.05, z: 61.37}
+  m_LocalPosition: {x: 17.64, y: 1.78, z: 3.300003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4262836210719514}
@@ -506,6 +507,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &95234650861864980
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1121144559936194}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114062010090050198
 MonoBehaviour:
   m_ObjectHideFlags: 1

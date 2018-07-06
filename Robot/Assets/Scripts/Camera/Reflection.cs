@@ -1,5 +1,4 @@
 using UnityEngine;
-
 using System.Collections;
 
 [ExecuteInEditMode] 
@@ -18,7 +17,6 @@ public class Reflection : MonoBehaviour
     private int m_OldReflectionTextureSize = 0;
    
     private static bool s_InsideRendering = false;
-
     public void OnWillRenderObject()
     {
         if( !enabled || !GetComponent<Renderer>() || !GetComponent<Renderer>().sharedMaterial || !GetComponent<Renderer>().enabled )

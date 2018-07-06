@@ -7,7 +7,7 @@ public class PickupAndDropdown : MonoBehaviour
 {
     private bool holding;
     private GameObject pickedUpGameObject;
-    private float alpha; //float For lerp
+    //private float alpha; //float For lerp
 
     private GameObject pickupLocation; //picking location
 
@@ -30,7 +30,7 @@ public class PickupAndDropdown : MonoBehaviour
     private void Start()
     {
         holding = false;
-        alpha = 0;
+        //alpha = 0;
 
         //PickCrystalSource.clip = PickCrystal;
         //DropCrystalSource.clip = DropCrystal;
@@ -171,11 +171,11 @@ public class PickupAndDropdown : MonoBehaviour
 			}
 			else
 			{
-				if (alpha <= 1.0f)
-					alpha += 0.001f;
+				//if (alpha <= 1.0f)
+				//	alpha += 0.001f;
 
 				pickedUpGameObject.GetComponent<Transform>().position = pickupLocation.transform.position; // set the picking up object position
-				pickedUpGameObject.GetComponent<Transform>().rotation = Quaternion.Lerp(pickedUpGameObject.GetComponent<Transform>().rotation, this.GetComponent<Transform>().rotation, alpha); //make the rotation of object same as camera
+				pickedUpGameObject.GetComponent<Transform>().rotation = Quaternion.Lerp(pickedUpGameObject.GetComponent<Transform>().rotation, this.GetComponent<Transform>().rotation, 1); //make the rotation of object same as camera
 				pickedUpGameObject.GetComponent<Transform>().rotation = new Quaternion(0, pickedUpGameObject.GetComponent<Transform>().rotation.y, 0, pickedUpGameObject.GetComponent<Transform>().rotation.w);
 
 				if (Input.GetKeyDown(KeyCode.E))
@@ -227,7 +227,7 @@ public class PickupAndDropdown : MonoBehaviour
     {
         holding = true; //set pick up boolean
         pickedUpGameObject = objectBeingPickedUp.gameObject; // set the pick up object
-        alpha = 0;
+        //alpha = 0;
 
         pickupLocation = Instantiate(Resources.Load("Prefabs/Light/PickLocation"), this.transform) as GameObject;
         offset = pickupLocation.transform.position.y - objectBeingPickedUp.position.y;

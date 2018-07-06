@@ -17,7 +17,7 @@ public class SCR_Movable : MonoBehaviour
     public bool lightOn = false;
 
     // Use this for initialization
-    void Start () 
+    void Start() 
 	{
         LimitFind();
 
@@ -41,6 +41,10 @@ public class SCR_Movable : MonoBehaviour
             newMovable.GetComponent<LightEmitter>().colouredBeam = beamColour;
             newMovable.GetComponent<LightEmitter>().beamLength = beamLength;
             newMovable.GetComponent<LightEmitter>().switchedOn = lightOn;
+        }
+        else if(movableObjectString.Contains("LightRedirect"))
+        {
+            newMovable.GetComponent<LightRedirect>().beamLength = beamLength;
         }
 
         //delete the placeholderbox

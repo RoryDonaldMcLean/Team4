@@ -5,15 +5,12 @@ using UnityEngine;
 public class LightBarrier : MonoBehaviour
 {
     public bool inverseBlockProcess = false;
-    public Color colourToBlock;
-
-    private Collider originalLightBeam;
-    private StraightSplineBeam lineBeam;
+    public Color colourToAllow;
     private Color resultantColour;
 
     void Start()
     {
-        Color transparentVersionOfColour = colourToBlock;
+        Color transparentVersionOfColour = colourToAllow;
         transparentVersionOfColour.a = 0.5f;
 
         this.transform.GetComponent<Renderer>().material.color = transparentVersionOfColour;
@@ -21,76 +18,30 @@ public class LightBarrier : MonoBehaviour
     }
 
     //Upon a collison being detected with a Lightbeam 
-    void OnTriggerEnter(Collider lightBeam)
+    public bool OnEnter(Color colour)
     {
-        if(originalLightBeam != null)
-        {
-            DestroyBeam();
-        }
-
-        originalLightBeam = lightBeam;
-        resultantColour = originalLightBeam.GetComponentInParent<LineRenderer>().startColor;
+        resultantColour = colour;
 
         if (inverseBlockProcess)
         {
-            BlockChosenColour();
+            return BlockChosenColour();
         }
         else
         {
-            AllowOnlyChosenColour();
+            return AllowOnlyChosenColour();
         }
     }
 
-    private void BlockChosenColour()
+    private bool BlockChosenColour()
     {
-        resultantColour = resultantColour - colourToBlock;
+        resultantColour = resultantColour - colourToAllow;
         resultantColour.a = 1.0f;
 
-        if (!resultantColour.Equals(new Color(0, 0, 0, 1))) CreateExtendedBeam();
+        return (resultantColour.Equals(new Color(0, 0, 0, 1)));
     }
 
-    private void AllowOnlyChosenColour()
+    private bool AllowOnlyChosenColour()
     {
-        if (resultantColour.Equals(colourToBlock)) CreateExtendedBeam();
-    }
-
-    void Update()
-    {
-        if(lineBeam != null)
-        {
-            Vector3 newPos = lineBeam.transform.position;
-            newPos.y = Vector3.Dot(this.transform.up, originalLightBeam.transform.position);
-
-            lineBeam.ChangePos(newPos);
-        }
-    }
-
-    //Upon lightbeam leaving the door trigger
-    void OnTriggerExit(Collider lightBeam)
-    {
-        DestroyBeam();
-    }
-
-    public void ForceTriggerExit()
-    {
-        DestroyBeam();
-    }
-
-    private void DestroyBeam()
-    {
-        if (lineBeam != null)
-        {
-            lineBeam.ToggleBeam();
-            Destroy(lineBeam);
-            originalLightBeam = null;
-        }
-    }
-    //creates a beam that functions as an extension of the beam that this object has collided with
-    //taking away the original beams colour.
-    private void CreateExtendedBeam()
-    {
-        lineBeam = this.gameObject.AddComponent<StraightSplineBeam>();
-        lineBeam.beamColour = resultantColour;
-        lineBeam.beamLength = 10;
+        return (!resultantColour.Equals(colourToAllow));
     }
 }

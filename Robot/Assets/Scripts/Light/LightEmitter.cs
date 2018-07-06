@@ -8,6 +8,7 @@ public class LightEmitter : MonoBehaviour
     private StraightSplineBeam lineBeam;
     public int beamLength;
     public bool switchedOn = false;
+    public bool canBeTurnedOff = true;
 
     void Start()
     {
@@ -18,7 +19,20 @@ public class LightEmitter : MonoBehaviour
         if (!switchedOn) ToggleLight();
     }
 
-    public void ToggleLight()
+    public void InteractWithEmitter()
+    {
+        switchedOn = !switchedOn;
+        if (canBeTurnedOff) ToggleLight();
+    }
+
+    public void TurnOffForGood()
+    {
+        switchedOn = false;
+        ToggleLight();
+        canBeTurnedOff = false;
+    }
+
+    private void ToggleLight()
     {
         lineBeam.ToggleBeam();
         if(switchedOn) WaitForBeamDestruction();

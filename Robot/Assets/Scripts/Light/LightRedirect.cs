@@ -19,7 +19,6 @@ public class LightRedirect : MonoBehaviour
     {
         if((!lightBeam.transform.IsChildOf(this.transform)) && (lightBeam.gameObject.layer != LayerMask.NameToLayer("BeamLayer")))
         {
-            //Debug.Log("232");
             if (splineCurve != null)
             {
                 DestroyBeam();

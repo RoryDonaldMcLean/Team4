@@ -22,8 +22,11 @@ public class StraightSplineBeam : MonoBehaviour
 
     void OnDestroy()
     {
-        dynamicLightBeam.TriggerConnectedObjectsExit();
-        Destroy(dynamicLightBeam);
+        if (dynamicLightBeam != null)
+        {
+            dynamicLightBeam.TriggerConnectedObjectsExit();
+            Destroy(dynamicLightBeam);
+        }
     }
 
 	//either creates or destroys the beam depending on the active state of the beam.
@@ -78,6 +81,11 @@ public class StraightSplineBeam : MonoBehaviour
         {
             Destroy(splineCurve);
         }
+    }
+
+    public Transform BeamChild()
+    {
+        return splineCurve.transform.GetChild(0);
     }
 
     public void RotateBeam(Vector3 newRot)

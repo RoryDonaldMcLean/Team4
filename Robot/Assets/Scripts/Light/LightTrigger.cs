@@ -56,7 +56,7 @@ public class LightTrigger : MonoBehaviour
     {
         if(!correctLight)
         {
-            Debug.Log("correctLight!");
+            Debug.Log("NowCorrectLight!");
             correctLight = true;
             //LightSource.Play();
         }
@@ -66,7 +66,7 @@ public class LightTrigger : MonoBehaviour
     {
         if (correctLight)
         {
-            Debug.Log("incorrectLight!");
+            Debug.Log("NowIncorrectLight!");
             correctLight = false;
         }
     }

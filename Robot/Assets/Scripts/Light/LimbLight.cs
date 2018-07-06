@@ -107,7 +107,6 @@ public class LimbLight : MonoBehaviour
         if(RayCast(direction, nearDistance, out hit))
         {
             lightRedirect.TriggerEnterFunction(hit.collider);
-            Debug.Log("!" + hit.transform.name);
         }
     }
 

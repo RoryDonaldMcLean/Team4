@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LightResize : MonoBehaviour
 {
+    private RaycastHit objectInfo;
     private Collider puzzleObject;
     public StraightSplineBeam lineBeam;
 
@@ -31,7 +32,9 @@ public class LightResize : MonoBehaviour
         }
         else
         {
-            CancelInvoke("BeamRaycast");
+            //CancelInvoke("DefaultLightRaycast");
+
+            StopCoroutine(RaycastOnRepeat());
         }
     }
 
@@ -41,7 +44,7 @@ public class LightResize : MonoBehaviour
         {
             RaycastHit hit;
             if (ObjectFoundBehindBlockedBeam(out hit))
-            {            
+            {
                 TriggerExitControl(hit.transform);
             }
         }
@@ -49,38 +52,79 @@ public class LightResize : MonoBehaviour
 
     private void RaycastControl()
 	{
-		CancelInvoke("BeamRaycast");
-		InvokeRepeating("BeamRaycast", 0.0f, 0.16666f);
+		//CancelInvoke("DefaultLightRaycast");
+		//InvokeRepeating("DefaultLightRaycast", 0.0f, 0.16666f);
+
+        StopCoroutine(RaycastOnRepeat());
+        StartCoroutine(RaycastOnRepeat());
 	}
 
-	private void BeamRaycast()
+    private IEnumerator RaycastOnRepeat()
+    {
+        while(!contact)
+        {
+            DefaultLightRaycast();
+
+            yield return new WaitForFixedUpdate();
+        }
+    }
+
+    private void DefaultLightRaycast()
 	{
         if (lineBeam.active)
 		{
-			RaycastHit hit;
-            float objectSize = Vector3.Dot(this.transform.right, this.transform.lossyScale);
-            float raycastSize = 0.2f;
-            
-			float maxDraw = lineBeam.beamLength * 2.0f;
-			Vector3 raycastStartLocation = this.transform.GetChild(this.transform.childCount - 1).position;
-            int layerMask = ~(1 << LayerMask.NameToLayer("LightBeam") | 1 << LayerMask.NameToLayer("BeamLayer") | 1 << LayerMask.NameToLayer("PlayerLayer"));
-
-            //Check if there has been a hit yet
-            Debug.DrawRay(raycastStartLocation, this.GetComponent<Transform>().forward, Color.yellow, maxDraw);
-            if ((Physics.BoxCast(raycastStartLocation, new Vector3(raycastSize, raycastSize, raycastSize), this.GetComponent<Transform>().forward, out hit, this.transform.localRotation, maxDraw, layerMask))) 
+            if (RaycastBeam())
             {
-                if (puzzleObject != hit.collider)
+                if (puzzleObject != objectInfo.collider)
                 {
-                    OnTriggerEnter(hit.collider);
+                    OnEnterObject();
                 }
-            }         
+            }  
 		}
 	}
 
-    //Upon a collison being detected with a object 
-    void OnTriggerEnter(Collider collidedObject)
+    private void ResizeLightRaycast()
     {
-        if ((!collidedObject.name.Contains("Pole"))&&(!collidedObject.name.Contains("LineColliderObject"))) BeamResizeController(ref collidedObject);
+        if (lineBeam.active)
+        {
+            if (RaycastBeam())
+            {
+                OnEnterObject();
+            }
+            else 
+            {
+                CleanUpCollidedObject();
+            }
+        }
+    }
+
+    private bool RaycastBeam()
+    {
+        float raycastSize = 0.18f;
+
+        float maxDraw = lineBeam.beamLength * 2.0f;
+        Vector3 raycastStartLocation = this.transform.GetChild(this.transform.childCount - 1).position;
+        int layerMask = ~(1 << LayerMask.NameToLayer("LightBeam") | 1 << LayerMask.NameToLayer("BeamLayer") | 1 << LayerMask.NameToLayer("PlayerLayer"));
+
+        return (Physics.BoxCast(raycastStartLocation, new Vector3(raycastSize, raycastSize, raycastSize), this.GetComponent<Transform>().forward, out objectInfo, this.transform.localRotation, maxDraw, layerMask));
+    }
+
+    //Upon a collison being detected with a object 
+    void OnEnterObject()
+    {
+        if (objectInfo.collider.name.Contains("ColourBarrier"))
+        {
+            if(objectInfo.transform.GetComponent<LightBarrier>().OnEnter(lineBeam.beamColour))
+            {
+                BeamResizeController();
+            }
+            else if (ObjectFoundBehindIgnoredObject())
+            {
+                if (puzzleObject != objectInfo.collider) BeamResizeController();
+            }
+        }
+        //prolly remove this if statement at some pt
+        else if ((!objectInfo.collider.name.Contains("Pole"))&&(!objectInfo.collider.name.Contains("LineColliderObject"))) BeamResizeController();
     }
 
     public void TriggerExitControl(Transform objectBlocked)
@@ -99,9 +143,6 @@ public class LightResize : MonoBehaviour
         {
             case "LightSplitter":
                 objectBlocked.GetComponent<LightSplitter>().ForceTriggerExit();
-                break;
-            case "ColourBarrier":
-                objectBlocked.GetComponent<LightBarrier>().ForceTriggerExit();
                 break;
             case "LightPrismColourCombo":
                 objectBlocked.GetComponent<PrismColourCombo>().TriggerExitFunction(lineBeam.beamColour);
@@ -129,12 +170,12 @@ public class LightResize : MonoBehaviour
             }
             else if(AwayFromBeam())
             {
-                Debug.Log("error");
+                Debug.Log("away");
                 CleanUpCollidedObject();
             }
             else if(ShouldResizeBeam())
             {
-                Debug.Log("error");
+                Debug.Log("resize");
                 ResizeBeam();
             }
         }
@@ -148,9 +189,8 @@ public class LightResize : MonoBehaviour
         {
             if (endPoint < defaultBeamEndPoint)
             {
-                puzzleObject = null;
                 contact = false;
-                BeamRaycast();
+                ResizeLightRaycast();
             }
             else
             {
@@ -161,13 +201,13 @@ public class LightResize : MonoBehaviour
 
     private void CleanUpCollidedObject()
     {
-        lineBeam.ToggleBeam();
-        lineBeam.ToggleBeam();
-
         if (lineBeam.IsBeamAlive())
         {
             ObjectExitBeamAreaResponse();
         }
+
+        lineBeam.ToggleBeam();
+        lineBeam.ToggleBeam();
     }
 
     private IEnumerator LightInterruptionControl()
@@ -179,7 +219,7 @@ public class LightResize : MonoBehaviour
     {
         while (contact)
         {
-            Invoke("BeamRaycast", 0.1666f);
+            Invoke("DefaultLightRaycast", 0.1666f);
             yield return null;
         }
         StopCoroutine("LightInterruptionCheck");
@@ -204,7 +244,7 @@ public class LightResize : MonoBehaviour
     {       
         contact = false;
         TriggerConnectedObjectsExit();
-		RaycastControl();
+		//RaycastControl();
     }
 
     private void CreateNewBody()
@@ -217,33 +257,45 @@ public class LightResize : MonoBehaviour
 
     private bool ObjectFoundBehindBlockedBeam(out RaycastHit hit)
     {
-        float maxDraw = (oldBeamEndPoint - newBeamEndPoint) - (puzzleObject.transform.lossyScale.z / 2.0f);
-        Vector3 raycastStartLocation = puzzleObject.transform.position;
-        raycastStartLocation.z -= puzzleObject.transform.lossyScale.z;
+        float raycastSize = 1.0f;
+        float maxDraw = (oldBeamEndPoint - newBeamEndPoint);
 
-        //Check if there has been a hit yet
-		Debug.DrawRay(raycastStartLocation, this.GetComponent<Transform>().forward, Color.yellow, maxDraw);
-        return (Physics.BoxCast(raycastStartLocation, puzzleObject.transform.lossyScale, this.GetComponent<Transform>().forward, out hit, Quaternion.identity, maxDraw));
+        Vector3 raycastStartLocation = objectInfo.point;
+        int layerMask = ~(1 << LayerMask.NameToLayer("LightBeam") | 1 << LayerMask.NameToLayer("BeamLayer") | 1 << LayerMask.NameToLayer("PlayerLayer"));
+
+        return (Physics.BoxCast(raycastStartLocation, new Vector3(raycastSize, raycastSize, raycastSize), this.GetComponent<Transform>().forward, out hit, this.transform.localRotation, maxDraw, layerMask));
     }
 
-    private void BeamResizeController(ref Collider collidedObject)
+    private bool ObjectFoundBehindIgnoredObject()
     {
+        float raycastSize = 0.2f;
+        float maxDraw = (defaultBeamEndPoint - Vector3.Dot(objectInfo.transform.position, this.transform.forward));
+
+        Vector3 raycastStartLocation = objectInfo.point;
+        int layerMask = ~(1 << LayerMask.NameToLayer("LightBeam") | 1 << LayerMask.NameToLayer("BeamLayer") | 1 << LayerMask.NameToLayer("PlayerLayer"));
+
+        return (Physics.BoxCast(raycastStartLocation, new Vector3(raycastSize, raycastSize, raycastSize), this.GetComponent<Transform>().forward, out objectInfo, this.transform.localRotation, maxDraw, layerMask));
+    }
+
+    private void BeamResizeController()
+    {
+        Collider collidedObject = objectInfo.collider;
+
         //finds the point where the picked up object hit the lightbeam, only in z since its the axis right represents the length of the beam and forward for the object.   
-        Vector3 collisionPoint = collidedObject.GetComponent<Collider>().ClosestPointOnBounds(this.transform.GetChild(this.transform.childCount - 1).transform.position);
-        newBeamEndPoint = Vector3.Dot(collisionPoint, this.transform.forward);
+        newBeamEndPoint = Vector3.Dot(objectInfo.point, this.transform.forward);
 
         //finds the collider object attached to every lightbeam, that is used as the collider for most of the lightbeam code
         Transform endPointObject = this.transform.GetChild(this.transform.childCount - 1).GetChild(0).transform;    
         float endPointObjectValue = (Vector3.Dot(endPointObject.position, this.transform.forward));
 
-        //Debug.Log("collision" + collisionPoint);
-        //Debug.Log("newBeamEndPoint" + newBeamEndPoint);
-        //Debug.Log("lel" + endPointObjectValue);
-
         //float objectPoint = Vector3.Dot(collidedObject.transform.position, this.transform.forward);
         if (!Mathf.Approximately(endPointObjectValue, newBeamEndPoint))
         {
             BeamResize(ref endPointObject, ref collidedObject);
+        }
+        else
+        {
+            CleanUpCollidedObject();
         }
         /*
         //Means the object is in Z area, but the beam needs to be resized       
@@ -283,8 +335,9 @@ public class LightResize : MonoBehaviour
         */
     }
 
-    private IEnumerator CheckIfBeamEntersFurthur(Collider collidedObject)
+    private IEnumerator CheckIfBeamEntersFurthur(RaycastHit hit)
     {
+        Collider collidedObject = hit.collider;
         float oldPosZ = Vector3.Dot(collidedObject.transform.position, this.transform.forward);
         while (true)
         {
@@ -296,7 +349,7 @@ public class LightResize : MonoBehaviour
                 if (oldPosZ < (lineBeam.beamLength * 2.0f))
                 {
                     //if inside beam length on Z
-                    BeamResizeController(ref collidedObject);
+                    BeamResizeController();
                     StopCoroutine("CheckIfBeamEntersFurthur");
                 }
             }
@@ -313,15 +366,31 @@ public class LightResize : MonoBehaviour
         CalculateNewBeam(ref endPointBeam);
 
         //finds the width of the possible collision, using the real scale of and size of the objects being collided with. Used to ascertain if the beam is no longer in range. (in order to stop checking)
-        colliderWidth = Mathf.Abs(Vector3.Dot(puzzleObject.transform.lossyScale, puzzleObject.transform.forward) / 2.0f) + Mathf.Abs(Vector3.Dot(endPointBeam.transform.lossyScale, this.transform.right) / 4.0f);
+        colliderWidth = WidthCalculate();
 
         CheckForPrevCollidedObject();
 
-        CancelInvoke("BeamRaycast");
+        //CancelInvoke("DefaultLightRaycast");
+        StopCoroutine(RaycastOnRepeat());
 
         contact = true;
 
         StartCoroutine(LightInterruptionControl());
+    }
+
+    private float WidthCalculate()
+    {
+        Vector3 scale = Vector3.Scale(puzzleObject.transform.lossyScale, puzzleObject.transform.right);
+
+        float widthOnX = 0;
+        float widthOnZ = 0;
+
+        if (scale.x != 0) widthOnX = Mathf.Sqrt(scale.x * scale.x);
+        if (scale.z != 0) widthOnZ = Mathf.Sqrt(scale.z * scale.z);
+
+        float width = (widthOnZ + widthOnX) / 2.0f;
+
+        return width;
     }
 
     private void CalculateNewBeam(ref Transform endPointBeam)
@@ -361,20 +430,22 @@ public class LightResize : MonoBehaviour
     //if the picked up object is no longer is range for a collision
     private bool AwayFromBeam()
     {
-        float positionOfObject = (Vector3.Dot(puzzleObject.transform.position, puzzleObject.transform.right));
-        //float positionOfObject = (Vector3.Dot(puzzleObject.transform.position, puzzleObject.transform.forward));
         Transform endPointBeam = this.transform.GetChild(this.transform.childCount - 1).GetChild(0).transform;
-        float colliderXPoint = (Vector3.Dot(endPointBeam.position, this.transform.right));
 
-        return ((positionOfObject > (colliderXPoint + colliderWidth)) || (positionOfObject < (colliderXPoint - colliderWidth)));
+        float positionOfObject = (Vector3.Dot(puzzleObject.transform.position, endPointBeam.transform.right));      
+        float positionOfBeam = (Vector3.Dot(objectInfo.point, endPointBeam.transform.right));
+
+        float right = (positionOfObject + colliderWidth);
+        float left = (positionOfObject - colliderWidth);
+
+        return ((positionOfBeam > right) || (positionOfBeam < left));
     }
     //if the picked up object is no longer is range for a collision
     private bool ShouldResizeBeam()
     {
-        Vector3 collisionPoint = puzzleObject.GetComponent<Collider>().ClosestPointOnBounds(this.transform.GetChild(this.transform.childCount - 1).transform.position);
-        float zPositionOfObject = Vector3.Dot(collisionPoint, this.transform.forward);
+        float positionOfObject = Vector3.Dot(objectInfo.point, this.transform.forward);
 
-        return (!Mathf.Approximately(zPositionOfObject, newBeamEndPoint));
+        return (!Mathf.Approximately(positionOfObject, newBeamEndPoint));
     }
     /*
     void OnDrawGizmos()
@@ -382,30 +453,36 @@ public class LightResize : MonoBehaviour
         Gizmos.color = Color.red;
         RaycastHit hit;
 
-        float nearDistance = 1.0f;
-        if (lineBeam.active)
+        if ((lineBeam.active) && (this.transform.name.Contains("beep")))
         {
-            float maxDraw = lineBeam.beamLength * 2.0f;
-            Vector3 raycastStartLocation = this.transform.position;
+            //float maxDraw = lineBeam.beamLength * 2.0f;
+            //Vector3 raycastStartLocation = this.transform.position;
    
-            int layerMask = ~(1 << LayerMask.NameToLayer("LightBeam") | 1 << LayerMask.NameToLayer("BeamLayer"));
+            //int layerMask = ~(1 << LayerMask.NameToLayer("LightBeam") | 1 << LayerMask.NameToLayer("BeamLayer"));
             //Check if there has been a hit yet
-            float range = 0.2f;
-            if (Physics.BoxCast(raycastStartLocation, new Vector3(range, range, range), this.GetComponent<Transform>().forward, out hit, Quaternion.identity, maxDraw, layerMask))
+            //float range = 1.0f;
+
+            float raycastSize = 0.18f;
+            float maxDraw = 3;
+            
+            Vector3 raycastStartLocation = this.transform.position;
+            //int layerMask = ~(1 << LayerMask.NameToLayer("LightBeam") | 1 << LayerMask.NameToLayer("BeamLayer") | 1 << LayerMask.NameToLayer("PlayerLayer"));
+
+            if (Physics.BoxCast(raycastStartLocation, new Vector3(raycastSize, raycastSize, raycastSize), this.GetComponent<Transform>().forward, out hit, this.transform.localRotation, maxDraw))
             {
                 Debug.Log("?" + hit.transform.name);
                 //Draw a Ray forward from GameObject toward the hit
-                Gizmos.DrawRay(transform.position, transform.forward * hit.distance);
+                Gizmos.DrawRay(transform.position, transform.forward * maxDraw);
                 //Draw a cube that extends to where the hit exists
-                Gizmos.DrawWireCube(raycastStartLocation + transform.forward * nearDistance, new Vector3(range, range, range));
+                Gizmos.DrawWireCube(raycastStartLocation + transform.forward * maxDraw, new Vector3(raycastSize, raycastSize, raycastSize));
             }
             //If there hasn't been a hit yet, draw the ray at the maximum distance
             else
             {
                 //Draw a Ray forward from GameObject toward the maximum distance
-                Gizmos.DrawRay(transform.position, transform.forward * nearDistance);
+                Gizmos.DrawRay(transform.position, transform.forward * maxDraw);
                 //Draw a cube at the maximum distance
-                Gizmos.DrawWireCube(raycastStartLocation + transform.forward * nearDistance, new Vector3(range, range, range));
+                Gizmos.DrawWireCube(raycastStartLocation + transform.forward * maxDraw, new Vector3(raycastSize, raycastSize, raycastSize));
             }
         }
     }

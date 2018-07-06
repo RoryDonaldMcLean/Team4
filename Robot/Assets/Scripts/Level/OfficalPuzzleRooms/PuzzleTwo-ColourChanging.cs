@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class PuzzleTwoColourChanging : LevelControlBaseClass
 {
-	// Use this for initialization
-	void Start ()
+    void Awake()
     {
-		
-	}
-	
-	// Update is called once per frame
-	void Update ()
+        puzzleIdentifier = "PuzzleTwo";
+    }
+
+    // Update is called once per frame
+    void Update()
     {
-		
-	}
+        if ((IsAllLightTriggersActive()) && (!doorStateOpen))
+        {
+            Debug.Log("open");
+            doorStateOpen = !doorStateOpen;
+            exitDoor.OpenDoor();
+            EndOfLevel();
+        }
+    }
 }

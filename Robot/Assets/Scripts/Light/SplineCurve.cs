@@ -64,6 +64,9 @@ public class SplineCurve : MonoBehaviour
 
         this.transform.localPosition = Vector3.zero;
         this.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 0));
+
+        lineRenderer.startColor = color;
+        lineRenderer.endColor = color;
     }
 
     private void CreateCollider(Vector3 location)

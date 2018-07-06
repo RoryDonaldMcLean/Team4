@@ -9,6 +9,7 @@ public class LightSplitter : MonoBehaviour
     private List<GameObject> splitBeams;
     private Color beamColour = Color.white;
     private int totalLightSplits = 2;
+    public int beamLength = 5;
     //private float originalBeamInverse;
 
     // Use this for initialization
@@ -23,6 +24,7 @@ public class LightSplitter : MonoBehaviour
         if ((!lightBeam.transform.IsChildOf(this.transform)) && (lightBeam.gameObject.layer != LayerMask.NameToLayer("BeamLayer")))
         {
             beamColour = lightBeam.GetComponentInParent<LineRenderer>().startColor;
+            if(beamColour.Equals(Color.white)) Debug.Log("colour" + lightBeam.GetComponentInParent<SplineCurve>().color);
             CreateExtendedBeam();
         }
     }
@@ -80,8 +82,9 @@ public class LightSplitter : MonoBehaviour
 
             splitBeams.Add(lightBeam);
             splitBeams[i].GetComponent<StraightSplineBeam>().beamColour = beamColour;
+            splitBeams[i].GetComponent<StraightSplineBeam>().beamLength = beamLength;
         }
-        //splitBeams[0].transform.Rotate(Vector3.up * 45);
+        splitBeams[0].transform.Rotate(Vector3.up * 45);
         splitBeams[1].transform.Rotate(Vector3.up * -45);
 
         if (splitColour) SplitColourBetweenBeams();

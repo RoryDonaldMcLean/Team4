@@ -11,7 +11,10 @@ public class LevelControlBaseClass : MonoBehaviour
     protected List<StraightSplineBeam> beams;
     protected List<LightTrigger> lightDoors;
     protected PuzzleExitDoor exitDoor;
-    protected string PuzzleIdentifier;
+    protected List<GameObject> lightSources;
+    protected string puzzleIdentifier;
+    protected bool doorStateOpen = false;
+    private bool lightShowFinished = false;
 
     void Start()
     {
@@ -20,8 +23,68 @@ public class LevelControlBaseClass : MonoBehaviour
         SpecficPuzzleSetup("Doors");
         SpecficPuzzleSetup("Beams");
         SpecficPuzzleSetup("LightDoors");
+        SpecficPuzzleSetup("LightSources");
 
         DoorSetup();
+    }
+
+    protected void EndOfLevel()
+    {
+        LevelCompleteLightShow();
+        StartCoroutine(TurnOffLights());
+    }
+
+    private void LevelCompleteLightShow()
+    {
+        LineRenderer[] lightBeams = FindObjectsOfType<LineRenderer>();
+        foreach (LineRenderer beam in lightBeams)
+        {
+            StartCoroutine(BlinkingLightControl(beam));
+        }      
+    }
+
+    private IEnumerator TurnOffLights()
+    {
+        yield return new WaitUntil(()=>lightShowFinished);
+        foreach (GameObject lightSource in lightSources)
+        {
+            lightSource.GetComponentInChildren<LightEmitter>().TurnOffForGood();
+        }
+    }
+
+    private IEnumerator BlinkingLightControl(LineRenderer line)
+    {
+        int counter = 0;
+        Color beamColour = Color.green;
+
+        line.startColor = beamColour;
+        line.endColor = beamColour;
+
+        while (counter < 10)
+        {
+            yield return StartCoroutine(BlinkingLight(line));
+            counter++;
+        }
+        lightShowFinished = true;
+    }
+
+    private IEnumerator BlinkingLight(LineRenderer line)
+    {
+        yield return new WaitForSeconds(0.5f);
+        Color beamColour = line.startColor;
+
+        if (beamColour.a > 0)
+        {
+            beamColour.a = 0;
+            line.startColor = beamColour;
+            line.endColor = beamColour;
+        }
+        else
+        {
+            beamColour.a = 1;
+            line.startColor = beamColour;
+            line.endColor = beamColour;
+        }
     }
 
     private void DoorSetup()
@@ -29,7 +92,7 @@ public class LevelControlBaseClass : MonoBehaviour
         GameObject[] doorObjects = GameObject.FindGameObjectsWithTag("PuzzleExitDoor");
         foreach (GameObject doorObject in doorObjects)
         {
-            if (doorObject.transform.parent.name.Contains(PuzzleIdentifier))
+            if (doorObject.transform.parent.name.Contains(puzzleIdentifier))
             {
                 exitDoor = doorObject.transform.GetChild(0).GetComponent<PuzzleExitDoor>();
             }
@@ -61,7 +124,7 @@ public class LevelControlBaseClass : MonoBehaviour
             foreach (GameObject parentObject in parentObjects)
             {
                 Transform puzzleObjectContainer = parentObject.transform;
-                if (puzzleObjectContainer.parent.name.Contains(PuzzleIdentifier))
+                if (puzzleObjectContainer.parent.name.Contains(puzzleIdentifier))
                 {
                     for (int i = 0; i < puzzleObjectContainer.childCount; i++)
                     {
@@ -109,6 +172,9 @@ public class LevelControlBaseClass : MonoBehaviour
                 {
                     lightDoors.Add(puzzleObject.GetComponent<LightTrigger>());
                 }
+                break;
+            case "LightSources":
+                lightSources = puzzleObjects;
                 break;
         }
     }

@@ -7,14 +7,15 @@ public class PrismColourCombo : MonoBehaviour
     private List<Color> colourBeams = new List<Color>();
     private Color newBeamColour;
     private StraightSplineBeam splineCurve;
+    public int beamLength = 5;
 
     //Upon a collison being detected with a Lightbeam
     void OnTriggerEnter(Collider lightbeam)
     {
-        Color line = lightbeam.GetComponentInParent<LineRenderer>().startColor;
-        if(!CheckBeamExists(line))
+        Color lineColour = lightbeam.GetComponentInParent<LineRenderer>().startColor;
+        if(!CheckBeamExists(lineColour))
         {
-            colourBeams.Add(line);
+            colourBeams.Add(lineColour);
             CreateNewBeamCheck();
         }
     }
@@ -22,21 +23,21 @@ public class PrismColourCombo : MonoBehaviour
     //Upon lightbeam leaving the prism
     void OnTriggerExit(Collider lightbeam)
     {
-        Color line = lightbeam.GetComponentInParent<LineRenderer>().startColor;
-        if (CheckBeamExists(line))
+        Color lineColour = lightbeam.GetComponentInParent<LineRenderer>().startColor;
+        while (CheckBeamExists(lineColour))
         {
-            colourBeams.Remove(line);
-            ModifyBeam();
+            colourBeams.Remove(lineColour);           
         }
+        ModifyBeam();
     }
 
-    public void TriggerExitFunction(Color line)
+    public void TriggerExitFunction(Color lineColour)
     {
-        if (CheckBeamExists(line))
+        while (CheckBeamExists(lineColour))
         {
-            colourBeams.Remove(line);
-            ModifyBeam();
+            colourBeams.Remove(lineColour);       
         }
+        ModifyBeam();
     }
 
     //if the beam leaving has reduced the amount of beams hitting the prism to zero, delete the prism beam.
@@ -55,23 +56,25 @@ public class PrismColourCombo : MonoBehaviour
 
     void DestroyBeam()
     {
-       splineCurve.ToggleBeam();
-       Destroy(splineCurve);
-       this.transform.GetComponent<Renderer>().material.color = Color.white;
+        if (splineCurve != null)
+        {
+            splineCurve.ToggleBeam();
+            Destroy(splineCurve);
+            this.transform.GetComponent<Renderer>().material.color = Color.white;
+        }
     }
     //simply checks if that beam has been added previously, using colour parameter to discern this.
-    bool CheckBeamExists(Color collidedLine)
+    bool CheckBeamExists(Color lineColour)
     {
-        bool beamExists = false;
         foreach(Color line in colourBeams)
         {  
-            if (line.Equals(collidedLine))
+            if (line.Equals(lineColour))
             {
-                beamExists = true;
+                return true;
             }
         }
        
-        return beamExists;
+        return false;
     }
     //when creating a new beam if there are multiple beams hitting the prism, colour combine them into one singular colour beam
     //otherwise just create a beam using the one beam that is hitting the prism.
@@ -95,20 +98,19 @@ public class PrismColourCombo : MonoBehaviour
         {
             newBeamColour += line;
         }
-        newBeamColour /= colourBeams.Count;
+        newBeamColour.a = 1;
+        //newBeamColour /= colourBeams.Count;
     }
 
     //destroys a prism beam that exists if one was still in use, before creating the new one it replaces.
     void CreateNewLightBeam()
     {
-        if(splineCurve != null)
-        {
-            DestroyBeam();
-        }
+       DestroyBeam();
 
-        splineCurve = this.gameObject.AddComponent<StraightSplineBeam>();
-        splineCurve.beamColour = newBeamColour;
+       splineCurve = this.gameObject.AddComponent<StraightSplineBeam>();
+       splineCurve.beamColour = newBeamColour;
+       splineCurve.beamLength = beamLength;
 
-        this.transform.GetComponent<Renderer>().material.color = newBeamColour;
+       this.transform.GetComponent<Renderer>().material.color = newBeamColour;
     }
 }

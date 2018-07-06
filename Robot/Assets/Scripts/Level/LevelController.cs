@@ -5,7 +5,7 @@ using UnityEngine;
 public class LevelController : MonoBehaviour
 {
     private List<LevelControlBaseClass> levelScripts = new List<LevelControlBaseClass>();
-    private int currentLevel = 0;
+    private int currentLevel = -1;
 
 	void Start ()
     {
@@ -33,9 +33,6 @@ public class LevelController : MonoBehaviour
             case 4:
             LevelFour();
             break;
-            case 5:
-            LevelFive();
-            break;
         }
     }
 
@@ -62,11 +59,6 @@ public class LevelController : MonoBehaviour
     private void LevelFour()
     {
         levelScripts.Add(this.gameObject.AddComponent<PuzzleFourCombination>());
-    }
-
-    private void LevelFive()
-    {
-        levelScripts.Add(this.gameObject.AddComponent<PuzzleFiveFinal>());
     }
 
     private void CleanUp()

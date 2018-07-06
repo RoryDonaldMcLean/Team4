@@ -51,9 +51,16 @@ public class PickupAndDropdown : MonoBehaviour
 			if(Input.GetKeyDown(KeyCode.E))
             {
                 if (ObjectFound(out hit))//ray cast detection
-                {             
-					//if the object the player is trying to pick up is the SlideBox (object attached to the pole)
-					if (hit.transform.name.Contains("SlideBox"))
+                {
+                    string objectName = hit.transform.name;
+                    if (objectName.Contains("CarryCrate"))
+                    {
+                        Debug.Log("Go");
+                        objectName = hit.transform.parent.name;
+                    }
+
+                    //if the object the player is trying to pick up is the SlideBox (object attached to the pole)
+                    if (objectName.Contains("SlideBox"))
 					{
 						pickedUpGameObject = hit.transform.gameObject;
 						Vector3 temp = pickedUpGameObject.transform.position;
@@ -72,9 +79,8 @@ public class PickupAndDropdown : MonoBehaviour
 						holding = true;
 					} 
 					//if the object the player is trying to pick up is the RotateBox
-					else if (hit.transform.name.Contains("RotateBox"))
+					else if (objectName.Contains("RotateBox"))
 					{
-						Debug.Log ("hit the rotate box");
 						pickedUpGameObject = hit.transform.gameObject;
 
 						//when you "pick up" the box it will rotate to face the same direction as the player
@@ -89,7 +95,7 @@ public class PickupAndDropdown : MonoBehaviour
 					} 
 					else
 					{
-						GenericPickUpCheck (ref hit);
+						GenericPickUpCheck(ref hit);
 					}
 				}
             }
@@ -97,7 +103,13 @@ public class PickupAndDropdown : MonoBehaviour
             {
 				if (ObjectFound (out hit))//ray cast detection
 				{
-					if (hit.transform.name.Contains("LimbLight")) 
+                    string objectName = hit.transform.name;
+                    if (objectName.Contains("CarryCrate"))
+                    {
+                        objectName = hit.transform.parent.name;
+                    }
+
+                    if (objectName.Contains("LimbLight")) 
 					{
 						LimbLight limbLightBox = hit.transform.GetComponent<LimbLight>();
 						if (limbLightBox.IsLimbAttached()) 
@@ -109,16 +121,16 @@ public class PickupAndDropdown : MonoBehaviour
 							limbLightBox.AttachLimbToLightBox (this.tag);
 						}
 					} 
-					else if (hit.transform.name.Contains("LightEmitter")) 
+					else if (objectName.Contains("LightEmitter")) 
 					{
-                        hit.transform.GetComponent<LightEmitter>().ToggleLight();
+                        hit.transform.GetComponent<LightEmitter>().InteractWithEmitter();
                         hit.transform.GetComponent<LightEmitter>().switchedOn = !hit.transform.GetComponent<LightEmitter>().switchedOn;
                     }
-					else if (hit.transform.name.Contains("RotateBox")) 
+					else if (objectName.Contains("RotateBox")) 
 					{
 						if (hit.transform.parent.GetComponent<SCR_Rotatable>().rotatableObjectString.Contains("LightEmitter")) 
 						{
-							hit.transform.GetComponent<LightEmitter>().ToggleLight();
+							hit.transform.GetComponent<LightEmitter>().InteractWithEmitter();
 						}
 					}
 				}
@@ -184,20 +196,20 @@ public class PickupAndDropdown : MonoBehaviour
 
 	public void RotateDrop()
 	{
-		pickedUpGameObject.transform.parent.GetComponent<SCR_Rotatable> ().pickedUp = false;
+		pickedUpGameObject.transform.parent.GetComponent<SCR_Rotatable>().pickedUp = false;
 		offset = 0;
-		PutDownObject ();
+		PutDownObject();
 	}
 
 	private void GenericPickUpCheck(ref RaycastHit hit)
 	{
-		//Debug.Log ("generic pick up");
 		if ((hit.collider.tag == "LightBox") && (this.GetArmQuantity () >= 1))
 		{
 			PickUpObject (hit.transform);
-		} else if ((hit.collider.tag == "HeavyBox") && (this.GetArmQuantity () >= 2))
+		}
+        else if ((hit.collider.tag == "HeavyBox") && (this.GetArmQuantity () >= 2))
 		{
-			PickUpObject (hit.transform);
+			PickUpObject(hit.transform);
 		}
 	}
 		
@@ -213,7 +225,6 @@ public class PickupAndDropdown : MonoBehaviour
 
     private void PickUpObject(Transform objectBeingPickedUp)
     {
-		Debug.Log ("at the pickup function");
         holding = true; //set pick up boolean
         pickedUpGameObject = objectBeingPickedUp.gameObject; // set the pick up object
         alpha = 0;
@@ -227,13 +238,10 @@ public class PickupAndDropdown : MonoBehaviour
 
         Vector3 colliderScale = new Vector3(x, y, z);
         pickupLocation.GetComponent<BoxCollider>().size = colliderScale;
-        pickupLocation.GetComponent<BeamPoint>().pickedUpTransform = pickedUpGameObject.transform;
-
 
         //PickCrystalSource.Play();
     }
-		
-		
+				
     private int GetArmQuantity()
     {
         int quantity = 0;
@@ -260,7 +268,7 @@ public class PickupAndDropdown : MonoBehaviour
     private bool ObjectFound(out RaycastHit hit)
     {
         Vector3 tempPoss = this.GetComponent<Transform>().position;
-		tempPoss -= this.GetComponent<Transform> ().forward * 0.3f;
+        tempPoss -= this.GetComponent<Transform>().forward * 0.7f;
         return Physics.BoxCast(tempPoss, this.GetComponent<Transform>().localScale, this.GetComponent<Transform>().forward, out hit, this.GetComponent<Transform>().rotation, pickingMaxDistance);
     }
     
@@ -290,39 +298,4 @@ public class PickupAndDropdown : MonoBehaviour
             other.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         }
     }
-
-
-
-    void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        RaycastHit hit;
-
-        float nearDistance = 1.0f;
-      
-        {
-			Vector3 raycastStartLocation = this.GetComponent<Transform>().position;
-			raycastStartLocation -= this.GetComponent<Transform> ().forward * 0.3f;
-
-            //Check if there has been a hit yet
-			if (Physics.BoxCast(raycastStartLocation, this.transform.lossyScale, this.GetComponent<Transform>().forward, out hit, Quaternion.identity, pickingMaxDistance))
-            {
-//                Debug.Log("?>LOP");
-                //Draw a Ray forward from GameObject toward the hit
-                Gizmos.DrawRay(transform.position, transform.forward * hit.distance);
-                //Draw a cube that extends to where the hit exists
-				Gizmos.DrawWireCube(raycastStartLocation + transform.forward * nearDistance, this.GetComponent<Transform>().lossyScale);
-            }
-            //If there hasn't been a hit yet, draw the ray at the maximum distance
-            else
-            {
-                //Debug.Log("sadasd");
-                //Draw a Ray forward from GameObject toward the maximum distance
-                Gizmos.DrawRay(transform.position, transform.forward * nearDistance);
-                //Draw a cube at the maximum distance
-				Gizmos.DrawWireCube(raycastStartLocation + transform.forward * nearDistance, this.GetComponent<Transform>().lossyScale);
-            }
-        }
-    }
-    
 }

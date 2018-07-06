@@ -90,9 +90,6 @@ public class BeamPoint : MonoBehaviour
             case "LightSplitter":
                 objectBlocked.GetComponent<LightSplitter>().ForceTriggerExit();
                 break;
-            case "ColourBarrier":
-                objectBlocked.GetComponent<LightBarrier>().ForceTriggerExit();
-                break;
             case "LightPrismColourCombo":
                 objectBlocked.GetComponent<PrismColourCombo>().TriggerExitFunction(beamColor);
                 break;

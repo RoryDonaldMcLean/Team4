@@ -29,14 +29,29 @@ public class SCR_TradeLimb : MonoBehaviour
 
 	List<GameObject> limbsUI = new List<GameObject>();
 	List<GameObject> limbsUI2 = new List<GameObject>();
-   
-	// Use this for initialization
+
+    //Emotes for the player
+    int EmoteNumber = 0;
+    public GameObject Emote1;
+    public GameObject Emote2;
+    public GameObject Emote3;
+    public GameObject Emote4;
+
+    //Emote Raycast
+    public GameObject impactEffect;
+    private GameObject Face;
+    private float range = 100f;
+
+    // Use this for initialization
     private void Start()
     {
         InitialisePlayerLimbs();
         SetPlayerTag();
-		//get all the limbUI images, add them to a list and set them all to inactive to start
-		UILimbImage = GameObject.FindGameObjectWithTag ("UILimb");
+
+        Face = GameObject.FindGameObjectWithTag("Test");
+
+        //get all the limbUI images, add them to a list and set them all to inactive to start
+        UILimbImage = GameObject.FindGameObjectWithTag ("UILimb");
 		if (UILimbImage != null) 
 		{
 			for (int i = 0; i < UILimbImage.transform.childCount; i++) 
@@ -101,7 +116,7 @@ public class SCR_TradeLimb : MonoBehaviour
     public void Update()
     {
 		ProcessInput ();
-
+        Emote();
         childrenParticleSytems = gameObject.GetComponentsInChildren<ParticleSystem>();
 
         // Process each child's particle system and disable its emission module.
@@ -168,8 +183,8 @@ public class SCR_TradeLimb : MonoBehaviour
             }
         }
     }
-
-	public void UICheck()
+    
+    public void UICheck()
 	{
 		//player 1 
 		//checks that the player has that limb, if so activate the correct UI element
@@ -252,8 +267,57 @@ public class SCR_TradeLimb : MonoBehaviour
 		}
 	}
 
+    public void Emote()
+    {
+        //player 1 
+        //checks that the player has that limb, if so activate the correct UI element
+        if (player2)
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                Emotes();
+                EmoteNumber = 1;
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                Emotes();
+                EmoteNumber = 2;
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                Emotes();
+                EmoteNumber = 3;
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha4))
+            {
+                Emotes();
+                EmoteNumber = 4;
+            }
 
-	public void ProcessInput()
+        }
+        else
+        {
+            //player 2
+            if (Input.GetKeyDown(KeyCode.Alpha6))
+            {
+                Emotes();
+                EmoteNumber = 1;
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha7))
+            {
+                Emotes();
+                EmoteNumber = 2;
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha8))
+            {
+                Emotes();
+                EmoteNumber = 3;
+            }
+
+        }
+    }
+
+    public void ProcessInput()
 	{
 		//update the game controller
 		prevState = state;
@@ -558,6 +622,34 @@ public class SCR_TradeLimb : MonoBehaviour
         dropDownLims.AddComponent<Rigidbody>();
         dropDownLims.name = limbToRemove;
         dropDownLims.transform.position = dropDownLimsPosition;
+    }
+
+    void Emotes()
+    {
+        if (EmoteNumber == 1)
+        {
+            Instantiate(Emote1, transform.position, Quaternion.identity, transform);
+        }
+        if (EmoteNumber == 2)
+        {
+            Instantiate(Emote2, transform.position, Quaternion.identity, transform);
+        }
+        if (EmoteNumber == 3)
+        {
+            Instantiate(Emote3, transform.position, Quaternion.identity, transform);
+        }
+        if (EmoteNumber == 4)
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(Face.transform.position, Face.transform.forward, out hit, range))
+            {
+                Debug.Log(hit.transform.name);
+                GameObject Impact = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
+                Destroy(Impact, 2f);
+            }
+            Instantiate(Emote4, transform.position, Quaternion.identity, transform);
+        }
+
     }
 
     private void PickUpLims(GameObject pickUpObject)

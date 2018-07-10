@@ -22,7 +22,6 @@ public class InControlMelody : MonoBehaviour
 	//public GameObject Canvas;
 	GameObject CanvasNoteSheet;
 
-	GameObject MelodyDoor;
 
 
 	//counter used to track which note you are inputting i.e.
@@ -39,11 +38,16 @@ public class InControlMelody : MonoBehaviour
 	List<GameObject> blankNotes = new List<GameObject>();
 
 
-	//int playerNum;
+	int playerNum;
+
+	GameObject player1;
+
 
 	// Use this for initialization
 	void Start () 
 	{
+		player1 = GameObject.FindGameObjectWithTag ("Player1");
+
 		source = GetComponent<AudioSource> ();
 		Chirps = new AudioClip[4];
 		//get all the audio chirps from resources folder
@@ -70,33 +74,16 @@ public class InControlMelody : MonoBehaviour
 		blankNotes = Notes;
 
 
-		MelodyDoor = GameObject.FindGameObjectWithTag ("Door"); 
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-
-
-
-		//var inputDevice = (InputManager.Devices.Count > playerNum) ? InputManager.Devices [playerNum] : null;
-
-		var inputDevice = InputManager.ActiveDevice;
-		if(InputManager.Devices.Count <= 0)
-		{
-			//Debug.Log ("no controllers");
-			ProcessInput();
-		}
-		else
-		{
-			ProcessInputIncontrol (inputDevice);
-		}
-
-		//Debug.Log (playerNum);
+		
 
 		//player1 touching the door, if the correct code is inputted then no longer show the UI
-		if (MelodyDoor.GetComponent<SCR_Door>().Player1enteredBounds == true && correctCode == false || 
-			MelodyDoor.GetComponent<SCR_Door>().Player2enteredBounds == true && correctCode == false)
+		if (this.GetComponent<SCR_Door>().Player1enteredBounds == true && correctCode == false || 
+			this.GetComponent<SCR_Door>().Player2enteredBounds == true && correctCode == false)
 		{
 			CanvasNoteSheet.SetActive (true);
 		} 
@@ -107,12 +94,12 @@ public class InControlMelody : MonoBehaviour
 
 	}
 
-	void ProcessInputIncontrol(InputDevice inputDevice)
+	/*void ProcessInputIncontrol(InputDevice inputDevice)
 	{
 		//player 1
 		//move forward
 			//can only play notes when player is in proxcimity to box
-		if ((MelodyDoor.GetComponent<SCR_Door>().Player1enteredBounds == true && Robotcode.Count <= 3))
+		if ((this.GetComponent<SCR_Door>().Player1enteredBounds == true && Robotcode.Count <= 3))
 			{
 				//beeps Y
 				if (inputDevice.DPadUp.WasPressed)
@@ -196,7 +183,7 @@ public class InControlMelody : MonoBehaviour
 
 			//Player 2 melody notes
 			//can only play notes when player is in proxcimity to box
-		if ((MelodyDoor.GetComponent<SCR_Door>().Player2enteredBounds == true && Robotcode.Count <= 3))
+		if ((this.GetComponent<SCR_Door>().Player2enteredBounds == true && Robotcode.Count <= 3))
 			{
 				//beeps Y
 				if (inputDevice.DPadUp.WasPressed)
@@ -279,7 +266,7 @@ public class InControlMelody : MonoBehaviour
 	void ProcessInput()
 	{
 		//can only play notes when player is in proxcimity to box
-		if ((MelodyDoor.GetComponent<SCR_Door>().Player1enteredBounds == true && Robotcode.Count <= 3))
+		if ((this.GetComponent<SCR_Door>().Player1enteredBounds == true && Robotcode.Count <= 3))
 		{
 			//beeps Y
 			if (Input.GetKeyDown(GameManager.Instance.playerSetting.currentButton[4]))
@@ -363,7 +350,7 @@ public class InControlMelody : MonoBehaviour
 
 		//Player 2 melody notes
 		//can only play notes when player is in proxcimity to box
-		if ((MelodyDoor.GetComponent<SCR_Door>().Player2enteredBounds == true && Robotcode.Count <= 3))
+		if ((this.GetComponent<SCR_Door>().Player2enteredBounds == true && Robotcode.Count <= 3))
 		{
 			//beeps Y
 			if (Input.GetKeyDown(KeyCode.Alpha6))
@@ -438,16 +425,16 @@ public class InControlMelody : MonoBehaviour
 				Invoke("CheckCode", 1.0f);
 			}
 		} 
-	}
+	}*/
 
 
-	void CheckCode()
+	public void CheckCode()
 	{
 		//check each element of the doorcode and compare it to the robot code
 		for(int i = 0; i < Robotcode.Count; i++)
 		{
 			//if doorcode is not the same as robotcode the code is wrong
-			if (MelodyDoor.GetComponent<SCR_Door>().Doorcode[i] != Robotcode [i])
+			if (this.GetComponent<SCR_Door>().Doorcode[i] != Robotcode [i])
 			{
 				test = false;
 				Debug.Log ("Wrong code");
@@ -460,7 +447,8 @@ public class InControlMelody : MonoBehaviour
 			Debug.Log ("code correct");
 			CancelInvoke ("CheckCode");
 			correctCode = true;
-			MelodyDoor.GetComponent<SCR_Door> ().Correct = true;
+			this.GetComponent<SCR_Door> ().Correct = true;
+			//next whatever
 		} 
 		else
 		{
@@ -478,6 +466,8 @@ public class InControlMelody : MonoBehaviour
 		{
 			Notes[i].GetComponent<RawImage>().texture = null;
 		}
+
+
 
 	}
 		

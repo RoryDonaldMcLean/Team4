@@ -44,13 +44,10 @@ public class PickupAndDropdown : MonoBehaviour
 		if (inputDevice == null)
 		{
 			//Debug.Log ("no controllers plugged in");
-		} 
-		else
-		{
 			if (!holding)
 			{
 				RaycastHit hit;
-				if(Input.GetKeyDown(KeyCode.E) || inputDevice.Action2.WasPressed)
+				if(Input.GetKeyDown(KeyCode.E))
 				{
 					if (ObjectFound(out hit))//ray cast detection
 					{             
@@ -95,7 +92,7 @@ public class PickupAndDropdown : MonoBehaviour
 						}
 					}
 				}
-				else if(Input.GetKeyDown(KeyCode.R) || inputDevice.Action4.WasPressed)
+				else if(Input.GetKeyDown(KeyCode.R))
 				{
 					if (ObjectFound (out hit))//ray cast detection
 					{
@@ -141,7 +138,7 @@ public class PickupAndDropdown : MonoBehaviour
 					}
 					pickedUpGameObject.transform.position = temp;
 
-					if(Input.GetKeyDown(KeyCode.E) || inputDevice.Action2.WasPressed)
+					if(Input.GetKeyDown(KeyCode.E))
 					{
 						Debug.Log("dropped on click");
 						LimitDrop();
@@ -168,7 +165,139 @@ public class PickupAndDropdown : MonoBehaviour
 					pickedUpGameObject.GetComponent<Transform>().rotation = Quaternion.Lerp(pickedUpGameObject.GetComponent<Transform>().rotation, this.GetComponent<Transform>().rotation, alpha); //make the rotation of object same as camera
 					pickedUpGameObject.GetComponent<Transform>().rotation = new Quaternion(0, pickedUpGameObject.GetComponent<Transform>().rotation.y, 0, pickedUpGameObject.GetComponent<Transform>().rotation.w);
 
-					if (Input.GetKeyDown(KeyCode.E) || inputDevice.Action2.WasPressed)
+					if (Input.GetKeyDown(KeyCode.E))
+					{
+						PutDownObject();
+					}
+				}
+
+			}
+
+		} 
+		else
+		{	//controllers
+			if (!holding)
+			{
+				RaycastHit hit;
+				if(inputDevice.Action2.WasPressed)
+				{
+					if (ObjectFound(out hit))//ray cast detection
+					{             
+						//if the object the player is trying to pick up is the SlideBox (object attached to the pole)
+						if (hit.transform.name.Contains("SlideBox"))
+						{
+							pickedUpGameObject = hit.transform.gameObject;
+							Vector3 temp = pickedUpGameObject.transform.position;
+							if ((int)pickedUpGameObject.transform.right.x == 0) 
+							{
+								temp.z = this.transform.position.z;
+							} 
+							else 
+							{
+								temp.x = this.transform.position.x;
+							}
+
+							pickedUpGameObject.transform.position = temp;
+							pickedUpGameObject.transform.parent.GetComponent<SCR_Movable>().pickedUp = true;
+							pickedUpGameObject.transform.parent.GetComponent<SCR_Movable>().playerTag = this.tag;
+							holding = true;
+						} 
+						//if the object the player is trying to pick up is the RotateBox
+						else if (hit.transform.name.Contains("RotateBox"))
+						{
+							Debug.Log ("hit the rotate box");
+							pickedUpGameObject = hit.transform.gameObject;
+
+							//when you "pick up" the box it will rotate to face the same direction as the player
+							float speed = 200.0f;
+							float step = speed * Time.deltaTime;
+							pickedUpGameObject.transform.rotation = Quaternion.RotateTowards (pickedUpGameObject.transform.rotation,
+								this.transform.rotation, step);
+
+							pickedUpGameObject.transform.parent.GetComponent<SCR_Rotatable>().pickedUp = true;
+							pickedUpGameObject.transform.parent.GetComponent<SCR_Rotatable>().playerTag = this.tag;
+							holding = true;
+						} 
+						else
+						{
+							GenericPickUpCheck (ref hit);
+						}
+					}
+				}
+				else if(inputDevice.Action4.WasPressed)
+				{
+					if (ObjectFound (out hit))//ray cast detection
+					{
+						if (hit.transform.name.Contains("LimbLight")) 
+						{
+							LimbLight limbLightBox = hit.transform.GetComponent<LimbLight>();
+							if (limbLightBox.IsLimbAttached()) 
+							{
+								limbLightBox.RemoveLimbFromLightBox (this.tag);
+							} 
+							else 
+							{
+								limbLightBox.AttachLimbToLightBox (this.tag);
+							}
+						} 
+						else if (hit.transform.name.Contains("LightEmitter")) 
+						{
+							hit.transform.GetComponent<LightEmitter>().ToggleLight();
+							hit.transform.GetComponent<LightEmitter>().switchedOn = !hit.transform.GetComponent<LightEmitter>().switchedOn;
+						}
+						else if (hit.transform.name.Contains("RotateBox")) 
+						{
+							if (hit.transform.parent.GetComponent<SCR_Rotatable>().rotatableObjectString.Contains("LightEmitter")) 
+							{
+								hit.transform.GetComponent<LightEmitter>().ToggleLight();
+							}
+						}
+					}
+				}
+			}
+			else
+			{
+				if (pickedUpGameObject.transform.name.Contains("SlideBox"))
+				{
+					Vector3 temp = pickedUpGameObject.transform.position;
+					if ((int)pickedUpGameObject.transform.right.x == 0) 
+					{
+						temp.z = this.transform.position.z;
+					} 
+					else 
+					{
+						temp.x = this.transform.position.x;
+					}
+					pickedUpGameObject.transform.position = temp;
+
+					if(inputDevice.Action2.WasPressed)
+					{
+						Debug.Log("dropped on click");
+						LimitDrop();
+					}
+				} 
+				else if (pickedUpGameObject.transform.name.Contains("RotateBox"))
+				{
+					float speed = 200.0f;
+					float step = speed * Time.deltaTime;
+					pickedUpGameObject.transform.rotation = Quaternion.RotateTowards (pickedUpGameObject.transform.rotation,
+						this.transform.rotation, step);
+
+					if(inputDevice.Action2.WasPressed)
+					{
+						RotateDrop();
+					}
+				}
+				else
+				{
+					if (alpha <= 1.0f)
+						alpha += 0.001f;
+
+					pickedUpGameObject.GetComponent<Transform>().position = pickupLocation.transform.position; // set the picking up object position
+					pickedUpGameObject.GetComponent<Transform>().rotation = Quaternion.Lerp(pickedUpGameObject.GetComponent<Transform>().rotation, this.GetComponent<Transform>().rotation, alpha); //make the rotation of object same as camera
+					pickedUpGameObject.GetComponent<Transform>().rotation = new Quaternion(0, pickedUpGameObject.GetComponent<Transform>().rotation.y, 0, pickedUpGameObject.GetComponent<Transform>().rotation.w);
+
+					if (inputDevice.Action2.WasPressed)
 					{
 						PutDownObject();
 					}

@@ -6,14 +6,14 @@ public class PuzzleOnBoardingProcess : LevelControlBaseClass
 {
     bool doorStateOpen = false;
 
-	GameObject MelodyDoor;
+	//GameObject MelodyDoor;
 
     void Awake()
     {
         PuzzleIdentifier = "PuzzleZero";
 
-		MelodyDoor = GameObject.FindGameObjectWithTag ("Door");
-		MelodyDoor.GetComponent<SCR_Door> ().enabled = false;
+		//MelodyDoor = GameObject.FindGameObjectWithTag ("Door");
+		//MelodyDoor.GetComponent<SCR_Door> ().enabled = false;
     }
 
 	// Update is called once per frame
@@ -21,8 +21,8 @@ public class PuzzleOnBoardingProcess : LevelControlBaseClass
     {
 		if((IsAllLightTriggersActive()) && (!doorStateOpen))
         {
+			doors[0].enabled = true;
 			//this line will enable the melody door when a puzzle is finished
-			MelodyDoor.GetComponent<SCR_Door> ().enabled = true;
             Debug.Log("open");
             doorStateOpen = !doorStateOpen;
             exitDoor.OpenDoor();

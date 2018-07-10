@@ -18,7 +18,6 @@ public class SCR_Door : MonoBehaviour
 	public List<int> Doorcode = new List<int> ();
 
 	public bool isAllowedToTrigger;
-
 	public bool Correct = false;
 
 	// Use this for initialization
@@ -27,15 +26,15 @@ public class SCR_Door : MonoBehaviour
 		isAllowedToTrigger = true;
 		Arrows = new Material[8];
 		//get all the materials to be used for arrows
-		Arrows [0] = Resources.Load<Material>("Materials/UpArrow") as Material;
-		Arrows [1] = Resources.Load<Material>("Materials/DownArrow") as Material;
-		Arrows [2] = Resources.Load<Material>("Materials/LeftArrow") as Material;
-		Arrows [3] = Resources.Load<Material>("Materials/RightArrow") as Material;
+		Arrows [0] = Resources.Load<Material>("Materials/1") as Material;
+		Arrows [1] = Resources.Load<Material>("Materials/2") as Material;
+		Arrows [2] = Resources.Load<Material>("Materials/3") as Material;
+		Arrows [3] = Resources.Load<Material>("Materials/4") as Material;
 
-		Arrows [4] = Resources.Load<Material> ("Materials/UpArrow2") as Material;
-		Arrows [5] = Resources.Load<Material> ("Materials/DownArrow2") as Material;
-		Arrows [6] = Resources.Load<Material> ("Materials/LeftArrow2") as Material;
-		Arrows [7] = Resources.Load<Material> ("Materials/RightArrow2") as Material;
+		Arrows [4] = Resources.Load<Material> ("Materials/5") as Material;
+		Arrows [5] = Resources.Load<Material> ("Materials/6") as Material;
+		Arrows [6] = Resources.Load<Material> ("Materials/7") as Material;
+		Arrows [7] = Resources.Load<Material> ("Materials/8") as Material;
 
 		//loop through all the child objects of the door
 		for (int i = 0; i < this.transform.childCount; i++)
@@ -73,7 +72,7 @@ public class SCR_Door : MonoBehaviour
 		{
 			Debug.Log ("go to next scene or something");
 		}
-			
+
 	}
 
 	void OnTriggerStay(Collider col)

@@ -9,7 +9,7 @@ public class Chirps : MonoBehaviour
 	public int playerNum;
 	public bool player2 = false;
 
-	float timeLeft = 1.0f;
+	float timeLeft = 2.0f;
 	bool startTimer = false;
 	bool playEvent = false;
 	int eventCount = 0;
@@ -23,6 +23,10 @@ public class Chirps : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
+		//Debug.Log ("time left = " + timeLeft);
+		//Debug.Log ("event counter = " + eventCount);
+		//Debug.Log ("Timer is on = " + startTimer);
+
 		var inputDevice = (InputManager.Devices.Count > playerNum) ? InputManager.Devices [playerNum] : null;
 		if (inputDevice == null)
 		{
@@ -49,6 +53,7 @@ public class Chirps : MonoBehaviour
 			Debug.Log ("timer is at 0, play event");
 			startTimer = false;
 			timeLeft = 2.0f;
+			eventCount = 0;
 		}
 
 
@@ -68,6 +73,10 @@ public class Chirps : MonoBehaviour
 			{
 				//play chirp
 				Debug.Log("player 1, left arm chirp");
+				//example. 
+				startTimer = true;
+				eventCount += 1;
+
 			} 
 			else if (inputDevice.DPadUp.WasPressed && 
 				!GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [0].name.Contains ("LeftArm"))
@@ -290,6 +299,10 @@ public class Chirps : MonoBehaviour
 	{
 		//the event you want
 		Debug.Log("Event has triggered");
+		startTimer = false;
+		playEvent = false;
+		eventCount = 0;
+		timeLeft = 2.0f;
 	}
 
 

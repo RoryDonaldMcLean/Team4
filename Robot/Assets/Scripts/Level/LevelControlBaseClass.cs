@@ -7,7 +7,7 @@ public class LevelControlBaseClass : MonoBehaviour
     //containers of all the possible puzzle elements in the scene
     protected List<GameObject> barriers;
     protected List<WeightCheck> buttons;
-    protected List<SCR_Melody> doors;
+	protected List<SCR_Door> doors;
     protected List<StraightSplineBeam> beams;
     protected List<LightTrigger> lightDoors;
     protected PuzzleExitDoor exitDoor;
@@ -34,6 +34,8 @@ public class LevelControlBaseClass : MonoBehaviour
                 exitDoor = doorObject.transform.GetChild(0).GetComponent<PuzzleExitDoor>();
             }
         }
+			
+		doors[0].enabled = false;
     }
 
     protected bool IsAllLightTriggersActive()
@@ -89,11 +91,12 @@ public class LevelControlBaseClass : MonoBehaviour
                     buttons.Add(puzzleObject.GetComponent<WeightCheck>());
                 }
                 break;
-            case "Doors":
-                doors = new List<SCR_Melody>();
+			case "Doors":
+				doors = new List<SCR_Door> ();
+				
                 foreach (GameObject puzzleObject in puzzleObjects)
                 {
-                    doors.Add(puzzleObject.GetComponent<SCR_Melody>());
+                    doors.Add(puzzleObject.GetComponent<SCR_Door>());
                 }
                 break;
             case "Beams":

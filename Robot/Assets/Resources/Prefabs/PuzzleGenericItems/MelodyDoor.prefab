@@ -42,10 +42,11 @@ GameObject:
   - component: {fileID: 23962123603043702}
   - component: {fileID: 65773012307625228}
   - component: {fileID: 114311420996582386}
+  - component: {fileID: 114621441914031580}
   - component: {fileID: 82529228711533082}
   m_Layer: 0
   m_Name: MelodyDoor
-  m_TagString: Door
+  m_TagString: Doors
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -527,7 +528,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1207337687939236}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71709afc0cfadca4aa4b2870e8b7ff1e, type: 3}
   m_Name: 
@@ -535,6 +536,22 @@ MonoBehaviour:
   Player1enteredBounds: 0
   Player2enteredBounds: 0
   Doorcode: 01000000020000000300000004000000
+  isAllowedToTrigger: 0
+  Correct: 0
+--- !u!114 &114621441914031580
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1207337687939236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c620a25deaa8cc846936d79273ebad53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Robotcode: 
+  correctCode: 0
+  noteCounter: 0
 --- !u!320 &320898563108880438
 PlayableDirector:
   m_ObjectHideFlags: 1

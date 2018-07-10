@@ -1,16 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using XInputDotNetPure;
 using UnityEngine.UI;
 
 public class Movement_ : MonoBehaviour
 {
-    //Used for the Xinput Plug in. Tracks the state of the controllers for player 1 and 2
-    GamePadState state;
-    GamePadState prevState;
-    GamePadState player2State;
-    GamePadState player2PrevState;
 
     Vector3 velocity = new Vector3(0.0f, 0.0f, 0.0f);
 
@@ -42,13 +36,6 @@ public class Movement_ : MonoBehaviour
 
     void ProcessInput()
     {
-        //update the game controller
-        prevState = state;
-        state = GamePad.GetState(PlayerIndex.One);
-
-        player2PrevState = player2State;
-        player2State = GamePad.GetState(PlayerIndex.Two);
-
 		//as movement speed is based on how many limbs you have, check this during process input
 
 		if (GetLegQuantity () >= 2)
@@ -68,12 +55,12 @@ public class Movement_ : MonoBehaviour
         if (player2 == GameManager.Instance.whichAndroid.player1ControlRed)
         {
 
-            if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[0]) || (prevState.ThumbSticks.Left.Y > 0.1))
+            if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[0]))
             {
                 velocity.z += 1.0f;
             }
             //move backward
-            if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[2]) || (prevState.ThumbSticks.Left.Y < -0.1))
+            if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[2]))
 
             {
                 velocity.z -= 1.0f;
@@ -82,7 +69,7 @@ public class Movement_ : MonoBehaviour
 
             //move left
 
-            if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[1]) || (prevState.ThumbSticks.Left.X < -0.1))
+            if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[1]))
 
             {
                 velocity.x -= 1.0f;
@@ -90,7 +77,7 @@ public class Movement_ : MonoBehaviour
 
             //move right
 
-            if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[3]) || (prevState.ThumbSticks.Left.X > 0.1))
+            if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[3]))
 
             {
                 velocity.x += 1.0f;
@@ -98,8 +85,7 @@ public class Movement_ : MonoBehaviour
 
 			//if player 1 presses the A button or the left ctrl button AND they are on the ground AND! have at least 1 leg
 			//JUMP!!!
-			if ((grounded ==true || doubleJump == true) && Input.GetKeyDown(GameManager.Instance.playerSetting.currentButton[8]) && this.GetLegQuantity() >= 1 || 
-				(grounded ==true || doubleJump == true) && prevState.Buttons.A == ButtonState.Released && state.Buttons.A == ButtonState.Pressed && this.GetLegQuantity() >= 1)
+			if ((grounded ==true || doubleJump == true) && Input.GetKeyDown(GameManager.Instance.playerSetting.currentButton[8]))
 
             {
                 if (grounded && this.GetLegQuantity() >= 2)
@@ -117,33 +103,31 @@ public class Movement_ : MonoBehaviour
             //////////////////////////////////////////////////////////
             /// //player 2
             /// //move forward
-            if (Input.GetKey(KeyCode.UpArrow) || (player2PrevState.ThumbSticks.Left.Y > 0.1))
+            if (Input.GetKey(KeyCode.UpArrow))
             {
                 velocity.z += 1.0f;
             }
             //move backward
-            if (Input.GetKey(KeyCode.DownArrow) || (player2PrevState.ThumbSticks.Left.Y < -0.1))
+            if (Input.GetKey(KeyCode.DownArrow))
             {
                 velocity.z -= 1.0f;
             }
 
             //move left
-            if (Input.GetKey(KeyCode.LeftArrow) || (player2PrevState.ThumbSticks.Left.X < -0.1))
+            if (Input.GetKey(KeyCode.LeftArrow))
             {
                 velocity.x -= 1.0f;
             }
 
             //move right
-            if (Input.GetKey(KeyCode.RightArrow) || (player2PrevState.ThumbSticks.Left.X > 0.1))
+            if (Input.GetKey(KeyCode.RightArrow))
             {
                 velocity.x += 1.0f;
             }
      
 
             //jumping
-			if ((grounded ==true || doubleJump == true) && Input.GetKeyDown(KeyCode.RightControl) && this.GetLegQuantity() >= 1 || 
-				(grounded == true || doubleJump == true) && player2PrevState.Buttons.A == ButtonState.Released && player2State.Buttons.A == ButtonState.Pressed
-				&& this.GetLegQuantity() >= 1)
+			if ((grounded ==true || doubleJump == true) && Input.GetKeyDown(KeyCode.RightControl) && this.GetLegQuantity() >= 1)
             {
                 if (grounded && this.GetLegQuantity() >= 2)
                     doubleJump = true;

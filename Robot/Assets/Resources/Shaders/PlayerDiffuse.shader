@@ -13,6 +13,7 @@ Shader "Custom/PlayerDiffuse"
 	SubShader
 	{
 		Tags{ "Queue" = "Geometry+100" "RenderType" = "Opaque" }
+		LOD 100
 
 		//X ray Pass  
 		Pass

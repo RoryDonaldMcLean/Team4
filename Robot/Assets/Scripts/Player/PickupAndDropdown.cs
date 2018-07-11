@@ -268,7 +268,7 @@ public class PickupAndDropdown : MonoBehaviour
     private bool ObjectFound(out RaycastHit hit)
     {
         Vector3 tempPoss = this.GetComponent<Transform>().position;
-        tempPoss -= this.GetComponent<Transform>().forward * 0.7f;
+        tempPoss -= this.GetComponent<Transform>().forward;
         return Physics.BoxCast(tempPoss, this.GetComponent<Transform>().localScale, this.GetComponent<Transform>().forward, out hit, this.GetComponent<Transform>().rotation, pickingMaxDistance);
     }
     

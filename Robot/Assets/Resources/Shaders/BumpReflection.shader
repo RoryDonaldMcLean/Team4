@@ -15,7 +15,7 @@ Properties {
 }
 SubShader { 
 	Tags { "RenderType"="Opaque" }
-	LOD 400
+	LOD 500
 	
 CGPROGRAM
 #pragma surface surf BlinnPhong
@@ -42,6 +42,7 @@ struct Input {
 
 
 void surf (Input IN, inout SurfaceOutput o) {
+	
 	fixed3 nor = UnpackNormal (tex2D(_BumpMap, IN.uv_BumpMap));
 	fixed4 tex = tex2D(_MainTex, IN.uv_MainTex);
 	float2 screenUV = IN.screenPos.xy / IN.screenPos.w;
@@ -61,7 +62,7 @@ ENDCG
 SubShader
 {
 	Tags{ "RenderType" = "Opaque" "PerformanceChecks" = "False" }
-	LOD 300
+	LOD 200
 
 	Pass{
 		Name "ShadowCaster"

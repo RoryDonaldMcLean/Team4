@@ -22,6 +22,7 @@ public class DragUI : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointer
 
     public void OnDrag(PointerEventData eventData)
     {
+        Debug.Log(1);
         GameObject pointerDrag = eventData.pointerDrag;
         pointerDrag.transform.position = Input.mousePosition;
         

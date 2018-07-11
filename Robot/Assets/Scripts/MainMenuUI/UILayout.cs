@@ -120,7 +120,7 @@ public class UILayout : MonoBehaviour
         {
             if (GUI.Button(new Rect(50, 50, 200, 20), "Start"))
             {
-                SceneManager.LoadScene("Combined");
+                SceneManager.LoadScene("StartUpMenu");
             }
 
             if (GUI.Button(new Rect(50, 150, 200, 20), "Quit"))

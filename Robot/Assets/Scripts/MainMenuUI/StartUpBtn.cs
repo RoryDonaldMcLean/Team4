@@ -21,6 +21,6 @@ public class StartUpBtn : MonoBehaviour
 
     private void ButtonOnClick()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("CombinedPuzzle");
     }
 }

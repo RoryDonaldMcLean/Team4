@@ -73,12 +73,13 @@ GameObject:
   - component: {fileID: 23702341512859470}
   - component: {fileID: 54784998369321904}
   - component: {fileID: 114375315113507016}
-  - component: {fileID: 114228376825991478}
   - component: {fileID: 65615034654730226}
   - component: {fileID: 114959210986093164}
   - component: {fileID: 114062010090050198}
   - component: {fileID: 114169318741848714}
+  - component: {fileID: 114772168419671328}
   - component: {fileID: 95543614036592990}
+  - component: {fileID: 82876080499443490}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Player2
@@ -145,7 +146,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1121144559936194}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.3, y: 1.05, z: 51.8}
+  m_LocalPosition: {x: 19.3, y: 1.05, z: 21.209995}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4262836210719514}
@@ -508,6 +509,86 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!82 &82876080499443490
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1121144559936194}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95543614036592990
 Animator:
   serializedVersion: 3
@@ -552,22 +633,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerNum: 1
   player2: 0
---- !u!114 &114228376825991478
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1121144559936194}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfee9448992e6d149984748930b6565b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player2: 1
-  playerSpeed: 6
-  rb1: {fileID: 54784998369321904}
-  grounded: 1
-  doubleJump: 0
 --- !u!114 &114375315113507016
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -579,11 +644,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3e5d89e6cfcf394499e18a11035f80d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player2: 1
   playerSpeed: 6
   rb1: {fileID: 54784998369321904}
   grounded: 1
   doubleJump: 0
   playerNum: 1
+--- !u!114 &114772168419671328
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1121144559936194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94d325d3fe5aa7444a27a97d034b30dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerNum: 1
+  player2: 0
 --- !u!114 &114959210986093164
 MonoBehaviour:
   m_ObjectHideFlags: 1

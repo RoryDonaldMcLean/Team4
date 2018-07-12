@@ -16,11 +16,6 @@ public class PickupAndDropdown : MonoBehaviour
 
     private float offset;
 
-	GamePadState state;
-	GamePadState prevState;
-	GamePadState player2State;
-	GamePadState player2PrevState;
-
 	public int playerNum;
 
     // Use this for initialization
@@ -28,18 +23,11 @@ public class PickupAndDropdown : MonoBehaviour
     {
         holding = false;
         alpha = 0;
-
     }
 
     // Update is called once per frame
     private void Update()
     {
-		prevState = state;
-		state = GamePad.GetState(PlayerIndex.One);
-
-		player2PrevState = player2State;
-		player2State = GamePad.GetState(PlayerIndex.Two);
-
 		var inputDevice = (InputManager.Devices.Count > playerNum) ? InputManager.Devices [playerNum] : null;
 		if (inputDevice == null)
 		{
@@ -307,9 +295,7 @@ public class PickupAndDropdown : MonoBehaviour
 
 			}
 		}
-
-
-        
+			
     }
 
 	public void LimitDrop()

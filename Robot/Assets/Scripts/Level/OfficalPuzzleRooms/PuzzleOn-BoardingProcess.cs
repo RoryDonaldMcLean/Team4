@@ -19,7 +19,6 @@ public class PuzzleOnBoardingProcess : LevelControlBaseClass
             exitDoor.OpenDoor();
             GameObject walkway = Instantiate(Resources.Load("Prefabs/PuzzleGenericItems/tempFloor")) as GameObject;
             walkway.name = "tempFloor";
-            GameObject.FindGameObjectWithTag("GameController").GetComponent<LevelController>().Level(1);
             EndOfLevel();
         }
 	}

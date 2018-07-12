@@ -8,7 +8,7 @@ public class SCR_Movable : MonoBehaviour
 	public string playerTag;
 	public string movableObjectString;
 
-	GameObject pole;
+	private GameObject movableObject;
 	float maxDistance;
 	float minDistance;
 
@@ -19,46 +19,47 @@ public class SCR_Movable : MonoBehaviour
     // Use this for initialization
     void Start() 
 	{
-        LimitFind();
-
         //on start, create a new movable object determined by the string in the editor
-        GameObject newMovable = Instantiate(Resources.Load ("Prefabs/Light/" + movableObjectString)) as GameObject;
+        movableObject = Instantiate(Resources.Load ("Prefabs/Light/" + movableObjectString)) as GameObject;
 
-		//force it's name to be "SlideBox"
-		newMovable.name = "SlideBox";
+        //force it's name to be "SlideBox"
+        movableObject.name = "SlideBox";
 
-		//set it's position to be the same as the placeholder slideBox
-		newMovable.transform.position = this.transform.GetChild(1).position;
+        //set it's position to be the same as the placeholder slideBox
+        movableObject.transform.position = this.transform.GetChild(1).position;
 
-		//become a child of the "Movable" object
-		newMovable.transform.SetParent(this.transform);
+        //become a child of the "Movable" object
+        movableObject.transform.SetParent(this.transform);
 
         float newYRot = this.transform.rotation.eulerAngles.y + this.transform.GetChild(1).transform.localEulerAngles.y;
-        newMovable.transform.Rotate(0, newYRot, 0, Space.Self);
+        movableObject.transform.Rotate(0, newYRot, 0, Space.Self);
 
         if (movableObjectString.Contains("Emitter"))
         {
-            newMovable.GetComponent<LightEmitter>().colouredBeam = beamColour;
-            newMovable.GetComponent<LightEmitter>().beamLength = beamLength;
-            newMovable.GetComponent<LightEmitter>().switchedOn = lightOn;
+            movableObject.GetComponent<LightEmitter>().colouredBeam = beamColour;
+            movableObject.GetComponent<LightEmitter>().beamLength = beamLength;
+            movableObject.GetComponent<LightEmitter>().switchedOn = lightOn;
         }
         else if(movableObjectString.Contains("LightRedirect"))
         {
-            newMovable.GetComponent<LightRedirect>().beamLength = beamLength;
+            movableObject.GetComponent<LightRedirect>().beamLength = beamLength;
         }
 
         //delete the placeholderbox
         Destroy(this.transform.GetChild(1).gameObject);
+
+        LimitFind();
 	}
 
     private void LimitFind()
     {
-        pole = this.gameObject.transform.GetChild(0).gameObject;
+        float width = this.transform.GetChild(0).lossyScale.x /2.0f;
+        float centrePoint = Vector3.Dot(this.transform.position, this.transform.right);
 
-		maxDistance = Vector3.Dot(pole.GetComponent<Collider>().bounds.max, this.transform.right);
-		minDistance = Vector3.Dot(pole.GetComponent<Collider>().bounds.min, this.transform.right);
+        maxDistance = width + centrePoint;
+		minDistance = -width + centrePoint;
 
-		if (maxDistance < minDistance) 
+        if (maxDistance < minDistance) 
 		{
 			float temp = minDistance;
 			minDistance = maxDistance;
@@ -71,7 +72,7 @@ public class SCR_Movable : MonoBehaviour
 	{
         if (movableObjectPosition >= maxDistance)
         {
-			LimitBreachResponse(maxDistance - (this.gameObject.transform.GetChild(1).lossyScale.x / 2.0f));
+			LimitBreachResponse(maxDistance - (movableObject.transform.lossyScale.x / 2.0f));
         }
 	}
 
@@ -80,7 +81,7 @@ public class SCR_Movable : MonoBehaviour
 	{
 		if (movableObjectPosition <= minDistance)
         {
-			LimitBreachResponse(minDistance + (this.gameObject.transform.GetChild(1).lossyScale.x / 2.0f));
+			LimitBreachResponse(minDistance + (movableObject.transform.lossyScale.x / 2.0f));
         }
 	}
 
@@ -88,7 +89,7 @@ public class SCR_Movable : MonoBehaviour
     {
 		Transform playerTransform = GameObject.FindGameObjectWithTag(playerTag).transform;
 
-		float boxPos = Vector3.Dot(this.gameObject.transform.GetChild(1).position, this.transform.forward);
+		float boxPos = Vector3.Dot(movableObject.transform.position, this.transform.forward);
 		float playerPos = Vector3.Dot(playerTransform.position, this.transform.forward);
 		float difference = Mathf.Abs(playerPos - boxPos);
         float maxDistFromBox = 2.5f;
@@ -101,11 +102,10 @@ public class SCR_Movable : MonoBehaviour
 
     private void LimitBreachResponse(float limitPoint)
     {
-		Transform boxTransform = this.gameObject.transform.GetChild(1);
 	    //past its limit
-		Vector3 boxPos = Vector3.Scale(this.transform.right, Vector3.one) * (limitPoint + -Vector3.Dot(boxTransform.position, this.transform.right));
-		Vector3 newBoxPos = boxPos + boxTransform.position;;
-		boxTransform.position = newBoxPos;
+		Vector3 boxPos = Vector3.Scale(this.transform.right, Vector3.one) * (limitPoint + -Vector3.Dot(movableObject.transform.position, this.transform.right));
+		Vector3 newBoxPos = boxPos + movableObject.transform.position;
+		movableObject.transform.position = newBoxPos;
 
 		Transform playerTransform = GameObject.FindGameObjectWithTag(playerTag).transform;
 		DropBox(ref playerTransform);
@@ -113,7 +113,7 @@ public class SCR_Movable : MonoBehaviour
 
     private void LimitCheck()
     {
-		float movableObjectScrollingPosition = Vector3.Dot(this.transform.GetChild(1).position, this.transform.right);
+		float movableObjectScrollingPosition = Vector3.Dot(movableObject.transform.position, this.transform.right);
 
         RightLimit(ref movableObjectScrollingPosition);
         LeftLimit(ref movableObjectScrollingPosition);

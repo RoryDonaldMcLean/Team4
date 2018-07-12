@@ -262,7 +262,7 @@ public class SCR_CameraFollow : MonoBehaviour
 		CameraTransitionPoints.Clear ();
 
 		level++;
-		levelControl.GetComponent<LevelController>().Level(level);
+		//levelControl.GetComponent<LevelController>().Level(level);
 
 		Transform[] meh = Travel[level-1].GetComponentsInChildren<Transform>();
 		foreach(Transform travelPoint in meh)

@@ -83,10 +83,12 @@ public class PrismColourCombo : MonoBehaviour
         if(colourBeams.Count > 1)
         {
             BlendColours();
+            //AkSoundEngine.SetState("Drone_Modulator", "Combiner");
         }
         else
         {
             newBeamColour = colourBeams[0];
+            //AkSoundEngine.SetState("Drone_Modulator", "Colour_Change");
         }
         CreateNewLightBeam();
     }
@@ -99,7 +101,6 @@ public class PrismColourCombo : MonoBehaviour
             newBeamColour += line;
         }
         newBeamColour.a = 1;
-        //newBeamColour /= colourBeams.Count;
     }
 
     //destroys a prism beam that exists if one was still in use, before creating the new one it replaces.

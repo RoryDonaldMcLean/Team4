@@ -6,7 +6,7 @@ public class FloatingTextDestroy : MonoBehaviour {
 
     private Vector3 Offset = new Vector3(0, 2, 0);
     private Vector3 RandomizeIntensity = new Vector3(0.5f, 0, 0);
-    private float DestroyTime = 0.5f;
+    private float DestroyTime = 1f;
 
 	// Use this for initialization
 	void Start ()

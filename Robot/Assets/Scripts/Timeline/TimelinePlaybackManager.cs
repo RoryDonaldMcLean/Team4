@@ -47,6 +47,17 @@ public class TimelinePlaybackManager : MonoBehaviour
     [Header("Switch")]
     public bool Switch = false;
 
+    [Header("Do Players lose Limbs?")]
+    public bool LoseLimb = false;
+
+    [Header("Which Player/Players")]
+    public bool Player1 = false;
+    public bool Player2 = false;
+
+    [Header("Which Limb?")]
+    public string LimbToLose1 = "";
+    public string LimbToLose2 = "";
+
     private bool playerInZone = false;
     private bool timelinePlaying = false;
     private float timelineDuration;
@@ -81,6 +92,7 @@ public class TimelinePlaybackManager : MonoBehaviour
 
     void Update()
     {
+        
         //If his in the zone and the timelines off
         if (playerInZone && !timelinePlaying)
         {
@@ -151,6 +163,7 @@ public class TimelinePlaybackManager : MonoBehaviour
 
         }
 
+
         //Sets the zone you just used to false
         triggerZoneObject.SetActive(false);
 
@@ -159,6 +172,8 @@ public class TimelinePlaybackManager : MonoBehaviour
 
         //Starts the timer
         StartCoroutine(WaitForTimelineToFinish());
+
+        
 
     }
 
@@ -189,7 +204,26 @@ public class TimelinePlaybackManager : MonoBehaviour
         {
             target.SetActive(false);
         }
+        if (LoseLimb == true)
+        {
+            LoseLimbs();
+        }
 
+
+
+    }
+
+    void LoseLimbs()
+    {
+        if (Player1 == true)
+        {
+            playerObject.GetComponent<SCR_TradeLimb>().DropDownLims(LimbToLose1);
+        }
+
+        if (Player2 == true)
+        {
+            playerObject2.GetComponent<SCR_TradeLimb>().DropDownLims(LimbToLose2);
+        }
     }
 
     void ToggleInput(bool newState)
@@ -199,6 +233,10 @@ public class TimelinePlaybackManager : MonoBehaviour
             //Disables the players movement Depending on the cutscene
             playerObject.GetComponent<Movement_>().enabled = newState;
             playerObject2.GetComponent<Movement_>().enabled = newState;
+
+            //Disables The players limb trading
+            playerObject.GetComponent<SCR_TradeLimb>().enabled = newState;
+            playerObject2.GetComponent<SCR_TradeLimb>().enabled = newState;
 
         }
     }

@@ -8,8 +8,6 @@ using UnityEngine.Playables;
 
 public class TimelinePlaybackManager : MonoBehaviour
 {
-
-
     [Header("Timeline References")]
     public PlayableDirector playableDirector;
 
@@ -23,7 +21,6 @@ public class TimelinePlaybackManager : MonoBehaviour
 
     [Header("Both Buttons To Interact")]
     public bool both = false;
-
 
     [Header("Player Timeline Position")]
     public bool setPlayerTimelinePosition = false;
@@ -52,14 +49,12 @@ public class TimelinePlaybackManager : MonoBehaviour
     private float timelineDuration;
     private GameObject target;
 
-
-
     void Start()
     {
         //Finds the player objects
         playerObject = GameObject.FindWithTag(playerTag);
         playerObject2 = GameObject.FindWithTag(player2Tag);
-        target = GameObject.FindGameObjectWithTag("Test");
+        target = GameObject.FindGameObjectWithTag("SwitchObject");
         ToggleInteractUI(false);
     }
 
@@ -103,10 +98,7 @@ public class TimelinePlaybackManager : MonoBehaviour
                     {
                         PlayTimeline();
                         ToggleInteractUI(false);
-
-
                     }
-
                 }
 
             }
@@ -125,8 +117,6 @@ public class TimelinePlaybackManager : MonoBehaviour
                     {
                         PlayTimeline();
                         ToggleInteractUI(false);
-
-
                     }
                 }
             }
@@ -137,7 +127,6 @@ public class TimelinePlaybackManager : MonoBehaviour
 
     public void PlayTimeline()
     {
-
         if (setPlayerTimelinePosition)
         {
             //Sets the players possition durring the cutscene if stationary
@@ -199,7 +188,6 @@ public class TimelinePlaybackManager : MonoBehaviour
             //Disables the players movement Depending on the cutscene
             playerObject.GetComponent<Movement_>().enabled = newState;
             playerObject2.GetComponent<Movement_>().enabled = newState;
-
         }
     }
 

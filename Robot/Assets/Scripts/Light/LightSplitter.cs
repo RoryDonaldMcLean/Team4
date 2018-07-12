@@ -24,7 +24,6 @@ public class LightSplitter : MonoBehaviour
         if ((!lightBeam.transform.IsChildOf(this.transform)) && (lightBeam.gameObject.layer != LayerMask.NameToLayer("BeamLayer")))
         {
             beamColour = lightBeam.GetComponentInParent<LineRenderer>().startColor;
-            if(beamColour.Equals(Color.white)) Debug.Log("colour" + lightBeam.GetComponentInParent<SplineCurve>().color);
             CreateExtendedBeam();
         }
     }
@@ -88,6 +87,8 @@ public class LightSplitter : MonoBehaviour
         splitBeams[1].transform.Rotate(Vector3.up * -45);
 
         if (splitColour) SplitColourBetweenBeams();
+
+        //AkSoundEngine.SetState("Drone_Modulator", "Splitter");
     }
 
     private void SplitColourBetweenBeams()

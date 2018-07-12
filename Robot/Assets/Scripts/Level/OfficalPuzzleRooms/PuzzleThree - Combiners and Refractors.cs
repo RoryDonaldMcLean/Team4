@@ -17,6 +17,10 @@ public class PuzzleThreeCombinersandRefractors : LevelControlBaseClass
             Debug.Log("open");
             doorStateOpen = !doorStateOpen;
             exitDoor.OpenDoor();
+            GameObject walkway = Instantiate(Resources.Load("Prefabs/PuzzleGenericItems/tempFloor")) as GameObject;
+            walkway.name = "tempFloor";
+            Vector3 pos = walkway.transform.position;
+            pos.z += 54.4f * 3.0f;
             EndOfLevel();
         }
     }

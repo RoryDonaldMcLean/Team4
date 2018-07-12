@@ -22,7 +22,21 @@ public class LightEmitter : MonoBehaviour
     public void InteractWithEmitter()
     {
         switchedOn = !switchedOn;
-        if (canBeTurnedOff) ToggleLight();
+        if (canBeTurnedOff)
+        {
+            ToggleLight();
+
+            if (switchedOn)
+            {
+                //turn on 
+                AkSoundEngine.PostEvent("Drone", gameObject);
+            }
+            else
+            {
+                //turn off
+                AkSoundEngine.PostEvent("Drone_Stop", gameObject);
+            }
+        }
     }
 
     public void TurnOffForGood()
@@ -30,6 +44,7 @@ public class LightEmitter : MonoBehaviour
         switchedOn = false;
         ToggleLight();
         canBeTurnedOff = false;
+        //AkSoundEngine.PostEvent("Drone_Stop", gameObject);
     }
 
     private void ToggleLight()

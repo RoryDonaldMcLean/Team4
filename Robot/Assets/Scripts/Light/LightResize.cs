@@ -61,12 +61,23 @@ public class LightResize : MonoBehaviour
 
     private IEnumerator RaycastOnRepeat()
     {
-        while(!contact)
+        while (!contact)
         {
             DefaultLightRaycast();
 
             yield return new WaitForFixedUpdate();
         }
+    }
+
+    private IEnumerator LightInterruptionCheck()
+    {
+        while (contact)
+        {
+            DefaultLightRaycast();
+
+            yield return new WaitForFixedUpdate();
+        }
+        StopCoroutine(LightInterruptionCheck());
     }
 
     private void DefaultLightRaycast()
@@ -79,7 +90,11 @@ public class LightResize : MonoBehaviour
                 {
                     OnEnterObject();
                 }
-            }  
+            }
+            else
+            {
+                //if(contact) Debug.Log("error");
+            } 
 		}
 	}
 
@@ -117,10 +132,16 @@ public class LightResize : MonoBehaviour
             if(objectInfo.transform.GetComponent<LightBarrier>().OnEnter(lineBeam.beamColour))
             {
                 BeamResizeController();
+                //
+                //AkSoundEngine.SetState("Drone_Modulator", "Hit_Wall");
+
             }
             else if (ObjectFoundBehindIgnoredObject())
             {
                 if (puzzleObject != objectInfo.collider) BeamResizeController();
+                //
+                //AkSoundEngine.SetState("Drone_Modulator", "Through_Barrier");
+
             }
         }
         //prolly remove this if statement at some pt
@@ -169,8 +190,8 @@ public class LightResize : MonoBehaviour
                 LightBeamSwitchOffControl();
             }
             else if(AwayFromBeam())
-            {
-				Debug.Log("away" + this.transform.root.name);
+            {              
+                Debug.Log("away" + this.transform.root.name);
                 CleanUpCollidedObject();
             }
             else if(ShouldResizeBeam())
@@ -213,16 +234,6 @@ public class LightResize : MonoBehaviour
     private IEnumerator LightInterruptionControl()
     {
         yield return StartCoroutine(LightInterruptionCheck());
-    }
-
-    private IEnumerator LightInterruptionCheck()
-    {
-        while (contact)
-        {
-            Invoke("DefaultLightRaycast", 0.1666f);
-            yield return null;
-        }
-        StopCoroutine("LightInterruptionCheck");
     }
 
     public void TriggerConnectedObjectsExit()
@@ -292,47 +303,12 @@ public class LightResize : MonoBehaviour
         if (!Mathf.Approximately(endPointObjectValue, newBeamEndPoint))
         {
             BeamResize(ref endPointObject, ref collidedObject);
+            //AkSoundEngine.PostEvent("Light_Hits_Crystal", gameObject);
         }
         else
         {
             CleanUpCollidedObject();
         }
-        /*
-        //Means the object is in Z area, but the beam needs to be resized       
-        if (newBeamEndPoint != objectPoint)
-        {
-            //Debug.Log("occurs" + collidedObject.name);
-            //stay within beams length
-            if(objectPoint < defaultBeamEndPoint)
-            {
-                //if inside beam length on Z
-                newBeamEndPoint = objectPoint;
-                BeamResize(ref endPointBeam, ref collidedObject);
-            }
-            else if(objectPoint < (defaultBeamEndPoint + (collidedObject.transform.lossyScale.z / 2.0f)))
-            {
-                if(contact)
-                {
-                    ObjectExitBeamAreaResponse();
-                }
-            }
-            else
-            {
-                Debug.Log("error king 0 " + collisionPoint);
-                Debug.Log("error king 1 " + newBeamEndPoint);
-                Debug.Log("error king 2 " + objectPoint);
-            }
-        }
-        //To prevent the code from being repeated pointlessly, a check is done to ensure that its a new, unique point, before proceeding. 
-        else
-        {
-            float endPointBeamPoint = (Vector3.Dot(endPointBeam.position, this.transform.forward));
-            if(endPointBeamPoint != newBeamEndPoint)
-            {
-                BeamResize(ref endPointBeam, ref collidedObject);
-            }
-        }
-        */
     }
 
     private IEnumerator CheckIfBeamEntersFurthur(RaycastHit hit)
@@ -380,8 +356,11 @@ public class LightResize : MonoBehaviour
 
     private float WidthCalculate()
     {
-        Vector3 scale = Vector3.Scale(puzzleObject.transform.lossyScale, puzzleObject.transform.right);
+        Transform endPointBeam = this.transform.GetChild(this.transform.childCount - 1).transform;
 
+        Vector3 correctRotate = Quaternion.Euler(endPointBeam.rotation.eulerAngles - puzzleObject.transform.rotation.eulerAngles) * Vector3.right;
+        Vector3 scale = Vector3.Scale(puzzleObject.transform.lossyScale, correctRotate);// + Vector3.Scale(endPointBeam.transform.GetChild(0).lossyScale, correctRotate);
+ 
         float widthOnX = 0;
         float widthOnZ = 0;
 
@@ -430,15 +409,17 @@ public class LightResize : MonoBehaviour
     //if the picked up object is no longer is range for a collision
     private bool AwayFromBeam()
     {
-        Transform endPointBeam = this.transform.GetChild(this.transform.childCount - 1).GetChild(0).transform;
+        Transform endPointBeam = this.transform.GetChild(this.transform.childCount - 1).transform;
 
         float positionOfObject = (Vector3.Dot(puzzleObject.transform.position, endPointBeam.transform.right));      
-        float positionOfBeam = (Vector3.Dot(objectInfo.point, endPointBeam.transform.right));
+        float positionOfBeam = (Vector3.Dot(endPointBeam.position, endPointBeam.transform.right));
 
         float right = (positionOfObject + colliderWidth);
         float left = (positionOfObject - colliderWidth);
 
-        return ((positionOfBeam > right) || (positionOfBeam < left));
+        float beamWidth = (Vector3.Dot(endPointBeam.GetChild(0).GetComponent<BoxCollider>().size, endPointBeam.transform.right));
+
+        return ((positionOfBeam + beamWidth > right) || (positionOfBeam - beamWidth < left));
     }
     //if the picked up object is no longer is range for a collision
     private bool ShouldResizeBeam()
@@ -447,44 +428,4 @@ public class LightResize : MonoBehaviour
 
         return (!Mathf.Approximately(positionOfObject, newBeamEndPoint));
     }
-    /*
-    void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        RaycastHit hit;
-
-        if ((lineBeam.active) && (this.transform.name.Contains("beep")))
-        {
-            //float maxDraw = lineBeam.beamLength * 2.0f;
-            //Vector3 raycastStartLocation = this.transform.position;
-   
-            //int layerMask = ~(1 << LayerMask.NameToLayer("LightBeam") | 1 << LayerMask.NameToLayer("BeamLayer"));
-            //Check if there has been a hit yet
-            //float range = 1.0f;
-
-            float raycastSize = 0.18f;
-            float maxDraw = 3;
-            
-            Vector3 raycastStartLocation = this.transform.position;
-            //int layerMask = ~(1 << LayerMask.NameToLayer("LightBeam") | 1 << LayerMask.NameToLayer("BeamLayer") | 1 << LayerMask.NameToLayer("PlayerLayer"));
-
-            if (Physics.BoxCast(raycastStartLocation, new Vector3(raycastSize, raycastSize, raycastSize), this.GetComponent<Transform>().forward, out hit, this.transform.localRotation, maxDraw))
-            {
-                Debug.Log("?" + hit.transform.name);
-                //Draw a Ray forward from GameObject toward the hit
-                Gizmos.DrawRay(transform.position, transform.forward * maxDraw);
-                //Draw a cube that extends to where the hit exists
-                Gizmos.DrawWireCube(raycastStartLocation + transform.forward * maxDraw, new Vector3(raycastSize, raycastSize, raycastSize));
-            }
-            //If there hasn't been a hit yet, draw the ray at the maximum distance
-            else
-            {
-                //Draw a Ray forward from GameObject toward the maximum distance
-                Gizmos.DrawRay(transform.position, transform.forward * maxDraw);
-                //Draw a cube at the maximum distance
-                Gizmos.DrawWireCube(raycastStartLocation + transform.forward * maxDraw, new Vector3(raycastSize, raycastSize, raycastSize));
-            }
-        }
-    }
-    */
 }

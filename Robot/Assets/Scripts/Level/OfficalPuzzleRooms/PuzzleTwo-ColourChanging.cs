@@ -22,7 +22,6 @@ public class PuzzleTwoColourChanging : LevelControlBaseClass
 			Vector3 pos = walkway.transform.position;
 			pos.z += 54.4f * 2.0f;
 			walkway.transform.position = pos;
-			GameObject.FindGameObjectWithTag("GameController").GetComponent<LevelController>().Level(1);
             EndOfLevel();
         }
     }

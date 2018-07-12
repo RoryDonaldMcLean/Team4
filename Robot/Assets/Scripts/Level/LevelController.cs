@@ -5,15 +5,23 @@ using UnityEngine;
 public class LevelController : MonoBehaviour
 {
     private List<LevelControlBaseClass> levelScripts = new List<LevelControlBaseClass>();
-    private int currentLevel = 0;
+    private int currentLevel = -1;
 
 	void Start ()
     {
         //loads first level automatically 
         Level(currentLevel);
     }
+
+    public void NextLevel()
+    {
+        //add scene change code here, rewrite level stuff accordingly (currentlevel -> into next scene, so that start of this func loads correct puzzle script)
+        currentLevel++;
+        Level(currentLevel);
+    }
+
     //based on the level specified, the old level will be deleted and removed and the new level components will be loaded
-    public void Level(int levelNumber)
+    private void Level(int levelNumber)
     {
         if (levelScripts.Count > 0) CleanUp();
         switch (levelNumber)
@@ -58,7 +66,7 @@ public class LevelController : MonoBehaviour
 
     private void LevelFour()
     {
-        levelScripts.Add(this.gameObject.AddComponent<PuzzleFourCombination>());
+        levelScripts.Add(this.gameObject.AddComponent<PuzzleFourFinal>());
     }
 
     private void CleanUp()

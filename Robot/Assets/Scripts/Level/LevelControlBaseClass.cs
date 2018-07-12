@@ -26,21 +26,33 @@ public class LevelControlBaseClass : MonoBehaviour
         SpecficPuzzleSetup("LightSources");
 
         DoorSetup();
+
+        LevelSpecificInit();
+
+        //AkSoundEngine.SetState("Drone_Modulator", "Start");
     }
+
+    protected virtual void LevelSpecificInit(){}
 
     protected void EndOfLevel()
     {
-        LevelCompleteLightShow();
+        //AkSoundEngine.PostEvent("Activate_Crystal", gameObject);
+        //AkSoundEngine.SetState("Drone_Modulator", "Complete");
+
+        StartCoroutine(LevelCompleteLightShow());
         StartCoroutine(TurnOffLights());
     }
 
-    private void LevelCompleteLightShow()
+    private IEnumerator LevelCompleteLightShow()
     {
-        LineRenderer[] lightBeams = FindObjectsOfType<LineRenderer>();
+        yield return new WaitForSeconds(0.5f);
+
+        LineRenderer[] lightBeams = GameObject.Find(puzzleIdentifier).GetComponentsInChildren<LineRenderer>();
+
         foreach (LineRenderer beam in lightBeams)
         {
             StartCoroutine(BlinkingLightControl(beam));
-        }      
+        }
     }
 
     private IEnumerator TurnOffLights()
@@ -50,6 +62,8 @@ public class LevelControlBaseClass : MonoBehaviour
         {
             lightSource.GetComponentInChildren<LightEmitter>().TurnOffForGood();
         }
+        //melody here, then in melody script, when the right moment comes call this line below
+        this.GetComponent<LevelController>().NextLevel();
     }
 
     private IEnumerator BlinkingLightControl(LineRenderer line)

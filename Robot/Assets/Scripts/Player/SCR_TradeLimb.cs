@@ -150,6 +150,8 @@ public class SCR_TradeLimb : MonoBehaviour
                 Destroy(leftArmFly);
                 leftArmFly = null;
                 Exchange("LeftArm", otherPlayerTag);
+				//AkSoundEngine.PostEvent ("Arm_Attach", gameObject);
+
             }
         }
 
@@ -160,7 +162,8 @@ public class SCR_TradeLimb : MonoBehaviour
                 Destroy(rightArmFly);
                 rightArmFly = null;
                 Exchange("RightArm", otherPlayerTag);
-            }
+				//AkSoundEngine.PostEvent ("Arm_Attach", gameObject);
+				}
         }
 
         if (leftLegFly)
@@ -170,6 +173,7 @@ public class SCR_TradeLimb : MonoBehaviour
                 Destroy(leftLegFly);
                 leftLegFly = null;
                 Exchange("LeftLeg", otherPlayerTag);
+				//AkSoundEngine.PostEvent ("Arm_Attach", gameObject);
             }
         }
         if (rightLegFly)
@@ -179,6 +183,7 @@ public class SCR_TradeLimb : MonoBehaviour
                 Destroy(rightLegFly);
                 rightLegFly = null;
                 Exchange("RightLeg", otherPlayerTag);
+				//AkSoundEngine.PostEvent ("Arm_Attach", gameObject);
             }
         }
     }

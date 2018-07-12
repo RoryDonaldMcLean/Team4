@@ -23,7 +23,6 @@ public class InControlMelody : MonoBehaviour
 	GameObject CanvasNoteSheet;
 
 
-
 	//counter used to track which note you are inputting i.e.
 	//the first input, the second etc
 	public int noteCounter = 0;
@@ -40,14 +39,9 @@ public class InControlMelody : MonoBehaviour
 
 	int playerNum;
 
-	GameObject player1;
-
-
 	// Use this for initialization
 	void Start () 
 	{
-		player1 = GameObject.FindGameObjectWithTag ("Player1");
-
 		source = GetComponent<AudioSource> ();
 		Chirps = new AudioClip[4];
 		//get all the audio chirps from resources folder
@@ -73,14 +67,11 @@ public class InControlMelody : MonoBehaviour
 		source = GetComponent<AudioSource> ();
 		blankNotes = Notes;
 
-
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		
-
 		//player1 touching the door, if the correct code is inputted then no longer show the UI
 		if (this.GetComponent<SCR_Door>().Player1enteredBounds == true && correctCode == false || 
 			this.GetComponent<SCR_Door>().Player2enteredBounds == true && correctCode == false)

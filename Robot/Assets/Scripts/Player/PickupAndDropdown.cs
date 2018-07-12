@@ -76,6 +76,8 @@ public class PickupAndDropdown : MonoBehaviour
 							Debug.Log ("hit the rotate box");
 							pickedUpGameObject = hit.transform.gameObject;
 
+							//AkSoundEngine.PostEvent ("Arm_Attach", gameObject);
+
 							//when you "pick up" the box it will rotate to face the same direction as the player
 							float speed = 200.0f;
 							float step = speed * Time.deltaTime;
@@ -315,6 +317,8 @@ public class PickupAndDropdown : MonoBehaviour
 		pickedUpGameObject.transform.parent.GetComponent<SCR_Movable>().pickedUp = false;
 		offset = 0;
 		PutDownObject();
+		//AkSoundEngine.PostEvent ("Place_Crystal", gameObject);
+
 	}
 
 	public void RotateDrop()
@@ -322,6 +326,8 @@ public class PickupAndDropdown : MonoBehaviour
 		pickedUpGameObject.transform.parent.GetComponent<SCR_Rotatable> ().pickedUp = false;
 		offset = 0;
 		PutDownObject ();
+		//AkSoundEngine.PostEvent ("Place_Crystal", gameObject);
+
 	}
 
 	private void GenericPickUpCheck(ref RaycastHit hit)
@@ -343,11 +349,14 @@ public class PickupAndDropdown : MonoBehaviour
         pickedUpGameObject = null; //empty the pick up object
         Destroy(pickupLocation);
 
-        //DropCrystalSource.Play();
+		//AkSoundEngine.PostEvent ("Place_Crystal", gameObject);
+
     }
 
     private void PickUpObject(Transform objectBeingPickedUp)
     {
+		//AkSoundEngine.PostEvent ("PickUp_Crystal", gameObject);
+
 		Debug.Log ("at the pickup function");
         holding = true; //set pick up boolean
         pickedUpGameObject = objectBeingPickedUp.gameObject; // set the pick up object
@@ -398,6 +407,17 @@ public class PickupAndDropdown : MonoBehaviour
 		tempPoss -= this.GetComponent<Transform> ().forward * 0.3f;
         return Physics.BoxCast(tempPoss, this.GetComponent<Transform>().localScale, this.GetComponent<Transform>().forward, out hit, this.GetComponent<Transform>().rotation, pickingMaxDistance);
     }
+
+	private void OnTriggerEnter(Collider other)
+	{
+		if (other.gameObject.tag == "HugeBox")
+		{
+			if (this.GetArmQuantity () >= 2)
+			{
+				//AkSoundEngine.PostEvent ("Push_Box", gameObject);
+			}
+		}
+	}
     
     private void OnTriggerStay(Collider other)
     {
@@ -423,6 +443,8 @@ public class PickupAndDropdown : MonoBehaviour
         if (other.gameObject.tag == "HugeBox")
         {
             other.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+			//AkSoundEngine.PostEvent ("Push_Box_Stop", gameObject);
+
         }
     }
 

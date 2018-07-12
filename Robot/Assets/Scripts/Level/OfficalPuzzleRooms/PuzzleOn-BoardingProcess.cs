@@ -6,14 +6,10 @@ public class PuzzleOnBoardingProcess : LevelControlBaseClass
 {
     bool doorStateOpen = false;
 
-	//GameObject MelodyDoor;
 
     void Awake()
     {
         PuzzleIdentifier = "PuzzleZero";
-
-		//MelodyDoor = GameObject.FindGameObjectWithTag ("Door");
-		//MelodyDoor.GetComponent<SCR_Door> ().enabled = false;
     }
 
 	// Update is called once per frame
@@ -23,13 +19,19 @@ public class PuzzleOnBoardingProcess : LevelControlBaseClass
         {
 			doors[0].enabled = true;
 			//this line will enable the melody door when a puzzle is finished
-            Debug.Log("open");
+            //Debug.Log("open");
             doorStateOpen = !doorStateOpen;
             exitDoor.OpenDoor();
             //give to box
             GameObject walkway = Instantiate(Resources.Load("Prefabs/PuzzleGenericItems/tempFloor")) as GameObject;
             walkway.name = "tempFloor";
             GameObject.FindGameObjectWithTag("GameController").GetComponent<LevelController>().Level(1);
+
+			/*if (GameObject.FindGameObjectWithTag("Doors").GetComponentInChildren
+			{
+				Debug.Log ("work");
+			}*/
+
         }
         else if ((!IsAllLightTriggersActive()) && (doorStateOpen))
         {
@@ -37,5 +39,7 @@ public class PuzzleOnBoardingProcess : LevelControlBaseClass
             doorStateOpen = !doorStateOpen;
             exitDoor.CloseDoor();
         }
+
+
 	}
 }

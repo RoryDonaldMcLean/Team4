@@ -35,7 +35,8 @@ public class LevelControlBaseClass : MonoBehaviour
             }
         }
 			
-		doors[0].enabled = false;
+		//what is this line used for?
+		//doors[0].enabled = false;
     }
 
     protected bool IsAllLightTriggersActive()

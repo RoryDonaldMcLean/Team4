@@ -54,13 +54,18 @@ public class InControlMovement : MonoBehaviour
 		if (GetLegQuantity () >= 2)
 		{
 			playerSpeed = 6.0f;
+			//AkSoundEngine.SetRTPCValue ("LimbNumber", 3.0f);
 		} 
 		else if (GetLegQuantity () == 1)
 		{
 			playerSpeed = 3.0f;
+			//AkSoundEngine.SetRTPCValue ("LimbNumber", 1.0f);
+
 		} else
 		{
 			playerSpeed = 1.5f;
+			//AkSoundEngine.SetRTPCValue ("LimbNumber", 0.0f);
+
 		}
 
 
@@ -106,13 +111,19 @@ public class InControlMovement : MonoBehaviour
 		if (GetLegQuantity () >= 2)
 		{
 			playerSpeed = 6.0f;
+			//AkSoundEngine.SetRTPCValue ("LimbNumber", 3.0f);
+
 		} 
 		else if (GetLegQuantity () == 1)
 		{
 			playerSpeed = 3.0f;
+			//AkSoundEngine.SetRTPCValue ("LimbNumber", 1.0f);
+
 		} else
 		{
 			playerSpeed = 1.5f;
+			//AkSoundEngine.SetRTPCValue ("LimbNumber", 0.0f);
+
 		}
 
 		//player 1

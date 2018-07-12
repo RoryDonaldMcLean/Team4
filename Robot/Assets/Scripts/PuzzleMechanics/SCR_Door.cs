@@ -25,6 +25,7 @@ public class SCR_Door : MonoBehaviour
 	{
 		isAllowedToTrigger = true;
 		Arrows = new Material[8];
+
 		//get all the materials to be used for arrows
 		Arrows [0] = Resources.Load<Material>("Materials/1") as Material;
 		Arrows [1] = Resources.Load<Material>("Materials/2") as Material;
@@ -46,22 +47,27 @@ public class SCR_Door : MonoBehaviour
 		//defined in the inspector
 		//code for the door (1,2,3,4)
 
-		//setting the materials on the panels of the door to match the door code
-		rend = Panels [0].GetComponent<Renderer> ();
-		rend.enabled = true;
-		rend.sharedMaterial = Arrows [0];
+		for (int i = 0; i < Doorcode.Count; i++)
+		{
+			//setting the materials on the panels of the door to match the door code
+			rend = Panels [0].GetComponent<Renderer> ();
+			rend.enabled = true;
+			rend.sharedMaterial = Arrows [i] = Resources.Load<Material>("Materials/" + Doorcode[0]);
 
-		rend = Panels [1].GetComponent<Renderer> ();
-		rend.enabled = true;
-		rend.sharedMaterial = Arrows [1];
+			rend = Panels [1].GetComponent<Renderer> ();
+			rend.enabled = true;
+			rend.sharedMaterial = Arrows [i] = Resources.Load<Material>("Materials/" + Doorcode[1]);
 
-		rend = Panels [2].GetComponent<Renderer> ();
-		rend.enabled = true;
-		rend.sharedMaterial = Arrows [2];
+			rend = Panels [2].GetComponent<Renderer> ();
+			rend.enabled = true;
+			rend.sharedMaterial = Arrows [i] = Resources.Load<Material>("Materials/" + Doorcode[2]);
 
-		rend = Panels [3].GetComponent<Renderer> ();
-		rend.enabled = true;
-		rend.sharedMaterial = Arrows [3];
+			rend = Panels [3].GetComponent<Renderer> ();
+			rend.enabled = true;
+			rend.sharedMaterial = Arrows [i] = Resources.Load<Material>("Materials/" + Doorcode[3]);
+		}
+
+
 	}
 	
 	// Update is called once per frame

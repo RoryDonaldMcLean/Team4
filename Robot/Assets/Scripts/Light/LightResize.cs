@@ -415,12 +415,15 @@ public class LightResize : MonoBehaviour
         float positionOfObject = (Vector3.Dot(puzzleObject.transform.position, endPointBeam.transform.right));      
         float positionOfBeam = (Vector3.Dot(endPointBeam.position, endPointBeam.transform.right));
 
-        float right = (positionOfObject + colliderWidth);
-        float left = (positionOfObject - colliderWidth);
+        float objectRight = (positionOfObject + colliderWidth);
+        float objectLeft = (positionOfObject - colliderWidth);
 
         float beamWidth = (Vector3.Dot(endPointBeam.GetChild(0).GetComponent<BoxCollider>().size, endPointBeam.transform.right));
 
-        return ((positionOfBeam + beamWidth > right) || (positionOfBeam - beamWidth < left));
+        float beamRight = positionOfBeam + beamWidth;
+        float beamLeft = positionOfBeam - beamWidth;
+
+        return ((beamRight < objectLeft) || (beamLeft > objectRight));
     }
     //if the picked up object is no longer is range for a collision
     private bool ShouldResizeBeam()

@@ -82,8 +82,8 @@ public class SCR_TradeLimb : MonoBehaviour
 
     private void SetPlayerTag()
     {
-        Movement_[] players = GameObject.FindObjectsOfType<Movement_>();
-        foreach (Movement_ player in players)
+        InControlMovement[] players = GameObject.FindObjectsOfType<InControlMovement>();
+        foreach (InControlMovement player in players)
         {
             if (player.tag != this.transform.tag)
             {
@@ -449,9 +449,6 @@ public class SCR_TradeLimb : MonoBehaviour
 		}
 
 	}
-
-
-
 
     private void SpecificLimbExchange()
     {

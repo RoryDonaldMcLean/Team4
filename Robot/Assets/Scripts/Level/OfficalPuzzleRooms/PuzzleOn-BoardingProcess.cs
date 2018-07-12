@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class PuzzleOnBoardingProcess : LevelControlBaseClass
 {
+<<<<<<< HEAD
+=======
+    bool doorStateOpen = false;
+
+
+>>>>>>> Development-Rory-02.07.18
     void Awake()
     {
         puzzleIdentifier = "PuzzleZero";
@@ -14,12 +20,18 @@ public class PuzzleOnBoardingProcess : LevelControlBaseClass
     {
 		if((IsAllLightTriggersActive()) && (!doorStateOpen))
         {
-            Debug.Log("open");
+			doors[0].enabled = true;
+			//this line will enable the melody door when a puzzle is finished
+            //Debug.Log("open");
             doorStateOpen = !doorStateOpen;
             exitDoor.OpenDoor();
             GameObject walkway = Instantiate(Resources.Load("Prefabs/PuzzleGenericItems/tempFloor")) as GameObject;
             walkway.name = "tempFloor";
+
             EndOfLevel();
+
         }
+
+
 	}
 }

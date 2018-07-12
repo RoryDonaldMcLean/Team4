@@ -192,6 +192,7 @@ public class LightResize : MonoBehaviour
             else if(AwayFromBeam())
             {              
                 Debug.Log("away" + this.transform.root.name);
+
                 CleanUpCollidedObject();
             }
             else if(ShouldResizeBeam())

@@ -8,8 +8,6 @@ public class InControlMelody : MonoBehaviour
 {
 	//is there 2 players in the game. if so use different controls for player 1 and 2 
 	//but allows it all to be in 1 script
-	public bool player2 = false;
-
 	AudioClip[] Chirps;
 
 	private AudioSource source;
@@ -27,7 +25,7 @@ public class InControlMelody : MonoBehaviour
 
 	//counter used to track which note you are inputting i.e.
 	//the first input, the second etc
-	int noteCounter = 0;
+	public int noteCounter = 0;
 
 	//array of arrow textures that will be applied to the rawimages when you input a note
 	Sprite[] Arrows;
@@ -39,7 +37,7 @@ public class InControlMelody : MonoBehaviour
 	List<GameObject> blankNotes = new List<GameObject>();
 
 
-	//int playerNum;
+	int playerNum;
 
 	// Use this for initialization
 	void Start () 
@@ -68,18 +66,12 @@ public class InControlMelody : MonoBehaviour
 			
 		source = GetComponent<AudioSource> ();
 		blankNotes = Notes;
+
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		//README MIGHT BE AN ISSUE!
-		var inputDevice = InputManager.ActiveDevice;
-		//var inputDevice = (InputManager.Devices.Count > playerNum) ? InputManager.Devices [playerNum] : null;
-		//{
-			ProcessInput (inputDevice);
-		//}
-
 		//player1 touching the door, if the correct code is inputted then no longer show the UI
 		if (this.GetComponent<SCR_Door>().Player1enteredBounds == true && correctCode == false || 
 			this.GetComponent<SCR_Door>().Player2enteredBounds == true && correctCode == false)
@@ -93,7 +85,7 @@ public class InControlMelody : MonoBehaviour
 
 	}
 
-	void ProcessInput(InputDevice inputDevice)
+	/*void ProcessInputIncontrol(InputDevice inputDevice)
 	{
 		//player 1
 		//move forward
@@ -101,7 +93,6 @@ public class InControlMelody : MonoBehaviour
 		if ((this.GetComponent<SCR_Door>().Player1enteredBounds == true && Robotcode.Count <= 3))
 			{
 				//beeps Y
-			//inputDevice.DPadUp.
 				if (inputDevice.DPadUp.WasPressed)
 				{
 					//if player 1 has the left arm
@@ -122,13 +113,13 @@ public class InControlMelody : MonoBehaviour
 						Debug.Log("player 1 has no left arm");
 					}
 				}
-				else if (inputDevice.DPadLeft.WasPressed)
+				else if (inputDevice.DPadDown.WasPressed)
 					{
 					if (GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [1].name.Contains ("RightArm"))
 					{
 						source.PlayOneShot (Chirps[1]);
 						Robotcode.Add (2);
-						Notes [noteCounter].GetComponent<RawImage> ().texture = Arrows[1].texture;
+						Notes [noteCounter].GetComponent<RawImage> ().texture = Arrows[3].texture;
 						//whenever a note is played
 						noteCounter += 1;
 					} 
@@ -138,14 +129,14 @@ public class InControlMelody : MonoBehaviour
 					}
 
 				}
-				else if (inputDevice.DPadRight.WasPressed)
+				else if (inputDevice.DPadLeft.WasPressed)
 				{
 					if (GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [2].name.Contains ("LeftLeg"))
 					{
 						source.PlayOneShot (Chirps [2]);
 						Robotcode.Add (3);
 						//whenever a note is played
-						Notes [noteCounter].GetComponent<RawImage> ().texture = Arrows [2].texture;
+						Notes [noteCounter].GetComponent<RawImage> ().texture = Arrows [1].texture;
 						//whenever a note is played
 						noteCounter += 1;
 					} else
@@ -154,14 +145,14 @@ public class InControlMelody : MonoBehaviour
 					}
 
 				}
-				else if (inputDevice.DPadDown.WasPressed)
+				else if (inputDevice.DPadRight.WasPressed)
 				{
 					if (GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [3].name.Contains ("RightLeg"))
 					{
 						source.PlayOneShot (Chirps [3]);
 						Robotcode.Add (4);
 						//whenever a note is played
-						Notes [noteCounter].GetComponent<RawImage> ().texture = Arrows [3].texture;
+						Notes [noteCounter].GetComponent<RawImage> ().texture = Arrows [2].texture;
 						//whenever a note is played
 						noteCounter += 1;
 					} else
@@ -183,7 +174,7 @@ public class InControlMelody : MonoBehaviour
 
 			//Player 2 melody notes
 			//can only play notes when player is in proxcimity to box
-			if ((this.GetComponent<SCR_Door>().Player2enteredBounds == true && Robotcode.Count <= 3))
+		if ((this.GetComponent<SCR_Door>().Player2enteredBounds == true && Robotcode.Count <= 3))
 			{
 				//beeps Y
 				if (inputDevice.DPadUp.WasPressed)
@@ -204,14 +195,14 @@ public class InControlMelody : MonoBehaviour
 					}
 						
 				}
-				else if (inputDevice.DPadLeft.WasPressed)
+				else if (inputDevice.DPadDown.WasPressed)
 				{
 
 					if (GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [1].name.Contains ("RightArm"))
 					{
 						Robotcode.Add (6);
 						//whenever a note is played
-						Notes [noteCounter].GetComponent<RawImage> ().texture = Arrows [5].texture;
+						Notes [noteCounter].GetComponent<RawImage> ().texture = Arrows [7].texture;
 						//whenever a note is played
 						noteCounter += 1;
 					} else
@@ -220,13 +211,13 @@ public class InControlMelody : MonoBehaviour
 					}
 
 				}
-				else if (inputDevice.DPadRight.WasPressed)
+				else if (inputDevice.DPadLeft.WasPressed)
 				{
 					if (GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [2].name.Contains ("LeftLeg"))
 					{
 						Robotcode.Add (7);
 						//whenever a note is played
-						Notes [noteCounter].GetComponent<RawImage> ().texture = Arrows [6].texture;
+						Notes [noteCounter].GetComponent<RawImage> ().texture = Arrows [5].texture;
 						//whenever a note is played
 						noteCounter += 1;
 					} 
@@ -235,13 +226,13 @@ public class InControlMelody : MonoBehaviour
 						Debug.Log ("player2 has no left leg");
 					}
 				}
-				else if (inputDevice.DPadDown.WasPressed)
+				else if (inputDevice.DPadRight.WasPressed)
 				{
 					if (GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [3].name.Contains ("RightLeg"))
 					{
 						Robotcode.Add (8);
 						//whenever a note is played
-						Notes [noteCounter].GetComponent<RawImage> ().texture = Arrows [7].texture;
+						Notes [noteCounter].GetComponent<RawImage> ().texture = Arrows [6].texture;
 						//whenever a note is played
 						noteCounter += 1;
 					}
@@ -263,7 +254,172 @@ public class InControlMelody : MonoBehaviour
 
 
 
-	void CheckCode()
+	void ProcessInput()
+	{
+		//can only play notes when player is in proxcimity to box
+		if ((this.GetComponent<SCR_Door>().Player1enteredBounds == true && Robotcode.Count <= 3))
+		{
+			//beeps Y
+			if (Input.GetKeyDown(GameManager.Instance.playerSetting.currentButton[4]))
+			{
+				//if player 1 has the left arm
+				//limbs[0] is left arm. so if it was limbs[1] that would be right arm
+				if(GameObject.FindGameObjectWithTag("Player1").GetComponent<SCR_TradeLimb>().limbs[0].name.Contains("LeftArm"))
+				{
+					//allow you to play the chirp
+					source.PlayOneShot (Chirps[0]);
+					Robotcode.Add (1);
+					Notes[noteCounter].GetComponent<RawImage>().texture = Arrows[0].texture;
+					//whenever a note is played
+					noteCounter += 1;
+				} 
+				else
+				{
+					//no beep
+					// want to add a cross? to show that you don't have the correct limbs
+					Debug.Log("player 1 has no left arm");
+				}
+			}
+			else if (Input.GetKeyDown(GameManager.Instance.playerSetting.currentButton[5]))
+			{
+				if (GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [1].name.Contains ("RightArm"))
+				{
+					source.PlayOneShot (Chirps[1]);
+					Robotcode.Add (2);
+					Notes [noteCounter].GetComponent<RawImage> ().texture = Arrows[3].texture;
+					//whenever a note is played
+					noteCounter += 1;
+				} 
+				else
+				{
+					Debug.Log ("player 1 has no right arm");
+				}
+
+			}
+			else if (Input.GetKeyDown(GameManager.Instance.playerSetting.currentButton[6]))
+			{
+				if (GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [2].name.Contains ("LeftLeg"))
+				{
+					source.PlayOneShot (Chirps [2]);
+					Robotcode.Add (3);
+					//whenever a note is played
+					Notes [noteCounter].GetComponent<RawImage> ().texture = Arrows [1].texture;
+					//whenever a note is played
+					noteCounter += 1;
+				} else
+				{
+					Debug.Log ("player 1 has no left leg");
+				}
+
+			}
+			else if (Input.GetKeyDown(GameManager.Instance.playerSetting.currentButton[7]))
+			{
+				if (GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [3].name.Contains ("RightLeg"))
+				{
+					source.PlayOneShot (Chirps [3]);
+					Robotcode.Add (4);
+					//whenever a note is played
+					Notes [noteCounter].GetComponent<RawImage> ().texture = Arrows [2].texture;
+					//whenever a note is played
+					noteCounter += 1;
+				} else
+				{
+					Debug.Log ("player1 has no right leg");
+				}
+			}
+
+			//once 4 notes have been played check to see if the code is correct or false
+			if (noteCounter == 4)
+			{
+				Invoke("CheckCode", 1.0f);
+			}
+		} 
+
+		//////////////////////////////////////////////////////////
+		/// //player 2
+		/// //move forward
+
+		//Player 2 melody notes
+		//can only play notes when player is in proxcimity to box
+		if ((this.GetComponent<SCR_Door>().Player2enteredBounds == true && Robotcode.Count <= 3))
+		{
+			//beeps Y
+			if (Input.GetKeyDown(KeyCode.Alpha6))
+			{
+
+				if(GameObject.FindGameObjectWithTag("Player2").GetComponent<SCR_TradeLimb>().limbs[0].name.Contains("LeftArm"))
+				{
+					//allow you to play the chirp
+					Robotcode.Add (5);
+					Notes [noteCounter].GetComponent<RawImage> ().texture = Arrows[4].texture;
+					//whenever a note is played
+					noteCounter += 1;
+				} 
+				else
+				{
+					//no beep
+					// want to add a cross? to show that you don't have the correct limbs
+					Debug.Log("player2 has no left arm");
+				}
+
+			}
+			else if (Input.GetKeyDown(KeyCode.Alpha7))
+			{
+
+				if (GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [1].name.Contains ("RightArm"))
+				{
+					Robotcode.Add (6);
+					//whenever a note is played
+					Notes [noteCounter].GetComponent<RawImage> ().texture = Arrows [7].texture;
+					//whenever a note is played
+					noteCounter += 1;
+				} else
+				{
+					Debug.Log ("player 2 has no right arm");
+				}
+
+			}
+			else if (Input.GetKeyDown(KeyCode.Alpha8))
+			{
+				if (GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [2].name.Contains ("LeftLeg"))
+				{
+					Robotcode.Add (7);
+					//whenever a note is played
+					Notes [noteCounter].GetComponent<RawImage> ().texture = Arrows [5].texture;
+					//whenever a note is played
+					noteCounter += 1;
+				} 
+				else
+				{
+					Debug.Log ("player2 has no left leg");
+				}
+			}
+			else if (Input.GetKeyDown(KeyCode.Alpha9))
+			{
+				if (GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [3].name.Contains ("RightLeg"))
+				{
+					Robotcode.Add (8);
+					//whenever a note is played
+					Notes [noteCounter].GetComponent<RawImage> ().texture = Arrows [6].texture;
+					//whenever a note is played
+					noteCounter += 1;
+				}
+				else
+				{
+					Debug.Log ("player 2 has no right leg");
+				}
+			}
+
+			//once 4 notes have been played check to see if the code is correct or false
+			if (noteCounter == 4)
+			{
+				Invoke("CheckCode", 1.0f);
+			}
+		} 
+	}*/
+
+
+	public void CheckCode()
 	{
 		//check each element of the doorcode and compare it to the robot code
 		for(int i = 0; i < Robotcode.Count; i++)
@@ -280,11 +436,12 @@ public class InControlMelody : MonoBehaviour
 		{
 			//if the robot code is the same as the doorcode then display UI message
 			Debug.Log ("code correct");
-			//Canvas.SetActive (true);
 			CancelInvoke ("CheckCode");
 			correctCode = true;
-
-		} else
+			this.GetComponent<SCR_Door> ().Correct = true;
+			//next whatever
+		} 
+		else
 		{
 			Debug.Log ("Wrong code");
 			test = true;
@@ -300,6 +457,8 @@ public class InControlMelody : MonoBehaviour
 		{
 			Notes[i].GetComponent<RawImage>().texture = null;
 		}
+
+
 
 	}
 		

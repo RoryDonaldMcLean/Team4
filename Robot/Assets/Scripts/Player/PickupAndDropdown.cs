@@ -107,7 +107,7 @@ public class PickupAndDropdown : MonoBehaviour
 						} 
 						else if (hit.transform.name.Contains("LightEmitter")) 
 						{
-							hit.transform.GetComponent<LightEmitter>().ToggleLight();
+							hit.transform.GetComponent<LightEmitter>().InteractWithEmitter();
 							hit.transform.GetComponent<LightEmitter>().switchedOn = !hit.transform.GetComponent<LightEmitter>().switchedOn;
 						}
 
@@ -115,7 +115,7 @@ public class PickupAndDropdown : MonoBehaviour
 						{
 							if (hit.transform.parent.GetComponent<SCR_Rotatable>().rotatableObjectString.Contains("LightEmitter")) 
 							{
-								hit.transform.GetComponent<LightEmitter>().ToggleLight();
+								hit.transform.GetComponent<LightEmitter>().InteractWithEmitter();
 							}
 						}
 					}
@@ -156,11 +156,11 @@ public class PickupAndDropdown : MonoBehaviour
 				}
 				else
 				{
-					if (alpha <= 1.0f)
-						alpha += 0.001f;
+					//if (alpha <= 1.0f)
+					//	alpha += 0.001f;
 
 					pickedUpGameObject.GetComponent<Transform>().position = pickupLocation.transform.position; // set the picking up object position
-					pickedUpGameObject.GetComponent<Transform>().rotation = Quaternion.Lerp(pickedUpGameObject.GetComponent<Transform>().rotation, this.GetComponent<Transform>().rotation, alpha); //make the rotation of object same as camera
+					pickedUpGameObject.GetComponent<Transform>().rotation = Quaternion.Lerp(pickedUpGameObject.GetComponent<Transform>().rotation, this.GetComponent<Transform>().rotation, 1); //make the rotation of object same as camera
 					pickedUpGameObject.GetComponent<Transform>().rotation = new Quaternion(0, pickedUpGameObject.GetComponent<Transform>().rotation.y, 0, pickedUpGameObject.GetComponent<Transform>().rotation.w);
 
 					if (Input.GetKeyDown(KeyCode.E))
@@ -240,14 +240,14 @@ public class PickupAndDropdown : MonoBehaviour
 						} 
 						else if (hit.transform.name.Contains("LightEmitter")) 
 						{
-							hit.transform.GetComponent<LightEmitter>().ToggleLight();
+							hit.transform.GetComponent<LightEmitter>().InteractWithEmitter();
 							hit.transform.GetComponent<LightEmitter>().switchedOn = !hit.transform.GetComponent<LightEmitter>().switchedOn;
 						}
 						else if (hit.transform.name.Contains("RotateBox")) 
 						{
 							if (hit.transform.parent.GetComponent<SCR_Rotatable>().rotatableObjectString.Contains("LightEmitter")) 
 							{
-								hit.transform.GetComponent<LightEmitter>().ToggleLight();
+								hit.transform.GetComponent<LightEmitter>().InteractWithEmitter();
 							}
 						}
 					}
@@ -289,7 +289,7 @@ public class PickupAndDropdown : MonoBehaviour
 				else
 				{
 					pickedUpGameObject.GetComponent<Transform>().position = pickupLocation.transform.position; // set the picking up object position
-					pickedUpGameObject.GetComponent<Transform>().rotation = Quaternion.Lerp(pickedUpGameObject.GetComponent<Transform>().rotation, this.GetComponent<Transform>().rotation, alpha); //make the rotation of object same as camera
+					pickedUpGameObject.GetComponent<Transform>().rotation = Quaternion.Lerp(pickedUpGameObject.GetComponent<Transform>().rotation, this.GetComponent<Transform>().rotation, 1); //make the rotation of object same as camera
 					pickedUpGameObject.GetComponent<Transform>().rotation = new Quaternion(0, pickedUpGameObject.GetComponent<Transform>().rotation.y, 0, pickedUpGameObject.GetComponent<Transform>().rotation.w);
 
 					if (inputDevice.Action2.WasPressed)

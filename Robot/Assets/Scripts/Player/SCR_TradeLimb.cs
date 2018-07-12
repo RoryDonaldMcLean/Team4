@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using XInputDotNetPure;
 using UnityEngine.UI;
 using InControl;
 
@@ -13,10 +12,6 @@ public class SCR_TradeLimb : MonoBehaviour
 
     public List<GameObject> limbs = new List<GameObject>();
 
-    GamePadState state;
-    GamePadState prevState;
-    GamePadState player2State;
-    GamePadState player2PrevState;
     private string otherPlayerTag = "";
 
     //Affects the particle systems on the children
@@ -38,11 +33,6 @@ public class SCR_TradeLimb : MonoBehaviour
     {
         InitialisePlayerLimbs();
         SetPlayerTag();
-
-        
-
-        Face = GameObject.FindGameObjectWithTag("Test");
-        Face2 = GameObject.FindGameObjectWithTag("Test2");
 
         //get all the limbUI images, add them to a list and set them all to inactive to start
         UILimbImage = GameObject.FindGameObjectWithTag ("UILimb");
@@ -276,70 +266,11 @@ public class SCR_TradeLimb : MonoBehaviour
 			}
 		}
 	}
-
-    public void Emote()
-    {
-        //player 1 
-        //checks that the player has that limb, if so activate the correct UI element
-        if (player2)
-        {
-            if (Input.GetKeyDown(KeyCode.Alpha1) && ActiveEmote == false)
-            {
-                EmoteNumber = 1;
-                Emotes();
-            }
-            if (Input.GetKeyDown(KeyCode.Alpha2) && ActiveEmote == false)
-            {
-                EmoteNumber = 2;
-                Emotes();
-            }
-            if (Input.GetKeyDown(KeyCode.Alpha3) && ActiveEmote == false)
-            {
-                EmoteNumber = 3;
-                Emotes();              
-            }
-            if (Input.GetKeyDown(KeyCode.Alpha4) && ActiveEmote == false)
-            {
-                EmoteNumber = 4;
-                Emotes();               
-            }
-
-        }
-        else
-        {
-            //player 2
-            if (Input.GetKeyDown(KeyCode.Alpha6) && ActiveEmote == false)
-            {
-                EmoteNumber = 1;
-                Emotes();
-            }
-            if (Input.GetKeyDown(KeyCode.Alpha7) && ActiveEmote == false)
-            {
-                EmoteNumber = 2;
-                Emotes();
-            }
-            if (Input.GetKeyDown(KeyCode.Alpha8) && ActiveEmote == false)
-            {
-                EmoteNumber = 3;
-                Emotes();
-            }
-
-            if (Input.GetKeyDown(KeyCode.Alpha9) && ActiveEmote == false)
-            {
-                EmoteNumber = 4;
-                Emotes();
-            }
-
-        }
-    }
-
+		
     public void ProcessInput()
 	{
 		//update the game controller
-		prevState = state;
-		state = GamePad.GetState(PlayerIndex.One);
-		player2PrevState = player2State;
-		player2State = GamePad.GetState(PlayerIndex.Two);
+
 
 		//////////////////////////////////////////////////////////////////////////
 		//DropDown
@@ -347,24 +278,24 @@ public class SCR_TradeLimb : MonoBehaviour
 		{	//player 1 controls
 			if((UILimbImage != null)&&(UILimbImage2 != null)) UICheck();
 
-			if (prevState.Buttons.RightShoulder == ButtonState.Pressed || Input.GetKey(KeyCode.Z))
+			if (Input.GetKey(KeyCode.Z))
 			{
-				if (prevState.ThumbSticks.Right.Y > 0.1f || Input.GetKey(KeyCode.Alpha1))
+				if (Input.GetKey(KeyCode.Alpha1))
 				{
 					if (limbs[0].name.Contains("LeftArm"))
 						DropDownLims("LeftArm");
 				}
-				if (prevState.ThumbSticks.Right.Y < -0.1f || Input.GetKey(KeyCode.Alpha2))
+				if (Input.GetKey(KeyCode.Alpha2))
 				{
 					if (limbs[1].name.Contains("RightArm"))
 						DropDownLims("RightArm");
 				}
-				if (prevState.ThumbSticks.Right.X < -0.1f || Input.GetKey(KeyCode.Alpha3))
+				if (Input.GetKey(KeyCode.Alpha3))
 				{
 					if (limbs[2].name.Contains("LeftLeg"))
 						DropDownLims("LeftLeg");
 				}
-				if (prevState.ThumbSticks.Right.X > 0.1f || Input.GetKey(KeyCode.Alpha4))
+				if (Input.GetKey(KeyCode.Alpha4))
 				{
 					if (limbs[3].name.Contains("RightLeg"))
 						DropDownLims("RightLeg");
@@ -375,24 +306,24 @@ public class SCR_TradeLimb : MonoBehaviour
 		{	//player 2 controls
 			if((UILimbImage != null)&&(UILimbImage2 != null)) UICheck();
 
-			if (player2PrevState.Buttons.RightShoulder == ButtonState.Released && player2State.Buttons.RightShoulder == ButtonState.Pressed || Input.GetKey(KeyCode.L))
+			if (Input.GetKey(KeyCode.L))
 			{
-				if (player2PrevState.ThumbSticks.Right.Y > 0.1f || Input.GetKey(KeyCode.Alpha6))
+				if (Input.GetKey(KeyCode.Alpha6))
 				{
 					if (limbs[0].name.Contains("LeftArm"))
 						DropDownLims("LeftArm");
 				}
-				if (player2PrevState.ThumbSticks.Right.Y < -0.1f || Input.GetKey(KeyCode.Alpha7))
+				if (Input.GetKey(KeyCode.Alpha7))
 				{
 					if (limbs[1].name.Contains("RightArm"))
 						DropDownLims("RightArm");
 				}
-				if (player2PrevState.ThumbSticks.Right.X < -0.1f || Input.GetKey(KeyCode.Alpha8))
+				if (Input.GetKey(KeyCode.Alpha8))
 				{
 					if (limbs[2].name.Contains("LeftLeg"))
 						DropDownLims("LeftLeg");
 				}
-				if (player2PrevState.ThumbSticks.Right.X > 0.1f || Input.GetKey(KeyCode.Alpha9))
+				if (Input.GetKey(KeyCode.Alpha9))
 				{
 					if (limbs[3].name.Contains("RightLeg"))
 						DropDownLims("RightLeg");
@@ -402,7 +333,7 @@ public class SCR_TradeLimb : MonoBehaviour
 		////////////////////////////////////
 		if (player2)
 		{	//player 1 controls
-			if ((prevState.Buttons.LeftShoulder == ButtonState.Pressed) || (Input.GetKey (KeyCode.LeftShift)))
+			if (Input.GetKey (KeyCode.LeftShift))
 			{
 				Vector3 UIposition = Camera.main.WorldToScreenPoint (this.transform.position);
 				if (UILimbImage != null) 
@@ -420,7 +351,7 @@ public class SCR_TradeLimb : MonoBehaviour
 		else
 		{
 			//player 2 controls here
-			if (player2PrevState.Buttons.LeftShoulder == ButtonState.Pressed || Input.GetKey (KeyCode.RightShift))
+			if (Input.GetKey (KeyCode.RightShift))
 			{
 				Vector3 UIposition = Camera.main.WorldToScreenPoint (this.transform.position);
 				if (UILimbImage2 != null) 
@@ -527,7 +458,7 @@ public class SCR_TradeLimb : MonoBehaviour
         GameObject targetPlayer = GameObject.FindGameObjectWithTag(otherPlayerTag);
         //this is what would change which limb you exchange
         //player 1 left arm
-        if (prevState.ThumbSticks.Right.Y > 0.1f || Input.GetKey(KeyCode.Alpha1))
+        if (Input.GetKey(KeyCode.Alpha1))
         {
             
             if (limbs[0].name.Contains("LeftArm") && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[0].name.Contains("LeftArm"))
@@ -539,7 +470,7 @@ public class SCR_TradeLimb : MonoBehaviour
         }
 
         //player2 left arm
-		if (player2PrevState.ThumbSticks.Right.Y > 0.1f || Input.GetKey(KeyCode.Alpha6))
+		if (Input.GetKey(KeyCode.Alpha6))
         {
             if (limbs[0].name.Contains("LeftArm") && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[0].name.Contains("LeftArm"))
             {
@@ -550,7 +481,7 @@ public class SCR_TradeLimb : MonoBehaviour
 
 
         //player1 right arm
-		if (prevState.ThumbSticks.Right.Y < -0.1f || Input.GetKey(KeyCode.Alpha2))
+		if (Input.GetKey(KeyCode.Alpha2))
         {
             if (limbs[1].name.Contains("RightArm") && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[1].name.Contains("RightArm"))
             {
@@ -560,7 +491,7 @@ public class SCR_TradeLimb : MonoBehaviour
         }
 
         //player2 right arm
-		if (player2PrevState.ThumbSticks.Right.Y < -0.1f || Input.GetKey(KeyCode.Alpha7))
+		if (Input.GetKey(KeyCode.Alpha7))
         {
             if (limbs[1].name.Contains("RightArm") && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[1].name.Contains("RightArm"))
             {
@@ -570,7 +501,7 @@ public class SCR_TradeLimb : MonoBehaviour
         }
 
 		//player 1 right leg
-		if (prevState.ThumbSticks.Right.X > 0.1f || Input.GetKey(KeyCode.Alpha4))
+		if (Input.GetKey(KeyCode.Alpha4))
         {
 			if (limbs[3].name.Contains("RightLeg") && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[3].name.Contains("RightLeg"))
 			{
@@ -580,7 +511,7 @@ public class SCR_TradeLimb : MonoBehaviour
         }
 
         //player2 right leg
-		if (player2PrevState.ThumbSticks.Right.X > 0.1f || Input.GetKey(KeyCode.Alpha9))
+		if (Input.GetKey(KeyCode.Alpha9))
         {
 			if (limbs[3].name.Contains("RightLeg") && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[3].name.Contains("RightLeg"))
 			{
@@ -590,7 +521,7 @@ public class SCR_TradeLimb : MonoBehaviour
         }
 			
         //player1 left leg
-		if (prevState.ThumbSticks.Right.X < -0.1f || Input.GetKey(KeyCode.Alpha3))
+		if (Input.GetKey(KeyCode.Alpha3))
         {
 			if (limbs[2].name.Contains("LeftLeg") && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[2].name.Contains("LeftLeg"))
 			{
@@ -601,7 +532,7 @@ public class SCR_TradeLimb : MonoBehaviour
         }
 
         //player2 left leg
-		if (player2PrevState.ThumbSticks.Right.X < -0.1f || Input.GetKey(KeyCode.Alpha8))
+		if (Input.GetKey(KeyCode.Alpha8))
         {
 			if (limbs[2].name.Contains("LeftLeg") && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[2].name.Contains("LeftLeg"))
 			{
@@ -776,67 +707,7 @@ public class SCR_TradeLimb : MonoBehaviour
         dropDownLims.transform.position = dropDownLimsPosition;
         Destroy(dropDownLims, 2f);
     }
-
-    void Emotes()
-    {
-       
-        if (EmoteNumber == 1 && ActiveEmote == false)
-        {
-            StartCoroutine(EmoteActive());
-            ActiveEmote = true;
-            GameObject Emote1 = Resources.Load("Prefabs/Particle/Happy") as GameObject;
-            Instantiate(Emote1, transform.position, Quaternion.identity, transform);
-        
-    }
-        if (EmoteNumber == 2)
-        {
-            StartCoroutine(EmoteActive());
-            ActiveEmote = true;
-            GameObject Emote2 = Resources.Load("Prefabs/Particle/Sad") as GameObject;
-            Instantiate(Emote2, transform.position, Quaternion.identity, transform);
-        }
-        if (EmoteNumber == 3)
-        {
-            StartCoroutine(EmoteActive());
-            ActiveEmote = true;
-            GameObject Emote3 = Resources.Load("Prefabs/Particle/OverHere") as GameObject;
-            Instantiate(Emote3, transform.position, Quaternion.identity, transform);
-        }
-        if (EmoteNumber == 4)
-        {
-            RaycastHit hit;
-            if (player2)
-            {
-                if (Physics.Raycast(Face.transform.position, Face.transform.forward, out hit, range))
-                {
-                    Debug.Log(hit.transform.name);
-                    GameObject impactEffect = Resources.Load("Prefabs/Particle/OverThereSwirl") as GameObject;
-                    GameObject Impact = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
-                    Destroy(Impact, 2f);
-                }
-            }
-            else
-            {
-                if (Physics.Raycast(Face2.transform.position, Face2.transform.forward, out hit, range))
-                {
-                    Debug.Log(hit.transform.name);
-                    GameObject impactEffect = Resources.Load("Prefabs/Particle/OverThereSwirl") as GameObject;
-                    GameObject Impact = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
-                    Destroy(Impact, 2f);
-                }
-            }
-            StartCoroutine(EmoteActive());
-            ActiveEmote = true;
-            GameObject Emote4 = Resources.Load("Prefabs/Particle/OverThere") as GameObject;
-            Instantiate(Emote4, transform.position, Quaternion.identity, transform);
-        }
-       }
-    IEnumerator EmoteActive()
-    {
-        yield return new WaitForSeconds(1);
-        ActiveEmote = false;
-    }
-
+		
     private void PickUpLims(GameObject pickUpObject)
     {
 		//Debug.Log ("pick up0");
@@ -894,60 +765,25 @@ public class SCR_TradeLimb : MonoBehaviour
 			var inputDevice = (InputManager.Devices.Count > playerNum) ? InputManager.Devices [playerNum] : null;
 			if (inputDevice == null)
 			{
-<<<<<<< HEAD
-				if (other.name == "LeftArm" && prevState.Buttons.B == ButtonState.Pressed || other.name == "LeftArm" && Input.GetKey(KeyCode.Q) && !GetComponent<SCR_TradeLimb>().limbs[0].name.Contains("LeftArm"))
+				if (other.name == "LeftArm" && Input.GetKey(KeyCode.Q) && !GetComponent<SCR_TradeLimb>().limbs[0].name.Contains("LeftArm"))
 					PickUpLims(other.gameObject);
-				if (other.name == "RightArm" && prevState.Buttons.B == ButtonState.Pressed || other.name == "RightArm" && Input.GetKey(KeyCode.Q) && !GetComponent<SCR_TradeLimb>().limbs[1].name.Contains("RightArm"))
+				if (other.name == "RightArm" && Input.GetKey(KeyCode.Q) && !GetComponent<SCR_TradeLimb>().limbs[1].name.Contains("RightArm"))
 					PickUpLims(other.gameObject);
-				if (other.name == "LeftLeg" && prevState.Buttons.B == ButtonState.Pressed || other.name == "LeftLeg" && Input.GetKey(KeyCode.Q) && !GetComponent<SCR_TradeLimb>().limbs[2].name.Contains("LeftLeg"))
+				if (other.name == "LeftLeg" && Input.GetKey(KeyCode.Q) && !GetComponent<SCR_TradeLimb>().limbs[2].name.Contains("LeftLeg"))
 					PickUpLims(other.gameObject);
-				if (other.name == "RightLeg" && prevState.Buttons.B == ButtonState.Pressed || other.name == "RightLeg" && Input.GetKey(KeyCode.Q) && !GetComponent<SCR_TradeLimb>().limbs[3].name.Contains("RightLeg"))
+				if (other.name == "RightLeg" && Input.GetKey(KeyCode.Q) && !GetComponent<SCR_TradeLimb>().limbs[3].name.Contains("RightLeg"))
 					PickUpLims(other.gameObject);
 			}
 			else
 			{	//player 2
-				if (other.name == "LeftArm" && player2PrevState.Buttons.B == ButtonState.Pressed || other.name == "LeftArm" && Input.GetKey(KeyCode.K) && !GetComponent<SCR_TradeLimb>().limbs[0].name.Contains("LeftArm"))
+				if (other.name == "LeftArm" && Input.GetKey(KeyCode.K) && !GetComponent<SCR_TradeLimb>().limbs[0].name.Contains("LeftArm"))
 					PickUpLims(other.gameObject);
-				if (other.name == "RightArm" && player2PrevState.Buttons.B == ButtonState.Pressed || other.name == "RightArm" && Input.GetKey(KeyCode.K) && !GetComponent<SCR_TradeLimb>().limbs[1].name.Contains("RightArm"))
+				if (other.name == "RightArm" && Input.GetKey(KeyCode.K) && !GetComponent<SCR_TradeLimb>().limbs[1].name.Contains("RightArm"))
 					PickUpLims(other.gameObject);
-				if (other.name == "LeftLeg" && player2PrevState.Buttons.B == ButtonState.Pressed || other.name == "LeftLeg" && Input.GetKey(KeyCode.K) && !GetComponent<SCR_TradeLimb>().limbs[2].name.Contains("LeftLeg"))
+				if (other.name == "LeftLeg" && Input.GetKey(KeyCode.K) && !GetComponent<SCR_TradeLimb>().limbs[2].name.Contains("LeftLeg"))
 					PickUpLims(other.gameObject);
-				if (other.name == "RightLeg" && player2PrevState.Buttons.B == ButtonState.Pressed || other.name == "RightLeg" && Input.GetKey(KeyCode.K) && !GetComponent<SCR_TradeLimb>().limbs[3].name.Contains("RightLeg"))
-=======
-				if (player2)
-				{
-					if (other.name == "LeftArm" && prevState.Buttons.B == ButtonState.Pressed || other.name == "LeftArm" && Input.GetKey(KeyCode.Q))
-						PickUpLims(other.gameObject);
-					if (other.name == "RightArm" && prevState.Buttons.B == ButtonState.Pressed || other.name == "RightArm" && Input.GetKey(KeyCode.Q))
-						PickUpLims(other.gameObject);
-					if (other.name == "LeftLeg" && prevState.Buttons.B == ButtonState.Pressed || other.name == "LeftLeg" && Input.GetKey(KeyCode.Q))
-						PickUpLims(other.gameObject);
-					if (other.name == "RightLeg" && prevState.Buttons.B == ButtonState.Pressed || other.name == "RightLeg" && Input.GetKey(KeyCode.Q))
-						PickUpLims(other.gameObject);
-				}
-				else
-				{	//player 2
-					if (other.name == "LeftArm" && player2PrevState.Buttons.B == ButtonState.Pressed || other.name == "LeftArm" && Input.GetKey(KeyCode.K))
-						PickUpLims(other.gameObject);
-					if (other.name == "RightArm" && player2PrevState.Buttons.B == ButtonState.Pressed || other.name == "RightArm" && Input.GetKey(KeyCode.K))
-						PickUpLims(other.gameObject);
-					if (other.name == "LeftLeg" && player2PrevState.Buttons.B == ButtonState.Pressed || other.name == "LeftLeg" && Input.GetKey(KeyCode.K))
-						PickUpLims(other.gameObject);
-					if (other.name == "RightLeg" && player2PrevState.Buttons.B == ButtonState.Pressed || other.name == "RightLeg" && Input.GetKey(KeyCode.K))
-						PickUpLims(other.gameObject);
-				}
-			} 
-			else
-			{
-				
-				if (other.name == "LeftArm" && inputDevice.Action2)
-					PickUpLims(other.gameObject);
-				if (other.name == "RightArm" && inputDevice.Action2)
-					PickUpLims(other.gameObject);
-				if (other.name == "LeftLeg" && inputDevice.Action2)
-					PickUpLims(other.gameObject);
-				if (other.name == "RightLeg" && inputDevice.Action2)
->>>>>>> Development-Rory-02.07.18
+				if (other.name == "RightLeg" && Input.GetKey(KeyCode.K) && !GetComponent<SCR_TradeLimb>().limbs[3].name.Contains("RightLeg"))
+
 					PickUpLims(other.gameObject);
 				
 			}

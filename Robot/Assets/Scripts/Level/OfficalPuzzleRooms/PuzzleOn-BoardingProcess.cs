@@ -4,12 +4,6 @@ using UnityEngine;
 
 public class PuzzleOnBoardingProcess : LevelControlBaseClass
 {
-<<<<<<< HEAD
-=======
-    bool doorStateOpen = false;
-
-
->>>>>>> Development-Rory-02.07.18
     void Awake()
     {
         puzzleIdentifier = "PuzzleZero";
@@ -29,9 +23,6 @@ public class PuzzleOnBoardingProcess : LevelControlBaseClass
             walkway.name = "tempFloor";
 
             EndOfLevel();
-
         }
-
-
 	}
 }

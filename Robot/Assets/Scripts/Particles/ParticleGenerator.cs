@@ -43,5 +43,10 @@ public class ParticleGenerator : MonoBehaviour
             lastSpawnTime = Time.time; // Register the last spawnTime		
             _particles++;
         }
+
+        else if(_particles >= MAX_PARTICLES)
+        {
+            Destroy(this);
+        }
     }
 }

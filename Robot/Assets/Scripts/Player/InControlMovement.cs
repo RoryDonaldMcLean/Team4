@@ -258,10 +258,17 @@ public class InControlMovement : MonoBehaviour
     //updates movement using the passed velocity vector
     void UpdateMovement(Vector3 vel)
     {
+        Vector2 ve2 = new Vector2(vel.x, vel.z);
+        vel.x = ve2.normalized.x;
+        vel.z = ve2.normalized.y;
+
         rb1.velocity = vel * playerSpeed;
+        Vector3 lookAt = new Vector3(rb1.velocity.x, 0, rb1.velocity.z);
 
         //will rotate the player to face the direction they are moving
-        transform.LookAt(transform.position + new Vector3(rb1.velocity.x, 0, rb1.velocity.z));
+        //transform.LookAt(transform.position + new Vector3(rb1.velocity.x, 0, rb1.velocity.z));
+        if (lookAt != Vector3.zero)
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(lookAt), 0.3f);
     }
 
     private int GetLegQuantity()

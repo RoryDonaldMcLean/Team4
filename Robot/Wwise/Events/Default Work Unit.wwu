@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<WwiseDocument Type="WorkUnit" ID="{9208E778-4B37-4421-9C2A-46AAA42FFE85}" SchemaVersion="80">
+<WwiseDocument Type="WorkUnit" ID="{9208E778-4B37-4421-9C2A-46AAA42FFE85}" SchemaVersion="85">
 	<Events>
 		<WorkUnit Name="Default Work Unit" ID="{9208E778-4B37-4421-9C2A-46AAA42FFE85}" PersistMode="Standalone">
 			<ChildrenList>
@@ -105,6 +105,27 @@
 										</Reference>
 									</ReferenceList>
 								</Action>
+								<Action Name="" ID="{DA5F238F-2322-4E60-AA47-F18589A43A06}" ShortID="579885023">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Grinding" ID="{C90EE5B3-E1D3-4A78-B57C-A2B541DE021E}" WorkUnitID="{6BAE9174-7CEB-4131-99B7-F2EC621355E0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{59A5D76A-9D7A-4DC5-9D60-D0C53F4EAE56}" ShortID="571056518">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="Delay" Type="Real64" Value="0.15"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Pistons" ID="{B8DAE047-AD08-400C-B4BC-D50B077891F1}" WorkUnitID="{6BAE9174-7CEB-4131-99B7-F2EC621355E0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
 							</ChildrenList>
 						</Event>
 					</ChildrenList>
@@ -123,27 +144,32 @@
 										</Reference>
 									</ReferenceList>
 								</Action>
+								<Action Name="" ID="{69895328-E9C5-4D11-B1D0-C904FDDBD599}" ShortID="6074082">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Ambient_Env" ID="{32D46D27-B8F0-4AF4-86E9-88AA568A4EF7}" WorkUnitID="{6BAE9174-7CEB-4131-99B7-F2EC621355E0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
 							</ChildrenList>
 						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Music" ID="{4C115309-9DDC-47C9-B306-F439A7F86784}" ShortID="520774510">
 					<ChildrenList>
-						<Event Name="DRONE" ID="{C48883F0-0412-458A-AFBC-C283EB37E271}">
+						<Event Name="Drone" ID="{C48883F0-0412-458A-AFBC-C283EB37E271}">
 							<ChildrenList>
-								<Action Name="" ID="{2AFD008B-4CBB-4894-8FFB-8194CBAE4E45}" ShortID="907143013">
-									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="1"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Drone2" ID="{AFE8948E-6573-484D-9B8E-FDC3AF2AB28B}" WorkUnitID="{D9329DB3-E4D7-45AA-BD40-6EB28C6C4D39}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
 								<Action Name="" ID="{CB89F23A-6D44-4BE7-8E4B-F79A21AE3672}" ShortID="1039370998">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="Inclusion" Type="bool">
+											<ValueList>
+												<Value>False</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -154,10 +180,40 @@
 								<Action Name="" ID="{2EF6617E-943D-4F23-86E0-E08EB4BD2D6B}" ShortID="191072780">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="Inclusion" Type="bool">
+											<ValueList>
+												<Value>False</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Drone3" ID="{2FD76A35-9848-4F8F-9F29-E0570451F891}" WorkUnitID="{D9329DB3-E4D7-45AA-BD40-6EB28C6C4D39}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{2AFD008B-4CBB-4894-8FFB-8194CBAE4E45}" ShortID="907143013">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="Inclusion" Type="bool">
+											<ValueList>
+												<Value>False</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Drone2" ID="{AFE8948E-6573-484D-9B8E-FDC3AF2AB28B}" WorkUnitID="{D9329DB3-E4D7-45AA-BD40-6EB28C6C4D39}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{F128DFDD-F59D-4DB8-BCA0-99FE7350F936}" ShortID="715442447">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Modulator" ID="{0263BE02-60A6-444C-B012-307D3A41BD0B}" WorkUnitID="{6BAE9174-7CEB-4131-99B7-F2EC621355E0}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -247,6 +303,49 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Push_Box" ID="{D01540AF-2C20-49F9-9D32-0BF3DB5AE982}">
+							<ChildrenList>
+								<Action Name="" ID="{6D53DDB5-9ED3-4D25-9315-64C015752191}" ShortID="386432649">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="FadeTime" Type="Real64" Value="0.3"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DragBox" ID="{1019012E-B020-43CF-9360-00186234E5F6}" WorkUnitID="{D9329DB3-E4D7-45AA-BD40-6EB28C6C4D39}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Push_Box_Stop" ID="{BE4D1B80-E725-4113-A36D-D2DB004A38F5}">
+							<ChildrenList>
+								<Action Name="" ID="{24997DFB-ABA6-487C-9C7C-6A48E0785F35}" ShortID="209730119">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DragBox" ID="{1019012E-B020-43CF-9360-00186234E5F6}" WorkUnitID="{D9329DB3-E4D7-45AA-BD40-6EB28C6C4D39}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Switch" ID="{ED51A561-1E1A-4D85-BD29-CA9CAABD1246}">
+							<ChildrenList>
+								<Action Name="" ID="{769E47AD-B8AD-4CE6-A9B7-44E7CEF3E448}" ShortID="805296992">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Switch" ID="{B4AEAB48-037E-4149-81A8-133297C25ADD}" WorkUnitID="{6BAE9174-7CEB-4131-99B7-F2EC621355E0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Emitters" ID="{F6C50FC6-7A72-41C2-8063-B743EC6BEB1D}" ShortID="550013825">
@@ -302,6 +401,34 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Insects" ID="{4637132E-3762-43C5-9FE8-6B05E6FAF229}" WorkUnitID="{6BAE9174-7CEB-4131-99B7-F2EC621355E0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Chains" ID="{470AB6CC-3A15-4621-80AF-E965DB62D314}">
+							<ChildrenList>
+								<Action Name="" ID="{68E253E4-BA44-4F2F-96DC-1230B39EBA14}" ShortID="185381829">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Chains" ID="{0045A1E1-32DE-4838-BF53-5DF34292B363}" WorkUnitID="{6BAE9174-7CEB-4131-99B7-F2EC621355E0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Chains_Light" ID="{6CC3DE29-7860-41C3-8775-6EFE3C2F6EBE}">
+							<ChildrenList>
+								<Action Name="" ID="{8CD6054D-ACDD-4049-99E1-5E0108A066CD}" ShortID="371327085">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="ChainsLight" ID="{7FC38F16-136B-4976-90F7-7844C8D91498}" WorkUnitID="{6BAE9174-7CEB-4131-99B7-F2EC621355E0}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>

@@ -23,7 +23,6 @@ public class LevelController : MonoBehaviour
 		}
 
         Level(currentLevel);
-		Debug.Log ("levelController " + currentLevel);
     }
 
     public void NextLevel()

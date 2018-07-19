@@ -21,7 +21,6 @@ public class SCR_player2Initalise : SCR_TradeLimb
 		} 
 		else if (levelCounter == 1)
 		{
-			Debug.Log("level 1");
 			//factory part 1
 			Exchange ("LeftArm", this.gameObject.tag);
 			Exchange ("RightArm", this.gameObject.tag);

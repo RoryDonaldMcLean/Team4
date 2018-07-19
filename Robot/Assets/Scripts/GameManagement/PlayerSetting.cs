@@ -68,9 +68,9 @@ public class PlayerSetting
 /*
  * Player1:
  * 
- * 0 - forward
+ * 0 - up
  * 1 - left
- * 2 - backward
+ * 2 - down
  * 3 - right
  * 4 - emotion1
  * 5 - emotion2

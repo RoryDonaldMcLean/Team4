@@ -73,4 +73,24 @@ public class ParticlesLife : MonoBehaviour
 
         return position;
     }
+
+    private Vector3 Bezier(Vector3 p1, Vector3 p2, Vector3 p3, float alpha)
+    {
+
+        Vector3 _f1 = Vector3.Lerp(from, p1, alpha);
+        Vector3 _12 = Vector3.Lerp(p1, p2, alpha);
+        Vector3 _23 = Vector3.Lerp(p2, p3, alpha);
+        Vector3 _3t = Vector3.Lerp(p3, to, alpha);
+
+        Vector3 _v1 = Vector3.Lerp(_f1, _12, alpha);
+        Vector3 _v2 = Vector3.Lerp(_12, _23, alpha);
+        Vector3 _v3 = Vector3.Lerp(_23, _3t, alpha);
+
+        Vector3 _vv1 = Vector3.Lerp(_v1, _v2, alpha);
+        Vector3 _vv2 = Vector3.Lerp(_v2, _v3, alpha);
+
+        Vector3 position = Vector3.Lerp(_vv1, _vv2, alpha);
+
+        return position;
+    }
 }

@@ -103,31 +103,31 @@ public class Movement_ : MonoBehaviour
             //////////////////////////////////////////////////////////
             /// //player 2
             /// //move forward
-            if (Input.GetKey(KeyCode.UpArrow))
+            if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[12]))
             {
                 velocity.z += 1.0f;
             }
             //move backward
-            if (Input.GetKey(KeyCode.DownArrow))
+            if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[14]))
             {
                 velocity.z -= 1.0f;
             }
 
             //move left
-            if (Input.GetKey(KeyCode.LeftArrow))
+            if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[13]))
             {
                 velocity.x -= 1.0f;
             }
 
             //move right
-            if (Input.GetKey(KeyCode.RightArrow))
+            if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[15]))
             {
                 velocity.x += 1.0f;
             }
      
 
             //jumping
-			if ((grounded ==true || doubleJump == true) && Input.GetKeyDown(KeyCode.RightControl) && this.GetLegQuantity() >= 1)
+			if ((grounded ==true || doubleJump == true) && Input.GetKeyDown(GameManager.Instance.playerSetting.currentButton[20]) && this.GetLegQuantity() >= 1)
             {
                 if (grounded && this.GetLegQuantity() >= 2)
                     doubleJump = true;
@@ -205,9 +205,7 @@ public class Movement_ : MonoBehaviour
                     }
                 }
             }
-
         }
         return quantity;
     }
-
 }

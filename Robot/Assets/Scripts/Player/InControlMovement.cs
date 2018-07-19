@@ -176,44 +176,43 @@ public class InControlMovement : MonoBehaviour
 		}
 		else
 		{
-			//////////////////////////////////////////////////////////
-			/// //player 2
-			/// //move forward
-			if (Input.GetKey(KeyCode.UpArrow))
-			{
-				velocity.z += 1.0f;
-			}
-			//move backward
-			if (Input.GetKey(KeyCode.DownArrow))
-			{
-				velocity.z -= 1.0f;
-			}
+            //////////////////////////////////////////////////////////
+            /// //player 2
+            /// //move forward
+            if(Input.GetKey(GameManager.Instance.playerSetting.currentButton[12]))
+            {
+                velocity.z += 1.0f;
+            }
+            //move backward
+            if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[14]))
+            {
+                velocity.z -= 1.0f;
+            }
 
-			//move left
-			if (Input.GetKey(KeyCode.LeftArrow))
-			{
-				velocity.x -= 1.0f;
-			}
+            //move left
+            if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[13]))
+            {
+                velocity.x -= 1.0f;
+            }
 
-			//move right
-			if (Input.GetKey(KeyCode.RightArrow))
-			{
-				velocity.x += 1.0f;
-			}
+            //move right
+            if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[15]))
+            {
+                velocity.x += 1.0f;
+            }
 
 
-			//jumping
-			if ((grounded ==true || doubleJump == true) && Input.GetKeyDown(KeyCode.RightControl) && this.GetLegQuantity() >= 1)
-			{
-				if (grounded && this.GetLegQuantity() >= 2)
-					doubleJump = true;
-				else
-					doubleJump = false;
-				grounded = false;
-				velocity.y = jumpSpeed;
-			}
-
-		}
+            //jumping
+            if ((grounded == true || doubleJump == true) && Input.GetKeyDown(GameManager.Instance.playerSetting.currentButton[20]) && this.GetLegQuantity() >= 1)
+            {
+                if (grounded && this.GetLegQuantity() >= 2)
+                    doubleJump = true;
+                else
+                    doubleJump = false;
+                grounded = false;
+                velocity.y = jumpSpeed;
+            }
+        }
 
 		UpdateMovement(velocity);
 		velocity.z = 0.0f;

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<WwiseDocument Type="WorkUnit" ID="{D9329DB3-E4D7-45AA-BD40-6EB28C6C4D39}" SchemaVersion="80">
+<WwiseDocument Type="WorkUnit" ID="{D9329DB3-E4D7-45AA-BD40-6EB28C6C4D39}" SchemaVersion="85">
 	<AudioObjects>
 		<WorkUnit Name="Factory Synth One" ID="{D9329DB3-E4D7-45AA-BD40-6EB28C6C4D39}" PersistMode="Standalone">
 			<ChildrenList>
@@ -1296,7 +1296,7 @@ Content provided by Vincent Gagnon
 © 2014 Vincent Gagnon</Comment>
 									<PropertyList>
 										<Property Name="BaseFrequency" Type="Real32" Value="440"/>
-										<Property Name="FmAmount" Type="Real32" Value="55.8">
+										<Property Name="FmAmount" Type="Real32">
 											<RTPCList>
 												<RTPC Name="" ID="{96801B48-EB21-47C8-9392-08A69906EDCB}" ShortID="135288928">
 													<ReferenceList>
@@ -1459,7 +1459,7 @@ Content provided by Vincent Gagnon
 © 2014 Vincent Gagnon</Comment>
 									<PropertyList>
 										<Property Name="BaseFrequency" Type="Real32" Value="440"/>
-										<Property Name="FmAmount" Type="Real32" Value="61.1">
+										<Property Name="FmAmount" Type="Real32">
 											<RTPCList>
 												<RTPC Name="" ID="{FF52BAA9-7720-4DF1-86EF-D2CEFF958355}" ShortID="950210786">
 													<ReferenceList>
@@ -1738,7 +1738,7 @@ Content provided by Vincent Gagnon
 						</Sound>
 					</ChildrenList>
 				</Folder>
-				<Folder Name="SFX" ID="{3DB737F0-EA3C-4EFE-9744-4CB5B432D997}" ShortID="630299464">
+				<Folder Name="SFXstuf" ID="{3DB737F0-EA3C-4EFE-9744-4CB5B432D997}" ShortID="630299464">
 					<ChildrenList>
 						<Sound Name="MAGIC 02" ID="{38781695-80FA-4DBD-9B09-634988F63B4F}" ShortID="1005430341">
 							<Comment>Audiokinetic Inc. All rights reserved.
@@ -2601,7 +2601,7 @@ Content provided by Vincent Gagnon
 © 2014 Vincent Gagnon</Comment>
 									<PropertyList>
 										<Property Name="BaseFrequency" Type="Real32" Value="500"/>
-										<Property Name="FmAmount" Type="Real32" Value="30">
+										<Property Name="FmAmount" Type="Real32">
 											<RTPCList>
 												<RTPC Name="" ID="{73669332-350B-4DD2-815A-7544649A94A1}" ShortID="673539784">
 													<ReferenceList>
@@ -2776,7 +2776,7 @@ Content provided by Vincent Gagnon
 © 2014 Vincent Gagnon</Comment>
 									<PropertyList>
 										<Property Name="BaseFrequency" Type="Real32" Value="500"/>
-										<Property Name="FmAmount" Type="Real32" Value="44.7">
+										<Property Name="FmAmount" Type="Real32">
 											<RTPCList>
 												<RTPC Name="" ID="{DB4FD978-47EC-46C0-94BF-79CAF5C0F28D}" ShortID="532830855">
 													<ReferenceList>
@@ -2999,7 +2999,7 @@ Content provided by Vincent Gagnon
 												</RTPC>
 											</RTPCList>
 										</Property>
-										<Property Name="FmAmount" Type="Real32" Value="52.6">
+										<Property Name="FmAmount" Type="Real32">
 											<RTPCList>
 												<RTPC Name="" ID="{A14B77D8-21E6-4DAE-891E-95A180DD373F}" ShortID="1042540471">
 													<ReferenceList>
@@ -3113,7 +3113,7 @@ Content provided by Vincent Gagnon
 											</RTPCList>
 										</Property>
 										<Property Name="Osc1Level" Type="Real32" Value="0"/>
-										<Property Name="Osc1Pwm" Type="Real32">
+										<Property Name="Osc1Pwm" Type="Real32" Value="0">
 											<RTPCList>
 												<RTPC Name="" ID="{F6B56634-E05A-40BB-B75E-9D86D318AFA4}" ShortID="521666942">
 													<ReferenceList>
@@ -3227,7 +3227,7 @@ Content provided by Vincent Gagnon
 										</Property>
 										<Property Name="Osc1Waveform" Type="int32" Value="1"/>
 										<Property Name="Osc2Level" Type="Real32" Value="-5"/>
-										<Property Name="Osc2Pwm" Type="Real32" Value="44">
+										<Property Name="Osc2Pwm" Type="Real32" Value="0">
 											<RTPCList>
 												<RTPC Name="" ID="{FCED91F7-D9E0-4BB5-A597-799051CBE097}" ShortID="344699780">
 													<ReferenceList>
@@ -3413,7 +3413,7 @@ Content provided by Vincent Gagnon
 © 2014 Vincent Gagnon</Comment>
 									<PropertyList>
 										<Property Name="BaseFrequency" Type="Real32" Value="500"/>
-										<Property Name="FmAmount" Type="Real32" Value="56.8">
+										<Property Name="FmAmount" Type="Real32">
 											<RTPCList>
 												<RTPC Name="" ID="{4B100D08-4F7C-40FB-A0DE-68A119DCDA13}" ShortID="672206646">
 													<ReferenceList>
@@ -6805,7 +6805,7 @@ Content provided by Vincent Gagnon
 											</RTPCList>
 										</Property>
 										<Property Name="Osc1Level" Type="Real32" Value="-3"/>
-										<Property Name="Osc1Pwm" Type="Real32" Value="26.1">
+										<Property Name="Osc1Pwm" Type="Real32" Value="0">
 											<RTPCList>
 												<RTPC Name="" ID="{502FD05C-DC18-4E66-810E-5BB3777BFA06}" ShortID="515512878">
 													<ReferenceList>
@@ -7349,7 +7349,7 @@ Content provided by Vincent Gagnon
 © 2014 Vincent Gagnon</Comment>
 									<PropertyList>
 										<Property Name="BaseFrequency" Type="Real32" Value="500"/>
-										<Property Name="FmAmount" Type="Real32" Value="31.1">
+										<Property Name="FmAmount" Type="Real32">
 											<RTPCList>
 												<RTPC Name="" ID="{68589283-7CE4-4F63-853A-3AB402BE45F8}" ShortID="58522366">
 													<ReferenceList>
@@ -8365,7 +8365,7 @@ Content provided by Vincent Gagnon
 										<Property Name="FmAmount" Type="Real32" Value="4.2"/>
 										<Property Name="FrequencyMode" Type="int32" Value="1"/>
 										<Property Name="Osc1Level" Type="Real32" Value="0"/>
-										<Property Name="Osc1Pwm" Type="Real32" Value="77.1">
+										<Property Name="Osc1Pwm" Type="Real32" Value="0">
 											<RTPCList>
 												<RTPC Name="" ID="{9CC39C63-CC5E-4BBD-AB8B-C4FC805B51EF}" ShortID="119381047">
 													<ReferenceList>
@@ -8405,7 +8405,7 @@ Content provided by Vincent Gagnon
 										</Property>
 										<Property Name="Osc1Waveform" Type="int32" Value="2"/>
 										<Property Name="Osc2Level" Type="Real32" Value="-2"/>
-										<Property Name="Osc2Pwm" Type="Real32" Value="47">
+										<Property Name="Osc2Pwm" Type="Real32" Value="0">
 											<RTPCList>
 												<RTPC Name="" ID="{76D38FE1-BA61-4E40-891E-E3DCA1E454A8}" ShortID="78629993">
 													<ReferenceList>
@@ -9113,7 +9113,7 @@ Content provided by Vincent Gagnon
 © 2014 Vincent Gagnon</Comment>
 									<PropertyList>
 										<Property Name="BaseFrequency" Type="Real32" Value="500"/>
-										<Property Name="FmAmount" Type="Real32" Value="38.4">
+										<Property Name="FmAmount" Type="Real32">
 											<RTPCList>
 												<RTPC Name="" ID="{21B57A86-7FD3-4E56-95E3-AB06F70AFFAC}" ShortID="228204996">
 													<ReferenceList>
@@ -9483,7 +9483,7 @@ Content provided by Vincent Gagnon
 										<Property Name="BaseFrequency" Type="Real32" Value="500"/>
 										<Property Name="FrequencyMode" Type="int32" Value="1"/>
 										<Property Name="Osc1Level" Type="Real32" Value="0"/>
-										<Property Name="Osc1Pwm" Type="Real32" Value="77.1">
+										<Property Name="Osc1Pwm" Type="Real32" Value="0">
 											<RTPCList>
 												<RTPC Name="" ID="{7D3218BD-290F-4C54-A296-9C0634512317}" ShortID="562724848">
 													<ReferenceList>
@@ -10066,7 +10066,7 @@ Content provided by Vincent Gagnon
 										<Property Name="NoiseLevel" Type="Real32" Value="-30"/>
 										<Property Name="NoiseShape" Type="int32" Value="1"/>
 										<Property Name="Osc1Level" Type="Real32" Value="-4"/>
-										<Property Name="Osc1Pwm" Type="Real32" Value="56.1">
+										<Property Name="Osc1Pwm" Type="Real32" Value="0">
 											<RTPCList>
 												<RTPC Name="" ID="{BFA03623-318C-44B5-84AE-FD2935A3733D}" ShortID="398834926">
 													<ReferenceList>
@@ -11873,16 +11873,19 @@ Content provided by Vincent Gagnon
 				</Folder>
 				<ActorMixer Name="DRONE" ID="{7D58B36C-35F0-429A-8852-4D70084E4760}" ShortID="391222553">
 					<PropertyList>
-						<Property Name="UserAuxSendVolume0" Type="Real64">
+						<Property Name="Inclusion" Type="bool">
 							<ValueList>
-								<Value>-96</Value>
+								<Value>False</Value>
 							</ValueList>
 						</Property>
-						<Property Name="UserAuxSendVolume1" Type="Real64">
+						<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+						<Property Name="MaxSoundPerInstance" Type="int16">
 							<ValueList>
-								<Value>-96</Value>
+								<Value>3</Value>
 							</ValueList>
 						</Property>
+						<Property Name="PositioningType" Type="int16" Value="1"/>
+						<Property Name="UseGameAuxSends" Type="bool" Value="True"/>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
 								<Value>-6</Value>
@@ -11890,8 +11893,11 @@ Content provided by Vincent Gagnon
 						</Property>
 					</PropertyList>
 					<ReferenceList>
+						<Reference Name="Attenuation">
+							<ObjectRef Name="Main_Attentuation" ID="{7AFFEEA2-FEA6-4C5E-9350-4292CD58F98F}" WorkUnitID="{69E5E085-C55B-46C1-B440-1CB36DA8E2EE}"/>
+						</Reference>
 						<Reference Name="Conversion">
-							<ObjectRef Name="Low" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
+							<ObjectRef Name="Medium" ID="{4F59B053-4973-48C9-8D17-57A6EB5E8E75}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
 						</Reference>
 						<Reference Name="OutputBus">
 							<ObjectRef Name="Drone" ID="{6BAF7145-A163-40D7-A216-C4BC3B0F1656}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
@@ -11899,6 +11905,14 @@ Content provided by Vincent Gagnon
 					</ReferenceList>
 					<ChildrenList>
 						<Sound Name="Drone2" ID="{AFE8948E-6573-484D-9B8E-FDC3AF2AB28B}" ShortID="841353400">
+							<PropertyList>
+								<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+								<Property Name="MaxSoundPerInstance" Type="int16">
+									<ValueList>
+										<Value>1</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Low" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
@@ -11914,7 +11928,7 @@ Content provided by Vincent Gagnon
 										<Property Name="NoiseShape" Type="int32" Value="2"/>
 										<Property Name="Osc1Pwm" Type="Real32" Value="77"/>
 										<Property Name="Osc2Level" Type="Real32" Value="-12"/>
-										<Property Name="Osc2Pwm" Type="Real32" Value="88"/>
+										<Property Name="Osc2Pwm" Type="Real32" Value="85"/>
 										<Property Name="Osc2Transpose" Type="int32" Value="10"/>
 										<Property Name="OutputLevel" Type="Real32">
 											<RTPCList>
@@ -11947,6 +11961,58 @@ Content provided by Vincent Gagnon
 											</RTPCList>
 										</Property>
 									</PropertyList>
+									<StateInfo>
+										<StatePropertyList>
+											<Property Name="FmAmount"/>
+										</StatePropertyList>
+										<StateGroupList>
+											<StateGroupInfo>
+												<StateGroupRef Name="Drone_Modulator" ID="{6F9EDEE3-D863-4564-B5FF-2E703969AF54}"/>
+											</StateGroupInfo>
+										</StateGroupList>
+										<CustomStateList>
+											<CustomState>
+												<StateRef Name="Reflector" ID="{F0FD1677-1293-401E-83C0-409A107A0ED2}"/>
+												<State Name="" ID="{F78E4353-805A-4628-B042-AC778906F9D6}" ShortID="1050189867">
+													<PropertyList>
+														<Property Name="FmAmount" Type="Real32" Value="10.5"/>
+													</PropertyList>
+												</State>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="Hit_Wall" ID="{1632BA91-329C-42DF-B8C4-64F6C03B69BB}"/>
+												<State Name="" ID="{7CB7B36A-C953-4A2D-98A8-B26059AE681D}" ShortID="219884517"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="Combiner" ID="{B61D639E-400F-4387-BC00-375A61AD9377}"/>
+												<State Name="" ID="{D7C01338-A234-491D-BB15-3972F8B12103}" ShortID="411695876"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="Start" ID="{D1DB9805-02B1-44BF-A049-F23022B18534}"/>
+												<State Name="" ID="{71381A2C-DC43-493E-8003-C0D305182A50}" ShortID="396621192"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="Splitter" ID="{D99A732E-8412-4623-8A82-C396413A931C}"/>
+												<State Name="" ID="{FCFA1966-1052-4002-A2B4-8C18E1DE5006}" ShortID="890243762"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="Complete" ID="{5B42DFA5-E7F9-47A0-8E1C-22A385CE8DC2}"/>
+												<State Name="" ID="{04D236BB-652D-4058-ACFE-C1CC3C535BD2}" ShortID="39046794"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="Through_Barrier" ID="{A75B3983-3FDB-4882-BAED-D345BBAA0523}"/>
+												<State Name="" ID="{D389F4C9-ACC0-49A4-B231-0105851C0EFE}" ShortID="662581345"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="Hit_Switch" ID="{5DBE742A-FF4B-4888-A989-F0958DD1AA8E}"/>
+												<State Name="" ID="{8A5F1C7B-69C6-49A0-81E6-92C19C294307}" ShortID="1023331570"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="Colour_Change" ID="{52D58239-FA93-4CCE-A3E2-8E4C3E0E91B2}"/>
+												<State Name="" ID="{3FFF53C0-0DA3-4224-A6AB-01A49907B658}" ShortID="818340249"/>
+											</CustomState>
+										</CustomStateList>
+									</StateInfo>
 									<Language>SFX</Language>
 								</SourcePlugin>
 							</ChildrenList>
@@ -11958,12 +12024,44 @@ Content provided by Vincent Gagnon
 								</StateGroupList>
 								<CustomStateList>
 									<CustomState>
+										<StateRef Name="Reflector" ID="{F0FD1677-1293-401E-83C0-409A107A0ED2}"/>
+										<State Name="" ID="{C7EF9F59-45F4-40C5-B108-88917F0328F1}" ShortID="660569520"/>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="Hit_Wall" ID="{1632BA91-329C-42DF-B8C4-64F6C03B69BB}"/>
+										<State Name="" ID="{DB8D187E-6946-4D44-A374-F9060DD137BA}" ShortID="164367289"/>
+									</CustomState>
+									<CustomState>
 										<StateRef Name="Combiner" ID="{B61D639E-400F-4387-BC00-375A61AD9377}"/>
 										<State Name="Custom State" ID="{9B59C95F-DF07-4964-9FEB-3E03CC6536F2}" ShortID="553781249">
 											<PropertyList>
 												<Property Name="Pitch" Type="int32" Value="510"/>
 											</PropertyList>
 										</State>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="Start" ID="{D1DB9805-02B1-44BF-A049-F23022B18534}"/>
+										<State Name="" ID="{911B4ABB-1EBB-4518-885B-1C904F1920F5}" ShortID="972033469"/>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="Splitter" ID="{D99A732E-8412-4623-8A82-C396413A931C}"/>
+										<State Name="" ID="{1F500AE1-8AB4-44B6-A700-A4E04151A752}" ShortID="794861389"/>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="Complete" ID="{5B42DFA5-E7F9-47A0-8E1C-22A385CE8DC2}"/>
+										<State Name="" ID="{ADBC10D7-5892-4FB7-A0A3-E261DAD06A69}" ShortID="912670763"/>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="Through_Barrier" ID="{A75B3983-3FDB-4882-BAED-D345BBAA0523}"/>
+										<State Name="" ID="{C3826A41-0424-44D7-AEB4-1580139C323C}" ShortID="488275613"/>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="Hit_Switch" ID="{5DBE742A-FF4B-4888-A989-F0958DD1AA8E}"/>
+										<State Name="" ID="{54E383AA-7D26-4BE3-887A-00DD7B6D36A5}" ShortID="139046057"/>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="Colour_Change" ID="{52D58239-FA93-4CCE-A3E2-8E4C3E0E91B2}"/>
+										<State Name="" ID="{03D6DF3C-2C08-4ACD-A965-900E2DB24ED6}" ShortID="970855017"/>
 									</CustomState>
 								</CustomStateList>
 							</StateInfo>
@@ -11972,6 +12070,14 @@ Content provided by Vincent Gagnon
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="Drone1" ID="{A89E3A81-4D6B-45FC-B94A-68F6D1F92A69}" ShortID="984076616">
+							<PropertyList>
+								<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+								<Property Name="MaxSoundPerInstance" Type="int16">
+									<ValueList>
+										<Value>1</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Low" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
@@ -12029,12 +12135,44 @@ Content provided by Vincent Gagnon
 								</StateGroupList>
 								<CustomStateList>
 									<CustomState>
+										<StateRef Name="Reflector" ID="{F0FD1677-1293-401E-83C0-409A107A0ED2}"/>
+										<State Name="" ID="{09D7A0D6-9E87-4D49-8DCD-92FDFDC6493D}" ShortID="293831926"/>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="Hit_Wall" ID="{1632BA91-329C-42DF-B8C4-64F6C03B69BB}"/>
+										<State Name="" ID="{0B2BAE33-146B-45C7-9484-D835DBA4E8BA}" ShortID="72100883"/>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="Combiner" ID="{B61D639E-400F-4387-BC00-375A61AD9377}"/>
+										<State Name="" ID="{7BE748CD-5F3F-4F9A-AD7B-9B3EE0D203C0}" ShortID="798772252"/>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="Start" ID="{D1DB9805-02B1-44BF-A049-F23022B18534}"/>
+										<State Name="" ID="{F1DCFF35-79B5-4458-A22A-85E1AD77CC9A}" ShortID="60185420"/>
+									</CustomState>
+									<CustomState>
 										<StateRef Name="Splitter" ID="{D99A732E-8412-4623-8A82-C396413A931C}"/>
 										<State Name="Custom State" ID="{44FC0887-D15F-4B50-9FD0-60FA64F17E78}" ShortID="43928599">
 											<PropertyList>
 												<Property Name="Pitch" Type="int32" Value="-510"/>
 											</PropertyList>
 										</State>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="Complete" ID="{5B42DFA5-E7F9-47A0-8E1C-22A385CE8DC2}"/>
+										<State Name="" ID="{F1F82787-442F-4CC8-976C-AF1640AF0342}" ShortID="446796060"/>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="Through_Barrier" ID="{A75B3983-3FDB-4882-BAED-D345BBAA0523}"/>
+										<State Name="" ID="{0CB01EAA-A048-4887-812C-52C3F51759FC}" ShortID="780695800"/>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="Hit_Switch" ID="{5DBE742A-FF4B-4888-A989-F0958DD1AA8E}"/>
+										<State Name="" ID="{90650615-87BE-46B7-9A4A-5CE25BB5C4B1}" ShortID="355913800"/>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="Colour_Change" ID="{52D58239-FA93-4CCE-A3E2-8E4C3E0E91B2}"/>
+										<State Name="" ID="{200C0DC8-EA89-4CDF-9912-8E10405579F8}" ShortID="7480745"/>
 									</CustomState>
 								</CustomStateList>
 							</StateInfo>
@@ -12043,6 +12181,14 @@ Content provided by Vincent Gagnon
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="Drone3" ID="{2FD76A35-9848-4F8F-9F29-E0570451F891}" ShortID="1007929980">
+							<PropertyList>
+								<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+								<Property Name="MaxSoundPerInstance" Type="int16">
+									<ValueList>
+										<Value>1</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Low" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
@@ -12094,10 +12240,10 @@ Content provided by Vincent Gagnon
 								<StatePropertyList>
 									<Property Name="Highpass"/>
 									<Property Name="Lowpass"/>
-									<Property Name="Pitch"/>
-									<Property Name="Volume"/>
 									<Property Name="MakeUpGain"/>
 									<Property Name="MidiTransposition"/>
+									<Property Name="Pitch"/>
+									<Property Name="Volume"/>
 								</StatePropertyList>
 								<StateGroupList>
 									<StateGroupInfo>
@@ -12105,6 +12251,22 @@ Content provided by Vincent Gagnon
 									</StateGroupInfo>
 								</StateGroupList>
 								<CustomStateList>
+									<CustomState>
+										<StateRef Name="Reflector" ID="{F0FD1677-1293-401E-83C0-409A107A0ED2}"/>
+										<State Name="" ID="{ED35E64F-B957-4CFA-AEC2-646FBFCF74D3}" ShortID="896438218"/>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="Hit_Wall" ID="{1632BA91-329C-42DF-B8C4-64F6C03B69BB}"/>
+										<State Name="" ID="{7FA913F0-6B0B-40B5-ADF9-DB32B2C30A28}" ShortID="199546076"/>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="Combiner" ID="{B61D639E-400F-4387-BC00-375A61AD9377}"/>
+										<State Name="" ID="{40D52FF4-29D1-4D4B-B84A-8BEA5E7E18DD}" ShortID="392726472"/>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="Start" ID="{D1DB9805-02B1-44BF-A049-F23022B18534}"/>
+										<State Name="" ID="{86477AB3-B403-414A-8389-CFE33EEE9467}" ShortID="160465686"/>
+									</CustomState>
 									<CustomState>
 										<StateRef Name="Splitter" ID="{D99A732E-8412-4623-8A82-C396413A931C}"/>
 										<State Name="Custom State" ID="{DE08F627-DF01-4224-BC16-25D3F5CA27CE}" ShortID="53629384">
@@ -12120,6 +12282,14 @@ Content provided by Vincent Gagnon
 												<Property Name="Pitch" Type="int32" Value="1210"/>
 											</PropertyList>
 										</State>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="Through_Barrier" ID="{A75B3983-3FDB-4882-BAED-D345BBAA0523}"/>
+										<State Name="" ID="{AF0DF654-F773-4CEC-995D-1317DCBE642D}" ShortID="390036678"/>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="Hit_Switch" ID="{5DBE742A-FF4B-4888-A989-F0958DD1AA8E}"/>
+										<State Name="" ID="{3D8AD72E-32EA-4FFA-9ACE-7B313BB771BE}" ShortID="430613129"/>
 									</CustomState>
 									<CustomState>
 										<StateRef Name="Colour_Change" ID="{52D58239-FA93-4CCE-A3E2-8E4C3E0E91B2}"/>
@@ -12161,6 +12331,22 @@ Content provided by Vincent Gagnon
 								</State>
 							</CustomState>
 							<CustomState>
+								<StateRef Name="Combiner" ID="{B61D639E-400F-4387-BC00-375A61AD9377}"/>
+								<State Name="" ID="{756977E3-45D5-4B91-B5D0-C72EF4907BCF}" ShortID="169688329"/>
+							</CustomState>
+							<CustomState>
+								<StateRef Name="Start" ID="{D1DB9805-02B1-44BF-A049-F23022B18534}"/>
+								<State Name="" ID="{7842A04A-43AA-46B0-A31A-E54D5AC82616}" ShortID="36513873"/>
+							</CustomState>
+							<CustomState>
+								<StateRef Name="Splitter" ID="{D99A732E-8412-4623-8A82-C396413A931C}"/>
+								<State Name="" ID="{FBE0A6FB-5D08-4D73-BC8D-CD49DCFE88CC}" ShortID="52596350"/>
+							</CustomState>
+							<CustomState>
+								<StateRef Name="Complete" ID="{5B42DFA5-E7F9-47A0-8E1C-22A385CE8DC2}"/>
+								<State Name="" ID="{B837DCFE-0012-44A3-96AA-3B47A1A156EA}" ShortID="198989258"/>
+							</CustomState>
+							<CustomState>
 								<StateRef Name="Through_Barrier" ID="{A75B3983-3FDB-4882-BAED-D345BBAA0523}"/>
 								<State Name="Custom State" ID="{BB07D410-9B43-42DA-82A8-86BA4FE377D5}" ShortID="100242726">
 									<PropertyList>
@@ -12177,8 +12363,140 @@ Content provided by Vincent Gagnon
 									</PropertyList>
 								</State>
 							</CustomState>
+							<CustomState>
+								<StateRef Name="Colour_Change" ID="{52D58239-FA93-4CCE-A3E2-8E4C3E0E91B2}"/>
+								<State Name="" ID="{E5B8A6DD-52B6-4C8A-9675-53F24F74D9B2}" ShortID="105346325"/>
+							</CustomState>
 						</CustomStateList>
 					</StateInfo>
+				</ActorMixer>
+				<ActorMixer Name="SFX" ID="{95173208-F41E-4001-A83F-02E59204AE42}" ShortID="487927318">
+					<PropertyList>
+						<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+						<Property Name="MaxSoundPerInstance" Type="int16">
+							<ValueList>
+								<Value>1</Value>
+							</ValueList>
+						</Property>
+						<Property Name="UseGameAuxSends" Type="bool" Value="True"/>
+						<Property Name="UseMaxSoundPerInstance" Type="bool">
+							<ValueList>
+								<Value>True</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Medium" ID="{4F59B053-4973-48C9-8D17-57A6EB5E8E75}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="DragBox" ID="{1019012E-B020-43CF-9360-00186234E5F6}" ShortID="823119821">
+							<PropertyList>
+								<Property Name="Highpass" Type="int16">
+									<ValueList>
+										<Value>34</Value>
+									</ValueList>
+								</Property>
+								<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>39</Value>
+									</ValueList>
+								</Property>
+								<Property Name="MaxSoundPerInstance" Type="int16">
+									<ValueList>
+										<Value>5</Value>
+									</ValueList>
+								</Property>
+								<Property Name="OverrideEffect" Type="bool" Value="True"/>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{95FB6CFC-C086-4FB2-9E07-4AA9C62C7DB1}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="51"/>
+													<Property Name="Min" Type="Real64" Value="-25"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="UseMaxSoundPerInstance" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Low" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
+								</Reference>
+								<Reference Name="Effect0" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+									<ObjectRef Name="Dragbox" ID="{D0E5EBEE-1149-4090-B623-9216B0E0D3CD}" WorkUnitID="{DB5ADB83-997D-43F7-B226-D357913135AD}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<SourcePlugin Name="Wwise Synth One" ID="{3F21CE51-D755-4740-AA25-8E3FC90F95B0}" ShortID="320371486" PluginName="Wwise Synth One" CompanyID="0" PluginID="148">
+									<PropertyList>
+										<Property Name="BaseFrequency" Type="Real32" Value="232"/>
+										<Property Name="FmAmount" Type="Real32" Value="11.6"/>
+										<Property Name="NoiseLevel" Type="Real32" Value="0"/>
+										<Property Name="NoiseShape" Type="int32" Value="2"/>
+										<Property Name="Osc1Level" Type="Real32" Value="-11"/>
+										<Property Name="Osc1Pwm" Type="Real32" Value="78"/>
+										<Property Name="Osc1Transpose" Type="int32" Value="-2349"/>
+										<Property Name="Osc1Waveform" Type="int32" Value="3"/>
+										<Property Name="Osc2Level" Type="Real32" Value="-4"/>
+										<Property Name="Osc2Pwm" Type="Real32" Value="20"/>
+										<Property Name="Osc2Transpose" Type="int32" Value="-3600"/>
+										<Property Name="Osc2Waveform" Type="int32" Value="1"/>
+										<Property Name="OutputLevel" Type="Real32" Value="-3">
+											<RTPCList>
+												<RTPC Name="" ID="{331EAF77-6909-41FC-B67B-0AD91325ED19}" ShortID="554650054">
+													<ReferenceList>
+														<Reference Name="ControlInput">
+															<Custom>
+																<ModulatorEnvelope Name="Modulator Envelope (Custom)" ID="{A928CDC2-2DF4-4296-BEE1-DBABA4D9FDBF}" ShortID="471289825"/>
+															</Custom>
+														</Reference>
+													</ReferenceList>
+													<Curve Name="" ID="{75252ED5-8E0F-43E4-9D5D-94EB8C7B5A88}">
+														<PropertyList>
+															<Property Name="Flags" Type="int32" Value="3"/>
+														</PropertyList>
+														<PointList>
+															<Point>
+																<XPos>0</XPos>
+																<YPos>-96</YPos>
+																<Flags>21</Flags>
+															</Point>
+															<Point>
+																<XPos>1</XPos>
+																<YPos>0</YPos>
+																<Flags>53</Flags>
+															</Point>
+														</PointList>
+													</Curve>
+												</RTPC>
+											</RTPCList>
+										</Property>
+									</PropertyList>
+									<Language>SFX</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Wwise Synth One" ID="{3F21CE51-D755-4740-AA25-8E3FC90F95B0}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
 				</ActorMixer>
 			</ChildrenList>
 		</WorkUnit>

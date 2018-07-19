@@ -19,7 +19,7 @@ public class LightSplitter : MonoBehaviour
     }
 
     //Upon a collison being detected with a Lightbeam 
-    void OnTriggerEnter(Collider lightBeam)
+    public void OnTriggerEnter(Collider lightBeam)
     {
         if ((!lightBeam.transform.IsChildOf(this.transform)) && (lightBeam.gameObject.layer != LayerMask.NameToLayer("BeamLayer")))
         {
@@ -29,7 +29,7 @@ public class LightSplitter : MonoBehaviour
     }
 
     //Upon lightbeam leaving the door trigger
-    void OnTriggerExit(Collider lightBeam)
+    public void OnTriggerExit(Collider lightBeam)
     {
         if (splitBeams.Count > 0)
         {
@@ -86,7 +86,7 @@ public class LightSplitter : MonoBehaviour
         splitBeams[0].transform.Rotate(Vector3.up * 45);
         splitBeams[1].transform.Rotate(Vector3.up * -45);
 
-        if (splitColour) SplitColourBetweenBeams();
+        if ((splitColour) &&(beamColour != Color.white)) SplitColourBetweenBeams();
 
         //AkSoundEngine.SetState("Drone_Modulator", "Splitter");
     }

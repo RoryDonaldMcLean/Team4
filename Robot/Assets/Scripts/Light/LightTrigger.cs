@@ -54,7 +54,7 @@ public class LightTrigger : MonoBehaviour
 
     private void CorrectColour()
     {
-        if(!correctLight)
+        if (!correctLight)
         {
             Debug.Log("NowCorrectLight!");
 

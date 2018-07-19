@@ -44,7 +44,7 @@ public class LightRedirect : MonoBehaviour
     //Upon lightbeam leaving the door trigger
     void OnTriggerExit(Collider lightBeam)
     {
-        if (splineCurve != null)
+        if ((splineCurve != null)&&(connectedBeam))
         {
             connectedBeam = false;
             DestroyBeam();
@@ -53,7 +53,7 @@ public class LightRedirect : MonoBehaviour
 
     public void TriggerExitFunction()
     {
-        if (splineCurve != null)
+        if ((splineCurve != null)&&(connectedBeam))
         {
             connectedBeam = false;
             DestroyBeam();
@@ -96,9 +96,10 @@ public class LightRedirect : MonoBehaviour
 
     private void DestroyBeam()
     {
-        CancelInvoke("ColourOverTime");
         splineCurve.ToggleBeam();
         Destroy(splineCurve);
+
+        CancelInvoke("ColourOverTime");
 
         if (arrowDefaultColour.Equals(Color.grey))
         {

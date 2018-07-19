@@ -13,8 +13,10 @@ public class LightResize : MonoBehaviour
     private float newBeamEndPoint = 10;
     private float originalBeamInverse;
     private bool contact = false;
+    private bool lightBarrier = false;
     private int defaultBeamLength;
     private float defaultBeamEndPoint;
+    private float distance;
 
     void Start()
 	{
@@ -52,8 +54,8 @@ public class LightResize : MonoBehaviour
 
     private void RaycastControl()
 	{
-		//CancelInvoke("DefaultLightRaycast");
-		//InvokeRepeating("DefaultLightRaycast", 0.0f, 0.16666f);
+        //CancelInvoke("DefaultLightRaycast");
+        //InvokeRepeating("DefaultLightRaycast", 0.0f, 0.16666f);
 
         StopCoroutine(RaycastOnRepeat());
         StartCoroutine(RaycastOnRepeat());
@@ -65,6 +67,8 @@ public class LightResize : MonoBehaviour
         {
             DefaultLightRaycast();
 
+            //if (this.transform.name.Contains("Emitter")) Debug.Log("yo" + contact);
+
             yield return new WaitForFixedUpdate();
         }
     }
@@ -75,39 +79,101 @@ public class LightResize : MonoBehaviour
         {
             DefaultLightRaycast();
 
+            //if (this.transform.name.Contains("Emitter")) Debug.Log("hit" + contact);
+
             yield return new WaitForFixedUpdate();
         }
         StopCoroutine(LightInterruptionCheck());
+    }
+
+    private void LightBarrierLightControl()
+    {
+        if (!objectInfo.collider.name.Contains("ColourBarrier"))
+        {
+            lightBarrier = false;
+            CleanUpCollidedObject();
+            BeamResizeController();
+        }
+        else if (ObjectFoundBehindIgnoredObject())
+        {
+            distance += objectInfo.distance + 0.5f;
+
+            if (puzzleObject != objectInfo.collider)
+            {
+                //lightBarrier = false;
+                //Debug.Log("hitss");
+                CleanUpCollidedObject();
+                BeamResizeController();
+            }
+            else
+            {
+                //Debug.Log("question" + puzzleObject.name);
+            }
+        }
+        else
+        {
+            if (puzzleObject != objectInfo.collider)
+            {
+                lightBarrier = false;
+                //Debug.Log("hit");
+                CleanUpCollidedObject();
+            }
+            else
+            {
+                //Debug.Log("Time");
+            }
+        }
     }
 
     private void DefaultLightRaycast()
 	{
         if (lineBeam.active)
 		{
+            distance = 0;
             if (RaycastBeam())
             {
-                if (puzzleObject != objectInfo.collider)
+                distance = objectInfo.distance;
+                //Debug.Log("found" + contact);
+                if (lightBarrier)
                 {
-                    OnEnterObject();
+                    //Debug.Log("barrier");
+                    LightBarrierLightControl();
+                }
+                else
+                {
+                    if (puzzleObject != objectInfo.collider)
+                    {
+                        if (contact)
+                        {
+                            //Debug.Log("??");
+                            CleanUpCollidedObject();
+                        }
+                        
+                        OnEnterObject();
+                    }
                 }
             }
-            else
+            else if(contact)
             {
-                //if(contact) Debug.Log("error");
-            } 
-		}
+                //Debug.Log("??");
+                CleanUpCollidedObject();
+            }
+        }
 	}
 
     private void ResizeLightRaycast()
     {
         if (lineBeam.active)
         {
+            distance = 0;
             if (RaycastBeam())
             {
+                distance = objectInfo.distance;
                 OnEnterObject();
             }
             else 
             {
+                Debug.Log("meh");            
                 CleanUpCollidedObject();
             }
         }
@@ -121,27 +187,30 @@ public class LightResize : MonoBehaviour
         Vector3 raycastStartLocation = this.transform.GetChild(this.transform.childCount - 1).position;
         int layerMask = ~(1 << LayerMask.NameToLayer("LightBeam") | 1 << LayerMask.NameToLayer("BeamLayer") | 1 << LayerMask.NameToLayer("PlayerLayer"));
 
+        //if (this.transform.name.Contains("LightBeam")) Debug.Log("raycastStartLocation" + raycastStartLocation);
+
         return (Physics.BoxCast(raycastStartLocation, new Vector3(raycastSize, raycastSize, raycastSize), this.GetComponent<Transform>().forward, out objectInfo, this.transform.localRotation, maxDraw, layerMask));
     }
 
-    //Upon a collison being detected with a object 
+    //Upon a collison being detected with a object
     void OnEnterObject()
     {
         if (objectInfo.collider.name.Contains("ColourBarrier"))
         {
-            if(objectInfo.transform.GetComponent<LightBarrier>().OnEnter(lineBeam.beamColour))
+            if (objectInfo.transform.GetComponent<LightBarrier>().OnEnter(lineBeam.beamColour))
             {
                 BeamResizeController();
-                //
                 //AkSoundEngine.SetState("Drone_Modulator", "Hit_Wall");
-
             }
-            else if (ObjectFoundBehindIgnoredObject())
-            {
-                if (puzzleObject != objectInfo.collider) BeamResizeController();
-                //
+            else 
+            {              
+                lightBarrier = true;
+                if (ObjectFoundBehindIgnoredObject())
+                {
+                    distance += objectInfo.distance + 0.5f;
+                    BeamResizeController();
+                }
                 //AkSoundEngine.SetState("Drone_Modulator", "Through_Barrier");
-
             }
         }
         //prolly remove this if statement at some pt
@@ -159,6 +228,10 @@ public class LightResize : MonoBehaviour
         else if (objectBlockedName.Contains("RotateBox"))
         {
             objectBlockedName = objectBlocked.parent.GetComponent<SCR_Rotatable>().rotatableObjectString;
+        }
+        else if (objectBlockedName.Contains("Prism"))
+        {
+            objectBlocked.GetComponentInParent<LightSplitter>().ForceTriggerExit();
         }
         switch (objectBlockedName)
         {
@@ -189,12 +262,12 @@ public class LightResize : MonoBehaviour
             {
                 LightBeamSwitchOffControl();
             }
-            else if(AwayFromBeam())
-            {              
-                Debug.Log("away" + this.transform.root.name);
+            //else if(AwayFromBeam())
+            //{              
+            //    Debug.Log("away" + this.transform.root.name);
 
-                CleanUpCollidedObject();
-            }
+            //    CleanUpCollidedObject();
+            //}
             else if(ShouldResizeBeam())
             {
                 Debug.Log("resize");
@@ -216,6 +289,7 @@ public class LightResize : MonoBehaviour
             }
             else
             {
+                Debug.Log("errorCity");
                 CleanUpCollidedObject();
             }
         }
@@ -223,7 +297,7 @@ public class LightResize : MonoBehaviour
 
     private void CleanUpCollidedObject()
     {
-        if (lineBeam.IsBeamAlive())
+        //if (lineBeam.IsBeamAlive())
         {
             ObjectExitBeamAreaResponse();
         }
@@ -232,9 +306,10 @@ public class LightResize : MonoBehaviour
         lineBeam.ToggleBeam();
     }
 
-    private IEnumerator LightInterruptionControl()
+    private void LightInterruptionControl()
     {
-        yield return StartCoroutine(LightInterruptionCheck());
+        StopCoroutine(LightInterruptionCheck());
+        StartCoroutine(LightInterruptionCheck());
     }
 
     public void TriggerConnectedObjectsExit()
@@ -280,13 +355,16 @@ public class LightResize : MonoBehaviour
 
     private bool ObjectFoundBehindIgnoredObject()
     {
-        float raycastSize = 0.2f;
-        float maxDraw = (defaultBeamEndPoint - Vector3.Dot(objectInfo.transform.position, this.transform.forward));
+        Vector3 pos = (objectInfo.distance * this.transform.forward) + this.transform.position;
+        Vector3 offset = this.transform.forward * 0.5f;
+        pos += offset;
 
-        Vector3 raycastStartLocation = objectInfo.point;
+        float maxDraw = (defaultBeamEndPoint - Vector3.Dot(pos, this.transform.forward));
+        float raycastSize = 0.18f;
+
         int layerMask = ~(1 << LayerMask.NameToLayer("LightBeam") | 1 << LayerMask.NameToLayer("BeamLayer") | 1 << LayerMask.NameToLayer("PlayerLayer"));
 
-        return (Physics.BoxCast(raycastStartLocation, new Vector3(raycastSize, raycastSize, raycastSize), this.GetComponent<Transform>().forward, out objectInfo, this.transform.localRotation, maxDraw, layerMask));
+        return (Physics.BoxCast(pos, new Vector3(raycastSize, raycastSize, raycastSize), this.GetComponent<Transform>().forward, out objectInfo, this.transform.localRotation, maxDraw, layerMask));
     }
 
     private void BeamResizeController()
@@ -300,15 +378,28 @@ public class LightResize : MonoBehaviour
         Transform endPointObject = this.transform.GetChild(this.transform.childCount - 1).GetChild(0).transform;    
         float endPointObjectValue = (Vector3.Dot(endPointObject.position, this.transform.forward));
 
-        //float objectPoint = Vector3.Dot(collidedObject.transform.position, this.transform.forward);
-        if (!Mathf.Approximately(endPointObjectValue, newBeamEndPoint))
+        Vector3 pos = ((distance * this.transform.forward) + this.transform.position);
+        pos.z += 0.2f;
+        Transform endPointBeam = this.transform.GetChild(this.transform.childCount - 1).GetChild(0);
+
+        newBeamEndPoint = Vector3.Dot(pos, this.transform.forward);
+
+        //if (!Mathf.Approximately(endPointObjectValue, newBeamEndPoint))
+        //if (endPointBeam.position != pos)
+        if (MyApprox(ref endPointObjectValue, ref newBeamEndPoint))
         {
             BeamResize(ref endPointObject, ref collidedObject);
             //AkSoundEngine.PostEvent("Light_Hits_Crystal", gameObject);
         }
         else
         {
-            CleanUpCollidedObject();
+            if (this.transform.name.Contains("Emitter"))
+            {
+                Debug.Log("here");
+                Debug.Log("endPointObjectValue" + endPointObjectValue);
+                Debug.Log("newBeamEndPoint" + newBeamEndPoint);
+                //CleanUpCollidedObject();
+            }
         }
     }
 
@@ -349,10 +440,11 @@ public class LightResize : MonoBehaviour
 
         //CancelInvoke("DefaultLightRaycast");
         StopCoroutine(RaycastOnRepeat());
+        StopAllCoroutines();
 
         contact = true;
 
-        StartCoroutine(LightInterruptionControl());
+        LightInterruptionControl();
     }
 
     private float WidthCalculate()
@@ -428,8 +520,20 @@ public class LightResize : MonoBehaviour
     //if the picked up object is no longer is range for a collision
     private bool ShouldResizeBeam()
     {
-        float positionOfObject = Vector3.Dot(objectInfo.point, this.transform.forward);
+        Vector3 pos = ((distance * this.transform.forward) + this.transform.position);
+        pos.z += 0.2f;
+  
+        Transform endPointBeam = this.transform.GetChild(this.transform.childCount - 1).GetChild(0);
+        float endPointObjectValue = (Vector3.Dot(endPointBeam.position, this.transform.forward));
+        float objectPos = Vector3.Dot(pos, this.transform.forward);
 
-        return (!Mathf.Approximately(positionOfObject, newBeamEndPoint));
+        //return (!Mathf.Approximately(endPointObjectValue, objectPos));
+        return (MyApprox(ref endPointObjectValue, ref objectPos));
+        //return (endPointBeam.position != pos);
+    }
+
+    private bool MyApprox(ref float a, ref float b)
+    {
+        return (Mathf.Abs(a - b) > 0.01f);
     }
 }

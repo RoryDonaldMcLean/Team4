@@ -48,7 +48,7 @@ public class PickupAndDropdown : MonoBehaviour
 						{
 							pickedUpGameObject = hit.transform.gameObject;
 							Vector3 temp = pickedUpGameObject.transform.position;
-							if ((int)pickedUpGameObject.transform.right.x == 0) 
+							if ((int)pickedUpGameObject.transform.parent.right.x == 0) 
 							{
 								temp.z = this.transform.position.z;
 							} 
@@ -126,7 +126,7 @@ public class PickupAndDropdown : MonoBehaviour
 				if (pickedUpGameObject.transform.name.Contains("SlideBox"))
 				{
 					Vector3 temp = pickedUpGameObject.transform.position;
-					if ((int)pickedUpGameObject.transform.right.x == 0) 
+					if ((int)pickedUpGameObject.transform.parent.right.x == 0) 
 					{
 						temp.z = this.transform.position.z;
 					} 
@@ -186,7 +186,7 @@ public class PickupAndDropdown : MonoBehaviour
 						{
 							pickedUpGameObject = hit.transform.gameObject;
 							Vector3 temp = pickedUpGameObject.transform.position;
-							if ((int)pickedUpGameObject.transform.right.x == 0) 
+							if ((int)pickedUpGameObject.transform.parent.right.x == 0) 
 							{
 								temp.z = this.transform.position.z;
 							} 
@@ -258,7 +258,7 @@ public class PickupAndDropdown : MonoBehaviour
 				if (pickedUpGameObject.transform.name.Contains("SlideBox"))
 				{
 					Vector3 temp = pickedUpGameObject.transform.position;
-					if ((int)pickedUpGameObject.transform.right.x == 0) 
+					if ((int)pickedUpGameObject.transform.parent.right.x == 0) 
 					{
 						temp.z = this.transform.position.z;
 					} 

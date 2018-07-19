@@ -7,6 +7,7 @@ public class PrismColourCombo : MonoBehaviour
     private List<Color> colourBeams = new List<Color>();
     private Color newBeamColour;
     private StraightSplineBeam splineCurve;
+    private bool destroyingBeam = false;
     public int beamLength = 5;
 
     //Upon a collison being detected with a Lightbeam
@@ -24,20 +25,32 @@ public class PrismColourCombo : MonoBehaviour
     void OnTriggerExit(Collider lightbeam)
     {
         Color lineColour = lightbeam.GetComponentInParent<LineRenderer>().startColor;
-        while (CheckBeamExists(lineColour))
-        {
-            colourBeams.Remove(lineColour);           
-        }
-        ModifyBeam();
+        BeamExit(lineColour);
     }
 
     public void TriggerExitFunction(Color lineColour)
     {
-        while (CheckBeamExists(lineColour))
+        BeamExit(lineColour);
+    }
+
+    private void BeamExit(Color lineColour)
+    {
+        if(!destroyingBeam)
         {
-            colourBeams.Remove(lineColour);       
+            destroyingBeam = true;
+            while (CheckBeamExists(lineColour))
+            {
+                colourBeams.Remove(lineColour);
+            }
+            ModifyBeam();
+            StartCoroutine(BeamDestroyedCheck());
         }
-        ModifyBeam();
+    }
+
+    private IEnumerator BeamDestroyedCheck()
+    {
+        yield return new WaitUntil(()=> splineCurve == null);
+        destroyingBeam = false;
     }
 
     //if the beam leaving has reduced the amount of beams hitting the prism to zero, delete the prism beam.

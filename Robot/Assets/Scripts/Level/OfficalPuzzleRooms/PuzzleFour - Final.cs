@@ -7,7 +7,6 @@ public class PuzzleFourFinal : LevelControlBaseClass
     private LightTrigger lightTriggerInteract;
     private bool activatedLightBarrier = false;
 
-
     void Awake()
     {
         puzzleIdentifier = "PuzzleFour";
@@ -36,10 +35,12 @@ public class PuzzleFourFinal : LevelControlBaseClass
         {           
             //create purple light barrier
             GameObject allLightWall = GameObject.Find("AllLightBarrier");
-            GameObject lightBarrier = Instantiate(Resources.Load("Prefabs/Light/ColourBarrier")) as GameObject;
+            GameObject lightBarrier = Instantiate(Resources.Load("Prefabs/Light/LightBarrier")) as GameObject;
             lightBarrier.transform.SetParent(allLightWall.transform.parent);
             lightBarrier.transform.position = allLightWall.transform.position;
-            lightBarrier.transform.localScale = allLightWall.transform.localScale;
+            float xScale = allLightWall.transform.localScale.x;
+            xScale /= 6.0f;
+            lightBarrier.transform.localScale = new Vector3(xScale, 1, 1);
 
             lightBarrier.GetComponent<LightBarrier>().colourToAllow = new Color(1,0,1,1);
 

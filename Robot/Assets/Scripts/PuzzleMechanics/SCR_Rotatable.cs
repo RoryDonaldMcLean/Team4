@@ -19,6 +19,7 @@ public class SCR_Rotatable : MonoBehaviour
 		newRotatable.name = "RotateBox";
 		newRotatable.transform.position = this.transform.GetChild(1).position;
 		newRotatable.transform.SetParent(this.transform);
+        newRotatable.transform.localRotation = Quaternion.Euler(Vector3.zero);
 
         if (rotatableObjectString.Contains("Emitter"))
         {

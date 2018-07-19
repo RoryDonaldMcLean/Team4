@@ -379,7 +379,8 @@ public class LightResize : MonoBehaviour
         float endPointObjectValue = (Vector3.Dot(endPointObject.position, this.transform.forward));
 
         Vector3 pos = ((distance * this.transform.forward) + this.transform.position);
-        pos.z += 0.2f;
+		pos += 0.2f * this.transform.forward;
+
         Transform endPointBeam = this.transform.GetChild(this.transform.childCount - 1).GetChild(0);
 
         newBeamEndPoint = Vector3.Dot(pos, this.transform.forward);
@@ -521,7 +522,7 @@ public class LightResize : MonoBehaviour
     private bool ShouldResizeBeam()
     {
         Vector3 pos = ((distance * this.transform.forward) + this.transform.position);
-        pos.z += 0.2f;
+		pos += 0.2f * this.transform.forward;
   
         Transform endPointBeam = this.transform.GetChild(this.transform.childCount - 1).GetChild(0);
         float endPointObjectValue = (Vector3.Dot(endPointBeam.position, this.transform.forward));

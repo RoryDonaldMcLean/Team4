@@ -15,7 +15,7 @@ public class MelodyInput : MonoBehaviour
 	List<GameObject> Notes = new List<GameObject>();
 	List<GameObject> blankNotes = new List<GameObject>();
 
-	public bool player2;
+	public bool isBlue;
 	GameObject MelodyDoorContainer;
 
 	GameObject GameController;
@@ -100,7 +100,7 @@ public class MelodyInput : MonoBehaviour
 			if ((MelodyDoor.GetComponent<SCR_Door> ().Player1enteredBounds == true &&
 				MelodyDoor.GetComponent<InControlMelody>().Robotcode.Count < CodeTotal))
 			{
-				if (playerNum == 0)
+				if (isBlue == GameManager.Instance.whichAndroid.player1ControlBlue)
 				{
 					if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [4]))
 					{
@@ -160,7 +160,7 @@ public class MelodyInput : MonoBehaviour
 			if ((MelodyDoor.GetComponent<SCR_Door> ().Player2enteredBounds == true &&
 				MelodyDoor.GetComponent<InControlMelody> ().Robotcode.Count < CodeTotal))
 			{
-				if (playerNum == 1)
+				if (isBlue != GameManager.Instance.whichAndroid.player1ControlBlue)
 				{
 					if (Input.GetKeyDown (KeyCode.Alpha5))
 					{

@@ -4,11 +4,11 @@
 public class WhichAndroid
 {
 
-    public bool player1ControlRed;
+    public bool player1ControlBlue;
     
     public WhichAndroid()
     {
-        player1ControlRed = false;
+        player1ControlBlue = false;
     }
     
 }

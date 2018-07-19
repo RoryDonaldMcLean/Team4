@@ -10,7 +10,7 @@ public class InControlMovement : MonoBehaviour
 
     //is there 2 players in the game. if so use different controls for player 1 and 2 
     //but allows it all to be in 1 script
-	public bool player2 = false;
+	public bool isBlue = false;
 
     public float playerSpeed;
 
@@ -128,7 +128,7 @@ public class InControlMovement : MonoBehaviour
 
 		//player 1
 		//move forward
-		if (player2 == GameManager.Instance.whichAndroid.player1ControlRed)
+		if (isBlue == GameManager.Instance.whichAndroid.player1ControlBlue)
 		{
 
 			if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[0]))

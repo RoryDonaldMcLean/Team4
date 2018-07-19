@@ -68,7 +68,6 @@ public class InControlMovement : MonoBehaviour
 
 		}
 
-
 		//left and right movement
 		velocity.x = inputDevice.LeftStickX;
 		//forward and backwards movement

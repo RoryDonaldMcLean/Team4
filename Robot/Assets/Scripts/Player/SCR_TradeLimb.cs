@@ -29,8 +29,10 @@ public class SCR_TradeLimb : MonoBehaviour
 	public int playerNum;
    
 	// Use this for initialization
-    private void Start()
+	private void Start()
     {
+		
+
         InitialisePlayerLimbs();
         SetPlayerTag();
 
@@ -82,8 +84,8 @@ public class SCR_TradeLimb : MonoBehaviour
 
     private void SetPlayerTag()
     {
-        Movement_[] players = GameObject.FindObjectsOfType<Movement_>();
-        foreach (Movement_ player in players)
+		InControlMovement[] players = GameObject.FindObjectsOfType<InControlMovement>();
+		foreach (InControlMovement player in players)
         {
             if (player.tag != this.transform.tag)
             {
@@ -100,6 +102,7 @@ public class SCR_TradeLimb : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
+		
 
 		var inputDevice = (InputManager.Devices.Count > playerNum) ? InputManager.Devices [playerNum] : null;
 		if (inputDevice == null)

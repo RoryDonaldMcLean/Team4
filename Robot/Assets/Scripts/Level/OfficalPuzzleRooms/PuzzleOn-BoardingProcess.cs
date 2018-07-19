@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class PuzzleOnBoardingProcess : LevelControlBaseClass
 {
+
+	GameObject MelodyDoor;
+
     void Awake()
     {
         puzzleIdentifier = "PuzzleZero";
+		MelodyDoor = GameObject.FindGameObjectWithTag ("Doors");
     }
 
 	// Update is called once per frame
@@ -16,13 +20,23 @@ public class PuzzleOnBoardingProcess : LevelControlBaseClass
         {
 			doors[0].enabled = true;
 			//this line will enable the melody door when a puzzle is finished
-            //Debug.Log("open");
+            Debug.Log("open");
             doorStateOpen = !doorStateOpen;
             exitDoor.OpenDoor();
-            GameObject walkway = Instantiate(Resources.Load("Prefabs/PuzzleGenericItems/tempFloor")) as GameObject;
-            walkway.name = "tempFloor";
+
 
             EndOfLevel();
         }
+
+		if (doorStateOpen)
+		{
+			if (MelodyDoor.GetComponentInChildren<SCR_Door> ().SpawnWalkway == true)
+			{
+				GameObject walkway = Instantiate (Resources.Load ("Prefabs/PuzzleGenericItems/tempFloor")) as GameObject;
+				walkway.name = "tempFloor";
+				MelodyDoor.GetComponentInChildren<SCR_Door> ().SpawnWalkway = false;
+				MelodyDoor.GetComponentInChildren<SCR_Door> ().Correct = false;
+			}
+		}
 	}
 }

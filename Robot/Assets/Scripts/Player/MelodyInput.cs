@@ -18,6 +18,11 @@ public class MelodyInput : MonoBehaviour
 	public bool player2;
 	GameObject MelodyDoorContainer;
 
+	GameObject GameController;
+	int levelCounter;
+	int CodeTotal;
+
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -40,10 +45,34 @@ public class MelodyInput : MonoBehaviour
 			}
 		}
 
-
-
-
 		blankNotes = Notes;
+
+		GameController = GameObject.FindGameObjectWithTag ("GameController");
+
+		levelCounter = GameController.GetComponent<LevelController>().currentLevel;
+
+		//change the total number of digits needed depending on the what level it is
+		if (levelCounter == 0)
+		{
+			CodeTotal = 8;
+		} 
+		else if (levelCounter == 1)
+		{
+			CodeTotal = 7;
+		} 
+		else if (levelCounter == 2)
+		{
+			CodeTotal = 6;
+		} 
+		else if (levelCounter == 3)
+		{
+			CodeTotal = 4;
+		} 
+		else if (levelCounter == 4)
+		{
+			CodeTotal = 2;
+		}
+
 	}
 	
 	// Update is called once per frame
@@ -67,10 +96,9 @@ public class MelodyInput : MonoBehaviour
 	{
 		if (MelodyDoorContainer != null)
 		{
-
 			//player 1
 			if ((MelodyDoor.GetComponent<SCR_Door> ().Player1enteredBounds == true &&
-			   MelodyDoor.GetComponent<InControlMelody> ().Robotcode.Count <= 3))
+				MelodyDoor.GetComponent<InControlMelody>().Robotcode.Count < CodeTotal))
 			{
 				if (playerNum == 0)
 				{
@@ -120,7 +148,7 @@ public class MelodyInput : MonoBehaviour
 						}
 					}
 
-					if (MelodyDoor.GetComponent<InControlMelody> ().noteCounter == 4)
+					if (MelodyDoor.GetComponent<InControlMelody> ().noteCounter == CodeTotal)
 					{
 						StartCoroutine (UIDelay ());
 					}
@@ -130,11 +158,11 @@ public class MelodyInput : MonoBehaviour
 
 			//player 2
 			if ((MelodyDoor.GetComponent<SCR_Door> ().Player2enteredBounds == true &&
-			   MelodyDoor.GetComponent<InControlMelody> ().Robotcode.Count <= 3))
+				MelodyDoor.GetComponent<InControlMelody> ().Robotcode.Count < CodeTotal))
 			{
 				if (playerNum == 1)
 				{
-					if (Input.GetKeyDown (KeyCode.Alpha6))
+					if (Input.GetKeyDown (KeyCode.Alpha5))
 					{
 						if (GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [0].name.Contains ("LeftArm"))
 						{
@@ -145,7 +173,7 @@ public class MelodyInput : MonoBehaviour
 						{
 							Debug.Log ("Player2 has no left arm");
 						}
-					} else if (Input.GetKeyDown (KeyCode.Alpha7))
+					} else if (Input.GetKeyDown (KeyCode.Alpha6))
 					{
 						if (GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [1].name.Contains ("RightArm"))
 						{
@@ -156,7 +184,7 @@ public class MelodyInput : MonoBehaviour
 						{
 							Debug.Log ("Player2 has no right arm");
 						}
-					} else if (Input.GetKeyDown (KeyCode.Alpha8))
+					} else if (Input.GetKeyDown (KeyCode.Alpha7))
 					{
 						if (GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [2].name.Contains ("LeftLeg"))
 						{
@@ -167,7 +195,7 @@ public class MelodyInput : MonoBehaviour
 						{
 							Debug.Log ("Player2 has no left leg");
 						}
-					} else if (Input.GetKeyDown (KeyCode.Alpha9))
+					} else if (Input.GetKeyDown (KeyCode.Alpha8))
 					{
 						if (GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [3].name.Contains ("RightLeg"))
 						{
@@ -180,7 +208,7 @@ public class MelodyInput : MonoBehaviour
 						}
 					}
 
-					if (MelodyDoor.GetComponent<InControlMelody> ().noteCounter == 4)
+					if (MelodyDoor.GetComponent<InControlMelody> ().noteCounter == CodeTotal)
 					{
 						StartCoroutine (UIDelay ());
 					}
@@ -198,7 +226,7 @@ public class MelodyInput : MonoBehaviour
 
 			//player 1
 			if ((MelodyDoor.GetComponent<SCR_Door> ().Player1enteredBounds == true &&
-			   MelodyDoor.GetComponent<InControlMelody> ().Robotcode.Count <= 3))
+				MelodyDoor.GetComponent<InControlMelody> ().Robotcode.Count < CodeTotal))
 			{
 				if (playerNum == 0)
 				{
@@ -248,7 +276,7 @@ public class MelodyInput : MonoBehaviour
 						}
 					}
 
-					if (MelodyDoor.GetComponent<InControlMelody> ().noteCounter == 4)
+					if (MelodyDoor.GetComponent<InControlMelody> ().noteCounter == CodeTotal)
 					{
 						StartCoroutine (UIDelay ());
 					}
@@ -258,7 +286,7 @@ public class MelodyInput : MonoBehaviour
 
 			//player 2
 			if ((MelodyDoor.GetComponent<SCR_Door> ().Player2enteredBounds == true &&
-			   MelodyDoor.GetComponent<InControlMelody> ().Robotcode.Count <= 3))
+				MelodyDoor.GetComponent<InControlMelody> ().Robotcode.Count < CodeTotal))
 			{
 				if (playerNum == 1)
 				{
@@ -308,7 +336,7 @@ public class MelodyInput : MonoBehaviour
 						}
 					}
 
-					if (MelodyDoor.GetComponent<InControlMelody> ().noteCounter == 4)
+					if (MelodyDoor.GetComponent<InControlMelody> ().noteCounter == CodeTotal)
 					{
 						StartCoroutine (UIDelay ());
 					}

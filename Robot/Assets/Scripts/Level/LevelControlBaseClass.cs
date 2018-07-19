@@ -63,7 +63,7 @@ public class LevelControlBaseClass : MonoBehaviour
             lightSource.GetComponentInChildren<LightEmitter>().TurnOffForGood();
         }
         //melody here, then in melody script, when the right moment comes call this line below
-        this.GetComponent<LevelController>().NextLevel();
+        //this.GetComponent<LevelController>().NextLevel();
     }
 
     private IEnumerator BlinkingLightControl(LineRenderer line)

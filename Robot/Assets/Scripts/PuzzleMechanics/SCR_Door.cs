@@ -20,9 +20,15 @@ public class SCR_Door : MonoBehaviour
 	public bool isAllowedToTrigger;
 	public bool Correct = false;
 
+	GameObject GameController;
+
+	public bool SpawnWalkway = false;
+
 	// Use this for initialization
 	void Start ()
 	{
+		GameController = GameObject.FindGameObjectWithTag ("GameController");
+
 		isAllowedToTrigger = true;
 		Arrows = new Material[8];
 
@@ -37,6 +43,11 @@ public class SCR_Door : MonoBehaviour
 		Arrows [6] = Resources.Load<Material> ("Materials/7") as Material;
 		Arrows [7] = Resources.Load<Material> ("Materials/8") as Material;
 
+		for(int i = 0; i < 8; i++)
+		{
+			Arrows[i] = Resources.Load<Material>("Materials/" + (i+1)) as Material;
+		}
+
 		//loop through all the child objects of the door
 		for (int i = 0; i < this.transform.childCount; i++)
 		{
@@ -45,14 +56,21 @@ public class SCR_Door : MonoBehaviour
 		}
 
 		//defined in the inspector
-		//code for the door (1,2,3,4)
 
+		for(int i = 0; i < Doorcode.Count; i++)
+		{
+			//setting the materials on the panels of the door to match the door code
+			rend = Panels[i].GetComponent<Renderer> ();
+			rend.enabled = true;
+			rend.sharedMaterial = Resources.Load<Material>("Materials/" + Doorcode[i]);
+		}
+		/*
 		for (int i = 0; i < Doorcode.Count; i++)
 		{
 			//setting the materials on the panels of the door to match the door code
 			rend = Panels [0].GetComponent<Renderer> ();
 			rend.enabled = true;
-			rend.sharedMaterial = Arrows [i] = Resources.Load<Material>("Materials/" + Doorcode[0]);
+			rend.sharedMaterial = Arrows[i] = Resources.Load<Material>("Materials/" + Doorcode[0]);
 
 			rend = Panels [1].GetComponent<Renderer> ();
 			rend.enabled = true;
@@ -65,8 +83,27 @@ public class SCR_Door : MonoBehaviour
 			rend = Panels [3].GetComponent<Renderer> ();
 			rend.enabled = true;
 			rend.sharedMaterial = Arrows [i] = Resources.Load<Material>("Materials/" + Doorcode[3]);
-		}
 
+
+
+			rend = Panels [4].GetComponent<Renderer> ();
+			rend.enabled = true;
+			rend.sharedMaterial = Arrows [i] = Resources.Load<Material>("Materials/" + Doorcode[4]);
+
+			rend = Panels [5].GetComponent<Renderer> ();
+			rend.enabled = true;
+			rend.sharedMaterial = Arrows [i] = Resources.Load<Material>("Materials/" + Doorcode[5]);
+
+			rend = Panels [6].GetComponent<Renderer> ();
+			rend.enabled = true;
+			rend.sharedMaterial = Arrows [i] = Resources.Load<Material>("Materials/" + Doorcode[6]);
+
+			rend = Panels [7].GetComponent<Renderer> ();
+			rend.enabled = true;
+			rend.sharedMaterial = Arrows [i] = Resources.Load<Material>("Materials/" + Doorcode[7]);
+
+		}
+*/
 
 	}
 	
@@ -76,7 +113,10 @@ public class SCR_Door : MonoBehaviour
 		//used for level transitions?
 		if (Correct == true)
 		{
-			Debug.Log ("go to next scene or something");
+			//Debug.Log ("don't you dare go hollow");
+			//check to see what level your in and position the floor accordingly.
+			//GameController.GetComponent<LevelController> ().NextLevel ();
+			SpawnWalkway = true;
 		}
 
 	}

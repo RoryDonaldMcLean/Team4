@@ -7,6 +7,7 @@ public class PuzzleFourFinal : LevelControlBaseClass
     private LightTrigger lightTriggerInteract;
     private bool activatedLightBarrier = false;
 
+
     void Awake()
     {
         puzzleIdentifier = "PuzzleFour";
@@ -25,6 +26,7 @@ public class PuzzleFourFinal : LevelControlBaseClass
     {
         if ((IsAllLightTriggersActive()) && (!doorStateOpen))
         {
+			doors [0].enabled = true;
             Debug.Log("open");
             doorStateOpen = !doorStateOpen;
             exitDoor.OpenDoor();
@@ -45,5 +47,6 @@ public class PuzzleFourFinal : LevelControlBaseClass
 
             Destroy(allLightWall);
         }
+
     }
 }

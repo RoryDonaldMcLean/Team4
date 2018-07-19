@@ -457,8 +457,7 @@ public class InControlMelody : MonoBehaviour
 		{
 			Notes[i].GetComponent<RawImage>().texture = null;
 		}
-
-
+			
 
 	}
 		

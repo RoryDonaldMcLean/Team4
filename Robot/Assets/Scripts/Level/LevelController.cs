@@ -1,23 +1,39 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelController : MonoBehaviour
 {
     private List<LevelControlBaseClass> levelScripts = new List<LevelControlBaseClass>();
-    private int currentLevel = -1;
+	public int currentLevel = 0;
 
 	void Start ()
     {
-        //loads first level automatically 
+		//Debug.Log (currentLevel);
+        //loads first level automatically
+		GameObject puzzle = GameObject.Find("PuzzleZero");
+		if (puzzle != null)
+		{
+			currentLevel = 0;
+		} 
+		else
+		{
+			currentLevel = PlayerPrefs.GetInt("level");
+		}
+
         Level(currentLevel);
+		Debug.Log ("levelController " + currentLevel);
     }
 
     public void NextLevel()
     {
+		Debug.Log ("now");
         //add scene change code here, rewrite level stuff accordingly (currentlevel -> into next scene, so that start of this func loads correct puzzle script)
         currentLevel++;
-        Level(currentLevel);
+        //Level(currentLevel);
+		PlayerPrefs.SetInt("level", currentLevel);
+		SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     //based on the level specified, the old level will be deleted and removed and the new level components will be loaded

@@ -66,7 +66,7 @@ public class SplineCurve : MonoBehaviour
         this.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 0));
 
         Vector3 temp = this.transform.position;
-        temp.y += 3.49f;
+        //temp.y += 3.49f;
         this.transform.position = temp;
         //this.transform.GetChild(0).rotation = Quaternion.Euler(new Vector3(0, 0, 0));
 

@@ -781,7 +781,7 @@ public class SCR_TradeLimb : MonoBehaviour
 			if (inputDevice == null)
 			{
 				//keyboard
-				if (player2)
+				if (isBlue == GameManager.Instance.whichAndroid.player1ControlBlue)
 				{//player 1
 					if (other.name == "LeftArm" && Input.GetKey (GameManager.Instance.playerSetting.currentButton [9]) && !GetComponent<SCR_TradeLimb> ().limbs [0].name.Contains ("LeftArm"))
 						PickUpLims (other.gameObject);

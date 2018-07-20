@@ -19,15 +19,19 @@ public class LightRedirect : MonoBehaviour
     {
         if((!lightBeam.transform.IsChildOf(this.transform)) && (lightBeam.gameObject.layer != LayerMask.NameToLayer("BeamLayer")))
         {
+            /*
             if (splineCurve != null)
             {
+                Debug.Log("ahh" + splineCurve);
                 DestroyBeam();
             }
-
+            */
             //InverseBeamCalculate(lightBeam.transform.rotation);
 
             //this check ensures that the extended beam is not facing the original beam.
             //if ((this.transform.rotation.y != originalBeamInverse) && (this.transform.rotation.y != -originalBeamInverse))
+
+            if (splineCurve == null)
             {
                 connectedBeam = true;
                 if (beamColourRedirectControl) beamColour = lightBeam.GetComponentInParent<LineRenderer>().startColor;
@@ -46,8 +50,8 @@ public class LightRedirect : MonoBehaviour
     {
         if ((splineCurve != null)&&(connectedBeam))
         {
-            connectedBeam = false;
             DestroyBeam();
+            connectedBeam = false;
         }
     }
 
@@ -55,8 +59,8 @@ public class LightRedirect : MonoBehaviour
     {
         if ((splineCurve != null)&&(connectedBeam))
         {
-            connectedBeam = false;
             DestroyBeam();
+            connectedBeam = false;
         }
     }
 

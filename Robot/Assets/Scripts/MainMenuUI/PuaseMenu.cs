@@ -48,7 +48,28 @@ public class PuaseMenu : MonoBehaviour {
 
     // Update is called once per frame
     private void Update () {
-		
+		if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            this.GetComponentInParent<Canvas>().gameObject.SetActive(false);
+
+            red.GetComponent<InControlMovement>().enabled = true;
+            red.GetComponent<SCR_TradeLimb>().enabled = true;
+            red.GetComponent<PickupAndDropdown>().enabled = true;
+            red.GetComponent<Chirps>().enabled = true;
+            red.GetComponent<MelodyInput>().enabled = true;
+
+            blue.GetComponent<InControlMovement>().enabled = true;
+            blue.GetComponent<SCR_player2Initalise>().enabled = true;
+            blue.GetComponent<PickupAndDropdown>().enabled = true;
+            blue.GetComponent<Chirps>().enabled = true;
+            blue.GetComponent<MelodyInput>().enabled = true;
+
+            settingArea.SetActive(false);
+            pauseBtn[0].GetComponent<Transform>().parent.gameObject.SetActive(true);
+            pauseBtn[2].GetComponent<Transform>().parent.gameObject.SetActive(true);
+            pauseBtn[3].GetComponent<Transform>().parent.gameObject.SetActive(true);
+            pauseBtn[1].GetComponent<Text>().text = "Options";
+        }
 	}
 
     private void pauseButton(Button btn)

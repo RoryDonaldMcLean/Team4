@@ -67,8 +67,6 @@ public class LightResize : MonoBehaviour
         {
             DefaultLightRaycast();
 
-            //if (this.transform.name.Contains("Emitter")) Debug.Log("yo" + contact);
-
             yield return new WaitForFixedUpdate();
         }
     }
@@ -78,8 +76,6 @@ public class LightResize : MonoBehaviour
         while (contact)
         {
             DefaultLightRaycast();
-
-            //if (this.transform.name.Contains("Emitter")) Debug.Log("hit" + contact);
 
             yield return new WaitForFixedUpdate();
         }
@@ -155,8 +151,12 @@ public class LightResize : MonoBehaviour
             }
             else if(contact)
             {
-                //Debug.Log("??");
+                Debug.Log("??");
                 CleanUpCollidedObject();
+            }
+            else
+            {
+                if(puzzleObject != null) Debug.Log("error");
             }
         }
 	}
@@ -186,8 +186,6 @@ public class LightResize : MonoBehaviour
         float maxDraw = lineBeam.beamLength * 2.0f;
         Vector3 raycastStartLocation = this.transform.GetChild(this.transform.childCount - 1).position;
         int layerMask = ~(1 << LayerMask.NameToLayer("LightBeam") | 1 << LayerMask.NameToLayer("BeamLayer") | 1 << LayerMask.NameToLayer("PlayerLayer"));
-
-        //if (this.transform.name.Contains("LightBeam")) Debug.Log("raycastStartLocation" + raycastStartLocation);
 
         return (Physics.BoxCast(raycastStartLocation, new Vector3(raycastSize, raycastSize, raycastSize), this.GetComponent<Transform>().forward, out objectInfo, this.transform.localRotation, maxDraw, layerMask));
     }
@@ -233,6 +231,11 @@ public class LightResize : MonoBehaviour
         {
             objectBlocked.GetComponentInParent<LightSplitter>().ForceTriggerExit();
         }
+        else if (objectBlockedName.Contains("LimbLight"))
+        {
+            objectBlockedName = "LimbLight";
+        }
+
         switch (objectBlockedName)
         {
             case "LightSplitter":
@@ -284,7 +287,7 @@ public class LightResize : MonoBehaviour
         {
             if (endPoint < defaultBeamEndPoint)
             {
-                contact = false;
+                //contact = false;
                 ResizeLightRaycast();
             }
             else
@@ -379,7 +382,7 @@ public class LightResize : MonoBehaviour
         float endPointObjectValue = (Vector3.Dot(endPointObject.position, this.transform.forward));
 
         Vector3 pos = ((distance * this.transform.forward) + this.transform.position);
-        pos.z += 0.2f;
+        pos += 0.2f * this.transform.forward;
         Transform endPointBeam = this.transform.GetChild(this.transform.childCount - 1).GetChild(0);
 
         newBeamEndPoint = Vector3.Dot(pos, this.transform.forward);
@@ -393,13 +396,7 @@ public class LightResize : MonoBehaviour
         }
         else
         {
-            if (this.transform.name.Contains("Emitter"))
-            {
-                Debug.Log("here");
-                Debug.Log("endPointObjectValue" + endPointObjectValue);
-                Debug.Log("newBeamEndPoint" + newBeamEndPoint);
-                //CleanUpCollidedObject();
-            }
+            Debug.Log("here");
         }
     }
 
@@ -434,7 +431,7 @@ public class LightResize : MonoBehaviour
         CalculateNewBeam(ref endPointBeam);
 
         //finds the width of the possible collision, using the real scale of and size of the objects being collided with. Used to ascertain if the beam is no longer in range. (in order to stop checking)
-        colliderWidth = WidthCalculate();
+        //colliderWidth = WidthCalculate();
 
         CheckForPrevCollidedObject();
 
@@ -521,8 +518,8 @@ public class LightResize : MonoBehaviour
     private bool ShouldResizeBeam()
     {
         Vector3 pos = ((distance * this.transform.forward) + this.transform.position);
-        pos.z += 0.2f;
-  
+        pos += 0.2f * this.transform.forward;
+
         Transform endPointBeam = this.transform.GetChild(this.transform.childCount - 1).GetChild(0);
         float endPointObjectValue = (Vector3.Dot(endPointBeam.position, this.transform.forward));
         float objectPos = Vector3.Dot(pos, this.transform.forward);

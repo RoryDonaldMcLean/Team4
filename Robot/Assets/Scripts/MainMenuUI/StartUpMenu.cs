@@ -16,12 +16,12 @@ public class StartUpMenu : MonoBehaviour {
 	void Update () {
 		if(red.GetComponent<Transform>().position.x < Screen.width / 2 && blue.GetComponent<Transform>().position.x > Screen.width / 2)
         {
-            GameManager.Instance.whichAndroid.player1ControlRed = true;
+            GameManager.Instance.whichAndroid.player1ControlBlue = true;
             btn.gameObject.SetActive(true);
         }
         else if(red.GetComponent<Transform>().position.x > Screen.width / 2 && blue.GetComponent<Transform>().position.x < Screen.width / 2)
         {
-            GameManager.Instance.whichAndroid.player1ControlRed = false;
+            GameManager.Instance.whichAndroid.player1ControlBlue = false;
             btn.gameObject.SetActive(true);
         }
         else

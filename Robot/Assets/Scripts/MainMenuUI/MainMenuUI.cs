@@ -68,6 +68,7 @@ public class MainMenuUI : MonoBehaviour
                 mainMenuBtn[1].gameObject.SetActive(false);
                 mainMenuBtn[2].gameObject.SetActive(false);
                 mainMenuBtn[4].gameObject.SetActive(false);
+                mainMenuBtn[3].GetComponent<Text>().text = "Back";
                 settingArea.SetActive(true);
             }
             else
@@ -77,6 +78,7 @@ public class MainMenuUI : MonoBehaviour
                 mainMenuBtn[1].gameObject.SetActive(true);
                 mainMenuBtn[2].gameObject.SetActive(true);
                 mainMenuBtn[4].gameObject.SetActive(true);
+                mainMenuBtn[3].GetComponent<Text>().text = "Options";
                 settingArea.SetActive(false);
             }
         }

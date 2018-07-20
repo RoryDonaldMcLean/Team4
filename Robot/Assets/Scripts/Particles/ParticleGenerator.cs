@@ -7,7 +7,7 @@ public class ParticleGenerator : MonoBehaviour
 {
     public float SPAWN_INTERVAL = 0.01f; // How much time until the next particle spawns
     float lastSpawnTime = float.MinValue; //The last spawn time
-    public int MAX_PARTICLES;
+    public int MAX_PARTICLES = 200;
     public float PARTICLE_LIFETIME = 0.3f; //How much time will each particle live
 
     public Transform particlesParent; // Where will the spawned particles will be parented (To avoid covering the whole inspector with them)

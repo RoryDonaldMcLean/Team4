@@ -690,6 +690,15 @@ public class SCR_TradeLimb : MonoBehaviour
         List<GameObject> tempList = this.GetComponent<SCR_TradeLimb>().limbs;
         hinge.transform.position = tempList[limbNumber].transform.position;
         hinge.transform.parent = tempList[limbNumber].transform.parent;
+        hinge.AddComponent<ParticleGenerator>();
+        if (limbNumber == 0 || limbNumber == 2)
+        {
+            hinge.GetComponent<ParticleGenerator>().direction = Direction.Left;
+        }
+        if(limbNumber == 1 || limbNumber==3)
+        {
+            hinge.GetComponent<ParticleGenerator>().direction = Direction.Right;
+        }
 
         Destroy(tempList[limbNumber]);
         tempList.RemoveAt(limbNumber);

@@ -7,12 +7,26 @@ public class Prism : MonoBehaviour
     //Upon a collison being detected with a Lightbeam 
     void OnTriggerEnter(Collider lightBeam)
     {
-        this.transform.parent.GetComponent<LightSplitter>().OnEnter(lightBeam);
+        if(this.transform.parent.name.Contains("LightSplitter"))
+        {
+            this.transform.parent.GetComponent<LightSplitter>().OnEnter(lightBeam);
+        }
+        else
+        {
+            this.transform.parent.GetComponent<PrismColourCombo>().OnEnter(lightBeam);
+        }
     }
 
     //Upon lightbeam leaving the door trigger
     void OnTriggerExit(Collider lightBeam)
     {
-        this.transform.parent.GetComponent<LightSplitter>().OnExit();
+        if (this.transform.parent.name.Contains("LightSplitter"))
+        {
+            this.transform.parent.GetComponent<LightSplitter>().OnExit();
+        }
+        else
+        {
+            this.transform.parent.GetComponent<PrismColourCombo>().OnExit(lightBeam);
+        }
     }
 }

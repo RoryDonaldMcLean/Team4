@@ -11,7 +11,7 @@ public class PrismColourCombo : MonoBehaviour
     public int beamLength = 5;
 
     //Upon a collison being detected with a Lightbeam
-    void OnTriggerEnter(Collider lightbeam)
+    public void OnEnter(Collider lightbeam)
     {
         Color lineColour = lightbeam.GetComponentInParent<LineRenderer>().startColor;
         if(!CheckBeamExists(lineColour))
@@ -22,7 +22,7 @@ public class PrismColourCombo : MonoBehaviour
     }
 
     //Upon lightbeam leaving the prism
-    void OnTriggerExit(Collider lightbeam)
+    public void OnExit(Collider lightbeam)
     {
         Color lineColour = lightbeam.GetComponentInParent<LineRenderer>().startColor;
         BeamExit(lineColour);

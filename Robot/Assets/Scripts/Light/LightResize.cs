@@ -226,13 +226,6 @@ public class LightResize : MonoBehaviour
         {
             objectBlockedName = objectBlocked.parent.GetComponent<SCR_Rotatable>().rotatableObjectString;
         }
-        else if (objectBlockedName.Contains("Prism"))
-        {
-            if (objectBlocked.parent.name.Contains("LightSplitter"))
-            {
-                objectBlocked.GetComponentInParent<LightSplitter>().OnExit();
-            }
-        }
         else if (objectBlockedName.Contains("LimbLight"))
         {
             objectBlockedName = "LimbLight";
@@ -255,6 +248,16 @@ public class LightResize : MonoBehaviour
             case "LimbLight":
                 LightRedirect objectRedirect = objectBlocked.GetComponent<LightRedirect>();
                 if (objectRedirect != null) objectRedirect.TriggerExitFunction();
+                break;
+            case "Prism":
+                if (objectBlocked.parent.name.Contains("LightSplitter"))
+                {
+                    objectBlocked.GetComponentInParent<LightSplitter>().OnExit();
+                }
+                else
+                {
+                    objectBlocked.GetComponentInParent<PrismColourCombo>().TriggerExitFunction(lineBeam.beamColour);
+                }
                 break;
         }
     }

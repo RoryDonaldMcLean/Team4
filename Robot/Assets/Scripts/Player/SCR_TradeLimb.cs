@@ -19,7 +19,7 @@ public class SCR_TradeLimb : MonoBehaviour
     bool disabledRelevantPSEmissions = false;
     //is there 2 players in the game. if so use different controls for player 1 and 2 
     //but allows it all to be in 1 script
-    public bool player2 = false;
+    public bool isBlue = false;
 
     private GameObject leftArmFly, rightArmFly, leftLegFly, rightLegFly;
 
@@ -191,81 +191,85 @@ public class SCR_TradeLimb : MonoBehaviour
 	{
 		//player 1 
 		//checks that the player has that limb, if so activate the correct UI element
-		if (player2)
+		if (isBlue == GameManager.Instance.whichAndroid.player1ControlBlue)
 		{
-			if (limbs [0].name.Contains ("LeftArm"))
+            List<GameObject> ls = !GameManager.Instance.whichAndroid.player1ControlBlue ? limbsUI : limbsUI2;
+
+            if (limbs [0].name.Contains ("LeftArm"))
 			{
-				limbsUI [0].SetActive (true);
+				ls [0].SetActive (true);
 			} 
 			else
 			{
-				limbsUI [0].SetActive (false);
+				ls [0].SetActive (false);
 			}
 
 			if (limbs [1].name.Contains ("RightArm"))
 			{
-				limbsUI [1].SetActive (true);
+				ls [1].SetActive (true);
 			} 
 			else
 			{
-				limbsUI [1].SetActive (false);
+				ls [1].SetActive (false);
 			}
 
 			if (limbs [2].name.Contains ("LeftLeg"))
 			{
-				limbsUI [2].SetActive (true);
+				ls [2].SetActive (true);
 			} 
 			else
 			{
-				limbsUI [2].SetActive (false);
+				ls [2].SetActive (false);
 			}
 
 			if (limbs [3].name.Contains ("RightLeg"))
 			{
-				limbsUI [3].SetActive (true);
+				ls [3].SetActive (true);
 			} 
 			else
 			{
-				limbsUI [3].SetActive (false);
+				ls [3].SetActive (false);
 			}
 		} 
 		else
 		{
-			//player 2
-			if (limbs [0].name.Contains ("LeftArm"))
+            List<GameObject> ls = GameManager.Instance.whichAndroid.player1ControlBlue ? limbsUI : limbsUI2;
+
+            //player 2
+            if (limbs [0].name.Contains ("LeftArm"))
 			{
-				limbsUI2 [0].SetActive (true);
+				ls [0].SetActive (true);
 			} 
 			else
 			{
-				limbsUI2 [0].SetActive (false);
+				ls [0].SetActive (false);
 			}
 
 			if (limbs [1].name.Contains ("RightArm"))
 			{
-				limbsUI2 [1].SetActive (true);
+				ls [1].SetActive (true);
 			} 
 			else
 			{
-				limbsUI2 [1].SetActive (false);
+				ls [1].SetActive (false);
 			}
 
 			if (limbs [2].name.Contains ("LeftLeg"))
 			{
-				limbsUI2 [2].SetActive (true);
+				ls [2].SetActive (true);
 			} 
 			else
 			{
-				limbsUI2 [2].SetActive (false);
+				ls [2].SetActive (false);
 			}
 
 			if (limbs [3].name.Contains ("RightLeg"))
 			{
-				limbsUI2 [3].SetActive (true);
+				ls [3].SetActive (true);
 			} 
 			else
 			{
-				limbsUI2 [3].SetActive (false);
+				ls [3].SetActive (false);
 			}
 		}
 	}
@@ -277,7 +281,7 @@ public class SCR_TradeLimb : MonoBehaviour
 
 		//////////////////////////////////////////////////////////////////////////
 		//DropDown
-		if (player2)
+		if (isBlue == GameManager.Instance.whichAndroid.player1ControlBlue)
 		{	//player 1 controls
 			if((UILimbImage != null)&&(UILimbImage2 != null)) UICheck();
 
@@ -334,39 +338,41 @@ public class SCR_TradeLimb : MonoBehaviour
 			}
 		}
 		////////////////////////////////////
-		if (player2)
+		if (isBlue == GameManager.Instance.whichAndroid.player1ControlBlue)
 		{	//player 1 controls
-			if (Input.GetKey (GameManager.Instance.playerSetting.currentButton[10]))
+            GameObject ui = !GameManager.Instance.whichAndroid.player1ControlBlue ? UILimbImage : UILimbImage2;
+            if (Input.GetKey (GameManager.Instance.playerSetting.currentButton[10]))
 			{
 				Vector3 UIposition = Camera.main.WorldToScreenPoint (this.transform.position);
-				if (UILimbImage != null) 
+                if (ui != null) 
 				{
-					UILimbImage.transform.position = UIposition;
-					UILimbImage.SetActive (true);
+					ui.transform.position = UIposition;
+					ui.SetActive (true);
 				}
 				SpecificLimbExchange();
 			} 
 			else
 			{
-				if(UILimbImage != null) UILimbImage.SetActive (false);
+				if(ui != null) ui.SetActive (false);
 			}
 		}
 		else
 		{
 			//player 2 controls here
-			if (Input.GetKey (GameManager.Instance.playerSetting.currentButton[22]))
+            GameObject ui = GameManager.Instance.whichAndroid.player1ControlBlue ? UILimbImage : UILimbImage2;
+            if (Input.GetKey (GameManager.Instance.playerSetting.currentButton[22]))
 			{
 				Vector3 UIposition = Camera.main.WorldToScreenPoint (this.transform.position);
-				if (UILimbImage2 != null) 
+                if (ui != null) 
 				{
-					UILimbImage2.transform.position = UIposition;
-					UILimbImage2.SetActive (true);
+					ui.transform.position = UIposition;
+					ui.SetActive (true);
 				}
 				SpecificLimbExchange();
 			}
 			else
 			{
-				if(UILimbImage2 != null) UILimbImage2.SetActive (false);
+				if(ui != null) ui.SetActive (false);
 			}
 		}
 	}
@@ -458,7 +464,7 @@ public class SCR_TradeLimb : MonoBehaviour
         GameObject targetPlayer = GameObject.FindGameObjectWithTag(otherPlayerTag);
         //this is what would change which limb you exchange
         //player 1 left arm
-        if (player2)
+        if (isBlue == GameManager.Instance.whichAndroid.player1ControlBlue)
         {
             if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[4]))
             {
@@ -686,6 +692,15 @@ public class SCR_TradeLimb : MonoBehaviour
         List<GameObject> tempList = this.GetComponent<SCR_TradeLimb>().limbs;
         hinge.transform.position = tempList[limbNumber].transform.position;
         hinge.transform.parent = tempList[limbNumber].transform.parent;
+        hinge.AddComponent<ParticleGenerator>();
+        if (limbNumber == 0 || limbNumber == 2)
+        {
+            hinge.GetComponent<ParticleGenerator>().direction = Direction.Left;
+        }
+        if(limbNumber == 1 || limbNumber==3)
+        {
+            hinge.GetComponent<ParticleGenerator>().direction = Direction.Right;
+        }
 
         Destroy(tempList[limbNumber]);
         tempList.RemoveAt(limbNumber);
@@ -766,7 +781,7 @@ public class SCR_TradeLimb : MonoBehaviour
 			if (inputDevice == null)
 			{
 				//keyboard
-				if (player2)
+				if (isBlue == GameManager.Instance.whichAndroid.player1ControlBlue)
 				{//player 1
 					if (other.name == "LeftArm" && Input.GetKey (GameManager.Instance.playerSetting.currentButton [9]) && !GetComponent<SCR_TradeLimb> ().limbs [0].name.Contains ("LeftArm"))
 						PickUpLims (other.gameObject);

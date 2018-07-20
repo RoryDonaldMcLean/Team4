@@ -18,6 +18,8 @@ public class PickupAndDropdown : MonoBehaviour
 
 	public int playerNum;
 
+    public bool isBlue;
+
     // Use this for initialization
     private void Start()
     {
@@ -39,7 +41,11 @@ public class PickupAndDropdown : MonoBehaviour
 			if (!holding)
 			{
 				RaycastHit hit;
-				if(Input.GetKeyDown(KeyCode.E))
+				if((Input.GetKeyDown(GameManager.Instance.playerSetting.currentButton[9]) 
+                    && isBlue == GameManager.Instance.whichAndroid.player1ControlBlue
+                    )
+                    || Input.GetKeyDown(GameManager.Instance.playerSetting.currentButton[21])
+                    && isBlue != GameManager.Instance.whichAndroid.player1ControlBlue)
 				{
 					if (ObjectFound(out hit))//ray cast detection
 					{             
@@ -88,8 +94,12 @@ public class PickupAndDropdown : MonoBehaviour
 
 					}
 				}
-				else if(Input.GetKeyDown(KeyCode.R))
-				{
+				else if ((Input.GetKeyDown(GameManager.Instance.playerSetting.currentButton[11])
+                    && isBlue == GameManager.Instance.whichAndroid.player1ControlBlue
+                    )
+                    || Input.GetKeyDown(GameManager.Instance.playerSetting.currentButton[23])
+                    && isBlue != GameManager.Instance.whichAndroid.player1ControlBlue)
+                {
 
 					if (ObjectFound (out hit))//ray cast detection
 					{
@@ -136,8 +146,12 @@ public class PickupAndDropdown : MonoBehaviour
 					}
 					pickedUpGameObject.transform.position = temp;
 
-					if(Input.GetKeyDown(KeyCode.E))
-					{
+					if ((Input.GetKeyDown(GameManager.Instance.playerSetting.currentButton[9])
+                    && isBlue == GameManager.Instance.whichAndroid.player1ControlBlue
+                    )
+                    || Input.GetKeyDown(GameManager.Instance.playerSetting.currentButton[21])
+                    && isBlue != GameManager.Instance.whichAndroid.player1ControlBlue)
+                    {
 						Debug.Log("dropped on click");
 						LimitDrop();
 					}
@@ -149,8 +163,12 @@ public class PickupAndDropdown : MonoBehaviour
 					pickedUpGameObject.transform.rotation = Quaternion.RotateTowards (pickedUpGameObject.transform.rotation,
 						this.transform.rotation, step);
 
-					if(Input.GetKeyDown(KeyCode.E))
-					{
+					if ((Input.GetKeyDown(GameManager.Instance.playerSetting.currentButton[9])
+                    && isBlue == GameManager.Instance.whichAndroid.player1ControlBlue
+                    )
+                    || Input.GetKeyDown(GameManager.Instance.playerSetting.currentButton[21])
+                    && isBlue != GameManager.Instance.whichAndroid.player1ControlBlue)
+                    {
 						RotateDrop();
 					}
 				}
@@ -163,8 +181,12 @@ public class PickupAndDropdown : MonoBehaviour
 					pickedUpGameObject.GetComponent<Transform>().rotation = Quaternion.Lerp(pickedUpGameObject.GetComponent<Transform>().rotation, this.GetComponent<Transform>().rotation, 1); //make the rotation of object same as camera
 					pickedUpGameObject.GetComponent<Transform>().rotation = new Quaternion(0, pickedUpGameObject.GetComponent<Transform>().rotation.y, 0, pickedUpGameObject.GetComponent<Transform>().rotation.w);
 
-					if (Input.GetKeyDown(KeyCode.E))
-					{
+					if ((Input.GetKeyDown(GameManager.Instance.playerSetting.currentButton[9])
+                    && isBlue == GameManager.Instance.whichAndroid.player1ControlBlue
+                    )
+                    || Input.GetKeyDown(GameManager.Instance.playerSetting.currentButton[21])
+                    && isBlue != GameManager.Instance.whichAndroid.player1ControlBlue)
+                    {
 						PutDownObject();
 					}
 				}

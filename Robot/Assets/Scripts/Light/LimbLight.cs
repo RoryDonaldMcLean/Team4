@@ -96,18 +96,22 @@ public class LimbLight : MonoBehaviour
 
     private void BeamFoundNearObject()
     {
-        RaycastHit hit;
-        float nearDistance = 1.0f;
-
-        CheckDirectionForLightBeam(this.transform.forward, out hit, ref nearDistance);
+        CheckDirectionForLightBeam();
     }
 
-    private void CheckDirectionForLightBeam(Vector3 direction, out RaycastHit hit, ref float nearDistance)
+    private void CheckDirectionForLightBeam()
     {
-        if(RayCast(direction, nearDistance, out hit))
+        RaycastHit hit;
+        float nearDistance = 3.0f;
+
+        if (RayCast(this.transform.forward, nearDistance, out hit))
         {
             lightRedirect.TriggerEnterFunction(hit.collider);
         }
+        //else if (RayCast(this.transform.right, nearDistance, out hit))
+        //{
+            //lightRedirect.TriggerEnterFunction(hit.collider);
+        //}
     }
 
     private bool RayCast(Vector3 direction, float length, out RaycastHit hit)
@@ -116,10 +120,11 @@ public class LimbLight : MonoBehaviour
         Vector3 offsetPos = Vector3.Scale(direction, this.GetComponent<Transform>().localScale);
 
         Vector3 raycastStartLocation = this.transform.position;
-        raycastStartLocation -= offsetPos * 2.0f;
+        raycastStartLocation -= offsetPos * 3.0f;
+        raycastStartLocation.y = 3.49f;
 
         Debug.DrawRay(raycastStartLocation, direction, Color.red, length);
-        return Physics.BoxCast(raycastStartLocation, this.GetComponent<Transform>().localScale, direction, out hit, this.GetComponent<Transform>().rotation, length, layerMask);
+        return Physics.BoxCast(raycastStartLocation, this.GetComponent<Transform>().localScale, direction, out hit, Quaternion.identity, length, layerMask);
     }
     /*
     void OnDrawGizmos()
@@ -127,20 +132,20 @@ public class LimbLight : MonoBehaviour
         Gizmos.color = Color.red;
         RaycastHit hit;
 
-        float nearDistance = 1.0f;
+        float nearDistance = 3.0f;
         if (lightRedirect != null)
         {
-            float maxDraw = 1.0f;
             Vector3 direction = this.transform.forward;
             Vector3 offsetPos = Vector3.Scale(direction, this.GetComponent<Transform>().localScale);
 
             Vector3 raycastStartLocation = this.transform.position;
-            raycastStartLocation -= offsetPos * 2.0f;
+            raycastStartLocation -= offsetPos * 3.0f;
+            raycastStartLocation.y = 3.49f;
 
             int layerMask = 1 << LayerMask.NameToLayer("LightBeam");
             //Check if there has been a hit yet
-            float range = 1.0f;
-            if (Physics.BoxCast(raycastStartLocation, new Vector3(range, range, range), direction, out hit, this.transform.localRotation, maxDraw, layerMask))
+            float range = 2.0f;
+            if (Physics.BoxCast(raycastStartLocation, new Vector3(range, range, range), direction, out hit, Quaternion.identity, nearDistance, layerMask))
             {
                 Debug.Log("?" + hit.transform.name);
                 //Draw a Ray forward from GameObject toward the hit

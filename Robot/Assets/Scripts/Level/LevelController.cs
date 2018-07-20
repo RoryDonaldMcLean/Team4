@@ -7,20 +7,24 @@ public class LevelController : MonoBehaviour
 {
     private List<LevelControlBaseClass> levelScripts = new List<LevelControlBaseClass>();
 	public int currentLevel = 0;
+	public bool levelSelect = false;
 
 	void Start ()
     {
-		//Debug.Log (currentLevel);
-        //loads first level automatically
-		GameObject puzzle = GameObject.Find("PuzzleZero");
-		if (puzzle != null)
+		if (!levelSelect)
 		{
-			currentLevel = 0;
+			//Debug.Log (currentLevel);
+			//loads first level automatically
+			GameObject puzzle = GameObject.Find ("PuzzleZero");
+			if (puzzle != null)
+			{
+				currentLevel = 0;
+			} 
+			else
+			{
+				currentLevel = PlayerPrefs.GetInt ("level");
+			}
 		} 
-		else
-		{
-			currentLevel = PlayerPrefs.GetInt("level");
-		}
 
         Level(currentLevel);
     }

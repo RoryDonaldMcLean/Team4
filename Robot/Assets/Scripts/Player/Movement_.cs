@@ -52,7 +52,7 @@ public class Movement_ : MonoBehaviour
 
         //player 1
         //move forward
-        if (player2 == GameManager.Instance.whichAndroid.player1ControlRed)
+        if (player2 == GameManager.Instance.whichAndroid.player1ControlBlue)
         {
 
             if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[0]))

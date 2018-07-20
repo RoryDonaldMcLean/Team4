@@ -7,6 +7,8 @@ using UnityEngine;
 [Serializable]
 public class PlayerSetting
 {
+    public Level lastLevel = new Level();
+
     public KeyCode[] defaultButton = new KeyCode[24];
 
     public KeyCode[] currentButton = new KeyCode[24];
@@ -50,6 +52,8 @@ public class PlayerSetting
         volume = 50;
 
         player1Controller = false;
+
+        lastLevel = Level.None;
     }
 
     public void sameButton(int number)

@@ -71,7 +71,7 @@ public class PuaseMenu : MonoBehaviour {
         }
         if (btn == pauseBtn[1])
         {
-            Debug.Log("Options Button Press");
+            //Debug.Log("Options Button Press");
             if (!isSetting)
             {
                 settingArea.SetActive(true);

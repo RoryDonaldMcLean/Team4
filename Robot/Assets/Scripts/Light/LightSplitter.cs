@@ -10,7 +10,6 @@ public class LightSplitter : MonoBehaviour
     private Color beamColour = Color.white;
     private int totalLightSplits = 2;
     public int beamLength = 5;
-    //private float originalBeamInverse;
 
     // Use this for initialization
     void Start()
@@ -19,7 +18,7 @@ public class LightSplitter : MonoBehaviour
     }
 
     //Upon a collison being detected with a Lightbeam 
-    public void OnTriggerEnter(Collider lightBeam)
+    public void OnEnter(Collider lightBeam)
     {
         if ((!lightBeam.transform.IsChildOf(this.transform)) && (lightBeam.gameObject.layer != LayerMask.NameToLayer("BeamLayer")))
         {
@@ -28,28 +27,25 @@ public class LightSplitter : MonoBehaviour
         }
     }
 
-    //Upon lightbeam leaving the door trigger
-    public void OnTriggerExit(Collider lightBeam)
+    public void OnExit()
     {
-        if (splitBeams.Count > 0)
-        {
-            DestroyBeam();
-        }
-    }
-
-    public void ForceTriggerExit()
-    {
-        //StartCoroutine(BeamNotification());
         if(splitBeams.Count > 0)
         {
             DestroyBeam();
         }
     }
 
-    IEnumerator BeamNotification()
+    private IEnumerator BeamNotification()
     {
         yield return new WaitUntil(() => splitBeams != null);
         DestroyBeam();
+    }
+
+    private IEnumerator BeamDestructionConfirm(int index)
+    {
+        splitBeams[index].GetComponent<StraightSplineBeam>().ToggleBeam();
+        Destroy(splitBeams[index]);
+        yield return new WaitUntil(() => splitBeams[index] == null);
     }
 
     private void DestroyBeam()
@@ -86,7 +82,7 @@ public class LightSplitter : MonoBehaviour
         splitBeams[0].transform.Rotate(Vector3.up * 45);
         splitBeams[1].transform.Rotate(Vector3.up * -45);
 
-        if ((splitColour) &&(beamColour != Color.white)) SplitColourBetweenBeams();
+        if ((splitColour) && (beamColour.Equals(new Color(1,0,1,1)))) SplitColourBetweenBeams();
 
         //AkSoundEngine.SetState("Drone_Modulator", "Splitter");
     }

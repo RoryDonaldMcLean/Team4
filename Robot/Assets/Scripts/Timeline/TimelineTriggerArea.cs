@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class TimelineTriggerArea : MonoBehaviour
 {
-
     [Header("Component References")]
     public TimelinePlaybackManager timelinePlaybackManager;
 
@@ -22,11 +21,8 @@ public class TimelineTriggerArea : MonoBehaviour
 
     private int Collisions = 0;
 
-
     void OnTriggerEnter(Collider theCollision)
     {
-       
-
         if (theCollision.name.Contains("Crate") || theCollision.name.Contains("Crate2"))
         {
             Debug.Log("" + Collisions);
@@ -40,7 +36,7 @@ public class TimelineTriggerArea : MonoBehaviour
 
         if (Switch == true)
         {
-            if (theCollision.name.Contains("Player") || theCollision.name.Contains("Player2"))
+            if (theCollision.name.Contains("Player") || theCollision.name.Contains("Player2") || theCollision.gameObject.layer.Equals(LayerMask.NameToLayer("PlayerLayer")))
             {
                 timelinePlaybackManager.PlayerEnteredZone();
                 timelinePlaybackManager.Switch = true;

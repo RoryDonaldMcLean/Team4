@@ -32,7 +32,9 @@ public class PuzzleFourFinal : LevelControlBaseClass
             EndOfLevel();
         }
         else if ((!activatedLightBarrier) && (lightTriggerInteract.correctLight))
-        {           
+        {
+            activatedLightBarrier = true;
+
             //create purple light barrier
             GameObject allLightWall = GameObject.Find("AllLightBarrier");
             GameObject lightBarrier = Instantiate(Resources.Load("Prefabs/Light/LightBarrier")) as GameObject;
@@ -42,9 +44,7 @@ public class PuzzleFourFinal : LevelControlBaseClass
             xScale /= 6.0f;
             lightBarrier.transform.localScale = new Vector3(xScale, 1, 1);
 
-            lightBarrier.GetComponent<LightBarrier>().colourToAllow = new Color(1,0,1,1);
-
-            activatedLightBarrier = true;
+            lightBarrier.GetComponentInChildren<LightBarrier>().colourToAllow = new Color(1,0,1,1);
 
             Destroy(allLightWall);
         }

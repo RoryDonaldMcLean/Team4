@@ -120,7 +120,7 @@ public class LightRedirect : MonoBehaviour
         splineCurve.beamColour = beamColour;
         splineCurve.beamLength = beamLength;
 
-        //AkSoundEngine.SetState("Drone_Modulator", "Reflector");
+        AkSoundEngine.SetState("Drone_Modulator", "Reflector");
 
         BlinkingArrowsSetup();
     }

@@ -88,7 +88,7 @@ public class LightSplitter : MonoBehaviour
 
         if ((splitColour) &&(beamColour != Color.white)) SplitColourBetweenBeams();
 
-        //AkSoundEngine.SetState("Drone_Modulator", "Splitter");
+        AkSoundEngine.SetState("Drone_Modulator", "Splitter");
     }
 
     private void SplitColourBetweenBeams()

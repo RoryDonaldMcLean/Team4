@@ -32,11 +32,14 @@ public class SCR_player2Initalise : SCR_TradeLimb
 			//factory part 2
 			Exchange ("LeftArm", this.gameObject.tag);
 			Exchange ("LeftLeg", this.gameObject.tag);
+			Exchange ("RightArm", this.gameObject.tag);
+			Exchange ("RightLeg", this.gameObject.tag);
 		} 
 		else if (levelCounter == 3)
 		{
 			//factory hights
 			Exchange ("LeftLeg", this.gameObject.tag);
+			Exchange ("LeftArm", this.gameObject.tag);
 
 		} 
 		else if (levelCounter == 4)

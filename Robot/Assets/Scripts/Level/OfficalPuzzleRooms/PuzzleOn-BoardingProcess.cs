@@ -6,6 +6,7 @@ public class PuzzleOnBoardingProcess : LevelControlBaseClass
 {
 
 	GameObject MelodyDoor;
+	GameObject Exit;
 
     void Awake()
     {
@@ -32,6 +33,9 @@ public class PuzzleOnBoardingProcess : LevelControlBaseClass
 		{
 			if (MelodyDoor.GetComponentInChildren<SCR_Door> ().SpawnWalkway == true)
 			{
+				Exit = GameObject.FindGameObjectWithTag ("ExitDoor");
+				Exit.SetActive (false);
+
 				GameObject walkway = Instantiate (Resources.Load ("Prefabs/PuzzleGenericItems/tempFloor")) as GameObject;
 				walkway.name = "tempFloor";
 				MelodyDoor.GetComponentInChildren<SCR_Door> ().SpawnWalkway = false;

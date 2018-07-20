@@ -26,23 +26,23 @@ public class PlayerSetting
         defaultButton[5] = KeyCode.Alpha2;
         defaultButton[6] = KeyCode.Alpha3;
         defaultButton[7] = KeyCode.Alpha4;
-        defaultButton[8] = KeyCode.Space;
-        defaultButton[9] = KeyCode.E;
-        defaultButton[10] = KeyCode.F;
-        defaultButton[11] = KeyCode.Z;
+        defaultButton[8] = KeyCode.Space; // jump
+        defaultButton[9] = KeyCode.E; // interact
+        defaultButton[10] = KeyCode.F; // limbs panel
+        defaultButton[11] = KeyCode.Z; // drop code
 
         defaultButton[12] = KeyCode.UpArrow;
         defaultButton[13] = KeyCode.LeftArrow;
         defaultButton[14] = KeyCode.DownArrow;
         defaultButton[15] = KeyCode.RightArrow;
-        defaultButton[16] = KeyCode.Keypad1;
-        defaultButton[17] = KeyCode.Keypad2;
-        defaultButton[18] = KeyCode.Keypad3;
-        defaultButton[19] = KeyCode.Keypad4;
-        defaultButton[20] = KeyCode.Keypad0;
-        defaultButton[21] = KeyCode.Keypad7;
-        defaultButton[22] = KeyCode.Keypad8;
-        defaultButton[23] = KeyCode.Keypad9;
+		defaultButton[16] = KeyCode.Alpha5;
+		defaultButton[17] = KeyCode.Alpha6;
+		defaultButton[18] = KeyCode.Alpha7;
+		defaultButton[19] = KeyCode.Alpha8;
+        defaultButton[20] = KeyCode.Keypad0;//jump
+        defaultButton[21] = KeyCode.Keypad7; //interact
+        defaultButton[22] = KeyCode.Keypad8; // limbs panel
+        defaultButton[23] = KeyCode.Keypad9; //drop code
 
         for (int i = 0; i < defaultButton.Length; i++)
         {

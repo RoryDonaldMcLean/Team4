@@ -6,6 +6,7 @@ public class PuzzleThreeCombinersandRefractors : LevelControlBaseClass
 {
 
 	GameObject MelodyDoor;
+	GameObject Exit;
 
     void Awake()
     {
@@ -34,8 +35,10 @@ public class PuzzleThreeCombinersandRefractors : LevelControlBaseClass
 			{
 				GameObject walkway = Instantiate(Resources.Load("Prefabs/PuzzleGenericItems/tempFloor")) as GameObject;
 				walkway.name = "tempFloor";
-				Vector3 pos = walkway.transform.position;
-				pos.z += 54.4f * 3.0f;
+				//Vector3 pos = walkway.transform.position;
+				//pos.z += 54.4f * 3.0f;
+				Exit = GameObject.FindGameObjectWithTag ("ExitDoor");
+				Exit.SetActive (false);
 
 				MelodyDoor.GetComponentInChildren<SCR_Door> ().SpawnWalkway = false;
 				MelodyDoor.GetComponentInChildren<SCR_Door> ().Correct = false;

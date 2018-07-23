@@ -7,11 +7,11 @@ public class PrismColourCombo : MonoBehaviour
     private List<Color> colourBeams = new List<Color>();
     private Color newBeamColour;
     private StraightSplineBeam splineCurve;
-    private bool destroyingBeam = false;
+    private Color beamBeingDestroyed = Color.black;
     public int beamLength = 5;
 
     //Upon a collison being detected with a Lightbeam
-    void OnTriggerEnter(Collider lightbeam)
+    public void OnEnter(Collider lightbeam)
     {
         Color lineColour = lightbeam.GetComponentInParent<LineRenderer>().startColor;
         if(!CheckBeamExists(lineColour))
@@ -22,7 +22,7 @@ public class PrismColourCombo : MonoBehaviour
     }
 
     //Upon lightbeam leaving the prism
-    void OnTriggerExit(Collider lightbeam)
+    public void OnExit(Collider lightbeam)
     {
         Color lineColour = lightbeam.GetComponentInParent<LineRenderer>().startColor;
         BeamExit(lineColour);
@@ -35,22 +35,27 @@ public class PrismColourCombo : MonoBehaviour
 
     private void BeamExit(Color lineColour)
     {
-        if(!destroyingBeam)
+        if(!beamBeingDestroyed.Equals(lineColour))
         {
-            destroyingBeam = true;
-            while (CheckBeamExists(lineColour))
-            {
-                colourBeams.Remove(lineColour);
-            }
-            ModifyBeam();
-            StartCoroutine(BeamDestroyedCheck());
+            BeamsRemoval(lineColour);
         }
     }
 
-    private IEnumerator BeamDestroyedCheck()
+    private void BeamsRemoval(Color lineColour)
+    {
+        beamBeingDestroyed = lineColour;
+        while (CheckBeamExists(lineColour))
+        {
+            colourBeams.Remove(lineColour);
+        }
+        ModifyBeam();
+        StartCoroutine(BeamDestroyedCheck(lineColour));
+    }
+
+    private IEnumerator BeamDestroyedCheck(Color lineColour)
     {
         yield return new WaitUntil(()=> splineCurve == null);
-        destroyingBeam = false;
+        if (beamBeingDestroyed.Equals(lineColour)) beamBeingDestroyed = Color.black;
     }
 
     //if the beam leaving has reduced the amount of beams hitting the prism to zero, delete the prism beam.

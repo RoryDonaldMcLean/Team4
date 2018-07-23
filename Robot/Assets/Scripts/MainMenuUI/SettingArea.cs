@@ -74,14 +74,16 @@ public class SettingArea : MonoBehaviour
             if (!allFalse())
             {
                 playerButtons[i].gameObject.SetActive(true);
+                playerButtons[i].enabled = true;
                 Text text = playerButtons[i].GetComponentInChildren<Text>(true);
                 text.text = GameManager.Instance.playerSetting.currentButton[i].ToString();
             }
             else
             {
-                playerButtons[i].gameObject.SetActive(false);
-                if(reboundButton[i])
+                playerButtons[i].enabled = false;
+                if (reboundButton[i])
                 {
+                    playerButtons[i].gameObject.SetActive(false);
                     if (Input.GetKeyDown(KeyCode.Escape))
                     {
                         reboundButton[i] = false;
@@ -113,13 +115,19 @@ public class SettingArea : MonoBehaviour
 
         if(!allFalse())
         {
-            defaultbtn.gameObject.SetActive(true);
-            tog.gameObject.SetActive(true);
+            //defaultbtn.gameObject.SetActive(true);
+            //tog.gameObject.SetActive(true);
+            defaultbtn.enabled = true;
+            tog.enabled = true;
+            volume.enabled = true;
         }
         else
         {
-            defaultbtn.gameObject.SetActive(false);
-            tog.gameObject.SetActive(false);
+            //defaultbtn.gameObject.SetActive(false);
+            //tog.gameObject.SetActive(false);
+            defaultbtn.enabled = false;
+            tog.enabled = false;
+            volume.enabled = false;
         }
 
 

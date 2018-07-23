@@ -10,7 +10,6 @@ public class LightRedirect : MonoBehaviour
     private Color arrowDefaultColour = Color.white;
     private StraightSplineBeam splineCurve;
     private bool connectedBeam = false;
-    private float originalBeamInverse;
     private float fadedColourAlpha = 0.1f;
     private bool defaultColour = true;
 
@@ -26,10 +25,6 @@ public class LightRedirect : MonoBehaviour
                 DestroyBeam();
             }
             */
-            //InverseBeamCalculate(lightBeam.transform.rotation);
-
-            //this check ensures that the extended beam is not facing the original beam.
-            //if ((this.transform.rotation.y != originalBeamInverse) && (this.transform.rotation.y != -originalBeamInverse))
 
             if (splineCurve == null)
             {
@@ -62,16 +57,6 @@ public class LightRedirect : MonoBehaviour
             DestroyBeam();
             connectedBeam = false;
         }
-    }
-
-    //simply finds the inverse of the beam, would indicates the beams source
-    //this prevents a beam being created that simply overlaps the original beam
-    private void InverseBeamCalculate(Quaternion rotation)
-    {
-        Vector3 rot = rotation.eulerAngles;
-        rot = new Vector3(rot.x, rot.y + 180, rot.z);
-        Quaternion convertToQuaternion = Quaternion.Euler(rot);
-        originalBeamInverse = convertToQuaternion.y;
     }
 
     //This object has to be rotated with user clicks, with the extended beam being rotated as well

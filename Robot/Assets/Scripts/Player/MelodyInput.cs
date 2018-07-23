@@ -169,7 +169,7 @@ public class MelodyInput : MonoBehaviour
 			{
 				if (isBlue != GameManager.Instance.whichAndroid.player1ControlBlue)
 				{
-					if (Input.GetKeyDown (KeyCode.Alpha5))
+					if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [16]))
 					{
 						if (GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [0].name.Contains ("LeftArm"))
 						{
@@ -182,7 +182,7 @@ public class MelodyInput : MonoBehaviour
 						{
 							Debug.Log ("Player2 has no left arm");
 						}
-					} else if (Input.GetKeyDown (KeyCode.Alpha6))
+					} else if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [17]))
 					{
 						if (GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [1].name.Contains ("RightArm"))
 						{
@@ -195,7 +195,7 @@ public class MelodyInput : MonoBehaviour
 						{
 							Debug.Log ("Player2 has no right arm");
 						}
-					} else if (Input.GetKeyDown (KeyCode.Alpha7))
+					} else if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [18]))
 					{
 						if (GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [2].name.Contains ("LeftLeg"))
 						{
@@ -208,7 +208,7 @@ public class MelodyInput : MonoBehaviour
 						{
 							Debug.Log ("Player2 has no left leg");
 						}
-					} else if (Input.GetKeyDown (KeyCode.Alpha8))
+					} else if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [19]))
 					{
 						if (GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [3].name.Contains ("RightLeg"))
 						{

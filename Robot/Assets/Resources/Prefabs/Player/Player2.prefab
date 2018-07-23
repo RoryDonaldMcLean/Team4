@@ -152,7 +152,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1121144559936194}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.3, y: 1.05, z: 21.209995}
+  m_LocalPosition: {x: 17.32, y: 1.05, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4262836210719514}
@@ -646,7 +646,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   limbs: []
-  player2: 0
+  isBlue: 1
   playerNum: 1
 --- !u!114 &114097549819607258
 MonoBehaviour:
@@ -682,7 +682,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerNum: 1
-  player2: 0
+  isBlue: 1
 --- !u!114 &114269578696154826
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -738,7 +738,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3e5d89e6cfcf394499e18a11035f80d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player2: 1
+  isBlue: 1
   playerSpeed: 6
   rb1: {fileID: 54784998369321904}
   grounded: 1
@@ -799,7 +799,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerNum: 1
-  player2: 0
+  isBlue: 1
 --- !u!114 &114959210986093164
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -813,6 +813,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickingMaxDistance: 1
   playerNum: 1
+  isBlue: 1
 --- !u!136 &136251275200858780
 CapsuleCollider:
   m_ObjectHideFlags: 1

@@ -7,6 +7,9 @@ public class PuzzleFourFinal : LevelControlBaseClass
     private LightTrigger lightTriggerInteract;
     private bool activatedLightBarrier = false;
 
+	GameObject MelodyDoor;
+	GameObject Exit;
+
     void Awake()
     {
         puzzleIdentifier = "PuzzleFour";
@@ -33,7 +36,9 @@ public class PuzzleFourFinal : LevelControlBaseClass
             EndOfLevel();
         }
         else if ((!activatedLightBarrier) && (lightTriggerInteract.correctLight))
-        {           
+        {
+            activatedLightBarrier = true;
+
             //create purple light barrier
             GameObject allLightWall = GameObject.Find("AllLightBarrier");
             GameObject lightBarrier = Instantiate(Resources.Load("Prefabs/Light/LightBarrier")) as GameObject;
@@ -43,12 +48,26 @@ public class PuzzleFourFinal : LevelControlBaseClass
             xScale /= 6.0f;
             lightBarrier.transform.localScale = new Vector3(xScale, 1, 1);
 
-            lightBarrier.GetComponent<LightBarrier>().colourToAllow = new Color(1,0,1,1);
-
-            activatedLightBarrier = true;
+            lightBarrier.GetComponentInChildren<LightBarrier>().colourToAllow = new Color(1,0,1,1);
 
             Destroy(allLightWall);
         }
+
+		if(doorStateOpen)
+		{
+			if (MelodyDoor.GetComponentInChildren<SCR_Door> ().SpawnWalkway == true)
+			{
+				GameObject walkway = Instantiate(Resources.Load("Prefabs/PuzzleGenericItems/tempFloor")) as GameObject;
+				walkway.name = "tempFloor";
+				//Vector3 pos = walkway.transform.position;
+				//pos.z += 54.4f * 3.0f;
+				Exit = GameObject.FindGameObjectWithTag ("ExitDoor");
+				Exit.SetActive (false);
+
+				MelodyDoor.GetComponentInChildren<SCR_Door> ().SpawnWalkway = false;
+				MelodyDoor.GetComponentInChildren<SCR_Door> ().Correct = false;
+			}
+		}
 
     }
 }

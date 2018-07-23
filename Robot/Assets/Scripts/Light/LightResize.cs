@@ -8,7 +8,6 @@ public class LightResize : MonoBehaviour
     private Collider puzzleObject;
     public StraightSplineBeam lineBeam;
 
-    private float colliderWidth;
     private float oldBeamEndPoint;
     private float newBeamEndPoint = 10;
     private float originalBeamInverse;
@@ -227,10 +226,6 @@ public class LightResize : MonoBehaviour
         {
             objectBlockedName = objectBlocked.parent.GetComponent<SCR_Rotatable>().rotatableObjectString;
         }
-        else if (objectBlockedName.Contains("Prism"))
-        {
-            objectBlocked.GetComponentInParent<LightSplitter>().ForceTriggerExit();
-        }
         else if (objectBlockedName.Contains("LimbLight"))
         {
             objectBlockedName = "LimbLight";
@@ -239,7 +234,7 @@ public class LightResize : MonoBehaviour
         switch (objectBlockedName)
         {
             case "LightSplitter":
-                objectBlocked.GetComponent<LightSplitter>().ForceTriggerExit();
+                objectBlocked.GetComponent<LightSplitter>().OnExit();
                 break;
             case "LightPrismColourCombo":
                 objectBlocked.GetComponent<PrismColourCombo>().TriggerExitFunction(lineBeam.beamColour);
@@ -253,6 +248,16 @@ public class LightResize : MonoBehaviour
             case "LimbLight":
                 LightRedirect objectRedirect = objectBlocked.GetComponent<LightRedirect>();
                 if (objectRedirect != null) objectRedirect.TriggerExitFunction();
+                break;
+            case "Prism":
+                if (objectBlocked.parent.name.Contains("LightSplitter"))
+                {
+                    objectBlocked.GetComponentInParent<LightSplitter>().OnExit();
+                }
+                else
+                {
+                    objectBlocked.GetComponentInParent<PrismColourCombo>().TriggerExitFunction(lineBeam.beamColour);
+                }
                 break;
         }
     }
@@ -361,6 +366,7 @@ public class LightResize : MonoBehaviour
         Vector3 pos = (objectInfo.distance * this.transform.forward) + this.transform.position;
         Vector3 offset = this.transform.forward * 0.5f;
         pos += offset;
+        pos.y = this.transform.GetChild(this.transform.childCount - 1).position.y;
 
         float maxDraw = (defaultBeamEndPoint - Vector3.Dot(pos, this.transform.forward));
         float raycastSize = 0.18f;
@@ -497,24 +503,6 @@ public class LightResize : MonoBehaviour
         lineBeam.ToggleCustomBeam(startPoint, midPoints, endPoint);
     }
 
-    //if the picked up object is no longer is range for a collision
-    private bool AwayFromBeam()
-    {
-        Transform endPointBeam = this.transform.GetChild(this.transform.childCount - 1).transform;
-
-        float positionOfObject = (Vector3.Dot(puzzleObject.transform.position, endPointBeam.transform.right));      
-        float positionOfBeam = (Vector3.Dot(endPointBeam.position, endPointBeam.transform.right));
-
-        float objectRight = (positionOfObject + colliderWidth);
-        float objectLeft = (positionOfObject - colliderWidth);
-
-        float beamWidth = (Vector3.Dot(endPointBeam.GetChild(0).GetComponent<BoxCollider>().size, endPointBeam.transform.right));
-
-        float beamRight = positionOfBeam + beamWidth;
-        float beamLeft = positionOfBeam - beamWidth;
-
-        return ((beamRight < objectLeft) || (beamLeft > objectRight));
-    }
     //if the picked up object is no longer is range for a collision
     private bool ShouldResizeBeam()
     {

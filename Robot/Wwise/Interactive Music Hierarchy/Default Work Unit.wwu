@@ -131,7 +131,7 @@
 										<State Name="" ID="{EC63AA2B-15BF-44E1-8F64-32E93189BDD2}" ShortID="441954959"/>
 									</CustomState>
 									<CustomState>
-										<StateRef Name="P1_IntroPuzzle" ID="{A0830815-1BB2-456C-BC25-BF32D2547E4E}"/>
+										<StateRef Name="P1_IntroViewpoint" ID="{A0830815-1BB2-456C-BC25-BF32D2547E4E}"/>
 										<State Name="" ID="{84C00CEA-E33E-4DFF-80F4-14652A68579E}" ShortID="269308234"/>
 									</CustomState>
 									<CustomState>
@@ -610,7 +610,7 @@
 								</MusicPlaylistItem>
 							</Playlist>
 						</MusicPlaylistContainer>
-						<MusicPlaylistContainer Name="P1_Intro_Puzzle" ID="{54B2AFA2-D570-40B8-9301-F784C7B5E956}" ShortID="928685346">
+						<MusicPlaylistContainer Name="P1_Intro_Viewpoint" ID="{54B2AFA2-D570-40B8-9301-F784C7B5E956}" ShortID="928685346">
 							<PropertyList>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
@@ -1754,6 +1754,53 @@
 								<MusicPlaylistItem Name="" ID="{23D22546-C478-47E9-BC3E-F8A85D7CEB87}" ShortID="946994703"/>
 							</Playlist>
 						</MusicPlaylistContainer>
+						<MusicPlaylistContainer Name="FinishedPuzzle" ID="{AACDF126-5E78-4B22-BFB9-6153833C79C2}" ShortID="428986339">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Low" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicSegment Name="New Music Segment" ID="{FCEC976B-73AB-448F-93FC-75CEC7BCF56F}" ShortID="357174619">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Low" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
+										</Reference>
+									</ReferenceList>
+									<CueList>
+										<MusicCue Name="Entry Cue" ID="{B90AC46E-1900-473C-8983-DCCE75C6E262}"/>
+										<MusicCue Name="Exit Cue" ID="{2A18E5BE-53D6-41BF-B9EF-03A69D61DC9B}">
+											<PropertyList>
+												<Property Name="CueType" Type="int16" Value="1"/>
+												<Property Name="TimeMs" Type="Real64" Value="1000"/>
+											</PropertyList>
+										</MusicCue>
+									</CueList>
+								</MusicSegment>
+							</ChildrenList>
+							<TransitionList>
+								<MusicTransition Name="Root" ID="{2E4D6CC3-2DF9-401B-BD20-40C1D1FF0DA6}">
+									<PropertyList>
+										<Property Name="IsFolder" Type="bool" Value="True"/>
+									</PropertyList>
+									<ChildrenList>
+										<MusicTransition Name="Transition" ID="{D36689F5-9381-45B7-B48E-F8413466E355}">
+											<TransitionInfo/>
+										</MusicTransition>
+									</ChildrenList>
+									<TransitionInfo/>
+								</MusicTransition>
+							</TransitionList>
+							<Playlist>
+								<MusicPlaylistItem Name="" ID="{31017BE5-37D3-4303-87D8-2674F248EC87}" ShortID="647913160"/>
+							</Playlist>
+						</MusicPlaylistContainer>
 					</ChildrenList>
 					<StateInfo>
 						<StateGroupList>
@@ -1779,7 +1826,7 @@
 								<State Name="" ID="{DC92CCEA-49CA-4CF6-A2B9-954F82E37082}" ShortID="829551743"/>
 							</CustomState>
 							<CustomState>
-								<StateRef Name="P1_IntroPuzzle" ID="{A0830815-1BB2-456C-BC25-BF32D2547E4E}"/>
+								<StateRef Name="P1_IntroViewpoint" ID="{A0830815-1BB2-456C-BC25-BF32D2547E4E}"/>
 								<State Name="" ID="{A04F9EF9-311C-4E58-9E48-90E3721C3B5B}" ShortID="1069784132"/>
 							</CustomState>
 							<CustomState>
@@ -1883,10 +1930,10 @@
 						</Entry>
 						<Entry>
 							<Path>
-								<PathElementRef Name="P1_IntroPuzzle" ID="{A0830815-1BB2-456C-BC25-BF32D2547E4E}"/>
+								<PathElementRef Name="P1_IntroViewpoint" ID="{A0830815-1BB2-456C-BC25-BF32D2547E4E}"/>
 							</Path>
 							<AudioNodeInfo>
-								<AudioNodeRef Name="P1_Intro_Puzzle" ID="{54B2AFA2-D570-40B8-9301-F784C7B5E956}" WorkUnitID="{C54CF3E9-0E60-4A5A-AD10-EFD580D533AD}" Platform="Linked"/>
+								<AudioNodeRef Name="P1_Intro_Viewpoint" ID="{54B2AFA2-D570-40B8-9301-F784C7B5E956}" WorkUnitID="{C54CF3E9-0E60-4A5A-AD10-EFD580D533AD}" Platform="Linked"/>
 							</AudioNodeInfo>
 						</Entry>
 						<Entry>

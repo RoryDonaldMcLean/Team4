@@ -65,6 +65,55 @@
 									<ObjectRef Name="Wind_Level" ID="{D885ED9F-FA4E-4A26-B660-4A247EEF2C90}" WorkUnitID="{DB5ADB83-997D-43F7-B226-D357913135AD}"/>
 								</Reference>
 							</ReferenceList>
+							<StateInfo>
+								<StateGroupList>
+									<StateGroupInfo>
+										<StateGroupRef Name="Drone_Modulator" ID="{6F9EDEE3-D863-4564-B5FF-2E703969AF54}"/>
+									</StateGroupInfo>
+								</StateGroupList>
+								<CustomStateList>
+									<CustomState>
+										<StateRef Name="Reflector" ID="{F0FD1677-1293-401E-83C0-409A107A0ED2}"/>
+										<State Name="" ID="{3AD89DD5-F14E-4F34-8A71-2DFADB57FD11}" ShortID="880925765"/>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="Hit_Wall" ID="{1632BA91-329C-42DF-B8C4-64F6C03B69BB}"/>
+										<State Name="" ID="{0016531E-7FF1-4A29-BED2-410F49758556}" ShortID="545370876"/>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="Combiner" ID="{B61D639E-400F-4387-BC00-375A61AD9377}"/>
+										<State Name="" ID="{72BECDF4-46C2-465F-BB82-4F6E48E41CFA}" ShortID="494982802"/>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="Start" ID="{D1DB9805-02B1-44BF-A049-F23022B18534}"/>
+										<State Name="" ID="{8E41988D-15C5-41E5-AB4F-A9D716EA77AC}" ShortID="943748192"/>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="Splitter" ID="{D99A732E-8412-4623-8A82-C396413A931C}"/>
+										<State Name="" ID="{64F7FD6E-2E9F-4B07-871C-A958E4B52CB7}" ShortID="518265799"/>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="Complete" ID="{5B42DFA5-E7F9-47A0-8E1C-22A385CE8DC2}"/>
+										<State Name="" ID="{38045BC2-6B9F-458B-88BD-B5B78EC31CBB}" ShortID="55981715">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64" Value="-9"/>
+											</PropertyList>
+										</State>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="Through_Barrier" ID="{A75B3983-3FDB-4882-BAED-D345BBAA0523}"/>
+										<State Name="" ID="{CD53684F-6210-400B-8B5F-1A4A65BEAE6E}" ShortID="433971737"/>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="Hit_Switch" ID="{5DBE742A-FF4B-4888-A989-F0958DD1AA8E}"/>
+										<State Name="" ID="{7CB19A9C-3E2E-4220-8C09-871B1C6DCAFF}" ShortID="865404335"/>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="Colour_Change" ID="{52D58239-FA93-4CCE-A3E2-8E4C3E0E91B2}"/>
+										<State Name="" ID="{9C03454A-939C-42AB-BB2F-88DF8DF698D1}" ShortID="1003739775"/>
+									</CustomState>
+								</CustomStateList>
+							</StateInfo>
 						</Bus>
 						<Bus Name="Drone" ID="{6BAF7145-A163-40D7-A216-C4BC3B0F1656}">
 							<PropertyList>

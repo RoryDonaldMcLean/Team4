@@ -78,7 +78,7 @@ namespace AK
             {
                 static const AkUniqueID MENU = 2607556080U;
                 static const AkUniqueID P1_INTRO = 948331455U;
-                static const AkUniqueID P1_INTROPUZZLE = 2384730535U;
+                static const AkUniqueID P1_INTROVIEWPOINT = 459379426U;
                 static const AkUniqueID P2_FACTORYPUZZLE1 = 1415136285U;
                 static const AkUniqueID P2_FACTORYPUZZLE2 = 1415136286U;
                 static const AkUniqueID P2_FACTORYVIEWPOINT = 3431111895U;

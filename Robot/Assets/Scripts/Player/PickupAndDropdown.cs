@@ -361,14 +361,14 @@ public class PickupAndDropdown : MonoBehaviour
         pickedUpGameObject = null; //empty the pick up object
         Destroy(pickupLocation);
 
-		//AkSoundEngine.PostEvent ("Place_Crystal", gameObject);
+		AkSoundEngine.PostEvent ("Place_Crystal", gameObject);
 
     }
 
     private void PickUpObject(Transform objectBeingPickedUp)
     {
 
-		//AkSoundEngine.PostEvent ("PickUp_Crystal", gameObject);
+		AkSoundEngine.PostEvent ("PickUp_Crystal", gameObject);
 
 		Debug.Log ("at the pickup function");
         holding = true; //set pick up boolean

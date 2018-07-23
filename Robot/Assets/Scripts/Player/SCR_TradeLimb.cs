@@ -729,6 +729,7 @@ public class SCR_TradeLimb : MonoBehaviour
         string pickupName = pickUpObject.name;
         Destroy(pickUpObject);
         Exchange(pickupName, this.gameObject.tag);
+		AkSoundEngine.PostEvent ("Arm_Attach", gameObject);
     }
 
     private void LimFly(string limName, string targetPlayerTag)

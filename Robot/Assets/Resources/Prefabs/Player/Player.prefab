@@ -104,6 +104,8 @@ GameObject:
   - component: {fileID: 114583816886710946}
   - component: {fileID: 114715908315720804}
   - component: {fileID: 114865831008195944}
+  - component: {fileID: 114524352699897538}
+  - component: {fileID: 114829171116481398}
   m_Layer: 14
   m_Name: Player
   m_TagString: Player1
@@ -646,7 +648,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   limbs: []
-  player2: 1
+  isBlue: 0
   playerNum: 0
 --- !u!114 &114191680458344422
 MonoBehaviour:
@@ -661,6 +663,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickingMaxDistance: 1
   playerNum: 0
+  isBlue: 0
 --- !u!114 &114290929094468374
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -715,7 +718,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3e5d89e6cfcf394499e18a11035f80d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player2: 0
+  isBlue: 0
   playerSpeed: 6
   rb1: {fileID: 54043911327761894}
   grounded: 1
@@ -733,7 +736,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerNum: 0
-  player2: 1
+  isBlue: 0
+--- !u!114 &114524352699897538
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1629342049434996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7999ea7310cf3db408b1eb3ad84d3f23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: 
+  useOtherObject: 0
+  actionOnEventType: 0
+  curveInterpolation: 4
+  enableActionOnEvent: 0
+  eventID: 1187533030
+  m_callbackData: {fileID: 0}
+  playingId: 0
+  soundEmitterObject: {fileID: 0}
+  transitionDuration: 0
+  valueGuid: 55364a1ba4b3404aa7628fb46453b9bc
 --- !u!114 &114583816886710946
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -768,7 +793,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerNum: 0
-  player2: 0
+  isBlue: 0
 --- !u!114 &114715908315720804
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -791,6 +816,28 @@ MonoBehaviour:
   soundEmitterObject: {fileID: 0}
   transitionDuration: 0
   valueGuid: 0a5505bc7d26c841b984ab934261ab34
+--- !u!114 &114829171116481398
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1629342049434996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7999ea7310cf3db408b1eb3ad84d3f23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: 
+  useOtherObject: 0
+  actionOnEventType: 0
+  curveInterpolation: 4
+  enableActionOnEvent: 0
+  eventID: -145671699
+  m_callbackData: {fileID: 0}
+  playingId: 0
+  soundEmitterObject: {fileID: 0}
+  transitionDuration: 0
+  valueGuid: 0d74d6e61c0a61409089479983affa24
 --- !u!114 &114865831008195944
 MonoBehaviour:
   m_ObjectHideFlags: 1

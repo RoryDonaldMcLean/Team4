@@ -198,7 +198,7 @@ public class LightResize : MonoBehaviour
             if (objectInfo.transform.GetComponent<LightBarrier>().OnEnter(lineBeam.beamColour))
             {
                 BeamResizeController();
-                //AkSoundEngine.SetState("Drone_Modulator", "Hit_Wall");
+                AkSoundEngine.SetState("Drone_Modulator", "Hit_Wall");
             }
             else 
             {              
@@ -208,7 +208,7 @@ public class LightResize : MonoBehaviour
                     distance += objectInfo.distance + 0.5f;
                     BeamResizeController();
                 }
-                //AkSoundEngine.SetState("Drone_Modulator", "Through_Barrier");
+                AkSoundEngine.SetState("Drone_Modulator", "Through_Barrier");
             }
         }
         //prolly remove this if statement at some pt
@@ -393,7 +393,7 @@ public class LightResize : MonoBehaviour
         if (MyApprox(ref endPointObjectValue, ref newBeamEndPoint))
         {
             BeamResize(ref endPointObject, ref collidedObject);
-            //AkSoundEngine.PostEvent("Light_Hits_Crystal", gameObject);
+            AkSoundEngine.PostEvent("Light_Hits_Crystal", gameObject);
         }
         else
         {

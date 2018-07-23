@@ -21,6 +21,7 @@ namespace AK
         static const AkUniqueID CHAINS = 640811495U;
         static const AkUniqueID CHAINS_LIGHT = 1854679430U;
         static const AkUniqueID CHIRP = 167209695U;
+        static const AkUniqueID DOORCHIRP = 2390748151U;
         static const AkUniqueID DRONE = 2739838641U;
         static const AkUniqueID FOOTSTEP = 1866025847U;
         static const AkUniqueID INSECTS = 3833343604U;

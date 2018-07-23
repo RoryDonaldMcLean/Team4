@@ -900,6 +900,10 @@
 									</ReferenceList>
 									<ChildrenList>
 										<Sound Name="Arm Break" ID="{CA13BAEA-717D-4DC0-96F0-2B5AC1252C0A}" ShortID="986116882">
+											<PropertyList>
+												<Property Name="EnablePositioning" Type="bool" Value="False"/>
+												<Property Name="OverridePositioning" Type="bool" Value="True"/>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Low" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
@@ -920,12 +924,14 @@
 										</Sound>
 										<Sound Name="Detatch Arm" ID="{4352F0CD-BB83-42CF-8379-B533F4172C2D}" ShortID="571022422">
 											<PropertyList>
+												<Property Name="EnablePositioning" Type="bool" Value="False"/>
 												<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
 												<Property Name="MaxSoundPerInstance" Type="int16">
 													<ValueList>
 														<Value>1</Value>
 													</ValueList>
 												</Property>
+												<Property Name="OverridePositioning" Type="bool" Value="True"/>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
 														<Value>6</Value>
@@ -955,6 +961,8 @@
 										</Sound>
 										<Sound Name="Attach Arm" ID="{13A66DB5-C2C5-4011-B4AD-335A7DA45232}" ShortID="517032755">
 											<PropertyList>
+												<Property Name="EnablePositioning" Type="bool" Value="False"/>
+												<Property Name="OverridePositioning" Type="bool" Value="True"/>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
 														<Value>6</Value>
@@ -4311,6 +4319,11 @@ Air currents change during the hours of the day and foliage changes during  the 
 									<PropertyList>
 										<Property Name="OverrideEffect" Type="bool" Value="True"/>
 										<Property Name="SwitchBehavior" Type="int16" Value="1"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-30</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">

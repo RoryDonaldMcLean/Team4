@@ -96,12 +96,13 @@ public class PrismColourCombo : MonoBehaviour
         if(colourBeams.Count > 1)
         {
             BlendColours();
-            //AkSoundEngine.SetState("Drone_Modulator", "Combiner");
+            AkSoundEngine.SetState("Drone_Modulator", "Combiner");
         }
         else
         {
             newBeamColour = colourBeams[0];
-            //AkSoundEngine.SetState("Drone_Modulator", "Colour_Change");
+            
+			AkSoundEngine.SetState("Drone_Modulator", "Colour_Change");
         }
         CreateNewLightBeam();
     }

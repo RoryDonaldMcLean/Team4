@@ -424,7 +424,7 @@ public class PickupAndDropdown : MonoBehaviour
 		{
 			if (this.GetArmQuantity () >= 2)
 			{
-				//AkSoundEngine.PostEvent ("Push_Box", gameObject);
+				AkSoundEngine.PostEvent ("Push_Box", gameObject);
 			}
 		}
 	}
@@ -453,7 +453,7 @@ public class PickupAndDropdown : MonoBehaviour
         if (other.gameObject.tag == "HugeBox")
         {
             other.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-			//AkSoundEngine.PostEvent ("Push_Box_Stop", gameObject);
+			AkSoundEngine.PostEvent ("Push_Box_Stop", gameObject);
 
         }
     }

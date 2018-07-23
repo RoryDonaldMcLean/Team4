@@ -23,6 +23,8 @@ public class PuzzleOnBoardingProcess : LevelControlBaseClass
             Debug.Log("open");
             doorStateOpen = !doorStateOpen;
             exitDoor.OpenDoor();
+			AkSoundEngine.SetState("Drone_Modulator", "Complete");
+
 
 
             EndOfLevel();

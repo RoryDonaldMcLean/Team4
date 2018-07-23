@@ -66,6 +66,8 @@ public class LimbLight : MonoBehaviour
     private void limbJointSetup()
     {
         limbJoint = this.transform.GetChild(this.transform.childCount - 1).gameObject;
+		AkSoundEngine.PostEvent("Arm_Detatch", gameObject);
+
         LimbOnMode();
     }
 

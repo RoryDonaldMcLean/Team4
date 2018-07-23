@@ -279,8 +279,8 @@ MonoBehaviour:
   defaultPoolSize: 4096
   EventWwu:
   - Guid: '{9208E778-4B37-4421-9C2A-46AAA42FFE85}'
-    m_lastTimePart2: -1999247599
-    m_lastTimePsrt1: 1267434672
+    m_lastTimePart2: -1999245755
+    m_lastTimePsrt1: -2114034657
     ParentPhysicalPath: 
     PhysicalPath: Events\Default Work Unit.wwu
     List:
@@ -323,7 +323,7 @@ MonoBehaviour:
         ObjectType: 4
       - ElementName: Arm_Attach
         ObjectType: 3
-      maxAttenuation: 50
+      maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
     - Guid: 87d72b544a0737438ca3df0cb3664434
@@ -337,7 +337,7 @@ MonoBehaviour:
         ObjectType: 4
       - ElementName: Arm_Break
         ObjectType: 3
-      maxAttenuation: 50
+      maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
     - Guid: f7c9c9a4a34b604fb7d6a3e9c8ec0265
@@ -351,7 +351,7 @@ MonoBehaviour:
         ObjectType: 4
       - ElementName: Arm_Detatch
         ObjectType: 3
-      maxAttenuation: 50
+      maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
     - Guid: ccb60a47153a214680afe965db62d314
@@ -394,6 +394,20 @@ MonoBehaviour:
       - ElementName: Chirp
         ObjectType: 3
       maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - Guid: d9f85935dd9c8f45a0b4df8f19ae938c
+      ID: -1904219145
+      Name: DoorChirp
+      Path: Default Work Unit\Robots\DoorChirp
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Robots
+        ObjectType: 4
+      - ElementName: DoorChirp
+        ObjectType: 3
+      maxAttenuation: 50
       maxDuration: 0
       minDuration: 0
     - Guid: f08388c412048a45afbcc283eb37e271
@@ -582,7 +596,7 @@ MonoBehaviour:
   - /Androids
   - /Androids/Events
   - /Androids/Events/Default Work Unit
-  - /Androids/Events/Default Work Unit/Music
+  - /Androids/Events/Default Work Unit/Robots
   language: English(US)
   lowerPoolSize: 2048
   m_lastPopulateTimePart2: 0

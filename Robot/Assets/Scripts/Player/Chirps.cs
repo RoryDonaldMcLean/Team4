@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using InControl;
+using UnityEngine.UI;
 
 public class Chirps : MonoBehaviour 
 {
@@ -22,6 +23,7 @@ public class Chirps : MonoBehaviour
 
 	GameObject MelodyDoor;
 
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -31,14 +33,12 @@ public class Chirps : MonoBehaviour
 
 
 	}
+
+
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		//Debug.Log ("time left = " + timeLeft);
-		//Debug.Log ("event counter = " + eventCount);
-		//Debug.Log ("Timer is on = " + startTimer);
-
 		var inputDevice = (InputManager.Devices.Count > playerNum) ? InputManager.Devices [playerNum] : null;
 		if (inputDevice == null)
 		{
@@ -77,6 +77,7 @@ public class Chirps : MonoBehaviour
 
 
 	}
+		
 
 	void ProcessInputInControl(InputDevice inputDevice)
 	{
@@ -85,10 +86,81 @@ public class Chirps : MonoBehaviour
 
 			if (playerNum == 0)
 			{
-				AkSoundEngine.SetSwitch ("PlayerID", "Player_1", gameObject);
+				//AkSoundEngine.SetSwitch ("PlayerID", "Player_1", gameObject);
 
-				if (MelodyDoor.GetComponentInChildren<SCR_Door> ().Player1enteredBounds == false)
+				if (inputDevice.RightBumper.IsPressed)
 				{
+<<<<<<< HEAD
+					if (MelodyDoor.GetComponentInChildren<SCR_Door> ().Player1enteredBounds == false)
+					{
+						if (inputDevice.DPadUp.WasPressed && GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [0].name.Contains ("LeftArm"))
+						{
+							EmoteNumber = 1;
+							Emotes ();
+							//play chirp
+							Debug.Log ("player 1, left arm chirp");
+							//example. 
+							startTimer = true;
+							eventCount += 1;
+							//AkSoundEngine.SetSwitch ("Chirp_Type", "Happy", gameObject);
+							//AkSoundEngine.PostEvent ("Chirp", gameObject);
+
+						} else if (inputDevice.DPadUp.WasPressed &&
+						           !GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [0].name.Contains ("LeftArm"))
+						{
+							//duff chirp
+							Debug.Log ("player 1, No Left Arm");
+						}
+
+
+
+						if (inputDevice.DPadDown.WasPressed && GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [1].name.Contains ("RightArm"))
+						{
+							EmoteNumber = 2;
+							Emotes ();
+							//play chirp
+							Debug.Log ("player 1, right arm chirp");
+							//AkSoundEngine.SetSwitch ("Chirp_Type", "Sad", gameObject);
+							//AkSoundEngine.PostEvent ("Chirp", gameObject);
+						} else if (inputDevice.DPadDown.WasPressed &&
+						           !GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [0].name.Contains ("RightArm"))
+						{
+							//duff
+							Debug.Log ("Player1, No right arm");
+						}
+
+
+
+						if (inputDevice.DPadLeft.WasPressed && GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [2].name.Contains ("LeftLeg"))
+						{
+							EmoteNumber = 3;
+							Emotes ();
+							Debug.Log ("player1, left leg chirp");
+							//AkSoundEngine.SetSwitch ("Chirp_Type", "Here", gameObject);
+							//AkSoundEngine.PostEvent ("Chirp", gameObject);
+						} else if (inputDevice.DPadLeft.WasPressed &&
+						           !GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [2].name.Contains ("LeftLeg"))
+						{
+							//duff
+							Debug.Log ("player1, No left leg");
+						}
+
+
+
+						if (inputDevice.DPadRight.WasPressed && GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [3].name.Contains ("RightLeg"))
+						{
+							EmoteNumber = 4;
+							Emotes ();
+							Debug.Log ("player1, right leg chirp");
+							//AkSoundEngine.SetSwitch ("Chirp_Type", "There", gameObject);
+							//AkSoundEngine.PostEvent ("Chirp", gameObject);
+						} else if (inputDevice.DPadRight.WasPressed &&
+						           !GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [3].name.Contains ("RightLeg"))
+						{
+							//duff
+							Debug.Log ("player 1, No right leg");
+						}
+=======
 					if (inputDevice.DPadUp.WasPressed && GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [0].name.Contains ("LeftArm"))
 					{
 						EmoteNumber = 1;
@@ -98,7 +170,7 @@ public class Chirps : MonoBehaviour
 						//example. 
 						startTimer = true;
 						eventCount += 1;
-						AkSoundEngine.SetSwitch ("Chirp_Type", "Happy", gameObject);
+						AkSoundEngine.SetState ("Chirp_Type", "Happy");
 						AkSoundEngine.PostEvent ("Chirp", gameObject);
 
 					} else if (inputDevice.DPadUp.WasPressed &&
@@ -116,7 +188,7 @@ public class Chirps : MonoBehaviour
 						Emotes ();
 						//play chirp
 						Debug.Log ("player 1, right arm chirp");
-						AkSoundEngine.SetSwitch ("Chirp_Type", "Sad", gameObject);
+						AkSoundEngine.SetState ("Chirp_Type", "Sad");
 						AkSoundEngine.PostEvent ("Chirp", gameObject);
 					} else if (inputDevice.DPadDown.WasPressed &&
 					        !GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [0].name.Contains ("RightArm"))
@@ -132,7 +204,7 @@ public class Chirps : MonoBehaviour
 						EmoteNumber = 3;
 						Emotes ();
 						Debug.Log ("player1, left leg chirp");
-						AkSoundEngine.SetSwitch ("Chirp_Type", "Here", gameObject);
+						AkSoundEngine.SetState ("Chirp_Type", "Here");
 						AkSoundEngine.PostEvent ("Chirp", gameObject);
 					} else if (inputDevice.DPadLeft.WasPressed &&
 					        !GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [2].name.Contains ("LeftLeg"))
@@ -148,30 +220,103 @@ public class Chirps : MonoBehaviour
 						EmoteNumber = 4;
 						Emotes ();
 						Debug.Log ("player1, right leg chirp");
-						AkSoundEngine.SetSwitch ("Chirp_Type", "There", gameObject);
+						AkSoundEngine.SetState ("Chirp_Type", "There");
 						AkSoundEngine.PostEvent ("Chirp", gameObject);
 					} else if (inputDevice.DPadRight.WasPressed &&
 					        !GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [3].name.Contains ("RightLeg"))
 					{
 						//duff
 						Debug.Log ("player 1, No right leg");
+>>>>>>> 0f141cad75822f4a9ab637412c978a16755301a3
 					}
 				}
-				
+
 			}
 			///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 			if (playerNum == 1)
 			{
-				AkSoundEngine.SetSwitch ("PlayerID", "Player_2", gameObject);
-
-				if (MelodyDoor.GetComponentInChildren<SCR_Door> ().Player2enteredBounds == false)
+				//AkSoundEngine.SetSwitch ("PlayerID", "Player_2", gameObject);
+				if (inputDevice.RightBumper.IsPressed)
 				{
+<<<<<<< HEAD
+
+					if (MelodyDoor.GetComponentInChildren<SCR_Door> ().Player2enteredBounds == false)
+					{
+						if (inputDevice.DPadUp.WasPressed && GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [0].name.Contains ("LeftArm"))
+						{
+							EmoteNumber = 1;
+							Emotes ();
+							//play chirp
+							//AkSoundEngine.SetSwitch ("Chirp_Type", "Happy", gameObject);
+							//AkSoundEngine.PostEvent ("Chirp", gameObject);
+
+							Debug.Log ("Player 2, left Arm Chirp");
+						} else if (inputDevice.DPadUp.WasPressed &&
+						           !GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [0].name.Contains ("LeftArm"))
+						{
+							Debug.Log ("player2, NO left arm");
+						}
+
+
+
+						if (inputDevice.DPadDown.WasPressed && GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [1].name.Contains ("RightArm"))
+						{
+							EmoteNumber = 2;
+							Emotes ();
+							//play chirp
+							//AkSoundEngine.SetSwitch ("Chirp_Type", "Sad", gameObject);
+							//AkSoundEngine.PostEvent ("Chirp", gameObject);
+
+							Debug.Log ("player 2, right arm chirp");
+						} else if (inputDevice.DPadDown.WasPressed &&
+						           !GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [1].name.Contains ("RightArm"))
+						{
+							Debug.Log ("Player2, No right arm");
+						}
+
+
+
+						if (inputDevice.DPadLeft.WasPressed && GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [2].name.Contains ("LeftLeg"))
+						{
+							EmoteNumber = 3;
+							Emotes ();
+							//play chirp
+							//AkSoundEngine.SetSwitch ("Chirp_Type", "Here", gameObject);
+							//AkSoundEngine.PostEvent ("Chirp", gameObject);
+
+							Debug.Log ("player2, left leg chirp");
+						} else if (inputDevice.DPadLeft.WasPressed &&
+						           !GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [2].name.Contains ("LeftLeg"))
+						{
+							Debug.Log ("player2, No left leg");
+						}
+
+
+
+						if (inputDevice.DPadRight.WasPressed && GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [3].name.Contains ("RightLeg"))
+						{
+							EmoteNumber = 4;
+							Emotes ();
+							//play chirp
+							//AkSoundEngine.SetSwitch ("Chirp_Type", "There", gameObject);
+							//AkSoundEngine.PostEvent ("Chirp", gameObject);
+
+							Debug.Log ("player2, right leg chirp");
+						} else if (inputDevice.DPadRight.WasPressed &&
+						           !GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [3].name.Contains ("RightLeg"))
+						{
+							Debug.Log ("player2, No right leg");
+						}
+					}
+
+
+=======
 					if (inputDevice.DPadUp.WasPressed && GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [0].name.Contains ("LeftArm"))
 					{
 						EmoteNumber = 1;
 						Emotes ();
 						//play chirp
-						AkSoundEngine.SetSwitch ("Chirp_Type", "Happy", gameObject);
+						AkSoundEngine.SetState ("Chirp_Type", "Happy");
 						AkSoundEngine.PostEvent ("Chirp", gameObject);
 
 						Debug.Log ("Player 2, left Arm Chirp");
@@ -188,7 +333,7 @@ public class Chirps : MonoBehaviour
 						EmoteNumber = 2;
 						Emotes ();
 						//play chirp
-						AkSoundEngine.SetSwitch ("Chirp_Type", "Sad", gameObject);
+						AkSoundEngine.SetState ("Chirp_Type", "Sad");
 						AkSoundEngine.PostEvent ("Chirp", gameObject);
 
 						Debug.Log ("player 2, right arm chirp");
@@ -205,7 +350,7 @@ public class Chirps : MonoBehaviour
 						EmoteNumber = 3;
 						Emotes ();
 						//play chirp
-						AkSoundEngine.SetSwitch ("Chirp_Type", "Here", gameObject);
+						AkSoundEngine.SetState ("Chirp_Type", "There");
 						AkSoundEngine.PostEvent ("Chirp", gameObject);
 
 						Debug.Log ("player2, left leg chirp");
@@ -222,7 +367,7 @@ public class Chirps : MonoBehaviour
 						EmoteNumber = 4;
 						Emotes ();
 						//play chirp
-						AkSoundEngine.SetSwitch ("Chirp_Type", "There", gameObject);
+						AkSoundEngine.SetState ("Chirp_Type", "Here");
 						AkSoundEngine.PostEvent ("Chirp", gameObject);
 
 						Debug.Log ("player2, right leg chirp");
@@ -231,8 +376,9 @@ public class Chirps : MonoBehaviour
 					{
 						Debug.Log ("player2, No right leg");
 					}
+>>>>>>> 0f141cad75822f4a9ab637412c978a16755301a3
 				}
-				
+
 			}
 		}
 	}
@@ -246,18 +392,89 @@ public class Chirps : MonoBehaviour
 			//player 1
 			if (isBlue == GameManager.Instance.whichAndroid.player1ControlBlue)
 			{
-				AkSoundEngine.SetSwitch ("PlayerID", "Player_1", gameObject);
-
-		
-				if (MelodyDoor.GetComponentInChildren<SCR_Door> ().Player1enteredBounds == false)
+				//AkSoundEngine.SetSwitch ("PlayerID", "Player_1", gameObject);
+				if (Input.GetKey (GameManager.Instance.playerSetting.currentButton [24]))
 				{
+<<<<<<< HEAD
+					if (MelodyDoor.GetComponentInChildren<SCR_Door> ().Player1enteredBounds == false)
+					{
+						if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [4])
+						    && GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [0].name.Contains ("LeftArm"))
+						{
+							EmoteNumber = 1;
+							Emotes ();
+							//play chirp
+							//AkSoundEngine.SetSwitch ("Chirp_Type", "Happy", gameObject);
+							//AkSoundEngine.PostEvent ("Chirp", gameObject);
+
+							Debug.Log ("player 1, left arm chirp");
+						} else if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [4])
+						           && !GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [0].name.Contains ("LeftArm"))
+						{
+							Debug.Log ("player 1, No Left Arm");
+						}
+
+
+
+						if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [5])
+						    && GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [1].name.Contains ("RightArm"))
+						{
+							EmoteNumber = 2;
+							Emotes ();
+							//play chirp
+							//AkSoundEngine.SetSwitch ("Chirp_Type", "Sad", gameObject);
+							//AkSoundEngine.PostEvent ("Chirp", gameObject);
+
+							Debug.Log ("player 1, right arm chirp");
+						} else if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [5])
+						           && !GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [1].name.Contains ("RightArm"))
+						{
+							Debug.Log ("player 1, No right Arm");
+						}
+
+
+
+						if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [6])
+						    && GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [2].name.Contains ("LeftLeg"))
+						{
+							EmoteNumber = 3;
+							Emotes ();
+							//play chirp
+							//AkSoundEngine.SetSwitch ("Chirp_Type", "Here", gameObject);
+							//AkSoundEngine.PostEvent ("Chirp", gameObject);
+							Debug.Log ("player 1, left leg chirp");
+						} else if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [6])
+						           && !GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [2].name.Contains ("LeftLeg"))
+						{
+							Debug.Log ("player 1, No Left leg");
+						}
+
+
+
+						if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [7])
+						    && GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [3].name.Contains ("RightLeg"))
+						{
+							EmoteNumber = 4;
+							Emotes ();
+							//play chirp
+							//AkSoundEngine.SetSwitch ("Chirp_Type", "There", gameObject);
+							//AkSoundEngine.PostEvent ("Chirp", gameObject);
+							Debug.Log ("player 1, right leg chirp");
+						} else if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [7])
+						           && !GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [3].name.Contains ("RightLeg"))
+						{
+							Debug.Log ("player 1, No right leg");
+						}
+					}
+
+=======
 					if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [4])
 					   && GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [0].name.Contains ("LeftArm"))
 					{
 						EmoteNumber = 1;
 						Emotes ();
 						//play chirp
-						AkSoundEngine.SetSwitch ("Chirp_Type", "Happy", gameObject);
+						AkSoundEngine.SetState ("Chirp_Type", "Happy");
 						AkSoundEngine.PostEvent ("Chirp", gameObject);
 
 						Debug.Log ("player 1, left arm chirp");
@@ -275,7 +492,7 @@ public class Chirps : MonoBehaviour
 						EmoteNumber = 2;
 						Emotes ();
 						//play chirp
-						AkSoundEngine.SetSwitch ("Chirp_Type", "Sad", gameObject);
+						AkSoundEngine.SetState ("Chirp_Type", "Sad");
 						AkSoundEngine.PostEvent ("Chirp", gameObject);
 
 						Debug.Log ("player 1, right arm chirp");
@@ -293,7 +510,7 @@ public class Chirps : MonoBehaviour
 						EmoteNumber = 3;
 						Emotes ();
 						//play chirp
-						AkSoundEngine.SetSwitch ("Chirp_Type", "Here", gameObject);
+						AkSoundEngine.SetState ("Chirp_Type", "Here");
 						AkSoundEngine.PostEvent ("Chirp", gameObject);
 						Debug.Log ("player 1, left leg chirp");
 					} else if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [6])
@@ -310,7 +527,7 @@ public class Chirps : MonoBehaviour
 						EmoteNumber = 4;
 						Emotes ();
 						//play chirp
-						AkSoundEngine.SetSwitch ("Chirp_Type", "There", gameObject);
+						AkSoundEngine.SetState ("Chirp_Type", "There");
 						AkSoundEngine.PostEvent ("Chirp", gameObject);
 						Debug.Log ("player 1, right leg chirp");
 					} else if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [7])
@@ -318,23 +535,99 @@ public class Chirps : MonoBehaviour
 					{
 						Debug.Log ("player 1, No right leg");
 					}
+>>>>>>> 0f141cad75822f4a9ab637412c978a16755301a3
 				}
+
 
 
 			}//player2 
 		else
 			{
-				AkSoundEngine.SetSwitch ("PlayerID", "Player_2", gameObject);
-
-				if (MelodyDoor.GetComponentInChildren<SCR_Door> ().Player2enteredBounds == false)
+				if (Input.GetKey (GameManager.Instance.playerSetting.currentButton [25]))
 				{
+<<<<<<< HEAD
+					//AkSoundEngine.SetSwitch ("PlayerID", "Player_2", gameObject);
+
+					if (MelodyDoor.GetComponentInChildren<SCR_Door> ().Player2enteredBounds == false)
+					{
+						if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [16])
+						    && GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [0].name.Contains ("LeftArm"))
+						{
+							EmoteNumber = 1;
+							Emotes ();
+							//play chirp
+							//AkSoundEngine.SetSwitch ("Chirp_Type", "Happy", gameObject);
+							//AkSoundEngine.PostEvent ("Chirp", gameObject);
+
+							Debug.Log ("Player2, left arm chirp");	
+						} else if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [16])
+						           && !GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [0].name.Contains ("LeftArm"))
+						{
+							Debug.Log ("player 2, no left arm");
+						}
+
+
+
+						if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [17])
+						    && GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [1].name.Contains ("RightArm"))
+						{
+							EmoteNumber = 2;
+							Emotes ();
+							//play chirp
+							//AkSoundEngine.SetSwitch ("Chirp_Type", "Sad", gameObject);
+							//AkSoundEngine.PostEvent ("Chirp", gameObject);
+
+							Debug.Log ("Player2, right arm chirp");	
+						} else if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [17])
+						           && !GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [1].name.Contains ("RightArm"))
+						{
+							Debug.Log ("player 2, no right arm");
+						}
+
+
+
+						if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [18])
+						    && GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [2].name.Contains ("LeftLeg"))
+						{
+							EmoteNumber = 3;
+							Emotes ();
+							//play chirp
+							//AkSoundEngine.SetSwitch ("Chirp_Type", "Here", gameObject);
+							//AkSoundEngine.PostEvent ("Chirp", gameObject);
+
+							Debug.Log ("Player2, left leg chirp");	
+						} else if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [18])
+						           && !GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [2].name.Contains ("LeftLeg"))
+						{
+							Debug.Log ("player 2, no left leg");
+						}
+
+
+
+						if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [19])
+						    && GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [3].name.Contains ("RightLeg"))
+						{
+							EmoteNumber = 4;
+							Emotes ();
+							//play chirp
+							//AkSoundEngine.SetSwitch ("Chirp_Type", "There", gameObject);
+							//AkSoundEngine.PostEvent ("Chirp", gameObject);
+
+							Debug.Log ("Player2, right leg chirp");	
+						} else if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [19])
+						           && !GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [3].name.Contains ("RightLeg"))
+						{
+							Debug.Log ("player 2, no right leg");
+						}
+					}
+=======
 					if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton[16])
 					   && GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [0].name.Contains ("LeftArm"))
 					{
 						EmoteNumber = 1;
 						Emotes ();
 						//play chirp
-						AkSoundEngine.SetSwitch ("Chirp_Type", "Happy", gameObject);
+						AkSoundEngine.SetState ("Chirp_Type", "Happy");
 						AkSoundEngine.PostEvent ("Chirp", gameObject);
 
 						Debug.Log ("Player2, left arm chirp");	
@@ -352,7 +645,7 @@ public class Chirps : MonoBehaviour
 						EmoteNumber = 2;
 						Emotes ();
 						//play chirp
-						AkSoundEngine.SetSwitch ("Chirp_Type", "Sad", gameObject);
+						AkSoundEngine.SetState ("Chirp_Type", "Sad");
 						AkSoundEngine.PostEvent ("Chirp", gameObject);
 
 						Debug.Log ("Player2, right arm chirp");	
@@ -370,7 +663,7 @@ public class Chirps : MonoBehaviour
 						EmoteNumber = 3;
 						Emotes ();
 						//play chirp
-						AkSoundEngine.SetSwitch ("Chirp_Type", "Here", gameObject);
+						AkSoundEngine.SetState ("Chirp_Type", "Here");
 						AkSoundEngine.PostEvent ("Chirp", gameObject);
 
 						Debug.Log ("Player2, left leg chirp");	
@@ -388,7 +681,7 @@ public class Chirps : MonoBehaviour
 						EmoteNumber = 4;
 						Emotes ();
 						//play chirp
-						AkSoundEngine.SetSwitch ("Chirp_Type", "There", gameObject);
+						AkSoundEngine.SetState ("Chirp_Type", "There");
 						AkSoundEngine.PostEvent ("Chirp", gameObject);
 
 						Debug.Log ("Player2, right leg chirp");	
@@ -398,7 +691,10 @@ public class Chirps : MonoBehaviour
 						Debug.Log ("player 2, no right leg");
 					}
 				}
+>>>>>>> 0f141cad75822f4a9ab637412c978a16755301a3
 				
+				} 
+
 			}
 		}
 	}
@@ -435,7 +731,7 @@ public class Chirps : MonoBehaviour
 				if (Physics.Raycast (Face.transform.position, Face.transform.forward, out hit, range))
 				{
 					Debug.Log (hit.transform.name);
-					GameObject impactEffect = Resources.Load ("Prefabs/Particles/OverThereSwirl") as GameObject;
+					GameObject impactEffect = Resources.Load ("Prefabs/Particle/OverThereSwirl") as GameObject;
 					GameObject Impact = Instantiate (impactEffect, hit.point, Quaternion.LookRotation (hit.normal));
 					Destroy (Impact, 2f);
 				}
@@ -445,7 +741,7 @@ public class Chirps : MonoBehaviour
 				if (Physics.Raycast (Face2.transform.position, Face2.transform.forward, out hit, range))
 				{
 					Debug.Log (hit.transform.name);
-					GameObject impactEffect = Resources.Load ("Prefabs/Particles/OverThereSwirl") as GameObject;
+					GameObject impactEffect = Resources.Load ("Prefabs/Particle/OverThereSwirl") as GameObject;
 					GameObject Impact = Instantiate (impactEffect, hit.point, Quaternion.LookRotation (hit.normal));
 					Destroy (Impact, 2f);
 				}
@@ -453,9 +749,9 @@ public class Chirps : MonoBehaviour
 			}
 			StartCoroutine (EmoteActive ());
 			ActiveEmote = true;
-			GameObject Emote4 = Resources.Load ("Prefabs/Particle/OverThere") as GameObject;
+			GameObject Emote4 = Resources.Load ("Prefabs/Particle/OverThereSwirl") as GameObject;
 			Instantiate (Emote4, transform.position, Quaternion.identity, transform);
-
+			Debug.Log ("mercy");
 		}	
 	}	
 
@@ -473,7 +769,7 @@ public class Chirps : MonoBehaviour
 		eventCount = 0;
 		timeLeft = 2.0f;
 
-		AkSoundEngine.SetRTPCValue ("Chirps_Combine", 1); 
+		//AkSoundEngine.SetRTPCValue ("Chirps_Combine", 1); 
 	}
 
 	void FalseEvent()

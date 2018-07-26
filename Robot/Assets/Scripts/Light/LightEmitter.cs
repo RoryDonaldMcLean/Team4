@@ -17,6 +17,8 @@ public class LightEmitter : MonoBehaviour
         lineBeam.beamLength = beamLength;
         beamLength = beamLength * 2;
         if (!switchedOn) ToggleLight();
+		AkSoundEngine.PostEvent("Drone", gameObject);
+
     }
 
     public void InteractWithEmitter()
@@ -29,12 +31,12 @@ public class LightEmitter : MonoBehaviour
             if (switchedOn)
             {
                 //turn on 
-                AkSoundEngine.PostEvent("Drone", gameObject);
+                //AkSoundEngine.PostEvent("Drone", gameObject);
             }
             else
             {
                 //turn off
-                AkSoundEngine.PostEvent("Drone_Stop", gameObject);
+                //AkSoundEngine.PostEvent("Drone_Stop", gameObject);
             }
         }
     }

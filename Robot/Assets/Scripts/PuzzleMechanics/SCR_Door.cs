@@ -20,15 +20,17 @@ public class SCR_Door : MonoBehaviour
 	public bool isAllowedToTrigger;
 	public bool Correct = false;
 
-	GameObject GameController;
-
 	public bool SpawnWalkway = false;
 
 	// Use this for initialization
 	void Start ()
 	{
+<<<<<<< HEAD
+=======
 		GameController = GameObject.FindGameObjectWithTag ("GameController");
+		AkSoundEngine.SetState ("Environment", "None");
 
+>>>>>>> 0f141cad75822f4a9ab637412c978a16755301a3
 		isAllowedToTrigger = true;
 		Arrows = new Material[8];
 
@@ -115,7 +117,6 @@ public class SCR_Door : MonoBehaviour
 		{
 			//Debug.Log ("don't you dare go hollow");
 			//check to see what level your in and position the floor accordingly.
-			//GameController.GetComponent<LevelController> ().NextLevel ();
 			SpawnWalkway = true;
 		}
 

@@ -22,7 +22,7 @@ public class Prism : MonoBehaviour
     {
         if (this.transform.parent.name.Contains("LightSplitter"))
         {
-            this.transform.parent.GetComponent<LightSplitter>().OnExit();
+            this.transform.parent.GetComponent<LightSplitter>().OnExit(lightBeam.transform.parent.parent);
         }
         else
         {

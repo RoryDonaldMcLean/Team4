@@ -54,17 +54,17 @@ public class InControlMovement : MonoBehaviour
 		if (GetLegQuantity () >= 2)
 		{
 			playerSpeed = 6.0f;
-			AkSoundEngine.SetRTPCValue ("LimbNumber", 3.0f);
+			//AkSoundEngine.SetRTPCValue ("LimbNumber", 3.0f);
 		} 
 		else if (GetLegQuantity () == 1)
 		{
 			playerSpeed = 3.0f;
-			AkSoundEngine.SetRTPCValue ("LimbNumber", 1.0f);
+			//AkSoundEngine.SetRTPCValue ("LimbNumber", 1.0f);
 
 		} else
 		{
 			playerSpeed = 1.5f;
-			AkSoundEngine.SetRTPCValue ("LimbNumber", 0.0f);
+			//AkSoundEngine.SetRTPCValue ("LimbNumber", 0.0f);
 
 		}
 
@@ -110,18 +110,18 @@ public class InControlMovement : MonoBehaviour
 		if (GetLegQuantity () >= 2)
 		{
 			playerSpeed = 6.0f;
-			AkSoundEngine.SetRTPCValue ("LimbNumber", 3.0f);
+			//AkSoundEngine.SetRTPCValue ("LimbNumber", 3.0f);
 
 		} 
 		else if (GetLegQuantity () == 1)
 		{
 			playerSpeed = 3.0f;
-			AkSoundEngine.SetRTPCValue ("LimbNumber", 1.0f);
+			//AkSoundEngine.SetRTPCValue ("LimbNumber", 1.0f);
 
 		} else
 		{
 			playerSpeed = 1.5f;
-			AkSoundEngine.SetRTPCValue ("LimbNumber", 0.0f);
+			//AkSoundEngine.SetRTPCValue ("LimbNumber", 0.0f);
 
 		}
 
@@ -245,7 +245,6 @@ public class InControlMovement : MonoBehaviour
 
     void OnTriggerExit(Collider col)
     {
-
         if ((col.gameObject.tag == "Ground") &&(rb1.velocity.y < 0))
         {
             grounded = false;
@@ -256,17 +255,16 @@ public class InControlMovement : MonoBehaviour
     //updates movement using the passed velocity vector
     void UpdateMovement(Vector3 vel)
     {
-        Vector2 ve2 = new Vector2(vel.x, vel.z);
-        vel.x = ve2.normalized.x;
-        vel.z = ve2.normalized.y;
+        //Vector2 ve2 = new Vector2(vel.x, vel.z);
+        //vel.x = ve2.normalized.x;
+        //vel.z = ve2.normalized.y;
 
         rb1.velocity = vel * playerSpeed;
         Vector3 lookAt = new Vector3(rb1.velocity.x, 0, rb1.velocity.z);
 
         //will rotate the player to face the direction they are moving
-        //transform.LookAt(transform.position + new Vector3(rb1.velocity.x, 0, rb1.velocity.z));
         if (lookAt != Vector3.zero)
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(lookAt), 0.3f);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(lookAt), 0.1f);
     }
 
     private int GetLegQuantity()

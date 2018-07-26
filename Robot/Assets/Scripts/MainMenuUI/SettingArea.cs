@@ -21,7 +21,7 @@ public class SettingArea : MonoBehaviour
     }
 
     // Use this for initialization
-    private void OnEnable()
+    private void Start()
     {
         playerButtons.Clear();
         foreach (Button btn in this.GetComponentsInChildren<Button>(true))
@@ -39,7 +39,7 @@ public class SettingArea : MonoBehaviour
                 });
             }
         }
-        
+
         for (int i = 0; i < GameManager.Instance.playerSetting.currentButton.Length; i++)
         {
             int num = i;
@@ -102,7 +102,7 @@ public class SettingArea : MonoBehaviour
             }
         }
 
-        if(!GameManager.Instance.playerSetting.player1Controller)
+        if (!GameManager.Instance.playerSetting.player1Controller)
         {
             btnlist.SetActive(true);
             textlist.SetActive(true);
@@ -113,7 +113,7 @@ public class SettingArea : MonoBehaviour
             textlist.SetActive(false);
         }
 
-        if(!allFalse())
+        if (!allFalse())
         {
             //defaultbtn.gameObject.SetActive(true);
             //tog.gameObject.SetActive(true);

@@ -17,13 +17,16 @@ public class LimsFly : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-		AkSoundEngine.PostEvent ("Arm_Detatch", targetPlayer);
+<<<<<<< HEAD
+        AkSoundEngine.PostEvent("Arm_Detatch", targetPlayer);
+=======
+>>>>>>> 0f141cad75822f4a9ab637412c978a16755301a3
 
         isFinish = false;
         alpha = 0;
         parabolaVariable = -25;
 
-        if(this.GetComponent<CapsuleCollider>())
+        if (this.GetComponent<CapsuleCollider>())
         {
             this.GetComponent<CapsuleCollider>().enabled = false;
         }

@@ -258,11 +258,9 @@ public class SCR_CameraFollow : MonoBehaviour
 
 	void ChangeCameraPoints()
 	{
-		GameObject levelControl = GameObject.FindGameObjectWithTag ("GameController");
 		CameraTransitionPoints.Clear ();
 
 		level++;
-		//levelControl.GetComponent<LevelController>().Level(level);
 
 		Transform[] meh = Travel[level-1].GetComponentsInChildren<Transform>();
 		foreach(Transform travelPoint in meh)

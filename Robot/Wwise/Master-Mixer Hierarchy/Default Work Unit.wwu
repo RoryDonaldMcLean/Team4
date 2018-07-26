@@ -192,10 +192,9 @@
 									<BusRef Name="Drone" ID="{6BAF7145-A163-40D7-A216-C4BC3B0F1656}"/>
 									<DuckingParam>
 										<Volume>-18</Volume>
-										<FadeInTime>5</FadeInTime>
-										<FadeOutTime>4</FadeOutTime>
+										<FadeInTime>3</FadeInTime>
+										<FadeOutTime>3</FadeOutTime>
 										<FadeCurve>FadeLinear</FadeCurve>
-										<TargetProp>BusVolume</TargetProp>
 									</DuckingParam>
 								</DuckItem>
 								<DuckItem>
@@ -274,7 +273,6 @@
 									</ValueList>
 								</Property>
 								<Property Name="EnablePositioning" Type="bool" Value="True"/>
-								<Property Name="PositioningType" Type="int16" Value="1"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Attenuation">
@@ -287,8 +285,12 @@
 						</AuxBus>
 						<AuxBus Name="REVERB_Warehouse" ID="{A50C71E5-8DBC-4978-88CE-C8892376B389}">
 							<PropertyList>
+								<Property Name="DivergenceCenter" Type="int32">
+									<ValueList>
+										<Value>0</Value>
+									</ValueList>
+								</Property>
 								<Property Name="EnablePositioning" Type="bool" Value="True"/>
-								<Property Name="PositioningType" Type="int16" Value="1"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Attenuation">
@@ -307,7 +309,6 @@
 									</ValueList>
 								</Property>
 								<Property Name="EnablePositioning" Type="bool" Value="True"/>
-								<Property Name="PositioningType" Type="int16" Value="1"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Attenuation">

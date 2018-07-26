@@ -25,6 +25,7 @@ public class LimbLight : MonoBehaviour
 
     public void AttachLimbToLightBox(string playerTag)
     {
+
         string boxLimbType;
         if (ArmsBox)
         {
@@ -66,8 +67,10 @@ public class LimbLight : MonoBehaviour
     private void limbJointSetup()
     {
         limbJoint = this.transform.GetChild(this.transform.childCount - 1).gameObject;
-		AkSoundEngine.PostEvent("Arm_Detatch", gameObject);
+<<<<<<< HEAD
+=======
 
+>>>>>>> 0f141cad75822f4a9ab637412c978a16755301a3
         LimbOnMode();
     }
 
@@ -127,6 +130,8 @@ public class LimbLight : MonoBehaviour
 
         Debug.DrawRay(raycastStartLocation, direction, Color.red, length);
         return Physics.BoxCast(raycastStartLocation, this.GetComponent<Transform>().localScale, direction, out hit, Quaternion.identity, length, layerMask);
+
+		AkSoundEngine.SetState("Drone_Modulator", "Hit_Switch");
     }
     /*
     void OnDrawGizmos()

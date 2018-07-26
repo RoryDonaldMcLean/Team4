@@ -28,13 +28,13 @@ public class PickupAndDropdown : MonoBehaviour
 
         //PickCrystalSource.clip = PickCrystal;
         //DropCrystalSource.clip = DropCrystal;
-
     }
 
     // Update is called once per frame
     private void Update()
     {
-		var inputDevice = (InputManager.Devices.Count > playerNum) ? InputManager.Devices [playerNum] : null;
+        var inputDevice = (InputManager.Devices.Count > playerNum) ? InputManager.Devices[playerNum] : null;
+     
 		if (inputDevice == null)
 		{
 			//Debug.Log ("no controllers plugged in");
@@ -71,21 +71,22 @@ public class PickupAndDropdown : MonoBehaviour
 						//if the object the player is trying to pick up is the RotateBox
 						else if (hit.transform.name.Contains("RotateBox"))
 						{
-							Debug.Log ("hit the rotate box");
 							pickedUpGameObject = hit.transform.gameObject;
 
 							//AkSoundEngine.PostEvent ("Arm_Attach", gameObject);
 
-
 							//when you "pick up" the box it will rotate to face the same direction as the player
-							float speed = 200.0f;
-							float step = speed * Time.deltaTime;
-							pickedUpGameObject.transform.rotation = Quaternion.RotateTowards (pickedUpGameObject.transform.rotation,
-								this.transform.rotation, step);
+							//float speed = 200.0f;
+							//float step = speed * Time.deltaTime;
+                            //pickedUpGameObject.transform.rotation = Quaternion.RotateTowards (pickedUpGameObject.transform.rotation,
+                            //	this.transform.rotation, step);
 
-							pickedUpGameObject.transform.parent.GetComponent<SCR_Rotatable>().pickedUp = true;
+                            this.GetComponent<InControlMovement>().enabled = false;
+                            
+                            pickedUpGameObject.transform.parent.GetComponent<SCR_Rotatable>().pickedUp = true;
 							pickedUpGameObject.transform.parent.GetComponent<SCR_Rotatable>().playerTag = this.tag;
 							holding = true;
+                            
 						} 
 						else
 						{
@@ -158,18 +159,30 @@ public class PickupAndDropdown : MonoBehaviour
 				} 
 				else if (pickedUpGameObject.transform.name.Contains("RotateBox"))
 				{
-					float speed = 200.0f;
-					float step = speed * Time.deltaTime;
-					pickedUpGameObject.transform.rotation = Quaternion.RotateTowards (pickedUpGameObject.transform.rotation,
-						this.transform.rotation, step);
+                    //float speed = 200.0f;
+                    //float step = speed * Time.deltaTime;
+                    //pickedUpGameObject.transform.rotation = Quaternion.RotateTowards (pickedUpGameObject.transform.rotation,
+                    //	this.transform.rotation, step);
 
-					if ((Input.GetKeyDown(GameManager.Instance.playerSetting.currentButton[9])
+                    Vector3 eulerAng = pickedUpGameObject.GetComponent<Transform>().rotation.eulerAngles;
+                    bool left = (Input.GetKey(GameManager.Instance.playerSetting.currentButton[1]) && isBlue == GameManager.Instance.whichAndroid.player1ControlBlue)
+                         || (Input.GetKey(GameManager.Instance.playerSetting.currentButton[13]) && isBlue != GameManager.Instance.whichAndroid.player1ControlBlue);
+                    bool right = (Input.GetKey(GameManager.Instance.playerSetting.currentButton[3]) && isBlue == GameManager.Instance.whichAndroid.player1ControlBlue)
+                         || (Input.GetKey(GameManager.Instance.playerSetting.currentButton[15]) && isBlue != GameManager.Instance.whichAndroid.player1ControlBlue);
+                    float leftrot = left ? -1.0f : 0.0f;
+                    float rightrot = right ? 1.0f : 0.0f;
+
+                    pickedUpGameObject.transform.rotation = Quaternion.Euler(eulerAng.x, eulerAng.y + leftrot + rightrot, eulerAng.z);
+
+
+                    if ((Input.GetKeyDown(GameManager.Instance.playerSetting.currentButton[9])
                     && isBlue == GameManager.Instance.whichAndroid.player1ControlBlue
                     )
                     || Input.GetKeyDown(GameManager.Instance.playerSetting.currentButton[21])
                     && isBlue != GameManager.Instance.whichAndroid.player1ControlBlue)
                     {
 						RotateDrop();
+                        this.GetComponent<InControlMovement>().enabled = true;
 					}
 				}
 				else
@@ -228,13 +241,14 @@ public class PickupAndDropdown : MonoBehaviour
 							Debug.Log ("hit the rotate box");
 							pickedUpGameObject = hit.transform.gameObject;
 
-							//when you "pick up" the box it will rotate to face the same direction as the player
-							float speed = 200.0f;
-							float step = speed * Time.deltaTime;
-							pickedUpGameObject.transform.rotation = Quaternion.RotateTowards (pickedUpGameObject.transform.rotation,
-								this.transform.rotation, step);
+                            //when you "pick up" the box it will rotate to face the same direction as the player
+                            //float speed = 200.0f;
+                            //float step = speed * Time.deltaTime;
+                            //pickedUpGameObject.transform.rotation = Quaternion.RotateTowards (pickedUpGameObject.transform.rotation,
+                            //	this.transform.rotation, step);
+                            this.GetComponent<InControlMovement>().enabled = false;
 
-							pickedUpGameObject.transform.parent.GetComponent<SCR_Rotatable>().pickedUp = true;
+                            pickedUpGameObject.transform.parent.GetComponent<SCR_Rotatable>().pickedUp = true;
 							pickedUpGameObject.transform.parent.GetComponent<SCR_Rotatable>().playerTag = this.tag;
 							holding = true;
 						} 
@@ -298,14 +312,18 @@ public class PickupAndDropdown : MonoBehaviour
 				} 
 				else if (pickedUpGameObject.transform.name.Contains("RotateBox"))
 				{
-					float speed = 200.0f;
-					float step = speed * Time.deltaTime;
-					pickedUpGameObject.transform.rotation = Quaternion.RotateTowards (pickedUpGameObject.transform.rotation,
-						this.transform.rotation, step);
-
-					if(inputDevice.Action2.WasPressed)
+                    //float speed = 200.0f;
+                    //float step = speed * Time.deltaTime;
+                    //pickedUpGameObject.transform.rotation = Quaternion.RotateTowards (pickedUpGameObject.transform.rotation,
+                    //	this.transform.rotation, step);
+                    Vector3 eulerAng = pickedUpGameObject.GetComponent<Transform>().rotation.eulerAngles;
+                    
+                    pickedUpGameObject.transform.rotation = Quaternion.Euler(eulerAng.x, eulerAng.y + inputDevice.LeftStickX, eulerAng.z);
+                    
+                    if (inputDevice.Action2.WasPressed)
 					{
 						RotateDrop();
+                        this.GetComponent<InControlMovement>().enabled = true;
 					}
 				}
 				else
@@ -361,14 +379,13 @@ public class PickupAndDropdown : MonoBehaviour
         pickedUpGameObject = null; //empty the pick up object
         Destroy(pickupLocation);
 
-		AkSoundEngine.PostEvent ("Place_Crystal", gameObject);
+		//AkSoundEngine.PostEvent ("Place_Crystal", gameObject);
 
     }
 
     private void PickUpObject(Transform objectBeingPickedUp)
     {
-
-		AkSoundEngine.PostEvent ("PickUp_Crystal", gameObject);
+		//AkSoundEngine.PostEvent ("PickUp_Crystal", gameObject);
 
 		Debug.Log ("at the pickup function");
         holding = true; //set pick up boolean
@@ -424,7 +441,7 @@ public class PickupAndDropdown : MonoBehaviour
 		{
 			if (this.GetArmQuantity () >= 2)
 			{
-				AkSoundEngine.PostEvent ("Push_Box", gameObject);
+				//AkSoundEngine.PostEvent ("Push_Box", gameObject);
 			}
 		}
 	}
@@ -453,7 +470,7 @@ public class PickupAndDropdown : MonoBehaviour
         if (other.gameObject.tag == "HugeBox")
         {
             other.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-			AkSoundEngine.PostEvent ("Push_Box_Stop", gameObject);
+			//AkSoundEngine.PostEvent ("Push_Box_Stop", gameObject);
 
         }
     }

@@ -8,23 +8,20 @@ public class ChapterArea : MonoBehaviour
 {
 
     public List<Button> chapterBtn;
-    private bool firstEnable = false;
+    //private bool firstEnable = false;
 
     // Use this for initialization
-    private void OnEnable()
+    private void Start()
     {
         chapterBtn.Clear();
         foreach (Button btn in this.GetComponentsInChildren<Button>(true))
         {
             chapterBtn.Add(btn);
-            if (!firstEnable)
-            {
-                btn.onClick.AddListener(delegate
-                {
-                    chapter(btn);
-                });
-            }
 
+            btn.onClick.AddListener(delegate
+            {
+                chapter(btn);
+            });
         }
     }
 

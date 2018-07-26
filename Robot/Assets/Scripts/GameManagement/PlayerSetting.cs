@@ -9,9 +9,9 @@ public class PlayerSetting
 {
     public Level lastLevel = new Level();
 
-    public KeyCode[] defaultButton = new KeyCode[24];
+    public KeyCode[] defaultButton = new KeyCode[26];
 
-    public KeyCode[] currentButton = new KeyCode[24];
+    public KeyCode[] currentButton = new KeyCode[26];
 
     public int volume;
 
@@ -43,6 +43,10 @@ public class PlayerSetting
         defaultButton[21] = KeyCode.Keypad7; //interact
         defaultButton[22] = KeyCode.Keypad8; // limbs panel
         defaultButton[23] = KeyCode.Keypad9; //drop code
+
+		defaultButton [24] = KeyCode.G; // player1 emote menu
+		defaultButton [25] = KeyCode.Keypad5; //player2 emote menu
+
 
         for (int i = 0; i < defaultButton.Length; i++)
         {

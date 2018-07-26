@@ -149,7 +149,7 @@ public class SCR_TradeLimb : MonoBehaviour
                 Destroy(leftArmFly);
                 leftArmFly = null;
                 Exchange("LeftArm", otherPlayerTag);
-				AkSoundEngine.PostEvent ("Arm_Attach", gameObject);
+				//AkSoundEngine.PostEvent ("Arm_Attach", gameObject);
 
             }
         }
@@ -161,7 +161,7 @@ public class SCR_TradeLimb : MonoBehaviour
                 Destroy(rightArmFly);
                 rightArmFly = null;
                 Exchange("RightArm", otherPlayerTag);
-				AkSoundEngine.PostEvent ("Arm_Attach", gameObject);
+				//AkSoundEngine.PostEvent ("Arm_Attach", gameObject);
 				}
         }
 
@@ -172,7 +172,7 @@ public class SCR_TradeLimb : MonoBehaviour
                 Destroy(leftLegFly);
                 leftLegFly = null;
                 Exchange("LeftLeg", otherPlayerTag);
-				AkSoundEngine.PostEvent ("Arm_Attach", gameObject);
+				//AkSoundEngine.PostEvent ("Arm_Attach", gameObject);
             }
         }
         if (rightLegFly)
@@ -182,7 +182,7 @@ public class SCR_TradeLimb : MonoBehaviour
                 Destroy(rightLegFly);
                 rightLegFly = null;
                 Exchange("RightLeg", otherPlayerTag);
-				AkSoundEngine.PostEvent ("Arm_Attach", gameObject);
+				//AkSoundEngine.PostEvent ("Arm_Attach", gameObject);
             }
         }
     }
@@ -198,37 +198,53 @@ public class SCR_TradeLimb : MonoBehaviour
             if (limbs [0].name.Contains ("LeftArm"))
 			{
 				ls [0].SetActive (true);
+				ls [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/UITopSegment_Arm_StateActive") as Sprite;
+				ls [0].GetComponent<Image> ().preserveAspect = true;
 			} 
 			else
 			{
-				ls [0].SetActive (false);
+				ls [0].SetActive (true);
+				ls [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/UITopSegment_Arm_StateNonActive") as Sprite;
+				ls [0].GetComponent<Image> ().preserveAspect = true;
 			}
 
 			if (limbs [1].name.Contains ("RightArm"))
 			{
 				ls [1].SetActive (true);
+				ls [1].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/UIBottomSegment_Arm_StateActive") as Sprite;
+				ls [1].GetComponent<Image> ().preserveAspect = true;
 			} 
 			else
 			{
-				ls [1].SetActive (false);
+				ls [1].SetActive (true);
+				ls [1].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/UIBottomSegment_Arm_StateNonActive") as Sprite;
+				ls [1].GetComponent<Image> ().preserveAspect = true;
 			}
 
 			if (limbs [2].name.Contains ("LeftLeg"))
 			{
 				ls [2].SetActive (true);
+				ls [2].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/UILeftSegment_Leg_StateActive") as Sprite;
+				ls [2].GetComponent<Image> ().preserveAspect = true;
 			} 
 			else
 			{
-				ls [2].SetActive (false);
+				ls [2].SetActive (true);
+				ls [2].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/UILeftSegment_Leg_StateNonActive") as Sprite;
+				ls [2].GetComponent<Image> ().preserveAspect = true;
 			}
 
 			if (limbs [3].name.Contains ("RightLeg"))
 			{
 				ls [3].SetActive (true);
+				ls [3].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/UIRightSegment_Leg_StateActive") as Sprite;
+				ls [3].GetComponent<Image> ().preserveAspect = true;
 			} 
 			else
 			{
-				ls [3].SetActive (false);
+				ls [3].SetActive (true);
+				ls [3].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/UIRightSegment_Leg_StateNonActive") as Sprite;
+				ls [3].GetComponent<Image> ().preserveAspect = true;
 			}
 		} 
 		else
@@ -239,37 +255,53 @@ public class SCR_TradeLimb : MonoBehaviour
             if (limbs [0].name.Contains ("LeftArm"))
 			{
 				ls [0].SetActive (true);
+				ls [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/UITopSegment_Arm_StateActive") as Sprite;
+				ls [0].GetComponent<Image> ().preserveAspect = true;
 			} 
 			else
 			{
-				ls [0].SetActive (false);
+				ls [0].SetActive (true);
+				ls [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/UITopSegment_Arm_StateNonActive") as Sprite;
+				ls [0].GetComponent<Image> ().preserveAspect = true;
 			}
 
 			if (limbs [1].name.Contains ("RightArm"))
 			{
 				ls [1].SetActive (true);
+				ls [1].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/UIBottomSegment_Arm_StateActive") as Sprite;
+				ls [1].GetComponent<Image> ().preserveAspect = true;
 			} 
 			else
 			{
-				ls [1].SetActive (false);
+				ls [1].SetActive (true);
+				ls [1].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/UIBottomSegment_Arm_StateNonActive") as Sprite;
+				ls [1].GetComponent<Image> ().preserveAspect = true;
 			}
 
 			if (limbs [2].name.Contains ("LeftLeg"))
 			{
 				ls [2].SetActive (true);
+				ls [2].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/UILeftSegment_Leg_StateActive") as Sprite;
+				ls [2].GetComponent<Image> ().preserveAspect = true;
 			} 
 			else
 			{
-				ls [2].SetActive (false);
+				ls [2].SetActive (true);
+				ls [2].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/UILeftSegment_Leg_StateNonActive") as Sprite;
+				ls [2].GetComponent<Image> ().preserveAspect = true;
 			}
 
 			if (limbs [3].name.Contains ("RightLeg"))
 			{
 				ls [3].SetActive (true);
+				ls [3].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/UIRightSegment_Leg_StateActive") as Sprite;
+				ls [3].GetComponent<Image> ().preserveAspect = true;
 			} 
 			else
 			{
-				ls [3].SetActive (false);
+				ls [3].SetActive (true);
+				ls [3].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/UIRightSegment_Leg_StateNonActive") as Sprite;
+				ls [3].GetComponent<Image> ().preserveAspect = true;
 			}
 		}
 	}
@@ -277,11 +309,11 @@ public class SCR_TradeLimb : MonoBehaviour
     public void ProcessInput()
 	{
 		//update the game controller
-
+		if((UILimbImage != null)&&(UILimbImage2 != null)) UICheck();
 
 		//////////////////////////////////////////////////////////////////////////
 		//DropDown
-		if (isBlue == GameManager.Instance.whichAndroid.player1ControlBlue)
+		/*if (isBlue == GameManager.Instance.whichAndroid.player1ControlBlue)
 		{	//player 1 controls
 			if((UILimbImage != null)&&(UILimbImage2 != null)) UICheck();
 
@@ -336,7 +368,7 @@ public class SCR_TradeLimb : MonoBehaviour
 						DropDownLims("RightLeg");
 				}
 			}
-		}
+		}*/
 		////////////////////////////////////
 		if (isBlue == GameManager.Instance.whichAndroid.player1ControlBlue)
 		{	//player 1 controls
@@ -384,7 +416,7 @@ public class SCR_TradeLimb : MonoBehaviour
 		if((UILimbImage != null)&&(UILimbImage2 != null)) UICheck();
 
 		//drop code
-		if(inputDevice.RightBumper.IsPressed)
+		/*if(inputDevice.RightBumper.IsPressed)
 		{
 			if(inputDevice.RightStickY > 0.5f)
 			{
@@ -409,7 +441,7 @@ public class SCR_TradeLimb : MonoBehaviour
 				if (limbs[3].name.Contains("RightLeg"))
 					DropDownLims("RightLeg");
 			}
-		}
+		}*/
 
 
 		//UI stuff
@@ -681,6 +713,8 @@ public class SCR_TradeLimb : MonoBehaviour
         Destroy(tempList[limbNumber]);
         tempList.RemoveAt(limbNumber);
 
+		AkSoundEngine.PostEvent ("Arm_Detatch", gameObject);
+
         tempList.Insert(limbNumber, newLimb);
     }
 
@@ -708,7 +742,7 @@ public class SCR_TradeLimb : MonoBehaviour
         tempList.Insert(limbNumber, hinge);
     }
 
-    public void DropDownLims(string limbToRemove)
+    /*public void DropDownLims(string limbToRemove)
     {
         List<GameObject> tempList = this.GetComponent<SCR_TradeLimb>().limbs;
         int limbNumber = LimbNumber(limbToRemove);
@@ -721,7 +755,7 @@ public class SCR_TradeLimb : MonoBehaviour
         dropDownLims.name = limbToRemove;
         dropDownLims.transform.position = dropDownLimsPosition;
         Destroy(dropDownLims, 2f);
-    }
+    }*/
 		
     private void PickUpLims(GameObject pickUpObject)
     {
@@ -729,7 +763,7 @@ public class SCR_TradeLimb : MonoBehaviour
         string pickupName = pickUpObject.name;
         Destroy(pickUpObject);
         Exchange(pickupName, this.gameObject.tag);
-		AkSoundEngine.PostEvent ("Arm_Attach", gameObject);
+		//AkSoundEngine.PostEvent ("Arm_Attach", gameObject);
     }
 
     private void LimFly(string limName, string targetPlayerTag)

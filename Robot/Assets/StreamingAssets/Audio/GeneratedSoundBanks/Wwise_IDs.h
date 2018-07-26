@@ -14,6 +14,7 @@ namespace AK
     namespace EVENTS
     {
         static const AkUniqueID ACTIVATE_CRYSTAL = 3781481881U;
+        static const AkUniqueID AMBIENCE_STOP = 3166394572U;
         static const AkUniqueID AMBIENT = 77978275U;
         static const AkUniqueID ARM_ATTACH = 3720067015U;
         static const AkUniqueID ARM_BREAK = 3331264981U;
@@ -92,18 +93,6 @@ namespace AK
                 static const AkUniqueID P6_ENDSACRIFICE = 2050591928U;
             } // namespace STATE
         } // namespace ENVIRONMENT
-
-        namespace WIND_TYPE
-        {
-            static const AkUniqueID GROUP = 1024791622U;
-
-            namespace STATE
-            {
-                static const AkUniqueID ABOVECLOUD = 1040669087U;
-                static const AkUniqueID CITY = 3888786832U;
-                static const AkUniqueID DESERT = 1850388778U;
-            } // namespace STATE
-        } // namespace WIND_TYPE
 
     } // namespace STATES
 

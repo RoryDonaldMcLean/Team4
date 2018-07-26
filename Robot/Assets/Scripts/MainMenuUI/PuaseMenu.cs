@@ -4,17 +4,19 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class PuaseMenu : MonoBehaviour {
+public class PuaseMenu : MonoBehaviour
+{
 
     public List<Button> pauseBtn;
     public GameObject settingArea;
 
     private GameObject red, blue;
     private bool isSetting = false;
-    private bool firstEnable = false;
+    //private bool firstEnable = false;
 
     // Use this for initialization
-    private void OnEnable () {
+    private void Start()
+    {
         red = GameObject.Find("Player");
         blue = GameObject.Find("Player2");
         pauseBtn.Clear();
@@ -23,13 +25,11 @@ public class PuaseMenu : MonoBehaviour {
         foreach (Button btn in this.GetComponentsInChildren<Button>(true))
         {
             pauseBtn.Add(btn);
-            if (!firstEnable)
+
+            btn.onClick.AddListener(delegate
             {
-                btn.onClick.AddListener(delegate
-                {
-                    pauseButton(btn);
-                });
-            }
+                pauseButton(btn);
+            });
         }
 
         red.GetComponent<InControlMovement>().enabled = false;
@@ -37,18 +37,18 @@ public class PuaseMenu : MonoBehaviour {
         red.GetComponent<PickupAndDropdown>().enabled = false;
         red.GetComponent<Chirps>().enabled = false;
         red.GetComponent<MelodyInput>().enabled = false;
-        
+
         blue.GetComponent<InControlMovement>().enabled = false;
         blue.GetComponent<SCR_player2Initalise>().enabled = false;
         blue.GetComponent<PickupAndDropdown>().enabled = false;
         blue.GetComponent<Chirps>().enabled = false;
         blue.GetComponent<MelodyInput>().enabled = false;
-        firstEnable = true;
     }
 
     // Update is called once per frame
-    private void Update () {
-		if(Input.GetKeyDown(KeyCode.Escape))
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             this.GetComponentInParent<Canvas>().gameObject.SetActive(false);
 
@@ -70,11 +70,11 @@ public class PuaseMenu : MonoBehaviour {
             pauseBtn[3].GetComponent<Transform>().parent.gameObject.SetActive(true);
             pauseBtn[1].GetComponent<Text>().text = "Options";
         }
-	}
+    }
 
     private void pauseButton(Button btn)
     {
-        if(btn == pauseBtn[0])
+        if (btn == pauseBtn[0])
         {
             this.GetComponentInParent<Canvas>().gameObject.SetActive(false);
 

@@ -23,7 +23,7 @@ public class PuzzleThreeCombinersandRefractors : LevelControlBaseClass
             Debug.Log("open");
             doorStateOpen = !doorStateOpen;
             exitDoor.OpenDoor();
-			AkSoundEngine.SetState("Drone_Modulator", "Complete");
+			//AkSoundEngine.SetState("Drone_Modulator", "Complete");
 
             
             EndOfLevel();

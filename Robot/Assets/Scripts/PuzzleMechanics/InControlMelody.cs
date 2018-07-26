@@ -10,8 +10,6 @@ public class InControlMelody : MonoBehaviour
 	//but allows it all to be in 1 script
 	AudioClip[] Chirps;
 
-	private AudioSource source;
-
 	//The code the robots use to compare to the door code
 	public List<int> Robotcode = new List<int> ();
 
@@ -42,7 +40,6 @@ public class InControlMelody : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		source = GetComponent<AudioSource> ();
 		Chirps = new AudioClip[4];
 		//get all the audio chirps from resources folder
 		for (int i = 0; i < 4; i++)
@@ -64,7 +61,6 @@ public class InControlMelody : MonoBehaviour
 			Notes.Add(CanvasNoteSheet.transform.GetChild(i).gameObject);
 		}
 			
-		source = GetComponent<AudioSource> ();
 		blankNotes = Notes;
 
 	}

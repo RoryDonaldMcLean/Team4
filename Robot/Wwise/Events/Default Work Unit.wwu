@@ -136,7 +136,7 @@
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="Pick Up Crystal" ID="{E0BF3494-C19C-42B0-865D-146CCA9D8187}" WorkUnitID="{6BAE9174-7CEB-4131-99B7-F2EC621355E0}"/>
+											<ObjectRef Name="Happy" ID="{2102E809-4B35-4C05-B9F8-392456619F0C}" WorkUnitID="{6BAE9174-7CEB-4131-99B7-F2EC621355E0}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -165,6 +165,20 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Ambient_Env" ID="{32D46D27-B8F0-4AF4-86E9-88AA568A4EF7}" WorkUnitID="{6BAE9174-7CEB-4131-99B7-F2EC621355E0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Ambience_Stop" ID="{C911D568-353E-4878-8853-A1A45CD32158}">
+							<ChildrenList>
+								<Action Name="" ID="{A94B065B-DF70-4DBA-8DBE-95F386B7C51B}" ShortID="1024003823">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="None" ID="{EEB0DDCC-1D2E-46C0-8783-269C3657FD16}" WorkUnitID="{217B9AB9-B641-4200-BF39-9F61C2C8E9A4}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>

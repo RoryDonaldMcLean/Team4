@@ -5,60 +5,88 @@ using UnityEngine;
 public class PrismColourCombo : MonoBehaviour
 {
     private List<Color> colourBeams = new List<Color>();
+    private List<Transform> beams = new List<Transform>();
     private Color newBeamColour;
     private StraightSplineBeam splineCurve;
     private Color beamBeingDestroyed = Color.black;
     public int beamLength = 5;
 
-    //Upon a collison being detected with a Lightbeam
+    //Upon a collison being detected with a Lightbeam, first a check to make sure that its not infact itself is conducted.
+    //Then a check to ensure that it is a newly detected beam, and not one already found is performed.
+    //Then the beam is added to the light and its colour is processed to be blended with any others already in that list.
     public void OnEnter(Collider lightbeam)
     {
-        Color lineColour = lightbeam.GetComponentInParent<LineRenderer>().startColor;
-        if(!CheckBeamExists(lineColour))
+        Transform beam = lightbeam.transform.parent.parent;
+        if (beam.name != this.transform.name)
         {
-            colourBeams.Add(lineColour);
-            CreateNewBeamCheck();
+            if (!CheckBeamExists(beam))
+            {
+                beams.Add(beam);
+                CalculateColourBeams();
+                CreateNewBeamCheck();
+            }
         }
     }
 
     //Upon lightbeam leaving the prism
     public void OnExit(Collider lightbeam)
     {
-        Color lineColour = lightbeam.GetComponentInParent<LineRenderer>().startColor;
-        BeamExit(lineColour);
+        BeamExit(lightbeam.transform.parent.parent);
     }
 
-    public void TriggerExitFunction(Color lineColour)
+    public void TriggerExitFunction(Transform beam)
     {
-        BeamExit(lineColour);
+        BeamExit(beam);
     }
 
-    private void BeamExit(Color lineColour)
+    //Checks if the exiting beam is indeed in the list before trying to remove it, this prevent multiple exit calls
+    //accidentally causing issues trying to remove something already deleted.
+    //Then it is simply removed from the list and a new beam is created using what colours are left, if any. 
+    private void BeamExit(Transform beam)
     {
-        if(!beamBeingDestroyed.Equals(lineColour))
+        if (beams.Count > 2)
         {
-            BeamsRemoval(lineColour);
+            for (int i = 0; i < beams.Count; i++)
+            {
+                Debug.Log("object " + beams[i].name);
+            }
+        }
+
+        if (CheckBeamExists(beam))
+        {
+            beams.Remove(beam);
+            CalculateColourBeams();
+            ModifyBeam();
         }
     }
 
-    private void BeamsRemoval(Color lineColour)
+    //Finds all the beams colours and adds them to a freshly cleared list, ready to then be used to calculate
+    //the resultant blended colour, to be then used for the new correct combined beam. 
+    private void CalculateColourBeams()
     {
-        beamBeingDestroyed = lineColour;
-        while (CheckBeamExists(lineColour))
+        colourBeams.Clear();
+        foreach (Transform beam in beams)
         {
-            colourBeams.Remove(lineColour);
+            Color lineColour = beam.GetChild(beam.childCount - 1).GetComponent<LineRenderer>().startColor;
+            colourBeams.Add(lineColour);
         }
-        ModifyBeam();
-        StartCoroutine(BeamDestroyedCheck(lineColour));
     }
 
-    private IEnumerator BeamDestroyedCheck(Color lineColour)
+    //simply checks if that beam has been added previously, using transform parameter to discern this.
+    private bool CheckBeamExists(Transform line)
     {
-        yield return new WaitUntil(()=> splineCurve == null);
-        if (beamBeingDestroyed.Equals(lineColour)) beamBeingDestroyed = Color.black;
+        foreach (Transform beam in beams)
+        {
+            if (beam.Equals(line))
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
-    //if the beam leaving has reduced the amount of beams hitting the prism to zero, delete the prism beam.
+    //If the beam leaving has reduced the amount of beams touching the object to zero, delete the beam.
     //otherwise create a new beam using the left over beams.
     void ModifyBeam()
     {
@@ -69,6 +97,7 @@ public class PrismColourCombo : MonoBehaviour
         else
         {
             DestroyBeam();
+            colourBeams.Clear();
         }
     }
 
@@ -78,40 +107,29 @@ public class PrismColourCombo : MonoBehaviour
         {
             splineCurve.ToggleBeam();
             Destroy(splineCurve);
-            this.transform.GetComponent<Renderer>().material.color = Color.white;
         }
     }
-    //simply checks if that beam has been added previously, using colour parameter to discern this.
-    bool CheckBeamExists(Color lineColour)
-    {
-        foreach(Color line in colourBeams)
-        {  
-            if (line.Equals(lineColour))
-            {
-                return true;
-            }
-        }
-       
-        return false;
-    }
-    //when creating a new beam if there are multiple beams hitting the prism, colour combine them into one singular colour beam
-    //otherwise just create a beam using the one beam that is hitting the prism.
+
+    //when creating a new beam if there are multiple beams touching, colour combine them into one singular colour beam
+    //otherwise just create a beam using the one beam that is hitting the object.
     void CreateNewBeamCheck()
     {
         if(colourBeams.Count > 1)
         {
             BlendColours();
-            AkSoundEngine.SetState("Drone_Modulator", "Combiner");
+            //AkSoundEngine.SetState("Drone_Modulator", "Combiner");
         }
         else
         {
             newBeamColour = colourBeams[0];
             
-			AkSoundEngine.SetState("Drone_Modulator", "Colour_Change");
+			//AkSoundEngine.SetState("Drone_Modulator", "Colour_Change");
         }
         CreateNewLightBeam();
     }
-    //adds all the colours from all the beams together, finding the blended colour from it.
+
+    //To blend the colours together, first all the connected beams colours were added together and then divided by the total
+    //number of beams, finding the blended colour from it. A simple alpha channel correction was then performed.  
     void BlendColours()
     {
         newBeamColour = new Color(0,0,0,0);
@@ -122,7 +140,9 @@ public class PrismColourCombo : MonoBehaviour
         newBeamColour.a = 1;
     }
 
-    //destroys a prism beam that exists if one was still in use, before creating the new one it replaces.
+    //Destroys a beam that exists if one is still in use, before creating a new one that replaces it.
+    //Uses the colour property that can either be a combined colour or singular one, depending on the
+    //situation.
     void CreateNewLightBeam()
     {
        DestroyBeam();
@@ -130,7 +150,5 @@ public class PrismColourCombo : MonoBehaviour
        splineCurve = this.gameObject.AddComponent<StraightSplineBeam>();
        splineCurve.beamColour = newBeamColour;
        splineCurve.beamLength = beamLength;
-
-       this.transform.GetComponent<Renderer>().material.color = newBeamColour;
     }
 }

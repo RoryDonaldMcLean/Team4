@@ -167,8 +167,14 @@ public class LightResize : MonoBehaviour
             distance = 0;
             if (RaycastBeam())
             {
+                Collider test = puzzleObject;
                 distance = objectInfo.distance;
                 OnEnterObject();
+                if (test != puzzleObject)
+                {
+                    Debug.Log("fix it");
+                    TriggerExitControl(test.transform);
+                }
             }
             else 
             {
@@ -197,7 +203,7 @@ public class LightResize : MonoBehaviour
             if (objectInfo.transform.GetComponent<LightBarrier>().OnEnter(lineBeam.beamColour))
             {
                 BeamResizeController();
-                AkSoundEngine.SetState("Drone_Modulator", "Hit_Wall");
+                //AkSoundEngine.SetState("Drone_Modulator", "Hit_Wall");
             }
             else 
             {              
@@ -207,7 +213,7 @@ public class LightResize : MonoBehaviour
                     distance += objectInfo.distance + 0.5f;
                     BeamResizeController();
                 }
-                AkSoundEngine.SetState("Drone_Modulator", "Through_Barrier");
+                //AkSoundEngine.SetState("Drone_Modulator", "Through_Barrier");
             }
         }
         //prolly remove this if statement at some pt
@@ -234,29 +240,29 @@ public class LightResize : MonoBehaviour
         switch (objectBlockedName)
         {
             case "LightSplitter":
-                objectBlocked.GetComponent<LightSplitter>().OnExit();
+                objectBlocked.GetComponent<LightSplitter>().OnExit(this.transform);
                 break;
             case "LightPrismColourCombo":
-                objectBlocked.GetComponent<PrismColourCombo>().TriggerExitFunction(lineBeam.beamColour);
+                objectBlocked.GetComponent<PrismColourCombo>().TriggerExitFunction(this.transform);
                 break;
             case "LightTrigger":
                 objectBlocked.GetComponent<LightTrigger>().ForceOnTriggerExit(lineBeam.beamColour);
                 break;
             case "LightRedirect":
-                objectBlocked.GetComponent<LightRedirect>().TriggerExitFunction();
+                objectBlocked.GetComponent<LightRedirect>().TriggerExitFunction(this.transform);
                 break;
             case "LimbLight":
                 LightRedirect objectRedirect = objectBlocked.GetComponent<LightRedirect>();
-                if (objectRedirect != null) objectRedirect.TriggerExitFunction();
+                if (objectRedirect != null) objectRedirect.TriggerExitFunction(this.transform);
                 break;
             case "Prism":
                 if (objectBlocked.parent.name.Contains("LightSplitter"))
                 {
-                    objectBlocked.GetComponentInParent<LightSplitter>().OnExit();
+                    objectBlocked.GetComponentInParent<LightSplitter>().OnExit(this.transform);
                 }
                 else
                 {
-                    objectBlocked.GetComponentInParent<PrismColourCombo>().TriggerExitFunction(lineBeam.beamColour);
+                    objectBlocked.GetComponentInParent<PrismColourCombo>().TriggerExitFunction(this.transform);
                 }
                 break;
         }
@@ -327,6 +333,10 @@ public class LightResize : MonoBehaviour
             TriggerExitControl(puzzleObject.transform);
             puzzleObject = null;
         }
+        else
+        {
+            Debug.Log("issue");
+        }
     }
 
     private void LightBeamSwitchOffControl()
@@ -352,10 +362,11 @@ public class LightResize : MonoBehaviour
 
     private bool ObjectFoundBehindBlockedBeam(out RaycastHit hit)
     {
-        float raycastSize = 1.0f;
+        float raycastSize = 0.18f;
         float maxDraw = (oldBeamEndPoint - newBeamEndPoint);
 
         Vector3 raycastStartLocation = objectInfo.point;
+        raycastStartLocation.y = 3.49f;
         int layerMask = ~(1 << LayerMask.NameToLayer("LightBeam") | 1 << LayerMask.NameToLayer("BeamLayer") | 1 << LayerMask.NameToLayer("PlayerLayer"));
 
         return (Physics.BoxCast(raycastStartLocation, new Vector3(raycastSize, raycastSize, raycastSize), this.GetComponent<Transform>().forward, out hit, this.transform.localRotation, maxDraw, layerMask));
@@ -388,9 +399,7 @@ public class LightResize : MonoBehaviour
         float endPointObjectValue = (Vector3.Dot(endPointObject.position, this.transform.forward));
 
         Vector3 pos = ((distance * this.transform.forward) + this.transform.position);
-
         pos += 0.2f * this.transform.forward;
-        Transform endPointBeam = this.transform.GetChild(this.transform.childCount - 1).GetChild(0);
 
         newBeamEndPoint = Vector3.Dot(pos, this.transform.forward);
 
@@ -399,7 +408,7 @@ public class LightResize : MonoBehaviour
         if (MyApprox(ref endPointObjectValue, ref newBeamEndPoint))
         {
             BeamResize(ref endPointObject, ref collidedObject);
-            AkSoundEngine.PostEvent("Light_Hits_Crystal", gameObject);
+            //AkSoundEngine.PostEvent("Light_Hits_Crystal", gameObject);
         }
         else
         {
@@ -507,7 +516,6 @@ public class LightResize : MonoBehaviour
     private bool ShouldResizeBeam()
     {
         Vector3 pos = ((distance * this.transform.forward) + this.transform.position);
-
         pos += 0.2f * this.transform.forward;
 
         Transform endPointBeam = this.transform.GetChild(this.transform.childCount - 1).GetChild(0);

@@ -2099,6 +2099,13 @@
 									</ChildrenList>
 								</ActorMixer>
 								<RandomSequenceContainer Name="Hurt Vocals" ID="{2CC9861C-B547-45C2-BA87-7716A62B1686}" ShortID="621324152">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>7</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Low" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
@@ -2398,8 +2405,20 @@
 						<ActorMixer Name="Emitters" ID="{8B672896-7E7B-47E7-99B3-91A5D79900B1}" ShortID="420492628">
 							<PropertyList>
 								<Property Name="OverrideConversion" Type="bool" Value="True"/>
+								<Property Name="OverrideEffect" Type="bool" Value="True"/>
+								<Property Name="OverrideUserAuxSends" Type="bool" Value="True"/>
 								<Property Name="PositioningType" Type="int16" Value="1"/>
 								<Property Name="UseGameAuxSends" Type="bool" Value="True"/>
+								<Property Name="UserAuxSendVolume0" Type="Real64">
+									<ValueList>
+										<Value>12</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-26</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Attenuation">
@@ -2407,6 +2426,9 @@
 								</Reference>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Medium" ID="{4F59B053-4973-48C9-8D17-57A6EB5E8E75}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
+								</Reference>
+								<Reference Name="Effect0" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
+									<ObjectRef Name="Metal_Hangar" ID="{C4A4605C-42EF-476A-B53C-E31C7A442C24}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
 								</Reference>
 								<Reference Name="OutputBus">
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
@@ -2730,6 +2752,11 @@
 									<PropertyList>
 										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 										<Property Name="UseGameAuxSends" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-9</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -2753,6 +2780,11 @@
 									<PropertyList>
 										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 										<Property Name="UseGameAuxSends" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-23</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -2800,7 +2832,7 @@
 										<Property Name="SwitchBehavior" Type="int16" Value="1"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-5</Value>
+												<Value>4</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -2835,7 +2867,7 @@ Air currents change during the hours of the day and months of the year.</Comment
 												<Property Name="Spatialization" Type="int16" Value="0"/>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-3</Value>
+														<Value>-4</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -3352,7 +3384,7 @@ Air currents change during the hours of the day and foliage changes during  the 
 												<Property Name="Spatialization" Type="int16" Value="0"/>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-9</Value>
+														<Value>-17</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -3921,6 +3953,7 @@ Air currents change during the hours of the day and foliage changes during  the 
 										</Sound>
 										<Sound Name="Thunder" ID="{839BB1E0-D8B4-45E8-A53E-A9351CA19E36}" ShortID="1023861984">
 											<PropertyList>
+												<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 												<Property Name="OverrideEffect" Type="bool" Value="True"/>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
@@ -3954,7 +3987,13 @@ Air currents change during the hours of the day and foliage changes during  the 
 										</Sound>
 										<Sound Name="Thunder Muted" ID="{8D659920-36BB-4E5F-8B14-84EB97B46B25}" ShortID="555526509">
 											<PropertyList>
+												<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 												<Property Name="OverrideEffect" Type="bool" Value="True"/>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>6</Value>
+													</ValueList>
+												</Property>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -3983,6 +4022,9 @@ Air currents change during the hours of the day and foliage changes during  the 
 											</ActiveSourceList>
 										</Sound>
 										<Sound Name="Metal Creaks" ID="{6890ED24-EDB5-4C34-B2FD-3EB1D4819742}" ShortID="756380679">
+											<PropertyList>
+												<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Low" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
@@ -4278,7 +4320,7 @@ Air currents change during the hours of the day and foliage changes during  the 
 											<Grouping>
 												<SwitchRef Name="P2_FactoryPuzzle2" ID="{DC03589A-BDD2-45D6-A826-EA9C0315B998}"/>
 												<ItemList>
-													<ItemRef Name="Metal Amb" ID="{B6403DBA-7FDE-4E49-B0B2-B37B54378B81}"/>
+													<ItemRef Name="Metal Creaks" ID="{6890ED24-EDB5-4C34-B2FD-3EB1D4819742}"/>
 												</ItemList>
 											</Grouping>
 											<Grouping>
@@ -4306,6 +4348,13 @@ Air currents change during the hours of the day and foliage changes during  the 
 							</ChildrenList>
 						</ActorMixer>
 						<ActorMixer Name="Drone" ID="{39D8015F-EC58-42E7-BADD-4FB4A7EBD0B6}" ShortID="906729134">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-2</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Low" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
@@ -4317,11 +4366,17 @@ Air currents change during the hours of the day and foliage changes during  the 
 							<ChildrenList>
 								<SwitchContainer Name="Modulator" ID="{0263BE02-60A6-444C-B012-307D3A41BD0B}" ShortID="36124401">
 									<PropertyList>
+										<Property Name="DivergenceCenter" Type="int32">
+											<ValueList>
+												<Value>69</Value>
+											</ValueList>
+										</Property>
 										<Property Name="OverrideEffect" Type="bool" Value="True"/>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
 										<Property Name="SwitchBehavior" Type="int16" Value="1"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-15</Value>
+												<Value>-17</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -4500,6 +4555,11 @@ Air currents change during the hours of the day and foliage changes during  the 
 										<Sound Name="Drone Start" ID="{64871119-AE60-40A1-8A71-738B982D67E0}" ShortID="429583468">
 											<PropertyList>
 												<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-5</Value>
+													</ValueList>
+												</Property>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -4776,12 +4836,6 @@ Air currents change during the hours of the day and foliage changes during  the 
 												<ItemList>
 													<ItemRef Name="Complete" ID="{81C1CF9D-8C8B-40AC-83E2-518F22FE5A9C}"/>
 													<ItemRef Name="Drone Complete" ID="{B7911413-1702-4D70-B91C-E1EB9EAA04B4}"/>
-												</ItemList>
-											</Grouping>
-											<Grouping>
-												<SwitchRef Name="None" ID="{331774C3-E4D6-4A55-9D04-3E408E218369}"/>
-												<ItemList>
-													<ItemRef Name="Drone Start" ID="{64871119-AE60-40A1-8A71-738B982D67E0}"/>
 												</ItemList>
 											</Grouping>
 										</GroupingList>

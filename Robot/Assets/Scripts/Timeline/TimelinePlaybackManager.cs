@@ -206,12 +206,12 @@ public class TimelinePlaybackManager : MonoBehaviour
     {
         if (Player1 == true)
         {
-            playerObject.GetComponent<SCR_TradeLimb>().DropDownLims(LimbToLose1);
+           // playerObject.GetComponent<SCR_TradeLimb>().DropDownLims(LimbToLose1);
         }
 
         if (Player2 == true)
         {
-            playerObject2.GetComponent<SCR_TradeLimb>().DropDownLims(LimbToLose2);
+           // playerObject2.GetComponent<SCR_TradeLimb>().DropDownLims(LimbToLose2);
         }
     }
 

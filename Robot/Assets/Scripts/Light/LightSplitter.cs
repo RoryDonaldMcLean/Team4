@@ -10,6 +10,9 @@ public class LightSplitter : MonoBehaviour
     private Color beamColour = Color.white;
     private int totalLightSplits = 2;
     public int beamLength = 5;
+    private bool active = false;
+    private Transform connectedObject;
+    private bool isDeleting = false;
 
     // Use this for initialization
     void Start()
@@ -20,19 +23,27 @@ public class LightSplitter : MonoBehaviour
     //Upon a collison being detected with a Lightbeam 
     public void OnEnter(Collider lightBeam)
     {
-        if ((!lightBeam.transform.IsChildOf(this.transform)) && (lightBeam.gameObject.layer != LayerMask.NameToLayer("BeamLayer")))
+        if ((!lightBeam.transform.IsChildOf(this.transform)) && (lightBeam.gameObject.layer != LayerMask.NameToLayer("BeamLayer"))&&(!active))
         {
+            active = true;
+            connectedObject = lightBeam.transform.parent.parent;
             beamColour = lightBeam.GetComponentInParent<LineRenderer>().startColor;
             CreateExtendedBeam();
         }
     }
 
-    public void OnExit()
+    public void OnExit(Transform exitingObject)
     {
-        if(splitBeams.Count > 0)
+        if(((splitBeams.Count > 0) && isRightObject(exitingObject)) && (!isDeleting))
         {
+            isDeleting = true;
             DestroyBeam();
         }
+    }
+
+    private bool isRightObject(Transform exitingObject)
+    {
+        return (exitingObject == connectedObject);
     }
 
     private IEnumerator BeamNotification()
@@ -59,7 +70,34 @@ public class LightSplitter : MonoBehaviour
             }
         }
         splitBeams.Clear();
+        ExitBeam();
     }
+
+    private void ExitBeam()
+    {
+        active = false;
+        connectedObject = null;
+        isDeleting = false;
+
+        RaycastHit hit;
+        if (RayCast(this.transform.forward, 1.25f, out hit))
+        {
+            OnEnter(hit.collider);
+        }
+    }
+
+    private bool RayCast(Vector3 direction, float length, out RaycastHit hit)
+    {
+        int layerMask = 1 << LayerMask.NameToLayer("LightBeam");
+        Vector3 offsetPos = Vector3.Scale(direction, this.transform.GetChild(0).GetComponent<Transform>().localScale);
+        Vector3 raycastStartLocation = this.transform.position;
+        raycastStartLocation -= offsetPos * 2.3f;
+        raycastStartLocation.y = 3.49f;
+
+        Debug.DrawRay(raycastStartLocation, direction, Color.red, length);
+        return Physics.BoxCast(raycastStartLocation, this.GetComponent<Transform>().localScale, direction, out hit, Quaternion.identity, length, layerMask);
+    }
+
     //creates a beam that functions as an extension of the beam that this object has collided with
     //taking away the original beams colour.
     private void CreateExtendedBeam()
@@ -84,7 +122,7 @@ public class LightSplitter : MonoBehaviour
 
         if ((splitColour) && (beamColour.Equals(new Color(1,0,1,1)))) SplitColourBetweenBeams();
 
-        AkSoundEngine.SetState("Drone_Modulator", "Splitter");
+        //AkSoundEngine.SetState("Drone_Modulator", "Splitter");
     }
 
     private void SplitColourBetweenBeams()

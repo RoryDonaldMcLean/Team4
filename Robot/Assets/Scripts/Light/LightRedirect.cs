@@ -7,27 +7,22 @@ public class LightRedirect : MonoBehaviour
     public int beamLength = 5;
     public Color beamColour = Color.white;
     public bool beamColourRedirectControl = true;
-    private Color arrowDefaultColour = Color.white;
+    //private Color arrowDefaultColour = Color.white;
     private StraightSplineBeam splineCurve;
     private bool connectedBeam = false;
-    private float fadedColourAlpha = 0.1f;
-    private bool defaultColour = true;
+    //private float fadedColourAlpha = 0.1f;
+    //private bool defaultColour = true;
+    private Transform parent;
 
     //Upon a collison being detected with a Lightbeam 
     void OnTriggerEnter(Collider lightBeam)
     {
+        //can remove this if statement i think
         if((!lightBeam.transform.IsChildOf(this.transform)) && (lightBeam.gameObject.layer != LayerMask.NameToLayer("BeamLayer")))
         {
-            /*
-            if (splineCurve != null)
-            {
-                Debug.Log("ahh" + splineCurve);
-                DestroyBeam();
-            }
-            */
-
             if (splineCurve == null)
             {
+                parent = lightBeam.transform.parent.parent;
                 connectedBeam = true;
                 if (beamColourRedirectControl) beamColour = lightBeam.GetComponentInParent<LineRenderer>().startColor;
                 CreateExtendedBeam();
@@ -43,7 +38,17 @@ public class LightRedirect : MonoBehaviour
     //Upon lightbeam leaving the door trigger
     void OnTriggerExit(Collider lightBeam)
     {
-        if ((splineCurve != null)&&(connectedBeam))
+        Transform exitingLightObject = lightBeam.transform.parent.parent;
+        if ((splineCurve != null)&&(connectedBeam)&&(ParentLightBeam(ref exitingLightObject)))
+        {
+            DestroyBeam();
+            connectedBeam = false;
+        }
+    }
+
+    public void TriggerExitFunction(Transform exitingLightObject)
+    {
+        if ((splineCurve != null)&&(connectedBeam)&&(ParentLightBeam(ref exitingLightObject)))
         {
             DestroyBeam();
             connectedBeam = false;
@@ -57,6 +62,11 @@ public class LightRedirect : MonoBehaviour
             DestroyBeam();
             connectedBeam = false;
         }
+    }
+
+    private bool ParentLightBeam(ref Transform exitingLightObject)
+    {
+        return (parent == exitingLightObject);
     }
 
     //This object has to be rotated with user clicks, with the extended beam being rotated as well
@@ -88,18 +98,18 @@ public class LightRedirect : MonoBehaviour
         splineCurve.ToggleBeam();
         Destroy(splineCurve);
 
-        CancelInvoke("ColourOverTime");
-
+        //CancelInvoke("ColourOverTime");
+        /*
         if (arrowDefaultColour.Equals(Color.grey))
         {
             arrowDefaultColour = Color.white;
         }
-
-        Color newColour = arrowDefaultColour;
+        */
+        //Color newColour = arrowDefaultColour;
         //if object is picked up, and is therefore, faded, carry over this change in the blinking arrow code
-        if (IsPickedUp()) newColour.a = fadedColourAlpha;
+        //if (IsPickedUp()) newColour.a = fadedColourAlpha;
 
-        this.transform.GetComponent<Renderer>().material.color = newColour;
+        //this.transform.GetComponent<Renderer>().material.color = newColour;
     }
     //creates a beam that functions as an extension of the beam that this object has collided with
     //taking in the original beams colour
@@ -109,11 +119,11 @@ public class LightRedirect : MonoBehaviour
         splineCurve.beamColour = beamColour;
         splineCurve.beamLength = beamLength;
 
-        AkSoundEngine.SetState("Drone_Modulator", "Reflector");
+        //AkSoundEngine.SetState("Drone_Modulator", "Reflector");
 
-        BlinkingArrowsSetup();
+        //BlinkingArrowsSetup();
     }
-
+    /*
     private void BlinkingArrowsSetup()
     {
         if(beamColour.Equals(arrowDefaultColour))
@@ -128,7 +138,7 @@ public class LightRedirect : MonoBehaviour
         CancelInvoke("ColourOverTime");
         InvokeRepeating("ColourOverTime", 0.3f, 0.75f);
     }
-    
+  
     private void ColourOverTime()
     {
         Color newColour;
@@ -147,7 +157,7 @@ public class LightRedirect : MonoBehaviour
         if (IsPickedUp()) newColour.a = fadedColourAlpha;
         this.transform.GetComponent<Renderer>().material.color = newColour;
     }
-    
+    */
     //if the object isnt 1 in alpha channel, it has been picked up
     private bool IsPickedUp()
     {

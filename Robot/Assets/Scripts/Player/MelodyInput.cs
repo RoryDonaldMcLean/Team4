@@ -109,7 +109,7 @@ public class MelodyInput : MonoBehaviour
 							MelodyDoor.GetComponent<InControlMelody> ().Robotcode.Add (1);
 							Notes [MelodyDoor.GetComponent<InControlMelody> ().noteCounter].GetComponent<RawImage> ().texture = Arrows [0].texture;
 							MelodyDoor.GetComponent<InControlMelody> ().noteCounter += 1;
-							AkSoundEngine.PostEvent ("DoorChirp", gameObject);
+							//AkSoundEngine.PostEvent ("DoorChirp", gameObject);
 						} else
 						{
 							Debug.Log ("Player1 has no left arm");
@@ -121,7 +121,7 @@ public class MelodyInput : MonoBehaviour
 							MelodyDoor.GetComponent<InControlMelody> ().Robotcode.Add (2);
 							Notes [MelodyDoor.GetComponent<InControlMelody> ().noteCounter].GetComponent<RawImage> ().texture = Arrows [3].texture;
 							MelodyDoor.GetComponent<InControlMelody> ().noteCounter += 1;
-							AkSoundEngine.PostEvent ("DoorChirp", gameObject);
+							//AkSoundEngine.PostEvent ("DoorChirp", gameObject);
 
 						} else
 						{
@@ -134,7 +134,7 @@ public class MelodyInput : MonoBehaviour
 							MelodyDoor.GetComponent<InControlMelody> ().Robotcode.Add (3);
 							Notes [MelodyDoor.GetComponent<InControlMelody> ().noteCounter].GetComponent<RawImage> ().texture = Arrows [1].texture;
 							MelodyDoor.GetComponent<InControlMelody> ().noteCounter += 1;
-							AkSoundEngine.PostEvent ("DoorChirp", gameObject);
+							//AkSoundEngine.PostEvent ("DoorChirp", gameObject);
 
 						} else
 						{
@@ -147,7 +147,7 @@ public class MelodyInput : MonoBehaviour
 							MelodyDoor.GetComponent<InControlMelody> ().Robotcode.Add (4);
 							Notes [MelodyDoor.GetComponent<InControlMelody> ().noteCounter].GetComponent<RawImage> ().texture = Arrows [2].texture;
 							MelodyDoor.GetComponent<InControlMelody> ().noteCounter += 1;
-							AkSoundEngine.PostEvent ("DoorChirp", gameObject);
+							//AkSoundEngine.PostEvent ("DoorChirp", gameObject);
 
 						} else
 						{
@@ -176,7 +176,7 @@ public class MelodyInput : MonoBehaviour
 							MelodyDoor.GetComponent<InControlMelody> ().Robotcode.Add (5);
 							Notes [MelodyDoor.GetComponent<InControlMelody> ().noteCounter].GetComponent<RawImage> ().texture = Arrows [4].texture;
 							MelodyDoor.GetComponent<InControlMelody> ().noteCounter += 1;
-							AkSoundEngine.PostEvent ("DoorChirp", gameObject);
+							//AkSoundEngine.PostEvent ("DoorChirp", gameObject);
 
 						} else
 						{
@@ -189,7 +189,7 @@ public class MelodyInput : MonoBehaviour
 							MelodyDoor.GetComponent<InControlMelody> ().Robotcode.Add (6);
 							Notes [MelodyDoor.GetComponent<InControlMelody> ().noteCounter].GetComponent<RawImage> ().texture = Arrows [7].texture;
 							MelodyDoor.GetComponent<InControlMelody> ().noteCounter += 1;
-							AkSoundEngine.PostEvent ("DoorChirp", gameObject);
+							//AkSoundEngine.PostEvent ("DoorChirp", gameObject);
 
 						} else
 						{
@@ -202,7 +202,7 @@ public class MelodyInput : MonoBehaviour
 							MelodyDoor.GetComponent<InControlMelody> ().Robotcode.Add (7);
 							Notes [MelodyDoor.GetComponent<InControlMelody> ().noteCounter].GetComponent<RawImage> ().texture = Arrows [5].texture;
 							MelodyDoor.GetComponent<InControlMelody> ().noteCounter += 1;
-							AkSoundEngine.PostEvent ("DoorChirp", gameObject);
+							//AkSoundEngine.PostEvent ("DoorChirp", gameObject);
 
 						} else
 						{
@@ -215,7 +215,7 @@ public class MelodyInput : MonoBehaviour
 							MelodyDoor.GetComponent<InControlMelody> ().Robotcode.Add (8);
 							Notes [MelodyDoor.GetComponent<InControlMelody> ().noteCounter].GetComponent<RawImage> ().texture = Arrows [6].texture;
 							MelodyDoor.GetComponent<InControlMelody> ().noteCounter += 1;
-							AkSoundEngine.PostEvent ("DoorChirp", gameObject);
+							//AkSoundEngine.PostEvent ("DoorChirp", gameObject);
 
 						} else
 						{
@@ -252,7 +252,7 @@ public class MelodyInput : MonoBehaviour
 							MelodyDoor.GetComponent<InControlMelody> ().Robotcode.Add (1);
 							Notes [MelodyDoor.GetComponent<InControlMelody> ().noteCounter].GetComponent<RawImage> ().texture = Arrows [0].texture;
 							MelodyDoor.GetComponent<InControlMelody> ().noteCounter += 1;
-							AkSoundEngine.PostEvent ("DoorChirp", gameObject);
+							//AkSoundEngine.PostEvent ("DoorChirp", gameObject);
 
 						} else
 						{
@@ -265,7 +265,7 @@ public class MelodyInput : MonoBehaviour
 							MelodyDoor.GetComponent<InControlMelody> ().Robotcode.Add (2);
 							Notes [MelodyDoor.GetComponent<InControlMelody> ().noteCounter].GetComponent<RawImage> ().texture = Arrows [3].texture;
 							MelodyDoor.GetComponent<InControlMelody> ().noteCounter += 1;
-							AkSoundEngine.PostEvent ("DoorChirp", gameObject);
+							//AkSoundEngine.PostEvent ("DoorChirp", gameObject);
 
 						} else
 						{
@@ -278,7 +278,7 @@ public class MelodyInput : MonoBehaviour
 							MelodyDoor.GetComponent<InControlMelody> ().Robotcode.Add (3);
 							Notes [MelodyDoor.GetComponent<InControlMelody> ().noteCounter].GetComponent<RawImage> ().texture = Arrows [1].texture;
 							MelodyDoor.GetComponent<InControlMelody> ().noteCounter += 1;
-							AkSoundEngine.PostEvent ("DoorChirp", gameObject);
+							//AkSoundEngine.PostEvent ("DoorChirp", gameObject);
 
 						} else
 						{
@@ -291,7 +291,7 @@ public class MelodyInput : MonoBehaviour
 							MelodyDoor.GetComponent<InControlMelody> ().Robotcode.Add (4);
 							Notes [MelodyDoor.GetComponent<InControlMelody> ().noteCounter].GetComponent<RawImage> ().texture = Arrows [2].texture;
 							MelodyDoor.GetComponent<InControlMelody> ().noteCounter += 1;
-							AkSoundEngine.PostEvent ("DoorChirp", gameObject);
+							//AkSoundEngine.PostEvent ("DoorChirp", gameObject);
 
 
 						} else
@@ -321,7 +321,7 @@ public class MelodyInput : MonoBehaviour
 							MelodyDoor.GetComponent<InControlMelody> ().Robotcode.Add (5);
 							Notes [MelodyDoor.GetComponent<InControlMelody> ().noteCounter].GetComponent<RawImage> ().texture = Arrows [4].texture;
 							MelodyDoor.GetComponent<InControlMelody> ().noteCounter += 1;
-							AkSoundEngine.PostEvent ("DoorChirp", gameObject);
+							//AkSoundEngine.PostEvent ("DoorChirp", gameObject);
 
 						} else
 						{
@@ -334,7 +334,7 @@ public class MelodyInput : MonoBehaviour
 							MelodyDoor.GetComponent<InControlMelody> ().Robotcode.Add (6);
 							Notes [MelodyDoor.GetComponent<InControlMelody> ().noteCounter].GetComponent<RawImage> ().texture = Arrows [7].texture;
 							MelodyDoor.GetComponent<InControlMelody> ().noteCounter += 1;
-							AkSoundEngine.PostEvent ("DoorChirp", gameObject);
+							//AkSoundEngine.PostEvent ("DoorChirp", gameObject);
 
 						} else
 						{
@@ -347,7 +347,7 @@ public class MelodyInput : MonoBehaviour
 							MelodyDoor.GetComponent<InControlMelody> ().Robotcode.Add (7);
 							Notes [MelodyDoor.GetComponent<InControlMelody> ().noteCounter].GetComponent<RawImage> ().texture = Arrows [5].texture;
 							MelodyDoor.GetComponent<InControlMelody> ().noteCounter += 1;
-							AkSoundEngine.PostEvent ("DoorChirp", gameObject);
+							//AkSoundEngine.PostEvent ("DoorChirp", gameObject);
 
 						} else
 						{
@@ -360,7 +360,7 @@ public class MelodyInput : MonoBehaviour
 							MelodyDoor.GetComponent<InControlMelody> ().Robotcode.Add (8);
 							Notes [MelodyDoor.GetComponent<InControlMelody> ().noteCounter].GetComponent<RawImage> ().texture = Arrows [6].texture;
 							MelodyDoor.GetComponent<InControlMelody> ().noteCounter += 1;
-							AkSoundEngine.PostEvent ("DoorChirp", gameObject);
+							//AkSoundEngine.PostEvent ("DoorChirp", gameObject);
 
 						} else
 						{

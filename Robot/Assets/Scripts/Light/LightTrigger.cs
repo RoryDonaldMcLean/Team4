@@ -60,7 +60,7 @@ public class LightTrigger : MonoBehaviour
 
             correctLight = true;
             //LightSource.Play();
-			AkSoundEngine.SetState("Drone_Modulator", "Hit_Switch");
+			//AkSoundEngine.SetState("Drone_Modulator", "Hit_Switch");
 
         }
     }
@@ -72,7 +72,7 @@ public class LightTrigger : MonoBehaviour
 //            Debug.Log("NowIncorrectLight!");
 
             correctLight = false;
-            AkSoundEngine.SetState("Drone_Modulator", "Hit_Wall");
+            //AkSoundEngine.SetState("Drone_Modulator", "Hit_Wall");
         }
     }
 

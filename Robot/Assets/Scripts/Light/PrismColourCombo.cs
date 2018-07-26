@@ -8,7 +8,6 @@ public class PrismColourCombo : MonoBehaviour
     private List<Transform> beams = new List<Transform>();
     private Color newBeamColour;
     private StraightSplineBeam splineCurve;
-    private Color beamBeingDestroyed = Color.black;
     public int beamLength = 5;
 
     //Upon a collison being detected with a Lightbeam, first a check to make sure that its not infact itself is conducted.

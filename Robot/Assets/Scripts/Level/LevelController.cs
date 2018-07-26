@@ -11,10 +11,12 @@ public class LevelController : MonoBehaviour
 
 	void Start ()
     {
+		//levelSelect control was added to allow game designers / debugging to occur
+		//in individual scenes, if this functionality is disabled, use the int value that
+		//controls which level is to be loaded in the newly loaded scene.
+		//A safety measure was added to ensure that in level 1		
 		if (!levelSelect)
 		{
-			//Debug.Log (currentLevel);
-			//loads first level automatically
 			GameObject puzzle = GameObject.Find ("PuzzleZero");
 			if (puzzle != null)
 			{
@@ -31,10 +33,7 @@ public class LevelController : MonoBehaviour
 
     public void NextLevel()
     {
-		Debug.Log ("now");
-        //add scene change code here, rewrite level stuff accordingly (currentlevel -> into next scene, so that start of this func loads correct puzzle script)
         currentLevel++;
-        //Level(currentLevel);
 		PlayerPrefs.SetInt("level", currentLevel);
 		SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex + 1);
     }

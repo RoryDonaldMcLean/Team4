@@ -123,7 +123,10 @@ public class AkRoom : UnityEngine.MonoBehaviour
 
 		public int BinarySearch(AkRoom room)
 		{
-			return rooms.BinarySearch(room, s_compareByPriority);
+			if (room)
+				return rooms.BinarySearch(room, s_compareByPriority);
+			else
+				return -1;
 		}
 
 		private class CompareByPriority : System.Collections.Generic.IComparer<AkRoom>

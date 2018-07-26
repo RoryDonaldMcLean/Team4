@@ -4,17 +4,20 @@ namespace AK.Wwise.Editor
 	{
 		private bool m_buttonWasPressed;
 
-		protected UnityEditor.SerializedProperty[]
-			m_guidProperty; //all components have 1 guid except switches and states which have 2. Index zero is value guid and index 1 is group guid
+		//all components have 1 guid except switches and states which have 2. Index zero is value guid and index 1 is group guid
+		protected UnityEditor.SerializedProperty[] m_guidProperty;
 
-		protected UnityEditor.SerializedProperty[]
-			m_IDProperty; //all components have 1 ID except switches and states which have 2. Index zero is ID and index 1 is groupID
+		//all components have 1 ID except switches and states which have 2. Index zero is ID and index 1 is groupID
+		protected UnityEditor.SerializedProperty[] m_IDProperty; 
 
 		protected AkWwiseProjectData.WwiseObjectType m_objectType;
 
 		private UnityEngine.Rect m_pickerPos;
 		private UnityEngine.Rect m_pressedPosition;
 		private UnityEditor.SerializedObject m_serializedObject;
+		private UnityEditor.SerializedProperty[] m_SavedGuidProperty;
+		private UnityEditor.SerializedProperty[] m_SavedIDProperty;
+
 		protected string m_typeName;
 
 		public abstract string UpdateIds(System.Guid[] in_guid);
@@ -125,8 +128,11 @@ namespace AK.Wwise.Editor
 			if (currentEvent.type == UnityEngine.EventType.Repaint && m_buttonWasPressed && m_pressedPosition.Equals(position))
 			{
 				m_serializedObject = property.serializedObject;
+				m_SavedGuidProperty = m_guidProperty;
+				m_SavedIDProperty = m_IDProperty;
 				m_pickerPos = AkUtilities.GetLastRectAbsolute(position);
 				UnityEditor.EditorApplication.delayCall += DelayCreateCall;
+				AkWwiseComponentPicker.LastFocusedWindow = UnityEditor.EditorWindow.focusedWindow;
 				m_buttonWasPressed = false;
 			}
 
@@ -137,7 +143,7 @@ namespace AK.Wwise.Editor
 
 		private void DelayCreateCall()
 		{
-			AkWwiseComponentPicker.Create(m_objectType, m_guidProperty, m_IDProperty, m_serializedObject, m_pickerPos);
+			AkWwiseComponentPicker.Create(m_objectType, m_SavedGuidProperty, m_SavedIDProperty, m_serializedObject, m_pickerPos);
 		}
 	}
 }

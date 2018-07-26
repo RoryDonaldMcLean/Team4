@@ -114,6 +114,11 @@ public class AkWwiseComponentPicker : UnityEditor.EditorWindow
 		}
 	}
 
+	/// <summary>
+	///  The window to repaint after closing the picker
+	/// </summary>
+	public static UnityEditor.EditorWindow LastFocusedWindow = null;
+
 	public void OnGUI()
 	{
 		UnityEngine.GUILayout.BeginVertical();
@@ -203,7 +208,15 @@ public class AkWwiseComponentPicker : UnityEditor.EditorWindow
 		//Unity sometimes generates an error when the window is closed from the OnGUI function.
 		//So We close it here
 		if (m_close)
+		{
 			Close();
+
+			if (LastFocusedWindow)
+			{
+				UnityEditor.EditorApplication.delayCall += LastFocusedWindow.Repaint;
+				LastFocusedWindow = null;
+			}
+		}
 	}
 }
 #endif

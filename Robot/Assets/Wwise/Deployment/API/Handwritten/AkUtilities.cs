@@ -644,29 +644,29 @@ public partial class AkUtilities
 	///Example => if(Event.current.type == EventType.Repaint) Rect pos = AkUtilities.GetLastRectAbsolute();
 	public static UnityEngine.Rect GetLastRectAbsolute(UnityEngine.Rect relativePos)
 	{
+		var lastRectAbsolute = relativePos;
+		lastRectAbsolute.x += UnityEditor.EditorWindow.focusedWindow.position.x;
+		lastRectAbsolute.y += UnityEditor.EditorWindow.focusedWindow.position.y;
+
 		try
 		{
-			var inspectorType = System.Reflection.Assembly.GetAssembly(typeof(UnityEditor.Editor))
-				.GetType("UnityEditor.InspectorWindow");
+			var inspectorType = UnityEditor.EditorWindow.focusedWindow.GetType();
 
 			var currentInspectorFieldInfo = inspectorType.GetField("s_CurrentInspectorWindow",
 				System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Static);
-			var positionPropInfo = inspectorType.GetProperty("position",
-				System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance);
-			var InspectorPosition = (UnityEngine.Rect)positionPropInfo.GetValue(currentInspectorFieldInfo.GetValue(null), null);
 
 			var scrollPosInfo = inspectorType.GetField("m_ScrollPosition",
 				System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
-			var scrollPos = (UnityEngine.Vector2)scrollPosInfo.GetValue(currentInspectorFieldInfo.GetValue(null));
 
-			return new UnityEngine.Rect(InspectorPosition.x + relativePos.x - scrollPos.x,
-				InspectorPosition.y + relativePos.y - scrollPos.y, relativePos.width, relativePos.height);
+			var scrollPos = (UnityEngine.Vector2)scrollPosInfo.GetValue(currentInspectorFieldInfo.GetValue(null));
+			lastRectAbsolute.x -= scrollPos.x;
+			lastRectAbsolute.y -= scrollPos.y;
 		}
-		catch (System.Exception)
+		catch
 		{
-			UnityEngine.Debug.LogWarning("WwiseUnity: The class layout of UnityEditor.InspectorWindow has changed and is now incompatible.");
-			return new UnityEngine.Rect();
 		}
+
+		return lastRectAbsolute;
 	}
 
 	public static void RepaintInspector()

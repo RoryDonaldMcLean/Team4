@@ -167,9 +167,11 @@ public class AkSoundEngineController
 		initSettings.uDefaultPoolSize = (uint) akInitializer.defaultPoolSize * 1024;
 		initSettings.uMonitorPoolSize = (uint) akInitializer.monitorPoolSize * 1024;
 		initSettings.uMonitorQueuePoolSize = (uint) akInitializer.monitorQueuePoolSize * 1024;
-#if (!UNITY_ANDROID && !UNITY_WSA) || UNITY_EDITOR // Exclude WSA. It only needs the name of the DLL, and no path.
-		initSettings.szPluginDLLPath = System.IO.Path.Combine(UnityEngine.Application.dataPath,
+#if (!UNITY_ANDROID && !PLATFORM_LUMIN && !UNITY_WSA) || UNITY_EDITOR // Exclude WSA. It only needs the name of the DLL, and no path.
+        initSettings.szPluginDLLPath = System.IO.Path.Combine(UnityEngine.Application.dataPath,
 			"Plugins" + System.IO.Path.DirectorySeparatorChar);
+#elif PLATFORM_LUMIN && !UNITY_EDITOR
+        initSettings.szPluginDLLPath = UnityEngine.Application.dataPath.Replace("Data", "bin") + System.IO.Path.DirectorySeparatorChar;
 #endif
 
 		var platformSettings = new AkPlatformInitSettings();

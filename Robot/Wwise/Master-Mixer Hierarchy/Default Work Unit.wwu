@@ -172,6 +172,26 @@
 									</Custom>
 								</Reference>
 							</ReferenceList>
+							<DuckingList>
+								<DuckItem>
+									<BusRef Name="Ambience" ID="{6DA28E5B-02CA-4B3F-8893-AC8791C9BF2D}"/>
+									<DuckingParam>
+										<Volume>-12</Volume>
+										<FadeInTime>1</FadeInTime>
+										<FadeOutTime>1</FadeOutTime>
+										<FadeCurve>FadeLinear</FadeCurve>
+									</DuckingParam>
+								</DuckItem>
+								<DuckItem>
+									<BusRef Name="Music" ID="{8B3FDD90-9F59-41B0-831B-94D60F3FFC3C}"/>
+									<DuckingParam>
+										<Volume>-10</Volume>
+										<FadeInTime>1</FadeInTime>
+										<FadeOutTime>1</FadeOutTime>
+										<FadeCurve>FadeLinear</FadeCurve>
+									</DuckingParam>
+								</DuckItem>
+							</DuckingList>
 						</Bus>
 						<Bus Name="Music" ID="{8B3FDD90-9F59-41B0-831B-94D60F3FFC3C}">
 							<PropertyList>
@@ -191,7 +211,7 @@
 								<DuckItem>
 									<BusRef Name="Drone" ID="{6BAF7145-A163-40D7-A216-C4BC3B0F1656}"/>
 									<DuckingParam>
-										<Volume>-18</Volume>
+										<Volume>0</Volume>
 										<FadeInTime>3</FadeInTime>
 										<FadeOutTime>3</FadeOutTime>
 										<FadeCurve>FadeLinear</FadeCurve>

@@ -25,12 +25,6 @@ public class SCR_Door : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-<<<<<<< HEAD
-=======
-		GameController = GameObject.FindGameObjectWithTag ("GameController");
-		AkSoundEngine.SetState ("Environment", "None");
-
->>>>>>> 0f141cad75822f4a9ab637412c978a16755301a3
 		isAllowedToTrigger = true;
 		Arrows = new Material[8];
 

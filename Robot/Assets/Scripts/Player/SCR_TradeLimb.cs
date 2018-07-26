@@ -713,7 +713,7 @@ public class SCR_TradeLimb : MonoBehaviour
         Destroy(tempList[limbNumber]);
         tempList.RemoveAt(limbNumber);
 
-		AkSoundEngine.PostEvent ("Arm_Detatch", gameObject);
+		//AkSoundEngine.PostEvent ("Arm_Detatch", gameObject);
 
         tempList.Insert(limbNumber, newLimb);
     }

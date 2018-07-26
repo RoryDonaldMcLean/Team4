@@ -17,10 +17,7 @@ public class LimsFly : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-<<<<<<< HEAD
-        AkSoundEngine.PostEvent("Arm_Detatch", targetPlayer);
-=======
->>>>>>> 0f141cad75822f4a9ab637412c978a16755301a3
+		//AkSoundEngine.PostEvent("Arm_Detatch", targetPlayer);
 
         isFinish = false;
         alpha = 0;

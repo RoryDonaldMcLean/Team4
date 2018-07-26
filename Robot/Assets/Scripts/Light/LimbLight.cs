@@ -67,10 +67,6 @@ public class LimbLight : MonoBehaviour
     private void limbJointSetup()
     {
         limbJoint = this.transform.GetChild(this.transform.childCount - 1).gameObject;
-<<<<<<< HEAD
-=======
-
->>>>>>> 0f141cad75822f4a9ab637412c978a16755301a3
         LimbOnMode();
     }
 

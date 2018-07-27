@@ -388,7 +388,7 @@ public class SCR_TradeLimb : MonoBehaviour
 		{
 			//player 2 controls here
             GameObject ui = GameManager.Instance.whichAndroid.player1ControlBlue ? UILimbImage : UILimbImage2;
-            if (Input.GetKey (GameManager.Instance.playerSetting.currentButton[22]))
+            if (Input.GetKey (GameManager.Instance.playerSetting.currentButton[23]))
 			{
 				Vector3 UIposition = Camera.main.WorldToScreenPoint (this.transform.position);
                 if (ui != null) 
@@ -536,7 +536,7 @@ public class SCR_TradeLimb : MonoBehaviour
         else
         {
             //player2 left arm
-            if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[16]))
+            if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[17]))
             {
                 if (limbs[0].name.Contains("LeftArm") && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[0].name.Contains("LeftArm"))
                 {
@@ -545,7 +545,7 @@ public class SCR_TradeLimb : MonoBehaviour
                 }
             }
             //player2 right arm
-            if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[17]))
+            if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[18]))
             {
                 if (limbs[1].name.Contains("RightArm") && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[1].name.Contains("RightArm"))
                 {
@@ -554,7 +554,7 @@ public class SCR_TradeLimb : MonoBehaviour
                 }
             }  
             //player2 left leg
-            if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[18]))
+            if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[19]))
             {
                 if (limbs[2].name.Contains("LeftLeg") && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[2].name.Contains("LeftLeg"))
                 {
@@ -563,7 +563,7 @@ public class SCR_TradeLimb : MonoBehaviour
                 }
             }
             //player2 right leg
-            if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[19]))
+            if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[20]))
             {
                 if (limbs[3].name.Contains("RightLeg") && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[3].name.Contains("RightLeg"))
                 {
@@ -825,13 +825,13 @@ public class SCR_TradeLimb : MonoBehaviour
 						PickUpLims (other.gameObject);
 				} else
 				{//player 2
-					if (other.name == "LeftArm" && Input.GetKey(GameManager.Instance.playerSetting.currentButton[21]) && !GetComponent<SCR_TradeLimb>().limbs[0].name.Contains("LeftArm"))
+					if (other.name == "LeftArm" && Input.GetKey(GameManager.Instance.playerSetting.currentButton[22]) && !GetComponent<SCR_TradeLimb>().limbs[0].name.Contains("LeftArm"))
 					PickUpLims(other.gameObject);
-					if (other.name == "RightArm" && Input.GetKey (GameManager.Instance.playerSetting.currentButton [21]) && !GetComponent<SCR_TradeLimb> ().limbs [1].name.Contains ("RightArm"))
+					if (other.name == "RightArm" && Input.GetKey (GameManager.Instance.playerSetting.currentButton [22]) && !GetComponent<SCR_TradeLimb> ().limbs [1].name.Contains ("RightArm"))
 						PickUpLims (other.gameObject);
-				if (other.name == "LeftLeg" && Input.GetKey(GameManager.Instance.playerSetting.currentButton[21]) && !GetComponent<SCR_TradeLimb>().limbs[2].name.Contains("LeftLeg"))
+				if (other.name == "LeftLeg" && Input.GetKey(GameManager.Instance.playerSetting.currentButton[22]) && !GetComponent<SCR_TradeLimb>().limbs[2].name.Contains("LeftLeg"))
 					PickUpLims(other.gameObject);
-				if (other.name == "RightLeg" && Input.GetKey(GameManager.Instance.playerSetting.currentButton[21]) && !GetComponent<SCR_TradeLimb>().limbs[3].name.Contains("RightLeg"))
+				if (other.name == "RightLeg" && Input.GetKey(GameManager.Instance.playerSetting.currentButton[22]) && !GetComponent<SCR_TradeLimb>().limbs[3].name.Contains("RightLeg"))
 					PickUpLims(other.gameObject);
 				}
 

@@ -307,65 +307,6 @@ public class SCR_TradeLimb : MonoBehaviour
 		//update the game controller
 		if((UILimbImage != null)&&(UILimbImage2 != null)) UICheck();
 
-		//////////////////////////////////////////////////////////////////////////
-		//DropDown
-		/*if (isBlue == GameManager.Instance.whichAndroid.player1ControlBlue)
-		{	//player 1 controls
-			if((UILimbImage != null)&&(UILimbImage2 != null)) UICheck();
-
-			if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[11]))
-			{
-				if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[4]))
-				{
-					if (limbs[0].name.Contains("LeftArm"))
-						DropDownLims("LeftArm");
-				}
-				if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[5]))
-				{
-					if (limbs[1].name.Contains("RightArm"))
-						DropDownLims("RightArm");
-				}
-				if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[6]))
-				{
-					if (limbs[2].name.Contains("LeftLeg"))
-						DropDownLims("LeftLeg");
-				}
-				if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[7]))
-				{
-					if (limbs[3].name.Contains("RightLeg"))
-						DropDownLims("RightLeg");
-				}
-			}
-		}
-		else
-		{	//player 2 controls
-			if((UILimbImage != null)&&(UILimbImage2 != null)) UICheck();
-
-			if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[23]))
-			{
-				if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[16]))
-				{
-					if (limbs[0].name.Contains("LeftArm"))
-						DropDownLims("LeftArm");
-				}
-				if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[17]))
-				{
-					if (limbs[1].name.Contains("RightArm"))
-						DropDownLims("RightArm");
-				}
-				if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[18]))
-				{
-					if (limbs[2].name.Contains("LeftLeg"))
-						DropDownLims("LeftLeg");
-				}
-				if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[19]))
-				{
-					if (limbs[3].name.Contains("RightLeg"))
-						DropDownLims("RightLeg");
-				}
-			}
-		}*/
-		////////////////////////////////////
 		if (isBlue == GameManager.Instance.whichAndroid.player1ControlBlue)
 		{	//player 1 controls
             GameObject ui = !GameManager.Instance.whichAndroid.player1ControlBlue ? UILimbImage : UILimbImage2;

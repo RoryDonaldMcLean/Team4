@@ -56,6 +56,7 @@ public class SCR_TradeLimb : MonoBehaviour
 				limbsUI2 [i].SetActive (false);
 			}
 		}
+
     }
 
     private void childObjectLimbFinder()

@@ -19,6 +19,9 @@ public class Chirps : MonoBehaviour
 	float timeLeft = 2.0f;
 	bool startTimer = false;
 	bool playEvent = false;
+	bool chirpsButton = false;
+
+
 	int eventCount = 0;
 
 	GameObject MelodyDoor;
@@ -30,8 +33,10 @@ public class Chirps : MonoBehaviour
 	List<GameObject> EmoteUI2 = new List<GameObject>();
 
 
+	bool scriptStart = false;
+
 	// Use this for initialization
-	void Start () 
+	private void Start () 
 	{
 		MelodyDoor = GameObject.FindGameObjectWithTag ("Doors");
 		Face = GameObject.FindGameObjectWithTag ("Test");
@@ -45,18 +50,21 @@ public class Chirps : MonoBehaviour
 				EmoteUI.Add (UIEmoteImage.transform.GetChild (i).gameObject);
 				EmoteUI [i].SetActive (false);
 			}
-		}
+		} 
 
 		UIEmoteImage2 = GameObject.FindGameObjectWithTag ("EmoteIcon2");
 		if (UIEmoteImage2 != null)
 		{
 			for (int i = 0; i < UIEmoteImage2.transform.childCount; i++)
 			{
-				EmoteUI2.Add (UIEmoteImage.transform.GetChild (i).gameObject);
+				EmoteUI2.Add (UIEmoteImage2.transform.GetChild (i).gameObject);
 				EmoteUI2 [i].SetActive (false);
 			}
 		}
 
+		//UIEmoteImage.SetActive (false);
+		//UIEmoteImage2.SetActive (false);
+		scriptStart = true;
 	}
 
 
@@ -64,6 +72,14 @@ public class Chirps : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
+		//bullshit way of getting around the null referance pointer for the UIEmoteImages
+		if (scriptStart == true)
+		{
+			UIEmoteImage.SetActive (false);
+			UIEmoteImage2.SetActive (false);
+			scriptStart = false;
+		}
+
 		var inputDevice = (InputManager.Devices.Count > playerNum) ? InputManager.Devices [playerNum] : null;
 		if (inputDevice == null)
 		{
@@ -99,24 +115,35 @@ public class Chirps : MonoBehaviour
 		{
 			Event ();
 		}
-
+			
 
 	}
 		
 
 	void ProcessInputInControl(InputDevice inputDevice)
 	{
-		if (MelodyDoor != null)
+		if ((UIEmoteImage != null) && (UIEmoteImage2 != null))
 		{
+			EmoteUICheck ();
+		}
 
 			if (playerNum == 0)
 			{
 				AkSoundEngine.SetSwitch ("PlayerID", "Player_1", gameObject);
-
-				if (inputDevice.RightBumper.IsPressed)
+		
+				if (MelodyDoor.GetComponentInChildren<SCR_Door> ().Player1enteredBounds == false)
 				{
-					if (MelodyDoor.GetComponentInChildren<SCR_Door> ().Player1enteredBounds == false)
+					if (inputDevice.RightBumper.IsPressed)
 					{
+
+						chirpsButton = true;
+						Vector3 UIposition = Camera.main.WorldToScreenPoint (this.transform.position);
+						if (UIEmoteImage != null)
+						{
+							UIEmoteImage.transform.position = UIposition;
+							UIEmoteImage.SetActive (true);
+						}
+
 						if (inputDevice.DPadUp.WasPressed && GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [0].name.Contains ("LeftArm"))
 						{
 							EmoteNumber = 1;
@@ -130,7 +157,7 @@ public class Chirps : MonoBehaviour
 							AkSoundEngine.PostEvent ("Chirp", gameObject);
 
 						} else if (inputDevice.DPadUp.WasPressed &&
-						           !GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [0].name.Contains ("LeftArm"))
+						            !GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [0].name.Contains ("LeftArm"))
 						{
 							//duff chirp
 							Debug.Log ("player 1, No Left Arm");
@@ -147,7 +174,7 @@ public class Chirps : MonoBehaviour
 							AkSoundEngine.SetSwitch ("Chirp_Type", "Sad", gameObject);
 							AkSoundEngine.PostEvent ("Chirp", gameObject);
 						} else if (inputDevice.DPadDown.WasPressed &&
-						           !GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [0].name.Contains ("RightArm"))
+						            !GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [0].name.Contains ("RightArm"))
 						{
 							//duff
 							Debug.Log ("Player1, No right arm");
@@ -163,7 +190,7 @@ public class Chirps : MonoBehaviour
 							AkSoundEngine.SetSwitch ("Chirp_Type", "Here", gameObject);
 							AkSoundEngine.PostEvent ("Chirp", gameObject);
 						} else if (inputDevice.DPadLeft.WasPressed &&
-						           !GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [2].name.Contains ("LeftLeg"))
+						            !GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [2].name.Contains ("LeftLeg"))
 						{
 							//duff
 							Debug.Log ("player1, No left leg");
@@ -179,11 +206,16 @@ public class Chirps : MonoBehaviour
 							AkSoundEngine.SetSwitch ("Chirp_Type", "There", gameObject);
 							AkSoundEngine.PostEvent ("Chirp", gameObject);
 						} else if (inputDevice.DPadRight.WasPressed &&
-						           !GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [3].name.Contains ("RightLeg"))
+						            !GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [3].name.Contains ("RightLeg"))
 						{
 							//duff
 							Debug.Log ("player 1, No right leg");
 						}
+					} 
+					else if((chirpsButton) && (UIEmoteImage != null))
+					{	
+						//set the emote UI to no be active unless the player is holding down the key
+						UIEmoteImage.SetActive (false);
 					}
 				}
 
@@ -192,10 +224,20 @@ public class Chirps : MonoBehaviour
 			if (playerNum == 1)
 			{
 				AkSoundEngine.SetSwitch ("PlayerID", "Player_2", gameObject);
-				if (inputDevice.RightBumper.IsPressed)
+
+			if (MelodyDoor.GetComponentInChildren<SCR_Door> ().Player2enteredBounds == false)
 				{
-					if (MelodyDoor.GetComponentInChildren<SCR_Door> ().Player2enteredBounds == false)
+				if (inputDevice.RightBumper.IsPressed)
 					{
+						chirpsButton = true;
+						Vector3 UIposition = Camera.main.WorldToScreenPoint (this.transform.position);
+						if (UIEmoteImage != null)
+						{
+							UIEmoteImage.transform.position = UIposition;
+							UIEmoteImage.SetActive (true);
+						}
+
+
 						if (inputDevice.DPadUp.WasPressed && GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [0].name.Contains ("LeftArm"))
 						{
 							EmoteNumber = 1;
@@ -262,10 +304,17 @@ public class Chirps : MonoBehaviour
 							Debug.Log ("player2, No right leg");
 						}
 					}
+					else if((chirpsButton) && (UIEmoteImage2 != null))
+					{	//set the emote UI to no be active unless the player is holding down the key
+						if (UIEmoteImage2 != null)
+						{
+							UIEmoteImage2.SetActive (false);
+						}
+					}
 				}
 
 			}
-		}
+		
 	}
 		
 
@@ -282,8 +331,7 @@ public class Chirps : MonoBehaviour
 			//player 1
 			if (isBlue == GameManager.Instance.whichAndroid.player1ControlBlue)
 			{
-				GameObject ui = !GameManager.Instance.whichAndroid.player1ControlBlue ? UIEmoteImage : UIEmoteImage2;
-
+				//GameObject ui = !GameManager.Instance.whichAndroid.player1ControlBlue ? UIEmoteImage : UIEmoteImage2;
 
 				AkSoundEngine.SetSwitch ("PlayerID", "Player_1", gameObject);
 
@@ -292,14 +340,13 @@ public class Chirps : MonoBehaviour
 
 					if (Input.GetKey (GameManager.Instance.playerSetting.currentButton [12]))
 					{
-
+							chirpsButton = true;
 							Vector3 UIposition = Camera.main.WorldToScreenPoint (this.transform.position);
-							if (ui != null)
+							if (UIEmoteImage != null)
 							{
-								ui.transform.position = UIposition;
-								ui.SetActive (true);
+								UIEmoteImage.transform.position = UIposition;
+								UIEmoteImage.SetActive (true);
 							}
-
 
 							if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [4])
 							     && GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [0].name.Contains ("LeftArm"))
@@ -369,15 +416,12 @@ public class Chirps : MonoBehaviour
 								Debug.Log ("player 1, No right leg");
 							}
 					}
-					else
-					{	//set the emote UI to no be active unless the player is holding down the key
-						if (ui != null)
-						{
-							ui.SetActive (false);
-						}
+					else if((chirpsButton) && (UIEmoteImage != null))
+					{	
+						//set the emote UI to no be active unless the player is holding down the key
+						UIEmoteImage.SetActive (false);
 					}
-				
-				
+
 				}// end of if your inside the melody door bounds
 					
 				
@@ -385,102 +429,101 @@ public class Chirps : MonoBehaviour
 			}//player2 
 		else
 			{
-			GameObject ui = GameManager.Instance.whichAndroid.player1ControlBlue ? UIEmoteImage : UIEmoteImage2;
+				AkSoundEngine.SetSwitch ("PlayerID", "Player_2", gameObject);
 
-					AkSoundEngine.SetSwitch ("PlayerID", "Player_2", gameObject);
-
-			if (MelodyDoor.GetComponentInChildren<SCR_Door> ().Player2enteredBounds == false)
-			{
-				if (Input.GetKey (GameManager.Instance.playerSetting.currentButton [25]))
+				if (MelodyDoor.GetComponentInChildren<SCR_Door> ().Player2enteredBounds == false)
 				{
-					Vector3 UIposition = Camera.main.WorldToScreenPoint (this.transform.position);
-					if (ui != null)
+					if (Input.GetKey (GameManager.Instance.playerSetting.currentButton [25]))
 					{
-						ui.transform.position = UIposition;
-						ui.SetActive (true);
+						chirpsButton = true;
+						Vector3 UIposition = Camera.main.WorldToScreenPoint (this.transform.position);
+						if (UIEmoteImage2 != null)
+						{
+							UIEmoteImage2.transform.position = UIposition;
+							UIEmoteImage2.SetActive (true);
+						}
+
+
+						
+						if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [17])
+						      && GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [0].name.Contains ("LeftArm"))
+						{
+							EmoteNumber = 1;
+							Emotes ();
+							//play chirp
+							AkSoundEngine.SetSwitch ("Chirp_Type", "Happy", gameObject);
+							AkSoundEngine.PostEvent ("Chirp", gameObject);
+
+							Debug.Log ("Player2, left arm chirp");	
+						} else if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [17])
+						             && !GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [0].name.Contains ("LeftArm"))
+						{
+							Debug.Log ("player 2, no left arm");
+						}
+
+
+
+						if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [18])
+						      && GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [1].name.Contains ("RightArm"))
+						{
+							EmoteNumber = 2;
+							Emotes ();
+							//play chirp
+							AkSoundEngine.SetSwitch ("Chirp_Type", "Sad", gameObject);
+							AkSoundEngine.PostEvent ("Chirp", gameObject);
+
+							Debug.Log ("Player2, right arm chirp");	
+						} else if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [18])
+						             && !GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [1].name.Contains ("RightArm"))
+						{
+							Debug.Log ("player 2, no right arm");
+						}
+
+
+
+						if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [19])
+						      && GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [2].name.Contains ("LeftLeg"))
+						{
+							EmoteNumber = 3;
+							Emotes ();
+							//play chirp
+							AkSoundEngine.SetSwitch ("Chirp_Type", "Here", gameObject);
+							AkSoundEngine.PostEvent ("Chirp", gameObject);
+
+							Debug.Log ("Player2, left leg chirp");	
+						} else if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [19])
+						             && !GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [2].name.Contains ("LeftLeg"))
+						{
+							Debug.Log ("player 2, no left leg");
+						}
+
+
+
+						if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [20])
+						      && GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [3].name.Contains ("RightLeg"))
+						{
+							EmoteNumber = 4;
+							Emotes ();
+							//play chirp
+							AkSoundEngine.SetSwitch ("Chirp_Type", "There", gameObject);
+							AkSoundEngine.PostEvent ("Chirp", gameObject);
+
+							Debug.Log ("Player2, right leg chirp");	
+						} else if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [20])
+						             && !GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [3].name.Contains ("RightLeg"))
+						{
+							Debug.Log ("player 2, no right leg");
+						}
+
 					}
-
-
-					
-					if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [17])
-					      && GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [0].name.Contains ("LeftArm"))
-					{
-						EmoteNumber = 1;
-						Emotes ();
-						//play chirp
-						AkSoundEngine.SetSwitch ("Chirp_Type", "Happy", gameObject);
-						AkSoundEngine.PostEvent ("Chirp", gameObject);
-
-						Debug.Log ("Player2, left arm chirp");	
-					} else if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [17])
-					             && !GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [0].name.Contains ("LeftArm"))
-					{
-						Debug.Log ("player 2, no left arm");
+					else if((chirpsButton) && (UIEmoteImage2 != null))
+					{	//set the emote UI to no be active unless the player is holding down the key
+						if (UIEmoteImage2 != null)
+						{
+							UIEmoteImage2.SetActive (false);
+						}
 					}
-
-
-
-					if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [18])
-					      && GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [1].name.Contains ("RightArm"))
-					{
-						EmoteNumber = 2;
-						Emotes ();
-						//play chirp
-						AkSoundEngine.SetSwitch ("Chirp_Type", "Sad", gameObject);
-						AkSoundEngine.PostEvent ("Chirp", gameObject);
-
-						Debug.Log ("Player2, right arm chirp");	
-					} else if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [18])
-					             && !GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [1].name.Contains ("RightArm"))
-					{
-						Debug.Log ("player 2, no right arm");
-					}
-
-
-
-					if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [19])
-					      && GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [2].name.Contains ("LeftLeg"))
-					{
-						EmoteNumber = 3;
-						Emotes ();
-						//play chirp
-						AkSoundEngine.SetSwitch ("Chirp_Type", "Here", gameObject);
-						AkSoundEngine.PostEvent ("Chirp", gameObject);
-
-						Debug.Log ("Player2, left leg chirp");	
-					} else if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [19])
-					             && !GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [2].name.Contains ("LeftLeg"))
-					{
-						Debug.Log ("player 2, no left leg");
-					}
-
-
-
-					if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [20])
-					      && GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [3].name.Contains ("RightLeg"))
-					{
-						EmoteNumber = 4;
-						Emotes ();
-						//play chirp
-						AkSoundEngine.SetSwitch ("Chirp_Type", "There", gameObject);
-						AkSoundEngine.PostEvent ("Chirp", gameObject);
-
-						Debug.Log ("Player2, right leg chirp");	
-					} else if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [20])
-					             && !GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [3].name.Contains ("RightLeg"))
-					{
-						Debug.Log ("player 2, no right leg");
-					}
-
 				}
-				else
-				{	//set the emote UI to no be active unless the player is holding down the key
-					if (ui != null)
-					{
-						ui.SetActive (false);
-					}
-				}
-			}
 
 				 
 		}
@@ -571,8 +614,118 @@ public class Chirps : MonoBehaviour
 	{
 		if (isBlue == GameManager.Instance.whichAndroid.player1ControlBlue)
 		{
+			List<GameObject> ls = !GameManager.Instance.whichAndroid.player1ControlBlue ? EmoteUI : EmoteUI2;
+
+			if (GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [0].name.Contains ("LeftArm"))
+			{
+				ls [0].SetActive (true);
+				ls [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/UITopSegment_Arm_StateActive") as Sprite;
+				ls [0].GetComponent<Image> ().preserveAspect = true;
+			} else
+			{
+				ls [0].SetActive (true);
+				ls [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/UITopSegment_Arm_StateNonActive") as Sprite;
+				ls [0].GetComponent<Image> ().preserveAspect = true;
+			}
+
+
+			if (GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [1].name.Contains ("RightArm"))
+			{
+				ls [1].SetActive (true);
+				ls [1].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/UIBottomSegment_Arm_StateActive") as Sprite;
+				ls [1].GetComponent<Image> ().preserveAspect = true;
+			} else
+			{
+				ls [1].SetActive (true);
+				ls [1].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/UIBottomSegment_Arm_StateNonActive") as Sprite;
+				ls [1].GetComponent<Image> ().preserveAspect = true;
+			}
+
+			if (GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [2].name.Contains ("LeftLeg"))
+			{
+				ls [2].SetActive (true);
+				ls [2].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/UILeftSegment_Leg_StateActive") as Sprite;
+				ls [2].GetComponent<Image> ().preserveAspect = true;
+			} else
+			{
+				ls [2].SetActive (true);
+				ls [2].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/UILeftSegment_Leg_StateNonActive") as Sprite;
+				ls [2].GetComponent<Image> ().preserveAspect = true;
+			}
+
+
+			if (GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [3].name.Contains ("RightLeg"))
+			{
+				ls [3].SetActive (true);
+				ls [3].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/UIRightSegment_Leg_StateActive") as Sprite;
+				ls [3].GetComponent<Image> ().preserveAspect = true;
+			} else
+			{
+				ls [3].SetActive (true);
+				ls [3].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/UIRightSegment_Leg_StateNonActive") as Sprite;
+				ls [3].GetComponent<Image> ().preserveAspect = true;
+			}
+
+		} 
+		else
+		{ //player2
+
+			List<GameObject> ls = GameManager.Instance.whichAndroid.player1ControlBlue ? EmoteUI : EmoteUI2;
+
+			if (GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [0].name.Contains ("LeftArm"))
+			{
+				ls [0].SetActive (true);
+				ls [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/UITopSegment_Arm_StateActive") as Sprite;
+				ls [0].GetComponent<Image> ().preserveAspect = true;
+			} else
+			{
+				ls [0].SetActive (true);
+				ls [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/UITopSegment_Arm_StateNonActive") as Sprite;
+				ls [0].GetComponent<Image> ().preserveAspect = true;
+			}
+
+
+			if (GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [1].name.Contains ("RightArm"))
+			{
+				ls [1].SetActive (true);
+				ls [1].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/UIBottomSegment_Arm_StateActive") as Sprite;
+				ls [1].GetComponent<Image> ().preserveAspect = true;
+			} else
+			{
+				ls [1].SetActive (true);
+				ls [1].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/UIBottomSegment_Arm_StateNonActive") as Sprite;
+				ls [1].GetComponent<Image> ().preserveAspect = true;
+			}
+
+			if (GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [2].name.Contains ("LeftLeg"))
+			{
+				ls [2].SetActive (true);
+				ls [2].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/UILeftSegment_Leg_StateActive") as Sprite;
+				ls [2].GetComponent<Image> ().preserveAspect = true;
+			} else
+			{
+				ls [2].SetActive (true);
+				ls [2].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/UILeftSegment_Leg_StateNonActive") as Sprite;
+				ls [2].GetComponent<Image> ().preserveAspect = true;
+			}
+
+
+			if (GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [3].name.Contains ("RightLeg"))
+			{
+				ls [3].SetActive (true);
+				ls [3].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/UIRightSegment_Leg_StateActive") as Sprite;
+				ls [3].GetComponent<Image> ().preserveAspect = true;
+			} else
+			{
+				ls [3].SetActive (true);
+				ls [3].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/UIRightSegment_Leg_StateNonActive") as Sprite;
+				ls [3].GetComponent<Image> ().preserveAspect = true;
+			}
+
 
 		}
+
+
 	}
 
 

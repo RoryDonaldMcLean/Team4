@@ -23,8 +23,7 @@ public class PuzzleOneReflectors : LevelControlBaseClass
             Debug.Log("open");
             doorStateOpen = !doorStateOpen;
             exitDoor.OpenDoor();
-			//AkSoundEngine.SetState("Drone_Modulator", "Complete");
-
+			AkSoundEngine.SetState("Drone_Modulator", "Complete");
 
             EndOfLevel();
         }
@@ -42,8 +41,8 @@ public class PuzzleOneReflectors : LevelControlBaseClass
 				//pos.z += 54.4f;
 				//walkway.transform.position = pos;
 
-				MelodyDoor.GetComponentInChildren<SCR_Door> ().SpawnWalkway = false;
-				MelodyDoor.GetComponentInChildren<SCR_Door> ().Correct = false;
+				MelodyDoor.GetComponentInChildren<SCR_Door>().SpawnWalkway = false;
+				MelodyDoor.GetComponentInChildren<SCR_Door>().Correct = false;
 			}
 		}
     }

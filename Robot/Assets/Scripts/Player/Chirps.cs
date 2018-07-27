@@ -89,7 +89,7 @@ public class Chirps : MonoBehaviour
 
 			if (playerNum == 0)
 			{
-				//AkSoundEngine.SetSwitch ("PlayerID", "Player_1", gameObject);
+				AkSoundEngine.SetSwitch ("PlayerID", "Player_1", gameObject);
 
 				if (inputDevice.RightBumper.IsPressed)
 				{
@@ -104,8 +104,8 @@ public class Chirps : MonoBehaviour
 							//example. 
 							startTimer = true;
 							eventCount += 1;
-							//AkSoundEngine.SetSwitch ("Chirp_Type", "Happy", gameObject);
-							//AkSoundEngine.PostEvent ("Chirp", gameObject);
+							AkSoundEngine.SetSwitch ("Chirp_Type", "Happy", gameObject);
+							AkSoundEngine.PostEvent ("Chirp", gameObject);
 
 						} else if (inputDevice.DPadUp.WasPressed &&
 						           !GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [0].name.Contains ("LeftArm"))
@@ -122,8 +122,8 @@ public class Chirps : MonoBehaviour
 							Emotes ();
 							//play chirp
 							Debug.Log ("player 1, right arm chirp");
-							//AkSoundEngine.SetSwitch ("Chirp_Type", "Sad", gameObject);
-							//AkSoundEngine.PostEvent ("Chirp", gameObject);
+							AkSoundEngine.SetSwitch ("Chirp_Type", "Sad", gameObject);
+							AkSoundEngine.PostEvent ("Chirp", gameObject);
 						} else if (inputDevice.DPadDown.WasPressed &&
 						           !GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [0].name.Contains ("RightArm"))
 						{
@@ -138,8 +138,8 @@ public class Chirps : MonoBehaviour
 							EmoteNumber = 3;
 							Emotes ();
 							Debug.Log ("player1, left leg chirp");
-							//AkSoundEngine.SetSwitch ("Chirp_Type", "Here", gameObject);
-							//AkSoundEngine.PostEvent ("Chirp", gameObject);
+							AkSoundEngine.SetSwitch ("Chirp_Type", "Here", gameObject);
+							AkSoundEngine.PostEvent ("Chirp", gameObject);
 						} else if (inputDevice.DPadLeft.WasPressed &&
 						           !GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [2].name.Contains ("LeftLeg"))
 						{
@@ -154,8 +154,8 @@ public class Chirps : MonoBehaviour
 							EmoteNumber = 4;
 							Emotes ();
 							Debug.Log ("player1, right leg chirp");
-							//AkSoundEngine.SetSwitch ("Chirp_Type", "There", gameObject);
-							//AkSoundEngine.PostEvent ("Chirp", gameObject);
+							AkSoundEngine.SetSwitch ("Chirp_Type", "There", gameObject);
+							AkSoundEngine.PostEvent ("Chirp", gameObject);
 						} else if (inputDevice.DPadRight.WasPressed &&
 						           !GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [3].name.Contains ("RightLeg"))
 						{
@@ -169,7 +169,7 @@ public class Chirps : MonoBehaviour
 			///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 			if (playerNum == 1)
 			{
-				//AkSoundEngine.SetSwitch ("PlayerID", "Player_2", gameObject);
+				AkSoundEngine.SetSwitch ("PlayerID", "Player_2", gameObject);
 				if (inputDevice.RightBumper.IsPressed)
 				{
 					if (MelodyDoor.GetComponentInChildren<SCR_Door> ().Player2enteredBounds == false)
@@ -179,8 +179,8 @@ public class Chirps : MonoBehaviour
 							EmoteNumber = 1;
 							Emotes ();
 							//play chirp
-							//AkSoundEngine.SetSwitch ("Chirp_Type", "Happy", gameObject);
-							//AkSoundEngine.PostEvent ("Chirp", gameObject);
+							AkSoundEngine.SetSwitch ("Chirp_Type", "Happy", gameObject);
+							AkSoundEngine.PostEvent ("Chirp", gameObject);
 
 							Debug.Log ("Player 2, left Arm Chirp");
 						} else if (inputDevice.DPadUp.WasPressed &&
@@ -196,8 +196,8 @@ public class Chirps : MonoBehaviour
 							EmoteNumber = 2;
 							Emotes ();
 							//play chirp
-							//AkSoundEngine.SetSwitch ("Chirp_Type", "Sad", gameObject);
-							//AkSoundEngine.PostEvent ("Chirp", gameObject);
+							AkSoundEngine.SetSwitch ("Chirp_Type", "Sad", gameObject);
+							AkSoundEngine.PostEvent ("Chirp", gameObject);
 
 							Debug.Log ("player 2, right arm chirp");
 						} else if (inputDevice.DPadDown.WasPressed &&
@@ -213,8 +213,8 @@ public class Chirps : MonoBehaviour
 							EmoteNumber = 3;
 							Emotes ();
 							//play chirp
-							//AkSoundEngine.SetSwitch ("Chirp_Type", "Here", gameObject);
-							//AkSoundEngine.PostEvent ("Chirp", gameObject);
+							AkSoundEngine.SetSwitch ("Chirp_Type", "Here", gameObject);
+							AkSoundEngine.PostEvent ("Chirp", gameObject);
 
 							Debug.Log ("player2, left leg chirp");
 						} else if (inputDevice.DPadLeft.WasPressed &&
@@ -230,8 +230,8 @@ public class Chirps : MonoBehaviour
 							EmoteNumber = 4;
 							Emotes ();
 							//play chirp
-							//AkSoundEngine.SetSwitch ("Chirp_Type", "There", gameObject);
-							//AkSoundEngine.PostEvent ("Chirp", gameObject);
+							AkSoundEngine.SetSwitch ("Chirp_Type", "There", gameObject);
+							AkSoundEngine.PostEvent ("Chirp", gameObject);
 
 							Debug.Log ("player2, right leg chirp");
 						} else if (inputDevice.DPadRight.WasPressed &&
@@ -255,7 +255,7 @@ public class Chirps : MonoBehaviour
 			//player 1
 			if (isBlue == GameManager.Instance.whichAndroid.player1ControlBlue)
 			{
-				//AkSoundEngine.SetSwitch ("PlayerID", "Player_1", gameObject);
+				AkSoundEngine.SetSwitch ("PlayerID", "Player_1", gameObject);
 				if (Input.GetKey (GameManager.Instance.playerSetting.currentButton [24]))
 				{
 					if (MelodyDoor.GetComponentInChildren<SCR_Door> ().Player1enteredBounds == false)
@@ -266,8 +266,8 @@ public class Chirps : MonoBehaviour
 							EmoteNumber = 1;
 							Emotes ();
 							//play chirp
-							//AkSoundEngine.SetSwitch ("Chirp_Type", "Happy", gameObject);
-							//AkSoundEngine.PostEvent ("Chirp", gameObject);
+							AkSoundEngine.SetSwitch ("Chirp_Type", "Happy", gameObject);
+							AkSoundEngine.PostEvent ("Chirp", gameObject);
 
 							Debug.Log ("player 1, left arm chirp");
 						} else if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [4])
@@ -284,8 +284,8 @@ public class Chirps : MonoBehaviour
 							EmoteNumber = 2;
 							Emotes ();
 							//play chirp
-							//AkSoundEngine.SetSwitch ("Chirp_Type", "Sad", gameObject);
-							//AkSoundEngine.PostEvent ("Chirp", gameObject);
+							AkSoundEngine.SetSwitch ("Chirp_Type", "Sad", gameObject);
+							AkSoundEngine.PostEvent ("Chirp", gameObject);
 
 							Debug.Log ("player 1, right arm chirp");
 						} else if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [5])
@@ -302,8 +302,8 @@ public class Chirps : MonoBehaviour
 							EmoteNumber = 3;
 							Emotes ();
 							//play chirp
-							//AkSoundEngine.SetSwitch ("Chirp_Type", "Here", gameObject);
-							//AkSoundEngine.PostEvent ("Chirp", gameObject);
+							AkSoundEngine.SetSwitch ("Chirp_Type", "Here", gameObject);
+							AkSoundEngine.PostEvent ("Chirp", gameObject);
 							Debug.Log ("player 1, left leg chirp");
 						} else if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [6])
 						           && !GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [2].name.Contains ("LeftLeg"))
@@ -319,8 +319,8 @@ public class Chirps : MonoBehaviour
 							EmoteNumber = 4;
 							Emotes ();
 							//play chirp
-							//AkSoundEngine.SetSwitch ("Chirp_Type", "There", gameObject);
-							//AkSoundEngine.PostEvent ("Chirp", gameObject);
+							AkSoundEngine.SetSwitch ("Chirp_Type", "There", gameObject);
+							AkSoundEngine.PostEvent ("Chirp", gameObject);
 							Debug.Log ("player 1, right leg chirp");
 						} else if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [7])
 						           && !GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [3].name.Contains ("RightLeg"))
@@ -336,7 +336,7 @@ public class Chirps : MonoBehaviour
 			{
 				if (Input.GetKey (GameManager.Instance.playerSetting.currentButton [25]))
 				{
-					//AkSoundEngine.SetSwitch ("PlayerID", "Player_2", gameObject);
+					AkSoundEngine.SetSwitch ("PlayerID", "Player_2", gameObject);
 
 					if (MelodyDoor.GetComponentInChildren<SCR_Door> ().Player2enteredBounds == false)
 					{
@@ -346,8 +346,8 @@ public class Chirps : MonoBehaviour
 							EmoteNumber = 1;
 							Emotes ();
 							//play chirp
-							//AkSoundEngine.SetSwitch ("Chirp_Type", "Happy", gameObject);
-							//AkSoundEngine.PostEvent ("Chirp", gameObject);
+							AkSoundEngine.SetSwitch ("Chirp_Type", "Happy", gameObject);
+							AkSoundEngine.PostEvent ("Chirp", gameObject);
 
 							Debug.Log ("Player2, left arm chirp");	
 						} else if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [16])
@@ -364,8 +364,8 @@ public class Chirps : MonoBehaviour
 							EmoteNumber = 2;
 							Emotes ();
 							//play chirp
-							//AkSoundEngine.SetSwitch ("Chirp_Type", "Sad", gameObject);
-							//AkSoundEngine.PostEvent ("Chirp", gameObject);
+							AkSoundEngine.SetSwitch ("Chirp_Type", "Sad", gameObject);
+							AkSoundEngine.PostEvent ("Chirp", gameObject);
 
 							Debug.Log ("Player2, right arm chirp");	
 						} else if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [17])
@@ -382,8 +382,8 @@ public class Chirps : MonoBehaviour
 							EmoteNumber = 3;
 							Emotes ();
 							//play chirp
-							//AkSoundEngine.SetSwitch ("Chirp_Type", "Here", gameObject);
-							//AkSoundEngine.PostEvent ("Chirp", gameObject);
+							AkSoundEngine.SetSwitch ("Chirp_Type", "Here", gameObject);
+							AkSoundEngine.PostEvent ("Chirp", gameObject);
 
 							Debug.Log ("Player2, left leg chirp");	
 						} else if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [18])
@@ -400,8 +400,8 @@ public class Chirps : MonoBehaviour
 							EmoteNumber = 4;
 							Emotes ();
 							//play chirp
-							//AkSoundEngine.SetSwitch ("Chirp_Type", "There", gameObject);
-							//AkSoundEngine.PostEvent ("Chirp", gameObject);
+							AkSoundEngine.SetSwitch ("Chirp_Type", "There", gameObject);
+							AkSoundEngine.PostEvent ("Chirp", gameObject);
 
 							Debug.Log ("Player2, right leg chirp");	
 						} else if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [19])
@@ -487,7 +487,7 @@ public class Chirps : MonoBehaviour
 		eventCount = 0;
 		timeLeft = 2.0f;
 
-		//AkSoundEngine.SetRTPCValue ("Chirps_Combine", 1); 
+		AkSoundEngine.SetRTPCValue ("Chirps_Combine", 1); 
 	}
 
 	void FalseEvent()

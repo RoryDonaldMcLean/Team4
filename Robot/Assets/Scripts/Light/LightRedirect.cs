@@ -97,20 +97,8 @@ public class LightRedirect : MonoBehaviour
     {
         splineCurve.ToggleBeam();
         Destroy(splineCurve);
-
-        //CancelInvoke("ColourOverTime");
-        /*
-        if (arrowDefaultColour.Equals(Color.grey))
-        {
-            arrowDefaultColour = Color.white;
-        }
-        */
-        //Color newColour = arrowDefaultColour;
-        //if object is picked up, and is therefore, faded, carry over this change in the blinking arrow code
-        //if (IsPickedUp()) newColour.a = fadedColourAlpha;
-
-        //this.transform.GetComponent<Renderer>().material.color = newColour;
     }
+	
     //creates a beam that functions as an extension of the beam that this object has collided with
     //taking in the original beams colour
     private void CreateExtendedBeam()
@@ -119,45 +107,9 @@ public class LightRedirect : MonoBehaviour
         splineCurve.beamColour = beamColour;
         splineCurve.beamLength = beamLength;
 
-        //AkSoundEngine.SetState("Drone_Modulator", "Reflector");
-
-        //BlinkingArrowsSetup();
+        AkSoundEngine.SetState("Drone_Modulator", "Reflector");
     }
-    /*
-    private void BlinkingArrowsSetup()
-    {
-        if(beamColour.Equals(arrowDefaultColour))
-        {
-            arrowDefaultColour = Color.grey;
-        }
-        else if(arrowDefaultColour.Equals(Color.grey))
-        {
-            arrowDefaultColour = Color.white;
-        }
 
-        CancelInvoke("ColourOverTime");
-        InvokeRepeating("ColourOverTime", 0.3f, 0.75f);
-    }
-  
-    private void ColourOverTime()
-    {
-        Color newColour;
-
-        if (defaultColour)
-        {
-            newColour = arrowDefaultColour;
-        }
-        else
-        {
-            newColour = beamColour;
-        }
-        defaultColour = !defaultColour;
-
-        //if object is picked up, and is therefore, faded, carry over this change in the blinking arrow code
-        if (IsPickedUp()) newColour.a = fadedColourAlpha;
-        this.transform.GetComponent<Renderer>().material.color = newColour;
-    }
-    */
     //if the object isnt 1 in alpha channel, it has been picked up
     private bool IsPickedUp()
     {

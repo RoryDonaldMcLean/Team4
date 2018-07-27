@@ -1,6 +1,22 @@
 Event	ID	Name			Wwise Object Path	Notes
+	2739838641	Drone			\Default Work Unit\Music\Drone	
 	2762482407	Push_Box			\Default Work Unit\Objects\Push_Box	
 	3321400738	Push_Box_Stop			\Default Work Unit\Objects\Push_Box_Stop	
+
+State Group	ID	Name			Wwise Object Path	Notes
+	2978482827	Drone_Modulator			\Default Work Unit\Drone_Modulator	
+
+State	ID	Name	State Group			Notes
+	0	None	Drone_Modulator			
+	190644483	Hit_Switch	Drone_Modulator			
+	1281810935	Start	Drone_Modulator			
+	1318750168	Splitter	Drone_Modulator			
+	1720710682	Combiner	Drone_Modulator			
+	2537050904	Colour_Change	Drone_Modulator			
+	2631133988	Complete	Drone_Modulator			
+	2858403387	Reflector	Drone_Modulator			
+	3307507876	Through_Barrier	Drone_Modulator			
+	4103990255	Hit_Wall	Drone_Modulator			
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
 	129	MIDI note velocity			\MIDI note velocity	
@@ -30,24 +46,19 @@ Modulator LFO	ID	Name			Wwise Object Path	Notes
 	409900972	Modulator LFO (Custom)				
 	425016768	Modulator LFO (Custom)				
 	438722543	Modulator LFO (Custom)				
-	446525555	LFO DRONE (Custom)				
 	475677206	LFO RND (Custom)				
 	491567240	Modulator LFO (Custom)				
-	506465477	LFO_PWM_01 (Custom)				
 	535183385	LFO OCTAVE 02 (Custom)				
 	563305239	Modulator LFO (Custom)				
 	565466283	Modulator LFO (Custom)				
-	579110680	LFO_RND (Custom)				
 	596062010	Modulator LFO (Custom)				
 	597882540	Modulator LFO (Custom)				
 	602819774	Modulator LFO (Custom)				
-	604409708	Modulator LFO (Custom)				
 	614258907	Modulator LFO (Custom)				
 	646993223	Modulator LFO (Custom)				
 	647420823	LFO OVERTURE 02 (Custom)				
 	654694227	Modulator LFO (Custom)				
 	662616264	Modulator LFO(Custom)				
-	663259103	Modulator LFO (Custom)				
 	664294551	Modulator LFO (Custom)				
 	667036178	Modulator LFO (Custom)				
 	667774806	LFO DRONE (Custom)				
@@ -63,19 +74,15 @@ Modulator LFO	ID	Name			Wwise Object Path	Notes
 	830652842	Modulator LFO (Custom)				
 	850976877	Modulator LFO (Custom)				
 	854650823	Modulator LFO (Custom)				
-	862808494	Modulator LFO (Custom)				
 	866254140	Modulator LFO (Custom)				
 	880399666	Modulator LFO (Custom)				
 	914869830	Modulator LFO (Custom)				
-	923797100	Modulator LFO (Custom)				
 	930542929	Modulator LFO (Custom)				
 	956007955	Modulator LFO (Custom)				
 	979983266	LFO RND (Custom)				
 	1040681508	Modulator LFO (Custom)				
 	1057021145	Modulator LFO (Custom)				
 	1062200292	Modulator LFO (Custom)				
-	1064125736	Modulator LFO (Custom)				
-	1067313075	Modulator LFO (Custom)				
 
 Modulator Envelope	ID	Name			Wwise Object Path	Notes
 	7603965	Modulator Envelope (Custom)				
@@ -107,7 +114,6 @@ Modulator Envelope	ID	Name			Wwise Object Path	Notes
 	258736037	Modulator Envelope (Custom)				
 	262592944	Modulator Envelope (Custom)				
 	274974142	Modulator Envelope (Custom)				
-	275081036	Modulator Envelope (Custom)				
 	289652264	Modulator Envelope (Custom)				
 	294153085	Modulator Envelope (Custom)				
 	332889862	Modulator Envelope (Custom)				
@@ -129,7 +135,6 @@ Modulator Envelope	ID	Name			Wwise Object Path	Notes
 	456441409	Modulator Envelope (Custom)				
 	469465049	Modulator Envelope (Custom)				
 	471289825	Modulator Envelope (Custom)				
-	477905125	Modulator Envelope (Custom)				
 	488336431	Modulator Envelope (Custom)				
 	519925862	Modulator Envelope (Custom)				
 	520182516	Modulator Envelope (Custom)				
@@ -172,13 +177,10 @@ Modulator Envelope	ID	Name			Wwise Object Path	Notes
 	825303637	Modulator Envelope (Custom)				
 	827861424	Modulator Envelope (Custom)				
 	828450851	Modulator Envelope (Custom)				
-	840260164	Modulator Envelope (Custom)				
 	841890521	Modulator Envelope (Custom)				
 	859654762	Modulator Envelope (Custom)				
 	861797107	Modulator Envelope (Custom)				
-	863689176	Modulator Envelope (Custom)				
 	863858239	Modulator Envelope_Sharp (Custom)				
-	867479768	Modulator Envelope (Custom)				
 	880554767	Modulator Envelope (Custom)				
 	886777812	Modulator Envelope (Custom)				
 	901006930	Modulator Envelope (Custom)				
@@ -211,8 +213,6 @@ Effect plug-ins	ID	Name	Type				Notes
 	18080721	Wwise Pitch Shifter (Custom)	Wwise Pitch Shifter			
 	53494169	Wwise Pitch Shifter (Custom)	Wwise Pitch Shifter			
 	61122311	Wwise Parametric EQ (Custom)	Wwise Parametric EQ			
-	64983808	Wwise Parametric EQ (Custom)	Wwise Parametric EQ			
-	81762835	Wwise Parametric EQ (Custom)	Wwise Parametric EQ			
 	111393647	Wwise Parametric EQ (Custom)	Wwise Parametric EQ			
 	125311153	Wwise Pitch Shifter (Custom)	Wwise Pitch Shifter			
 	139549955	Wwise Parametric EQ (Custom)	Wwise Parametric EQ			
@@ -252,7 +252,6 @@ Effect plug-ins	ID	Name	Type				Notes
 	870563022	Dragbox	Wwise Parametric EQ			
 	887496620	Wwise Parametric EQ (Custom)	Wwise Parametric EQ			
 	917880623	Wwise Parametric EQ (Custom)	Wwise Parametric EQ			
-	923032550	Wwise Parametric EQ (Custom)	Wwise Parametric EQ			
 	972709751	Wwise Pitch Shifter (Custom)	Wwise Pitch Shifter			
 	976512786	Wwise Parametric EQ (Custom)	Wwise Parametric EQ			
 	1011994727	Wwise Parametric EQ (Custom)	Wwise Parametric EQ			
@@ -260,6 +259,7 @@ Effect plug-ins	ID	Name	Type				Notes
 	1057443910	Wwise Parametric EQ (Custom)	Wwise Parametric EQ			
 	1059035731	Wwise Parametric EQ (Custom)	Wwise Parametric EQ			
 	1059488289	Wwise Parametric EQ (Custom)	Wwise Parametric EQ			
+	2689776672	New_Wwise_Parametric_EQ_08	Wwise Parametric EQ			
 
 Source plug-ins	ID	Name	Type		Wwise Object Path	Notes
 	292198	FM 04	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\Instruments\FM 04\FM 04	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
@@ -278,7 +278,6 @@ Source plug-ins	ID	Name	Type		Wwise Object Path	Notes
 	209227866	COMM 01	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFXstuf\COMM 01\COMM 01	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	216132251	WOOSH 02	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFXstuf\WOOSH 02\WOOSH 02	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	283904056	PWM	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\Instruments\PWM\PWM	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
-	310835311	DRONE 03	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFXstuf\DRONE 03\DRONE 03	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	314911702	PAD 01	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\Instruments\PAD 01\PAD 01	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	320371486	Wwise Synth One	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFX\DragBox\Wwise Synth One	
 	328078722	PERC 01	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\Instruments\PERC 01\PERC 01	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
@@ -295,13 +294,11 @@ Source plug-ins	ID	Name	Type		Wwise Object Path	Notes
 	497150206	MAGIC 01	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFXstuf\MAGIC 01\MAGIC 01	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	507728361	DENIED 01	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\UI Sounds\DENIED 01\DENIED 01	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	511021499	ALARM 01	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFXstuf\ALARM 01\ALARM 01	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
-	513100109	DRONE 01	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFXstuf\DRONE 01\DRONE 01	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	546019284	FM 02	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\Instruments\FM 02\FM 02	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	553983327	BEEP 01	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\UI Sounds\BEEP 01\BEEP 01	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	576328449	SAW FIFTH	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\Instruments\SAW FIFTH\SAW FIFTH	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	600450823	OCTAVE DANCE	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\Instruments\FALLING OCTAVE\OCTAVE DANCE	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	629061771	COMM 02	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFXstuf\COMM 02\COMM 02	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
-	632445509	DRONE 02	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFXstuf\DRONE 02\DRONE 02	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	651614644	SPELL 01	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFXstuf\SPELL 01\SPELL 01	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	652537077	SPELL 02	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFXstuf\SPELL 02\SPELL 02	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	695307032	SQUARE	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\Instruments\SQUARE\SQUARE	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
@@ -329,4 +326,16 @@ Source plug-ins	ID	Name	Type		Wwise Object Path	Notes
 	1041915561	RING 03	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\Instruments\RING 03\RING 03	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	1063992787	SPELL 03	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\SFXstuf\SPELL 03\SPELL 03	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
 	1066203827	SAW	Wwise Synth One		\Actor-Mixer Hierarchy\Factory Synth One\Instruments\SAW\SAW	Audiokinetic Inc. All rights reserved. Content provided by Vincent Gagnon © 2014 Vincent Gagnon
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	36885324	Drone Complete	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Drone Complete_231A6439.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Drone\Modulator\Drone Complete		138228
+	143362801	Drone ThroughBarrier	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Drone ThroughBarrier_231A6439.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Drone\Modulator\Drone ThroughBarrier		233365
+	177505400	Drone HitWall	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Drone HitWall_231A6439.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Drone\Modulator\Drone HitWall		222415
+	301194277	Drone HitSwitch	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Drone HitSwitch_231A6439.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Drone\Modulator\Drone HitSwitch		234154
+	413257830	Drone Colour	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Drone Colour_231A6439.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Drone\Modulator\Drone Colour		225536
+	531550591	Drone Start	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Drone Start_231A6439.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Drone\Modulator\Drone Start		328335
+	711591008	Drone Splitter	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Drone Splitter_231A6439.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Drone\Modulator\Drone Splitter		291882
+	730692468	Complete	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Complete_1A7C0FCB.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Drone\Modulator\Complete		266379
+	799613144	Drone Combo	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Drone Combo_231A6439.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Drone\Modulator\Drone Combo		281158
+	906630502	Drone Reflector	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Drone Reflector_231A6439.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Drone\Modulator\Drone Reflector		314118
 

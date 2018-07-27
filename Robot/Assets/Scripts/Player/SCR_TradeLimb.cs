@@ -102,8 +102,6 @@ public class SCR_TradeLimb : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-		
-
 		var inputDevice = (InputManager.Devices.Count > playerNum) ? InputManager.Devices [playerNum] : null;
 		if (inputDevice == null)
 		{
@@ -141,7 +139,6 @@ public class SCR_TradeLimb : MonoBehaviour
             }
         }
 
-
         if(leftArmFly)
         {
             if(leftArmFly.GetComponent<LimsFly>().GetFinish())
@@ -149,8 +146,7 @@ public class SCR_TradeLimb : MonoBehaviour
                 Destroy(leftArmFly);
                 leftArmFly = null;
                 Exchange("LeftArm", otherPlayerTag);
-				//AkSoundEngine.PostEvent ("Arm_Attach", gameObject);
-
+				AkSoundEngine.PostEvent ("Arm_Attach", gameObject);
             }
         }
 
@@ -161,7 +157,7 @@ public class SCR_TradeLimb : MonoBehaviour
                 Destroy(rightArmFly);
                 rightArmFly = null;
                 Exchange("RightArm", otherPlayerTag);
-				//AkSoundEngine.PostEvent ("Arm_Attach", gameObject);
+				AkSoundEngine.PostEvent ("Arm_Attach", gameObject);
 				}
         }
 
@@ -172,7 +168,7 @@ public class SCR_TradeLimb : MonoBehaviour
                 Destroy(leftLegFly);
                 leftLegFly = null;
                 Exchange("LeftLeg", otherPlayerTag);
-				//AkSoundEngine.PostEvent ("Arm_Attach", gameObject);
+				AkSoundEngine.PostEvent ("Arm_Attach", gameObject);
             }
         }
         if (rightLegFly)
@@ -182,7 +178,7 @@ public class SCR_TradeLimb : MonoBehaviour
                 Destroy(rightLegFly);
                 rightLegFly = null;
                 Exchange("RightLeg", otherPlayerTag);
-				//AkSoundEngine.PostEvent ("Arm_Attach", gameObject);
+				AkSoundEngine.PostEvent ("Arm_Attach", gameObject);
             }
         }
     }
@@ -700,7 +696,7 @@ public class SCR_TradeLimb : MonoBehaviour
         return false;
     }
 
-    protected void Exchange(string newLimbName, string playerTag)
+    protected void Exchange(string newLimbName, string playerTag, bool start = false)
     {
         GameObject player = GameObject.FindGameObjectWithTag(playerTag);
         int limbNumber = LimbNumber(newLimbName);
@@ -713,7 +709,7 @@ public class SCR_TradeLimb : MonoBehaviour
         Destroy(tempList[limbNumber]);
         tempList.RemoveAt(limbNumber);
 
-		//AkSoundEngine.PostEvent ("Arm_Detatch", gameObject);
+		if(!start) AkSoundEngine.PostEvent ("Arm_Detatch", gameObject);
 
         tempList.Insert(limbNumber, newLimb);
     }
@@ -763,7 +759,7 @@ public class SCR_TradeLimb : MonoBehaviour
         string pickupName = pickUpObject.name;
         Destroy(pickUpObject);
         Exchange(pickupName, this.gameObject.tag);
-		//AkSoundEngine.PostEvent ("Arm_Attach", gameObject);
+		AkSoundEngine.PostEvent ("Arm_Attach", gameObject);
     }
 
     private void LimFly(string limName, string targetPlayerTag)

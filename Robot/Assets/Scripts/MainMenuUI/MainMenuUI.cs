@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.IO;
+using UnityEngine.EventSystems;
 
 public class MainMenuUI : MonoBehaviour
 {
@@ -98,6 +99,8 @@ public class MainMenuUI : MonoBehaviour
             mainMenuBtn[4].gameObject.SetActive(false);
 
             mainMenuBtn[5].gameObject.SetActive(true);
+
+            FindObjectOfType<EventSystem>().SetSelectedGameObject(GameObject.Find("Chapter1"));
         }
 
         if (btn == mainMenuBtn[5])
@@ -110,9 +113,10 @@ public class MainMenuUI : MonoBehaviour
 
             mainMenuBtn[5].gameObject.SetActive(false);
             chapterArea.SetActive(false);
+            FindObjectOfType<EventSystem>().SetSelectedGameObject(GameObject.Find("Start"));
         }
 
-        if(btn == mainMenuBtn[1])
+        if (btn == mainMenuBtn[1])
         {
             switch(GameManager.Instance.playerSetting.lastLevel)
             {

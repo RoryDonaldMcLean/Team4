@@ -54,17 +54,17 @@ public class InControlMovement : MonoBehaviour
 		if (GetLegQuantity () >= 2)
 		{
 			playerSpeed = 6.0f;
-			//AkSoundEngine.SetRTPCValue ("LimbNumber", 3.0f);
+			AkSoundEngine.SetRTPCValue ("LimbNumber", 3.0f);
 		} 
 		else if (GetLegQuantity () == 1)
 		{
 			playerSpeed = 3.0f;
-			//AkSoundEngine.SetRTPCValue ("LimbNumber", 1.0f);
+			AkSoundEngine.SetRTPCValue ("LimbNumber", 1.0f);
 
 		} else
 		{
 			playerSpeed = 1.5f;
-			//AkSoundEngine.SetRTPCValue ("LimbNumber", 0.0f);
+			AkSoundEngine.SetRTPCValue ("LimbNumber", 0.0f);
 
 		}
 
@@ -110,18 +110,18 @@ public class InControlMovement : MonoBehaviour
 		if (GetLegQuantity () >= 2)
 		{
 			playerSpeed = 6.0f;
-			//AkSoundEngine.SetRTPCValue ("LimbNumber", 3.0f);
+			AkSoundEngine.SetRTPCValue ("LimbNumber", 3.0f);
 
 		} 
 		else if (GetLegQuantity () == 1)
 		{
 			playerSpeed = 3.0f;
-			//AkSoundEngine.SetRTPCValue ("LimbNumber", 1.0f);
+			AkSoundEngine.SetRTPCValue ("LimbNumber", 1.0f);
 
 		} else
 		{
 			playerSpeed = 1.5f;
-			//AkSoundEngine.SetRTPCValue ("LimbNumber", 0.0f);
+			AkSoundEngine.SetRTPCValue ("LimbNumber", 0.0f);
 
 		}
 
@@ -264,7 +264,7 @@ public class InControlMovement : MonoBehaviour
 
         //will rotate the player to face the direction they are moving
         if (lookAt != Vector3.zero)
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(lookAt), 0.1f);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(lookAt), 0.3f);
     }
 
     private int GetLegQuantity()

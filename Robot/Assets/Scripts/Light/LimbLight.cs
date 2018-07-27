@@ -107,6 +107,7 @@ public class LimbLight : MonoBehaviour
 
         if (RayCast(this.transform.forward, nearDistance, out hit))
         {
+            AkSoundEngine.SetState("Drone_Modulator", "Hit_Switch");
             lightRedirect.TriggerEnterFunction(hit.collider);
         }
         //else if (RayCast(this.transform.right, nearDistance, out hit))
@@ -126,8 +127,6 @@ public class LimbLight : MonoBehaviour
 
         Debug.DrawRay(raycastStartLocation, direction, Color.red, length);
         return Physics.BoxCast(raycastStartLocation, this.GetComponent<Transform>().localScale, direction, out hit, Quaternion.identity, length, layerMask);
-
-		//AkSoundEngine.SetState("Drone_Modulator", "Hit_Switch");
     }
     /*
     void OnDrawGizmos()

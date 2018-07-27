@@ -77,6 +77,7 @@ namespace AK
 
             namespace STATE
             {
+                static const AkUniqueID EMPTY = 3354297748U;
                 static const AkUniqueID MENU = 2607556080U;
                 static const AkUniqueID P1_INTRO = 948331455U;
                 static const AkUniqueID P1_INTROVIEWPOINT = 459379426U;

@@ -21,7 +21,6 @@ public class Movement_ : MonoBehaviour
     public bool grounded = true;
     public bool doubleJump = false;
 
-
     // Use this for initialization
     void Start()
     {

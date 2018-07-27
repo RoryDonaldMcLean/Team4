@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour {
-
+public class GameManager : MonoBehaviour 
+{
     private static GameManager _instance;
 
     public static GameManager Instance
@@ -38,14 +38,4 @@ public class GameManager : MonoBehaviour {
     {
         _instance = null;
     }
-
-    // Use this for initialization
-    void Start () {
-
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

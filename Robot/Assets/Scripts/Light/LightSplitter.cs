@@ -80,9 +80,9 @@ public class LightSplitter : MonoBehaviour
         isDeleting = false;
 
         RaycastHit hit;
-        if (RayCast(this.transform.forward, 1.25f, out hit))
+        if (RayCast(this.transform.forward, 1.0f, out hit))
         {
-            OnEnter(hit.collider);
+            //OnEnter(hit.collider);
         }
     }
 
@@ -91,7 +91,7 @@ public class LightSplitter : MonoBehaviour
         int layerMask = 1 << LayerMask.NameToLayer("LightBeam");
         Vector3 offsetPos = Vector3.Scale(direction, this.transform.GetChild(0).GetComponent<Transform>().localScale);
         Vector3 raycastStartLocation = this.transform.position;
-        raycastStartLocation -= offsetPos * 2.3f;
+        raycastStartLocation -= offsetPos * 2.165f;
         raycastStartLocation.y = 3.49f;
 
         Debug.DrawRay(raycastStartLocation, direction, Color.red, length);
@@ -122,7 +122,7 @@ public class LightSplitter : MonoBehaviour
 
         if ((splitColour) && (beamColour.Equals(new Color(1,0,1,1)))) SplitColourBetweenBeams();
 
-        //AkSoundEngine.SetState("Drone_Modulator", "Splitter");
+        AkSoundEngine.SetState("Drone_Modulator", "Splitter");
     }
 
     private void SplitColourBetweenBeams()

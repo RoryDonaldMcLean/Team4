@@ -25,9 +25,6 @@ public class PickupAndDropdown : MonoBehaviour
     {
         holding = false;
         //alpha = 0;
-
-        //PickCrystalSource.clip = PickCrystal;
-        //DropCrystalSource.clip = DropCrystal;
     }
 
     // Update is called once per frame
@@ -73,7 +70,7 @@ public class PickupAndDropdown : MonoBehaviour
 						{
 							pickedUpGameObject = hit.transform.gameObject;
 
-							//AkSoundEngine.PostEvent ("Arm_Attach", gameObject);
+							AkSoundEngine.PostEvent ("Arm_Attach", gameObject);
 
 							//when you "pick up" the box it will rotate to face the same direction as the player
 							//float speed = 200.0f;
@@ -348,7 +345,7 @@ public class PickupAndDropdown : MonoBehaviour
 		pickedUpGameObject.transform.parent.GetComponent<SCR_Movable>().pickedUp = false;
 		offset = 0;
 		PutDownObject();
-		//AkSoundEngine.PostEvent ("Place_Crystal", gameObject);
+		AkSoundEngine.PostEvent ("Place_Crystal", gameObject);
 
 	}
 
@@ -379,13 +376,12 @@ public class PickupAndDropdown : MonoBehaviour
         pickedUpGameObject = null; //empty the pick up object
         Destroy(pickupLocation);
 
-		//AkSoundEngine.PostEvent ("Place_Crystal", gameObject);
-
+		AkSoundEngine.PostEvent ("Place_Crystal", gameObject);
     }
 
     private void PickUpObject(Transform objectBeingPickedUp)
     {
-		//AkSoundEngine.PostEvent ("PickUp_Crystal", gameObject);
+		AkSoundEngine.PostEvent ("PickUp_Crystal", gameObject);
 
 		Debug.Log ("at the pickup function");
         holding = true; //set pick up boolean
@@ -441,7 +437,7 @@ public class PickupAndDropdown : MonoBehaviour
 		{
 			if (this.GetArmQuantity () >= 2)
 			{
-				//AkSoundEngine.PostEvent ("Push_Box", gameObject);
+				AkSoundEngine.PostEvent ("Push_Box", gameObject);
 			}
 		}
 	}
@@ -470,8 +466,7 @@ public class PickupAndDropdown : MonoBehaviour
         if (other.gameObject.tag == "HugeBox")
         {
             other.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-			//AkSoundEngine.PostEvent ("Push_Box_Stop", gameObject);
-
+			AkSoundEngine.PostEvent ("Push_Box_Stop", gameObject);
         }
     }
 }

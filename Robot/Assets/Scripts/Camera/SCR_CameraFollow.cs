@@ -6,7 +6,7 @@ public class SCR_CameraFollow : MonoBehaviour
 {
     //
 	Camera cam;
-	Transform t1, t2, followThis;
+	Transform t1, t2;
 
 	GameObject blockWall, endPoint;
 	GameObject[] Travel;
@@ -87,14 +87,12 @@ public class SCR_CameraFollow : MonoBehaviour
             {
                 followP1 = true;
                 //make the camera look at player1
-                followThis = t1.transform;
 
             }
             else if (smallestDistance == distanceP2)
             {
                 followP2 = true;
                 //make the camera look at player2
-                followThis = t2.transform;
             }
 
 			if(!endOfTravel)

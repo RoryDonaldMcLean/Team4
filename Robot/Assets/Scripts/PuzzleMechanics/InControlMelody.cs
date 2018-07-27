@@ -31,10 +31,6 @@ public class InControlMelody : MonoBehaviour
 	//array of rawimages that are being used in the UI for the melodies
 	List<GameObject> Notes = new List<GameObject>();
 
-	//Blank array which is used to take all the textures off the rawimages when a code is wrong or finished with
-	List<GameObject> blankNotes = new List<GameObject>();
-
-
 	int playerNum;
 
 	// Use this for initialization
@@ -53,16 +49,12 @@ public class InControlMelody : MonoBehaviour
 		{
 			Arrows[i] = Resources.Load<Sprite> ("Art/PlaceHolder/" + (i + 1)) as Sprite;
 		}
-	
 
 		CanvasNoteSheet = GameObject.FindGameObjectWithTag ("CanvasNoteSheet");
 		for (int i = 0; i < CanvasNoteSheet.transform.childCount; i++)
 		{
 			Notes.Add(CanvasNoteSheet.transform.GetChild(i).gameObject);
 		}
-			
-		blankNotes = Notes;
-
 	}
 	
 	// Update is called once per frame

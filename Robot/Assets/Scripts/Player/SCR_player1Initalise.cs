@@ -14,35 +14,35 @@ public class SCR_player1Initalise : SCR_TradeLimb
 		if (levelCounter == 0)
 		{
 			//tutorial level
-			Exchange ("RightArm", this.gameObject.tag);
-			Exchange ("LeftLeg", this.gameObject.tag);
-			Exchange ("RightLeg", this.gameObject.tag);
+			Exchange ("RightArm", this.gameObject.tag, true);
+			Exchange ("LeftLeg", this.gameObject.tag, true);
+			Exchange ("RightLeg", this.gameObject.tag, true);
 		} 
 		else if (levelCounter == 1)
 		{
 			//factory part 1
-			Exchange ("RightArm", this.gameObject.tag);
-			Exchange ("LeftLeg", this.gameObject.tag);
-			Exchange ("RightLeg", this.gameObject.tag);
+			Exchange ("RightArm", this.gameObject.tag, true);
+			Exchange ("LeftLeg", this.gameObject.tag, true);
+			Exchange ("RightLeg", this.gameObject.tag, true);
 		} 
 		else if (levelCounter == 2)
 		{
 			//factory part 2
-			Exchange ("RightArm", this.gameObject.tag);
-			Exchange ("LeftLeg", this.gameObject.tag);
-			Exchange ("RightLeg", this.gameObject.tag);
+			Exchange ("RightArm", this.gameObject.tag, true);
+			Exchange ("LeftLeg", this.gameObject.tag, true);
+			Exchange ("RightLeg", this.gameObject.tag, true);
 		} 
 		else if (levelCounter == 3)
 		{
 			//factory hights
-			Exchange ("RightArm", this.gameObject.tag);
-			Exchange ("RightLeg", this.gameObject.tag);
+			Exchange ("RightArm", this.gameObject.tag, true);
+			Exchange ("RightLeg", this.gameObject.tag, true);
 
 		} 
 		else if (levelCounter == 4)
 		{
 			//tower
-			Exchange ("RightArm", this.gameObject.tag);
+			Exchange ("RightArm", this.gameObject.tag, true);
 		}
 
 

@@ -2195,7 +2195,7 @@
 											<PropertyList>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-23</Value>
+														<Value>-17</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -2221,7 +2221,7 @@
 											<PropertyList>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-26</Value>
+														<Value>-15</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -3147,6 +3147,10 @@ Air currents change during the hours of the day and months of the year.</Comment
 														<State Name="" ID="{5B7F035E-FAE8-4B9B-8A27-3E282E6D55FC}" ShortID="136425700"/>
 													</CustomState>
 													<CustomState>
+														<StateRef Name="Empty" ID="{C1FFFDEC-FC6D-4B54-9D54-1DB3342ADAC8}"/>
+														<State Name="" ID="{4DF5613B-1526-4F39-8B64-6F66EECD9018}" ShortID="241192020"/>
+													</CustomState>
+													<CustomState>
 														<StateRef Name="P6_EndSacrifice" ID="{B2786363-AAB6-4D23-9F0A-8407408276B0}"/>
 														<State Name="" ID="{98604DA5-B341-4706-803B-EFAA30B21751}" ShortID="32482784"/>
 													</CustomState>
@@ -3807,6 +3811,10 @@ Air currents change during the hours of the day and foliage changes during  the 
 												<State Name="" ID="{217ABB8E-7133-430F-8186-D230B91E6B9E}" ShortID="712459084"/>
 											</CustomState>
 											<CustomState>
+												<StateRef Name="Empty" ID="{C1FFFDEC-FC6D-4B54-9D54-1DB3342ADAC8}"/>
+												<State Name="" ID="{627C915A-3397-4E4D-B954-A89E20786C06}" ShortID="998799728"/>
+											</CustomState>
+											<CustomState>
 												<StateRef Name="Colour_Change" ID="{52D58239-FA93-4CCE-A3E2-8E4C3E0E91B2}"/>
 												<State Name="" ID="{E8AC44FE-F211-423C-A592-6E5641CBF210}" ShortID="987674966">
 													<PropertyList>
@@ -4210,6 +4218,10 @@ Air currents change during the hours of the day and foliage changes during  the 
 														<State Name="" ID="{FD3FDB64-F9B3-4949-B4D0-7E08CAE0B049}" ShortID="264282724"/>
 													</CustomState>
 													<CustomState>
+														<StateRef Name="Empty" ID="{C1FFFDEC-FC6D-4B54-9D54-1DB3342ADAC8}"/>
+														<State Name="" ID="{1F59C491-4BCD-48DD-8084-16F307D6943B}" ShortID="90265448"/>
+													</CustomState>
+													<CustomState>
 														<StateRef Name="P6_EndSacrifice" ID="{B2786363-AAB6-4D23-9F0A-8407408276B0}"/>
 														<State Name="" ID="{D173669B-4FF9-498C-97A2-FA19807F4B20}" ShortID="261698418">
 															<PropertyList>
@@ -4291,6 +4303,10 @@ Air currents change during the hours of the day and foliage changes during  the 
 											<CustomState>
 												<StateRef Name="P4_Clouds" ID="{B92ABBFE-ED7C-4AE0-A739-CF81428935A0}"/>
 												<State Name="" ID="{55B11952-9DF8-4CB7-ADA0-EBDBA7075719}" ShortID="299605225"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="Empty" ID="{C1FFFDEC-FC6D-4B54-9D54-1DB3342ADAC8}"/>
+												<State Name="" ID="{568318BE-7928-4373-A60A-ADAE16BCF7ED}" ShortID="35310299"/>
 											</CustomState>
 											<CustomState>
 												<StateRef Name="P6_EndSacrifice" ID="{B2786363-AAB6-4D23-9F0A-8407408276B0}"/>
@@ -4441,12 +4457,24 @@ Air currents change during the hours of the day and foliage changes during  the 
 							<ChildrenList>
 								<SwitchContainer Name="Modulator" ID="{0263BE02-60A6-444C-B012-307D3A41BD0B}" ShortID="36124401">
 									<PropertyList>
+										<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
+										<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+										<Property Name="MaxSoundPerInstance" Type="int16">
+											<ValueList>
+												<Value>1</Value>
+											</ValueList>
+										</Property>
 										<Property Name="OverrideEffect" Type="bool" Value="True"/>
 										<Property Name="OverridePositioning" Type="bool" Value="True"/>
 										<Property Name="SwitchBehavior" Type="int16" Value="1"/>
+										<Property Name="UseMaxSoundPerInstance" Type="bool">
+											<ValueList>
+												<Value>True</Value>
+											</ValueList>
+										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-17</Value>
+												<Value>-19</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>

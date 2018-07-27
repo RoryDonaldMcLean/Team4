@@ -41,7 +41,7 @@ public class PickupAndDropdown : MonoBehaviour
 				if((Input.GetKeyDown(GameManager.Instance.playerSetting.currentButton[9]) 
                     && isBlue == GameManager.Instance.whichAndroid.player1ControlBlue
                     )
-                    || Input.GetKeyDown(GameManager.Instance.playerSetting.currentButton[21])
+                    || Input.GetKeyDown(GameManager.Instance.playerSetting.currentButton[22])
                     && isBlue != GameManager.Instance.whichAndroid.player1ControlBlue)
 				{
 					if (ObjectFound(out hit))//ray cast detection
@@ -95,7 +95,7 @@ public class PickupAndDropdown : MonoBehaviour
 				else if ((Input.GetKeyDown(GameManager.Instance.playerSetting.currentButton[11])
                     && isBlue == GameManager.Instance.whichAndroid.player1ControlBlue
                     )
-                    || Input.GetKeyDown(GameManager.Instance.playerSetting.currentButton[23])
+                    || Input.GetKeyDown(GameManager.Instance.playerSetting.currentButton[24])
                     && isBlue != GameManager.Instance.whichAndroid.player1ControlBlue)
                 {
 
@@ -147,7 +147,7 @@ public class PickupAndDropdown : MonoBehaviour
 					if ((Input.GetKeyDown(GameManager.Instance.playerSetting.currentButton[9])
                     && isBlue == GameManager.Instance.whichAndroid.player1ControlBlue
                     )
-                    || Input.GetKeyDown(GameManager.Instance.playerSetting.currentButton[21])
+                    || Input.GetKeyDown(GameManager.Instance.playerSetting.currentButton[22])
                     && isBlue != GameManager.Instance.whichAndroid.player1ControlBlue)
                     {
 						Debug.Log("dropped on click");
@@ -163,9 +163,9 @@ public class PickupAndDropdown : MonoBehaviour
 
                     Vector3 eulerAng = pickedUpGameObject.GetComponent<Transform>().rotation.eulerAngles;
                     bool left = (Input.GetKey(GameManager.Instance.playerSetting.currentButton[1]) && isBlue == GameManager.Instance.whichAndroid.player1ControlBlue)
-                         || (Input.GetKey(GameManager.Instance.playerSetting.currentButton[13]) && isBlue != GameManager.Instance.whichAndroid.player1ControlBlue);
+                         || (Input.GetKey(GameManager.Instance.playerSetting.currentButton[14]) && isBlue != GameManager.Instance.whichAndroid.player1ControlBlue);
                     bool right = (Input.GetKey(GameManager.Instance.playerSetting.currentButton[3]) && isBlue == GameManager.Instance.whichAndroid.player1ControlBlue)
-                         || (Input.GetKey(GameManager.Instance.playerSetting.currentButton[15]) && isBlue != GameManager.Instance.whichAndroid.player1ControlBlue);
+                         || (Input.GetKey(GameManager.Instance.playerSetting.currentButton[16]) && isBlue != GameManager.Instance.whichAndroid.player1ControlBlue);
                     float leftrot = left ? -1.0f : 0.0f;
                     float rightrot = right ? 1.0f : 0.0f;
 
@@ -175,7 +175,7 @@ public class PickupAndDropdown : MonoBehaviour
                     if ((Input.GetKeyDown(GameManager.Instance.playerSetting.currentButton[9])
                     && isBlue == GameManager.Instance.whichAndroid.player1ControlBlue
                     )
-                    || Input.GetKeyDown(GameManager.Instance.playerSetting.currentButton[21])
+                    || Input.GetKeyDown(GameManager.Instance.playerSetting.currentButton[22])
                     && isBlue != GameManager.Instance.whichAndroid.player1ControlBlue)
                     {
 						RotateDrop();
@@ -194,7 +194,7 @@ public class PickupAndDropdown : MonoBehaviour
 					if ((Input.GetKeyDown(GameManager.Instance.playerSetting.currentButton[9])
                     && isBlue == GameManager.Instance.whichAndroid.player1ControlBlue
                     )
-                    || Input.GetKeyDown(GameManager.Instance.playerSetting.currentButton[21])
+                    || Input.GetKeyDown(GameManager.Instance.playerSetting.currentButton[22])
                     && isBlue != GameManager.Instance.whichAndroid.player1ControlBlue)
                     {
 						PutDownObject();

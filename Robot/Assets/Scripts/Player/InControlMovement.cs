@@ -178,31 +178,31 @@ public class InControlMovement : MonoBehaviour
             //////////////////////////////////////////////////////////
             /// //player 2
             /// //move forward
-            if(Input.GetKey(GameManager.Instance.playerSetting.currentButton[12]))
+            if(Input.GetKey(GameManager.Instance.playerSetting.currentButton[13]))
             {
                 velocity.z += 1.0f;
             }
             //move backward
-            if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[14]))
+            if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[15]))
             {
                 velocity.z -= 1.0f;
             }
 
             //move left
-            if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[13]))
+            if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[14]))
             {
                 velocity.x -= 1.0f;
             }
 
             //move right
-            if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[15]))
+            if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[16]))
             {
                 velocity.x += 1.0f;
             }
 
 
             //jumping
-            if ((grounded == true || doubleJump == true) && Input.GetKeyDown(GameManager.Instance.playerSetting.currentButton[20]) && this.GetLegQuantity() >= 1)
+            if ((grounded == true || doubleJump == true) && Input.GetKeyDown(GameManager.Instance.playerSetting.currentButton[21]) && this.GetLegQuantity() >= 1)
             {
                 if (grounded && this.GetLegQuantity() >= 2)
                     doubleJump = true;

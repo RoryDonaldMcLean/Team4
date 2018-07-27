@@ -7,11 +7,15 @@ using UnityEngine.UI;
 public class SwitchInputDevices : MonoBehaviour
 {
     public GameObject cover;
+    public bool isC;
     EventSystem es;
+    GameObject canvas;
     // Use this for initialization
     void Start()
     {
         es = FindObjectOfType<EventSystem>();
+        canvas = es.GetComponent<SwitchSelectController>().canvas;
+        isC = false;
     }
 
     // Update is called once per frame
@@ -23,13 +27,16 @@ public class SwitchInputDevices : MonoBehaviour
             es.GetComponent<SwitchSelectController>().enabled = false;
             Cursor.visible = true;
             cover.SetActive(false);
+            isC = false;
         }
         if (Input.GetButton("Submit") && Cursor.visible)
         {
-            es.SetSelectedGameObject(GameObject.FindObjectOfType<Button>().gameObject);
+            es.SetSelectedGameObject(null);
+            es.SetSelectedGameObject(canvas.GetComponentsInChildren<Button>()[0].gameObject);
             es.GetComponent<SwitchSelectController>().enabled = true;
             Cursor.visible = false;
             cover.SetActive(true);
+            isC = true;
         }
 
         if (Cursor.visible && Input.GetMouseButtonDown(0))

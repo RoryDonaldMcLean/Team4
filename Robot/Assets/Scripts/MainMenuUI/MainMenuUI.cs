@@ -16,7 +16,7 @@ public class MainMenuUI : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
-
+        Application.targetFrameRate = 60;
     }
 
     void Start()

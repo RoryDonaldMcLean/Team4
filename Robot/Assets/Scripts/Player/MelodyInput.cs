@@ -150,6 +150,11 @@ public class MelodyInput : MonoBehaviour
 						{
 							Debug.Log ("Player1 has no right leg");
 						}
+					}// clear the code incase you get it wrong
+					else if (Input.GetKeyDown (KeyCode.R))
+					{
+						Debug.Log ("b0ss plz");
+						MelodyDoor.GetComponent<InControlMelody> ().CheckCode ();
 					}
 
 					if (MelodyDoor.GetComponent<InControlMelody> ().noteCounter == CodeTotal)
@@ -218,6 +223,11 @@ public class MelodyInput : MonoBehaviour
 						{
 							Debug.Log ("Player2 has no right leg");
 						}
+					}
+					else if (Input.GetKeyDown (KeyCode.Keypad2))
+					{
+						Debug.Log ("b0ss plz");
+						MelodyDoor.GetComponent<InControlMelody> ().CheckCode ();
 					}
 
 					if (MelodyDoor.GetComponent<InControlMelody> ().noteCounter == CodeTotal)
@@ -296,6 +306,11 @@ public class MelodyInput : MonoBehaviour
 							Debug.Log ("Player1 has no right leg");
 						}
 					}
+					else if (inputDevice.Action3.WasPressed)
+					{
+						Debug.Log ("b0ss plz");
+						MelodyDoor.GetComponent<InControlMelody> ().CheckCode ();
+					}
 
 					if (MelodyDoor.GetComponent<InControlMelody> ().noteCounter == CodeTotal)
 					{
@@ -363,6 +378,11 @@ public class MelodyInput : MonoBehaviour
 						{
 							Debug.Log ("Player2 has no right leg");
 						}
+					}
+					else if (inputDevice.Action3.WasPressed)
+					{
+						Debug.Log ("b0ss plz");
+						MelodyDoor.GetComponent<InControlMelody> ().CheckCode ();
 					}
 
 					if (MelodyDoor.GetComponent<InControlMelody> ().noteCounter == CodeTotal)

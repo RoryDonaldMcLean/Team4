@@ -10,8 +10,20 @@
 							<Position X="0" Y="0"/>
 						</Module>
 						<Module>
+							<ObjectRef Name="GateNoteA" ID="{EF6D421C-245B-4881-B1E8-B29EBF662409}" WorkUnitID="{9208E778-4B37-4421-9C2A-46AAA42FFE85}"/>
+							<Position X="0" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="GateNoteB" ID="{71236CF1-B780-45D4-A72F-1586AE18DE56}" WorkUnitID="{9208E778-4B37-4421-9C2A-46AAA42FFE85}"/>
+							<Position X="1" Y="1"/>
+						</Module>
+						<Module>
 							<ObjectRef Name="Music_Start" ID="{3B88EE9D-A4F2-4C37-9601-6A387E91D0D0}" WorkUnitID="{9208E778-4B37-4421-9C2A-46AAA42FFE85}"/>
 							<Position X="2" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="GateNoteFinish" ID="{A757EF24-FF99-465B-BBB3-4CBF6EC59AB1}" WorkUnitID="{9208E778-4B37-4421-9C2A-46AAA42FFE85}"/>
+							<Position X="2" Y="1"/>
 						</Module>
 					</ModuleList>
 					<RTPCValueList ShowAll="true">
@@ -165,8 +177,20 @@
 							<Position X="3" Y="3"/>
 						</Module>
 						<Module>
+							<ObjectRef Name="GateNoteA" ID="{EF6D421C-245B-4881-B1E8-B29EBF662409}" WorkUnitID="{9208E778-4B37-4421-9C2A-46AAA42FFE85}"/>
+							<Position X="4" Y="3"/>
+						</Module>
+						<Module>
 							<ObjectRef Name="DoorChirp" ID="{3559F8D9-9CDD-458F-A0B4-DF8F19AE938C}" WorkUnitID="{9208E778-4B37-4421-9C2A-46AAA42FFE85}"/>
 							<Position X="5" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="GateNoteB" ID="{71236CF1-B780-45D4-A72F-1586AE18DE56}" WorkUnitID="{9208E778-4B37-4421-9C2A-46AAA42FFE85}"/>
+							<Position X="5" Y="3"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="GateNoteFinish" ID="{A757EF24-FF99-465B-BBB3-4CBF6EC59AB1}" WorkUnitID="{9208E778-4B37-4421-9C2A-46AAA42FFE85}"/>
+							<Position X="6" Y="3"/>
 						</Module>
 					</ModuleList>
 					<RTPCValueList ShowAll="true">
@@ -180,7 +204,7 @@
 						</RTPCValue>
 						<RTPCValue>
 							<GameParameterRef Name="LimbNumber" ID="{9D2C0198-110B-4E07-BCC0-FA350FF658CF}"/>
-							<Value>0.63</Value>
+							<Value>2.19</Value>
 						</RTPCValue>
 						<RTPCValue>
 							<GameParameterRef Name="Wind_Speed" ID="{41983626-5B7C-4EAC-ACAF-7D0E11ECEF10}"/>
@@ -188,13 +212,13 @@
 						</RTPCValue>
 					</RTPCValueList>
 					<CurrentStateList ShowAll="true">
-						<CurrentStateRef Name="P2_FactoryPuzzle2" ID="{DC03589A-BDD2-45D6-A826-EA9C0315B998}"/>
-						<CurrentStateRef Name="Reflector" ID="{F0FD1677-1293-401E-83C0-409A107A0ED2}"/>
+						<CurrentStateRef Name="P2_FactoryViewpoint" ID="{EB070CD5-C2C2-46D1-9A5B-C15943D11787}"/>
+						<CurrentStateRef Name="Hit_Switch" ID="{5DBE742A-FF4B-4888-A989-F0958DD1AA8E}"/>
 						<CurrentStateRef Name="Happy" ID="{8159EF55-F4EC-4B8F-8798-01F730CE0B04}"/>
 					</CurrentStateList>
 					<CurrentSwitchList ShowAll="true">
 						<CurrentSwitchRef Name="Concrete" ID="{C238A2AA-1701-4871-AACD-CAD08E807EA5}"/>
-						<CurrentSwitchRef Name="Limb1" ID="{555828A5-CA04-4106-BB01-E09BCFFB5FDE}"/>
+						<CurrentSwitchRef Name="Limb2" ID="{7CF078EE-E8AF-4FB7-87DA-F9F2CE6A9B4D}"/>
 						<CurrentSwitchRef Name="Player_1" ID="{6E833DCC-3FA9-4C0A-8558-F454CDA5F3DB}"/>
 					</CurrentSwitchList>
 				</SoundcasterSession>

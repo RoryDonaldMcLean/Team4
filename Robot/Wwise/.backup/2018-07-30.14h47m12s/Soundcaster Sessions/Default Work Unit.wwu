@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{2C72FA98-EAB4-4366-8B25-040A1B53E0F4}" SchemaVersion="85">
+	<SoundcasterSessions>
+		<WorkUnit Name="Default Work Unit" ID="{2C72FA98-EAB4-4366-8B25-040A1B53E0F4}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundcasterSession Name="Chirps" ID="{7FAA2660-E2D9-46C9-A086-ADDCB2F5E6C7}">
+					<ModuleList>
+						<Module>
+							<ObjectRef Name="Chirp" ID="{BC05550A-267D-41C8-B984-AB934261AB34}" WorkUnitID="{9208E778-4B37-4421-9C2A-46AAA42FFE85}"/>
+							<Position X="0" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Music_Start" ID="{3B88EE9D-A4F2-4C37-9601-6A387E91D0D0}" WorkUnitID="{9208E778-4B37-4421-9C2A-46AAA42FFE85}"/>
+							<Position X="2" Y="0"/>
+						</Module>
+					</ModuleList>
+					<RTPCValueList ShowAll="true">
+						<RTPCValue>
+							<GameParameterRef Name="Chirps_Combine" ID="{F12155E7-E290-4705-A9D3-8E95B7457F07}"/>
+							<Value>100</Value>
+						</RTPCValue>
+					</RTPCValueList>
+					<CurrentStateList ShowAll="true">
+						<CurrentStateRef Name="Happy" ID="{8159EF55-F4EC-4B8F-8798-01F730CE0B04}"/>
+					</CurrentStateList>
+					<CurrentSwitchList ShowAll="true">
+						<CurrentSwitchRef Name="Concrete" ID="{C238A2AA-1701-4871-AACD-CAD08E807EA5}"/>
+						<CurrentSwitchRef Name="Limb1" ID="{555828A5-CA04-4106-BB01-E09BCFFB5FDE}"/>
+						<CurrentSwitchRef Name="Player_1" ID="{6E833DCC-3FA9-4C0A-8558-F454CDA5F3DB}"/>
+					</CurrentSwitchList>
+				</SoundcasterSession>
+				<SoundcasterSession Name="Music" ID="{765ED296-20B5-4673-BAD8-18446C55D60A}">
+					<ModuleList>
+						<Module>
+							<ObjectRef Name="Drone" ID="{C48883F0-0412-458A-AFBC-C283EB37E271}" WorkUnitID="{9208E778-4B37-4421-9C2A-46AAA42FFE85}"/>
+							<Position X="0" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Music_Start" ID="{3B88EE9D-A4F2-4C37-9601-6A387E91D0D0}" WorkUnitID="{9208E778-4B37-4421-9C2A-46AAA42FFE85}"/>
+							<Position X="1" Y="0"/>
+						</Module>
+					</ModuleList>
+					<RTPCValueList ShowAll="true">
+						<RTPCValue>
+							<GameParameterRef Name="EnvironmentEffects" ID="{6C0E9AD4-1D56-4413-8283-3E258ED2C076}"/>
+							<Value>0</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="Chirps_Combine" ID="{F12155E7-E290-4705-A9D3-8E95B7457F07}"/>
+							<Value>100</Value>
+						</RTPCValue>
+					</RTPCValueList>
+					<CurrentStateList ShowAll="true">
+						<CurrentStateRef Name="Hit_Switch" ID="{5DBE742A-FF4B-4888-A989-F0958DD1AA8E}"/>
+						<CurrentStateRef Name="Happy" ID="{8159EF55-F4EC-4B8F-8798-01F730CE0B04}"/>
+					</CurrentStateList>
+					<CurrentSwitchList ShowAll="true">
+						<CurrentSwitchRef Name="Concrete" ID="{C238A2AA-1701-4871-AACD-CAD08E807EA5}"/>
+						<CurrentSwitchRef Name="Limb1" ID="{555828A5-CA04-4106-BB01-E09BCFFB5FDE}"/>
+						<CurrentSwitchRef Name="Player_1" ID="{6E833DCC-3FA9-4C0A-8558-F454CDA5F3DB}"/>
+					</CurrentSwitchList>
+				</SoundcasterSession>
+				<SoundcasterSession Name="Robots" ID="{0D38D4A0-8B42-4373-BAC9-8745DF30A165}">
+					<ModuleList>
+						<Module>
+							<ObjectRef Name="Arm_Attach" ID="{93BA3662-E3C9-4BC4-91EC-8779EBD7F508}" WorkUnitID="{9208E778-4B37-4421-9C2A-46AAA42FFE85}"/>
+							<Position X="0" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Footstep" ID="{F5484EFA-EDBF-4629-98EA-F71C55EC26C1}" WorkUnitID="{9208E778-4B37-4421-9C2A-46AAA42FFE85}"/>
+							<Position X="0" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Arm_Break" ID="{542BD787-074A-4337-8CA3-DF0CB3664434}" WorkUnitID="{9208E778-4B37-4421-9C2A-46AAA42FFE85}"/>
+							<Position X="1" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Arm_Detatch" ID="{A4C9C9F7-4BA3-4F60-B7D6-A3E9C8EC0265}" WorkUnitID="{9208E778-4B37-4421-9C2A-46AAA42FFE85}"/>
+							<Position X="2" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Chirp" ID="{BC05550A-267D-41C8-B984-AB934261AB34}" WorkUnitID="{9208E778-4B37-4421-9C2A-46AAA42FFE85}"/>
+							<Position X="3" Y="0"/>
+						</Module>
+					</ModuleList>
+					<RTPCValueList ShowAll="true">
+						<RTPCValue>
+							<GameParameterRef Name="Chirps_Combine" ID="{F12155E7-E290-4705-A9D3-8E95B7457F07}"/>
+							<Value>100</Value>
+						</RTPCValue>
+					</RTPCValueList>
+					<CurrentStateList ShowAll="true">
+						<CurrentStateRef Name="Happy" ID="{8159EF55-F4EC-4B8F-8798-01F730CE0B04}"/>
+					</CurrentStateList>
+					<CurrentSwitchList ShowAll="true">
+						<CurrentSwitchRef Name="Dirt" ID="{1AA64321-96E7-443D-BB3D-67DE9300CF00}"/>
+						<CurrentSwitchRef Name="Limb1" ID="{555828A5-CA04-4106-BB01-E09BCFFB5FDE}"/>
+						<CurrentSwitchRef Name="Player_1" ID="{6E833DCC-3FA9-4C0A-8558-F454CDA5F3DB}"/>
+					</CurrentSwitchList>
+				</SoundcasterSession>
+				<SoundcasterSession Name="Main" ID="{2927B7AF-20D4-4DF7-9E15-90C28C24889C}">
+					<ModuleList>
+						<Module>
+							<ObjectRef Name="Ambient" ID="{6232F5DB-B65A-4C2C-995E-200B86589351}" WorkUnitID="{9208E778-4B37-4421-9C2A-46AAA42FFE85}"/>
+							<Position X="0" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="PickUp_Crystal" ID="{1B4A3655-B3A4-4A40-A762-8FB46453B9BC}" WorkUnitID="{9208E778-4B37-4421-9C2A-46AAA42FFE85}"/>
+							<Position X="0" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Arm_Detatch" ID="{A4C9C9F7-4BA3-4F60-B7D6-A3E9C8EC0265}" WorkUnitID="{9208E778-4B37-4421-9C2A-46AAA42FFE85}"/>
+							<Position X="0" Y="2"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Light_Hits_Crystal" ID="{558563A8-9815-4DDD-8936-140CD8278E22}" WorkUnitID="{9208E778-4B37-4421-9C2A-46AAA42FFE85}"/>
+							<Position X="0" Y="3"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Drone" ID="{C48883F0-0412-458A-AFBC-C283EB37E271}" WorkUnitID="{9208E778-4B37-4421-9C2A-46AAA42FFE85}"/>
+							<Position X="1" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Place_Crystal" ID="{E6D6740D-0A1C-4061-9089-479983AFFA24}" WorkUnitID="{9208E778-4B37-4421-9C2A-46AAA42FFE85}"/>
+							<Position X="1" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Chirp" ID="{BC05550A-267D-41C8-B984-AB934261AB34}" WorkUnitID="{9208E778-4B37-4421-9C2A-46AAA42FFE85}"/>
+							<Position X="1" Y="2"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="TheCore" ID="{D9D345DB-25F3-4BFE-B98D-9456BD384E02}" WorkUnitID="{9208E778-4B37-4421-9C2A-46AAA42FFE85}"/>
+							<Position X="1" Y="3"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Music_Start" ID="{3B88EE9D-A4F2-4C37-9601-6A387E91D0D0}" WorkUnitID="{9208E778-4B37-4421-9C2A-46AAA42FFE85}"/>
+							<Position X="2" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Arm_Attach" ID="{93BA3662-E3C9-4BC4-91EC-8779EBD7F508}" WorkUnitID="{9208E778-4B37-4421-9C2A-46AAA42FFE85}"/>
+							<Position X="2" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Footstep" ID="{F5484EFA-EDBF-4629-98EA-F71C55EC26C1}" WorkUnitID="{9208E778-4B37-4421-9C2A-46AAA42FFE85}"/>
+							<Position X="2" Y="2"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="TarpFlap" ID="{58AD7E3C-3DB9-4D76-93AB-DC62A761A9E4}" WorkUnitID="{9208E778-4B37-4421-9C2A-46AAA42FFE85}"/>
+							<Position X="2" Y="3"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Activate_Crystal" ID="{79E8771B-ED28-44E7-87B1-CCC32FEA5571}" WorkUnitID="{9208E778-4B37-4421-9C2A-46AAA42FFE85}"/>
+							<Position X="3" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Arm_Break" ID="{542BD787-074A-4337-8CA3-DF0CB3664434}" WorkUnitID="{9208E778-4B37-4421-9C2A-46AAA42FFE85}"/>
+							<Position X="3" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Insects" ID="{33B3F7C1-9495-4025-BDF8-E5C0B533C97F}" WorkUnitID="{9208E778-4B37-4421-9C2A-46AAA42FFE85}"/>
+							<Position X="3" Y="2"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="LightBuzz" ID="{7D4D9667-1EE8-4E53-A829-EC0786ADCDFC}" WorkUnitID="{9208E778-4B37-4421-9C2A-46AAA42FFE85}"/>
+							<Position X="3" Y="3"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="DoorChirp" ID="{3559F8D9-9CDD-458F-A0B4-DF8F19AE938C}" WorkUnitID="{9208E778-4B37-4421-9C2A-46AAA42FFE85}"/>
+							<Position X="5" Y="0"/>
+						</Module>
+					</ModuleList>
+					<RTPCValueList ShowAll="true">
+						<RTPCValue>
+							<GameParameterRef Name="EnvironmentEffects" ID="{6C0E9AD4-1D56-4413-8283-3E258ED2C076}"/>
+							<Value>50</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="Chirps_Combine" ID="{F12155E7-E290-4705-A9D3-8E95B7457F07}"/>
+							<Value>0</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="LimbNumber" ID="{9D2C0198-110B-4E07-BCC0-FA350FF658CF}"/>
+							<Value>0.63</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="Wind_Speed" ID="{41983626-5B7C-4EAC-ACAF-7D0E11ECEF10}"/>
+							<Value>96.2719298245614</Value>
+						</RTPCValue>
+					</RTPCValueList>
+					<CurrentStateList ShowAll="true">
+						<CurrentStateRef Name="P2_FactoryPuzzle2" ID="{DC03589A-BDD2-45D6-A826-EA9C0315B998}"/>
+						<CurrentStateRef Name="Reflector" ID="{F0FD1677-1293-401E-83C0-409A107A0ED2}"/>
+						<CurrentStateRef Name="Happy" ID="{8159EF55-F4EC-4B8F-8798-01F730CE0B04}"/>
+					</CurrentStateList>
+					<CurrentSwitchList ShowAll="true">
+						<CurrentSwitchRef Name="Concrete" ID="{C238A2AA-1701-4871-AACD-CAD08E807EA5}"/>
+						<CurrentSwitchRef Name="Limb1" ID="{555828A5-CA04-4106-BB01-E09BCFFB5FDE}"/>
+						<CurrentSwitchRef Name="Player_1" ID="{6E833DCC-3FA9-4C0A-8558-F454CDA5F3DB}"/>
+					</CurrentSwitchList>
+				</SoundcasterSession>
+			</ChildrenList>
+		</WorkUnit>
+	</SoundcasterSessions>
+</WwiseDocument>

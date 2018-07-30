@@ -112,6 +112,8 @@ public class SCR_Door : MonoBehaviour
 			//Debug.Log ("don't you dare go hollow");
 			//check to see what level your in and position the floor accordingly.
 			SpawnWalkway = true;
+			AkSoundEngine.PostEvent ("GateNoteFinish", gameObject);
+
 		}
 
 	}

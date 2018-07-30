@@ -9,7 +9,10 @@ Event	ID	Name			Wwise Object Path	Notes
 	1866025847	Footstep			\Default Work Unit\Robots\Footstep	
 	1875437039	TheCore			\Default Work Unit\Emitters\TheCore	
 	2390748151	DoorChirp			\Default Work Unit\Robots\DoorChirp	
+	2675281845	GateNoteA			\Default Work Unit\Robots\GateNoteA	
+	2675281846	GateNoteB			\Default Work Unit\Robots\GateNoteB	
 	2762482407	Push_Box			\Default Work Unit\Objects\Push_Box	
+	2947944241	GateNoteFinish			\Default Work Unit\Robots\GateNoteFinish	
 	3166394572	Ambience_Stop			\Default Work Unit\Environment\Ambience_Stop	
 	3202316517	Switch			\Default Work Unit\Objects\Switch	
 	3321400738	Push_Box_Stop			\Default Work Unit\Objects\Push_Box_Stop	
@@ -83,9 +86,11 @@ Custom State	ID	Name	State Group	Owner		Notes
 	392172188	P2_FactoryPuzzle1	Environment	\Actor-Mixer Hierarchy\Default Work Unit\Main\Ambience\Ambience Wind		
 	482366905	P2_FactoryViewpoint	Environment	\Actor-Mixer Hierarchy\Default Work Unit\Main\Ambience\Ambience Wind		
 	531550998	Splitter	Drone_Modulator	\Actor-Mixer Hierarchy\Default Work Unit\Main\Ambience\Ambience Wind		
+	531769377	P3_Construction	Environment	\Actor-Mixer Hierarchy\Default Work Unit\Main\Ambience\Ambience Wind		
 	562263960	P6_EndLeave	Environment	\Actor-Mixer Hierarchy\Default Work Unit\Main\Ambience\Ambient_Env\Tower Hum		
 	609072323	Complete	Drone_Modulator	\Actor-Mixer Hierarchy\Default Work Unit\Main\Ambience\Ambience Wind		
 	675972463	Combiner	Drone_Modulator	\Actor-Mixer Hierarchy\Default Work Unit\Main\Ambience\Ambience Wind		
+	712459084	P4_Clouds	Environment	\Actor-Mixer Hierarchy\Default Work Unit\Main\Ambience\Ambience Wind		
 	712776087	P1_IntroViewpoint	Environment	\Actor-Mixer Hierarchy\Default Work Unit\Main\Ambience\Ambience Wind		
 	831884975	Reflector	Drone_Modulator	\Actor-Mixer Hierarchy\Default Work Unit\Main\Ambience\Ambience Wind		
 	839451957	P2_FactoryPuzzle1	Environment	\Actor-Mixer Hierarchy\Default Work Unit\Main\Ambience\Ambient_Env		
@@ -128,85 +133,90 @@ Source plug-ins	ID	Name	Type		Wwise Object Path	Notes
 	932020803	SoundSeed Air Wind	SoundSeed Air/SoundSeed Wind		\Actor-Mixer Hierarchy\Default Work Unit\Main\Ambience\Ambience Wind\Desert\SoundSeed Air Wind	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	4926836	Switch1	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Switch1_F21B03C9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Objects\Switch\Switch1		384832
-	8206762	Footstep_Metal05	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Footstep_Metal05_53BC9EC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Footsteps\Metal\Footstep_Metal05		64816
-	34092119	Footstep_Metal02	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Footstep_Metal02_53BC9EC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Footsteps\Metal\Footstep_Metal02		70688
-	39419585	Footstep_Sand05	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Footstep_Sand05_53BC9EC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Footsteps\Sand\Footstep_Sand05		44164
-	62927683	Sad1	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Sad1_53BC9EC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Chirps\Type_P1\Sad\Sad1		58274
-	63518662	Chains	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Chains_B31A49C7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Emitters\Chains		391528
-	80702525	Arm Break	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Arm Break_53BC9EC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Limbs\Arm Break		637636
-	89171534	PistonRight1	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\PistonRight1_53BC9EC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Pistons\PistonRight1		38652
-	96839987	Footstep_Metal04	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Footstep_Metal04_53BC9EC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Footsteps\Metal\Footstep_Metal04		64144
-	100440159	PistonRight3	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\PistonRight3_53BC9EC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Pistons\PistonRight3		44164
-	123527882	PistonRight2	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\PistonRight2_53BC9EC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Pistons\PistonRight2		33140
-	127393820	Tarp2	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Tarp2_F21B03C9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Emitters\Tarp\Tarp2		99352
-	166700511	RustRight2	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\RustRight2_53BC9EC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Grinding\RustRight2		33140
-	173025359	Attach Arm	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Attach Arm_53BC9EC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Limbs\Attach Arm		159456
-	195856999	The Core Hum	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\The Core Hum_80BD7211.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Emitters\The Core Hum		1487080
-	198922247	Footstep_Concrete04	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Footstep_Concrete04_53BC9EC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Footsteps\Concrete\Footstep_Concrete04		49924
-	205327039	Tarp1	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Tarp1_F21B03C9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Emitters\Tarp\Tarp1		99352
-	218516849	Over Here	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Over Here_F221B81D.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Chirps\Type_P2\Here\Over Here		63568
-	225673735	Footstep_Concrete03	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Footstep_Concrete03_53BC9EC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Footsteps\Concrete\Footstep_Concrete03		49924
-	235748016	Tarp3	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Tarp3_F21B03C9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Emitters\Tarp\Tarp3		124120
-	250662871	Sad3	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Sad3_53BC9EC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Chirps\Type_P1\Sad\Sad3		63568
-	273047507	Over There 1	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Over There 1_53BC9EC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Chirps\Type_P1\There\Over There 1		50336
-	288807580	Metal Creaks	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Metal Creaks_231A6439.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Ambience\Ambient_Env\Metal Creaks		885489
-	305034310	Footstep_Gravel02	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Footstep_Gravel02_53BC9EC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Footsteps\Gravel\Footstep_Gravel02		52434
-	311798698	Detatch Arm	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Detatch Arm_53BC9EC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Limbs\Detatch Arm		199304
-	336547879	PistonLeft3	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\PistonLeft3_53BC9EC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Pistons\PistonLeft3		44164
-	352650002	Chirp 2	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Chirp 2_53BC9EC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Chirps\Type_P1\Happy\Chirp 2		352860
-	358996613	Footstep Dirt 1	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Footstep Dirt 1_53BC9EC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Footsteps\Dirt\Footstep Dirt 1		159456
-	364611340	Thunder Muted	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\thunder1_B66112B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Ambience\Ambient_Env\Thunder Muted		1728127
-	374958260	Lock2	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Lock2_A9AE4780.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Objects\Pressure Plate\Lock2		29368
-	401646730	Footstep Dirt 3	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Footstep Dirt 3_53BC9EC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Footsteps\Dirt\Footstep Dirt 3		159456
-	412852947	Over There 2	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Over There 2_53BC9EC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Chirps\Type_P1\There\Over There 2		47692
-	425770215	PistonLeft1	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\PistonLeft1_53BC9EC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Pistons\PistonLeft1		46922
-	427950182	Sad4	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Sad4_53BC9EC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Chirps\Type_P1\Sad\Sad4		70222
-	428175454	Cries	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Cries_705BC98B.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Hurt Vocals\Cries		434260
-	431082495	Light Flicker 4	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Light Flicker 4_F21B03C9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Emitters\LightFlicker\Light Flicker 4		148960
-	454014889	Footstep Dirt 2	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Footstep Dirt 2_53BC9EC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Footsteps\Dirt\Footstep Dirt 2		159456
-	499842182	Light Flicker 1	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Light Flicker 1_F21B03C9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Emitters\LightFlicker\Light Flicker 1		99352
-	503832832	Insects	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Insects_B31A49C7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Emitters\Insects		992296
-	539580025	Footstep_Concrete02	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Footstep_Concrete02_53BC9EC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Footsteps\Concrete\Footstep_Concrete02		50864
-	539810776	Thunder	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\thunder1_B578EB67.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Ambience\Ambient_Env\Thunder		2152355
-	549602185	Over Here 2	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Over Here 2_53BC9EC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Chirps\Type_P1\Here\Over Here 2		63568
-	568808007	Footstep_Concrete01	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Footstep_Concrete01_53BC9EC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Footsteps\Concrete\Footstep_Concrete01		44408
-	570689957	Rain + Thunder	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\rainthunder1_0991732A.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Ambience\Ambient_Env\Rain + Thunder		1786874
-	597696737	RustRight1	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\RustRight1_53BC9EC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Grinding\RustRight1		41408
-	598282203	Footstep_Sand02	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Footstep_Sand02_53BC9EC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Footsteps\Sand\Footstep_Sand02		44164
-	604895596	Arm Fly	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Arm Fly_53BC9EC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Limbs\Arm Fly		1275204
-	655639855	RustLeft2	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\RustLeft2_53BC9EC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Grinding\RustLeft2		49678
-	658668300	Chirp 3	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Chirp 3_53BC9EC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Chirps\Type_P1\Happy\Chirp 3		352860
-	675181591	Footstep_Sand01	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Footstep_Sand01_53BC9EC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Footsteps\Sand\Footstep_Sand01		44164
-	680051207	Footstep_Sand06	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Footstep_Sand06_53BC9EC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Footsteps\Sand\Footstep_Sand06		38652
-	686688220	Footstep_Metal03	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Footstep_Metal03_53BC9EC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Footsteps\Metal\Footstep_Metal03		64476
-	687354862	Activate Crystal	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Activate Crystal_F21B03C9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Objects\Crystals\Activate Crystal		235936
-	706977681	Footstep Dirt 4	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Footstep Dirt 4_53BC9EC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Footsteps\Dirt\Footstep Dirt 4		159456
-	723507075	Tarp4	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Tarp4_F21B03C9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Emitters\Tarp\Tarp4		124120
-	724041815	Metal Amb	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Metal Amb_61CA09C5.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Ambience\Ambient_Env\Metal Amb		863245
-	727895375	Footstep_Gravel06	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Footstep_Gravel06_53BC9EC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Footsteps\Gravel\Footstep_Gravel06		44164
-	734587121	Footstep_Concrete05	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Footstep_Concrete05_53BC9EC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Footsteps\Concrete\Footstep_Concrete05		49928
-	734777691	Footstep_Metal01	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Footstep_Metal01_53BC9EC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Footsteps\Metal\Footstep_Metal01		60400
-	742047227	Place Crystal	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Place Crystal_F21B03C9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Objects\Crystals\Place Crystal		129160
-	757836837	PistonLeft2	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\PistonLeft2_53BC9EC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Pistons\PistonLeft2		40808
-	782757707	RustLeft1	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\RustLeft1_53BC9EC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Grinding\RustLeft1		46922
-	790142255	Over Here	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Over Here_53BC9EC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Chirps\Type_P1\Here\Over Here		63568
-	803236436	Footstep_Gravel04	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Footstep_Gravel04_53BC9EC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Footsteps\Gravel\Footstep_Gravel04		60702
-	803408962	Tower Hum	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Tower Hum_231A6439.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Ambience\Ambient_Env\Tower Hum		473709
-	804918993	ChainsLight	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\ChainsLight_B31A49C7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Emitters\ChainsLight		822088
-	815470112	Sad2	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Sad2_53BC9EC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Chirps\Type_P1\Sad\Sad2		63568
-	817374945	Light Flicker 2	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Light Flicker 2_F21B03C9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Emitters\LightFlicker\Light Flicker 2		124120
-	828079118	Light Flicker 3	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Light Flicker 3_F21B03C9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Emitters\LightFlicker\Light Flicker 3		62128
-	845753043	Footstep_Gravel01	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Footstep_Gravel01_53BC9EC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Footsteps\Gravel\Footstep_Gravel01		35896
-	871646031	Pick Up Crystal	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Pick Up Crystal_F21B03C9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Objects\Crystals\Pick Up Crystal		51688
-	887188292	Footstep_Gravel03	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Footstep_Gravel03_53BC9EC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Footsteps\Gravel\Footstep_Gravel03		46922
-	898621401	Chirp 4	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Chirp 4_53BC9EC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Chirps\Type_P1\Happy\Chirp 4		352860
-	914616042	Chirp 1	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Chirp 1_53BC9EC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Chirps\Type_P1\Happy\Chirp 1		352860
-	934094594	Footstep_Sand04	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Footstep_Sand04_53BC9EC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Footsteps\Sand\Footstep_Sand04		38652
-	966403569	Footstep_Concrete06	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Footstep_Concrete06_53BC9EC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Footsteps\Concrete\Footstep_Concrete06		26476
-	969133711	Footstep_Metal06	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Footstep_Metal06_53BC9EC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Footsteps\Metal\Footstep_Metal06		41708
-	970386060	Footstep_Gravel05	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Footstep_Gravel05_53BC9EC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Footsteps\Gravel\Footstep_Gravel05		49678
-	1011223190	LightHitCrystal	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\LightHitCrystal_F21B03C9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Objects\Crystals\LightHitCrystal		237160
-	1050795964	Footstep_Sand03	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Footstep_Sand03_53BC9EC2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Footsteps\Sand\Footstep_Sand03		38652
-	1059580032	Lock1	C:\Users\1203308\Downloads\GitHub\Team4\Robot\Robot\Wwise\.cache\Windows\SFX\Lock1_F21B03C9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Objects\Switch\Lock1		246808
+	4926836	Switch1	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Switch1_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Objects\Switch\Switch1		1489048
+	8206762	Footstep_Metal05	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Footstep_Metal05_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Footsteps\Metal\Footstep_Metal05		70544
+	34092119	Footstep_Metal02	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Footstep_Metal02_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Footsteps\Metal\Footstep_Metal02		76936
+	39419585	Footstep_Sand05	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Footstep_Sand05_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Footsteps\Sand\Footstep_Sand05		48066
+	62927683	Sad1	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Sad1_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Chirps\Type_P1\Sad\Sad1		63424
+	63518662	Chains	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Chains_F17FB28C.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Emitters\Chains		1514932
+	80702525	Arm Break	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Arm Break_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Limbs\Arm Break		694020
+	96839987	Footstep_Metal04	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Footstep_Metal04_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Footsteps\Metal\Footstep_Metal04		69812
+	127393820	Tarp2	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Tarp2_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Emitters\Tarp\Tarp2		384068
+	132139423	GateNote8	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\GateNote8_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Ambience\Gate Cirps\5-8\GateNote8		768064
+	173025359	Attach Arm	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Attach Arm_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Limbs\Attach Arm		173556
+	195856999	The Core Hum	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\The Core Hum_C033929E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Emitters\The Core Hum		5754920
+	198922247	Footstep_Concrete04	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Footstep_Concrete04_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Footsteps\Concrete\Footstep_Concrete04		54336
+	205327039	Tarp1	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Tarp1_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Emitters\Tarp\Tarp1		384068
+	218516849	Over Here	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Over Here_996C01CD.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Chirps\Type_P2\Here\Over Here		69184
+	225673735	Footstep_Concrete03	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Footstep_Concrete03_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Footsteps\Concrete\Footstep_Concrete03		54336
+	235748016	Tarp3	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Tarp3_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Emitters\Tarp\Tarp3		480068
+	250662871	Sad3	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Sad3_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Chirps\Type_P1\Sad\Sad3		69184
+	273047507	Over There 1	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Over There 1_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Chirps\Type_P1\There\Over There 1		54784
+	288807580	Metal Creaks	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Metal Creaks_F17FB28C.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Ambience\Ambient_Env\Metal Creaks		8483312
+	301099333	GateNote5	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\GateNote5_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Ambience\Gate Cirps\5-8\GateNote5		768064
+	305034310	Footstep_Gravel02	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Footstep_Gravel02_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Footsteps\Gravel\Footstep_Gravel02		57066
+	311798698	Detatch Arm	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Detatch Arm_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Limbs\Detatch Arm		216928
+	336547879	PistonLeft3	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\PistonLeft3_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Pistons\PistonLeft3		48066
+	352650002	Chirp 2	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Chirp 2_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Chirps\Type_P1\Happy\Chirp 2		384064
+	358996613	Footstep Dirt 1	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Footstep Dirt 1_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Footsteps\Dirt\Footstep Dirt 1		173556
+	364611340	Thunder Muted	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\thunder1_87FAA386.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Ambience\Ambient_Env\Thunder Muted		14499416
+	368875471	GateNote4	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\GateNote4_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Ambience\Gate Cirps\1-4\GateNote4		768064
+	374958260	Lock2	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Lock2_594606BF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Objects\Pressure Plate\Lock2		113420
+	401646730	Footstep Dirt 3	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Footstep Dirt 3_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Footsteps\Dirt\Footstep Dirt 3		173556
+	412852947	Over There 2	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Over There 2_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Chirps\Type_P1\There\Over There 2		51904
+	417930804	GateNote3	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\GateNote3_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Ambience\Gate Cirps\1-4\GateNote3		768064
+	425770215	PistonLeft1	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\PistonLeft1_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Pistons\PistonLeft1		51066
+	427950182	Sad4	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Sad4_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Chirps\Type_P1\Sad\Sad4		76428
+	428175454	Cries	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Cries_0159EFDB.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Hurt Vocals\Cries		472660
+	431082495	Light Flicker 4	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Light Flicker 4_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Emitters\LightFlicker\Light Flicker 4		576068
+	454014889	Footstep Dirt 2	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Footstep Dirt 2_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Footsteps\Dirt\Footstep Dirt 2		173556
+	499842182	Light Flicker 1	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Light Flicker 1_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Emitters\LightFlicker\Light Flicker 1		384068
+	503832832	Insects	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Insects_F17FB28C.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Emitters\Insects		3840068
+	539580025	Footstep_Concrete02	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Footstep_Concrete02_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Footsteps\Concrete\Footstep_Concrete02		55360
+	539810776	Thunder	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\thunder1_4C1DE6D6.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Ambience\Ambient_Env\Thunder		17820940
+	549602185	Over Here 2	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Over Here 2_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Chirps\Type_P1\Here\Over Here 2		69184
+	568808007	Footstep_Concrete01	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Footstep_Concrete01_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Footsteps\Concrete\Footstep_Concrete01		48320
+	570689957	Rain + Thunder	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\rainthunder1_B4B403F7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Ambience\Ambient_Env\Rain + Thunder		12589596
+	583504070	GateNoteFInish	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\GateNoteFInish_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Ambience\Gate Cirps\GateNoteFInish		768064
+	597696737	RustRight1	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\RustRight1_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Grinding\RustRight1		45066
+	598282203	Footstep_Sand02	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Footstep_Sand02_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Footsteps\Sand\Footstep_Sand02		48066
+	604895596	Arm Fly	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Arm Fly_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Limbs\Arm Fly		1387972
+	655639855	RustLeft2	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\RustLeft2_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Grinding\RustLeft2		54066
+	658668300	Chirp 3	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Chirp 3_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Chirps\Type_P1\Happy\Chirp 3		384064
+	675181591	Footstep_Sand01	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Footstep_Sand01_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Footsteps\Sand\Footstep_Sand01		48066
+	678427897	GateNote1	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\GateNote1_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Ambience\Gate Cirps\1-4\GateNote1		768064
+	680051207	Footstep_Sand06	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Footstep_Sand06_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Footsteps\Sand\Footstep_Sand06		42066
+	686688220	Footstep_Metal03	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Footstep_Metal03_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Footsteps\Metal\Footstep_Metal03		70176
+	687354862	Activate Crystal	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Activate Crystal_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Objects\Crystals\Activate Crystal		912748
+	706977681	Footstep Dirt 4	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Footstep Dirt 4_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Footsteps\Dirt\Footstep Dirt 4		173556
+	723507075	Tarp4	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Tarp4_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Emitters\Tarp\Tarp4		480068
+	724041815	Metal Amb	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Metal Amb_7DE155F4.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Ambience\Ambient_Env\Metal Amb		6105456
+	727895375	Footstep_Gravel06	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Footstep_Gravel06_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Footsteps\Gravel\Footstep_Gravel06		48066
+	734587121	Footstep_Concrete05	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Footstep_Concrete05_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Footsteps\Concrete\Footstep_Concrete05		54340
+	734777691	Footstep_Metal01	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Footstep_Metal01_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Footsteps\Metal\Footstep_Metal01		65728
+	742047227	Place Crystal	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Place Crystal_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Objects\Crystals\Place Crystal		499472
+	757836837	PistonLeft2	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\PistonLeft2_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Pistons\PistonLeft2		44412
+	761689356	GateNote7	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\GateNote7_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Ambience\Gate Cirps\5-8\GateNote7		768064
+	782757707	RustLeft1	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\RustLeft1_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Grinding\RustLeft1		51066
+	784459795	GateNote6	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\GateNote6_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Ambience\Gate Cirps\5-8\GateNote6		768064
+	790142255	Over Here	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Over Here_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Chirps\Type_P1\Here\Over Here		69184
+	803236436	Footstep_Gravel04	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Footstep_Gravel04_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Footsteps\Gravel\Footstep_Gravel04		66066
+	803408962	Tower Hum	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Tower Hum_F17FB28C.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Ambience\Ambient_Env\Tower Hum		4393176
+	804918993	ChainsLight	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\ChainsLight_F17FB28C.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Emitters\ChainsLight		3181284
+	815470112	Sad2	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Sad2_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Chirps\Type_P1\Sad\Sad2		69184
+	817374945	Light Flicker 2	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Light Flicker 2_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Emitters\LightFlicker\Light Flicker 2		480068
+	828079118	Light Flicker 3	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Light Flicker 3_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Emitters\LightFlicker\Light Flicker 3		240068
+	844136400	GateNote2	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\GateNote2_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Ambience\Gate Cirps\1-4\GateNote2		768064
+	845753043	Footstep_Gravel01	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Footstep_Gravel01_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Footsteps\Gravel\Footstep_Gravel01		39066
+	871646031	Pick Up Crystal	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Pick Up Crystal_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Objects\Crystals\Pick Up Crystal		199828
+	887188292	Footstep_Gravel03	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Footstep_Gravel03_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Footsteps\Gravel\Footstep_Gravel03		51066
+	898621401	Chirp 4	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Chirp 4_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Chirps\Type_P1\Happy\Chirp 4		384064
+	914616042	Chirp 1	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Chirp 1_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Chirps\Type_P1\Happy\Chirp 1		384064
+	934094594	Footstep_Sand04	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Footstep_Sand04_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Footsteps\Sand\Footstep_Sand04		42066
+	966403569	Footstep_Concrete06	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Footstep_Concrete06_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Footsteps\Concrete\Footstep_Concrete06		28816
+	969133711	Footstep_Metal06	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Footstep_Metal06_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Footsteps\Metal\Footstep_Metal06		45392
+	970386060	Footstep_Gravel05	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Footstep_Gravel05_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Footsteps\Gravel\Footstep_Gravel05		54066
+	1011223190	LightHitCrystal	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\LightHitCrystal_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Objects\Crystals\LightHitCrystal		917528
+	1050795964	Footstep_Sand03	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Footstep_Sand03_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Footsteps\Sand\Footstep_Sand03		42066
+	1059580032	Lock1	D:\Github\Team4\Robot\Wwise\.cache\Windows\SFX\Lock1_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Objects\Switch\Lock1		954912
 

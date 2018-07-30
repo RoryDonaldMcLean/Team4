@@ -25,6 +25,9 @@ namespace AK
         static const AkUniqueID DOORCHIRP = 2390748151U;
         static const AkUniqueID DRONE = 2739838641U;
         static const AkUniqueID FOOTSTEP = 1866025847U;
+        static const AkUniqueID GATENOTEA = 2675281845U;
+        static const AkUniqueID GATENOTEB = 2675281846U;
+        static const AkUniqueID GATENOTEFINISH = 2947944241U;
         static const AkUniqueID INSECTS = 3833343604U;
         static const AkUniqueID LIGHT_HITS_CRYSTAL = 3427421355U;
         static const AkUniqueID LIGHTBUZZ = 1863820488U;

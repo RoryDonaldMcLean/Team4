@@ -143,6 +143,48 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="GateNoteA" ID="{EF6D421C-245B-4881-B1E8-B29EBF662409}">
+							<ChildrenList>
+								<Action Name="" ID="{A08B85BA-7189-4CC8-8938-4BC1D9FF7232}" ShortID="613567223">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="1-4" ID="{B287BD13-C8A3-4B24-A04E-9CA769335334}" WorkUnitID="{6BAE9174-7CEB-4131-99B7-F2EC621355E0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="GateNoteB" ID="{71236CF1-B780-45D4-A72F-1586AE18DE56}">
+							<ChildrenList>
+								<Action Name="" ID="{3E8E7E8A-841E-4F30-B735-295865714672}" ShortID="657031543">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="5-8" ID="{6D49FB09-62BE-4D78-9F13-F66D82803597}" WorkUnitID="{6BAE9174-7CEB-4131-99B7-F2EC621355E0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="GateNoteFinish" ID="{A757EF24-FF99-465B-BBB3-4CBF6EC59AB1}">
+							<ChildrenList>
+								<Action Name="" ID="{3CA94EC0-8435-434F-9CF5-ABFECB06C960}" ShortID="584773218">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="GateNoteFInish" ID="{880886E0-F06C-4D47-B717-F36A02874F46}" WorkUnitID="{6BAE9174-7CEB-4131-99B7-F2EC621355E0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Environment" ID="{89027853-6CF6-4DEA-83BB-542659A31EE8}" ShortID="1010853535">

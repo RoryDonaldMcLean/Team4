@@ -2141,7 +2141,7 @@
 											<PropertyList>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-17</Value>
+														<Value>-25</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -2167,7 +2167,7 @@
 											<PropertyList>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-15</Value>
+														<Value>-23</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -2193,7 +2193,7 @@
 											<PropertyList>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-14</Value>
+														<Value>-10</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -2361,7 +2361,7 @@
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-22</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -2642,6 +2642,11 @@
 								<Sound Name="Insects" ID="{4637132E-3762-43C5-9FE8-6B05E6FAF229}" ShortID="179999017">
 									<PropertyList>
 										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-11</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -2664,11 +2669,6 @@
 								<Sound Name="The Core Hum" ID="{FC6754F1-B700-4104-9610-F89C459F000B}" ShortID="147585186">
 									<PropertyList>
 										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-15</Value>
-											</ValueList>
-										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -2699,7 +2699,7 @@
 										<Property Name="UseGameAuxSends" Type="bool" Value="True"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-9</Value>
+												<Value>-24</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -2727,7 +2727,7 @@
 										<Property Name="UseGameAuxSends" Type="bool" Value="True"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-23</Value>
+												<Value>-33</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -4433,7 +4433,7 @@ Air currents change during the hours of the day and foliage changes during  the 
 										<Property Name="UseGameAuxSends" Type="bool" Value="True"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-12</Value>
+												<Value>-22</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -5149,6 +5149,139 @@ Air currents change during the hours of the day and foliage changes during  the 
 										</GroupingList>
 									</GroupingInfo>
 								</SwitchContainer>
+							</ChildrenList>
+						</ActorMixer>
+						<ActorMixer Name="UI" ID="{46733510-C0E9-4DEC-BC16-73CF394A9139}" ShortID="394665514">
+							<PropertyList>
+								<Property Name="OverrideOutput" Type="bool" Value="True"/>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{28C95CDC-8298-4C7C-B232-8B2268A4BDB9}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="70"/>
+													<Property Name="Min" Type="Real64" Value="-70"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Secondary Bus" ID="{D2E0BC7E-7B3F-4FFE-A670-FAE02761B631}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="menu select" ID="{A41D2688-1D17-4028-92BF-4420ABB8FC10}" ShortID="840087923">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{08E1A375-1549-4544-A9B6-43E2B5B2A65E}">
+														<PropertyList>
+															<Property Name="Max" Type="Real64" Value="51"/>
+															<Property Name="Min" Type="Real64" Value="-51"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-3</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="422836__gamedevc__g-ui-button-hover-1" ID="{4BC7B716-F298-4D81-AAF6-6BDAB3BCB16E}" ShortID="619808442">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="4.65169270833333E-03"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="1.90054873511905E-02"/>
+												<Property Name="TrimBegin" Type="Real64" Value="2.16635974702381E-02"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>422836__gamedevc__g-ui-button-hover-1.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="422836__gamedevc__g-ui-button-hover-1" ID="{4BC7B716-F298-4D81-AAF6-6BDAB3BCB16E}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="exit menu" ID="{43E7B51C-C2B2-4AD3-A0F1-AFF1EC56E35A}" ShortID="469313715">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-7</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="394158__vacuumfan7072__uisound1" ID="{418AD93E-17BF-46D9-BBB0-48C0388E2BB2}" ShortID="376881688">
+											<Language>SFX</Language>
+											<AudioFile>394158__vacuumfan7072__uisound1.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="394158__vacuumfan7072__uisound1" ID="{418AD93E-17BF-46D9-BBB0-48C0388E2BB2}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="enter menuu" ID="{BBB542A7-6AC5-4550-AB5D-673E67547225}" ShortID="864421625">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ValueList>
+												<Value>-300</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-4</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="394158__vacuumfan7072__uisound1" ID="{74408CA7-EADB-4ED9-850C-FB538343F41B}" ShortID="894767664">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="5.69910106899903E-03"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="5.69910106899903E-03"/>
+												<Property Name="TrimEnd" Type="Real64" Value="0.131079324586978"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>394158__vacuumfan7072__uisound1.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="394158__vacuumfan7072__uisound1" ID="{74408CA7-EADB-4ED9-850C-FB538343F41B}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
 							</ChildrenList>
 						</ActorMixer>
 					</ChildrenList>

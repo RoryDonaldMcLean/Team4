@@ -49,6 +49,16 @@
 						<State Name="Start" ID="{D1DB9805-02B1-44BF-A049-F23022B18534}"/>
 					</ChildrenList>
 				</StateGroup>
+				<StateGroup Name="UI" ID="{F4E77967-BCCA-4C9C-9FAB-9B6E3D88715B}">
+					<PropertyList>
+						<Property Name="DefaultTransitionTime" Type="Real64" Value="0.3"/>
+					</PropertyList>
+					<ChildrenList>
+						<State Name="None" ID="{8E2EF50C-1E76-482B-83A6-F0ED60FBA10F}"/>
+						<State Name="On" ID="{13EE6A81-F3C6-4904-BAFC-DBA7ACA561BB}"/>
+						<State Name="Off" ID="{70434DDD-F841-4816-93C4-B4F27E67B9A3}"/>
+					</ChildrenList>
+				</StateGroup>
 			</ChildrenList>
 		</WorkUnit>
 	</States>

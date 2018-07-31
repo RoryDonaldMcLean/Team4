@@ -12,11 +12,14 @@ public class PuaseMenu : MonoBehaviour
 
     private GameObject red, blue;
     private bool isSetting = false;
+    private GameObject pauseMenuWwise;
     //private bool firstEnable = false;
 
     // Use this for initialization
     private void Start()
     {
+        pauseMenuWwise = GameObject.Find("PauseMenuWwise");
+
         red = GameObject.Find("Player");
         blue = GameObject.Find("Player2");
         pauseBtn.Clear();
@@ -45,6 +48,8 @@ public class PuaseMenu : MonoBehaviour
         blue.GetComponent<MelodyInput>().enabled = false;
     }
 
+ 
+
     // Update is called once per frame
     private void Update()
     {
@@ -69,6 +74,11 @@ public class PuaseMenu : MonoBehaviour
             pauseBtn[2].GetComponent<Transform>().parent.gameObject.SetActive(true);
             pauseBtn[3].GetComponent<Transform>().parent.gameObject.SetActive(true);
             pauseBtn[1].GetComponent<Text>().text = "Options";
+
+            //AkSoundEngine.SetState("UI", "Off");
+            //AkSoundEngine.PostEvent("Menu_Exit", gameObject);
+
+
         }
     }
 
@@ -89,6 +99,10 @@ public class PuaseMenu : MonoBehaviour
             blue.GetComponent<PickupAndDropdown>().enabled = true;
             blue.GetComponent<Chirps>().enabled = true;
             blue.GetComponent<MelodyInput>().enabled = true;
+
+            AkSoundEngine.SetState("UI", "Off");
+            AkSoundEngine.PostEvent("Menu_Exit", pauseMenuWwise);
+
         }
         if (btn == pauseBtn[1])
         {
@@ -101,6 +115,9 @@ public class PuaseMenu : MonoBehaviour
                 pauseBtn[3].GetComponent<Transform>().parent.gameObject.SetActive(false);
                 pauseBtn[1].GetComponent<Text>().text = "Back";
                 isSetting = true;
+                AkSoundEngine.PostEvent("Menu_Select", pauseMenuWwise);
+
+
             }
             else
             {
@@ -110,15 +127,22 @@ public class PuaseMenu : MonoBehaviour
                 pauseBtn[3].GetComponent<Transform>().parent.gameObject.SetActive(true);
                 pauseBtn[1].GetComponent<Text>().text = "Options";
                 isSetting = false;
+                AkSoundEngine.PostEvent("Menu_Select", pauseMenuWwise);
+
             }
+
+
         }
         if (btn == pauseBtn[2])
         {
             SceneManager.LoadScene("MainMenu");
+            AkSoundEngine.PostEvent("Menu_Select", pauseMenuWwise);
+
         }
         if (btn == pauseBtn[3])
         {
             Application.Quit();
+            AkSoundEngine.PostEvent("Menu_Select", pauseMenuWwise);
         }
     }
 }

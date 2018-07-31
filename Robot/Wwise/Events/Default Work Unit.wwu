@@ -507,6 +507,52 @@
 						</Event>
 					</ChildrenList>
 				</Folder>
+				<Folder Name="UI" ID="{3CB5DF95-EEB0-41AE-9266-3D44431E5C93}" ShortID="120661599">
+					<ChildrenList>
+						<Event Name="Menu_Enter" ID="{CA013A9A-5765-4312-AE31-74E1AE8F04EF}">
+							<ChildrenList>
+								<Action Name="" ID="{B9B30D3C-04E9-44AA-A54B-446FD732CE0D}" ShortID="913813550">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="enter menuu" ID="{BBB542A7-6AC5-4550-AB5D-673E67547225}" WorkUnitID="{6BAE9174-7CEB-4131-99B7-F2EC621355E0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Menu_Exit" ID="{AE398ED8-49F4-41BB-B0FD-74363E432EC3}">
+							<ChildrenList>
+								<Action Name="" ID="{D9A48661-72CB-486D-B776-DD687B1F0E7A}" ShortID="717955633">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="exit menu" ID="{43E7B51C-C2B2-4AD3-A0F1-AFF1EC56E35A}" WorkUnitID="{6BAE9174-7CEB-4131-99B7-F2EC621355E0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Menu_Select" ID="{6CC3C046-5A64-464B-80BD-64368F7BC07B}">
+							<ChildrenList>
+								<Action Name="" ID="{BFE2A584-7186-44A3-9DC6-29CD2B16C95B}" ShortID="781102997">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="menu select" ID="{A41D2688-1D17-4028-92BF-4420ABB8FC10}" WorkUnitID="{6BAE9174-7CEB-4131-99B7-F2EC621355E0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

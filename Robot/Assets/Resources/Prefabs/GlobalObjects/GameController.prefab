@@ -23,6 +23,8 @@ GameObject:
   - component: {fileID: 114674260863575364}
   - component: {fileID: 114521345460425854}
   - component: {fileID: 114942841403728406}
+  - component: {fileID: 114058307586892120}
+  - component: {fileID: 114933305382935622}
   m_Layer: 0
   m_Name: GameController
   m_TagString: GameController
@@ -43,6 +45,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114058307586892120
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1736136442588940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb191167caef1d34fa9e4ac3fca351b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_listeners:
+    initialListenerList: []
+    useDefaultListeners: 1
+  isEnvironmentAware: 0
+  isStaticObject: 0
+  m_positionOffsetData:
+    KeepMe: 0
+    positionOffset: {x: 0, y: 0, z: 0}
+  m_posOffsetData: {fileID: 0}
+  listenerMask: 1
 --- !u!114 &114521345460425854
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -83,6 +106,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentLevel: 1
   levelSelect: 1
+--- !u!114 &114933305382935622
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1736136442588940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7999ea7310cf3db408b1eb3ad84d3f23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: 
+  useOtherObject: 0
+  actionOnEventType: 0
+  curveInterpolation: 4
+  enableActionOnEvent: 0
+  eventID: 1952436935
+  m_callbackData: {fileID: 0}
+  playingId: 0
+  soundEmitterObject: {fileID: 0}
+  transitionDuration: 0
+  valueGuid: 9a3a01ca65571243ae3174e1ae8f04ef
 --- !u!114 &114942841403728406
 MonoBehaviour:
   m_ObjectHideFlags: 1

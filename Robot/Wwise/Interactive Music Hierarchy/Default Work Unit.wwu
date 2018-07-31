@@ -318,7 +318,7 @@
 							<PropertyList>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-2</Value>
+										<Value>-4</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -439,10 +439,14 @@
 								<MusicSegment Name="Puzzle - Warehouse 114-7" ID="{56E58363-1A61-43CF-9F4F-002461EF40A6}" ShortID="364255532">
 									<PropertyList>
 										<Property Name="EndPosition" Type="Real64" Value="103225.8125"/>
+										<Property Name="OverrideEffect" Type="bool" Value="True"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
+										</Reference>
+										<Reference Name="Effect0" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+											<ObjectRef Name="New_Wwise_Parametric_EQ_11" ID="{C26699B2-0A00-49DA-AA99-4C199D3CCBCE}" WorkUnitID="{DB5ADB83-997D-43F7-B226-D357913135AD}"/>
 										</Reference>
 										<Reference Name="OutputBus">
 											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
@@ -720,9 +724,6 @@
 							</TransitionList>
 							<Playlist>
 								<MusicPlaylistItem Name="" ID="{D262F81D-775B-4491-8D8E-27227648F705}" ShortID="188638077">
-									<PropertyList>
-										<Property Name="LoopCount" Type="int16" Value="0"/>
-									</PropertyList>
 									<ChildrenList>
 										<MusicPlaylistItem Name="" ID="{72D9F868-FAC3-4F35-9512-31FA09E193F0}" ShortID="261899986">
 											<PropertyList>

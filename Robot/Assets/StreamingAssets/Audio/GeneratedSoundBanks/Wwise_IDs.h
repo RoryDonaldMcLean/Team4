@@ -31,6 +31,9 @@ namespace AK
         static const AkUniqueID INSECTS = 3833343604U;
         static const AkUniqueID LIGHT_HITS_CRYSTAL = 3427421355U;
         static const AkUniqueID LIGHTBUZZ = 1863820488U;
+        static const AkUniqueID MENU_ENTER = 1952436935U;
+        static const AkUniqueID MENU_EXIT = 3663878895U;
+        static const AkUniqueID MENU_SELECT = 4203375351U;
         static const AkUniqueID MUSIC_START = 3725903807U;
         static const AkUniqueID PICKUP_CRYSTAL = 1187533030U;
         static const AkUniqueID PLACE_CRYSTAL = 4149295597U;
@@ -97,6 +100,17 @@ namespace AK
                 static const AkUniqueID P6_ENDSACRIFICE = 2050591928U;
             } // namespace STATE
         } // namespace ENVIRONMENT
+
+        namespace UI
+        {
+            static const AkUniqueID GROUP = 1551306167U;
+
+            namespace STATE
+            {
+                static const AkUniqueID OFF = 930712164U;
+                static const AkUniqueID ON = 1651971902U;
+            } // namespace STATE
+        } // namespace UI
 
     } // namespace STATES
 

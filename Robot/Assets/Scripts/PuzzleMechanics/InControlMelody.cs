@@ -19,7 +19,11 @@ public class InControlMelody : MonoBehaviour
 
 	//public GameObject Canvas;
 	GameObject CanvasNoteSheet;
+	GameObject RedArrows;
+	List<GameObject> RedDPAD = new List<GameObject> ();
 
+	GameObject BlueArrows;
+	List<GameObject> BlueDPAD = new List<GameObject> ();
 
 	//counter used to track which note you are inputting i.e.
 	//the first input, the second etc
@@ -55,20 +59,52 @@ public class InControlMelody : MonoBehaviour
 		{
 			Notes.Add(CanvasNoteSheet.transform.GetChild(i).gameObject);
 		}
+
+
+		RedArrows = GameObject.FindGameObjectWithTag ("RedArrows");
+		for (int i = 0; i < RedArrows.transform.childCount; i++)
+		{
+			RedDPAD.Add (RedArrows.transform.GetChild (i).gameObject);
+		}
+
+
+		BlueArrows = GameObject.FindGameObjectWithTag ("BlueArrows");
+		for (int i = 0; i < BlueArrows.transform.childCount; i++)
+		{
+			BlueDPAD.Add(BlueArrows.transform.GetChild(i).gameObject);
+		}
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
+		var inputDevice = (InputManager.Devices.Count > playerNum) ? InputManager.Devices [playerNum] : null;
+		if (inputDevice == null)
+		{
+			//no controllers
+			RedDPAD [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/LimbsMenu/1234") as Sprite;
+			BlueDPAD [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/LimbsMenu/5678") as Sprite;
+		} 
+		else
+		{
+			RedDPAD [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/LimbsMenu/DPAD") as Sprite;
+			BlueDPAD [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/LimbsMenu/DPAD") as Sprite;
+		}
+
+
 		//player1 touching the door, if the correct code is inputted then no longer show the UI
 		if (this.GetComponent<SCR_Door>().Player1enteredBounds == true && correctCode == false || 
 			this.GetComponent<SCR_Door>().Player2enteredBounds == true && correctCode == false)
 		{
 			CanvasNoteSheet.SetActive (true);
+			RedArrows.SetActive (true);
+			BlueArrows.SetActive (true);
 		} 
 		else
 		{
 			CanvasNoteSheet.SetActive (false);
+			RedArrows.SetActive (false);
+			BlueArrows.SetActive (false);
 		}
 
 	}
@@ -76,11 +112,16 @@ public class InControlMelody : MonoBehaviour
 
 	public void CheckCode()
 	{
+		Debug.Log ("doorcode count: " + this.GetComponent<SCR_Door> ().Doorcode.Count);
+		Debug.Log ("robotCode count: " + Robotcode.Count);
+
 		//check each element of the doorcode and compare it to the robot code
 		for(int i = 0; i < Robotcode.Count; i++)
+		//for(int i =0; i < this.GetComponent<SCR_Door>().Doorcode.Count; i++)
 		{
 			//if doorcode is not the same as robotcode the code is wrong
-			if (this.GetComponent<SCR_Door>().Doorcode[i] != Robotcode [i])
+			if (this.GetComponent<SCR_Door>().Doorcode[i] != Robotcode [i] ||
+				this.GetComponent<SCR_Door>().Doorcode.Count != Robotcode.Count)
 			{
 				test = false;
 				Debug.Log ("Wrong code");

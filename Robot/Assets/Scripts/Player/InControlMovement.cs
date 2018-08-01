@@ -23,11 +23,59 @@ public class InControlMovement : MonoBehaviour
 
 	public int playerNum;
 
+	public float turnSpeed = 1.0f;
+	Vector2 input;
+	float currentAngle;
+	Vector3 EulerAngleVelocity;
+	Transform cam;
+	Quaternion targetRotation;
+
     // Use this for initialization
     void Start()
     {
         rb1 = GetComponent<Rigidbody>();
+		cam = Camera.main.transform;
     }
+
+
+	/*void FixedUpdate()
+	{
+		GetInput ();
+
+		if (Mathf.Abs (input.x) < 1 && Mathf.Abs (input.y) < 1)
+			return;
+
+		CalculateDirection ();
+		Rotate ();
+		Move ();
+
+	}*/
+
+	void GetInput()
+	{
+		input.x = Input.GetAxisRaw ("Horizontal");
+		input.y = Input.GetAxisRaw ("Vertical");
+	}
+
+	void CalculateDirection()
+	{
+		currentAngle = Mathf.Atan2 (input.x, input.y);
+		currentAngle = Mathf.Rad2Deg * currentAngle;
+		currentAngle += cam.eulerAngles.y;
+	}
+
+	void Rotate()
+	{
+		targetRotation = Quaternion.Euler (0, currentAngle, 0);
+		rb1.rotation = Quaternion.Slerp (transform.rotation, targetRotation, turnSpeed * Time.deltaTime);
+	}
+
+	void Move()
+	{
+		rb1.MovePosition (transform.position + transform.forward * playerSpeed * Time.deltaTime);
+	}
+
+
 
     // Update is called once per frame
     void Update()
@@ -49,6 +97,7 @@ public class InControlMovement : MonoBehaviour
 	//controller control
 	void ProcessInputInControl(InputDevice inputDevice)
     {
+		
 		//as movement speed is based on how many limbs you have, 
 		//check this during process input
 		if (GetLegQuantity () >= 2)
@@ -134,6 +183,7 @@ public class InControlMovement : MonoBehaviour
 			{
 				velocity.z += 1.0f;
 			}
+
 			//move backward
 			if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[2]))
 
@@ -143,7 +193,6 @@ public class InControlMovement : MonoBehaviour
 
 
 			//move left
-
 			if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[1]))
 
 			{
@@ -151,7 +200,6 @@ public class InControlMovement : MonoBehaviour
 			}
 
 			//move right
-
 			if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[3]))
 
 			{
@@ -170,8 +218,7 @@ public class InControlMovement : MonoBehaviour
 				grounded = false;
 				velocity.y = jumpSpeed;
 			}
-
-
+				
 		}
 		else
 		{
@@ -255,6 +302,7 @@ public class InControlMovement : MonoBehaviour
     //updates movement using the passed velocity vector
     void UpdateMovement(Vector3 vel)
     {
+//		Debug.Log ("velocity.x = " + velocity.x);
         //Vector2 ve2 = new Vector2(vel.x, vel.z);
         //vel.x = ve2.normalized.x;
         //vel.z = ve2.normalized.y;
@@ -265,7 +313,8 @@ public class InControlMovement : MonoBehaviour
         //will rotate the player to face the direction they are moving
         if (lookAt != Vector3.zero)
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(lookAt), 0.3f);
-    }
+    
+	}
 
     private int GetLegQuantity()
     {

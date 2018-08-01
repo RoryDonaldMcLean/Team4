@@ -34,6 +34,7 @@ public class Chirps : MonoBehaviour
 
 
 	bool scriptStart = false;
+	bool ControllersUsed;
 
 	// Use this for initialization
 	private void Start () 
@@ -85,10 +86,12 @@ public class Chirps : MonoBehaviour
 		{
 			//Debug.Log ("no controllers plugged in");
 			ProcessInput();
+			ControllersUsed = false;
 		} 
 		else
 		{
 			ProcessInputInControl (inputDevice);
+			ControllersUsed = true;
 		}
 
 		//example of timer will be put elsewhere?
@@ -116,7 +119,6 @@ public class Chirps : MonoBehaviour
 			Event ();
 		}
 			
-
 	}
 		
 
@@ -231,10 +233,10 @@ public class Chirps : MonoBehaviour
 					{
 						chirpsButton = true;
 						Vector3 UIposition = Camera.main.WorldToScreenPoint (this.transform.position);
-						if (UIEmoteImage != null)
+						if (UIEmoteImage2 != null)
 						{
-							UIEmoteImage.transform.position = UIposition;
-							UIEmoteImage.SetActive (true);
+							UIEmoteImage2.transform.position = UIposition;
+							UIEmoteImage2.SetActive (true);
 						}
 
 
@@ -619,12 +621,12 @@ public class Chirps : MonoBehaviour
 			if (GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [0].name.Contains ("LeftArm"))
 			{
 				ls [0].SetActive (true);
-				ls [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/UITopSegment_Arm_StateActive") as Sprite;
+				ls [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/Emotes/Chirp_UI_Happy_Colour") as Sprite;
 				ls [0].GetComponent<Image> ().preserveAspect = true;
 			} else
 			{
 				ls [0].SetActive (true);
-				ls [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/UITopSegment_Arm_StateNonActive") as Sprite;
+				ls [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/Emotes/Chirp_UI_Happy_Gray") as Sprite;
 				ls [0].GetComponent<Image> ().preserveAspect = true;
 			}
 
@@ -632,24 +634,24 @@ public class Chirps : MonoBehaviour
 			if (GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [1].name.Contains ("RightArm"))
 			{
 				ls [1].SetActive (true);
-				ls [1].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/UIBottomSegment_Arm_StateActive") as Sprite;
+				ls [1].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/Emotes/Chirp_UI_Sad_Colour") as Sprite;
 				ls [1].GetComponent<Image> ().preserveAspect = true;
 			} else
 			{
 				ls [1].SetActive (true);
-				ls [1].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/UIBottomSegment_Arm_StateNonActive") as Sprite;
+				ls [1].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/Emotes/Chirp_Sad_Gray") as Sprite;
 				ls [1].GetComponent<Image> ().preserveAspect = true;
 			}
 
 			if (GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [2].name.Contains ("LeftLeg"))
 			{
 				ls [2].SetActive (true);
-				ls [2].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/UILeftSegment_Leg_StateActive") as Sprite;
+				ls [2].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/Emotes/Chirp_UI_Lookatme_Colour") as Sprite;
 				ls [2].GetComponent<Image> ().preserveAspect = true;
 			} else
 			{
 				ls [2].SetActive (true);
-				ls [2].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/UILeftSegment_Leg_StateNonActive") as Sprite;
+				ls [2].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/Emotes/Chirp_UI_Lookatme_Gray") as Sprite;
 				ls [2].GetComponent<Image> ().preserveAspect = true;
 			}
 
@@ -657,14 +659,29 @@ public class Chirps : MonoBehaviour
 			if (GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [3].name.Contains ("RightLeg"))
 			{
 				ls [3].SetActive (true);
-				ls [3].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/UIRightSegment_Leg_StateActive") as Sprite;
+				ls [3].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/Emotes/Chirp_UI_Lookoverthere_Colour") as Sprite;
 				ls [3].GetComponent<Image> ().preserveAspect = true;
 			} else
 			{
 				ls [3].SetActive (true);
-				ls [3].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/UIRightSegment_Leg_StateNonActive") as Sprite;
+				ls [3].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/Emotes/Chirp_UI_Lookoverthere_Gray") as Sprite;
 				ls [3].GetComponent<Image> ().preserveAspect = true;
 			}
+
+			//dpad image
+			if (ControllersUsed == false)
+			{
+				ls [4].SetActive (true);
+				ls [4].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/LimbsMenu/1234") as Sprite;
+				ls [4].GetComponent<Image> ().preserveAspect = true;
+			} 
+			else
+			{
+				ls [4].SetActive (true);
+				ls [4].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/LimbsMenu/DPad") as Sprite;
+				ls [4].GetComponent<Image> ().preserveAspect = true;
+			}
+
 
 		} 
 		else
@@ -675,12 +692,12 @@ public class Chirps : MonoBehaviour
 			if (GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [0].name.Contains ("LeftArm"))
 			{
 				ls [0].SetActive (true);
-				ls [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/UITopSegment_Arm_StateActive") as Sprite;
+				ls [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/Emotes/Chirp_UI_Happy_Colour") as Sprite;
 				ls [0].GetComponent<Image> ().preserveAspect = true;
 			} else
 			{
 				ls [0].SetActive (true);
-				ls [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/UITopSegment_Arm_StateNonActive") as Sprite;
+				ls [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/Emotes/Chirp_UI_Happy_Gray") as Sprite;
 				ls [0].GetComponent<Image> ().preserveAspect = true;
 			}
 
@@ -688,24 +705,24 @@ public class Chirps : MonoBehaviour
 			if (GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [1].name.Contains ("RightArm"))
 			{
 				ls [1].SetActive (true);
-				ls [1].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/UIBottomSegment_Arm_StateActive") as Sprite;
+				ls [1].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/Emotes/Chirp_UI_Sad_Colour") as Sprite;
 				ls [1].GetComponent<Image> ().preserveAspect = true;
 			} else
 			{
 				ls [1].SetActive (true);
-				ls [1].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/UIBottomSegment_Arm_StateNonActive") as Sprite;
+				ls [1].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/Emotes/Chirp_UI_Sad_Gray") as Sprite;
 				ls [1].GetComponent<Image> ().preserveAspect = true;
 			}
 
 			if (GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [2].name.Contains ("LeftLeg"))
 			{
 				ls [2].SetActive (true);
-				ls [2].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/UILeftSegment_Leg_StateActive") as Sprite;
+				ls [2].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/Emotes/Chirp_UI_Lookatme_Colour") as Sprite;
 				ls [2].GetComponent<Image> ().preserveAspect = true;
 			} else
 			{
 				ls [2].SetActive (true);
-				ls [2].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/UILeftSegment_Leg_StateNonActive") as Sprite;
+				ls [2].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/Emotes/Chirp_UI_Lookatme_Gray") as Sprite;
 				ls [2].GetComponent<Image> ().preserveAspect = true;
 			}
 
@@ -713,16 +730,28 @@ public class Chirps : MonoBehaviour
 			if (GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [3].name.Contains ("RightLeg"))
 			{
 				ls [3].SetActive (true);
-				ls [3].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/UIRightSegment_Leg_StateActive") as Sprite;
+				ls [3].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/Emotes/Chirp_UI_Lookoverthere_Colour") as Sprite;
 				ls [3].GetComponent<Image> ().preserveAspect = true;
 			} else
 			{
 				ls [3].SetActive (true);
-				ls [3].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/UIRightSegment_Leg_StateNonActive") as Sprite;
+				ls [3].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/Emotes/Chirp_UI_Lookoverthere_Gray") as Sprite;
 				ls [3].GetComponent<Image> ().preserveAspect = true;
 			}
 
-
+			//dpad image
+			if (ControllersUsed == false)
+			{
+				ls [4].SetActive (true);
+				ls [4].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/LimbsMenu/5678") as Sprite;
+				ls [4].GetComponent<Image> ().preserveAspect = true;
+			} 
+			else
+			{
+				ls [4].SetActive (true);
+				ls [4].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/LimbsMenu/DPad") as Sprite;
+				ls [4].GetComponent<Image> ().preserveAspect = true;
+			}
 		}
 
 

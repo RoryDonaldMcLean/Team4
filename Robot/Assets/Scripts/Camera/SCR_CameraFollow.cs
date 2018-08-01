@@ -150,6 +150,8 @@ public class SCR_CameraFollow : MonoBehaviour
 
 	public void FixedCameraFollowSmooth(Camera cam, Transform t1, Transform t2)
 	{
+		
+
 		//how many units should we keep from the players
 		float zoomFactor = 1.5f;
 		float followTimeDelta = 0.8f;
@@ -161,10 +163,17 @@ public class SCR_CameraFollow : MonoBehaviour
 		float distance = (t1.position - t2.position).magnitude;
 
 		//set a cap zoom in
-		if (distance <= 5)
+		if (distance <= 15)
 		{
-			distance = 5;
+			distance = 15;
 		}
+		//max zoom out
+		if (distance >= 23)
+		{
+			distance = 23;
+		}
+
+		//Debug.Log ("camera distance: " + distance);
 
 		//move camera certian distance
 		Vector3 cameraDestination = midpoint - cam.transform.forward *distance*zoomFactor;

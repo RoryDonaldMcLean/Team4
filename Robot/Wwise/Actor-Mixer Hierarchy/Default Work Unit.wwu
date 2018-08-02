@@ -1066,9 +1066,20 @@
 											</ReferenceList>
 											<ChildrenList>
 												<RandomSequenceContainer Name="Dirt" ID="{5A1C3AB5-DC2D-4B45-8EB4-5CFDAF53C319}" ShortID="226243863">
+													<PropertyList>
+														<Property Name="OverrideEffect" Type="bool" Value="True"/>
+														<Property Name="Pitch" Type="int32">
+															<ValueList>
+																<Value>350</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
+														</Reference>
+														<Reference Name="Effect0" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+															<ObjectRef Name="New_Wwise_Parametric_EQ_12" ID="{74A44FA6-F9F3-405B-932E-D5AD98532E49}" WorkUnitID="{DB5ADB83-997D-43F7-B226-D357913135AD}"/>
 														</Reference>
 														<Reference Name="OutputBus">
 															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
@@ -3098,6 +3109,10 @@ Air currents change during the hours of the day and months of the year.</Comment
 														<StateRef Name="P6_EndSacrifice" ID="{B2786363-AAB6-4D23-9F0A-8407408276B0}"/>
 														<State Name="" ID="{98604DA5-B341-4706-803B-EFAA30B21751}" ShortID="32482784"/>
 													</CustomState>
+													<CustomState>
+														<StateRef Name="P6_AChoice" ID="{300F983C-BC50-4E36-BF53-75418BDAB6CF}"/>
+														<State Name="" ID="{E727B4F3-9877-4138-A35E-333A67ED2C04}" ShortID="802464678"/>
+													</CustomState>
 												</CustomStateList>
 											</StateInfo>
 											<ActiveSourceList>
@@ -3756,11 +3771,7 @@ Air currents change during the hours of the day and foliage changes during  the 
 											</CustomState>
 											<CustomState>
 												<StateRef Name="P4_Clouds" ID="{B92ABBFE-ED7C-4AE0-A739-CF81428935A0}"/>
-												<State Name="" ID="{217ABB8E-7133-430F-8186-D230B91E6B9E}" ShortID="712459084">
-													<PropertyList>
-														<Property Name="Volume" Type="Real64" Value="6"/>
-													</PropertyList>
-												</State>
+												<State Name="" ID="{217ABB8E-7133-430F-8186-D230B91E6B9E}" ShortID="712459084"/>
 											</CustomState>
 											<CustomState>
 												<StateRef Name="Empty" ID="{C1FFFDEC-FC6D-4B54-9D54-1DB3342ADAC8}"/>
@@ -3777,6 +3788,10 @@ Air currents change during the hours of the day and foliage changes during  the 
 											<CustomState>
 												<StateRef Name="P6_EndSacrifice" ID="{B2786363-AAB6-4D23-9F0A-8407408276B0}"/>
 												<State Name="" ID="{3567E6AE-823E-4F22-81A9-8FDD167AEC18}" ShortID="952053868"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P6_AChoice" ID="{300F983C-BC50-4E36-BF53-75418BDAB6CF}"/>
+												<State Name="" ID="{31D87017-B967-4006-BD8B-2B5BCCD57892}" ShortID="375455738"/>
 											</CustomState>
 										</CustomStateList>
 									</StateInfo>
@@ -4181,6 +4196,10 @@ Air currents change during the hours of the day and foliage changes during  the 
 															</PropertyList>
 														</State>
 													</CustomState>
+													<CustomState>
+														<StateRef Name="P6_AChoice" ID="{300F983C-BC50-4E36-BF53-75418BDAB6CF}"/>
+														<State Name="" ID="{3BBF3C50-F7FA-4C3D-97F1-0B15DF6546A8}" ShortID="768944505"/>
+													</CustomState>
 												</CustomStateList>
 											</StateInfo>
 											<ActiveSourceList>
@@ -4257,7 +4276,11 @@ Air currents change during the hours of the day and foliage changes during  the 
 											</CustomState>
 											<CustomState>
 												<StateRef Name="P6_EndLeave" ID="{E8ED1630-94B1-46FB-A5DC-E890F8746D73}"/>
-												<State Name="" ID="{22E072D7-3B22-4876-9753-2CC1F5AC9F05}" ShortID="737552200"/>
+												<State Name="" ID="{22E072D7-3B22-4876-9753-2CC1F5AC9F05}" ShortID="737552200">
+													<PropertyList>
+														<Property Name="Volume" Type="Real64" Value="-8"/>
+													</PropertyList>
+												</State>
 											</CustomState>
 											<CustomState>
 												<StateRef Name="Complete" ID="{5B42DFA5-E7F9-47A0-8E1C-22A385CE8DC2}"/>
@@ -4301,7 +4324,19 @@ Air currents change during the hours of the day and foliage changes during  the 
 											</CustomState>
 											<CustomState>
 												<StateRef Name="P6_EndSacrifice" ID="{B2786363-AAB6-4D23-9F0A-8407408276B0}"/>
-												<State Name="" ID="{09E772FC-D679-4261-BA11-9E86148CBFF6}" ShortID="974272157"/>
+												<State Name="" ID="{09E772FC-D679-4261-BA11-9E86148CBFF6}" ShortID="974272157">
+													<PropertyList>
+														<Property Name="Volume" Type="Real64" Value="-8"/>
+													</PropertyList>
+												</State>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P6_AChoice" ID="{300F983C-BC50-4E36-BF53-75418BDAB6CF}"/>
+												<State Name="" ID="{EE5AD02B-5171-43EB-B738-676418C7732C}" ShortID="17610160">
+													<PropertyList>
+														<Property Name="Volume" Type="Real64" Value="-8"/>
+													</PropertyList>
+												</State>
 											</CustomState>
 										</CustomStateList>
 									</StateInfo>
@@ -4427,7 +4462,7 @@ Air currents change during the hours of the day and foliage changes during  the 
 										</GroupingList>
 									</GroupingInfo>
 								</SwitchContainer>
-								<ActorMixer Name="Gate Cirps" ID="{F6719110-DB63-46D3-B63C-CF12FCD442BF}" ShortID="81215186">
+								<ActorMixer Name="Gate Chirps" ID="{F6719110-DB63-46D3-B63C-CF12FCD442BF}" ShortID="81215186">
 									<PropertyList>
 										<Property Name="OverridePositioning" Type="bool" Value="True"/>
 										<Property Name="UseGameAuxSends" Type="bool" Value="True"/>

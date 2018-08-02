@@ -31,6 +31,9 @@ namespace AK
         static const AkUniqueID INSECTS = 3833343604U;
         static const AkUniqueID LIGHT_HITS_CRYSTAL = 3427421355U;
         static const AkUniqueID LIGHTBUZZ = 1863820488U;
+        static const AkUniqueID LOSEARM1 = 4133193861U;
+        static const AkUniqueID LOSEARM2 = 4133193862U;
+        static const AkUniqueID LOSEARM3 = 4133193863U;
         static const AkUniqueID MENU_ENTER = 1952436935U;
         static const AkUniqueID MENU_EXIT = 3663878895U;
         static const AkUniqueID MENU_SELECT = 4203375351U;
@@ -96,6 +99,7 @@ namespace AK
                 static const AkUniqueID P4_CLOUDS = 1766181350U;
                 static const AkUniqueID P5_CORE = 3932331850U;
                 static const AkUniqueID P5_COREPUZZLE = 653832390U;
+                static const AkUniqueID P6_ACHOICE = 2101370086U;
                 static const AkUniqueID P6_ENDLEAVE = 3100461366U;
                 static const AkUniqueID P6_ENDSACRIFICE = 2050591928U;
             } // namespace STATE

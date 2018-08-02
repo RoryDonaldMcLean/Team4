@@ -45,7 +45,7 @@ public class SCR_player2Initalise : SCR_TradeLimb
 		{
 			//tower
 			Exchange ("LeftLeg", this.gameObject.tag, true);
-		}
+        }
 
     }
 

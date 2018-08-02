@@ -6,27 +6,32 @@ using InControl;
 
 public class InControlMovement : MonoBehaviour
 {
-    Vector3 velocity = new Vector3(0.0f, 0.0f, 0.0f);
-
     //is there 2 players in the game. if so use different controls for player 1 and 2 
     //but allows it all to be in 1 script
-	public bool isBlue = false;
-
-    public float playerSpeed;
-
-    public Rigidbody rb1;
-    float jumpSpeed = 5.0f;
-    float dropdownSpeed = 5.0f;
-
+    public bool isBlue = false;
+    public int playerNum;
     public bool grounded = true;
     public bool doubleJump = false;
 
-	public int playerNum;
+    private Vector3 velocity = new Vector3(0.0f, 0.0f, 0.0f);
+    private Rigidbody rb1;
+    private float jumpSpeed = 5.0f;
+    private float dropdownSpeed = 5.0f;
+    private float playerSpeed = 6;
 
     // Use this for initialization
     void Start()
     {
         rb1 = GetComponent<Rigidbody>();
+        if(this.tag == "Player1")
+        {
+            playerNum = 0;
+        }
+        else
+        {
+            playerNum = 1;
+            isBlue = true;
+        }
     }
 
     // Update is called once per frame

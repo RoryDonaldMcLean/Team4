@@ -8,9 +8,9 @@ public class SplineCurve : MonoBehaviour
     public Color color = Color.white;
     public float width = 0.2f;
     public int numberOfPoints = 20;
-    LineRenderer lineRenderer;
+    private LineRenderer lineRenderer;
 
-    //upon loading this script, immediately grab the required components needed to draw the line. 
+    //Upon loading this script, immediately grab/setup the required components needed to draw the line. 
     void Awake()
     {
         lineRenderer = this.gameObject.AddComponent<LineRenderer>();
@@ -20,7 +20,7 @@ public class SplineCurve : MonoBehaviour
         lineRenderer.motionVectorGenerationMode = MotionVectorGenerationMode.ForceNoMotion;
     }
 
-    //setup function used to create a spline curve that is straight, of size length, which ranges from 1 to 10.
+    //Setup function used to create a spline curve that is straight, of size length, ranging from 1 to 10.
     public void StraightLine(int length)
     {
         Vector3 startPoint = new Vector3(0, 0, 0);
@@ -34,7 +34,7 @@ public class SplineCurve : MonoBehaviour
         controlPoints.Add(endPoint);
     }
 
-    //setup function used to create a spline curve that is custom, of size length, which ranges from 1 to 10.
+    //Setup function used to create a spline curve that is custom, of size length, ranging from 1 to 10.
     public void CustomLine(int length, Vector3 startPoint, List<Vector3> midPoints, Vector3 endPoint)
     {
         controlPoints.Add(startPoint);
@@ -49,12 +49,16 @@ public class SplineCurve : MonoBehaviour
         controlPoints.Add(endPoint);
     }
 
-    //draws the curve and resets the local position of the object to zero, in order to allow for easy placement and manipulation 
+    //Draws the curve and resets the local position of the object to zero, in order to allow for easy placement and manipulation.
+    //This makes this line fall under the parent object and match the position and rotation of it perfectly. 
     void Start()
     {
        DrawLine();
     }
 
+    //Creates a collider for the lightbeam to detect if anything has got into the way, in order to then resize the beam. Another collider
+    //is created to collide with and therefore, connect with the light objects, which the beams are supposed to interact with. 
+    //The y position is raised to make it fit with the elevated height of the objects.
     public void Initialise()
     {
         CalculateColliders();
@@ -68,7 +72,6 @@ public class SplineCurve : MonoBehaviour
         Vector3 temp = this.transform.position;
         temp.y += 3.49f;
         this.transform.position = temp;
-        //this.transform.GetChild(0).rotation = Quaternion.Euler(new Vector3(0, 0, 0));
 
         lineRenderer.startColor = color;
         lineRenderer.endColor = color;
@@ -76,14 +79,16 @@ public class SplineCurve : MonoBehaviour
 
     private void CreateCollider(Vector3 location)
     {
-        //creates an endpoint collider, to be used for collision detection with the beam.
+        //Creates an endpoint collider, to be used for collision detection with the beam.
         GameObject colliderObject = Instantiate(Resources.Load("Prefabs/Light/LineCollider")) as GameObject;
         colliderObject.name = "LineColliderObject";
         colliderObject.transform.SetParent(lineRenderer.transform);
         colliderObject.transform.localPosition = location;
-        //colliderObject.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 0));
     }
 
+    //Calculates a collider that is the same length as the lightbeam, this dynamic approach, by creating
+    //it in real-time, ensures that the length would be correct and is a more efficent system than attaching
+    //lots of colliders to each control point, since there could be a great many control points.
     private void CalculateColliders()
     {
         Vector3 StartPosition = controlPoints[0];
@@ -102,6 +107,8 @@ public class SplineCurve : MonoBehaviour
         capsule.isTrigger = true;
     }
 
+    //Draws a bezier curve, using the control points to build up the curve. For this game,
+    //Its simply a straight line being built, but can be expanded for light curves. 
     private void DrawLine()
     {
         if (null == lineRenderer || controlPoints == null || controlPoints.Count < 3)

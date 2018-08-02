@@ -7,8 +7,7 @@ public class LightTrigger : MonoBehaviour
     public Color correctLightBeamColour = Color.white;
     public bool correctLight = false;
 
-    //sets the door colour indicator to the correct defined colour required in order to open the door
-    //an emissive level is added to better match the colour with the bright lightbeams 
+    //Sets the trigger colour indicator to the correct defined colour required in order to open the door
     void Start()
     {
         this.transform.GetChild(0).GetComponent<Renderer>().material.color = correctLightBeamColour;
@@ -18,14 +17,28 @@ public class LightTrigger : MonoBehaviour
     void OnTriggerEnter(Collider lightbeam)
     {
         LineRenderer line = lightbeam.GetComponentInParent<LineRenderer>();
-        //checks to see if the predefined colour that is required to open this door, matches the lightbeams colour.
+
+        //Checks to see if the predefined colour that is required to open this door, matches the lightbeams colour.
         if (CheckBeamColour(line.startColor))
         {
             CorrectColour();
+            GenerateVFXResponse(true);
         }
         else
         {
             IncorrectColour();
+            GenerateVFXResponse(false);
+        }
+    }
+
+    //Generates a VFX response after a lightbeam hits the trigger
+    //with a simply bool changing the effects displayed. 
+    private void GenerateVFXResponse(bool correctLight)
+    {
+        if(this.transform.childCount == 1)
+        {
+            GameObject responseVFX = Instantiate(Resources.Load("Prefabs/Particle/ParticleOrbElectric")) as GameObject;
+            responseVFX.GetComponent<LightTriggerVFXResponse>().Initialize(this.transform, correctLight);
         }
     }
 
@@ -52,7 +65,6 @@ public class LightTrigger : MonoBehaviour
         {
             correctLight = true;
 			AkSoundEngine.SetState("Drone_Modulator", "Hit_Switch");
-
         }
     }
 
@@ -65,7 +77,7 @@ public class LightTrigger : MonoBehaviour
         }
     }
 
-    //a simple colour comparision to indicate a match or not was found
+    //A simple colour comparision to indicate a match or not was found
     private bool CheckBeamColour(Color beamColour)
     {
         return (correctLightBeamColour.Equals(beamColour));

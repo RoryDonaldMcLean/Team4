@@ -8,16 +8,22 @@ public class LightBarrier : MonoBehaviour
     public Color colourToAllow;
     private Color resultantColour;
 
+    //Converts the light barrier's material colour to match the colour 
+    //specified in the editor. This provides a simple and effective way
+    //to chose and edit the colour a particular instance of light barrier
+    //is supposed to block. 
     void Start()
     {
         Color transparentVersionOfColour = colourToAllow;
         transparentVersionOfColour.a = 0.5f;
 
         this.transform.GetComponent<Renderer>().material.color = transparentVersionOfColour;
-        //this.transform.GetComponent<Renderer>().material.SetColor("_EmissionColor", (colourToBlock * 0.5f));
     }
 
-    //Upon a collison being detected with a Lightbeam 
+    //When a collision is detected a check is performed to see of the colour
+    //should be blocked or not. If the barrier is an inverse or otherwise
+    //the type of check is different. This result is then used in the 
+    //light resize script to process what happens next with the lightbeam.
     public bool OnEnter(Color colour)
     {
         resultantColour = colour;
@@ -32,6 +38,9 @@ public class LightBarrier : MonoBehaviour
         }
     }
 
+    //The colour of the lightbeam and the light barrier's colour
+    //when removed should result in a zeroed out result, if
+    //both colours were the same.   
     private bool BlockChosenColour()
     {
         resultantColour = resultantColour - colourToAllow;

@@ -7,14 +7,15 @@ public class PuzzleFourFinal : LevelControlBaseClass
     private LightTrigger lightTriggerInteract;
     private bool activatedLightBarrier = false;
 
-	GameObject MelodyDoor;
-	GameObject Exit;
-
+    //Used as reference point for the base class
+    //allowing various operations to stay dynamic.
     void Awake()
     {
         puzzleIdentifier = "PuzzleFour";
     }
 
+    //Finds the specfic light trigger in the scene and gets a reference to it
+    //used below in the specfic update.
     protected override void LevelSpecificInit()
     {
         foreach(LightTrigger lightrigger in lightDoors)
@@ -23,23 +24,17 @@ public class PuzzleFourFinal : LevelControlBaseClass
         }     
     }
 
-    // Update is called once per frame
-    void Update()
+    //If the light source is correct, swap a complete barrier with a 
+    //colour based one.
+    protected override void LevelSpecificUpdate()
     {
-        if ((IsAllLightTriggersActive()) && (!doorStateOpen))
-        {
-			doors [0].enabled = true;
-            Debug.Log("open");
-            doorStateOpen = !doorStateOpen;
-            exitDoor.OpenDoor();
-			AkSoundEngine.SetState("Drone_Modulator", "Complete");
-            EndOfLevel();
-        }
-        else if ((!activatedLightBarrier) && (lightTriggerInteract.correctLight))
+        if ((!activatedLightBarrier) && (lightTriggerInteract.correctLight))
         {
             activatedLightBarrier = true;
 
-            //create purple light barrier
+            //Create purple light barrier and destroys complete lightbarrier
+            //the scale and position and parent of the complete lightbarrier
+            //are used to setup the purple light barrier.
             GameObject allLightWall = GameObject.Find("AllLightBarrier");
             GameObject lightBarrier = Instantiate(Resources.Load("Prefabs/Light/LightBarrier")) as GameObject;
             lightBarrier.transform.SetParent(allLightWall.transform.parent);
@@ -48,26 +43,9 @@ public class PuzzleFourFinal : LevelControlBaseClass
             xScale /= 6.0f;
             lightBarrier.transform.localScale = new Vector3(xScale, 1, 1);
 
-            lightBarrier.GetComponentInChildren<LightBarrier>().colourToAllow = new Color(1,0,1,1);
+            lightBarrier.GetComponentInChildren<LightBarrier>().colourToAllow = new Color(1, 0, 1, 1);
 
             Destroy(allLightWall);
         }
-
-		if(doorStateOpen)
-		{
-			if (MelodyDoor.GetComponentInChildren<SCR_Door> ().SpawnWalkway == true)
-			{
-				GameObject walkway = Instantiate(Resources.Load("Prefabs/PuzzleGenericItems/tempFloor")) as GameObject;
-				walkway.name = "tempFloor";
-				//Vector3 pos = walkway.transform.position;
-				//pos.z += 54.4f * 3.0f;
-				Exit = GameObject.FindGameObjectWithTag ("ExitDoor");
-				Exit.SetActive (false);
-
-				MelodyDoor.GetComponentInChildren<SCR_Door> ().SpawnWalkway = false;
-				MelodyDoor.GetComponentInChildren<SCR_Door> ().Correct = false;
-			}
-		}
-
     }
 }

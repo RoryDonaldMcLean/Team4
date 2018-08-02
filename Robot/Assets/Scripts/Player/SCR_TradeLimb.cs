@@ -31,8 +31,6 @@ public class SCR_TradeLimb : MonoBehaviour
 	// Use this for initialization
 	private void Start()
     {
-		
-
         InitialisePlayerLimbs();
         SetPlayerTag();
 

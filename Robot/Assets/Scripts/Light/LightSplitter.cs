@@ -20,7 +20,9 @@ public class LightSplitter : MonoBehaviour
         splitBeams = new List<GameObject>();
     }
 
-    //Upon a collison being detected with a Lightbeam 
+    //Upon a collison being detected with a Lightbeam, the beams are split, the connected object 
+    //is stored for checks later on and its state is set to active, preventing any more onEnter calls 
+    //from being processed while the system is operating. 
     public void OnEnter(Collider lightBeam)
     {
         if ((!lightBeam.transform.IsChildOf(this.transform)) && (lightBeam.gameObject.layer != LayerMask.NameToLayer("BeamLayer"))&&(!active))
@@ -32,33 +34,26 @@ public class LightSplitter : MonoBehaviour
         }
     }
 
+    //When a beam exits the splitter, its checked to make sure that there are split beams, 
+    //meaning there is a split operation in progress, that its the relevant beam that is
+    //causing the split and finally that its not already in the process of deleting the beams.
     public void OnExit(Transform exitingObject)
     {
-        if(((splitBeams.Count > 0) && isRightObject(exitingObject)) && (!isDeleting))
+        if(((splitBeams.Count > 0) && IsRightObject(exitingObject)) && (!isDeleting))
         {
             isDeleting = true;
             DestroyBeam();
         }
     }
 
-    private bool isRightObject(Transform exitingObject)
+    //Checks to make sure that the object leaving is the relevant one that this splitter is 
+    //currently operating for.
+    private bool IsRightObject(Transform exitingObject)
     {
         return (exitingObject == connectedObject);
     }
 
-    private IEnumerator BeamNotification()
-    {
-        yield return new WaitUntil(() => splitBeams != null);
-        DestroyBeam();
-    }
-
-    private IEnumerator BeamDestructionConfirm(int index)
-    {
-        splitBeams[index].GetComponent<StraightSplineBeam>().ToggleBeam();
-        Destroy(splitBeams[index]);
-        yield return new WaitUntil(() => splitBeams[index] == null);
-    }
-
+    //Destroys the two beams, clearing its list and calling an extra cleanup function.
     private void DestroyBeam()
     {
         for (int i = 0; i < totalLightSplits; i++)
@@ -73,6 +68,8 @@ public class LightSplitter : MonoBehaviour
         ExitBeam();
     }
 
+    //After the beam has been destroyed, more cleanup code here is ran that resets various checks.
+    //Also checks for any new beams nearby that is touching the object and should auto switch to.  
     private void ExitBeam()
     {
         active = false;
@@ -82,31 +79,39 @@ public class LightSplitter : MonoBehaviour
         RaycastHit hit;
         if (RayCast(this.transform.forward, 1.0f, out hit))
         {
-            //OnEnter(hit.collider);
+            if (hit.transform.parent.parent.GetComponent<LightResize>().contact)
+            {
+                OnEnter(hit.collider);
+            }
         }
     }
 
+    //A very precise raycast that it used to check if any objects are near the prism of the splitter. 
+    //This is used to determine if, after the beam has left the prism area, any other beams are touching that
+    //should now be used as the connected point.
     private bool RayCast(Vector3 direction, float length, out RaycastHit hit)
     {
         int layerMask = 1 << LayerMask.NameToLayer("LightBeam");
         Vector3 offsetPos = Vector3.Scale(direction, this.transform.GetChild(0).GetComponent<Transform>().localScale);
-        Vector3 raycastStartLocation = this.transform.position;
-        raycastStartLocation -= offsetPos * 2.165f;
+        Vector3 raycastStartLocation = this.transform.GetChild(0).position;
+        raycastStartLocation -= offsetPos * 2.1f;
         raycastStartLocation.y = 3.49f;
 
         Debug.DrawRay(raycastStartLocation, direction, Color.red, length);
-        return Physics.BoxCast(raycastStartLocation, this.GetComponent<Transform>().localScale, direction, out hit, Quaternion.identity, length, layerMask);
+        return Physics.BoxCast(raycastStartLocation, this.GetComponentInChildren<Transform>().localScale, direction, out hit, Quaternion.identity, length, layerMask);
     }
 
-    //creates a beam that functions as an extension of the beam that this object has collided with
-    //taking away the original beams colour.
+    //Creates a beam that functions as an extension, continuing on from the original collided lightbeams 
+    //connection, all while taking the original beams colour into account. Since the light splitter object
+    //is designed to split the beam into two beams, its two beams not one that continues on from the original.
+    //Furthermore, additional functionality was added to this object so that the colour of original beam could also
+    //be split into its components. The two new beams are split by 45 degrees on either side by design.     
     private void CreateExtendedBeam()
     {
         if (splitBeams.Count > 0) DestroyBeam();
 
         for (int i = 0; i < totalLightSplits; i++)
         {
-            //creates an endpoint collider, to be used for collision detection with the beam.
             GameObject lightBeam = Instantiate(Resources.Load("Prefabs/Light/LightBeam")) as GameObject;
             lightBeam.name = "LightBeamObject " + i;
             lightBeam.transform.SetParent(this.transform);
@@ -125,6 +130,10 @@ public class LightSplitter : MonoBehaviour
         AkSoundEngine.SetState("Drone_Modulator", "Splitter");
     }
 
+    //As there is only one two-tone colour in the game, the colour split function can be very simple,
+    //since its purple, only the red and blue channels need to used to split the colour correctly.
+    //A check is performed that also provides designers more control over which side gains 
+    //which singular colour.  
     private void SplitColourBetweenBeams()
     {
         foreach(GameObject lineBeam in splitBeams)

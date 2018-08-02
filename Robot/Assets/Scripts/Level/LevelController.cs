@@ -11,10 +11,10 @@ public class LevelController : MonoBehaviour
 
 	void Start ()
     {
-		//levelSelect control was added to allow game designers / debugging to occur
+		//LevelSelect control was added to allow game designers / debugging to occur
 		//in individual scenes, if this functionality is disabled, use the int value that
 		//controls which level is to be loaded in the newly loaded scene.
-		//A safety measure was added to ensure that in level 1		
+		//A safety measure was added to ensure that in level 1 the first level setup is secured.		
 		if (!levelSelect)
 		{
 			GameObject puzzle = GameObject.Find ("PuzzleZero");
@@ -31,6 +31,8 @@ public class LevelController : MonoBehaviour
         Level(currentLevel);
     }
 
+    //When called, the next level is loaded, incrementing the level parameter
+    //which is used to load the correct level scene and level script.     
     public void NextLevel()
     {
         currentLevel++;
@@ -38,7 +40,7 @@ public class LevelController : MonoBehaviour
 		SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    //based on the level specified, the old level will be deleted and removed and the new level components will be loaded
+    //Based on the level specified, the old level will be deleted and removed and the new level components will be loaded
     private void Level(int levelNumber)
     {
         if (levelScripts.Count > 0) CleanUp();

@@ -1880,6 +1880,7 @@
 																<Property Name="EndTrimOffset" Type="Real64" Value="106666.666666667"/>
 																<Property Name="FadeInDuration" Type="Real64" Value="346.545375785136"/>
 																<Property Name="FadeOutDuration" Type="Real64" Value="3118.90838206629"/>
+																<Property Name="PlayAt" Type="Real64" Value="-76500"/>
 															</PropertyList>
 															<AudioSourceRef Name="Sacrifice Full" ID="{5ACBE60D-3E81-4561-AE52-97AE0368C21A}"/>
 															<PropertyCurveList>
@@ -1948,15 +1949,11 @@
 										</MusicTrack>
 									</ChildrenList>
 									<CueList>
-										<MusicCue Name="Entry Cue" ID="{15122CAE-4FB6-4C77-B36E-04ACD9201922}">
-											<PropertyList>
-												<Property Name="TimeMs" Type="Real64" Value="76500"/>
-											</PropertyList>
-										</MusicCue>
+										<MusicCue Name="Entry Cue" ID="{15122CAE-4FB6-4C77-B36E-04ACD9201922}"/>
 										<MusicCue Name="Exit Cue" ID="{8896B786-A24A-496C-A845-6F84E7814039}">
 											<PropertyList>
 												<Property Name="CueType" Type="int16" Value="1"/>
-												<Property Name="TimeMs" Type="Real64" Value="106666.666666667"/>
+												<Property Name="TimeMs" Type="Real64" Value="30000"/>
 											</PropertyList>
 										</MusicCue>
 									</CueList>
@@ -2042,11 +2039,11 @@
 							<Playlist>
 								<MusicPlaylistItem Name="" ID="{23D22546-C478-47E9-BC3E-F8A85D7CEB87}" ShortID="946994703">
 									<ChildrenList>
-										<MusicPlaylistItem Name="" ID="{146BE8FF-E25C-4939-A6F6-BE2782862520}" ShortID="88597998">
+										<MusicPlaylistItem Name="" ID="{8A24238E-FFD7-43BF-ABFA-BF622ACE6CFD}" ShortID="1060100381">
 											<PropertyList>
 												<Property Name="PlaylistItemType" Type="int16" Value="1"/>
 											</PropertyList>
-											<SegmentRef Name="Sacrifice P2" ID="{A3487390-F242-4989-BFF4-35370B36532B}"/>
+											<SegmentRef Name="Sacrifice Full" ID="{9CF617E8-775F-4738-8B76-00306DED2DB1}"/>
 										</MusicPlaylistItem>
 									</ChildrenList>
 								</MusicPlaylistItem>
@@ -2220,7 +2217,11 @@
 							</CustomState>
 							<CustomState>
 								<StateRef Name="P2_FactoryPuzzle1" ID="{79494580-3976-425E-971D-CB193C870700}"/>
-								<State Name="" ID="{98D81C79-3E9B-4EB5-A7ED-223E88550471}" ShortID="993137555"/>
+								<State Name="" ID="{98D81C79-3E9B-4EB5-A7ED-223E88550471}" ShortID="993137555">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64" Value="-12"/>
+									</PropertyList>
+								</State>
 							</CustomState>
 							<CustomState>
 								<StateRef Name="Hit_Wall" ID="{1632BA91-329C-42DF-B8C4-64F6C03B69BB}"/>

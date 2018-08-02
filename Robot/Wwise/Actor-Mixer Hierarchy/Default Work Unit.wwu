@@ -19,6 +19,7 @@
 					<ChildrenList>
 						<ActorMixer Name="Robots" ID="{753C1F64-B6D2-415E-A1AB-B272E79F90EA}" ShortID="159600976">
 							<PropertyList>
+								<Property Name="OverrideOutput" Type="bool" Value="True"/>
 								<Property Name="Pitch" Type="int32">
 									<ModifierList>
 										<ModifierInfo>
@@ -2118,6 +2119,7 @@
 						</ActorMixer>
 						<ActorMixer Name="Objects" ID="{56AE881C-CDC3-40E4-953B-D4DFE256E5F3}" ShortID="152755625">
 							<PropertyList>
+								<Property Name="OverrideOutput" Type="bool" Value="True"/>
 								<Property Name="PositioningType" Type="int16" Value="1"/>
 								<Property Name="UseGameAuxSends" Type="bool" Value="True"/>
 								<Property Name="Volume" Type="Real64">
@@ -2362,6 +2364,7 @@
 						<ActorMixer Name="Emitters" ID="{8B672896-7E7B-47E7-99B3-91A5D79900B1}" ShortID="420492628">
 							<PropertyList>
 								<Property Name="OverrideEffect" Type="bool" Value="True"/>
+								<Property Name="OverrideOutput" Type="bool" Value="True"/>
 								<Property Name="OverrideUserAuxSends" Type="bool" Value="True"/>
 								<Property Name="PositioningType" Type="int16" Value="1"/>
 								<Property Name="UseGameAuxSends" Type="bool" Value="True"/>
@@ -2387,68 +2390,12 @@
 									<ObjectRef Name="Metal_Hangar" ID="{C4A4605C-42EF-476A-B53C-E31C7A442C24}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
+									<ObjectRef Name="Objects" ID="{CA2680CC-BAFB-4640-B105-3ABB8404E954}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
 								<RandomSequenceContainer Name="Tarp" ID="{7F4DBC36-D752-4CBA-9B7F-3E04C95E19AE}" ShortID="479781519">
 									<PropertyList>
-										<Property Name="Lowpass" Type="int16">
-											<RTPCList>
-												<RTPC Name="" ID="{621DDCE6-FA64-467D-BE03-EC41B6F1FCC8}" ShortID="207842655">
-													<ReferenceList>
-														<Reference Name="ControlInput">
-															<ObjectRef Name="Wind_Speed" ID="{41983626-5B7C-4EAC-ACAF-7D0E11ECEF10}" WorkUnitID="{6FAB8A0D-1E75-4FC9-8CF4-258F9AA56D77}"/>
-														</Reference>
-													</ReferenceList>
-													<Curve Name="" ID="{C77DF837-CBC1-466C-B87B-08D150546F5A}">
-														<PropertyList>
-															<Property Name="Flags" Type="int32" Value="65537"/>
-														</PropertyList>
-														<PointList>
-															<Point>
-																<XPos>0</XPos>
-																<YPos>35</YPos>
-																<Flags>5</Flags>
-															</Point>
-															<Point>
-																<XPos>100</XPos>
-																<YPos>1</YPos>
-																<Flags>37</Flags>
-															</Point>
-														</PointList>
-													</Curve>
-												</RTPC>
-											</RTPCList>
-										</Property>
-										<Property Name="OutputBusVolume" Type="Real64">
-											<RTPCList>
-												<RTPC Name="" ID="{25247283-B9D7-44FE-A298-373D77C08F26}" ShortID="193149310">
-													<ReferenceList>
-														<Reference Name="ControlInput">
-															<ObjectRef Name="Wind_Speed" ID="{41983626-5B7C-4EAC-ACAF-7D0E11ECEF10}" WorkUnitID="{6FAB8A0D-1E75-4FC9-8CF4-258F9AA56D77}"/>
-														</Reference>
-													</ReferenceList>
-													<Curve Name="" ID="{E7661FD1-29EC-4542-A87A-03373BBB0AEB}">
-														<PropertyList>
-															<Property Name="Flags" Type="int32" Value="3"/>
-														</PropertyList>
-														<PointList>
-															<Point>
-																<XPos>0</XPos>
-																<YPos>-200</YPos>
-																<Flags>5</Flags>
-															</Point>
-															<Point>
-																<XPos>100</XPos>
-																<YPos>-0.00001</YPos>
-																<Flags>37</Flags>
-															</Point>
-														</PointList>
-													</Curve>
-												</RTPC>
-											</RTPCList>
-										</Property>
 										<Property Name="OverrideEffect" Type="bool" Value="True"/>
 										<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
 										<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
@@ -2764,6 +2711,7 @@
 						</ActorMixer>
 						<ActorMixer Name="Ambience" ID="{E98BB56A-AA65-4049-B55B-0BB4DF81421E}" ShortID="890859157">
 							<PropertyList>
+								<Property Name="OverrideOutput" Type="bool" Value="True"/>
 								<Property Name="OverridePositioning" Type="bool" Value="True"/>
 								<Property Name="UseGameAuxSends" Type="bool" Value="True"/>
 							</PropertyList>
@@ -4262,7 +4210,7 @@ Air currents change during the hours of the day and foliage changes during  the 
 												<State Name="" ID="{234A7F25-C2BF-42C8-B415-514FE2D50822}" ShortID="96136121">
 													<PropertyList>
 														<Property Name="Highpass" Type="int16" Value="31"/>
-														<Property Name="Volume" Type="Real64" Value="-5"/>
+														<Property Name="Volume" Type="Real64" Value="-2"/>
 													</PropertyList>
 												</State>
 											</CustomState>
@@ -4411,19 +4359,7 @@ Air currents change during the hours of the day and foliage changes during  the 
 										</GroupingBehaviorList>
 										<GroupingList>
 											<Grouping>
-												<SwitchRef Name="P6_EndLeave" ID="{E8ED1630-94B1-46FB-A5DC-E890F8746D73}"/>
-												<ItemList>
-													<ItemRef Name="Tower Hum" ID="{91EAB744-37A2-4F64-80FB-B19BF7AB5AFC}"/>
-												</ItemList>
-											</Grouping>
-											<Grouping>
 												<SwitchRef Name="P5_CorePuzzle" ID="{C972704B-6D26-49FC-8229-7838BCD59F79}"/>
-												<ItemList>
-													<ItemRef Name="Tower Hum" ID="{91EAB744-37A2-4F64-80FB-B19BF7AB5AFC}"/>
-												</ItemList>
-											</Grouping>
-											<Grouping>
-												<SwitchRef Name="P6_EndSacrifice" ID="{B2786363-AAB6-4D23-9F0A-8407408276B0}"/>
 												<ItemList>
 													<ItemRef Name="Tower Hum" ID="{91EAB744-37A2-4F64-80FB-B19BF7AB5AFC}"/>
 												</ItemList>
@@ -4681,12 +4617,15 @@ Air currents change during the hours of the day and foliage changes during  the 
 							</ChildrenList>
 						</ActorMixer>
 						<ActorMixer Name="Drone" ID="{39D8015F-EC58-42E7-BADD-4FB4A7EBD0B6}" ShortID="906729134">
+							<PropertyList>
+								<Property Name="OverrideOutput" Type="bool" Value="True"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
+									<ObjectRef Name="Drone" ID="{6BAF7145-A163-40D7-A216-C4BC3B0F1656}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
@@ -4705,11 +4644,6 @@ Air currents change during the hours of the day and foliage changes during  the 
 										<Property Name="UseMaxSoundPerInstance" Type="bool">
 											<ValueList>
 												<Value>True</Value>
-											</ValueList>
-										</Property>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-19</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>

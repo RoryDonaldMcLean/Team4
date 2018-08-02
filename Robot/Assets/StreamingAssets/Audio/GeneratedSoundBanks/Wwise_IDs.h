@@ -164,9 +164,7 @@ namespace AK
     namespace GAME_PARAMETERS
     {
         static const AkUniqueID CHIRPS_COMBINE = 4148654648U;
-        static const AkUniqueID ENVIRONMENTEFFECTS = 2237703306U;
         static const AkUniqueID LIMBNUMBER = 2589579194U;
-        static const AkUniqueID WIND_SPEED = 3110594711U;
     } // namespace GAME_PARAMETERS
 
     namespace BANKS

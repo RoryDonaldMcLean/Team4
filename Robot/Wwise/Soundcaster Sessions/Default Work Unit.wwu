@@ -54,10 +54,6 @@
 					</ModuleList>
 					<RTPCValueList ShowAll="true">
 						<RTPCValue>
-							<GameParameterRef Name="EnvironmentEffects" ID="{6C0E9AD4-1D56-4413-8283-3E258ED2C076}"/>
-							<Value>0</Value>
-						</RTPCValue>
-						<RTPCValue>
 							<GameParameterRef Name="Chirps_Combine" ID="{F12155E7-E290-4705-A9D3-8E95B7457F07}"/>
 							<Value>100</Value>
 						</RTPCValue>
@@ -129,6 +125,10 @@
 							<Position X="0" Y="3"/>
 						</Module>
 						<Module>
+							<ObjectRef Name="Menu_Exit" ID="{AE398ED8-49F4-41BB-B0FD-74363E432EC3}" WorkUnitID="{9208E778-4B37-4421-9C2A-46AAA42FFE85}"/>
+							<Position X="0" Y="4"/>
+						</Module>
+						<Module>
 							<ObjectRef Name="Drone" ID="{C48883F0-0412-458A-AFBC-C283EB37E271}" WorkUnitID="{9208E778-4B37-4421-9C2A-46AAA42FFE85}"/>
 							<Position X="1" Y="0"/>
 						</Module>
@@ -145,6 +145,10 @@
 							<Position X="1" Y="3"/>
 						</Module>
 						<Module>
+							<ObjectRef Name="Menu_Enter" ID="{CA013A9A-5765-4312-AE31-74E1AE8F04EF}" WorkUnitID="{9208E778-4B37-4421-9C2A-46AAA42FFE85}"/>
+							<Position X="1" Y="4"/>
+						</Module>
+						<Module>
 							<ObjectRef Name="Music_Start" ID="{3B88EE9D-A4F2-4C37-9601-6A387E91D0D0}" WorkUnitID="{9208E778-4B37-4421-9C2A-46AAA42FFE85}"/>
 							<Position X="2" Y="0"/>
 						</Module>
@@ -159,6 +163,10 @@
 						<Module>
 							<ObjectRef Name="TarpFlap" ID="{58AD7E3C-3DB9-4D76-93AB-DC62A761A9E4}" WorkUnitID="{9208E778-4B37-4421-9C2A-46AAA42FFE85}"/>
 							<Position X="2" Y="3"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Menu_Select" ID="{6CC3C046-5A64-464B-80BD-64368F7BC07B}" WorkUnitID="{9208E778-4B37-4421-9C2A-46AAA42FFE85}"/>
+							<Position X="2" Y="4"/>
 						</Module>
 						<Module>
 							<ObjectRef Name="Activate_Crystal" ID="{79E8771B-ED28-44E7-87B1-CCC32FEA5571}" WorkUnitID="{9208E778-4B37-4421-9C2A-46AAA42FFE85}"/>
@@ -195,10 +203,6 @@
 					</ModuleList>
 					<RTPCValueList ShowAll="true">
 						<RTPCValue>
-							<GameParameterRef Name="EnvironmentEffects" ID="{6C0E9AD4-1D56-4413-8283-3E258ED2C076}"/>
-							<Value>50</Value>
-						</RTPCValue>
-						<RTPCValue>
 							<GameParameterRef Name="Chirps_Combine" ID="{F12155E7-E290-4705-A9D3-8E95B7457F07}"/>
 							<Value>0</Value>
 						</RTPCValue>
@@ -206,19 +210,15 @@
 							<GameParameterRef Name="LimbNumber" ID="{9D2C0198-110B-4E07-BCC0-FA350FF658CF}"/>
 							<Value>4</Value>
 						</RTPCValue>
-						<RTPCValue>
-							<GameParameterRef Name="Wind_Speed" ID="{41983626-5B7C-4EAC-ACAF-7D0E11ECEF10}"/>
-							<Value>96.2719298245614</Value>
-						</RTPCValue>
 					</RTPCValueList>
 					<CurrentStateList ShowAll="true">
 						<CurrentStateRef Name="P6_EndSacrifice" ID="{B2786363-AAB6-4D23-9F0A-8407408276B0}"/>
-						<CurrentStateRef Name="Complete" ID="{5B42DFA5-E7F9-47A0-8E1C-22A385CE8DC2}"/>
+						<CurrentStateRef Name="None" ID="{331774C3-E4D6-4A55-9D04-3E408E218369}"/>
 						<CurrentStateRef Name="Off" ID="{70434DDD-F841-4816-93C4-B4F27E67B9A3}"/>
 						<CurrentStateRef Name="Happy" ID="{8159EF55-F4EC-4B8F-8798-01F730CE0B04}"/>
 					</CurrentStateList>
 					<CurrentSwitchList ShowAll="true">
-						<CurrentSwitchRef Name="Dirt" ID="{1AA64321-96E7-443D-BB3D-67DE9300CF00}"/>
+						<CurrentSwitchRef Name="Gravel" ID="{E9FBDDC8-3667-438E-9011-09D21A9BD08D}"/>
 						<CurrentSwitchRef Name="Limb2" ID="{7CF078EE-E8AF-4FB7-87DA-F9F2CE6A9B4D}"/>
 						<CurrentSwitchRef Name="Player_1" ID="{6E833DCC-3FA9-4C0A-8558-F454CDA5F3DB}"/>
 					</CurrentSwitchList>

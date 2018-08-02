@@ -42,7 +42,7 @@
 								<DuckItem>
 									<BusRef Name="Drone" ID="{6BAF7145-A163-40D7-A216-C4BC3B0F1656}"/>
 									<DuckingParam>
-										<Volume>-13</Volume>
+										<Volume>-7</Volume>
 										<FadeInTime>0.5</FadeInTime>
 										<FadeOutTime>0.200000002980232</FadeOutTime>
 										<FadeCurve>FadeExp1</FadeCurve>
@@ -119,34 +119,8 @@
 							<PropertyList>
 								<Property Name="BusVolume" Type="Real64">
 									<ValueList>
-										<Value>-21</Value>
+										<Value>-7</Value>
 									</ValueList>
-									<RTPCList>
-										<RTPC Name="" ID="{4F431EAF-C451-4B24-B0B6-494939B274BC}" ShortID="148271566">
-											<ReferenceList>
-												<Reference Name="ControlInput">
-													<ObjectRef Name="Wind_Speed" ID="{41983626-5B7C-4EAC-ACAF-7D0E11ECEF10}" WorkUnitID="{6FAB8A0D-1E75-4FC9-8CF4-258F9AA56D77}"/>
-												</Reference>
-											</ReferenceList>
-											<Curve Name="" ID="{521924B6-39D1-424B-8C03-BCB5289BB732}">
-												<PropertyList>
-													<Property Name="Flags" Type="int32" Value="3"/>
-												</PropertyList>
-												<PointList>
-													<Point>
-														<XPos>0</XPos>
-														<YPos>-45</YPos>
-														<Flags>5</Flags>
-													</Point>
-													<Point>
-														<XPos>100</XPos>
-														<YPos>0</YPos>
-														<Flags>37</Flags>
-													</Point>
-												</PointList>
-											</Curve>
-										</RTPC>
-									</RTPCList>
 								</Property>
 								<Property Name="DivergenceCenter" Type="int32">
 									<ValueList>
@@ -177,17 +151,17 @@
 									<BusRef Name="Ambience" ID="{6DA28E5B-02CA-4B3F-8893-AC8791C9BF2D}"/>
 									<DuckingParam>
 										<Volume>-12</Volume>
-										<FadeInTime>1</FadeInTime>
-										<FadeOutTime>1</FadeOutTime>
+										<FadeInTime>5</FadeInTime>
+										<FadeOutTime>5</FadeOutTime>
 										<FadeCurve>FadeLinear</FadeCurve>
 									</DuckingParam>
 								</DuckItem>
 								<DuckItem>
 									<BusRef Name="Music" ID="{8B3FDD90-9F59-41B0-831B-94D60F3FFC3C}"/>
 									<DuckingParam>
-										<Volume>-10</Volume>
-										<FadeInTime>1</FadeInTime>
-										<FadeOutTime>1</FadeOutTime>
+										<Volume>-12</Volume>
+										<FadeInTime>5</FadeInTime>
+										<FadeOutTime>5</FadeOutTime>
 										<FadeCurve>FadeLinear</FadeCurve>
 									</DuckingParam>
 								</DuckItem>
@@ -195,11 +169,6 @@
 						</Bus>
 						<Bus Name="Music" ID="{8B3FDD90-9F59-41B0-831B-94D60F3FFC3C}">
 							<PropertyList>
-								<Property Name="BusVolume" Type="Real64">
-									<ValueList>
-										<Value>-4</Value>
-									</ValueList>
-								</Property>
 								<Property Name="DivergenceCenter" Type="int32">
 									<ValueList>
 										<Value>0</Value>
@@ -271,7 +240,7 @@
 								<DuckItem>
 									<BusRef Name="Drone" ID="{6BAF7145-A163-40D7-A216-C4BC3B0F1656}"/>
 									<DuckingParam>
-										<Volume>-6</Volume>
+										<Volume>0</Volume>
 										<FadeInTime>1</FadeInTime>
 										<FadeOutTime>0</FadeOutTime>
 										<FadeCurve>FadeExp1</FadeCurve>
@@ -281,7 +250,7 @@
 								<DuckItem>
 									<BusRef Name="Music" ID="{8B3FDD90-9F59-41B0-831B-94D60F3FFC3C}"/>
 									<DuckingParam>
-										<Volume>-6</Volume>
+										<Volume>0</Volume>
 										<FadeInTime>1</FadeInTime>
 										<FadeOutTime>0</FadeOutTime>
 										<FadeCurve>FadeExp1</FadeCurve>

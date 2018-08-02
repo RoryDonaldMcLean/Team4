@@ -8,7 +8,7 @@ using UnityEngine.EventSystems;
 public class PuaseMenu : MonoBehaviour
 {
 
-    public List<Button> pauseBtn;
+    private List<Button> pauseBtn = new List<Button>();
     public GameObject settingArea;
 
     private GameObject red, blue;

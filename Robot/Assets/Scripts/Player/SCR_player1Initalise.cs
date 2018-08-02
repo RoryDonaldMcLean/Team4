@@ -8,7 +8,9 @@ public class SCR_player1Initalise : SCR_TradeLimb
 
 	protected override void LimbDetails()
 	{
-		levelCounter = GameObject.FindGameObjectWithTag ("GameController").GetComponent<LevelController>().currentLevel;
+        PickUpInit();
+
+        levelCounter = GameObject.FindGameObjectWithTag ("GameController").GetComponent<LevelController>().currentLevel;
 
 		//change the total number of limbs needed at the start of the level
 		if (levelCounter == 0)
@@ -44,8 +46,15 @@ public class SCR_player1Initalise : SCR_TradeLimb
 			//tower
 			Exchange ("RightArm", this.gameObject.tag, true);
 		}
-
-
     }
-	
+
+    private void PickUpInit()
+    {
+        GameObject go = (GameObject)Instantiate(Resources.Load("Prefabs/Player/pickup"));
+        go.GetComponent<PickupAndDropdown_Trigger>().isBlue = false;
+        go.GetComponent<PickupAndDropdown_Trigger>().playerNum = 0;
+        go.transform.parent = this.transform;
+        go.transform.localPosition = Vector3.zero;
+        go.transform.localRotation = Quaternion.Euler(Vector3.zero);
+    }
 }

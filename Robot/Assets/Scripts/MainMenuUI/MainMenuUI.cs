@@ -9,7 +9,7 @@ using UnityEngine.EventSystems;
 public class MainMenuUI : MonoBehaviour
 {
     private bool isSetting = false;
-    public List<Button> mainMenuBtn;
+    private List<Button> mainMenuBtn = new List<Button>();
 
     public GameObject settingArea, chapterArea;
 

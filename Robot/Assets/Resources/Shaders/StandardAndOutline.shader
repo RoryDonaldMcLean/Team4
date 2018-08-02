@@ -1,9 +1,14 @@
-// Unity built-in shader source. Copyright (c) 2016 Unity Technologies. MIT license (see license.txt)
+﻿// Unity built-in shader source. Copyright (c) 2016 Unity Technologies. MIT license (see license.txt)
 
-Shader "Standard"
+Shader "Custom/Standard and Outline"
 {
     Properties
     {
+		_PickUpDetected("PickUp", Range(0, 1)) = 0
+
+		_Outline("Outline", Range(0, 1)) = 0.1
+		_OutlineColor("OutlineColor", Color) = (1, 0, 0, 1)
+
         _Color("Color", Color) = (1,1,1,1)
         _MainTex("Albedo", 2D) = "white" {}
 
@@ -39,7 +44,6 @@ Shader "Standard"
 
         [Enum(UV0,0,UV1,1)] _UVSec ("UV Set for secondary textures", Float) = 0
 
-
         // Blending state
         [HideInInspector] _Mode ("__mode", Float) = 0.0
         [HideInInspector] _SrcBlend ("__src", Float) = 1.0
@@ -56,7 +60,145 @@ Shader "Standard"
         Tags { "RenderType"="Opaque" "PerformanceChecks"="False" }
         LOD 300
 
+		Pass 
+		{
+			NAME "OUTLINE BEHIND WALL"
+			Blend SrcAlpha One
+			ZWrite Off
+			ZTest Greater
+			Cull Back
+			CGPROGRAM
+			#include "Lighting.cginc"
+			#include "UnityCG.cginc"
 
+			struct v2f
+			{
+				float4 pos : SV_POSITION;
+				float3 normal : normal;
+				float3 viewDir : TEXCOORD0;
+			};
+
+			float _PickUpDetected;
+			float _Outline;
+			fixed4 _OutlineColor;
+
+			v2f vert(appdata_base v)
+			{
+				v2f o;
+				o.pos = UnityObjectToClipPos(v.vertex);
+				o.viewDir = ObjSpaceViewDir(v.vertex);
+				o.normal = v.normal;
+				
+				return o;
+			}
+
+			fixed4 frag(v2f i) : SV_Target
+			{
+				float3 normal = normalize(i.normal);
+				float3 viewDir = normalize(i.viewDir);
+				float rim = 1 - max(0, dot(normal, viewDir));
+				fixed4 col = _OutlineColor * rim;
+				
+				if(_PickUpDetected <= 0)
+					col.a = 0;
+
+				return col;
+			}
+
+			#pragma vertex vert  
+			#pragma fragment frag  
+			ENDCG
+		}
+
+// 2nd Choice of outline behind walls
+/*		Pass 
+		{
+			NAME "OUTLINE BEHIND WALLS"
+			Cull Front   
+			ZWrite Off
+			ZTest Greater
+			CGPROGRAM
+			#include "Lighting.cginc"
+			#include "UnityCG.cginc"
+
+			struct v2f
+			{
+				float4 pos : SV_POSITION;
+				float3 normal : normal;
+			};
+
+			float _Outline;
+			fixed4 _OutlineColor;
+
+			v2f vert(appdata_base v) 
+			{
+				v2f o;
+				float4 pos = mul(UNITY_MATRIX_MV, v.vertex);
+				float3 normal = mul((float3x3)UNITY_MATRIX_IT_MV, v.normal);
+				normal.z = -0.5;    
+				pos = pos + float4(normalize(normal), 0) * _Outline;        
+				o.pos = mul(UNITY_MATRIX_P, pos);
+				o.normal = v.normal;
+				return o;
+			}
+
+			fixed4 frag(v2f i) : SV_Target
+			{
+				return _OutlineColor;
+			}
+
+			#pragma vertex vert  
+			#pragma fragment frag  
+			ENDCG
+		}
+		*/
+
+		Pass 
+		{
+			NAME "OUTLINE"
+			Cull Front   
+			ZWrite On
+			ZTest LEqual
+			CGPROGRAM
+			#include "Lighting.cginc"
+			#include "UnityCG.cginc"
+
+
+			struct v2f
+			{
+				float4 pos : SV_POSITION;
+				float3 normal : normal;
+			};
+
+			float _PickUpDetected;
+			float _Outline;
+			fixed4 _OutlineColor;
+
+			v2f vert(appdata_base v) 
+			{
+				v2f o;
+				float4 pos = mul(UNITY_MATRIX_MV, v.vertex);
+				float3 normal = mul((float3x3)UNITY_MATRIX_IT_MV, v.normal);
+				normal.z = -0.5;
+
+				if(_PickUpDetected > 0)
+					pos = pos + float4(normalize(normal), 0) * _Outline;
+				
+				o.pos = mul(UNITY_MATRIX_P, pos);
+				o.normal = v.normal;
+				return o;
+			}
+
+			fixed4 frag(v2f i) : SV_Target
+			{
+				return _OutlineColor;
+			}
+
+			#pragma vertex vert  
+			#pragma fragment frag  
+			ENDCG
+		}
+		
         // ------------------------------------------------------------------
         //  Base forward pass (directional light, emission, lightmaps, ...)
         Pass
@@ -142,7 +284,6 @@ Shader "Standard"
             #pragma target 3.0
 
             // -------------------------------------
-
 
             #pragma shader_feature _ _ALPHATEST_ON _ALPHABLEND_ON _ALPHAPREMULTIPLY_ON
             #pragma shader_feature _METALLICGLOSSMAP
@@ -340,7 +481,6 @@ Shader "Standard"
         }
     }
 
-
     FallBack "VertexLit"
-    CustomEditor "StandardShaderGUI"
+    //CustomEditor "StandardShaderGUI"
 }

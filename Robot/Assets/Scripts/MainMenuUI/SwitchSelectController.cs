@@ -18,7 +18,7 @@ public class SwitchSelectController : MonoBehaviour {
 
     void OnDisable()
     {
-        
+         
     }
 	
 	// Update is called once per frame

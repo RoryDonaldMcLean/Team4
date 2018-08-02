@@ -9,7 +9,7 @@ public class ChapterArea : MonoBehaviour
 
     public List<Button> chapterBtn;
     //private bool firstEnable = false;
-
+    
     // Use this for initialization
     private void Start()
     {

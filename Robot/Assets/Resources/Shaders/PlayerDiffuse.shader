@@ -1,6 +1,4 @@
-﻿
-
-Shader "Custom/PlayerDiffuse"
+﻿Shader "Custom/PlayerDiffuse"
 {
 	Properties
 	{
@@ -25,6 +23,7 @@ Shader "Custom/PlayerDiffuse"
 
 			CGPROGRAM
 			#include "Lighting.cginc"  
+			#include "UnityCG.cginc"
 			fixed4 _XRayColor;
 			
 			struct v2f
@@ -64,7 +63,7 @@ Shader "Custom/PlayerDiffuse"
 
 			CGPROGRAM
 			#include "Lighting.cginc" 
-
+			#include "UnityCG.cginc"
 			/*********************************************************************
 			********Lighting******************************************************
 			*********************************************************************/

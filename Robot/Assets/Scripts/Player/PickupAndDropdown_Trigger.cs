@@ -314,7 +314,8 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
                 for (int u = 0; u < this.transform.parent.GetChild(i).childCount; u++)
                 {
                     //find the object that has the "Arm" in it's name
-                    if (this.transform.parent.GetChild(i).transform.GetChild(u).name.Contains("Arm"))
+                    Transform limb = this.transform.parent.GetChild(i).transform.GetChild(u);
+                    if (limb.name.Contains("Arm") && (limb.gameObject.activeSelf))
                     {
                         quantity++;
                     }

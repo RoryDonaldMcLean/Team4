@@ -17,7 +17,8 @@ public class Pushbox : MonoBehaviour {
                 for (int u = 0; u < this.transform.GetChild(i).childCount; u++)
                 {
                     //find the object that has the "Arm" in it's name
-                    if (this.transform.GetChild(i).transform.GetChild(u).name.Contains("Arm"))
+                    if (this.transform.GetChild(i).transform.GetChild(u).name.Contains("Arm") 
+                        && this.transform.GetChild(i).transform.GetChild(u).gameObject.activeSelf)
                     {
                         quantity++;
                     }

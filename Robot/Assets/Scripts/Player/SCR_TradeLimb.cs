@@ -29,28 +29,18 @@ public class SCR_TradeLimb : MonoBehaviour
 	List<GameObject> limbsUI2 = new List<GameObject>();
 
 	public int playerNum;
-<<<<<<< HEAD
 
 	bool ControllersUsed;
-
-	// Use this for initialization
-	private void Start()
-<<<<<<< HEAD
-=======
     #endregion
 
     #region Monobehaviour function
     // Use this for initialization
     private void Start()
->>>>>>> Development-Neko-27.07.18
-=======
->>>>>>> Development-John-27.07.18V2
     {
         InitialisePlayerLimbs();
         SetPlayerTag();
 
         //get all the limbUI images, add them to a list and set them all to inactive to start
-<<<<<<< HEAD
         UILimbImage = GameObject.FindGameObjectWithTag ("UILimb");
 		if (UILimbImage != null) 
 		{
@@ -70,35 +60,11 @@ public class SCR_TradeLimb : MonoBehaviour
 				limbsUI2 [i].SetActive (false);
 			}
 		}
-
-    }
-=======
-        UILimbImage = GameObject.FindGameObjectWithTag("UILimb");
->>>>>>> Development-Neko-27.07.18
-
-        if (UILimbImage != null)
-        {
-            for (int i = 0; i < UILimbImage.transform.childCount; i++)
-            {
-                limbsUI.Add(UILimbImage.transform.GetChild(i).gameObject);
-                limbsUI[i].SetActive(false);
-            }
-        }
-        UILimbImage2 = GameObject.FindGameObjectWithTag("UILimb2");
-        if (UILimbImage2 != null)
-        {
-            for (int i = 0; i < UILimbImage2.transform.childCount; i++)
-            {
-                limbsUI2.Add(UILimbImage2.transform.GetChild(i).gameObject);
-                limbsUI2[i].SetActive(false);
-            }
-        }
     }
 
     // Update is called once per frame
     public void Update()
     {
-<<<<<<< HEAD
 		var inputDevice = (InputManager.Devices.Count > playerNum) ? InputManager.Devices [playerNum] : null;
 		if (inputDevice == null)
 		{
@@ -111,18 +77,7 @@ public class SCR_TradeLimb : MonoBehaviour
 			ProcessInputInControl (inputDevice);
 			ControllersUsed = true;
 		}
-=======
-        var inputDevice = (InputManager.Devices.Count > playerNum) ? InputManager.Devices[playerNum] : null;
-        if (inputDevice == null)
-        {
-            //Debug.Log ("no controllers plugged in");
-            ProcessInput();
-        }
-        else
-        {
-            ProcessInputInControl(inputDevice);
-        }
->>>>>>> Development-Neko-27.07.18
+
 
         childrenParticleSytems = gameObject.GetComponentsInChildren<ParticleSystem>();
 
@@ -404,11 +359,6 @@ public class SCR_TradeLimb : MonoBehaviour
 	{
 		//update the game controller
 		if((UILimbImage != null)&&(UILimbImage2 != null)) UICheck();
-
-<<<<<<< HEAD
-=======
-		////////////////////////////////////
->>>>>>> Development-Neko-27.07.18
 		if (isBlue == GameManager.Instance.whichAndroid.player1ControlBlue)
 		{	//player 1 controls
             GameObject ui = !GameManager.Instance.whichAndroid.player1ControlBlue ? UILimbImage : UILimbImage2;

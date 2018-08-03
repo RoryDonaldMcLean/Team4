@@ -22,9 +22,9 @@ GameObject:
   - component: {fileID: 114579787382503186}
   - component: {fileID: 114674260863575364}
   - component: {fileID: 114521345460425854}
-  - component: {fileID: 114942841403728406}
   - component: {fileID: 114058307586892120}
   - component: {fileID: 114933305382935622}
+  - component: {fileID: 114823582636782100}
   m_Layer: 0
   m_Name: GameController
   m_TagString: GameController
@@ -104,8 +104,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2efc039bc7c715447987ccb86f625095, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLevel: 1
+  currentLevel: 0
   levelSelect: 1
+--- !u!114 &114823582636782100
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1736136442588940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b19eebae5c737b4daee03a7fcaaeb94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventCount: 0
+  timeLeft: 2
+  startTimer: 0
+  playEvent: 0
 --- !u!114 &114933305382935622
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -128,16 +143,3 @@ MonoBehaviour:
   soundEmitterObject: {fileID: 0}
   transitionDuration: 0
   valueGuid: 9a3a01ca65571243ae3174e1ae8f04ef
---- !u!114 &114942841403728406
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1736136442588940}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 238932d82776b64439c6a306c1622cd2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  level: 2
-  pauseCanvas: {fileID: 0}

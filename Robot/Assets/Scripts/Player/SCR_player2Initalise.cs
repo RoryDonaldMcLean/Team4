@@ -20,39 +20,26 @@ public class SCR_player2Initalise : SCR_TradeLimb
 			Exchange ("LeftArm", this.gameObject.tag, true);
 			Exchange ("LeftLeg", this.gameObject.tag, true);
 			Exchange ("RightLeg", this.gameObject.tag, true);
-		} 
-		else if (levelCounter == 1)
+		} else if (levelCounter == 1)
 		{
 			//factory part 1
 			Exchange ("LeftArm", this.gameObject.tag, true);
 			Exchange ("RightArm", this.gameObject.tag, true);
 			Exchange ("LeftLeg", this.gameObject.tag, true);
 			Exchange ("RightLeg", this.gameObject.tag, true);
-		} 
-		else if (levelCounter == 2)
+		} else if (levelCounter == 2)
 		{
 			//factory part 2
 			Exchange ("LeftArm", this.gameObject.tag, true);
 			Exchange ("RightArm", this.gameObject.tag, true);
 			Exchange ("LeftLeg", this.gameObject.tag, true);
-		} 
-		else if (levelCounter == 3)
+		} else if (levelCounter == 3)
 		{
 			//factory hights
 			Exchange ("LeftLeg", this.gameObject.tag, true);
 			Exchange ("LeftArm", this.gameObject.tag, true);
 
-		} 
-		else if (levelCounter == 4)
-		{
-			//tower
-			Exchange ("LeftLeg", this.gameObject.tag, true);
-<<<<<<< HEAD
 		}
-=======
-        }
-
->>>>>>> Development-John-27.07.18V2
     }
 
     private void PickUpInit()

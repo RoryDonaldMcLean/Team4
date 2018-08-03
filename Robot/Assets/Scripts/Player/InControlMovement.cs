@@ -30,9 +30,7 @@ public class InControlMovement : MonoBehaviour
     void Start()
     {
         rb1 = GetComponent<Rigidbody>();
-<<<<<<< HEAD
 		cam = Camera.main.transform;
-=======
         if(this.tag == "Player1")
         {
             playerNum = 0;
@@ -42,7 +40,6 @@ public class InControlMovement : MonoBehaviour
             playerNum = 1;
             isBlue = true;
         }
->>>>>>> Development-John-27.07.18V2
     }
 
 

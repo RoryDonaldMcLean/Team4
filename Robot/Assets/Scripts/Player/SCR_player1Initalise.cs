@@ -43,16 +43,11 @@ public class SCR_player1Initalise : SCR_TradeLimb
 		} 
 		else if (levelCounter == 4)
 		{
-<<<<<<< HEAD
 			//tower
 			Exchange ("RightArm", this.gameObject.tag, true);
 		}
     }
-=======
-            //tower
-            Exchange ("RightArm", this.gameObject.tag, true);
-        }
->>>>>>> Development-John-27.07.18V2
+
 
     private void PickUpInit()
     {

@@ -83,8 +83,7 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
     }
 
     private void OutlinePickUpObjects()
-    {
-        
+    {   
         if ((!holding) && (triggerList.Count > 0))
         {
             foreach (GameObject go in triggerList)

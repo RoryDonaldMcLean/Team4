@@ -16,18 +16,21 @@ public class LightTrigger : MonoBehaviour
     //Upon a collison being detected with a Lightbeam 
     void OnTriggerEnter(Collider lightbeam)
     {
-        LineRenderer line = lightbeam.GetComponentInParent<LineRenderer>();
+        if(!lightbeam.name.Contains("pickup"))
+        {
+            LineRenderer line = lightbeam.GetComponentInParent<LineRenderer>();
 
-        //Checks to see if the predefined colour that is required to open this door, matches the lightbeams colour.
-        if (CheckBeamColour(line.startColor))
-        {
-            CorrectColour();
-            GenerateVFXResponse(true);
-        }
-        else
-        {
-            IncorrectColour();
-            GenerateVFXResponse(false);
+            //Checks to see if the predefined colour that is required to open this door, matches the lightbeams colour.
+            if (CheckBeamColour(line.startColor))
+            {
+                CorrectColour();
+                GenerateVFXResponse(true);
+            }
+            else
+            {
+                IncorrectColour();
+                GenerateVFXResponse(false);
+            }
         }
     }
 
@@ -44,10 +47,13 @@ public class LightTrigger : MonoBehaviour
 
     void OnTriggerExit(Collider lightbeam)
     {
-        LineRenderer line = lightbeam.GetComponentInParent<LineRenderer>();
-        if (CheckBeamColour(line.startColor))
+        if (!lightbeam.name.Contains("pickup"))
         {
-            IncorrectColour();
+            LineRenderer line = lightbeam.GetComponentInParent<LineRenderer>();
+            if (CheckBeamColour(line.startColor))
+            {
+                IncorrectColour();
+            }
         }
     }
 

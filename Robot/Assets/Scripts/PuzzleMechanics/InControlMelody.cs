@@ -134,9 +134,13 @@ public class InControlMelody : MonoBehaviour
 			Debug.Log ("code correct");
 			CancelInvoke ("CheckCode");
 			correctCode = true;
-			this.GetComponent<SCR_Door> ().Correct = true;
-			//next whatever
-		} 
+            //check to see what level your in and position the floor accordingly.
+            this.GetComponent<SCR_Door>().SpawnWalkway = true;
+            AkSoundEngine.PostEvent("GateNoteFinish", gameObject);
+            GameObject.FindGameObjectWithTag("Player1").GetComponent<Animator>().SetBool("IsButtonPressed", false);
+            GameObject.FindGameObjectWithTag("Player2").GetComponent<Animator>().SetBool("IsButtonPressed", false);
+            //next whatever
+        } 
 		else
 		{
 			Debug.Log ("Wrong code");

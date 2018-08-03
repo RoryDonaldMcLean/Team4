@@ -173,6 +173,7 @@ public class SettingArea : MonoBehaviour
     {
         GameManager.Instance.playerSetting.volume = (int)volume.value;
         volumeNum.text = GameManager.Instance.playerSetting.volume.ToString();
+        AkSoundEngine.SetRTPCValue("Master_Vol", GameManager.Instance.playerSetting.volume, gameObject);
         SaveNLoad.Save(GameManager.Instance.playerSetting);
     }
 

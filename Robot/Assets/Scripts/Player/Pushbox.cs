@@ -3,7 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Pushbox : MonoBehaviour {
-    
+
+    private Animator anim;
+    private bool isBlue;
+
+    private void Start()
+    {
+        isBlue = this.GetComponent<SCR_TradeLimb>().isBlue;
+        anim = this.GetComponent<Animator>();
+    }
+
     private int GetArmQuantity()
     {
         int quantity = 0;
@@ -47,9 +56,31 @@ public class Pushbox : MonoBehaviour {
             {
                 Vector3 boxPosition = other.gameObject.GetComponent<Transform>().position;
                 if (Mathf.Abs(boxPosition.z - this.GetComponent<Transform>().position.z) > Mathf.Abs(boxPosition.x - this.GetComponent<Transform>().position.x))
+                {
                     other.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionX;
+                    if (((Player1M(0) || Player2M(13)) && boxPosition.z > this.GetComponent<Transform>().position.z) 
+                        || ((Player1M(2) || Player2M(15)) && boxPosition.z < this.GetComponent<Transform>().position.z))
+                    {
+                        anim.SetBool("IsPushing", true);
+                    }
+                    else
+                    {
+                        anim.SetBool("IsPushing", false);
+                    }
+                }
                 else
+                {
                     other.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ;
+                    if (((Player1M(1) || Player2M(14)) && boxPosition.z > this.GetComponent<Transform>().position.z)
+                            || ((Player1M(3) || Player2M(16)) && boxPosition.z < this.GetComponent<Transform>().position.z))
+                    {
+                        anim.SetBool("IsPushing", true);
+                    }
+                    else
+                    {
+                        anim.SetBool("IsPushing", false);
+                    }
+                }
             }
             else
             {
@@ -64,6 +95,19 @@ public class Pushbox : MonoBehaviour {
         {
             other.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
             AkSoundEngine.PostEvent("Push_Box_Stop", gameObject);
+            anim.SetBool("IsPushing", false);
         }
+    }
+
+    private bool Player1M(int btnIndex)
+    {
+        return Input.GetKey(GameManager.Instance.playerSetting.currentButton[btnIndex])
+                && isBlue == GameManager.Instance.whichAndroid.player1ControlBlue;
+    }
+    
+    private bool Player2M(int btnIndex)
+    {
+        return Input.GetKey(GameManager.Instance.playerSetting.currentButton[btnIndex])
+                    && isBlue != GameManager.Instance.whichAndroid.player1ControlBlue;
     }
 }

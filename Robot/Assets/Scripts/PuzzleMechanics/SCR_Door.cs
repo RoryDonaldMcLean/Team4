@@ -102,21 +102,6 @@ public class SCR_Door : MonoBehaviour
 */
 
 	}
-	
-	// Update is called once per frame
-	void Update () 
-	{
-		//used for level transitions?
-		if (Correct == true)
-		{
-			//Debug.Log ("don't you dare go hollow");
-			//check to see what level your in and position the floor accordingly.
-			SpawnWalkway = true;
-			AkSoundEngine.PostEvent ("GateNoteFinish", gameObject);
-
-		}
-
-	}
 
 	void OnTriggerStay(Collider col)
 	{

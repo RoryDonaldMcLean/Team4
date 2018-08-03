@@ -19,7 +19,8 @@ public class InControlMovement : MonoBehaviour
     private float dropdownSpeed = 5.0f;
     private float playerSpeed = 6;
 
-	public float turnSpeed = 1.0f;
+    private Animator anim;
+    public float turnSpeed = 1.0f;
 	Vector2 input;
 	float currentAngle;
 	Vector3 EulerAngleVelocity;
@@ -29,6 +30,7 @@ public class InControlMovement : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        anim = this.GetComponent<Animator>();
         rb1 = GetComponent<Rigidbody>();
 		cam = Camera.main.transform;
         if(this.tag == "Player1")
@@ -127,6 +129,14 @@ public class InControlMovement : MonoBehaviour
 		//forward and backwards movement
 		velocity.z = inputDevice.LeftStickY;
 
+        if(inputDevice.LeftStickX || inputDevice.LeftStickY)
+        {
+            anim.SetBool("IsMoving", true);
+        }
+        else
+        {
+            anim.SetBool("IsMoving", false);
+        }
 
 		//jumping
 		if ((grounded == true || doubleJump == true) && inputDevice.Action1 && this.GetLegQuantity () >= 1)
@@ -137,7 +147,8 @@ public class InControlMovement : MonoBehaviour
 				doubleJump = false;
 			grounded = false;
 			velocity.y = jumpSpeed;
-		}
+            //anim.SetBool("IsJumping", true);
+        }
 			
         UpdateMovement(velocity);
         velocity.z = 0.0f;
@@ -187,6 +198,7 @@ public class InControlMovement : MonoBehaviour
 			if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[0]))
 			{
 				velocity.z += 1.0f;
+                anim.SetBool("IsMoving", true);
 			}
 
 			//move backward
@@ -194,7 +206,8 @@ public class InControlMovement : MonoBehaviour
 
 			{
 				velocity.z -= 1.0f;
-			}
+                anim.SetBool("IsMoving", true);
+            }
 
 
 			//move left
@@ -202,18 +215,26 @@ public class InControlMovement : MonoBehaviour
 
 			{
 				velocity.x -= 1.0f;
-			}
+                anim.SetBool("IsMoving", true);
+            }
 
 			//move right
 			if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[3]))
 
 			{
 				velocity.x += 1.0f;
-			}
+                anim.SetBool("IsMoving", true);
+            }
 
-			//if player 1 presses the A button or the left ctrl button AND they are on the ground AND! have at least 1 leg
-			//JUMP!!!
-			if ((grounded ==true || doubleJump == true) && Input.GetKeyDown(GameManager.Instance.playerSetting.currentButton[8]))
+            if(!(Input.GetKey(GameManager.Instance.playerSetting.currentButton[0]) ||
+                Input.GetKey(GameManager.Instance.playerSetting.currentButton[2]) ||
+                Input.GetKey(GameManager.Instance.playerSetting.currentButton[1]) ||
+                Input.GetKey(GameManager.Instance.playerSetting.currentButton[3])))
+                anim.SetBool("IsMoving", false);
+
+            //if player 1 presses the A button or the left ctrl button AND they are on the ground AND! have at least 1 leg
+            //JUMP!!!
+            if ((grounded ==true || doubleJump == true) && Input.GetKeyDown(GameManager.Instance.playerSetting.currentButton[8]))
 
 			{
 				if (grounded && this.GetLegQuantity() >= 2)
@@ -222,7 +243,8 @@ public class InControlMovement : MonoBehaviour
 					doubleJump = false;
 				grounded = false;
 				velocity.y = jumpSpeed;
-			}
+                //anim.SetBool("IsJumping", true);
+            }
 				
 		}
 		else
@@ -233,24 +255,34 @@ public class InControlMovement : MonoBehaviour
             if(Input.GetKey(GameManager.Instance.playerSetting.currentButton[13]))
             {
                 velocity.z += 1.0f;
+                anim.SetBool("IsMoving", true);
             }
             //move backward
             if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[15]))
             {
                 velocity.z -= 1.0f;
+                anim.SetBool("IsMoving", true);
             }
 
             //move left
             if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[14]))
             {
                 velocity.x -= 1.0f;
+                anim.SetBool("IsMoving", true);
             }
 
             //move right
             if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[16]))
             {
                 velocity.x += 1.0f;
+                anim.SetBool("IsMoving", true);
             }
+
+            if (!(Input.GetKey(GameManager.Instance.playerSetting.currentButton[13]) ||
+                Input.GetKey(GameManager.Instance.playerSetting.currentButton[15]) ||
+                Input.GetKey(GameManager.Instance.playerSetting.currentButton[14]) ||
+                Input.GetKey(GameManager.Instance.playerSetting.currentButton[16])))
+                anim.SetBool("IsMoving", false);
 
 
             //jumping
@@ -262,6 +294,7 @@ public class InControlMovement : MonoBehaviour
                     doubleJump = false;
                 grounded = false;
                 velocity.y = jumpSpeed;
+                //anim.SetBool("IsJumping", true);
             }
         }
 
@@ -292,6 +325,7 @@ public class InControlMovement : MonoBehaviour
 
             doubleJump = false;
             velocity.y = 0;
+            //anim.SetBool("IsJumping", false);
         }
     }
 

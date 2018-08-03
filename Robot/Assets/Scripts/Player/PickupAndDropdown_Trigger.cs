@@ -9,6 +9,7 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
     private bool holding;
     public List<GameObject> triggerList = new List<GameObject>();
     private GameObject pickedUpGameObject;
+    private Animator anim;
     //private float alpha; //float For lerp
 
     private GameObject pickupLocation; //picking location
@@ -17,12 +18,23 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
 
     public int playerNum;
 
-    public bool isBlue;
+    public bool isBlue = false;
 
     // Use this for initialization
     private void Start()
     {
+        anim = this.transform.parent.GetComponent<Animator>();
         holding = false;
+        if (this.transform.parent.tag == "Player1")
+        {
+            playerNum = 0;
+            isBlue = false;
+        }
+        else
+        {
+            playerNum = 1;
+            isBlue = true;
+        }
     }
 
     private void PickUpDropInterface()
@@ -72,11 +84,12 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
 
     private void OutlinePickUpObjects()
     {
-        if((!holding) && (triggerList.Count > 0))
-        {           
-            foreach(GameObject go in triggerList)
+        
+        if ((!holding) && (triggerList.Count > 0))
+        {
+            foreach (GameObject go in triggerList)
             {
-                if(go.tag != "Untagged")
+                if (go.tag != "Untagged")
                 {
                     //outline post process enable or activate
                     go.GetComponent<MeshRenderer>().material.SetFloat("_PickUpDetected", 1);
@@ -89,7 +102,7 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
             {
                 if (go.tag != "Untagged")
                 {
-                    //outline post process enable or activate
+                    //cancle outline when pick up something
                     go.GetComponent<MeshRenderer>().material.SetFloat("_PickUpDetected", 0);
                 }
             }
@@ -188,6 +201,8 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
                 pickedUpGameObject.transform.parent.GetComponent<SCR_Movable>().pickedUp = true;
                 pickedUpGameObject.transform.parent.GetComponent<SCR_Movable>().playerTag = this.transform.parent.tag;
                 holding = true;
+
+                anim.SetBool("IsLifting", true);
             }
             //if the object the player is trying to pick up is the RotateBox
             else if (hit.transform.name.Contains("RotateBox"))
@@ -201,6 +216,7 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
                 pickedUpGameObject.transform.parent.GetComponent<SCR_Rotatable>().pickedUp = true;
                 pickedUpGameObject.transform.parent.GetComponent<SCR_Rotatable>().playerTag = this.transform.parent.tag;
                 holding = true;
+                anim.SetBool("IsLifting", true);
 
             }
             else
@@ -247,6 +263,8 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
         offset = 0;
         PutDownObject();
         AkSoundEngine.PostEvent("Place_Crystal", gameObject);
+
+        anim.SetBool("IsLifting", false);
     }
 
     public void RotateDrop()
@@ -255,16 +273,19 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
         offset = 0;
         PutDownObject();
 
+        anim.SetBool("IsLifting", false);
     }
 
     private void GenericPickUpCheck(ref GameObject hit)
     {
         if ((hit.tag == "LightBox") && (GetArmQuantity() >= 1))
         {
+            anim.SetBool("IsLifting", true);
             PickUpObject(hit.transform);
         }
         else if ((hit.tag == "HeavyBox") && (GetArmQuantity() >= 2))
         {
+            anim.SetBool("IsLifting", true);
             PickUpObject(hit.transform);
         }
     }
@@ -277,6 +298,7 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
         Destroy(pickupLocation);
 
         AkSoundEngine.PostEvent("Place_Crystal", gameObject);
+        anim.SetBool("IsLifting", false);
     }
 
     private void PickUpObject(Transform objectBeingPickedUp)
@@ -288,7 +310,9 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
         pickedUpGameObject = objectBeingPickedUp.gameObject; // set the pick up object
         //alpha = 0;
 
-        pickupLocation = Instantiate(Resources.Load("Prefabs/Light/PickLocation"), this.transform.parent) as GameObject;
+        pickupLocation = Instantiate(Resources.Load("Prefabs/Light/PickLocation")) as GameObject;
+        pickupLocation.transform.parent = this.transform.parent;
+        pickupLocation.transform.localPosition = new Vector3(0, 1.5f /30.0f, 2.0f / 30.0f);
         offset = pickupLocation.transform.position.y - objectBeingPickedUp.position.y;
 
         float x = pickedUpGameObject.GetComponent<BoxCollider>().size.x / pickupLocation.transform.lossyScale.x;
@@ -361,7 +385,6 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
         {
             //disable when out of range 
             other.GetComponent<MeshRenderer>().material.SetFloat("_PickUpDetected", 0);
-            //disable when out of range 
         }
     }
 }

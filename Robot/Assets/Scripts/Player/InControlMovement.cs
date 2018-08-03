@@ -319,7 +319,6 @@ public class InControlMovement : MonoBehaviour
     private int GetLegQuantity()
     {
         int quantity = 0;
-
         //loop through all the child objects attached to player
         for (int i = 0; i < this.transform.childCount; i++)
         {
@@ -329,14 +328,14 @@ public class InControlMovement : MonoBehaviour
                 //loop through all of that objects children, they should all be the hinges OR Limbs
                 for (int u = 0; u < this.transform.GetChild(i).childCount; u++)
                 {
-                    //find the object that has the "Leg" in it's name
-                    if (this.transform.GetChild(i).transform.GetChild(u).name.Contains("Leg"))
+                    //find the object that has the "Arm" in it's name
+                    Transform limb = this.transform.GetChild(i).transform.GetChild(u);
+                    if (limb.name.Contains("Leg") && (limb.gameObject.activeSelf))
                     {
                         quantity++;
                     }
                 }
             }
-
         }
         return quantity;
     }

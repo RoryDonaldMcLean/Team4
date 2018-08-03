@@ -9,14 +9,15 @@ using UnityEngine.EventSystems;
 public class MainMenuUI : MonoBehaviour
 {
     private bool isSetting = false;
-    public List<Button> mainMenuBtn;
+    private List<Button> mainMenuBtn = new List<Button>();
 
     public GameObject settingArea, chapterArea;
 
     // Use this for initialization
     void Awake()
     {
-
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = 60;
     }
 
     void Start()
@@ -99,8 +100,8 @@ public class MainMenuUI : MonoBehaviour
             mainMenuBtn[4].gameObject.SetActive(false);
 
             mainMenuBtn[5].gameObject.SetActive(true);
-
-            FindObjectOfType<EventSystem>().SetSelectedGameObject(GameObject.Find("Chapter1"));
+            if(FindObjectOfType<SwitchSelectController>().enabled)
+                FindObjectOfType<EventSystem>().SetSelectedGameObject(GameObject.Find("Chapter1"));
         }
 
         if (btn == mainMenuBtn[5])
@@ -113,7 +114,8 @@ public class MainMenuUI : MonoBehaviour
 
             mainMenuBtn[5].gameObject.SetActive(false);
             chapterArea.SetActive(false);
-            FindObjectOfType<EventSystem>().SetSelectedGameObject(GameObject.Find("Start"));
+            if (FindObjectOfType<SwitchSelectController>().enabled)
+                FindObjectOfType<EventSystem>().SetSelectedGameObject(GameObject.Find("Start"));
         }
 
         if (btn == mainMenuBtn[1])

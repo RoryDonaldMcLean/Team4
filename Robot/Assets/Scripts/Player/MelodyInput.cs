@@ -101,7 +101,7 @@ public class MelodyInput : MonoBehaviour
 				{
 					if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [4]))
 					{
-						if (GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [0].name.Contains ("LeftArm"))
+						if (GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [0].activeSelf)
 						{
 							MelodyDoor.GetComponent<InControlMelody> ().Robotcode.Add (1);
 							Notes [MelodyDoor.GetComponent<InControlMelody> ().noteCounter].GetComponent<RawImage> ().texture = Arrows [0].texture;
@@ -113,7 +113,7 @@ public class MelodyInput : MonoBehaviour
 						}
 					} else if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [5]))
 					{
-						if (GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [1].name.Contains ("RightArm"))
+						if (GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [2].activeSelf)
 						{
 							MelodyDoor.GetComponent<InControlMelody> ().Robotcode.Add (2);
 							Notes [MelodyDoor.GetComponent<InControlMelody> ().noteCounter].GetComponent<RawImage> ().texture = Arrows [3].texture;
@@ -126,7 +126,7 @@ public class MelodyInput : MonoBehaviour
 						}
 					} else if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [6]))
 					{
-						if (GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [2].name.Contains ("LeftLeg"))
+						if (GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [1].activeSelf)
 						{
 							MelodyDoor.GetComponent<InControlMelody> ().Robotcode.Add (3);
 							Notes [MelodyDoor.GetComponent<InControlMelody> ().noteCounter].GetComponent<RawImage> ().texture = Arrows [1].texture;
@@ -139,7 +139,7 @@ public class MelodyInput : MonoBehaviour
 						}
 					} else if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [7]))
 					{
-						if (GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [3].name.Contains ("RightLeg"))
+						if (GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [3].activeSelf)
 						{
 							MelodyDoor.GetComponent<InControlMelody> ().Robotcode.Add (4);
 							Notes [MelodyDoor.GetComponent<InControlMelody> ().noteCounter].GetComponent<RawImage> ().texture = Arrows [2].texture;
@@ -173,7 +173,7 @@ public class MelodyInput : MonoBehaviour
 				{
 					if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [17]))
 					{
-						if (GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [0].name.Contains ("LeftArm"))
+						if (GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [0].activeSelf)
 						{
 							MelodyDoor.GetComponent<InControlMelody> ().Robotcode.Add (5);
 							Notes [MelodyDoor.GetComponent<InControlMelody> ().noteCounter].GetComponent<RawImage> ().texture = Arrows [4].texture;
@@ -186,7 +186,7 @@ public class MelodyInput : MonoBehaviour
 						}
 					} else if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [18]))
 					{
-						if (GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [1].name.Contains ("RightArm"))
+						if (GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [2].activeSelf)
 						{
 							MelodyDoor.GetComponent<InControlMelody> ().Robotcode.Add (6);
 							Notes [MelodyDoor.GetComponent<InControlMelody> ().noteCounter].GetComponent<RawImage> ().texture = Arrows [7].texture;
@@ -199,7 +199,7 @@ public class MelodyInput : MonoBehaviour
 						}
 					} else if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [19]))
 					{
-						if (GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [2].name.Contains ("LeftLeg"))
+						if (GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [1].activeSelf)
 						{
 							MelodyDoor.GetComponent<InControlMelody> ().Robotcode.Add (7);
 							Notes [MelodyDoor.GetComponent<InControlMelody> ().noteCounter].GetComponent<RawImage> ().texture = Arrows [5].texture;
@@ -212,7 +212,7 @@ public class MelodyInput : MonoBehaviour
 						}
 					} else if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [20]))
 					{
-						if (GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [3].name.Contains ("RightLeg"))
+						if (GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [3].activeSelf)
 						{
 							MelodyDoor.GetComponent<InControlMelody> ().Robotcode.Add (8);
 							Notes [MelodyDoor.GetComponent<InControlMelody> ().noteCounter].GetComponent<RawImage> ().texture = Arrows [6].texture;
@@ -254,7 +254,7 @@ public class MelodyInput : MonoBehaviour
 				{
 					if (inputDevice.DPadUp.WasPressed)
 					{
-						if (GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [0].name.Contains ("LeftArm"))
+						if (GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [0].activeSelf)
 						{
 							MelodyDoor.GetComponent<InControlMelody> ().Robotcode.Add (1);
 							Notes [MelodyDoor.GetComponent<InControlMelody> ().noteCounter].GetComponent<RawImage> ().texture = Arrows [0].texture;
@@ -267,7 +267,7 @@ public class MelodyInput : MonoBehaviour
 						}
 					} else if (inputDevice.DPadDown.WasPressed)
 					{
-						if (GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [1].name.Contains ("RightArm"))
+						if (GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [2].activeSelf)
 						{
 							MelodyDoor.GetComponent<InControlMelody> ().Robotcode.Add (2);
 							Notes [MelodyDoor.GetComponent<InControlMelody> ().noteCounter].GetComponent<RawImage> ().texture = Arrows [3].texture;
@@ -280,7 +280,7 @@ public class MelodyInput : MonoBehaviour
 						}
 					} else if (inputDevice.DPadLeft.WasPressed)
 					{
-						if (GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [2].name.Contains ("LeftLeg"))
+						if (GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [1].activeSelf)
 						{
 							MelodyDoor.GetComponent<InControlMelody> ().Robotcode.Add (3);
 							Notes [MelodyDoor.GetComponent<InControlMelody> ().noteCounter].GetComponent<RawImage> ().texture = Arrows [1].texture;
@@ -293,7 +293,7 @@ public class MelodyInput : MonoBehaviour
 						}
 					} else if (inputDevice.DPadRight.WasPressed)
 					{
-						if (GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [3].name.Contains ("RightLeg"))
+						if (GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [3].activeSelf)
 						{
 							MelodyDoor.GetComponent<InControlMelody> ().Robotcode.Add (4);
 							Notes [MelodyDoor.GetComponent<InControlMelody> ().noteCounter].GetComponent<RawImage> ().texture = Arrows [2].texture;
@@ -328,7 +328,7 @@ public class MelodyInput : MonoBehaviour
 				{
 					if (inputDevice.DPadUp.WasPressed)
 					{
-						if (GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [0].name.Contains ("LeftArm"))
+						if (GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [0].activeSelf)
 						{
 							MelodyDoor.GetComponent<InControlMelody> ().Robotcode.Add (5);
 							Notes [MelodyDoor.GetComponent<InControlMelody> ().noteCounter].GetComponent<RawImage> ().texture = Arrows [4].texture;
@@ -341,7 +341,7 @@ public class MelodyInput : MonoBehaviour
 						}
 					} else if (inputDevice.DPadDown.WasPressed)
 					{
-						if (GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [1].name.Contains ("RightArm"))
+						if (GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [2].activeSelf)
 						{
 							MelodyDoor.GetComponent<InControlMelody> ().Robotcode.Add (6);
 							Notes [MelodyDoor.GetComponent<InControlMelody> ().noteCounter].GetComponent<RawImage> ().texture = Arrows [7].texture;
@@ -354,7 +354,7 @@ public class MelodyInput : MonoBehaviour
 						}
 					} else if (inputDevice.DPadLeft.WasPressed)
 					{
-						if (GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [2].name.Contains ("LeftLeg"))
+						if (GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [1].activeSelf)
 						{
 							MelodyDoor.GetComponent<InControlMelody> ().Robotcode.Add (7);
 							Notes [MelodyDoor.GetComponent<InControlMelody> ().noteCounter].GetComponent<RawImage> ().texture = Arrows [5].texture;
@@ -367,7 +367,7 @@ public class MelodyInput : MonoBehaviour
 						}
 					} else if (inputDevice.DPadRight.WasPressed)
 					{
-						if (GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [3].name.Contains ("RightLeg"))
+						if (GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [3].activeSelf)
 						{
 							MelodyDoor.GetComponent<InControlMelody> ().Robotcode.Add (8);
 							Notes [MelodyDoor.GetComponent<InControlMelody> ().noteCounter].GetComponent<RawImage> ().texture = Arrows [6].texture;

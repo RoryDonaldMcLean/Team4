@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class PuaseMenu : MonoBehaviour
 {
 
-    public List<Button> pauseBtn;
+    private List<Button> pauseBtn = new List<Button>();
     public GameObject settingArea;
 
     private GameObject red, blue;
@@ -15,13 +16,17 @@ public class PuaseMenu : MonoBehaviour
     private GameObject pauseMenuWwise;
     //private bool firstEnable = false;
 
-    // Use this for initialization
-    private void Start()
+    private void Awake()
     {
         pauseMenuWwise = GameObject.Find("PauseMenuWwise");
 
         red = GameObject.Find("Player");
         blue = GameObject.Find("Player2");
+    }
+
+    // Use this for initialization
+    private void Start()
+    {
         pauseBtn.Clear();
         isSetting = false;
 
@@ -34,7 +39,10 @@ public class PuaseMenu : MonoBehaviour
                 pauseButton(btn);
             });
         }
+    }
 
+    private void OnEnable()
+    {
         red.GetComponent<InControlMovement>().enabled = false;
         red.GetComponent<SCR_TradeLimb>().enabled = false;
         red.GetComponent<PickupAndDropdown>().enabled = false;
@@ -46,6 +54,16 @@ public class PuaseMenu : MonoBehaviour
         blue.GetComponent<PickupAndDropdown>().enabled = false;
         blue.GetComponent<Chirps>().enabled = false;
         blue.GetComponent<MelodyInput>().enabled = false;
+
+
+        //FindObjectOfType<EventSystem>().SetSelectedGameObject(pauseBtn[0].gameObject);
+
+        //FindObjectOfType<SwitchSelectController>().enabled = true;
+        FindObjectOfType<EventSystem>().SetSelectedGameObject(null);
+        FindObjectOfType<EventSystem>().GetComponent<SwitchSelectController>().enabled = false;
+        Cursor.visible = true;
+        FindObjectOfType<SwitchInputDevices>().cover.SetActive(false);
+
     }
 
  
@@ -53,7 +71,7 @@ public class PuaseMenu : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && this.GetComponentInParent<Canvas>().gameObject.activeSelf)
         {
             this.GetComponentInParent<Canvas>().gameObject.SetActive(false);
 
@@ -75,10 +93,16 @@ public class PuaseMenu : MonoBehaviour
             pauseBtn[3].GetComponent<Transform>().parent.gameObject.SetActive(true);
             pauseBtn[1].GetComponent<Text>().text = "Options";
 
+<<<<<<< HEAD
             //AkSoundEngine.SetState("UI", "Off");
             //AkSoundEngine.PostEvent("Menu_Exit", gameObject);
 
 
+=======
+            FindObjectOfType<EventSystem>().firstSelectedGameObject = null;
+            FindObjectOfType<SwitchSelectController>().selectObj = null;
+            FindObjectOfType<SwitchSelectController>().enabled = false;
+>>>>>>> Development-Neko-27.07.18
         }
     }
 

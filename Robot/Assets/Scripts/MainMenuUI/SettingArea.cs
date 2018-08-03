@@ -7,13 +7,14 @@ using System.IO;
 public class SettingArea : MonoBehaviour
 {
     public GameObject btnlist, textlist;
-    public List<Button> playerButtons;
     public Text volumeNum;
 
     private Button defaultbtn;
     private Toggle tog;
     private bool[] reboundButton;
     private Slider volume;
+    private List<Button> playerButtons = new List<Button>();
+
 
     private void Awake()
     {

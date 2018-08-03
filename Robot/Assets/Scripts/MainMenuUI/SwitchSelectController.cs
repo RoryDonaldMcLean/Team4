@@ -15,6 +15,11 @@ public class SwitchSelectController : MonoBehaviour {
         this.GetComponent<EventSystem>().firstSelectedGameObject = canvas.GetComponentInChildren<Button>().gameObject;
         selectObj = this.GetComponent<EventSystem>().currentSelectedGameObject;
     }
+
+    void OnDisable()
+    {
+         
+    }
 	
 	// Update is called once per frame
 	void Update () {

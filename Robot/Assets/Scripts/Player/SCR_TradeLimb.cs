@@ -6,11 +6,13 @@ using InControl;
 
 public class SCR_TradeLimb : MonoBehaviour
 {
-	//UI elements for both players
-	GameObject UILimbImage;
+    #region varibles
+    //UI elements for both players
+    GameObject UILimbImage;
 	GameObject UILimbImage2;
 
     public List<GameObject> limbs = new List<GameObject>();
+    public List<MeshRenderer> hinges;
 
     private string otherPlayerTag = "";
 
@@ -27,16 +29,25 @@ public class SCR_TradeLimb : MonoBehaviour
 	List<GameObject> limbsUI2 = new List<GameObject>();
 
 	public int playerNum;
+<<<<<<< HEAD
 
 	bool ControllersUsed;
 
 	// Use this for initialization
 	private void Start()
+=======
+    #endregion
+
+    #region Monobehaviour function
+    // Use this for initialization
+    private void Start()
+>>>>>>> Development-Neko-27.07.18
     {
         InitialisePlayerLimbs();
         SetPlayerTag();
 
         //get all the limbUI images, add them to a list and set them all to inactive to start
+<<<<<<< HEAD
         UILimbImage = GameObject.FindGameObjectWithTag ("UILimb");
 		if (UILimbImage != null) 
 		{
@@ -58,51 +69,33 @@ public class SCR_TradeLimb : MonoBehaviour
 		}
 
     }
+=======
+        UILimbImage = GameObject.FindGameObjectWithTag("UILimb");
+>>>>>>> Development-Neko-27.07.18
 
-    private void childObjectLimbFinder()
-    {
-        //loop through all the child objects attached to player
-        for (int i = 0; i < this.transform.childCount; i++)
+        if (UILimbImage != null)
         {
-            //find the object that has the "area" in it's name
-            if (this.transform.GetChild(i).name.Contains("area"))
+            for (int i = 0; i < UILimbImage.transform.childCount; i++)
             {
-                //loop through all of that objects children, they should all be the hinges OR Limbs
-                for (int u = 0; u < this.transform.GetChild(i).childCount; u++)
-                {
-                    //add each of them to the limbs list
-                    limbs.Add(this.transform.GetChild(i).GetChild(u).gameObject);
-                }
+                limbsUI.Add(UILimbImage.transform.GetChild(i).gameObject);
+                limbsUI[i].SetActive(false);
             }
         }
-    }
-
-    private void InitialisePlayerLimbs()
-    {
-        childObjectLimbFinder();
-        LimbDetails();
-    }
-
-    private void SetPlayerTag()
-    {
-        InControlMovement[] players = GameObject.FindObjectsOfType<InControlMovement>();
-        foreach (InControlMovement player in players)
+        UILimbImage2 = GameObject.FindGameObjectWithTag("UILimb2");
+        if (UILimbImage2 != null)
         {
-            if (player.tag != this.transform.tag)
+            for (int i = 0; i < UILimbImage2.transform.childCount; i++)
             {
-                otherPlayerTag = player.tag;
+                limbsUI2.Add(UILimbImage2.transform.GetChild(i).gameObject);
+                limbsUI2[i].SetActive(false);
             }
         }
-    }
-
-    protected virtual void LimbDetails()
-    {
-        //to be overwritten by inhertance
     }
 
     // Update is called once per frame
     public void Update()
     {
+<<<<<<< HEAD
 		var inputDevice = (InputManager.Devices.Count > playerNum) ? InputManager.Devices [playerNum] : null;
 		if (inputDevice == null)
 		{
@@ -115,6 +108,18 @@ public class SCR_TradeLimb : MonoBehaviour
 			ProcessInputInControl (inputDevice);
 			ControllersUsed = true;
 		}
+=======
+        var inputDevice = (InputManager.Devices.Count > playerNum) ? InputManager.Devices[playerNum] : null;
+        if (inputDevice == null)
+        {
+            //Debug.Log ("no controllers plugged in");
+            ProcessInput();
+        }
+        else
+        {
+            ProcessInputInControl(inputDevice);
+        }
+>>>>>>> Development-Neko-27.07.18
 
         childrenParticleSytems = gameObject.GetComponentsInChildren<ParticleSystem>();
 
@@ -142,14 +147,14 @@ public class SCR_TradeLimb : MonoBehaviour
             }
         }
 
-        if(leftArmFly)
+        if (leftArmFly)
         {
-            if(leftArmFly.GetComponent<LimsFly>().GetFinish())
+            if (leftArmFly.GetComponent<LimsFly>().GetFinish())
             {
                 Destroy(leftArmFly);
                 leftArmFly = null;
                 Exchange("LeftArm", otherPlayerTag);
-				AkSoundEngine.PostEvent ("Arm_Attach", gameObject);
+                AkSoundEngine.PostEvent("Arm_Attach", gameObject);
             }
         }
 
@@ -160,8 +165,8 @@ public class SCR_TradeLimb : MonoBehaviour
                 Destroy(rightArmFly);
                 rightArmFly = null;
                 Exchange("RightArm", otherPlayerTag);
-				AkSoundEngine.PostEvent ("Arm_Attach", gameObject);
-				}
+                AkSoundEngine.PostEvent("Arm_Attach", gameObject);
+            }
         }
 
         if (leftLegFly)
@@ -171,7 +176,7 @@ public class SCR_TradeLimb : MonoBehaviour
                 Destroy(leftLegFly);
                 leftLegFly = null;
                 Exchange("LeftLeg", otherPlayerTag);
-				AkSoundEngine.PostEvent ("Arm_Attach", gameObject);
+                AkSoundEngine.PostEvent("Arm_Attach", gameObject);
             }
         }
         if (rightLegFly)
@@ -181,11 +186,69 @@ public class SCR_TradeLimb : MonoBehaviour
                 Destroy(rightLegFly);
                 rightLegFly = null;
                 Exchange("RightLeg", otherPlayerTag);
-				AkSoundEngine.PostEvent ("Arm_Attach", gameObject);
+                AkSoundEngine.PostEvent("Arm_Attach", gameObject);
             }
         }
     }
+
+    #endregion
     
+    private void childObjectLimbFinder()
+    {
+        //loop through all the child objects attached to player
+        for (int i = 0; i < this.transform.childCount; i++)
+        {
+            //find the object that has the "area" in it's name
+            if (this.transform.GetChild(i).name.Contains("area"))
+            {
+                //loop through all of that objects children, they should all be the hinges OR Limbs
+                for (int u = 0; u < this.transform.GetChild(i).childCount; u++)
+                {
+                    //add each of them to the limbs list
+                    limbs.Add(this.transform.GetChild(i).GetChild(u).gameObject);
+                }
+            }
+        }
+    }
+
+    private void childObjectHingeFinder()
+    {
+        //loop through all the child objects attached to player
+        for (int i = 0; i < this.transform.childCount; i++)
+        {
+            //find the object that has the "area" in it's name
+            if (this.transform.GetChild(i).name.Contains("mixamorig:Hips"))
+            {
+                MeshRenderer[] hingeObject = this.transform.GetChild(i).GetComponentsInChildren<MeshRenderer>(true);
+                hinges = new List<MeshRenderer>(hingeObject);
+            }
+        }
+    }
+
+    private void InitialisePlayerLimbs()
+    {
+        childObjectLimbFinder();
+        childObjectHingeFinder();
+        LimbDetails();
+    }
+
+    private void SetPlayerTag()
+    {
+        InControlMovement[] players = GameObject.FindObjectsOfType<InControlMovement>();
+        foreach (InControlMovement player in players)
+        {
+            if (player.tag != this.transform.tag)
+            {
+                otherPlayerTag = player.tag;
+            }
+        }
+    }
+
+    protected virtual void LimbDetails()
+    {
+        //to be overwritten by inhertance
+    }
+
     public void UICheck()
 	{
 		//player 1 
@@ -194,7 +257,7 @@ public class SCR_TradeLimb : MonoBehaviour
 		{
             List<GameObject> ls = !GameManager.Instance.whichAndroid.player1ControlBlue ? limbsUI : limbsUI2;
 
-            if (limbs [0].name.Contains ("LeftArm"))
+            if (limbs [0].activeSelf)
 			{
 				ls [0].SetActive (true);
 				ls [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/LimbsMenu/UITopSegment_Arm_StateActive") as Sprite;
@@ -207,7 +270,7 @@ public class SCR_TradeLimb : MonoBehaviour
 				ls [0].GetComponent<Image> ().preserveAspect = true;
 			}
 
-			if (limbs [1].name.Contains ("RightArm"))
+			if (limbs [2].activeSelf)
 			{
 				ls [1].SetActive (true);
 				ls [1].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/LimbsMenu/UIBottomSegment_Arm_StateActive") as Sprite;
@@ -220,7 +283,7 @@ public class SCR_TradeLimb : MonoBehaviour
 				ls [1].GetComponent<Image> ().preserveAspect = true;
 			}
 
-			if (limbs [2].name.Contains ("LeftLeg"))
+			if (limbs [1].activeSelf)
 			{
 				ls [2].SetActive (true);
 				ls [2].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/LimbsMenu/UILeftSegment_Leg_StateActive") as Sprite;
@@ -233,7 +296,7 @@ public class SCR_TradeLimb : MonoBehaviour
 				ls [2].GetComponent<Image> ().preserveAspect = true;
 			}
 
-			if (limbs [3].name.Contains ("RightLeg"))
+			if (limbs [3].activeSelf)
 			{
 				ls [3].SetActive (true);
 				ls [3].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/LimbsMenu/UIRightSegment_Leg_StateActive") as Sprite;
@@ -266,7 +329,7 @@ public class SCR_TradeLimb : MonoBehaviour
             List<GameObject> ls = GameManager.Instance.whichAndroid.player1ControlBlue ? limbsUI : limbsUI2;
 
             //player 2
-            if (limbs [0].name.Contains ("LeftArm"))
+            if (limbs [0].activeSelf)
 			{
 				ls [0].SetActive (true);
 				ls [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/LimbsMenu/UITopSegment_Arm_StateActive") as Sprite;
@@ -279,7 +342,7 @@ public class SCR_TradeLimb : MonoBehaviour
 				ls [0].GetComponent<Image> ().preserveAspect = true;
 			}
 
-			if (limbs [1].name.Contains ("RightArm"))
+			if (limbs [2].activeSelf)
 			{
 				ls [1].SetActive (true);
 				ls [1].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/LimbsMenu/UIBottomSegment_Arm_StateActive") as Sprite;
@@ -292,7 +355,7 @@ public class SCR_TradeLimb : MonoBehaviour
 				ls [1].GetComponent<Image> ().preserveAspect = true;
 			}
 
-			if (limbs [2].name.Contains ("LeftLeg"))
+			if (limbs [1].activeSelf)
 			{
 				ls [2].SetActive (true);
 				ls [2].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/LimbsMenu/UILeftSegment_Leg_StateActive") as Sprite;
@@ -305,7 +368,7 @@ public class SCR_TradeLimb : MonoBehaviour
 				ls [2].GetComponent<Image> ().preserveAspect = true;
 			}
 
-			if (limbs [3].name.Contains ("RightLeg"))
+			if (limbs [3].activeSelf)
 			{
 				ls [3].SetActive (true);
 				ls [3].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/LimbsMenu/UIRightSegment_Leg_StateActive") as Sprite;
@@ -339,6 +402,10 @@ public class SCR_TradeLimb : MonoBehaviour
 		//update the game controller
 		if((UILimbImage != null)&&(UILimbImage2 != null)) UICheck();
 
+<<<<<<< HEAD
+=======
+		////////////////////////////////////
+>>>>>>> Development-Neko-27.07.18
 		if (isBlue == GameManager.Instance.whichAndroid.player1ControlBlue)
 		{	//player 1 controls
             GameObject ui = !GameManager.Instance.whichAndroid.player1ControlBlue ? UILimbImage : UILimbImage2;
@@ -378,40 +445,9 @@ public class SCR_TradeLimb : MonoBehaviour
 		}
 	}
 
-
-
 	void ProcessInputInControl (InputDevice inputDevice)
 	{
 		if((UILimbImage != null)&&(UILimbImage2 != null)) UICheck();
-
-		//drop code
-		/*if(inputDevice.RightBumper.IsPressed)
-		{
-			if(inputDevice.RightStickY > 0.5f)
-			{
-				if (limbs[0].name.Contains("LeftArm"))
-					DropDownLims("LeftArm");
-			}
-
-			if(inputDevice.RightStickY < -0.5f)
-			{
-				if (limbs[1].name.Contains("RightArm"))
-					DropDownLims("RightArm");
-			}
-
-			if(inputDevice.RightStickX < -0.5f)
-			{
-				if (limbs[2].name.Contains("LeftLeg"))
-					DropDownLims("LeftLeg");
-			}
-
-			if(inputDevice.RightStickX > 0.5f)
-			{
-				if (limbs[3].name.Contains("RightLeg"))
-					DropDownLims("RightLeg");
-			}
-		}*/
-
 
 		//UI stuff
 		if (playerNum == 0)
@@ -457,7 +493,6 @@ public class SCR_TradeLimb : MonoBehaviour
 				}
 			}
 		}
-
 	}
 
     private void SpecificLimbExchange()
@@ -470,7 +505,7 @@ public class SCR_TradeLimb : MonoBehaviour
             if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[4]))
             {
 
-                if (limbs[0].name.Contains("LeftArm") && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[0].name.Contains("LeftArm"))
+                if (limbs[0].activeSelf && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[0].activeSelf)
                 {
                     //find the other player
                     LimFly("LeftArm", otherPlayerTag);
@@ -480,7 +515,7 @@ public class SCR_TradeLimb : MonoBehaviour
             //player1 right arm
             if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[5]))
             {
-                if (limbs[1].name.Contains("RightArm") && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[1].name.Contains("RightArm"))
+                if (limbs[2].activeSelf && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[2].activeSelf)
                 {
                     LimFly("RightArm", otherPlayerTag);
                     RemoveLimb("RightArm");
@@ -489,7 +524,7 @@ public class SCR_TradeLimb : MonoBehaviour
             //player1 left leg
             if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[6]))
             {
-                if (limbs[2].name.Contains("LeftLeg") && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[2].name.Contains("LeftLeg"))
+                if (limbs[1].activeSelf && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[1].activeSelf)
                 {
                     //find the other player
                     LimFly("LeftLeg", otherPlayerTag);
@@ -499,7 +534,7 @@ public class SCR_TradeLimb : MonoBehaviour
             //player 1 right leg
             if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[7]))
             {
-                if (limbs[3].name.Contains("RightLeg") && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[3].name.Contains("RightLeg"))
+                if (limbs[3].activeSelf && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[3].activeSelf)
                 {
                     LimFly("RightLeg", otherPlayerTag);
                     RemoveLimb("RightLeg");
@@ -511,7 +546,7 @@ public class SCR_TradeLimb : MonoBehaviour
             //player2 left arm
             if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[17]))
             {
-                if (limbs[0].name.Contains("LeftArm") && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[0].name.Contains("LeftArm"))
+                if (limbs[0].activeSelf && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[0].activeSelf)
                 {
                     LimFly("LeftArm", otherPlayerTag);
                     RemoveLimb("LeftArm");
@@ -520,7 +555,7 @@ public class SCR_TradeLimb : MonoBehaviour
             //player2 right arm
             if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[18]))
             {
-                if (limbs[1].name.Contains("RightArm") && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[1].name.Contains("RightArm"))
+                if (limbs[2].activeSelf && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[2].activeSelf)
                 {
                     LimFly("RightArm", otherPlayerTag);
                     RemoveLimb("RightArm");
@@ -529,7 +564,7 @@ public class SCR_TradeLimb : MonoBehaviour
             //player2 left leg
             if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[19]))
             {
-                if (limbs[2].name.Contains("LeftLeg") && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[2].name.Contains("LeftLeg"))
+                if (limbs[1].activeSelf && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[2].activeSelf)
                 {
                     LimFly("LeftLeg", otherPlayerTag);
                     RemoveLimb("LeftLeg");
@@ -538,7 +573,7 @@ public class SCR_TradeLimb : MonoBehaviour
             //player2 right leg
             if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[20]))
             {
-                if (limbs[3].name.Contains("RightLeg") && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[3].name.Contains("RightLeg"))
+                if (limbs[3].activeSelf && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[3].activeSelf)
                 {
                     LimFly("RightLeg", otherPlayerTag);
                     RemoveLimb("RightLeg");
@@ -546,8 +581,6 @@ public class SCR_TradeLimb : MonoBehaviour
             }
         }
     }
-
-
 
 	void SpecificLimbExchangeIncontrol(InputDevice inputDevice)
 	{
@@ -568,7 +601,7 @@ public class SCR_TradeLimb : MonoBehaviour
 		//player right arm
 		if(inputDevice.RightStickY < -0.5f)
 		{
-			if (limbs[1].name.Contains("RightArm") && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[1].name.Contains("RightArm"))
+			if (limbs[2].name.Contains("RightArm") && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[1].name.Contains("RightArm"))
 			{
 				LimFly("RightArm", otherPlayerTag);
 				RemoveLimb("RightArm");
@@ -578,7 +611,7 @@ public class SCR_TradeLimb : MonoBehaviour
 		//player1 left leg
 		if(inputDevice.RightStickX < -0.5f)
 		{
-			if (limbs[2].name.Contains("LeftLeg") && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[2].name.Contains("LeftLeg"))
+			if (limbs[1].name.Contains("LeftLeg") && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[2].name.Contains("LeftLeg"))
 			{
 				//find the other player
 				LimFly("LeftLeg", otherPlayerTag);
@@ -594,12 +627,8 @@ public class SCR_TradeLimb : MonoBehaviour
 				LimFly("RightLeg", otherPlayerTag);
 				RemoveLimb("RightLeg");
 			}
-		}
-
-	
+		}	
 	}
-
-
 
     private int LimbNumber(string newLimbName)
     {
@@ -609,13 +638,34 @@ public class SCR_TradeLimb : MonoBehaviour
             case "LeftArm":
                 limbNumber = 0;
                 break;
-            case "RightArm":
+            case "LeftLeg":
                 limbNumber = 1;
                 break;
-            case "LeftLeg":
+            case "RightArm":
                 limbNumber = 2;
                 break;
             case "RightLeg":
+                limbNumber = 3;
+                break;
+        }
+        return limbNumber;
+    }
+
+    private int HingeNumber(string newLimbName)
+    {
+        int limbNumber = -1;
+        switch (newLimbName)
+        {
+            case "LeftLeg":
+                limbNumber = 0;
+                break;
+            case "RightLeg":
+                limbNumber = 1;
+                break;
+            case "LeftArm":
+                limbNumber = 2;
+                break;
+            case "RightArm":
                 limbNumber = 3;
                 break;
         }
@@ -671,72 +721,47 @@ public class SCR_TradeLimb : MonoBehaviour
 
     protected void Exchange(string newLimbName, string playerTag, bool start = false)
     {
-        GameObject player = GameObject.FindGameObjectWithTag(playerTag);
-        int limbNumber = LimbNumber(newLimbName);
-        GameObject newLimb = Instantiate(Resources.Load("Prefabs/Player/" + newLimbName)) as GameObject;
-        newLimb.name = newLimbName;
-        List<GameObject> tempList = player.GetComponent<SCR_TradeLimb>().limbs;
-        newLimb.transform.position = tempList[limbNumber].transform.position;
-        newLimb.transform.parent = tempList[limbNumber].transform.parent;
+        if(playerTag != this.tag)
+        {
+            GameObject.FindGameObjectWithTag(playerTag).GetComponent<SCR_TradeLimb>().ToggleLimb(newLimbName);
+        }
+        else
+        {
+            ToggleLimb(newLimbName);
+        }
 
-        Destroy(tempList[limbNumber]);
-        tempList.RemoveAt(limbNumber);
-
-		if(!start) AkSoundEngine.PostEvent ("Arm_Detatch", gameObject);
-
-        tempList.Insert(limbNumber, newLimb);
+        if (!start) AkSoundEngine.PostEvent("Arm_Detatch", gameObject);
     }
 
     private void RemoveLimb(string limbToRemove)
     {
-        int limbNumber = LimbNumber(limbToRemove);
-        GameObject hinge = Instantiate(Resources.Load("Prefabs/Player/Hinge")) as GameObject;
-        hinge.name = "Hinge";
-        List<GameObject> tempList = this.GetComponent<SCR_TradeLimb>().limbs;
-        hinge.transform.position = tempList[limbNumber].transform.position;
-        hinge.transform.parent = tempList[limbNumber].transform.parent;
-        hinge.AddComponent<ParticleGenerator>();
-        if (limbNumber == 0 || limbNumber == 2)
-        {
-            hinge.GetComponent<ParticleGenerator>().direction = Direction.Left;
-        }
-        if(limbNumber == 1 || limbNumber==3)
-        {
-            hinge.GetComponent<ParticleGenerator>().direction = Direction.Right;
-        }
+        ToggleLimb(limbToRemove);
+    }		
 
-        Destroy(tempList[limbNumber]);
-        tempList.RemoveAt(limbNumber);
+    public void ToggleLimb(string limb)
+    {
+        int limbNumber = LimbNumber(limb);
+        int hingeNumber = HingeNumber(limb);
 
-        tempList.Insert(limbNumber, hinge);
+        bool limbState = limbs[limbNumber].activeSelf;
+        limbs[limbNumber].SetActive(!limbState);
+        hinges[hingeNumber].gameObject.SetActive(limbState);
     }
 
-    /*public void DropDownLims(string limbToRemove)
-    {
-        List<GameObject> tempList = this.GetComponent<SCR_TradeLimb>().limbs;
-        int limbNumber = LimbNumber(limbToRemove);
-        Vector3 dropDownLimsPosition = tempList[limbNumber].transform.position;
-        RemoveLimb(limbToRemove);
-        GameObject dropDownLims = Instantiate(Resources.Load("Prefabs/Player/" + limbToRemove)) as GameObject;
-
-        dropDownLims.AddComponent<SphereCollider>();
-        dropDownLims.AddComponent<Rigidbody>();       
-        dropDownLims.name = limbToRemove;
-        dropDownLims.transform.position = dropDownLimsPosition;
-        Destroy(dropDownLims, 2f);
-    }*/
-		
     private void PickUpLims(GameObject pickUpObject)
     {
         string pickupName = pickUpObject.name;
         Destroy(pickUpObject);
+
         Exchange(pickupName, this.gameObject.tag);
+
 		AkSoundEngine.PostEvent ("Arm_Attach", gameObject);
     }
 
     private void LimFly(string limName, string targetPlayerTag)
     {
         GameObject player = GameObject.FindGameObjectWithTag(targetPlayerTag);
+
         int limbNumber = LimbNumber(limName);
         Vector3 p = this.limbs[limbNumber].GetComponent<Transform>().position;
         Quaternion q = this.limbs[limbNumber].GetComponent<Transform>().rotation;
@@ -770,11 +795,7 @@ public class SCR_TradeLimb : MonoBehaviour
                 break;
         }
     }
-
-    /// <summary>
-    /// Pickup
-    /// </summary>
-    /// <param name="other"></param>
+    
     private void OnTriggerStay(Collider other)
     {	//player 1
 		if (other.gameObject.transform.parent != this.gameObject.transform)

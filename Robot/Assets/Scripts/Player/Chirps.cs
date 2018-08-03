@@ -16,13 +16,10 @@ public class Chirps : MonoBehaviour
 	private GameObject Face2;
 	private float range = 100f;
 
-	float timeLeft = 2.0f;
-	bool startTimer = false;
-	bool playEvent = false;
+
 	bool chirpsButton = false;
 
 
-	int eventCount = 0;
 
 	GameObject MelodyDoor;
 
@@ -36,12 +33,16 @@ public class Chirps : MonoBehaviour
 	bool scriptStart = false;
 	bool ControllersUsed;
 
+	GameObject GameController;
+
 	// Use this for initialization
 	private void Start () 
 	{
 		MelodyDoor = GameObject.FindGameObjectWithTag ("Doors");
 		Face = GameObject.FindGameObjectWithTag ("Test");
 		Face2 = GameObject.FindGameObjectWithTag ("Test2");
+
+		GameController = GameObject.FindGameObjectWithTag ("GameController");
 
 		UIEmoteImage = GameObject.FindGameObjectWithTag ("EmoteIcon");
 		if (UIEmoteImage != null)
@@ -94,30 +95,7 @@ public class Chirps : MonoBehaviour
 			ControllersUsed = true;
 		}
 
-		//example of timer will be put elsewhere?
-		if (startTimer == true)
-		{
-			timeLeft -= Time.deltaTime;
-			if (eventCount >= 2)
-			{
-				playEvent = true;
-			}
-		}
 
-		if (timeLeft <= 0)
-		{
-			Debug.Log ("timer is at 0, play event");
-			startTimer = false;
-			timeLeft = 2.0f;
-			eventCount = 0;
-			FalseEvent ();
-		}
-
-
-		if (playEvent == true)
-		{
-			Event ();
-		}
 			
 	}
 		
@@ -153,8 +131,11 @@ public class Chirps : MonoBehaviour
 							//play chirp
 							Debug.Log ("player 1, left arm chirp");
 							//example. 
-							startTimer = true;
-							eventCount += 1;
+							GameController.GetComponent<ChirpCollector> ().startTimer = true;
+
+							GameController.GetComponent<ChirpCollector> ().eventCount += 1;
+
+							//eventCount += 1;
 							AkSoundEngine.SetSwitch ("Chirp_Type", "Happy", gameObject);
 							AkSoundEngine.PostEvent ("Chirp", gameObject);
 
@@ -172,6 +153,8 @@ public class Chirps : MonoBehaviour
 							EmoteNumber = 2;
 							Emotes ();
 							//play chirp
+							GameController.GetComponent<ChirpCollector> ().startTimer = true;
+							GameController.GetComponent<ChirpCollector> ().eventCount += 1;
 							Debug.Log ("player 1, right arm chirp");
 							AkSoundEngine.SetSwitch ("Chirp_Type", "Sad", gameObject);
 							AkSoundEngine.PostEvent ("Chirp", gameObject);
@@ -188,6 +171,8 @@ public class Chirps : MonoBehaviour
 						{
 							EmoteNumber = 3;
 							Emotes ();
+							GameController.GetComponent<ChirpCollector> ().startTimer = true;
+							GameController.GetComponent<ChirpCollector> ().eventCount += 1;
 							Debug.Log ("player1, left leg chirp");
 							AkSoundEngine.SetSwitch ("Chirp_Type", "Here", gameObject);
 							AkSoundEngine.PostEvent ("Chirp", gameObject);
@@ -204,6 +189,8 @@ public class Chirps : MonoBehaviour
 						{
 							EmoteNumber = 4;
 							Emotes ();
+							GameController.GetComponent<ChirpCollector> ().startTimer = true;
+							GameController.GetComponent<ChirpCollector> ().eventCount += 1;
 							Debug.Log ("player1, right leg chirp");
 							AkSoundEngine.SetSwitch ("Chirp_Type", "There", gameObject);
 							AkSoundEngine.PostEvent ("Chirp", gameObject);
@@ -244,6 +231,8 @@ public class Chirps : MonoBehaviour
 						{
 							EmoteNumber = 1;
 							Emotes ();
+							GameController.GetComponent<ChirpCollector> ().startTimer = true;
+							GameController.GetComponent<ChirpCollector> ().eventCount += 1;
 							//play chirp
 							AkSoundEngine.SetSwitch ("Chirp_Type", "Happy", gameObject);
 							AkSoundEngine.PostEvent ("Chirp", gameObject);
@@ -262,6 +251,8 @@ public class Chirps : MonoBehaviour
 							EmoteNumber = 2;
 							Emotes ();
 							//play chirp
+							GameController.GetComponent<ChirpCollector> ().startTimer = true;
+							GameController.GetComponent<ChirpCollector> ().eventCount += 1;
 							AkSoundEngine.SetSwitch ("Chirp_Type", "Sad", gameObject);
 							AkSoundEngine.PostEvent ("Chirp", gameObject);
 
@@ -278,6 +269,8 @@ public class Chirps : MonoBehaviour
 						{
 							EmoteNumber = 3;
 							Emotes ();
+							GameController.GetComponent<ChirpCollector> ().startTimer = true;
+							GameController.GetComponent<ChirpCollector> ().eventCount += 1;
 							//play chirp
 							AkSoundEngine.SetSwitch ("Chirp_Type", "Here", gameObject);
 							AkSoundEngine.PostEvent ("Chirp", gameObject);
@@ -295,6 +288,8 @@ public class Chirps : MonoBehaviour
 						{
 							EmoteNumber = 4;
 							Emotes ();
+							GameController.GetComponent<ChirpCollector> ().startTimer = true;
+							GameController.GetComponent<ChirpCollector> ().eventCount += 1;
 							//play chirp
 							AkSoundEngine.SetSwitch ("Chirp_Type", "There", gameObject);
 							AkSoundEngine.PostEvent ("Chirp", gameObject);
@@ -355,6 +350,8 @@ public class Chirps : MonoBehaviour
 							{
 								EmoteNumber = 1;
 								Emotes ();
+								GameController.GetComponent<ChirpCollector> ().startTimer = true;
+								GameController.GetComponent<ChirpCollector> ().eventCount += 1;
 								//play chirp
 								AkSoundEngine.SetSwitch ("Chirp_Type", "Happy", gameObject);
 								AkSoundEngine.PostEvent ("Chirp", gameObject);
@@ -373,6 +370,8 @@ public class Chirps : MonoBehaviour
 							{
 								EmoteNumber = 2;
 								Emotes ();
+								GameController.GetComponent<ChirpCollector> ().startTimer = true;
+								GameController.GetComponent<ChirpCollector> ().eventCount += 1;
 								//play chirp
 								AkSoundEngine.SetSwitch ("Chirp_Type", "Sad", gameObject);
 								AkSoundEngine.PostEvent ("Chirp", gameObject);
@@ -391,6 +390,8 @@ public class Chirps : MonoBehaviour
 							{
 								EmoteNumber = 3;
 								Emotes ();
+								GameController.GetComponent<ChirpCollector> ().startTimer = true;
+								GameController.GetComponent<ChirpCollector> ().eventCount += 1;
 								//play chirp
 								AkSoundEngine.SetSwitch ("Chirp_Type", "Here", gameObject);
 								AkSoundEngine.PostEvent ("Chirp", gameObject);
@@ -408,6 +409,8 @@ public class Chirps : MonoBehaviour
 							{
 								EmoteNumber = 4;
 								Emotes ();
+								GameController.GetComponent<ChirpCollector> ().startTimer = true;
+								GameController.GetComponent<ChirpCollector> ().eventCount += 1;
 								//play chirp
 								AkSoundEngine.SetSwitch ("Chirp_Type", "There", gameObject);
 								AkSoundEngine.PostEvent ("Chirp", gameObject);
@@ -452,6 +455,9 @@ public class Chirps : MonoBehaviour
 						{
 							EmoteNumber = 1;
 							Emotes ();
+
+							GameController.GetComponent<ChirpCollector> ().startTimer = true;
+							GameController.GetComponent<ChirpCollector> ().eventCount += 1;
 							//play chirp
 							AkSoundEngine.SetSwitch ("Chirp_Type", "Happy", gameObject);
 							AkSoundEngine.PostEvent ("Chirp", gameObject);
@@ -470,6 +476,9 @@ public class Chirps : MonoBehaviour
 						{
 							EmoteNumber = 2;
 							Emotes ();
+
+							GameController.GetComponent<ChirpCollector> ().startTimer = true;
+							GameController.GetComponent<ChirpCollector> ().eventCount += 1;
 							//play chirp
 							AkSoundEngine.SetSwitch ("Chirp_Type", "Sad", gameObject);
 							AkSoundEngine.PostEvent ("Chirp", gameObject);
@@ -488,6 +497,9 @@ public class Chirps : MonoBehaviour
 						{
 							EmoteNumber = 3;
 							Emotes ();
+
+							GameController.GetComponent<ChirpCollector> ().startTimer = true;
+							GameController.GetComponent<ChirpCollector> ().eventCount += 1;
 							//play chirp
 							AkSoundEngine.SetSwitch ("Chirp_Type", "Here", gameObject);
 							AkSoundEngine.PostEvent ("Chirp", gameObject);
@@ -506,6 +518,9 @@ public class Chirps : MonoBehaviour
 						{
 							EmoteNumber = 4;
 							Emotes ();
+
+							GameController.GetComponent<ChirpCollector> ().startTimer = true;
+							GameController.GetComponent<ChirpCollector> ().eventCount += 1;
 							//play chirp
 							AkSoundEngine.SetSwitch ("Chirp_Type", "There", gameObject);
 							AkSoundEngine.PostEvent ("Chirp", gameObject);
@@ -592,23 +607,6 @@ public class Chirps : MonoBehaviour
 	{
 		yield return new WaitForSeconds (1);
 		ActiveEmote = false;
-	}
-	void Event()
-	{
-		//the event you want
-		Debug.Log("Event has triggered");
-		startTimer = false;
-		playEvent = false;
-		eventCount = 0;
-		timeLeft = 2.0f;
-
-		AkSoundEngine.SetRTPCValue ("Chirps_Combine", 1); 
-	}
-
-	void FalseEvent()
-	{
-		//if the timer reaches 0
-		Debug.Log("false hope");
 	}
 
 

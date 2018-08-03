@@ -47,7 +47,12 @@ public class SCR_player2Initalise : SCR_TradeLimb
 		{
 			//tower
 			Exchange ("LeftLeg", this.gameObject.tag, true);
+<<<<<<< HEAD
 		}
+=======
+        }
+
+>>>>>>> Development-John-27.07.18V2
     }
 
     private void PickUpInit()

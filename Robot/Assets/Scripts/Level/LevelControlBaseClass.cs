@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class LevelControlBaseClass : MonoBehaviour
 {
-    //containers of all the possible puzzle elements in the scene
+    //containers of all the possible puzzle elements in the scene,
+    //note they are not initialized, they are only setup if those
+    //elements are found to exist in that particular scene.
     protected List<GameObject> barriers;
     protected List<WeightCheck> buttons;
 	protected List<SCR_Door> doors;
@@ -12,6 +14,7 @@ public class LevelControlBaseClass : MonoBehaviour
     protected List<LightTrigger> lightDoors;
     protected PuzzleExitDoor exitDoor;
     protected List<GameObject> lightSources;
+
     protected string puzzleIdentifier;
     protected bool doorStateOpen = false;
     private bool lightShowFinished = false;
@@ -32,8 +35,52 @@ public class LevelControlBaseClass : MonoBehaviour
         AkSoundEngine.SetState("Drone_Modulator", "Start");
     }
 
+    //Simply checks if all light triggers have been
+    //correctly solved, and that the door isn't already
+    //active. The door is activated and its visual/audio
+    //responses are also triggered. 
+    //If the door is open, spawn the walkway and path to
+    //the next part of the game.	
+    void Update()
+    {
+        if ((IsAllLightTriggersActive()) && (!doorStateOpen))
+        {
+            //This line will enable the melody door when a puzzle is finished
+            doors[0].enabled = true;
+
+            doorStateOpen = !doorStateOpen;
+            exitDoor.OpenDoor();
+            AkSoundEngine.SetState("Drone_Modulator", "Complete");
+
+            EndOfLevel();
+        }
+
+        LevelSpecificUpdate();
+
+        if (doorStateOpen)
+        {
+            if (doors[0].SpawnWalkway == true)
+            {
+                GameObject exit = GameObject.FindGameObjectWithTag("ExitDoor");
+                exit.SetActive(false);
+
+                GameObject walkway = Instantiate(Resources.Load("Prefabs/PuzzleGenericItems/tempFloor")) as GameObject;
+                walkway.name = "tempFloor";
+
+                doors[0].SpawnWalkway = false;
+                doors[0].Correct = false;
+            }
+        }
+    }
+
+    //Useful so that, if any level scripts needed any additional, specific setup, it could be performed.    
     protected virtual void LevelSpecificInit(){}
 
+    //Useful so that, if any level scripts needed any additional, specific update code, it could be performed.    
+    protected virtual void LevelSpecificUpdate(){}
+
+    //When called, all light triggers were correct and therefore, the puzzle 
+    //was solved. Starts the blinking beam code process.
     protected void EndOfLevel()
     {
         AkSoundEngine.PostEvent("Activate_Crystal", gameObject);
@@ -41,13 +88,22 @@ public class LevelControlBaseClass : MonoBehaviour
 
         foreach(GameObject lightsource in lightSources)
         {
-            lightsource.GetComponent<LightEmitter>().canBeTurnedOff = false;
+            if (lightsource.name.Contains("Rotatable"))
+            {
+                lightsource.GetComponentInChildren<LightEmitter>().canBeTurnedOff = false;
+            }
+            else
+            {
+                lightsource.GetComponent<LightEmitter>().canBeTurnedOff = false;
+            }
         }
 
         StartCoroutine(LevelCompleteLightShow());
         StartCoroutine(TurnOffLights());
     }
 
+    //Waits half a second before starting the light show, by calling the blinking
+    //function on every beam in the scene.
     private IEnumerator LevelCompleteLightShow()
     {
         yield return new WaitForSeconds(0.5f);
@@ -60,6 +116,10 @@ public class LevelControlBaseClass : MonoBehaviour
         }
     }
 
+    //Waits until the blinking lightbeam control is finished, then turns off the lightbeams
+    //for good, to once again provide a visual response to the level/puzzle being completed.
+    //This code simply disabled all light sources, preventing them for working, signalling
+    //that the lightbeam puzzle was over.   
     private IEnumerator TurnOffLights()
     {
         yield return new WaitUntil(()=>lightShowFinished);
@@ -69,6 +129,8 @@ public class LevelControlBaseClass : MonoBehaviour
         }
     }
 
+    //Controls the execution of the blinking lightbeam, 10 times the blinking
+    //beams coroutine would be called. Then the end level code proceeds at the end of this control. 
     private IEnumerator BlinkingLightControl(LineRenderer line)
     {
         int counter = 0;
@@ -85,6 +147,8 @@ public class LevelControlBaseClass : MonoBehaviour
         lightShowFinished = true;
     }
 
+    //Using a coroutine, every half a second will simply switch the light beam 
+    //from visible to invisible. 
     private IEnumerator BlinkingLight(LineRenderer line)
     {
         yield return new WaitForSeconds(0.5f);
@@ -104,6 +168,8 @@ public class LevelControlBaseClass : MonoBehaviour
         }
     }
 
+    //Sets up the visual aid component of the door, which is used to show that the door is now
+    //turned on following a correctly completed level.  
     private void DoorSetup()
     {
         GameObject[] doorObjects = GameObject.FindGameObjectsWithTag("PuzzleExitDoor");
@@ -114,11 +180,10 @@ public class LevelControlBaseClass : MonoBehaviour
                 exitDoor = doorObject.transform.GetChild(0).GetComponent<PuzzleExitDoor>();
             }
         }
-			
-		//what is this line used for?
-		//doors[0].enabled = false;
     }
 
+    //Goes through all the light triggers in the scene and checks if they are all
+    //activated and the light is correct for all of them.
     protected bool IsAllLightTriggersActive()
     {
         bool activeState = false;
@@ -131,7 +196,7 @@ public class LevelControlBaseClass : MonoBehaviour
         return activeState;
     }
 
-    //adds up all the objects in this level into their respective data containers
+    //Adds up all the objects in this level into their respective data containers
     //uses a parent gameobject as a container for them, in order to order and store them with ease 
     private List<GameObject> InitialiseGenericPuzzleElements(string parentTag)
     {
@@ -156,6 +221,8 @@ public class LevelControlBaseClass : MonoBehaviour
         return puzzleObjects;
     }
 
+    //Takes the genericly assembled objects and correctly sorts them into their specfic objects
+    //with their specfic containers and scripts. 
     private void SpecficPuzzleSetup(string parentTag)
     {
         List<GameObject> puzzleObjects = InitialiseGenericPuzzleElements(parentTag); 
@@ -173,8 +240,7 @@ public class LevelControlBaseClass : MonoBehaviour
                 }
                 break;
 			case "Doors":
-				doors = new List<SCR_Door> ();
-				
+				doors = new List<SCR_Door> ();				
                 foreach (GameObject puzzleObject in puzzleObjects)
                 {
                     doors.Add(puzzleObject.GetComponent<SCR_Door>());

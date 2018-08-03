@@ -12,20 +12,32 @@ public class LimbLight : MonoBehaviour
     private LightRedirect lightRedirect;
     private GameObject limbJoint;
 
-    // Use this for initialization
+    //Finds the limb object, and runs a quick setup procedure
+    //Since its always a hinge at the start, this simply acts
+    //as a method to obtain the transform of the hinge, which
+    //is needed.
     void Start()
     {
         limbJointSetup();
     }
 
+    //A check that looks at the limb object and checks to make
+    //sure its not a hinge, which therefore, would mean its a
+    //limb object. 
     public bool IsLimbAttached()
     {
         return (!limbJoint.name.Contains("Hinge"));
     }
 
+    //When called this function takes the players tag in order
+    //to identify which player it is, allowing limb removal
+    //code to be correctly used to the right player.
+    //A check is also performed in order to indicate if its a
+    //arm or leg limb box, which changes not only what limbs
+    //it accepts, but also if it should also change the beams
+    //colour.
     public void AttachLimbToLightBox(string playerTag)
     {
-
         string boxLimbType;
         if (ArmsBox)
         {
@@ -44,6 +56,8 @@ public class LimbLight : MonoBehaviour
         }
     }
 
+    //Called when its a leg limb box, this changes the beams colour,
+    //with the colour chosen depending on which player it is.
     private void PlayerLimbColour(ref string playerTag)
     {
         if (playerTag.Equals("Player1"))
@@ -56,6 +70,9 @@ public class LimbLight : MonoBehaviour
         }
     }
 
+    //When interacted with when a limb is already attached, this 
+    //function is called, removing the limb from the specfic player.
+    //Then the limb box resets once more.
     public void RemoveLimbFromLightBox(string playerTag)
     {
         if (GameObject.FindGameObjectWithTag(playerTag).GetComponent<SCR_TradeLimb>().LimbLightTakeLimb(limbJoint))
@@ -64,12 +81,19 @@ public class LimbLight : MonoBehaviour
         }
     }
 
+    //Finds the hinge/limb object and sets up the box to use the correct
+    //response to what ever is attached. 
     private void limbJointSetup()
     {
         limbJoint = this.transform.GetChild(this.transform.childCount - 1).gameObject;
         LimbOnMode();
     }
 
+    //Toggles if the light redirect code should be ran or not, as the limbs
+    //toggle from hinge to limb accordingly. Also a beam raycast is also
+    //performed when the object becomes a limb attached unit, to see it 
+    //there is already a beam hitting the object back when it was just a
+    //hinge attached.  
     private void LimbOnMode()
     {
         lightOn = !lightOn;
@@ -83,7 +107,7 @@ public class LimbLight : MonoBehaviour
                 lightRedirect.beamColourRedirectControl = false;
                 lightRedirect.beamColour = beamColour;
             }
-            BeamFoundNearObject();
+            CheckDirectionForLightBeam();
         }
         else
         {
@@ -95,11 +119,9 @@ public class LimbLight : MonoBehaviour
         }
     }
 
-    private void BeamFoundNearObject()
-    {
-        CheckDirectionForLightBeam();
-    }
-
+    //Raycasts around the object, looking for any nearby objects.
+    //If found, processes the lightbeam found, connected it to
+    //the limb object.
     private void CheckDirectionForLightBeam()
     {
         RaycastHit hit;
@@ -110,12 +132,10 @@ public class LimbLight : MonoBehaviour
             AkSoundEngine.SetState("Drone_Modulator", "Hit_Switch");
             lightRedirect.TriggerEnterFunction(hit.collider);
         }
-        //else if (RayCast(this.transform.right, nearDistance, out hit))
-        //{
-            //lightRedirect.TriggerEnterFunction(hit.collider);
-        //}
     }
 
+    //A very specfic raycast looking for lightbeams only, around the object, 
+    //at the correct height for the lightbeam.
     private bool RayCast(Vector3 direction, float length, out RaycastHit hit)
     {
         int layerMask = 1 << LayerMask.NameToLayer("LightBeam");
@@ -128,43 +148,5 @@ public class LimbLight : MonoBehaviour
         Debug.DrawRay(raycastStartLocation, direction, Color.red, length);
         return Physics.BoxCast(raycastStartLocation, this.GetComponent<Transform>().localScale, direction, out hit, Quaternion.identity, length, layerMask);
     }
-    /*
-    void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        RaycastHit hit;
-
-        float nearDistance = 3.0f;
-        if (lightRedirect != null)
-        {
-            Vector3 direction = this.transform.forward;
-            Vector3 offsetPos = Vector3.Scale(direction, this.GetComponent<Transform>().localScale);
-
-            Vector3 raycastStartLocation = this.transform.position;
-            raycastStartLocation -= offsetPos * 3.0f;
-            raycastStartLocation.y = 3.49f;
-
-            int layerMask = 1 << LayerMask.NameToLayer("LightBeam");
-            //Check if there has been a hit yet
-            float range = 2.0f;
-            if (Physics.BoxCast(raycastStartLocation, new Vector3(range, range, range), direction, out hit, Quaternion.identity, nearDistance, layerMask))
-            {
-                Debug.Log("?" + hit.transform.name);
-                //Draw a Ray forward from GameObject toward the hit
-                Gizmos.DrawRay(transform.position, transform.forward * hit.distance);
-                //Draw a cube that extends to where the hit exists
-                Gizmos.DrawWireCube(raycastStartLocation + direction * nearDistance, new Vector3(range, range, range));
-            }
-            //If there hasn't been a hit yet, draw the ray at the maximum distance
-            else
-            {
-                //Draw a Ray forward from GameObject toward the maximum distance
-                Gizmos.DrawRay(transform.position, transform.forward * nearDistance);
-                //Draw a cube at the maximum distance
-                Gizmos.DrawWireCube(raycastStartLocation + direction * nearDistance, new Vector3(range, range, range));
-            }
-        }
-    }
-    */
 }
 

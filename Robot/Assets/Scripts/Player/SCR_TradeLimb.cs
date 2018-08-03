@@ -35,6 +35,7 @@ public class SCR_TradeLimb : MonoBehaviour
 
 	// Use this for initialization
 	private void Start()
+<<<<<<< HEAD
 =======
     #endregion
 
@@ -42,6 +43,8 @@ public class SCR_TradeLimb : MonoBehaviour
     // Use this for initialization
     private void Start()
 >>>>>>> Development-Neko-27.07.18
+=======
+>>>>>>> Development-John-27.07.18V2
     {
         InitialisePlayerLimbs();
         SetPlayerTag();

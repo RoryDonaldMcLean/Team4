@@ -4,43 +4,38 @@ using UnityEngine;
 
 public class PuzzleOnBoardingProcess : LevelControlBaseClass
 {
-
-	GameObject MelodyDoor;
-	GameObject Exit;
-
+    //Used as reference point for the base class
+    //allowing various operations to stay dynamic.
     void Awake()
     {
         puzzleIdentifier = "PuzzleZero";
-		MelodyDoor = GameObject.FindGameObjectWithTag ("Doors");
     }
 
-	// Update is called once per frame
-	void Update()
+    //Disables player movement at the start of this 
+    //scene, and returns it after the tutorial
+    //is completed.  
+    protected override void LevelSpecificInit()
     {
-		if((IsAllLightTriggersActive()) && (!doorStateOpen))
-        {
-			doors[0].enabled = true;
-			//this line will enable the melody door when a puzzle is finished
-            Debug.Log("open");
-            doorStateOpen = !doorStateOpen;
-            exitDoor.OpenDoor();
-			AkSoundEngine.SetState("Drone_Modulator", "Complete");
+        //DestroyMovement("Player1");
+        //DestroyMovement("Player2");
+    }
 
-            EndOfLevel();
-        }
+    public void ActivatePlayerMovement()
+    {
+        AddMovement("Player1");
+        AddMovement("Player2");
+    }
 
-		if (doorStateOpen)
-		{
-			if (MelodyDoor.GetComponentInChildren<SCR_Door> ().SpawnWalkway == true)
-			{
-				Exit = GameObject.FindGameObjectWithTag ("ExitDoor");
-				Exit.SetActive (false);
+    //Since these two players are always in the scene, no
+    //safety checks are required, simply accessing them 
+    //directly is going to work all the time.
+    private void AddMovement(string playerTag)
+    {
+        GameObject.FindGameObjectWithTag(playerTag).AddComponent<InControlMovement>();
+    }
 
-				GameObject walkway = Instantiate (Resources.Load ("Prefabs/PuzzleGenericItems/tempFloor")) as GameObject;
-				walkway.name = "tempFloor";
-				MelodyDoor.GetComponentInChildren<SCR_Door> ().SpawnWalkway = false;
-				MelodyDoor.GetComponentInChildren<SCR_Door> ().Correct = false;
-			}
-		}
-	}
+    private void DestroyMovement(string playerTag)
+    {
+        Destroy(GameObject.FindGameObjectWithTag(playerTag).GetComponent<InControlMovement>());
+    }
 }

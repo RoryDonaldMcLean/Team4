@@ -11,7 +11,7 @@ public class LightResize : MonoBehaviour
     private float oldBeamEndPoint;
     private float newBeamEndPoint = 10;
     private float originalBeamInverse;
-    private bool contact = false;
+    public bool contact = false;
     private bool lightBarrier = false;
     private int defaultBeamLength;
     private float defaultBeamEndPoint;

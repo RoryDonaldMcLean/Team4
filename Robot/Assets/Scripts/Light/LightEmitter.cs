@@ -36,7 +36,7 @@ public class LightEmitter : MonoBehaviour
             else
             {
                 //turn off
-                AkSoundEngine.PostEvent("Drone_Stop", gameObject);
+               // AkSoundEngine.PostEvent("Drone_Stop", gameObject);
             }
         }
     }
@@ -46,7 +46,7 @@ public class LightEmitter : MonoBehaviour
         switchedOn = false;
         ToggleLight();
         canBeTurnedOff = false;
-        AkSoundEngine.PostEvent("Drone_Stop", gameObject);
+       // AkSoundEngine.PostEvent("Drone_Stop", gameObject);
         AkSoundEngine.SetState("Environment", "Empty");
     }
 

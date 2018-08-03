@@ -30,22 +30,21 @@ public class PlayerSetting
         defaultButton[9] = KeyCode.E; // interact
         defaultButton[10] = KeyCode.F; // limbs panel
         defaultButton[11] = KeyCode.Z; // drop code
+        defaultButton[12] = KeyCode.G; // player1 emote menu
 
-        defaultButton[12] = KeyCode.UpArrow;
-        defaultButton[13] = KeyCode.LeftArrow;
-        defaultButton[14] = KeyCode.DownArrow;
-        defaultButton[15] = KeyCode.RightArrow;
-		defaultButton[16] = KeyCode.Alpha5;
-		defaultButton[17] = KeyCode.Alpha6;
-		defaultButton[18] = KeyCode.Alpha7;
-		defaultButton[19] = KeyCode.Alpha8;
-        defaultButton[20] = KeyCode.Keypad0;//jump
-        defaultButton[21] = KeyCode.Keypad7; //interact
-        defaultButton[22] = KeyCode.Keypad8; // limbs panel
-        defaultButton[23] = KeyCode.Keypad9; //drop code
-
-		defaultButton [24] = KeyCode.G; // player1 emote menu
-		defaultButton [25] = KeyCode.Keypad5; //player2 emote menu
+        defaultButton[13] = KeyCode.UpArrow;
+        defaultButton[14] = KeyCode.LeftArrow;
+        defaultButton[15] = KeyCode.DownArrow;
+        defaultButton[16] = KeyCode.RightArrow;
+		defaultButton[17] = KeyCode.Alpha5;
+		defaultButton[18] = KeyCode.Alpha6;
+		defaultButton[19] = KeyCode.Alpha7;
+		defaultButton[20] = KeyCode.Alpha8;
+        defaultButton[21] = KeyCode.Keypad0;//jump
+        defaultButton[22] = KeyCode.Keypad7; //interact
+        defaultButton[23] = KeyCode.Keypad8; // limbs panel
+        defaultButton[24] = KeyCode.Keypad9; //drop code
+		defaultButton[25] = KeyCode.Keypad5; //player2 emote menu
 
 
         for (int i = 0; i < defaultButton.Length; i++)
@@ -88,9 +87,10 @@ public class PlayerSetting
  * 9 - interact/reattach
  * 10 - lims panel
  * 11 - Another Button
+ * 12 - Emote menu
  * 
  * Player2:
- * plus 12
+ * plus 13
  * 
  * 
  * 

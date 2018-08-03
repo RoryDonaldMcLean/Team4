@@ -17,7 +17,7 @@ public class SettingArea : MonoBehaviour
 
     private void Awake()
     {
-        reboundButton = new bool[24];
+        reboundButton = new bool[26];
     }
 
     // Use this for initialization

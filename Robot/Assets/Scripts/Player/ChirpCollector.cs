@@ -10,10 +10,14 @@ public class ChirpCollector : MonoBehaviour
 	public bool startTimer = false;
 	public bool playEvent = false;
 
+	GameObject GameController;
+
+	bool addMovementCheck = false;
+
 	// Use this for initialization
 	void Start () 
 	{
-		
+		GameController = GameObject.FindGameObjectWithTag ("GameController");
 	}
 	
 	// Update is called once per frame
@@ -55,6 +59,15 @@ public class ChirpCollector : MonoBehaviour
 		timeLeft = 2.0f;
 
 		AkSoundEngine.SetRTPCValue ("Chirps_Combine", 1); 
+
+
+		if (addMovementCheck == false)
+		{
+			GameController.GetComponent<PuzzleOnBoardingProcess> ().ActivatePlayerMovement ();
+			addMovementCheck = true;
+		}
+
+
 	}
 
 	void FalseEvent()

@@ -39,8 +39,8 @@ public class Chirps : MonoBehaviour
 	private void Start () 
 	{
 		MelodyDoor = GameObject.FindGameObjectWithTag ("Doors");
-		Face = GameObject.FindGameObjectWithTag ("Test");
-		Face2 = GameObject.FindGameObjectWithTag ("Test2");
+		Face = GameObject.FindGameObjectWithTag ("Player1");
+		Face2 = GameObject.FindGameObjectWithTag ("Player2");
 
 		GameController = GameObject.FindGameObjectWithTag ("GameController");
 
@@ -124,7 +124,7 @@ public class Chirps : MonoBehaviour
 							UIEmoteImage.SetActive (true);
 						}
 
-						if (inputDevice.DPadUp.WasPressed && GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [0].name.Contains ("LeftArm"))
+					if (inputDevice.DPadUp.WasPressed && GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().LimbActiveCheck ("LeftArm"))
 						{
 							EmoteNumber = 1;
 							Emotes ();
@@ -140,7 +140,7 @@ public class Chirps : MonoBehaviour
 							AkSoundEngine.PostEvent ("Chirp", gameObject);
 
 						} else if (inputDevice.DPadUp.WasPressed &&
-						            !GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [0].name.Contains ("LeftArm"))
+						!GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("LeftArm"))
 						{
 							//duff chirp
 							Debug.Log ("player 1, No Left Arm");
@@ -148,7 +148,7 @@ public class Chirps : MonoBehaviour
 
 
 
-						if (inputDevice.DPadDown.WasPressed && GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [1].name.Contains ("RightArm"))
+					if (inputDevice.DPadDown.WasPressed && GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("RightArm"))
 						{
 							EmoteNumber = 2;
 							Emotes ();
@@ -159,7 +159,7 @@ public class Chirps : MonoBehaviour
 							AkSoundEngine.SetSwitch ("Chirp_Type", "Sad", gameObject);
 							AkSoundEngine.PostEvent ("Chirp", gameObject);
 						} else if (inputDevice.DPadDown.WasPressed &&
-						            !GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [0].name.Contains ("RightArm"))
+						!GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("RightArm"))
 						{
 							//duff
 							Debug.Log ("Player1, No right arm");
@@ -167,7 +167,7 @@ public class Chirps : MonoBehaviour
 
 
 
-						if (inputDevice.DPadLeft.WasPressed && GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [2].name.Contains ("LeftLeg"))
+					if (inputDevice.DPadLeft.WasPressed && GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("LeftLeg"))
 						{
 							EmoteNumber = 3;
 							Emotes ();
@@ -177,7 +177,7 @@ public class Chirps : MonoBehaviour
 							AkSoundEngine.SetSwitch ("Chirp_Type", "Here", gameObject);
 							AkSoundEngine.PostEvent ("Chirp", gameObject);
 						} else if (inputDevice.DPadLeft.WasPressed &&
-						            !GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [2].name.Contains ("LeftLeg"))
+						!GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("LeftLeg"))
 						{
 							//duff
 							Debug.Log ("player1, No left leg");
@@ -185,7 +185,7 @@ public class Chirps : MonoBehaviour
 
 
 
-						if (inputDevice.DPadRight.WasPressed && GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [3].name.Contains ("RightLeg"))
+					if (inputDevice.DPadRight.WasPressed && GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("RightLeg"))
 						{
 							EmoteNumber = 4;
 							Emotes ();
@@ -195,7 +195,7 @@ public class Chirps : MonoBehaviour
 							AkSoundEngine.SetSwitch ("Chirp_Type", "There", gameObject);
 							AkSoundEngine.PostEvent ("Chirp", gameObject);
 						} else if (inputDevice.DPadRight.WasPressed &&
-						            !GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [3].name.Contains ("RightLeg"))
+						!GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("RightLeg"))
 						{
 							//duff
 							Debug.Log ("player 1, No right leg");
@@ -227,7 +227,7 @@ public class Chirps : MonoBehaviour
 						}
 
 
-						if (inputDevice.DPadUp.WasPressed && GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [0].name.Contains ("LeftArm"))
+					if (inputDevice.DPadUp.WasPressed && GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("LeftArm"))
 						{
 							EmoteNumber = 1;
 							Emotes ();
@@ -239,14 +239,14 @@ public class Chirps : MonoBehaviour
 
 							Debug.Log ("Player 2, left Arm Chirp");
 						} else if (inputDevice.DPadUp.WasPressed &&
-						           !GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [0].name.Contains ("LeftArm"))
+						!GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("LeftArm"))
 						{
 							Debug.Log ("player2, NO left arm");
 						}
 
 
 
-						if (inputDevice.DPadDown.WasPressed && GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [1].name.Contains ("RightArm"))
+					if (inputDevice.DPadDown.WasPressed && GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("RightArm"))
 						{
 							EmoteNumber = 2;
 							Emotes ();
@@ -258,14 +258,14 @@ public class Chirps : MonoBehaviour
 
 							Debug.Log ("player 2, right arm chirp");
 						} else if (inputDevice.DPadDown.WasPressed &&
-						           !GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [1].name.Contains ("RightArm"))
+						!GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("RightArm"))
 						{
 							Debug.Log ("Player2, No right arm");
 						}
 
 
 
-						if (inputDevice.DPadLeft.WasPressed && GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [2].name.Contains ("LeftLeg"))
+					if (inputDevice.DPadLeft.WasPressed && GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("LeftLeg"))
 						{
 							EmoteNumber = 3;
 							Emotes ();
@@ -277,14 +277,14 @@ public class Chirps : MonoBehaviour
 
 							Debug.Log ("player2, left leg chirp");
 						} else if (inputDevice.DPadLeft.WasPressed &&
-						           !GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [2].name.Contains ("LeftLeg"))
+						!GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("LeftLeg"))
 						{
 							Debug.Log ("player2, No left leg");
 						}
 
 
 
-						if (inputDevice.DPadRight.WasPressed && GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [3].name.Contains ("RightLeg"))
+					if (inputDevice.DPadRight.WasPressed && GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("RightLeg"))
 						{
 							EmoteNumber = 4;
 							Emotes ();
@@ -296,7 +296,7 @@ public class Chirps : MonoBehaviour
 
 							Debug.Log ("player2, right leg chirp");
 						} else if (inputDevice.DPadRight.WasPressed &&
-						           !GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [3].name.Contains ("RightLeg"))
+						!GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("RightLeg"))
 						{
 							Debug.Log ("player2, No right leg");
 						}
@@ -346,7 +346,7 @@ public class Chirps : MonoBehaviour
 							}
 
 							if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [4])
-							     && GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [0].name.Contains ("LeftArm"))
+						&& GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("LeftArm"))
 							{
 								EmoteNumber = 1;
 								Emotes ();
@@ -358,7 +358,7 @@ public class Chirps : MonoBehaviour
 
 								Debug.Log ("player 1, left arm chirp");
 							} else if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [4])
-							            && !GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [0].name.Contains ("LeftArm"))
+						&& !GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("LeftArm"))
 							{
 								Debug.Log ("player 1, No Left Arm");
 							}
@@ -366,7 +366,7 @@ public class Chirps : MonoBehaviour
 
 
 							if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [5])
-							     && GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [1].name.Contains ("RightArm"))
+						&& GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("RightArm"))
 							{
 								EmoteNumber = 2;
 								Emotes ();
@@ -378,7 +378,7 @@ public class Chirps : MonoBehaviour
 
 								Debug.Log ("player 1, right arm chirp");
 							} else if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [5])
-							            && !GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [1].name.Contains ("RightArm"))
+						&& !GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("RightArm"))
 							{
 								Debug.Log ("player 1, No right Arm");
 							}
@@ -386,7 +386,7 @@ public class Chirps : MonoBehaviour
 
 
 							if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [6])
-							     && GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [2].name.Contains ("LeftLeg"))
+						&& GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("LeftLeg"))
 							{
 								EmoteNumber = 3;
 								Emotes ();
@@ -397,7 +397,7 @@ public class Chirps : MonoBehaviour
 								AkSoundEngine.PostEvent ("Chirp", gameObject);
 								Debug.Log ("player 1, left leg chirp");
 							} else if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [6])
-							            && !GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [2].name.Contains ("LeftLeg"))
+						&& !GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("LeftLeg"))
 							{
 								Debug.Log ("player 1, No Left leg");
 							}
@@ -405,7 +405,7 @@ public class Chirps : MonoBehaviour
 
 
 							if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [7])
-							     && GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [3].name.Contains ("RightLeg"))
+						&& GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("RightLeg"))
 							{
 								EmoteNumber = 4;
 								Emotes ();
@@ -416,7 +416,7 @@ public class Chirps : MonoBehaviour
 								AkSoundEngine.PostEvent ("Chirp", gameObject);
 								Debug.Log ("player 1, right leg chirp");
 							} else if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [7])
-							            && !GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [3].name.Contains ("RightLeg"))
+						&& !GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("RightLeg"))
 							{
 								Debug.Log ("player 1, No right leg");
 							}
@@ -451,7 +451,7 @@ public class Chirps : MonoBehaviour
 
 						
 						if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [17])
-						      && GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [0].name.Contains ("LeftArm"))
+						&& GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("LeftArm"))
 						{
 							EmoteNumber = 1;
 							Emotes ();
@@ -464,7 +464,7 @@ public class Chirps : MonoBehaviour
 
 							Debug.Log ("Player2, left arm chirp");	
 						} else if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [17])
-						             && !GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [0].name.Contains ("LeftArm"))
+						&& !GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("LeftArm"))
 						{
 							Debug.Log ("player 2, no left arm");
 						}
@@ -472,7 +472,7 @@ public class Chirps : MonoBehaviour
 
 
 						if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [18])
-						      && GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [1].name.Contains ("RightArm"))
+						&& GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("RightArm"))
 						{
 							EmoteNumber = 2;
 							Emotes ();
@@ -485,7 +485,7 @@ public class Chirps : MonoBehaviour
 
 							Debug.Log ("Player2, right arm chirp");	
 						} else if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [18])
-						             && !GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [1].name.Contains ("RightArm"))
+						&& !GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("RightArm"))
 						{
 							Debug.Log ("player 2, no right arm");
 						}
@@ -493,7 +493,7 @@ public class Chirps : MonoBehaviour
 
 
 						if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [19])
-						      && GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [2].name.Contains ("LeftLeg"))
+						&& GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("LeftLeg"))
 						{
 							EmoteNumber = 3;
 							Emotes ();
@@ -506,7 +506,7 @@ public class Chirps : MonoBehaviour
 
 							Debug.Log ("Player2, left leg chirp");	
 						} else if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [19])
-						             && !GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [2].name.Contains ("LeftLeg"))
+						&& !GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("LeftLeg"))
 						{
 							Debug.Log ("player 2, no left leg");
 						}
@@ -514,7 +514,7 @@ public class Chirps : MonoBehaviour
 
 
 						if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [20])
-						      && GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [3].name.Contains ("RightLeg"))
+						&& GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("RightLeg"))
 						{
 							EmoteNumber = 4;
 							Emotes ();
@@ -527,7 +527,7 @@ public class Chirps : MonoBehaviour
 
 							Debug.Log ("Player2, right leg chirp");	
 						} else if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [20])
-						             && !GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [3].name.Contains ("RightLeg"))
+						&& !GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("RightLeg"))
 						{
 							Debug.Log ("player 2, no right leg");
 						}
@@ -616,7 +616,7 @@ public class Chirps : MonoBehaviour
 		{
 			List<GameObject> ls = !GameManager.Instance.whichAndroid.player1ControlBlue ? EmoteUI : EmoteUI2;
 
-			if (GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [0].name.Contains ("LeftArm"))
+			if (GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("LeftArm"))
 			{
 				ls [0].SetActive (true);
 				ls [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/Emotes/Chirp_UI_Happy_Colour") as Sprite;
@@ -629,7 +629,7 @@ public class Chirps : MonoBehaviour
 			}
 
 
-			if (GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [1].name.Contains ("RightArm"))
+			if (GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("RightArm"))
 			{
 				ls [1].SetActive (true);
 				ls [1].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/Emotes/Chirp_UI_Sad_Colour") as Sprite;
@@ -641,7 +641,7 @@ public class Chirps : MonoBehaviour
 				ls [1].GetComponent<Image> ().preserveAspect = true;
 			}
 
-			if (GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [2].name.Contains ("LeftLeg"))
+			if (GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("LeftLeg"))
 			{
 				ls [2].SetActive (true);
 				ls [2].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/Emotes/Chirp_UI_Lookatme_Colour") as Sprite;
@@ -654,7 +654,7 @@ public class Chirps : MonoBehaviour
 			}
 
 
-			if (GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().limbs [3].name.Contains ("RightLeg"))
+			if (GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("RightLeg"))
 			{
 				ls [3].SetActive (true);
 				ls [3].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/Emotes/Chirp_UI_Lookoverthere_Colour") as Sprite;
@@ -687,7 +687,7 @@ public class Chirps : MonoBehaviour
 
 			List<GameObject> ls = GameManager.Instance.whichAndroid.player1ControlBlue ? EmoteUI : EmoteUI2;
 
-			if (GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [0].name.Contains ("LeftArm"))
+			if (GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("LeftArm"))
 			{
 				ls [0].SetActive (true);
 				ls [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/Emotes/Chirp_UI_Happy_Colour") as Sprite;
@@ -700,7 +700,7 @@ public class Chirps : MonoBehaviour
 			}
 
 
-			if (GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [1].name.Contains ("RightArm"))
+			if (GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("RightArm"))
 			{
 				ls [1].SetActive (true);
 				ls [1].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/Emotes/Chirp_UI_Sad_Colour") as Sprite;
@@ -712,7 +712,7 @@ public class Chirps : MonoBehaviour
 				ls [1].GetComponent<Image> ().preserveAspect = true;
 			}
 
-			if (GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [2].name.Contains ("LeftLeg"))
+			if (GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("LeftLeg"))
 			{
 				ls [2].SetActive (true);
 				ls [2].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/Emotes/Chirp_UI_Lookatme_Colour") as Sprite;
@@ -725,7 +725,7 @@ public class Chirps : MonoBehaviour
 			}
 
 
-			if (GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().limbs [3].name.Contains ("RightLeg"))
+			if (GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("RightLeg"))
 			{
 				ls [3].SetActive (true);
 				ls [3].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/Emotes/Chirp_UI_Lookoverthere_Colour") as Sprite;

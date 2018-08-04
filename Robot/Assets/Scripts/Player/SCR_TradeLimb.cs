@@ -151,6 +151,13 @@ public class SCR_TradeLimb : MonoBehaviour
 
     #endregion
     
+	public bool LimbActiveCheck(string newLimbName)
+	{
+		int index = LimbNumber (newLimbName);
+		return limbs [index].activeSelf;
+	}
+
+
     private void childObjectLimbFinder()
     {
         //loop through all the child objects attached to player

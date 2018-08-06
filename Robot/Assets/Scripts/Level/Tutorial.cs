@@ -150,7 +150,7 @@ public class Tutorial : MonoBehaviour
 				startTimer = true;
 				UITutorial.SetActive (true);
 				UIButtons [0].SetActive (true);
-				UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Controller_Pick-Drop") as Sprite;
+				UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Controller_Pick-Drop Object") as Sprite;
 				UIButtons [0].GetComponent<Image> ().preserveAspect = true;
 
 				UIButtons [1].SetActive (false);
@@ -180,7 +180,7 @@ public class Tutorial : MonoBehaviour
 				startTimer = true;
 				UITutorial.SetActive (true);
 				UIButtons [0].SetActive (true);
-				UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Controller_Pick-Drop") as Sprite;
+				UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Controller_Pick-Drop Object") as Sprite;
 				UIButtons [0].GetComponent<Image> ().preserveAspect = true;
 				UIButtons [1].SetActive (false);
 				UIButtons [2].SetActive (false);

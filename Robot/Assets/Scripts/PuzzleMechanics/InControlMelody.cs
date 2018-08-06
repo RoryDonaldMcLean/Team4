@@ -82,13 +82,13 @@ public class InControlMelody : MonoBehaviour
 		if (inputDevice == null)
 		{
 			//no controllers
-			RedDPAD [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/LimbsMenu/1234") as Sprite;
-			BlueDPAD [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/LimbsMenu/5678") as Sprite;
+			RedDPAD [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/LimbsMenu/UIDPadIcon - 1234") as Sprite;
+			BlueDPAD [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/LimbsMenu/UIDPadIcon - 5678") as Sprite;
 		} 
 		else
 		{
-			RedDPAD [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/LimbsMenu/DPAD") as Sprite;
-			BlueDPAD [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/LimbsMenu/DPAD") as Sprite;
+			RedDPAD [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/LimbsMenu/UIDPadIcon - Unedited") as Sprite;
+			BlueDPAD [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/LimbsMenu/UIDPadIcon - Unedited") as Sprite;
 		}
 
 

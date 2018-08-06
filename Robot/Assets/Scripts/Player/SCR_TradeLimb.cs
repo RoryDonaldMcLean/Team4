@@ -225,52 +225,52 @@ public class SCR_TradeLimb : MonoBehaviour
             if (limbs [0].activeSelf)
 			{
 				ls [0].SetActive (true);
-				ls [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/LimbsMenu/UITopSegment_Arm_StateActive") as Sprite;
+				ls [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/NewLimbsMenu/UITopSegment_Arm_StateActive copy") as Sprite;
 				ls [0].GetComponent<Image> ().preserveAspect = true;
 			} 
 			else
 			{
 				ls [0].SetActive (true);
-				ls [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/LimbsMenu/UITopSegment_Arm_StateNonActive") as Sprite;
+				ls [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/NewLimbsMenu/UITopSegment_Arm_StateNonActive copy") as Sprite;
 				ls [0].GetComponent<Image> ().preserveAspect = true;
 			}
 
 			if (limbs [2].activeSelf)
 			{
 				ls [1].SetActive (true);
-				ls [1].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/LimbsMenu/UIBottomSegment_Arm_StateActive") as Sprite;
+				ls [1].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/NewLimbsMenu/UIBottomSegment_Arm_StateActive copy") as Sprite;
 				ls [1].GetComponent<Image> ().preserveAspect = true;
 			} 
 			else
 			{
 				ls [1].SetActive (true);
-				ls [1].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/LimbsMenu/UIBottomSegment_Arm_StateNonActive") as Sprite;
+				ls [1].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/NewLimbsMenu/UIBottomSegment_Arm_StateNonActive copy") as Sprite;
 				ls [1].GetComponent<Image> ().preserveAspect = true;
 			}
 
 			if (limbs [1].activeSelf)
 			{
 				ls [2].SetActive (true);
-				ls [2].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/LimbsMenu/UILeftSegment_Leg_StateActive") as Sprite;
+				ls [2].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/NewLimbsMenu/UILeftSegment_Leg_StateActive copy") as Sprite;
 				ls [2].GetComponent<Image> ().preserveAspect = true;
 			} 
 			else
 			{
 				ls [2].SetActive (true);
-				ls [2].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/LimbsMenu/UILeftSegment_Leg_StateNonActive") as Sprite;
+				ls [2].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/NewLimbsMenu/UILeftSegment_Leg_StateNonActive copy") as Sprite;
 				ls [2].GetComponent<Image> ().preserveAspect = true;
 			}
 
 			if (limbs [3].activeSelf)
 			{
 				ls [3].SetActive (true);
-				ls [3].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/LimbsMenu/UIRightSegment_Leg_StateActive") as Sprite;
+				ls [3].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/NewLimbsMenu/UIRightSegment_Leg_StateActive copy") as Sprite;
 				ls [3].GetComponent<Image> ().preserveAspect = true;
 			} 
 			else
 			{
 				ls [3].SetActive (true);
-				ls [3].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/LimbsMenu/UIRightSegment_Leg_StateNonActive") as Sprite;
+				ls [3].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/NewLimbsMenu/UIRightSegment_Leg_StateNonActive copy") as Sprite;
 				ls [3].GetComponent<Image> ().preserveAspect = true;
 			}
 
@@ -278,13 +278,13 @@ public class SCR_TradeLimb : MonoBehaviour
 			if (ControllersUsed == false)
 			{
 				ls [4].SetActive (true);
-				ls [4].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/LimbsMenu/1234") as Sprite;
+				ls [4].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/LimbsMenu/UIDPadIcon - 1234") as Sprite;
 				ls [4].GetComponent<Image> ().preserveAspect = true;
 			} 
 			else
 			{
 				ls [4].SetActive (true);
-				ls [4].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/LimbsMenu/DPad") as Sprite;
+				ls [4].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/LimbsMenu/UIDPadIcon - Unedited") as Sprite;
 				ls [4].GetComponent<Image> ().preserveAspect = true;
 			}
 
@@ -297,52 +297,52 @@ public class SCR_TradeLimb : MonoBehaviour
             if (limbs [0].activeSelf)
 			{
 				ls [0].SetActive (true);
-				ls [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/LimbsMenu/UITopSegment_Arm_StateActive") as Sprite;
+				ls [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/NewLimbsMenu/UITopSegment_Arm_StateActive copy") as Sprite;
 				ls [0].GetComponent<Image> ().preserveAspect = true;
 			} 
 			else
 			{
 				ls [0].SetActive (true);
-				ls [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/LimbsMenu/UITopSegment_Arm_StateNonActive") as Sprite;
+				ls [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/NewLimbsMenu/UITopSegment_Arm_StateNonActive copy") as Sprite;
 				ls [0].GetComponent<Image> ().preserveAspect = true;
 			}
 
 			if (limbs [2].activeSelf)
 			{
 				ls [1].SetActive (true);
-				ls [1].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/LimbsMenu/UIBottomSegment_Arm_StateActive") as Sprite;
+				ls [1].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/NewLimbsMenu/UIBottomSegment_Arm_StateActive copy") as Sprite;
 				ls [1].GetComponent<Image> ().preserveAspect = true;
 			} 
 			else
 			{
 				ls [1].SetActive (true);
-				ls [1].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/LimbsMenu/UIBottomSegment_Arm_StateNonActive") as Sprite;
+				ls [1].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/NewLimbsMenu/UIBottomSegment_Arm_StateNonActive copy") as Sprite;
 				ls [1].GetComponent<Image> ().preserveAspect = true;
 			}
 
 			if (limbs [1].activeSelf)
 			{
 				ls [2].SetActive (true);
-				ls [2].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/LimbsMenu/UILeftSegment_Leg_StateActive") as Sprite;
+				ls [2].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/NewLimbsMenu/UILeftSegment_Leg_StateActive copy") as Sprite;
 				ls [2].GetComponent<Image> ().preserveAspect = true;
 			} 
 			else
 			{
 				ls [2].SetActive (true);
-				ls [2].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/LimbsMenu/UILeftSegment_Leg_StateNonActive") as Sprite;
+				ls [2].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/NewLimbsMenu/UILeftSegment_Leg_StateNonActive copy") as Sprite;
 				ls [2].GetComponent<Image> ().preserveAspect = true;
 			}
 
 			if (limbs [3].activeSelf)
 			{
 				ls [3].SetActive (true);
-				ls [3].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/LimbsMenu/UIRightSegment_Leg_StateActive") as Sprite;
+				ls [3].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/NewLimbsMenu/UIRightSegment_Leg_StateActive copy") as Sprite;
 				ls [3].GetComponent<Image> ().preserveAspect = true;
 			} 
 			else
 			{
 				ls [3].SetActive (true);
-				ls [3].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/LimbsMenu/UIRightSegment_Leg_StateNonActive") as Sprite;
+				ls [3].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/NewLimbsMenu/UIRightSegment_Leg_StateNonActive copy") as Sprite;
 				ls [3].GetComponent<Image> ().preserveAspect = true;
 			}
 
@@ -350,13 +350,13 @@ public class SCR_TradeLimb : MonoBehaviour
 			if (ControllersUsed == false)
 			{
 				ls [4].SetActive (true);
-				ls [4].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/LimbsMenu/5678") as Sprite;
+				ls [4].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/LimbsMenu/UIDPadIcon - 5678") as Sprite;
 				ls [4].GetComponent<Image> ().preserveAspect = true;
 			} 
 			else
 			{
 				ls [4].SetActive (true);
-				ls [4].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/LimbsMenu/DPad") as Sprite;
+				ls [4].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/LimbsMenu/UIDPadIcon - Unedited") as Sprite;
 				ls [4].GetComponent<Image> ().preserveAspect = true;
 			}
 		}
@@ -449,6 +449,7 @@ public class SCR_TradeLimb : MonoBehaviour
 			{
 				if (UILimbImage2 != null)
 				{
+					//Debug.Log ("here");
 					UILimbImage2.SetActive (false);
 				}
 			}
@@ -549,7 +550,7 @@ public class SCR_TradeLimb : MonoBehaviour
 		//player  left arm
 		if(inputDevice.RightStickY > 0.5f)
 		{
-			if (limbs[0].name.Contains("LeftArm") && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[0].name.Contains("LeftArm"))
+			if (limbs[0].activeSelf && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[0].activeSelf)
 			{
 				//find the other player
 				LimFly("LeftArm", otherPlayerTag);
@@ -561,7 +562,7 @@ public class SCR_TradeLimb : MonoBehaviour
 		//player right arm
 		if(inputDevice.RightStickY < -0.5f)
 		{
-			if (limbs[2].name.Contains("RightArm") && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[1].name.Contains("RightArm"))
+			if (limbs[2].activeSelf && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[1].activeSelf)
 			{
 				LimFly("RightArm", otherPlayerTag);
 				RemoveLimb("RightArm");
@@ -571,7 +572,7 @@ public class SCR_TradeLimb : MonoBehaviour
 		//player1 left leg
 		if(inputDevice.RightStickX < -0.5f)
 		{
-			if (limbs[1].name.Contains("LeftLeg") && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[2].name.Contains("LeftLeg"))
+			if (limbs[1].activeSelf && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[2].activeSelf)
 			{
 				//find the other player
 				LimFly("LeftLeg", otherPlayerTag);
@@ -582,7 +583,7 @@ public class SCR_TradeLimb : MonoBehaviour
 		//player right leg
 		if(inputDevice.RightStickX > 0.5f)
 		{
-			if (limbs[3].name.Contains("RightLeg") && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[3].name.Contains("RightLeg"))
+			if (limbs[3].activeSelf && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[3].activeSelf)
 			{
 				LimFly("RightLeg", otherPlayerTag);
 				RemoveLimb("RightLeg");

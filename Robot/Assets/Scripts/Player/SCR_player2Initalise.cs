@@ -39,6 +39,10 @@ public class SCR_player2Initalise : SCR_TradeLimb
 			Exchange ("LeftLeg", this.gameObject.tag, true);
 			Exchange ("LeftArm", this.gameObject.tag, true);
 
+		} else if (levelCounter == 4)
+		{
+			Exchange ("LeftLeg", this.gameObject.tag, true);
+			Exchange ("LeftArm", this.gameObject.tag, true);
 		}
     }
 

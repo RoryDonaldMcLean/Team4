@@ -47,15 +47,15 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
             bool pickUp = ((PlayerOnePickUp(9)) || (PlayerTwoPickUp(22)));
             bool interact = ((PlayerOnePickUp(11)) || (PlayerTwoPickUp(24)));
 
-            PickUpDropControl(pickUp, interact);
+            PickUpDropControl(pickUp, interact, null);
         }
         else //controllers
         {
-            PickUpDropControl(inputDevice.Action2.WasPressed, inputDevice.Action4.WasPressed);
+            PickUpDropControl(inputDevice.Action2.WasPressed, inputDevice.Action4.WasPressed, inputDevice);
         }
     }
 
-    private void PickUpDropControl(bool PickUp, bool Interact)
+    private void PickUpDropControl(bool PickUp, bool Interact, InputDevice device)
     {
         if (!holding)
         {
@@ -71,7 +71,7 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
         }
         else
         {
-            ObjectHeld(PickUp);
+            ObjectHeld(PickUp, device);
         }
     }
 
@@ -108,7 +108,7 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
         }
     }
 
-    private void ObjectHeld(bool pickUpState)
+    private void ObjectHeld(bool pickUpState, InputDevice device)
     {
         if (pickedUpGameObject.transform.name.Contains("SlideBox"))
         {
@@ -133,14 +133,20 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
         {
             Vector3 eulerAng = pickedUpGameObject.GetComponent<Transform>().rotation.eulerAngles;
 
-            bool left = RotationControl(1, 14);
-            bool right = RotationControl(3, 16);
+            if (device == null)
+            {
+                bool left = RotationControl(1, 14);
+                bool right = RotationControl(3, 16);
 
-            float leftrot = left ? -1.0f : 0.0f;
-            float rightrot = right ? 1.0f : 0.0f;
+                float leftrot = left ? -1.0f : 0.0f;
+                float rightrot = right ? 1.0f : 0.0f;
 
-            pickedUpGameObject.transform.rotation = Quaternion.Euler(eulerAng.x, eulerAng.y + leftrot + rightrot, eulerAng.z);
-
+                pickedUpGameObject.transform.rotation = Quaternion.Euler(eulerAng.x, eulerAng.y + leftrot + rightrot, eulerAng.z);
+            }
+            else
+            {
+                pickedUpGameObject.transform.rotation = Quaternion.Euler(eulerAng.x, eulerAng.y + device.LeftStickX, eulerAng.z);
+            }
             if (pickUpState)
             {
                 RotateDrop();
@@ -229,30 +235,34 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
     {
         if (ObjectFound(out hit))//ray cast detection
         {
-            if (hit.transform.name.Contains("LimbLight"))
-            {
-                LimbLight limbLightBox = hit.transform.GetComponent<LimbLight>();
-                if (limbLightBox.IsLimbAttached())
-                {
-                    limbLightBox.RemoveLimbFromLightBox(this.transform.parent.tag);
-                }
-                else
-                {
-                    limbLightBox.AttachLimbToLightBox(this.transform.parent.tag);
-                }
-            }
-            else if (hit.transform.name.Contains("LightEmitter"))
-            {
-                hit.transform.GetComponent<LightEmitter>().InteractWithEmitter();
-                hit.transform.GetComponent<LightEmitter>().switchedOn = !hit.transform.GetComponent<LightEmitter>().switchedOn;
-            }
-            else if (hit.transform.name.Contains("RotateBox"))
-            {
-                if (hit.transform.parent.GetComponent<SCR_Rotatable>().rotatableObjectString.Contains("LightEmitter"))
-                {
-                    hit.transform.GetComponent<LightEmitter>().InteractWithEmitter();
-                }
-            }
+			if (hit.transform.name.Contains ("LimbLight"))
+			{
+				LimbLight limbLightBox = hit.transform.GetComponent<LimbLight> ();
+				if (limbLightBox.IsLimbAttached ())
+				{
+					limbLightBox.RemoveLimbFromLightBox (this.transform.parent.tag);
+				} else
+				{
+					limbLightBox.AttachLimbToLightBox (this.transform.parent.tag);
+				}
+			} else if (hit.transform.name.Contains ("LightEmitter"))
+			{
+				hit.transform.GetComponent<LightEmitter> ().InteractWithEmitter ();
+				hit.transform.GetComponent<LightEmitter> ().switchedOn = !hit.transform.GetComponent<LightEmitter> ().switchedOn;
+				Debug.Log ("light emitter hit");
+			} else if (hit.transform.name.Contains ("RotateBox"))
+			{
+				if (hit.transform.parent.GetComponent<SCR_Rotatable> ().rotatableObjectString.Contains ("LightEmitter"))
+				{
+					hit.transform.GetComponent<LightEmitter> ().InteractWithEmitter ();
+				}
+			} 
+			else if (hit.transform.name.Contains ("Switch"))
+			{
+				//Debug.Log ("you have indeed hit the switch. please don't hate me anymore :'(");
+				hit.transform.GetComponentInChildren<TimelinePlaybackManager> ().PlayTimeline ();
+			}
+
         }
     }
 
@@ -372,13 +382,13 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag != "Player1" && other.tag != "Player2")
+        if (other.tag != "Player1" && other.tag != "Player2" && other.tag != "Line")
             triggerList.Add(other.gameObject);
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag != "Player1" && other.tag != "Player2")
+        if (other.tag != "Player1" && other.tag != "Player2" && other.tag != "Line")
             triggerList.Remove(other.gameObject);
         if (other.tag != "Untagged")
         {

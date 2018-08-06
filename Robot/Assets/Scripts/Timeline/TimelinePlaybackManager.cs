@@ -86,7 +86,7 @@ public class TimelinePlaybackManager : MonoBehaviour
     {
         
         //If his in the zone and the timelines off
-        if (playerInZone && !timelinePlaying)
+        /*if (playerInZone && !timelinePlaying)
         {
             //Checks the buttons
 			var activateTimelineInput = Input.GetKey(GameManager.Instance.playerSetting.currentButton [9]);
@@ -106,19 +106,19 @@ public class TimelinePlaybackManager : MonoBehaviour
             }
 
 
-        }
+        }*/
     }
 
     public void PlayTimeline()
     {
         if (playableDirector)
         {
-			Debug.Log ("or here?");
+			//Debug.Log ("or here?");
             //Plays the directer you set
             playableDirector.Play();
 
         }
-		Debug.Log ("FUCKYOU!");
+		//Debug.Log ("FUCKYOU!");
 
         //Sets the zone you just used to false
         triggerZoneObject.SetActive(false);

@@ -706,6 +706,11 @@ public class SCR_TradeLimb : MonoBehaviour
         bool limbState = limbs[limbNumber].activeSelf;
         limbs[limbNumber].SetActive(!limbState);
         hinges[hingeNumber].gameObject.SetActive(limbState);
+
+        if(limbState)
+        {
+            hinges[hingeNumber].gameObject.AddComponent<ParticleGenerator>();
+        }
     }
 
     private void PickUpLims(GameObject pickUpObject)

@@ -133,6 +133,6 @@ public class SCR_Movable : MonoBehaviour
 	private void DropBox(ref Transform playerTransform)
     {
         //if the player leaves the movable trigger box then drop the box
-		playerTransform.GetComponent<PickupAndDropdown>().LimitDrop();
+		playerTransform.GetComponent<PickupAndDropdown_Trigger>().LimitDrop();
     }
 }

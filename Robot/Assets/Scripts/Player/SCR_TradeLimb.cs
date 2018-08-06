@@ -632,6 +632,19 @@ public class SCR_TradeLimb : MonoBehaviour
         return limbNumber;
     }
 
+    private string GetPrefabsName(string limbName)
+    {
+        if (limbName.Contains("L_Arm"))
+            return "LeftArm";
+        if (limbName.Contains("R_Arm"))
+            return "RightArm";
+        if (limbName.Contains("L_Leg"))
+            return "LeftLeg";
+        if (limbName.Contains("R_Leg"))
+            return "RightLeg";
+        return "";
+    }
+
     public bool LimbLightGiveLimb(string typeOfLimbRequired, GameObject boxLimbObject)
     {
         for(int i = 0; i < limbs.Count; i++)
@@ -639,7 +652,7 @@ public class SCR_TradeLimb : MonoBehaviour
             if(limbs[i].name.Contains(typeOfLimbRequired))
             {
                 //give to box
-                GameObject newLimb = Instantiate(Resources.Load("Prefabs/Player/" + limbs[i].name)) as GameObject;
+                GameObject newLimb = Instantiate(Resources.Load("Prefabs/Player/" + GetPrefabsName(limbs[i].name))) as GameObject;
                 newLimb.name = limbs[i].name;
                 newLimb.transform.position = boxLimbObject.transform.position;
                 newLimb.transform.parent = boxLimbObject.transform.parent;

@@ -1,16 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using InControl;
 
-public class Pushbox : MonoBehaviour {
+public class Pushbox : MonoBehaviour
+{
 
     private Animator anim;
     private bool isBlue;
+    private int playerNum;
 
     private void Start()
     {
         isBlue = this.GetComponent<SCR_TradeLimb>().isBlue;
         anim = this.GetComponent<Animator>();
+        playerNum = this.GetComponent<InControlMovement>().playerNum;
     }
 
     private int GetArmQuantity()
@@ -26,7 +30,7 @@ public class Pushbox : MonoBehaviour {
                 for (int u = 0; u < this.transform.GetChild(i).childCount; u++)
                 {
                     //find the object that has the "Arm" in it's name
-                    if (this.transform.GetChild(i).transform.GetChild(u).name.Contains("Arm") 
+                    if (this.transform.GetChild(i).transform.GetChild(u).name.Contains("Arm")
                         && this.transform.GetChild(i).transform.GetChild(u).gameObject.activeSelf)
                     {
                         quantity++;
@@ -50,6 +54,7 @@ public class Pushbox : MonoBehaviour {
 
     private void OnTriggerStay(Collider other)
     {
+        var inputDevice = (InputManager.Devices.Count > playerNum) ? InputManager.Devices[playerNum] : null;
         if (other.gameObject.tag == "HugeBox")
         {
             if (this.GetArmQuantity() >= 2)
@@ -58,8 +63,7 @@ public class Pushbox : MonoBehaviour {
                 if (Mathf.Abs(boxPosition.z - this.GetComponent<Transform>().position.z) > Mathf.Abs(boxPosition.x - this.GetComponent<Transform>().position.x))
                 {
                     other.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionX;
-                    if (((Player1M(0) || Player2M(13)) && boxPosition.z > this.GetComponent<Transform>().position.z) 
-                        || ((Player1M(2) || Player2M(15)) && boxPosition.z < this.GetComponent<Transform>().position.z))
+                    if (PushBoxZ(inputDevice, boxPosition, 0, 13))
                     {
                         anim.SetBool("IsPushing", true);
                     }
@@ -71,8 +75,7 @@ public class Pushbox : MonoBehaviour {
                 else
                 {
                     other.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ;
-                    if (((Player1M(1) || Player2M(14)) && boxPosition.z > this.GetComponent<Transform>().position.z)
-                            || ((Player1M(3) || Player2M(16)) && boxPosition.z < this.GetComponent<Transform>().position.z))
+                    if (PushBoxX(inputDevice, boxPosition, 1, 14))
                     {
                         anim.SetBool("IsPushing", true);
                     }
@@ -104,10 +107,22 @@ public class Pushbox : MonoBehaviour {
         return Input.GetKey(GameManager.Instance.playerSetting.currentButton[btnIndex])
                 && isBlue == GameManager.Instance.whichAndroid.player1ControlBlue;
     }
-    
+
     private bool Player2M(int btnIndex)
     {
         return Input.GetKey(GameManager.Instance.playerSetting.currentButton[btnIndex])
                     && isBlue != GameManager.Instance.whichAndroid.player1ControlBlue;
+    }
+
+    private bool PushBoxX(InputDevice inputDevice, Vector3 boxPosition, int p1BtnIndex, int p2BtnIndex)
+    {
+        return ((Player1M(p1BtnIndex) || Player2M(p2BtnIndex) || (inputDevice != null && inputDevice.LeftStickX < 0)) && boxPosition.x < this.GetComponent<Transform>().position.x)
+        || ((Player1M(p1BtnIndex + 2) || Player2M(p2BtnIndex + 2) || (inputDevice != null && inputDevice.LeftStickX > 0)) && boxPosition.x > this.GetComponent<Transform>().position.x);
+    }
+
+    private bool PushBoxZ(InputDevice inputDevice, Vector3 boxPosition, int p1BtnIndex, int p2BtnIndex)
+    {
+        return ((Player1M(p1BtnIndex) || Player2M(p2BtnIndex) || (inputDevice != null && inputDevice.LeftStickY > 0)) && boxPosition.z > this.GetComponent<Transform>().position.z)
+        || ((Player1M(p1BtnIndex + 2) || Player2M(p2BtnIndex + 2) || (inputDevice != null && inputDevice.LeftStickY < 0)) && boxPosition.z < this.GetComponent<Transform>().position.z);
     }
 }

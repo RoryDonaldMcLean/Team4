@@ -77,11 +77,9 @@ public class Tutorial : MonoBehaviour
 		else
 		{
 			ControllerUsed = false;
-		}
-			
+		}			
 	}
-
-
+		
 	void OnTriggerEnter(Collider col)
 	{
 		if ((col.transform.name.Contains ("LeftArm") && levelCounter == 0)

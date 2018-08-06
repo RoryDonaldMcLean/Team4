@@ -758,52 +758,35 @@ public class SCR_TradeLimb : MonoBehaviour
     
     private void OnTriggerStay(Collider other)
     {	//player 1
-		if (other.gameObject.transform.parent != this.gameObject.transform)
-		{
-			//controller
+		if ((other.gameObject.transform.parent != this.gameObject.transform) && ((other.name.Contains("Arm")) || (other.name.Contains("Leg"))))
+		{			
 			var inputDevice = (InputManager.Devices.Count > playerNum) ? InputManager.Devices [playerNum] : null;
+			//keyboard
 			if (inputDevice == null)
 			{
-				//keyboard
-				if (isBlue == GameManager.Instance.whichAndroid.player1ControlBlue)
-				{//player 1
-					if (other.name == "LeftArm" && Input.GetKey (GameManager.Instance.playerSetting.currentButton [9]) && !GetComponent<SCR_TradeLimb> ().limbs [0].name.Contains ("LeftArm"))
-						PickUpLims (other.gameObject);
-					if (other.name == "RightArm" && Input.GetKey (GameManager.Instance.playerSetting.currentButton [9]) && !GetComponent<SCR_TradeLimb> ().limbs [1].name.Contains ("RightArm"))
-						PickUpLims (other.gameObject);
-
-					if (other.name == "LeftLeg" && Input.GetKey (GameManager.Instance.playerSetting.currentButton [9]) && !GetComponent<SCR_TradeLimb> ().limbs [2].name.Contains ("LeftLeg"))
-						PickUpLims (other.gameObject);
-					if (other.name == "RightLeg" && Input.GetKey (GameManager.Instance.playerSetting.currentButton [9]) && !GetComponent<SCR_TradeLimb> ().limbs [3].name.Contains ("RightLeg"))
-						PickUpLims (other.gameObject);
-				} else
-				{//player 2
-					if (other.name == "LeftArm" && Input.GetKey(GameManager.Instance.playerSetting.currentButton[22]) && !GetComponent<SCR_TradeLimb>().limbs[0].name.Contains("LeftArm"))
-					PickUpLims(other.gameObject);
-					if (other.name == "RightArm" && Input.GetKey (GameManager.Instance.playerSetting.currentButton [22]) && !GetComponent<SCR_TradeLimb> ().limbs [1].name.Contains ("RightArm"))
-						PickUpLims (other.gameObject);
-				if (other.name == "LeftLeg" && Input.GetKey(GameManager.Instance.playerSetting.currentButton[22]) && !GetComponent<SCR_TradeLimb>().limbs[2].name.Contains("LeftLeg"))
-					PickUpLims(other.gameObject);
-				if (other.name == "RightLeg" && Input.GetKey(GameManager.Instance.playerSetting.currentButton[22]) && !GetComponent<SCR_TradeLimb>().limbs[3].name.Contains("RightLeg"))
-					PickUpLims(other.gameObject);
-				}
-
+				int playerInput = 22;
+				if (isBlue == GameManager.Instance.whichAndroid.player1ControlBlue) playerInput = 9;
+				PickUpLimb(IsKeyBoardPressed(ref playerInput), other);
 			}
 			else
-			{	//controller
-				if (other.name == "LeftArm" && inputDevice.Action2.IsPressed && !GetComponent<SCR_TradeLimb>().limbs[0].name.Contains("LeftArm"))
-					PickUpLims(other.gameObject);
-				if (other.name == "RightArm" && inputDevice.Action2.IsPressed && !GetComponent<SCR_TradeLimb> ().limbs [1].name.Contains ("RightArm"))
-					PickUpLims(other.gameObject);
-					
-				if (other.name == "LeftLeg" && inputDevice.Action2.IsPressed && !GetComponent<SCR_TradeLimb>().limbs[2].name.Contains("LeftLeg"))
-					PickUpLims(other.gameObject);
-				if (other.name == "RightLeg" && inputDevice.Action2.IsPressed && !GetComponent<SCR_TradeLimb>().limbs[3].name.Contains("RightLeg"))
-					PickUpLims(other.gameObject);
-				
+			{	
+				//controller
+				PickUpLimb(inputDevice.Action2.IsPressed, other);
 			}
-
-		}
-			
+		}			
     }
+
+	private void PickUpLimb(bool isPressed, Collider limb)
+	{
+		int limbnumber = LimbNumber(limb.name);
+		if (isPressed && !limbs [limbnumber].activeSelf)
+		{
+			PickUpLims(limb.gameObject);
+		} 		
+	}
+
+	private bool IsKeyBoardPressed(ref int playerInput)
+	{
+		return Input.GetKey(GameManager.Instance.playerSetting.currentButton[playerInput]);
+	}
 }

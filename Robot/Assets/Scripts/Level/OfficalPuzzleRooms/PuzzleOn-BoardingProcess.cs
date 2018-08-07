@@ -16,14 +16,14 @@ public class PuzzleOnBoardingProcess : LevelControlBaseClass
     //is completed.  
     protected override void LevelSpecificInit()
     {
-        DestroyMovement("Player1");
-        DestroyMovement("Player2");
+        //DestroyMovement("Player1");
+        //DestroyMovement("Player2");
     }
 
     public void ActivatePlayerMovement()
     {
-        AddMovement("Player1");
-        AddMovement("Player2");
+        //AddMovement("Player1");
+        //AddMovement("Player2");
     }
 
     //Since these two players are always in the scene, no

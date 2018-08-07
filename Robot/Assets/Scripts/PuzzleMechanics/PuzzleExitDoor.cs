@@ -11,11 +11,13 @@ public class PuzzleExitDoor : MonoBehaviour
     private Color currentColour;
     private Color fadedColour;
 
-    private Renderer switchRend;
+    private List<Renderer> switchRend = new List<Renderer>();
     // Use this for initialization
     void Start()
     {
-        switchRend = this.transform.GetChild(0).GetComponent<Renderer>();
+        switchRend.Add(this.transform.GetChild(0).GetComponent<Renderer>());
+        switchRend.Add(this.transform.GetChild(1).GetComponent<Renderer>());
+
         SwitchColourControl();
     }
 
@@ -30,7 +32,10 @@ public class PuzzleExitDoor : MonoBehaviour
         float fadeLength = 1.0f;
         Color lerpedColor = Color.Lerp(currentColour, fadedColour, Mathf.PingPong(Time.time, fadeLength));
 
-        switchRend.material.color = lerpedColor;
+        foreach (Renderer rend in switchRend)
+        {
+            rend.material.color = lerpedColor;
+        }
     }
 
     private void SwitchColourControl()
@@ -52,7 +57,11 @@ public class PuzzleExitDoor : MonoBehaviour
 
     private void SwitchColour(ref Color newColour)
     {
-        switchRend.material.color = newColour;
+        foreach(Renderer rend in switchRend)
+        {
+            rend.material.color = newColour;
+        }
+
         LightBlink();
     }
 

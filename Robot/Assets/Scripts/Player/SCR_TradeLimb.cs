@@ -650,7 +650,7 @@ public class SCR_TradeLimb : MonoBehaviour
     {
         for(int i = 0; i < limbs.Count; i++)
         {
-            if(limbs[i].name.Contains(typeOfLimbRequired))
+            if(limbs[i].name.Contains(typeOfLimbRequired) && (limbs[i].activeSelf))
             {
                 //give to box
                 GameObject newLimb = Instantiate(Resources.Load("Prefabs/Player/" + GetPrefabsName(limbs[i].name))) as GameObject;
@@ -663,8 +663,8 @@ public class SCR_TradeLimb : MonoBehaviour
                 Destroy(boxLimbObject);
 
                 //remove limb
-                RemoveLimb(limbs[i].name);
-
+                RemoveLimb(GetPrefabsName(limbs[i].name));
+                
                 return true;
             }
         }
@@ -673,18 +673,15 @@ public class SCR_TradeLimb : MonoBehaviour
 
     public bool LimbLightTakeLimb(GameObject boxLimbLocation)
     {
-        string nameOfLimbToRemoveFromBox = boxLimbLocation.name;
-        int limbNumber = LimbNumber(nameOfLimbToRemoveFromBox);
-        if(limbs[limbNumber].name.Contains("Hinge"))
+        string nameOfLimbToRemoveFromBox = GetPrefabsName(boxLimbLocation.name);
+        int hingeNumber = HingeNumber(nameOfLimbToRemoveFromBox);
+        if(hinges[hingeNumber].gameObject.activeSelf)
         {
             Exchange(nameOfLimbToRemoveFromBox, this.gameObject.tag);
             GameObject hinge = Instantiate(Resources.Load("Prefabs/Player/Hinge")) as GameObject;
             hinge.transform.position = boxLimbLocation.transform.position;
             hinge.transform.parent = boxLimbLocation.transform.parent;
             hinge.name = "Hinge";
-
-
-            hinge.GetComponent<ParticleSystem>().Stop();
 
             Destroy(boxLimbLocation);
 

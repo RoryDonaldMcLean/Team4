@@ -61,9 +61,6 @@ public class LevelControlBaseClass : MonoBehaviour
         {
             if (doors[0].SpawnWalkway == true)
             {
-                GameObject exit = GameObject.FindGameObjectWithTag("ExitDoor");
-                exit.SetActive(false);
-
                 GameObject walkway = Instantiate(Resources.Load("Prefabs/PuzzleGenericItems/tempFloor")) as GameObject;
                 walkway.name = "tempFloor";
 
@@ -172,14 +169,7 @@ public class LevelControlBaseClass : MonoBehaviour
     //turned on following a correctly completed level.  
     private void DoorSetup()
     {
-        GameObject[] doorObjects = GameObject.FindGameObjectsWithTag("PuzzleExitDoor");
-        foreach (GameObject doorObject in doorObjects)
-        {
-            if (doorObject.transform.parent.name.Contains(puzzleIdentifier))
-            {
-                exitDoor = doorObject.transform.GetChild(0).GetComponent<PuzzleExitDoor>();
-            }
-        }
+        exitDoor = doors[0].transform.parent.GetComponentInChildren<PuzzleExitDoor>();
     }
 
     //Goes through all the light triggers in the scene and checks if they are all
@@ -240,7 +230,7 @@ public class LevelControlBaseClass : MonoBehaviour
                 }
                 break;
 			case "Doors":
-				doors = new List<SCR_Door> ();				
+				doors = new List<SCR_Door>();				
                 foreach (GameObject puzzleObject in puzzleObjects)
                 {
                     doors.Add(puzzleObject.GetComponent<SCR_Door>());

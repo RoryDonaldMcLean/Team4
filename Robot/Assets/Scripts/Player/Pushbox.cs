@@ -7,11 +7,13 @@ public class Pushbox : MonoBehaviour {
 
     private Animator anim;
     private bool isBlue;
+	private int playerNum;
 
     private void Start()
     {
         isBlue = this.GetComponent<SCR_TradeLimb>().isBlue;
         anim = this.GetComponent<Animator>();
+		playerNum = this.GetComponent<InControlMovement> ().playerNum;
     }
 
     private int GetArmQuantity()
@@ -51,7 +53,7 @@ public class Pushbox : MonoBehaviour {
 
     private void OnTriggerStay(Collider other)
     {
-		var inputDevice = (InputManager.Devices.Count > this.GetComponent<InControlMovement>().playerNum) ? InputManager.Devices [this.GetComponent<InControlMovement>().playerNum] : null;
+		var inputDevice = (InputManager.Devices.Count > playerNum) ? InputManager.Devices [playerNum] : null;
         if (other.gameObject.tag == "HugeBox")
         {
             if (this.GetArmQuantity() >= 2)

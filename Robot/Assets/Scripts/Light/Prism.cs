@@ -7,13 +7,16 @@ public class Prism : MonoBehaviour
     //Upon a collison being detected with a Lightbeam 
     void OnTriggerEnter(Collider lightBeam)
     {
-        if(this.transform.parent.name.Contains("LightSplitter"))
+        if (lightBeam.gameObject.layer != LayerMask.NameToLayer("BeamLayer"))
         {
-            this.transform.parent.GetComponent<LightSplitter>().OnEnter(lightBeam);
-        }
-        else
-        {
-            this.transform.parent.GetComponent<PrismColourCombo>().OnEnter(lightBeam);
+            if (this.transform.parent.name.Contains("LightSplitter"))
+            {
+                this.transform.parent.GetComponent<LightSplitter>().OnEnter(lightBeam);
+            }
+            else
+            {
+                this.transform.parent.GetComponent<PrismColourCombo>().OnEnter(lightBeam);
+            }
         }
     }
 

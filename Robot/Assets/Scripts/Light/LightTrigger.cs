@@ -10,7 +10,11 @@ public class LightTrigger : MonoBehaviour
     //Sets the trigger colour indicator to the correct defined colour required in order to open the door
     void Start()
     {
-        this.transform.GetChild(0).GetComponent<Renderer>().material.color = correctLightBeamColour;
+        Transform TargetColour = this.transform.GetChild(this.transform.childCount - 1);
+        for(int i = 0; i < TargetColour.childCount; i++)
+        {
+            TargetColour.GetChild(i).GetComponent<Renderer>().material.color = correctLightBeamColour;
+        }
     }
 
     //Upon a collison being detected with a Lightbeam 

@@ -52,14 +52,12 @@ public class ChirpCollector : MonoBehaviour
 	void Event()
 	{
 		//the event you want
-		Debug.Log("Event has triggered");
 		startTimer = false;
 		playEvent = false;
 		eventCount = 0;
 		timeLeft = 2.0f;
 
 		AkSoundEngine.SetRTPCValue ("Chirps_Combine", 1); 
-
 
 		if (addMovementCheck == false)
 		{

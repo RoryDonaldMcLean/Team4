@@ -11,9 +11,9 @@ public class InControlMovement : MonoBehaviour
     #region public variable
     public bool isBlue = false;
     public int playerNum;
-    public float jumpSpeed = 5.0f;
+    public float jumpSpeed = 3.3f;
     public float turnSpeed = 1.0f;
-    public float gravityAcceleration = 1.0f;
+    public float gravityAcceleration = -10.0f;
     #endregion
 
     #region private variable
@@ -217,7 +217,6 @@ public class InControlMovement : MonoBehaviour
 
 			//move left
 			if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[1]))
-
 			{
 				velocity.x -= 1.0f;
                 anim.SetBool("IsMoving", true);

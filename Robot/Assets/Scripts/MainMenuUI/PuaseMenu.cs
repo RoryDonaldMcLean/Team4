@@ -20,8 +20,8 @@ public class PuaseMenu : MonoBehaviour
     {
         pauseMenuWwise = GameObject.Find("PauseMenuWwise");
 
-        red = GameObject.Find("Player");
-        blue = GameObject.Find("Player2");
+        red = GameObject.FindGameObjectWithTag("Player1");
+        blue = GameObject.FindGameObjectWithTag("Player2");
     }
 
     // Use this for initialization
@@ -45,13 +45,13 @@ public class PuaseMenu : MonoBehaviour
     {
         red.GetComponent<InControlMovement>().enabled = false;
         red.GetComponent<SCR_TradeLimb>().enabled = false;
-        red.GetComponent<PickupAndDropdown>().enabled = false;
+        red.GetComponentInChildren<PickupAndDropdown_Trigger>().enabled = false;
         red.GetComponent<Chirps>().enabled = false;
         red.GetComponent<MelodyInput>().enabled = false;
 
         blue.GetComponent<InControlMovement>().enabled = false;
         blue.GetComponent<SCR_player2Initalise>().enabled = false;
-        blue.GetComponent<PickupAndDropdown>().enabled = false;
+        blue.GetComponentInChildren<PickupAndDropdown_Trigger>().enabled = false;
         blue.GetComponent<Chirps>().enabled = false;
         blue.GetComponent<MelodyInput>().enabled = false;
 
@@ -77,13 +77,13 @@ public class PuaseMenu : MonoBehaviour
 
             red.GetComponent<InControlMovement>().enabled = true;
             red.GetComponent<SCR_TradeLimb>().enabled = true;
-            red.GetComponent<PickupAndDropdown>().enabled = true;
+            red.GetComponentInChildren<PickupAndDropdown_Trigger>().enabled = true;
             red.GetComponent<Chirps>().enabled = true;
             red.GetComponent<MelodyInput>().enabled = true;
 
             blue.GetComponent<InControlMovement>().enabled = true;
             blue.GetComponent<SCR_player2Initalise>().enabled = true;
-            blue.GetComponent<PickupAndDropdown>().enabled = true;
+            blue.GetComponentInChildren<PickupAndDropdown_Trigger>().enabled = true;
             blue.GetComponent<Chirps>().enabled = true;
             blue.GetComponent<MelodyInput>().enabled = true;
 
@@ -111,13 +111,13 @@ public class PuaseMenu : MonoBehaviour
 
             red.GetComponent<InControlMovement>().enabled = true;
             red.GetComponent<SCR_TradeLimb>().enabled = true;
-            red.GetComponent<PickupAndDropdown>().enabled = true;
+            red.GetComponentInChildren<PickupAndDropdown_Trigger>().enabled = true;
             red.GetComponent<Chirps>().enabled = true;
             red.GetComponent<MelodyInput>().enabled = true;
 
             blue.GetComponent<InControlMovement>().enabled = true;
             blue.GetComponent<SCR_player2Initalise>().enabled = true;
-            blue.GetComponent<PickupAndDropdown>().enabled = true;
+            blue.GetComponentInChildren<PickupAndDropdown_Trigger>().enabled = true;
             blue.GetComponent<Chirps>().enabled = true;
             blue.GetComponent<MelodyInput>().enabled = true;
 

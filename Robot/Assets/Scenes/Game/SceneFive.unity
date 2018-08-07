@@ -4183,7 +4183,7 @@ Transform:
   m_LocalScale: {x: 4, y: 1, z: 4}
   m_Children: []
   m_Father: {fileID: 905944628}
-  m_RootOrder: 25
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &638662726
 MonoBehaviour:
@@ -5501,9 +5501,9 @@ Transform:
   - {fileID: 651200979}
   - {fileID: 191074010}
   - {fileID: 2036419653}
-  - {fileID: 131393595}
   - {fileID: 1718149429}
   - {fileID: 638662725}
+  - {fileID: 131393595}
   - {fileID: 1076954445}
   - {fileID: 1611316048}
   - {fileID: 1496544935}
@@ -6790,6 +6790,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 905944628}
     m_Modifications:
+    - target: {fileID: 114262730674928554, guid: 75b111b2864d35b4db6b2aa8be15e60a,
+        type: 2}
+      propertyPath: Doorcode.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4685695564780112, guid: 75b111b2864d35b4db6b2aa8be15e60a, type: 2}
       propertyPath: m_LocalPosition.x
       value: 8.92
@@ -6821,6 +6826,36 @@ Prefab:
     - target: {fileID: 4685695564780112, guid: 75b111b2864d35b4db6b2aa8be15e60a, type: 2}
       propertyPath: m_RootOrder
       value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 114262730674928554, guid: 75b111b2864d35b4db6b2aa8be15e60a,
+        type: 2}
+      propertyPath: Doorcode.Array.data[2]
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114262730674928554, guid: 75b111b2864d35b4db6b2aa8be15e60a,
+        type: 2}
+      propertyPath: Doorcode.Array.data[3]
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114262730674928554, guid: 75b111b2864d35b4db6b2aa8be15e60a,
+        type: 2}
+      propertyPath: Doorcode.Array.data[4]
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114262730674928554, guid: 75b111b2864d35b4db6b2aa8be15e60a,
+        type: 2}
+      propertyPath: Doorcode.Array.data[5]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114262730674928554, guid: 75b111b2864d35b4db6b2aa8be15e60a,
+        type: 2}
+      propertyPath: Doorcode.Array.data[6]
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 114262730674928554, guid: 75b111b2864d35b4db6b2aa8be15e60a,
+        type: 2}
+      propertyPath: Doorcode.Array.data[7]
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 75b111b2864d35b4db6b2aa8be15e60a, type: 2}
@@ -11401,7 +11436,7 @@ Transform:
   - {fileID: 745051257}
   - {fileID: 2094869751}
   m_Father: {fileID: 905944628}
-  m_RootOrder: 24
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!23 &1718149430
 MeshRenderer:

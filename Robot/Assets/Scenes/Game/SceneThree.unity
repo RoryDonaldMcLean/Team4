@@ -6803,6 +6803,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1790226139}
     m_Modifications:
+    - target: {fileID: 114262730674928554, guid: 75b111b2864d35b4db6b2aa8be15e60a,
+        type: 2}
+      propertyPath: Doorcode.Array.size
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4685695564780112, guid: 75b111b2864d35b4db6b2aa8be15e60a, type: 2}
       propertyPath: m_LocalPosition.x
       value: 14.18
@@ -6834,6 +6839,16 @@ Prefab:
     - target: {fileID: 4685695564780112, guid: 75b111b2864d35b4db6b2aa8be15e60a, type: 2}
       propertyPath: m_RootOrder
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114262730674928554, guid: 75b111b2864d35b4db6b2aa8be15e60a,
+        type: 2}
+      propertyPath: Doorcode.Array.data[6]
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 114262730674928554, guid: 75b111b2864d35b4db6b2aa8be15e60a,
+        type: 2}
+      propertyPath: Doorcode.Array.data[7]
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 75b111b2864d35b4db6b2aa8be15e60a, type: 2}
@@ -10571,8 +10586,8 @@ Transform:
   - {fileID: 1727989928}
   - {fileID: 2096237257}
   - {fileID: 1911727887}
-  - {fileID: 1176499992}
   - {fileID: 1865264928}
+  - {fileID: 1176499992}
   - {fileID: 397042324}
   - {fileID: 1838109430}
   - {fileID: 1705233827}
@@ -11270,7 +11285,7 @@ Transform:
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 1790226139}
-  m_RootOrder: 19
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1865264929
 MeshRenderer:

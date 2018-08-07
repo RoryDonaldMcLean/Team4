@@ -2048,8 +2048,8 @@ Transform:
   - {fileID: 815140512}
   - {fileID: 1225655072}
   - {fileID: 311634807}
-  - {fileID: 1672712221}
   - {fileID: 1277830601}
+  - {fileID: 1672712221}
   - {fileID: 1548016979}
   - {fileID: 963409410}
   - {fileID: 1302749778}
@@ -7732,7 +7732,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 256574859}
-  m_RootOrder: 26
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1277830602
 MonoBehaviour:
@@ -9728,6 +9728,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 256574859}
     m_Modifications:
+    - target: {fileID: 114262730674928554, guid: 75b111b2864d35b4db6b2aa8be15e60a,
+        type: 2}
+      propertyPath: Doorcode.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4685695564780112, guid: 75b111b2864d35b4db6b2aa8be15e60a, type: 2}
       propertyPath: m_LocalPosition.x
       value: 10.33
@@ -9759,6 +9764,26 @@ Prefab:
     - target: {fileID: 4685695564780112, guid: 75b111b2864d35b4db6b2aa8be15e60a, type: 2}
       propertyPath: m_RootOrder
       value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 114262730674928554, guid: 75b111b2864d35b4db6b2aa8be15e60a,
+        type: 2}
+      propertyPath: Doorcode.Array.data[4]
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114262730674928554, guid: 75b111b2864d35b4db6b2aa8be15e60a,
+        type: 2}
+      propertyPath: Doorcode.Array.data[5]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114262730674928554, guid: 75b111b2864d35b4db6b2aa8be15e60a,
+        type: 2}
+      propertyPath: Doorcode.Array.data[6]
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 114262730674928554, guid: 75b111b2864d35b4db6b2aa8be15e60a,
+        type: 2}
+      propertyPath: Doorcode.Array.data[7]
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 75b111b2864d35b4db6b2aa8be15e60a, type: 2}

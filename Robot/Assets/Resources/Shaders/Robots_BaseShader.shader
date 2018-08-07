@@ -5,6 +5,11 @@
 
 Shader "Custom/Robots_BaseShader" {
     Properties {
+    	_PickUpDetected("PickUp", Range(0, 1)) = 0
+
+		_Outline("Outline", Range(0, 1)) = 0.1
+		_OutlineColor("OutlineColor", Color) = (1, 0, 0, 1)
+
 		_XRayColor ("X Ray Colour", Color) = (1, 1, 1, 1)
         _BumpMap ("Normal Map", 2D) = "bump" {}
         _MainTex ("Base Color", 2D) = "gray" {}
@@ -14,6 +19,7 @@ Shader "Custom/Robots_BaseShader" {
         _Highlights ("Highlights", 2D) = "white" {}
         _Shadow ("Shadow", 2D) = "black" {}
         _EmissionMap ("EmissionMap", 2D) = "black" {}
+
     }
     SubShader {
         Tags {
@@ -56,6 +62,52 @@ Shader "Custom/Robots_BaseShader" {
 				float rim = 1 - max(0, dot(normal, viewDir));
 				return _XRayColor * rim;
 			}
+			#pragma vertex vert  
+			#pragma fragment frag  
+			ENDCG
+		}
+
+		Pass 
+		{
+			NAME "OUTLINE"
+			Cull Front   
+			ZWrite On
+			ZTest LEqual
+			CGPROGRAM
+			#include "Lighting.cginc"
+			#include "UnityCG.cginc"
+
+
+			struct v2f
+			{
+				float4 pos : SV_POSITION;
+				float3 normal : normal;
+			};
+
+			float _PickUpDetected;
+			float _Outline;
+			fixed4 _OutlineColor;
+
+			v2f vert(appdata_base v) 
+			{
+				v2f o;
+				float4 pos = mul(UNITY_MATRIX_MV, v.vertex);
+				float3 normal = mul((float3x3)UNITY_MATRIX_IT_MV, v.normal);
+				normal.z = -0.5;
+
+				if(_PickUpDetected > 0)
+					pos = pos + float4(normalize(normal), 0) * _Outline;
+				
+				o.pos = mul(UNITY_MATRIX_P, pos);
+				o.normal = v.normal;
+				return o;
+			}
+
+			fixed4 frag(v2f i) : SV_Target
+			{
+				return _OutlineColor;
+			}
+
 			#pragma vertex vert  
 			#pragma fragment frag  
 			ENDCG

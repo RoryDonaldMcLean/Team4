@@ -6,8 +6,8 @@ using InControl;
 
 public class PickupAndDropdown_Trigger : MonoBehaviour
 {
+    #region private variable
     private bool holding;
-    public List<GameObject> triggerList = new List<GameObject>();
     private GameObject pickedUpGameObject;
     private Animator anim;
     //private float alpha; //float For lerp
@@ -15,10 +15,16 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
     private GameObject pickupLocation; //picking location
     
     private float offset;
+    #endregion
+
+    #region public variable
+    public List<GameObject> triggerList = new List<GameObject>();
+
 
     public int playerNum;
 
     public bool isBlue = false;
+    #endregion
 
     // Use this for initialization
     private void Start()

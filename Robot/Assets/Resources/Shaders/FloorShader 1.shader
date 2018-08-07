@@ -23,8 +23,7 @@ Shader "Shader Forge/FloorShader" {
             Tags {
                 "LightMode"="ForwardBase"
             }
-            Cull Off
-            
+            Cull Off           
             
             CGPROGRAM
             #pragma vertex vert
@@ -224,8 +223,7 @@ Shader "Shader Forge/FloorShader" {
                 "LightMode"="ForwardAdd"
             }
             Blend One One
-            Cull Off
-            
+            Cull Off         
             
             CGPROGRAM
             #pragma vertex vert
@@ -492,5 +490,5 @@ Shader "Shader Forge/FloorShader" {
         }
     }
     FallBack "Diffuse"
-    CustomEditor "ShaderForgeMaterialInspector"
+    //CustomEditor "ShaderForgeMaterialInspector"
 }

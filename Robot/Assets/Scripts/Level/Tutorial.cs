@@ -83,8 +83,6 @@ public class Tutorial : MonoBehaviour
 		
 	void OnTriggerEnter(Collider col)
 	{
-		Debug.Log ("d " + col.name);
-
 		if ((col.transform.name.Contains ("LeftArm") && levelCounter == 0)
 		    || (col.transform.name.Contains ("RightArm") && levelCounter == 0))
 		{

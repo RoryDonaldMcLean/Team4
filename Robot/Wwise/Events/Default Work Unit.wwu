@@ -43,6 +43,17 @@
 										</Reference>
 									</ReferenceList>
 								</Action>
+								<Action Name="" ID="{4CBDB899-D2EA-4D99-B53A-E07F4BFA12C0}" ShortID="154596962">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="Delay" Type="Real64" Value="1.1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Hurt Vocals" ID="{2CC9861C-B547-45C2-BA87-7716A62B1686}" WorkUnitID="{6BAE9174-7CEB-4131-99B7-F2EC621355E0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
 							</ChildrenList>
 						</Event>
 						<Event Name="Arm_Detatch" ID="{A4C9C9F7-4BA3-4F60-B7D6-A3E9C8EC0265}">
@@ -109,6 +120,7 @@
 								<Action Name="" ID="{DA5F238F-2322-4E60-AA47-F18589A43A06}" ShortID="579885023">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="Delay" Type="Real64" Value="0.08"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -119,7 +131,7 @@
 								<Action Name="" ID="{59A5D76A-9D7A-4DC5-9D60-D0C53F4EAE56}" ShortID="571056518">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="1"/>
-										<Property Name="Delay" Type="Real64" Value="0.15"/>
+										<Property Name="Delay" Type="Real64" Value="0.08"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -396,7 +408,7 @@
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="Place Crystal" ID="{B2492B43-F2BA-4B13-9AE5-898FCDE3D2F4}" WorkUnitID="{6BAE9174-7CEB-4131-99B7-F2EC621355E0}"/>
+											<ObjectRef Name="PlaceCrystal" ID="{E47AA231-0CCD-4C39-995D-0DEC197466D6}" WorkUnitID="{6BAE9174-7CEB-4131-99B7-F2EC621355E0}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>

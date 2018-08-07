@@ -12,6 +12,49 @@
 						<Reference Name="Attenuation">
 							<ObjectRef Name="Main_Attentuation" ID="{7AFFEEA2-FEA6-4C5E-9350-4292CD58F98F}" WorkUnitID="{69E5E085-C55B-46C1-B440-1CB36DA8E2EE}"/>
 						</Reference>
+						<Reference Name="Conversion">
+							<Custom CreatedFrom="{6D1B890C-9826-4384-BF07-C15223E9FB56}">
+								<Conversion Name="Default Conversion Settings (Custom)" ID="{BD558CEE-A2EA-4FC7-BF16-443315BCAFD0}">
+									<PropertyList>
+										<Property Name="Channels" Type="int32">
+											<ValueList>
+												<Value Platform="Windows">4</Value>
+											</ValueList>
+										</Property>
+										<Property Name="LRMix" Type="Real64">
+											<ValueList>
+												<Value Platform="Windows">0</Value>
+											</ValueList>
+										</Property>
+										<Property Name="MaxSampleRate" Type="int32">
+											<ValueList>
+												<Value Platform="Windows">48000</Value>
+											</ValueList>
+										</Property>
+										<Property Name="MinSampleRate" Type="int32">
+											<ValueList>
+												<Value Platform="Windows">48000</Value>
+											</ValueList>
+										</Property>
+										<Property Name="SRConversionQuality" Type="int32">
+											<ValueList>
+												<Value>1</Value>
+											</ValueList>
+										</Property>
+										<Property Name="SampleRate" Type="int32">
+											<ValueList>
+												<Value Platform="Windows">0</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ConversionPluginInfoList>
+										<ConversionPluginInfo Platform="Windows">
+											<ConversionPlugin Name="" ID="{96C75FF1-EA79-4578-B926-5CE7AEA2EB31}" PluginName="PCM" CompanyID="0" PluginID="1"/>
+										</ConversionPluginInfo>
+									</ConversionPluginInfoList>
+								</Conversion>
+							</Custom>
+						</Reference>
 						<Reference Name="OutputBus">
 							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
 						</Reference>
@@ -25,7 +68,6 @@
 										<ModifierInfo>
 											<Modifier Name="" ID="{AD4C0C09-585B-47BB-8927-CBC9A8742FAE}">
 												<PropertyList>
-													<Property Name="Enabled" Type="bool" Value="True"/>
 													<Property Name="Max" Type="Real64" Value="126"/>
 													<Property Name="Min" Type="Real64" Value="-126"/>
 												</PropertyList>
@@ -35,11 +77,6 @@
 								</Property>
 								<Property Name="PositioningType" Type="int16" Value="1"/>
 								<Property Name="UseGameAuxSends" Type="bool" Value="True"/>
-								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>-6</Value>
-									</ValueList>
-								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Attenuation">
@@ -64,6 +101,11 @@
 										<Property Name="UseMaxSoundPerInstance" Type="bool">
 											<ValueList>
 												<Value>True</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-3</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -111,13 +153,6 @@
 											</ReferenceList>
 											<ChildrenList>
 												<RandomSequenceContainer Name="Happy" ID="{2102E809-4B35-4C05-B9F8-392456619F0C}" ShortID="833224020">
-													<PropertyList>
-														<Property Name="Volume" Type="Real64">
-															<ValueList>
-																<Value>-3</Value>
-															</ValueList>
-														</Property>
-													</PropertyList>
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
@@ -213,15 +248,12 @@
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
 														</Reference>
-														<Reference Name="Effect0" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
-															<ObjectRef Name="chir" ID="{E2B56382-9EB7-485B-B523-57E702AEBD36}" WorkUnitID="{DB5ADB83-997D-43F7-B226-D357913135AD}"/>
-														</Reference>
 														<Reference Name="OutputBus">
 															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
-														<Sound Name="Sad1" ID="{0EF42E08-A234-49EC-9806-40980A17B271}" ShortID="884044742">
+														<Sound Name="Chirp_Sad01" ID="{D5B6BCE6-CD3A-4B92-BCE6-02A2841B5D18}" ShortID="38643177">
 															<ReferenceList>
 																<Reference Name="Conversion">
 																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
@@ -231,16 +263,16 @@
 																</Reference>
 															</ReferenceList>
 															<ChildrenList>
-																<AudioFileSource Name="Sad1" ID="{9038D1F0-7063-4231-B134-4405206ED515}" ShortID="62927683">
+																<AudioFileSource Name="Chirp_Sad01" ID="{702DD0C0-95DC-45F0-B1C1-7E91B95F5976}" ShortID="300938007">
 																	<Language>SFX</Language>
-																	<AudioFile>Sad1.wav</AudioFile>
+																	<AudioFile>Chirp_Sad01.wav</AudioFile>
 																</AudioFileSource>
 															</ChildrenList>
 															<ActiveSourceList>
-																<ActiveSource Name="Sad1" ID="{9038D1F0-7063-4231-B134-4405206ED515}" Platform="Linked"/>
+																<ActiveSource Name="Chirp_Sad01" ID="{702DD0C0-95DC-45F0-B1C1-7E91B95F5976}" Platform="Linked"/>
 															</ActiveSourceList>
 														</Sound>
-														<Sound Name="Sad2" ID="{991789C7-B5E5-4D14-AF35-C44739A7E987}" ShortID="519193278">
+														<Sound Name="Chirp_Sad02" ID="{F819BC28-0FCC-4170-BB22-4B22B6EE840D}" ShortID="217028213">
 															<ReferenceList>
 																<Reference Name="Conversion">
 																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
@@ -250,16 +282,16 @@
 																</Reference>
 															</ReferenceList>
 															<ChildrenList>
-																<AudioFileSource Name="Sad2" ID="{0ABA9B52-4B66-4138-9D5D-ED122AF574C0}" ShortID="815470112">
+																<AudioFileSource Name="Chirp_Sad02" ID="{B804A72A-DFC4-4854-9A6E-2ABF532B5F21}" ShortID="415797737">
 																	<Language>SFX</Language>
-																	<AudioFile>Sad2.wav</AudioFile>
+																	<AudioFile>Chirp_Sad02.wav</AudioFile>
 																</AudioFileSource>
 															</ChildrenList>
 															<ActiveSourceList>
-																<ActiveSource Name="Sad2" ID="{0ABA9B52-4B66-4138-9D5D-ED122AF574C0}" Platform="Linked"/>
+																<ActiveSource Name="Chirp_Sad02" ID="{B804A72A-DFC4-4854-9A6E-2ABF532B5F21}" Platform="Linked"/>
 															</ActiveSourceList>
 														</Sound>
-														<Sound Name="Sad3" ID="{27A97EB2-154E-4A1B-9816-C46EE6D40639}" ShortID="435003596">
+														<Sound Name="Chirp_Sad03" ID="{1CD19694-2437-49A4-98E9-689B4014003C}" ShortID="408591341">
 															<ReferenceList>
 																<Reference Name="Conversion">
 																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
@@ -269,16 +301,16 @@
 																</Reference>
 															</ReferenceList>
 															<ChildrenList>
-																<AudioFileSource Name="Sad3" ID="{646B3461-FBA7-421A-9415-9BC1BE3C6815}" ShortID="250662871">
+																<AudioFileSource Name="Chirp_Sad03" ID="{CA4F05DA-8757-4562-9986-2E19381749F7}" ShortID="355117139">
 																	<Language>SFX</Language>
-																	<AudioFile>Sad3.wav</AudioFile>
+																	<AudioFile>Chirp_Sad03.wav</AudioFile>
 																</AudioFileSource>
 															</ChildrenList>
 															<ActiveSourceList>
-																<ActiveSource Name="Sad3" ID="{646B3461-FBA7-421A-9415-9BC1BE3C6815}" Platform="Linked"/>
+																<ActiveSource Name="Chirp_Sad03" ID="{CA4F05DA-8757-4562-9986-2E19381749F7}" Platform="Linked"/>
 															</ActiveSourceList>
 														</Sound>
-														<Sound Name="Sad4" ID="{84FED8CB-D0A9-40E0-93BB-F9A134B4C483}" ShortID="810135514">
+														<Sound Name="Chirp_Sad04" ID="{A2639AAF-1BC2-45C2-80FC-6C8C3305E83C}" ShortID="1065357559">
 															<ReferenceList>
 																<Reference Name="Conversion">
 																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
@@ -288,13 +320,13 @@
 																</Reference>
 															</ReferenceList>
 															<ChildrenList>
-																<AudioFileSource Name="Sad4" ID="{764A44E1-131C-4CEE-B61C-F809708BA368}" ShortID="427950182">
+																<AudioFileSource Name="Chirp_Sad04" ID="{FA341906-9389-4B0A-BC26-2D06FA6A9C7F}" ShortID="801801670">
 																	<Language>SFX</Language>
-																	<AudioFile>Sad4.wav</AudioFile>
+																	<AudioFile>Chirp_Sad04.wav</AudioFile>
 																</AudioFileSource>
 															</ChildrenList>
 															<ActiveSourceList>
-																<ActiveSource Name="Sad4" ID="{764A44E1-131C-4CEE-B61C-F809708BA368}" Platform="Linked"/>
+																<ActiveSource Name="Chirp_Sad04" ID="{FA341906-9389-4B0A-BC26-2D06FA6A9C7F}" Platform="Linked"/>
 															</ActiveSourceList>
 														</Sound>
 													</ChildrenList>
@@ -307,15 +339,12 @@
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
 														</Reference>
-														<Reference Name="Effect0" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
-															<ObjectRef Name="chir" ID="{E2B56382-9EB7-485B-B523-57E702AEBD36}" WorkUnitID="{DB5ADB83-997D-43F7-B226-D357913135AD}"/>
-														</Reference>
 														<Reference Name="OutputBus">
 															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
-														<Sound Name="Over Here 2" ID="{1D85B208-1098-4971-9014-5D23D8FF42F1}" ShortID="892557066">
+														<Sound Name="Chirp_Here01" ID="{4C261AED-FFC3-4581-A289-62883A44B29A}" ShortID="648610926">
 															<ReferenceList>
 																<Reference Name="Conversion">
 																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
@@ -325,16 +354,16 @@
 																</Reference>
 															</ReferenceList>
 															<ChildrenList>
-																<AudioFileSource Name="Over Here 2" ID="{80DE5008-755C-4093-BA65-2358ABCFF994}" ShortID="549602185">
+																<AudioFileSource Name="Chirp_Here01" ID="{3B682743-B2BF-47FA-9225-8D5D359F4618}" ShortID="1008677897">
 																	<Language>SFX</Language>
-																	<AudioFile>Over Here 2.wav</AudioFile>
+																	<AudioFile>Chirp_Here01.wav</AudioFile>
 																</AudioFileSource>
 															</ChildrenList>
 															<ActiveSourceList>
-																<ActiveSource Name="Over Here 2" ID="{80DE5008-755C-4093-BA65-2358ABCFF994}" Platform="Linked"/>
+																<ActiveSource Name="Chirp_Here01" ID="{3B682743-B2BF-47FA-9225-8D5D359F4618}" Platform="Linked"/>
 															</ActiveSourceList>
 														</Sound>
-														<Sound Name="Over Here" ID="{8D3E2E29-586C-413E-8D26-F9840FD2291D}" ShortID="923376722">
+														<Sound Name="Chirp_Here02" ID="{88F79DC4-1C14-4448-B233-9747CBFE7BA4}" ShortID="456514835">
 															<ReferenceList>
 																<Reference Name="Conversion">
 																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
@@ -344,13 +373,13 @@
 																</Reference>
 															</ReferenceList>
 															<ChildrenList>
-																<AudioFileSource Name="Over Here" ID="{FD90E5FB-9293-4C62-9C57-4D4850CF3AFF}" ShortID="790142255">
+																<AudioFileSource Name="Chirp_Here02" ID="{C96ADDD0-CFAD-4B78-A94F-AC210F733086}" ShortID="314335941">
 																	<Language>SFX</Language>
-																	<AudioFile>Over Here.wav</AudioFile>
+																	<AudioFile>Chirp_Here02.wav</AudioFile>
 																</AudioFileSource>
 															</ChildrenList>
 															<ActiveSourceList>
-																<ActiveSource Name="Over Here" ID="{FD90E5FB-9293-4C62-9C57-4D4850CF3AFF}" Platform="Linked"/>
+																<ActiveSource Name="Chirp_Here02" ID="{C96ADDD0-CFAD-4B78-A94F-AC210F733086}" Platform="Linked"/>
 															</ActiveSourceList>
 														</Sound>
 													</ChildrenList>
@@ -363,15 +392,12 @@
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
 														</Reference>
-														<Reference Name="Effect0" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
-															<ObjectRef Name="chir" ID="{E2B56382-9EB7-485B-B523-57E702AEBD36}" WorkUnitID="{DB5ADB83-997D-43F7-B226-D357913135AD}"/>
-														</Reference>
 														<Reference Name="OutputBus">
 															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
-														<Sound Name="Over There 1" ID="{D414B736-C8C9-4F4D-86A9-DA74D6096B4F}" ShortID="212822309">
+														<Sound Name="Chirp_There01" ID="{0E65F598-48FA-4195-88D9-AFB3E7B94261}" ShortID="72799508">
 															<ReferenceList>
 																<Reference Name="Conversion">
 																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
@@ -381,16 +407,16 @@
 																</Reference>
 															</ReferenceList>
 															<ChildrenList>
-																<AudioFileSource Name="Over There 1" ID="{9E0E6897-6434-471A-B589-A82C77F16665}" ShortID="273047507">
+																<AudioFileSource Name="Chirp_There01" ID="{C7976358-3D93-43AC-93F7-03867BC039F2}" ShortID="1054563115">
 																	<Language>SFX</Language>
-																	<AudioFile>Over There 1.wav</AudioFile>
+																	<AudioFile>Chirp_There01.wav</AudioFile>
 																</AudioFileSource>
 															</ChildrenList>
 															<ActiveSourceList>
-																<ActiveSource Name="Over There 1" ID="{9E0E6897-6434-471A-B589-A82C77F16665}" Platform="Linked"/>
+																<ActiveSource Name="Chirp_There01" ID="{C7976358-3D93-43AC-93F7-03867BC039F2}" Platform="Linked"/>
 															</ActiveSourceList>
 														</Sound>
-														<Sound Name="Over There 2" ID="{8C2B714B-4891-49B6-9CAE-47029F0EE911}" ShortID="169914250">
+														<Sound Name="Chirp_There02" ID="{622B7FAB-CCC2-44BE-A48D-BA9578DAA1EA}" ShortID="94574039">
 															<ReferenceList>
 																<Reference Name="Conversion">
 																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
@@ -400,13 +426,13 @@
 																</Reference>
 															</ReferenceList>
 															<ChildrenList>
-																<AudioFileSource Name="Over There 2" ID="{4F62D3CC-B975-45CE-8A6E-A289813D81DA}" ShortID="412852947">
+																<AudioFileSource Name="Chirp_There02" ID="{FB82B9D3-51E5-4FBB-8CAB-02830F9F42A3}" ShortID="946884998">
 																	<Language>SFX</Language>
-																	<AudioFile>Over There 2.wav</AudioFile>
+																	<AudioFile>Chirp_There02.wav</AudioFile>
 																</AudioFileSource>
 															</ChildrenList>
 															<ActiveSourceList>
-																<ActiveSource Name="Over There 2" ID="{4F62D3CC-B975-45CE-8A6E-A289813D81DA}" Platform="Linked"/>
+																<ActiveSource Name="Chirp_There02" ID="{FB82B9D3-51E5-4FBB-8CAB-02830F9F42A3}" Platform="Linked"/>
 															</ActiveSourceList>
 														</Sound>
 													</ChildrenList>
@@ -469,13 +495,6 @@
 											</ReferenceList>
 											<ChildrenList>
 												<RandomSequenceContainer Name="Happy" ID="{EC43DEDF-7E8C-4A0A-A8C4-7319ABA097FF}" ShortID="664886763">
-													<PropertyList>
-														<Property Name="Volume" Type="Real64">
-															<ValueList>
-																<Value>-3</Value>
-															</ValueList>
-														</Property>
-													</PropertyList>
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
@@ -583,26 +602,12 @@
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
 														</Reference>
-														<Reference Name="Effect0">
-															<Custom CreatedFrom="{E2B56382-9EB7-485B-B523-57E702AEBD36}">
-																<Effect Name="chir (Custom)" ID="{2A1A4350-5CC7-4016-8D90-EAF8B9AFDDB7}" ShortID="745849307" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
-																	<PropertyList>
-																		<Property Name="FilterTypeBand1" Type="int32" Value="1"/>
-																		<Property Name="FrequencyBand2" Type="Real32" Value="232"/>
-																		<Property Name="FrequencyBand3" Type="Real32" Value="6096"/>
-																		<Property Name="GainBand2" Type="Real32" Value="-24"/>
-																		<Property Name="GainBand3" Type="Real32" Value="4"/>
-																		<Property Name="QFactorBand2" Type="Real32" Value="5.7"/>
-																	</PropertyList>
-																</Effect>
-															</Custom>
-														</Reference>
 														<Reference Name="OutputBus">
 															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
-														<Sound Name="Sad1" ID="{B134CA85-3FC0-4F81-B337-152E32CD6656}" ShortID="144160487">
+														<Sound Name="Chirp_Sad01" ID="{4D962AC5-1EB6-4A8A-AD91-0F0133960DEE}" ShortID="413802584">
 															<ReferenceList>
 																<Reference Name="Conversion">
 																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
@@ -612,19 +617,19 @@
 																</Reference>
 															</ReferenceList>
 															<ChildrenList>
-																<AudioFileSource Name="Sad1" ID="{40F8CE5E-8614-4F5C-8BAC-74DBFD1596E2}" ShortID="764691009">
+																<AudioFileSource Name="Chirp_Sad01" ID="{F87BE835-AF89-438D-B50C-E59DFF76CD25}" ShortID="393757026">
 																	<Language>SFX</Language>
-																	<AudioFile>Sad1.wav</AudioFile>
+																	<AudioFile>Chirp_Sad01.wav</AudioFile>
 																	<ConvertedFileIDList>
-																		<File ID="62927683"/>
+																		<File ID="300938007"/>
 																	</ConvertedFileIDList>
 																</AudioFileSource>
 															</ChildrenList>
 															<ActiveSourceList>
-																<ActiveSource Name="Sad1" ID="{40F8CE5E-8614-4F5C-8BAC-74DBFD1596E2}" Platform="Linked"/>
+																<ActiveSource Name="Chirp_Sad01" ID="{F87BE835-AF89-438D-B50C-E59DFF76CD25}" Platform="Linked"/>
 															</ActiveSourceList>
 														</Sound>
-														<Sound Name="Sad2" ID="{E911D901-C6AE-4186-9629-8C334C67CABE}" ShortID="764105485">
+														<Sound Name="Chirp_Sad02" ID="{64D68A64-6B67-4954-BA38-015B1BCE4D4E}" ShortID="1072338258">
 															<ReferenceList>
 																<Reference Name="Conversion">
 																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
@@ -634,19 +639,19 @@
 																</Reference>
 															</ReferenceList>
 															<ChildrenList>
-																<AudioFileSource Name="Sad2" ID="{030F5F53-6D4B-4818-A1FE-8473452A28DA}" ShortID="944671253">
+																<AudioFileSource Name="Chirp_Sad02" ID="{8C1ABA3A-3588-4606-B59B-800A460F1BB7}" ShortID="132462849">
 																	<Language>SFX</Language>
-																	<AudioFile>Sad2.wav</AudioFile>
+																	<AudioFile>Chirp_Sad02.wav</AudioFile>
 																	<ConvertedFileIDList>
-																		<File ID="815470112"/>
+																		<File ID="415797737"/>
 																	</ConvertedFileIDList>
 																</AudioFileSource>
 															</ChildrenList>
 															<ActiveSourceList>
-																<ActiveSource Name="Sad2" ID="{030F5F53-6D4B-4818-A1FE-8473452A28DA}" Platform="Linked"/>
+																<ActiveSource Name="Chirp_Sad02" ID="{8C1ABA3A-3588-4606-B59B-800A460F1BB7}" Platform="Linked"/>
 															</ActiveSourceList>
 														</Sound>
-														<Sound Name="Sad3" ID="{0A1C2201-85BF-4664-95AE-4E8C4CC06495}" ShortID="187606118">
+														<Sound Name="Chirp_Sad03" ID="{1D76DF9D-FADB-4A30-9D65-47EAA11A3A55}" ShortID="870046858">
 															<ReferenceList>
 																<Reference Name="Conversion">
 																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
@@ -656,19 +661,19 @@
 																</Reference>
 															</ReferenceList>
 															<ChildrenList>
-																<AudioFileSource Name="Sad3" ID="{E02FA4DB-ECFB-43E3-853E-9609E77D0364}" ShortID="632431661">
+																<AudioFileSource Name="Chirp_Sad03" ID="{F0843DA4-B1DA-4737-BF01-0A317552CD24}" ShortID="660353486">
 																	<Language>SFX</Language>
-																	<AudioFile>Sad3.wav</AudioFile>
+																	<AudioFile>Chirp_Sad03.wav</AudioFile>
 																	<ConvertedFileIDList>
-																		<File ID="250662871"/>
+																		<File ID="355117139"/>
 																	</ConvertedFileIDList>
 																</AudioFileSource>
 															</ChildrenList>
 															<ActiveSourceList>
-																<ActiveSource Name="Sad3" ID="{E02FA4DB-ECFB-43E3-853E-9609E77D0364}" Platform="Linked"/>
+																<ActiveSource Name="Chirp_Sad03" ID="{F0843DA4-B1DA-4737-BF01-0A317552CD24}" Platform="Linked"/>
 															</ActiveSourceList>
 														</Sound>
-														<Sound Name="Sad4" ID="{45EBA95A-7BE0-41C8-88FD-16BD05E7A1AA}" ShortID="548040072">
+														<Sound Name="Chirp_Sad04" ID="{DD63EE6B-D2B7-43BB-805A-1585F4D1834A}" ShortID="206529644">
 															<ReferenceList>
 																<Reference Name="Conversion">
 																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
@@ -678,16 +683,16 @@
 																</Reference>
 															</ReferenceList>
 															<ChildrenList>
-																<AudioFileSource Name="Sad4" ID="{18FBC9E5-2B49-4F76-9248-5B79E3791566}" ShortID="33370645">
+																<AudioFileSource Name="Chirp_Sad04" ID="{D84806BF-CA3C-4C18-B5C3-6C367BA2BB1B}" ShortID="873746254">
 																	<Language>SFX</Language>
-																	<AudioFile>Sad4.wav</AudioFile>
+																	<AudioFile>Chirp_Sad04.wav</AudioFile>
 																	<ConvertedFileIDList>
-																		<File ID="427950182"/>
+																		<File ID="801801670"/>
 																	</ConvertedFileIDList>
 																</AudioFileSource>
 															</ChildrenList>
 															<ActiveSourceList>
-																<ActiveSource Name="Sad4" ID="{18FBC9E5-2B49-4F76-9248-5B79E3791566}" Platform="Linked"/>
+																<ActiveSource Name="Chirp_Sad04" ID="{D84806BF-CA3C-4C18-B5C3-6C367BA2BB1B}" Platform="Linked"/>
 															</ActiveSourceList>
 														</Sound>
 													</ChildrenList>
@@ -700,15 +705,12 @@
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
 														</Reference>
-														<Reference Name="Effect0" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
-															<ObjectRef Name="chir" ID="{E2B56382-9EB7-485B-B523-57E702AEBD36}" WorkUnitID="{DB5ADB83-997D-43F7-B226-D357913135AD}"/>
-														</Reference>
 														<Reference Name="OutputBus">
 															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
-														<Sound Name="Over There 1" ID="{7B18B10B-2567-4B5C-884D-ACB21E24D0CC}" ShortID="669084047">
+														<Sound Name="Chirp_There01" ID="{033F716B-132B-4769-8ECA-6FAE9B0AB807}" ShortID="1014767618">
 															<ReferenceList>
 																<Reference Name="Conversion">
 																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
@@ -718,19 +720,19 @@
 																</Reference>
 															</ReferenceList>
 															<ChildrenList>
-																<AudioFileSource Name="Over There 1" ID="{996524F4-AF7D-432F-8D14-CBCC04D50FAD}" ShortID="176865174">
+																<AudioFileSource Name="Chirp_There01" ID="{B771F1C0-1A2B-4ABF-8567-27965BBEF98C}" ShortID="334649439">
 																	<Language>SFX</Language>
-																	<AudioFile>Over There 1.wav</AudioFile>
+																	<AudioFile>Chirp_There01.wav</AudioFile>
 																	<ConvertedFileIDList>
-																		<File ID="273047507"/>
+																		<File ID="1054563115"/>
 																	</ConvertedFileIDList>
 																</AudioFileSource>
 															</ChildrenList>
 															<ActiveSourceList>
-																<ActiveSource Name="Over There 1" ID="{996524F4-AF7D-432F-8D14-CBCC04D50FAD}" Platform="Linked"/>
+																<ActiveSource Name="Chirp_There01" ID="{B771F1C0-1A2B-4ABF-8567-27965BBEF98C}" Platform="Linked"/>
 															</ActiveSourceList>
 														</Sound>
-														<Sound Name="Over There 2" ID="{552F3920-F432-48D3-8071-400A21507122}" ShortID="1027189298">
+														<Sound Name="Chirp_There02" ID="{E1E79E51-3670-48F2-924B-AA02968A4D0F}" ShortID="793676094">
 															<ReferenceList>
 																<Reference Name="Conversion">
 																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
@@ -740,16 +742,16 @@
 																</Reference>
 															</ReferenceList>
 															<ChildrenList>
-																<AudioFileSource Name="Over There 2" ID="{D54830A6-DD36-48B2-AC14-BEA5D806A304}" ShortID="228168789">
+																<AudioFileSource Name="Chirp_There02" ID="{19C1116E-00F5-421F-BA76-5A1322A44264}" ShortID="782915478">
 																	<Language>SFX</Language>
-																	<AudioFile>Over There 2.wav</AudioFile>
+																	<AudioFile>Chirp_There02.wav</AudioFile>
 																	<ConvertedFileIDList>
-																		<File ID="412852947"/>
+																		<File ID="946884998"/>
 																	</ConvertedFileIDList>
 																</AudioFileSource>
 															</ChildrenList>
 															<ActiveSourceList>
-																<ActiveSource Name="Over There 2" ID="{D54830A6-DD36-48B2-AC14-BEA5D806A304}" Platform="Linked"/>
+																<ActiveSource Name="Chirp_There02" ID="{19C1116E-00F5-421F-BA76-5A1322A44264}" Platform="Linked"/>
 															</ActiveSourceList>
 														</Sound>
 													</ChildrenList>
@@ -762,15 +764,12 @@
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
 														</Reference>
-														<Reference Name="Effect0" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
-															<ObjectRef Name="chir" ID="{E2B56382-9EB7-485B-B523-57E702AEBD36}" WorkUnitID="{DB5ADB83-997D-43F7-B226-D357913135AD}"/>
-														</Reference>
 														<Reference Name="OutputBus">
 															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
-														<Sound Name="Over Here 2" ID="{9416AACE-D258-45D4-B832-D024B321347B}" ShortID="205746773">
+														<Sound Name="Chirp_Here01" ID="{AA1484B3-1B50-4023-81EA-C502B246F00F}" ShortID="730351515">
 															<ReferenceList>
 																<Reference Name="Conversion">
 																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
@@ -780,19 +779,19 @@
 																</Reference>
 															</ReferenceList>
 															<ChildrenList>
-																<AudioFileSource Name="Over Here 2" ID="{86EB5985-32E6-431F-A5AB-501E4A7E8CBF}" ShortID="804278070">
+																<AudioFileSource Name="Chirp_Here01" ID="{B64BCB80-22CC-4137-B266-3875E237E25D}" ShortID="273449708">
 																	<Language>SFX</Language>
-																	<AudioFile>Over Here 2.wav</AudioFile>
+																	<AudioFile>Chirp_Here01.wav</AudioFile>
 																	<ConvertedFileIDList>
-																		<File ID="549602185"/>
+																		<File ID="1008677897"/>
 																	</ConvertedFileIDList>
 																</AudioFileSource>
 															</ChildrenList>
 															<ActiveSourceList>
-																<ActiveSource Name="Over Here 2" ID="{86EB5985-32E6-431F-A5AB-501E4A7E8CBF}" Platform="Linked"/>
+																<ActiveSource Name="Chirp_Here01" ID="{B64BCB80-22CC-4137-B266-3875E237E25D}" Platform="Linked"/>
 															</ActiveSourceList>
 														</Sound>
-														<Sound Name="Over Here" ID="{729449B8-F3FE-4346-9293-8EB40C4FC0DF}" ShortID="875923708">
+														<Sound Name="Chirp_Here02" ID="{ABE6F097-B0BE-45C3-892D-A8755B228D39}" ShortID="65859945">
 															<ReferenceList>
 																<Reference Name="Conversion">
 																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
@@ -802,16 +801,16 @@
 																</Reference>
 															</ReferenceList>
 															<ChildrenList>
-																<AudioFileSource Name="Over Here" ID="{E9F252DA-D189-4E3F-87D7-E6001B1F817C}" ShortID="218516849">
-																	<PropertyList>
-																		<Property Name="FadeOutDuration" Type="Real64" Value="8.35714285714285E-02"/>
-																	</PropertyList>
+																<AudioFileSource Name="Chirp_Here02" ID="{294A6C6F-6B3D-431C-9396-DA5977C3D9FA}" ShortID="232678662">
 																	<Language>SFX</Language>
-																	<AudioFile>Over Here.wav</AudioFile>
+																	<AudioFile>Chirp_Here02.wav</AudioFile>
+																	<ConvertedFileIDList>
+																		<File ID="314335941"/>
+																	</ConvertedFileIDList>
 																</AudioFileSource>
 															</ChildrenList>
 															<ActiveSourceList>
-																<ActiveSource Name="Over Here" ID="{E9F252DA-D189-4E3F-87D7-E6001B1F817C}" Platform="Linked"/>
+																<ActiveSource Name="Chirp_Here02" ID="{294A6C6F-6B3D-431C-9396-DA5977C3D9FA}" Platform="Linked"/>
 															</ActiveSourceList>
 														</Sound>
 													</ChildrenList>
@@ -1030,6 +1029,26 @@
 									</ChildrenList>
 								</ActorMixer>
 								<ActorMixer Name="Movement" ID="{E577481A-43E9-41D2-A904-A6307FA88553}" ShortID="306677712">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{D5781775-DB99-443E-991F-81443B03EC17}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="25"/>
+															<Property Name="Min" Type="Real64" Value="-51"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-9</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
@@ -1044,7 +1063,7 @@
 												<Property Name="OverrideEffect" Type="bool" Value="True"/>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-6</Value>
+														<Value>-4</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -1819,7 +1838,7 @@
 												</Property>
 												<Property Name="Pitch" Type="int32">
 													<ValueList>
-														<Value>-510</Value>
+														<Value>-660</Value>
 													</ValueList>
 												</Property>
 												<Property Name="UseMaxSoundPerInstance" Type="bool">
@@ -1829,7 +1848,7 @@
 												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-23</Value>
+														<Value>-15</Value>
 													</ValueList>
 													<RTPCList>
 														<RTPC Name="" ID="{41A97A30-057B-4000-B7F8-A14F945B8157}" ShortID="257955872">
@@ -1884,6 +1903,12 @@
 													</ReferenceList>
 													<ChildrenList>
 														<AudioFileSource Name="RustLeft1" ID="{ED2805D3-E7E0-475A-8BF8-B67E2E678317}" ShortID="782757707">
+															<PropertyList>
+																<Property Name="FadeInDuration" Type="Real64" Value="3.08326822916667E-02"/>
+																<Property Name="FadeOutDuration" Type="Real64" Value="0.01956689453125"/>
+																<Property Name="TrimBegin" Type="Real64" Value="0.196261881510417"/>
+																<Property Name="TrimEnd" Type="Real64" Value="0.524155598958333"/>
+															</PropertyList>
 															<Language>SFX</Language>
 															<AudioFile>RustLeft1.wav</AudioFile>
 														</AudioFileSource>
@@ -1903,6 +1928,11 @@
 													</ReferenceList>
 													<ChildrenList>
 														<AudioFileSource Name="RustLeft2" ID="{8A810562-3F86-4A1A-A53B-768DD9ADBC8F}" ShortID="655639855">
+															<PropertyList>
+																<Property Name="FadeInDuration" Type="Real64" Value="3.45297386532738E-02"/>
+																<Property Name="FadeOutDuration" Type="Real64" Value="5.83866489955358E-02"/>
+																<Property Name="TrimBegin" Type="Real64" Value="0.153186476934524"/>
+															</PropertyList>
 															<Language>SFX</Language>
 															<AudioFile>RustLeft2.wav</AudioFile>
 														</AudioFileSource>
@@ -1922,6 +1952,10 @@
 													</ReferenceList>
 													<ChildrenList>
 														<AudioFileSource Name="RustRight1" ID="{C4AFA6E0-5475-4098-8C62-3A4DC839AD3A}" ShortID="597696737">
+															<PropertyList>
+																<Property Name="FadeInDuration" Type="Real64" Value="3.92386300223214E-02"/>
+																<Property Name="TrimBegin" Type="Real64" Value="0.145967703683036"/>
+															</PropertyList>
 															<Language>SFX</Language>
 															<AudioFile>RustRight1.wav</AudioFile>
 														</AudioFileSource>
@@ -1952,7 +1986,7 @@
 												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-23</Value>
+														<Value>-19</Value>
 													</ValueList>
 													<RTPCList>
 														<RTPC Name="" ID="{34104FF4-E806-4262-92B9-530C0E7AD3E3}" ShortID="699605535">
@@ -2061,7 +2095,7 @@
 									<PropertyList>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>7</Value>
+												<Value>12</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -2115,11 +2149,240 @@
 										</Sound>
 									</ChildrenList>
 								</RandomSequenceContainer>
+								<ActorMixer Name="Gate Chirps" ID="{F6719110-DB63-46D3-B63C-CF12FCD442BF}" ShortID="81215186">
+									<PropertyList>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="UseGameAuxSends" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Attenuation">
+											<ObjectRef Name="Main_Attentuation" ID="{7AFFEEA2-FEA6-4C5E-9350-4292CD58F98F}" WorkUnitID="{69E5E085-C55B-46C1-B440-1CB36DA8E2EE}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Objects" ID="{CA2680CC-BAFB-4640-B105-3ABB8404E954}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<RandomSequenceContainer Name="1-4" ID="{B287BD13-C8A3-4B24-A04E-9CA769335334}" ShortID="612181225">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="GateNote1" ID="{775ED3AD-E004-43FF-9447-7379D8CF98B0}" ShortID="832573579">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="GateNote1" ID="{1C714B22-AC94-41A8-A565-3FCD4E4C41E4}" ShortID="678427897">
+															<Language>SFX</Language>
+															<AudioFile>GateNote1.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="GateNote1" ID="{1C714B22-AC94-41A8-A565-3FCD4E4C41E4}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="GateNote2" ID="{1F72CF85-F258-4E58-AC39-3978FC457382}" ShortID="589535542">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="GateNote2" ID="{74E252A8-F5B5-4162-94B6-C78F7360AEB5}" ShortID="844136400">
+															<Language>SFX</Language>
+															<AudioFile>GateNote2.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="GateNote2" ID="{74E252A8-F5B5-4162-94B6-C78F7360AEB5}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="GateNote3" ID="{5DA2AEA3-2A0C-41DF-8264-B744DE828830}" ShortID="420077195">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="GateNote3" ID="{D0C48955-F1D2-4F56-8B4B-F304AC6A7824}" ShortID="417930804">
+															<Language>SFX</Language>
+															<AudioFile>GateNote3.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="GateNote3" ID="{D0C48955-F1D2-4F56-8B4B-F304AC6A7824}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="GateNote4" ID="{644823A2-A357-4BDA-90A8-94BE2AE3C4F9}" ShortID="755331342">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="GateNote4" ID="{085228C2-FF05-4AC9-9669-715AEA565DCA}" ShortID="368875471">
+															<Language>SFX</Language>
+															<AudioFile>GateNote4.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="GateNote4" ID="{085228C2-FF05-4AC9-9669-715AEA565DCA}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="5-8" ID="{6D49FB09-62BE-4D78-9F13-F66D82803597}" ShortID="255575576">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="GateNote5" ID="{9DCE43E7-9B7B-4835-956C-F2AA80B38D69}" ShortID="1042048634">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="GateNote5" ID="{054545AC-0205-4DD0-984F-55174958E2DC}" ShortID="301099333">
+															<Language>SFX</Language>
+															<AudioFile>GateNote5.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="GateNote5" ID="{054545AC-0205-4DD0-984F-55174958E2DC}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="GateNote6" ID="{2ADC78DB-87F8-4810-BD23-17F1BC6D5F55}" ShortID="13301537">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="GateNote6" ID="{5F18570A-F66E-421C-9AA4-C6E086DFF6C2}" ShortID="784459795">
+															<Language>SFX</Language>
+															<AudioFile>GateNote6.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="GateNote6" ID="{5F18570A-F66E-421C-9AA4-C6E086DFF6C2}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="GateNote7" ID="{669727D7-9B83-4FDA-A64D-FFFA495BB62E}" ShortID="694036527">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="GateNote7" ID="{8171C5F2-47ED-4504-9B25-8010290F9877}" ShortID="761689356">
+															<Language>SFX</Language>
+															<AudioFile>GateNote7.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="GateNote7" ID="{8171C5F2-47ED-4504-9B25-8010290F9877}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="GateNote8" ID="{D95DD81C-2A2B-486B-B868-2139D552D7EE}" ShortID="460404025">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="GateNote8" ID="{2F711A9F-7D7E-4998-BEFC-4E871A4038C8}" ShortID="132139423">
+															<Language>SFX</Language>
+															<AudioFile>GateNote8.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="GateNote8" ID="{2F711A9F-7D7E-4998-BEFC-4E871A4038C8}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
+										<Sound Name="GateNoteFInish" ID="{880886E0-F06C-4D47-B717-F36A02874F46}" ShortID="53132536">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="GateNoteFInish" ID="{14FC9240-2C29-407B-9539-F026289D9783}" ShortID="583504070">
+													<Language>SFX</Language>
+													<AudioFile>GateNoteFInish.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="GateNoteFInish" ID="{14FC9240-2C29-407B-9539-F026289D9783}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+								</ActorMixer>
 							</ChildrenList>
 						</ActorMixer>
 						<ActorMixer Name="Objects" ID="{56AE881C-CDC3-40E4-953B-D4DFE256E5F3}" ShortID="152755625">
 							<PropertyList>
 								<Property Name="OverrideOutput" Type="bool" Value="True"/>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{0C691095-BD54-47A0-A9B0-D062EB21400F}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="51"/>
+													<Property Name="Min" Type="Real64" Value="-126"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
 								<Property Name="PositioningType" Type="int16" Value="1"/>
 								<Property Name="UseGameAuxSends" Type="bool" Value="True"/>
 								<Property Name="Volume" Type="Real64">
@@ -2141,6 +2404,15 @@
 							</ReferenceList>
 							<ChildrenList>
 								<ActorMixer Name="Crystals" ID="{26419EF0-28A8-4EC4-AA8A-2F6022144DEB}" ShortID="584906247">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{90CDE3C4-C9CA-4B3A-A4F5-AF35EEA81701}"/>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
@@ -2150,37 +2422,16 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<Sound Name="Place Crystal" ID="{B2492B43-F2BA-4B13-9AE5-898FCDE3D2F4}" ShortID="304968162">
-											<PropertyList>
-												<Property Name="Volume" Type="Real64">
-													<ValueList>
-														<Value>-25</Value>
-													</ValueList>
-												</Property>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Place Crystal" ID="{0D32F2E2-2756-4271-92DA-EB352D095881}" ShortID="742047227">
-													<Language>SFX</Language>
-													<AudioFile>Place Crystal.wav</AudioFile>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="Place Crystal" ID="{0D32F2E2-2756-4271-92DA-EB352D095881}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
 										<Sound Name="Pick Up Crystal" ID="{E0BF3494-C19C-42B0-865D-146CCA9D8187}" ShortID="1056123097">
 											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<ValueList>
+														<Value>-350</Value>
+													</ValueList>
+												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-23</Value>
+														<Value>-13</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -2203,13 +2454,6 @@
 											</ActiveSourceList>
 										</Sound>
 										<Sound Name="Activate Crystal" ID="{5560BC86-06A7-472F-ADF1-305227C6E751}" ShortID="432626833">
-											<PropertyList>
-												<Property Name="Volume" Type="Real64">
-													<ValueList>
-														<Value>-10</Value>
-													</ValueList>
-												</Property>
-											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
@@ -2230,9 +2474,21 @@
 										</Sound>
 										<Sound Name="LightHitCrystal" ID="{6477461F-F05B-42F2-8A18-E53AC70E1066}" ShortID="403029334">
 											<PropertyList>
+												<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
+												<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+												<Property Name="MaxSoundPerInstance" Type="int16">
+													<ValueList>
+														<Value>1</Value>
+													</ValueList>
+												</Property>
+												<Property Name="UseMaxSoundPerInstance" Type="bool">
+													<ValueList>
+														<Value>True</Value>
+													</ValueList>
+												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-13</Value>
+														<Value>-2</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -2254,16 +2510,110 @@
 												<ActiveSource Name="LightHitCrystal" ID="{FA76C4C8-7AD4-4C52-A9D3-29977872AC61}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
+										<RandomSequenceContainer Name="PlaceCrystal" ID="{E47AA231-0CCD-4C39-995D-0DEC197466D6}" ShortID="852737524">
+											<PropertyList>
+												<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+												<Property Name="RandomOrSequence" Type="int16" Value="0"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<RandomSequenceContainer Name="Place" ID="{784E674F-3C09-400D-8F4F-07D5F3896077}" ShortID="405228943">
+													<PropertyList>
+														<Property Name="PositioningType" Type="int16" Value="1"/>
+														<Property Name="UseGameAuxSends" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Attenuation">
+															<ObjectRef Name="Main_Attentuation" ID="{7AFFEEA2-FEA6-4C5E-9350-4292CD58F98F}" WorkUnitID="{69E5E085-C55B-46C1-B440-1CB36DA8E2EE}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Objects" ID="{CA2680CC-BAFB-4640-B105-3ABB8404E954}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<Sound Name="Place_Node01" ID="{2E0D04F4-588E-4464-9454-DB4D6AA6556E}" ShortID="452283941">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Place_Node01" ID="{F9FA595E-D9F8-4A9E-9BC5-C79E2750DE0E}" ShortID="983831767">
+																	<Language>SFX</Language>
+																	<AudioFile>Place_Node01.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Place_Node01" ID="{F9FA595E-D9F8-4A9E-9BC5-C79E2750DE0E}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Place_Node02" ID="{B6598B14-A4B0-4D65-8880-34A2D5CF52AA}" ShortID="17856755">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Place_Node02" ID="{D22522C1-9260-4D49-921D-68085CBAA4B0}" ShortID="876804180">
+																	<Language>SFX</Language>
+																	<AudioFile>Place_Node02.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Place_Node02" ID="{D22522C1-9260-4D49-921D-68085CBAA4B0}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+													</ChildrenList>
+												</RandomSequenceContainer>
+												<Sound Name="Place Crystal" ID="{B2492B43-F2BA-4B13-9AE5-898FCDE3D2F4}" ShortID="304968162">
+													<PropertyList>
+														<Property Name="PositioningType" Type="int16" Value="1"/>
+														<Property Name="UseGameAuxSends" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Attenuation">
+															<ObjectRef Name="Main_Attentuation" ID="{7AFFEEA2-FEA6-4C5E-9350-4292CD58F98F}" WorkUnitID="{69E5E085-C55B-46C1-B440-1CB36DA8E2EE}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Objects" ID="{CA2680CC-BAFB-4640-B105-3ABB8404E954}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Place Crystal" ID="{0D32F2E2-2756-4271-92DA-EB352D095881}" ShortID="742047227">
+															<PropertyList>
+																<Property Name="FadeOutDuration" Type="Real64" Value="1.16119791666667E-02"/>
+																<Property Name="TrimEnd" Type="Real64" Value="0.197403645833333"/>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>Place Crystal.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Place Crystal" ID="{0D32F2E2-2756-4271-92DA-EB352D095881}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+											<Playlist>
+												<ItemRef Name="Place Crystal" ID="{B2492B43-F2BA-4B13-9AE5-898FCDE3D2F4}"/>
+												<ItemRef Name="Place" ID="{784E674F-3C09-400D-8F4F-07D5F3896077}"/>
+											</Playlist>
+										</RandomSequenceContainer>
 									</ChildrenList>
 								</ActorMixer>
 								<RandomSequenceContainer Name="Pressure Plate" ID="{4BDDCCEB-9EE5-44C0-8960-4EEC650BD897}" ShortID="474777977">
-									<PropertyList>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-4</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
@@ -2373,11 +2723,6 @@
 										<Value>12</Value>
 									</ValueList>
 								</Property>
-								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>-6</Value>
-									</ValueList>
-								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Attenuation">
@@ -2402,7 +2747,7 @@
 										<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-1</Value>
+												<Value>-18</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -2503,7 +2848,7 @@
 										<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-9</Value>
+												<Value>-23</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -2600,11 +2945,6 @@
 								<Sound Name="Insects" ID="{4637132E-3762-43C5-9FE8-6B05E6FAF229}" ShortID="179999017">
 									<PropertyList>
 										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-11</Value>
-											</ValueList>
-										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -2627,6 +2967,11 @@
 								<Sound Name="The Core Hum" ID="{FC6754F1-B700-4104-9610-F89C459F000B}" ShortID="147585186">
 									<PropertyList>
 										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-8</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -2657,7 +3002,7 @@
 										<Property Name="UseGameAuxSends" Type="bool" Value="True"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-24</Value>
+												<Value>-7</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -2685,7 +3030,7 @@
 										<Property Name="UseGameAuxSends" Type="bool" Value="True"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-33</Value>
+												<Value>-14</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -2728,11 +3073,6 @@
 									<PropertyList>
 										<Property Name="OverrideEffect" Type="bool" Value="True"/>
 										<Property Name="SwitchBehavior" Type="int16" Value="1"/>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>2</Value>
-											</ValueList>
-										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -3860,7 +4200,7 @@ Air currents change during the hours of the day and foliage changes during  the 
 										<Property Name="SwitchBehavior" Type="int16" Value="1"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-5</Value>
+												<Value>-13</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -3885,7 +4225,7 @@ Air currents change during the hours of the day and foliage changes during  the 
 												<Property Name="OverrideEffect" Type="bool" Value="True"/>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-12</Value>
+														<Value>-11</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -3923,6 +4263,11 @@ Air currents change during the hours of the day and foliage changes during  the 
 											<PropertyList>
 												<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 												<Property Name="OverrideEffect" Type="bool" Value="True"/>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-5</Value>
+													</ValueList>
+												</Property>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -3945,6 +4290,83 @@ Air currents change during the hours of the day and foliage changes during  the 
 													<AudioFile>rainthunder1.wav</AudioFile>
 												</AudioFileSource>
 											</ChildrenList>
+											<StateInfo>
+												<StateGroupList>
+													<StateGroupInfo>
+														<StateGroupRef Name="Environment" ID="{368540B0-9326-43CE-A20D-CD99DFFC54DE}"/>
+													</StateGroupInfo>
+												</StateGroupList>
+												<CustomStateList>
+													<CustomState>
+														<StateRef Name="P1_Intro" ID="{FC8BB0BF-7A44-40B1-8D27-D1EA7366289D}"/>
+														<State Name="" ID="{DAFB999B-A8A3-44F7-8337-BB114104B963}" ShortID="46828368"/>
+													</CustomState>
+													<CustomState>
+														<StateRef Name="P2_FactoryPuzzle1" ID="{79494580-3976-425E-971D-CB193C870700}"/>
+														<State Name="" ID="{B1F36631-80B6-480D-A96C-E9CA101DACE7}" ShortID="506852742"/>
+													</CustomState>
+													<CustomState>
+														<StateRef Name="Menu" ID="{3AFA27FF-9639-4444-9C9F-20A568E90221}"/>
+														<State Name="" ID="{52851B29-5D9F-48B3-B6D6-1A622E5C4961}" ShortID="373292448"/>
+													</CustomState>
+													<CustomState>
+														<StateRef Name="P3_ConstructionStorm" ID="{0D1A02F3-9577-4504-8C6C-58D99D7925E6}"/>
+														<State Name="" ID="{965A7BF8-EC78-4EE7-9634-8F7A62D739A8}" ShortID="617129667"/>
+													</CustomState>
+													<CustomState>
+														<StateRef Name="P1_IntroViewpoint" ID="{A0830815-1BB2-456C-BC25-BF32D2547E4E}"/>
+														<State Name="" ID="{56F4A45D-556B-4ECB-9603-6D27E6377D06}" ShortID="683030645"/>
+													</CustomState>
+													<CustomState>
+														<StateRef Name="P2_FactoryPuzzle2" ID="{DC03589A-BDD2-45D6-A826-EA9C0315B998}"/>
+														<State Name="" ID="{332E6803-E53E-4003-ACEF-3F4D58B665EA}" ShortID="2407486"/>
+													</CustomState>
+													<CustomState>
+														<StateRef Name="P2_FactoryViewpoint" ID="{EB070CD5-C2C2-46D1-9A5B-C15943D11787}"/>
+														<State Name="" ID="{2D141D8B-9CCD-4030-8114-3927A04CB724}" ShortID="497060020"/>
+													</CustomState>
+													<CustomState>
+														<StateRef Name="P6_EndLeave" ID="{E8ED1630-94B1-46FB-A5DC-E890F8746D73}"/>
+														<State Name="" ID="{8F5F77A1-FEF3-43C5-9A6A-4D1B2F10CF5E}" ShortID="610835805"/>
+													</CustomState>
+													<CustomState>
+														<StateRef Name="P5_Core" ID="{6B59E6D1-4DA6-487E-91B0-1AE559B70CD1}"/>
+														<State Name="" ID="{23E7A99D-72F5-481B-BCC8-F3448008DED6}" ShortID="929344211"/>
+													</CustomState>
+													<CustomState>
+														<StateRef Name="P3_ConstructionScenery" ID="{D01D8749-D570-4885-88A1-4E868784E367}"/>
+														<State Name="" ID="{EDCEECCC-AC6F-4780-883B-874AD2B9053C}" ShortID="380155547"/>
+													</CustomState>
+													<CustomState>
+														<StateRef Name="P5_CorePuzzle" ID="{C972704B-6D26-49FC-8229-7838BCD59F79}"/>
+														<State Name="" ID="{9559EEB3-DDC4-4159-98A8-014A6AFF2E77}" ShortID="541242836"/>
+													</CustomState>
+													<CustomState>
+														<StateRef Name="P3_Construction" ID="{3BD738C0-1FEE-4A31-B833-5BDB23300B01}"/>
+														<State Name="" ID="{6C58A024-ECED-4AB8-A087-1A326B014397}" ShortID="355883400"/>
+													</CustomState>
+													<CustomState>
+														<StateRef Name="P4_Clouds" ID="{B92ABBFE-ED7C-4AE0-A739-CF81428935A0}"/>
+														<State Name="" ID="{CA8D1F0B-ED19-4E48-AABC-7DBECB63A619}" ShortID="799122245">
+															<PropertyList>
+																<Property Name="Lowpass" Type="int16" Value="53"/>
+															</PropertyList>
+														</State>
+													</CustomState>
+													<CustomState>
+														<StateRef Name="Empty" ID="{C1FFFDEC-FC6D-4B54-9D54-1DB3342ADAC8}"/>
+														<State Name="" ID="{4F2D809D-337B-47AA-AFE7-160CEE826E06}" ShortID="185121552"/>
+													</CustomState>
+													<CustomState>
+														<StateRef Name="P6_EndSacrifice" ID="{B2786363-AAB6-4D23-9F0A-8407408276B0}"/>
+														<State Name="" ID="{6E8E152E-2E2C-4A28-BD03-583284DB95A0}" ShortID="189680914"/>
+													</CustomState>
+													<CustomState>
+														<StateRef Name="P6_AChoice" ID="{300F983C-BC50-4E36-BF53-75418BDAB6CF}"/>
+														<State Name="" ID="{799C8553-472C-4460-871E-B1E9961BCFDA}" ShortID="81419574"/>
+													</CustomState>
+												</CustomStateList>
+											</StateInfo>
 											<ActiveSourceList>
 												<ActiveSource Name="rainthunder1" ID="{95CBD9FA-ED05-4DDE-A573-258D334E99F6}" Platform="Linked"/>
 											</ActiveSourceList>
@@ -3955,7 +4377,7 @@ Air currents change during the hours of the day and foliage changes during  the 
 												<Property Name="OverrideEffect" Type="bool" Value="True"/>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-13</Value>
+														<Value>-12</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -4359,6 +4781,13 @@ Air currents change during the hours of the day and foliage changes during  the 
 										</GroupingBehaviorList>
 										<GroupingList>
 											<Grouping>
+												<SwitchRef Name="P3_ConstructionScenery" ID="{D01D8749-D570-4885-88A1-4E868784E367}"/>
+												<ItemList>
+													<ItemRef Name="Thunder" ID="{839BB1E0-D8B4-45E8-A53E-A9351CA19E36}"/>
+													<ItemRef Name="Rain + Thunder" ID="{725D32BB-F7D6-4C22-8E12-9C6FD38E5E34}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
 												<SwitchRef Name="P5_CorePuzzle" ID="{C972704B-6D26-49FC-8229-7838BCD59F79}"/>
 												<ItemList>
 													<ItemRef Name="Tower Hum" ID="{91EAB744-37A2-4F64-80FB-B19BF7AB5AFC}"/>
@@ -4383,242 +4812,25 @@ Air currents change during the hours of the day and foliage changes during  the 
 												</ItemList>
 											</Grouping>
 											<Grouping>
-												<SwitchRef Name="P3_ConstructionStorm" ID="{0D1A02F3-9577-4504-8C6C-58D99D7925E6}"/>
-												<ItemList>
-													<ItemRef Name="Rain + Thunder" ID="{725D32BB-F7D6-4C22-8E12-9C6FD38E5E34}"/>
-													<ItemRef Name="Thunder" ID="{839BB1E0-D8B4-45E8-A53E-A9351CA19E36}"/>
-												</ItemList>
-											</Grouping>
-											<Grouping>
 												<SwitchRef Name="P4_Clouds" ID="{B92ABBFE-ED7C-4AE0-A739-CF81428935A0}"/>
 												<ItemList>
 													<ItemRef Name="Thunder Muted" ID="{8D659920-36BB-4E5F-8B14-84EB97B46B25}"/>
+													<ItemRef Name="Rain + Thunder" ID="{725D32BB-F7D6-4C22-8E12-9C6FD38E5E34}"/>
 												</ItemList>
 											</Grouping>
 										</GroupingList>
 									</GroupingInfo>
 								</SwitchContainer>
-								<ActorMixer Name="Gate Chirps" ID="{F6719110-DB63-46D3-B63C-CF12FCD442BF}" ShortID="81215186">
-									<PropertyList>
-										<Property Name="OverridePositioning" Type="bool" Value="True"/>
-										<Property Name="UseGameAuxSends" Type="bool" Value="True"/>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-22</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Attenuation">
-											<ObjectRef Name="Main_Attentuation" ID="{7AFFEEA2-FEA6-4C5E-9350-4292CD58F98F}" WorkUnitID="{69E5E085-C55B-46C1-B440-1CB36DA8E2EE}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<RandomSequenceContainer Name="1-4" ID="{B287BD13-C8A3-4B24-A04E-9CA769335334}" ShortID="612181225">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<Sound Name="GateNote1" ID="{775ED3AD-E004-43FF-9447-7379D8CF98B0}" ShortID="832573579">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="GateNote1" ID="{1C714B22-AC94-41A8-A565-3FCD4E4C41E4}" ShortID="678427897">
-															<Language>SFX</Language>
-															<AudioFile>GateNote1.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="GateNote1" ID="{1C714B22-AC94-41A8-A565-3FCD4E4C41E4}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="GateNote2" ID="{1F72CF85-F258-4E58-AC39-3978FC457382}" ShortID="589535542">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="GateNote2" ID="{74E252A8-F5B5-4162-94B6-C78F7360AEB5}" ShortID="844136400">
-															<Language>SFX</Language>
-															<AudioFile>GateNote2.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="GateNote2" ID="{74E252A8-F5B5-4162-94B6-C78F7360AEB5}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="GateNote3" ID="{5DA2AEA3-2A0C-41DF-8264-B744DE828830}" ShortID="420077195">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="GateNote3" ID="{D0C48955-F1D2-4F56-8B4B-F304AC6A7824}" ShortID="417930804">
-															<Language>SFX</Language>
-															<AudioFile>GateNote3.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="GateNote3" ID="{D0C48955-F1D2-4F56-8B4B-F304AC6A7824}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="GateNote4" ID="{644823A2-A357-4BDA-90A8-94BE2AE3C4F9}" ShortID="755331342">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="GateNote4" ID="{085228C2-FF05-4AC9-9669-715AEA565DCA}" ShortID="368875471">
-															<Language>SFX</Language>
-															<AudioFile>GateNote4.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="GateNote4" ID="{085228C2-FF05-4AC9-9669-715AEA565DCA}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-											</ChildrenList>
-										</RandomSequenceContainer>
-										<RandomSequenceContainer Name="5-8" ID="{6D49FB09-62BE-4D78-9F13-F66D82803597}" ShortID="255575576">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<Sound Name="GateNote5" ID="{9DCE43E7-9B7B-4835-956C-F2AA80B38D69}" ShortID="1042048634">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="GateNote5" ID="{054545AC-0205-4DD0-984F-55174958E2DC}" ShortID="301099333">
-															<Language>SFX</Language>
-															<AudioFile>GateNote5.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="GateNote5" ID="{054545AC-0205-4DD0-984F-55174958E2DC}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="GateNote6" ID="{2ADC78DB-87F8-4810-BD23-17F1BC6D5F55}" ShortID="13301537">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="GateNote6" ID="{5F18570A-F66E-421C-9AA4-C6E086DFF6C2}" ShortID="784459795">
-															<Language>SFX</Language>
-															<AudioFile>GateNote6.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="GateNote6" ID="{5F18570A-F66E-421C-9AA4-C6E086DFF6C2}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="GateNote7" ID="{669727D7-9B83-4FDA-A64D-FFFA495BB62E}" ShortID="694036527">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="GateNote7" ID="{8171C5F2-47ED-4504-9B25-8010290F9877}" ShortID="761689356">
-															<Language>SFX</Language>
-															<AudioFile>GateNote7.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="GateNote7" ID="{8171C5F2-47ED-4504-9B25-8010290F9877}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="GateNote8" ID="{D95DD81C-2A2B-486B-B868-2139D552D7EE}" ShortID="460404025">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="GateNote8" ID="{2F711A9F-7D7E-4998-BEFC-4E871A4038C8}" ShortID="132139423">
-															<Language>SFX</Language>
-															<AudioFile>GateNote8.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="GateNote8" ID="{2F711A9F-7D7E-4998-BEFC-4E871A4038C8}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-											</ChildrenList>
-										</RandomSequenceContainer>
-										<Sound Name="GateNoteFInish" ID="{880886E0-F06C-4D47-B717-F36A02874F46}" ShortID="53132536">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="GateNoteFInish" ID="{14FC9240-2C29-407B-9539-F026289D9783}" ShortID="583504070">
-													<Language>SFX</Language>
-													<AudioFile>GateNoteFInish.wav</AudioFile>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="GateNoteFInish" ID="{14FC9240-2C29-407B-9539-F026289D9783}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-									</ChildrenList>
-								</ActorMixer>
 							</ChildrenList>
 						</ActorMixer>
 						<ActorMixer Name="Drone" ID="{39D8015F-EC58-42E7-BADD-4FB4A7EBD0B6}" ShortID="906729134">
 							<PropertyList>
 								<Property Name="OverrideOutput" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-9</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -4822,11 +5034,6 @@ Air currents change during the hours of the day and foliage changes during  the 
 										<Sound Name="Drone Start" ID="{64871119-AE60-40A1-8A71-738B982D67E0}" ShortID="429583468">
 											<PropertyList>
 												<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-												<Property Name="Volume" Type="Real64">
-													<ValueList>
-														<Value>-5</Value>
-													</ValueList>
-												</Property>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -5160,11 +5367,6 @@ Air currents change during the hours of the day and foliage changes during  the 
 												</ModifierInfo>
 											</ModifierList>
 										</Property>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-3</Value>
-											</ValueList>
-										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -5190,13 +5392,6 @@ Air currents change during the hours of the day and foliage changes during  the 
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="exit menu" ID="{43E7B51C-C2B2-4AD3-A0F1-AFF1EC56E35A}" ShortID="469313715">
-									<PropertyList>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-7</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
@@ -5220,11 +5415,6 @@ Air currents change during the hours of the day and foliage changes during  the 
 										<Property Name="Pitch" Type="int32">
 											<ValueList>
 												<Value>-300</Value>
-											</ValueList>
-										</Property>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-4</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>

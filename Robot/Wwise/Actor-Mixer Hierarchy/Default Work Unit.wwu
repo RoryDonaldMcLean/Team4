@@ -95,7 +95,6 @@
 												<Value>3</Value>
 											</ValueList>
 										</Property>
-										<Property Name="OverrideEffect" Type="bool" Value="True"/>
 										<Property Name="OverridePositioning" Type="bool" Value="True"/>
 										<Property Name="PositioningType" Type="int16" Value="1"/>
 										<Property Name="UseMaxSoundPerInstance" Type="bool">
@@ -118,6 +117,9 @@
 										</Reference>
 										<Reference Name="DefaultSwitchOrState">
 											<ObjectRef Name="Player_1" ID="{6E833DCC-3FA9-4C0A-8558-F454CDA5F3DB}" WorkUnitID="{58100D4C-AF7E-4F01-9581-C8921E80B431}"/>
+										</Reference>
+										<Reference Name="Effect0" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+											<ObjectRef Name="New_Wwise_Parametric_EQ_13" ID="{D669D94D-F8EC-43DC-A5CC-57109E623E6C}" WorkUnitID="{DB5ADB83-997D-43F7-B226-D357913135AD}"/>
 										</Reference>
 										<Reference Name="OutputBus">
 											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
@@ -243,6 +245,11 @@
 												<RandomSequenceContainer Name="Sad" ID="{91CA8C38-8AD6-48A0-BA57-FD1CA4A35107}" ShortID="126755793">
 													<PropertyList>
 														<Property Name="OverrideEffect" Type="bool" Value="True"/>
+														<Property Name="Volume" Type="Real64">
+															<ValueList>
+																<Value>-7</Value>
+															</ValueList>
+														</Property>
 													</PropertyList>
 													<ReferenceList>
 														<Reference Name="Conversion">
@@ -334,6 +341,11 @@
 												<RandomSequenceContainer Name="Here" ID="{482B85C6-325A-419C-9BC0-62D575A68435}" ShortID="964653455">
 													<PropertyList>
 														<Property Name="OverrideEffect" Type="bool" Value="True"/>
+														<Property Name="Volume" Type="Real64">
+															<ValueList>
+																<Value>-7</Value>
+															</ValueList>
+														</Property>
 													</PropertyList>
 													<ReferenceList>
 														<Reference Name="Conversion">
@@ -387,6 +399,11 @@
 												<RandomSequenceContainer Name="There" ID="{DE0C737F-4FD2-4171-8A2C-05944BAF965E}" ShortID="801795655">
 													<PropertyList>
 														<Property Name="OverrideEffect" Type="bool" Value="True"/>
+														<Property Name="Volume" Type="Real64">
+															<ValueList>
+																<Value>-7</Value>
+															</ValueList>
+														</Property>
 													</PropertyList>
 													<ReferenceList>
 														<Reference Name="Conversion">
@@ -482,6 +499,13 @@
 											</GroupingInfo>
 										</SwitchContainer>
 										<SwitchContainer Name="Type_P2" ID="{54076BB4-4DBF-4E0B-B7A3-45A6236B551D}" ShortID="790627824">
+											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<ValueList>
+														<Value>-680</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
@@ -597,6 +621,11 @@
 												<RandomSequenceContainer Name="Sad" ID="{591B038A-8DFE-406D-8ACB-2314BC195A57}" ShortID="1018665644">
 													<PropertyList>
 														<Property Name="OverrideEffect" Type="bool" Value="True"/>
+														<Property Name="Volume" Type="Real64">
+															<ValueList>
+																<Value>-7</Value>
+															</ValueList>
+														</Property>
 													</PropertyList>
 													<ReferenceList>
 														<Reference Name="Conversion">
@@ -700,6 +729,11 @@
 												<RandomSequenceContainer Name="There" ID="{2C7E9EB0-3AC9-4A30-9783-7323610C7DBD}" ShortID="553087097">
 													<PropertyList>
 														<Property Name="OverrideEffect" Type="bool" Value="True"/>
+														<Property Name="Volume" Type="Real64">
+															<ValueList>
+																<Value>-7</Value>
+															</ValueList>
+														</Property>
 													</PropertyList>
 													<ReferenceList>
 														<Reference Name="Conversion">
@@ -759,6 +793,11 @@
 												<RandomSequenceContainer Name="Here" ID="{86BBB343-F194-47E6-9C91-AEF949DE54A0}" ShortID="949855925">
 													<PropertyList>
 														<Property Name="OverrideEffect" Type="bool" Value="True"/>
+														<Property Name="Volume" Type="Real64">
+															<ValueList>
+																<Value>-7</Value>
+															</ValueList>
+														</Property>
 													</PropertyList>
 													<ReferenceList>
 														<Reference Name="Conversion">

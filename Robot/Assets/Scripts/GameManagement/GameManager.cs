@@ -23,7 +23,6 @@ public class GameManager : MonoBehaviour
     //public PlayerSetting playerSetting = new PlayerSetting();
     public PlayerSetting playerSetting;
     public WhichAndroid whichAndroid;
-    public string LevelToGo;
 
     void Awake()
     {

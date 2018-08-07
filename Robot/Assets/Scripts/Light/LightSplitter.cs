@@ -25,7 +25,7 @@ public class LightSplitter : MonoBehaviour
     //from being processed while the system is operating. 
     public void OnEnter(Collider lightBeam)
     {
-        if ((!lightBeam.transform.IsChildOf(this.transform)) && (lightBeam.gameObject.layer != LayerMask.NameToLayer("BeamLayer"))&&(!active))
+        if (!lightBeam.transform.IsChildOf(this.transform) && (!active))
         {
             active = true;
             connectedObject = lightBeam.transform.parent.parent;

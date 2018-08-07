@@ -31,11 +31,11 @@ public class PuzzleOnBoardingProcess : LevelControlBaseClass
     //directly is going to work all the time.
     private void AddMovement(string playerTag)
     {
-        GameObject.FindGameObjectWithTag(playerTag).AddComponent<InControlMovement>();
+        GameObject.FindGameObjectWithTag(playerTag).GetComponent<InControlMovement>().enabled = true;
     }
 
     private void DestroyMovement(string playerTag)
     {
-        Destroy(GameObject.FindGameObjectWithTag(playerTag).GetComponent<InControlMovement>());
+        GameObject.FindGameObjectWithTag(playerTag).GetComponent<InControlMovement>().enabled = false; 
     }
 }

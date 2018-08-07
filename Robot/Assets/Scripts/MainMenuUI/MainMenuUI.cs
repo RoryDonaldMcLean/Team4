@@ -28,7 +28,6 @@ public class MainMenuUI : MonoBehaviour
         }
         //Debug.Log(GameManager.Instance.playerSetting.currentButton[11]);
         GameManager.Instance.playerSetting = SaveNLoad.Load();
-        GameManager.Instance.LevelToGo = "SceneOne";
 
         foreach (Button btn in this.GetComponentsInChildren<Button>(true))
         {

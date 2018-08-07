@@ -8,25 +8,30 @@ public class InControlMovement : MonoBehaviour
 {
     //is there 2 players in the game. if so use different controls for player 1 and 2 
     //but allows it all to be in 1 script
+    #region public variable
     public bool isBlue = false;
     public int playerNum;
-    public bool grounded = true;
-    public bool doubleJump = false;
+    public float jumpSpeed = 3.3f;
+    public float turnSpeed = 1.0f;
+    public float gravityAcceleration = -10.0f;
+    #endregion
 
+    #region private variable
     private Vector3 velocity = new Vector3(0.0f, 0.0f, 0.0f);
     private Rigidbody rb1;
-    private float jumpSpeed = 5.0f;
-    private float dropdownSpeed = 5.0f;
+
+    private bool grounded = true;
+    private bool doubleJump = false;
     private float playerSpeed = 6;
 
     private Animator anim;
-    public float turnSpeed = 1.0f;
-	Vector2 input;
-	float currentAngle;
-	Vector3 EulerAngleVelocity;
-	Transform cam;
-	Quaternion targetRotation;
 
+    private Vector2 input;
+    private float currentAngle;
+    private Vector3 EulerAngleVelocity;
+    private Transform cam;
+    private Quaternion targetRotation;
+    #endregion
     // Use this for initialization
     void Start()
     {
@@ -155,13 +160,13 @@ public class InControlMovement : MonoBehaviour
         velocity.x = 0.0f;
         if (!grounded)
         {
-            if (velocity.y >= -1.01f)
+            if (velocity.y >= -jumpSpeed)
             {
-                velocity.y += Physics.gravity.y * Time.deltaTime * dropdownSpeed;
+                velocity.y += Time.deltaTime * gravityAcceleration;
             }
             else
             {
-                velocity.y = -1.01f;
+                velocity.y = -jumpSpeed;
             }
         }
     }
@@ -212,7 +217,6 @@ public class InControlMovement : MonoBehaviour
 
 			//move left
 			if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[1]))
-
 			{
 				velocity.x -= 1.0f;
                 anim.SetBool("IsMoving", true);
@@ -303,13 +307,13 @@ public class InControlMovement : MonoBehaviour
 		velocity.x = 0.0f;
 		if (!grounded)
 		{
-			if (velocity.y >= -1.01f)
+			if (velocity.y >= -jumpSpeed)
 			{
-				velocity.y += Physics.gravity.y * Time.deltaTime * dropdownSpeed;
+				velocity.y += Time.deltaTime * gravityAcceleration;
 			}
 			else
 			{
-				velocity.y = -1.01f;
+				velocity.y = -jumpSpeed;
 			}
 		}
 	}

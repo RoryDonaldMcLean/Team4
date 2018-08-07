@@ -525,7 +525,7 @@ public class SCR_TradeLimb : MonoBehaviour
             //player2 left leg
             if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[19]))
             {
-                if (limbs[1].activeSelf && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[2].activeSelf)
+                if (limbs[1].activeSelf && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[1].activeSelf)
                 {
                     LimFly("LeftLeg", otherPlayerTag);
                     RemoveLimb("LeftLeg");
@@ -562,7 +562,7 @@ public class SCR_TradeLimb : MonoBehaviour
 		//player right arm
 		if(inputDevice.RightStickY < -0.5f)
 		{
-			if (limbs[2].activeSelf && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[1].activeSelf)
+			if (limbs[2].activeSelf && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[2].activeSelf)
 			{
 				LimFly("RightArm", otherPlayerTag);
 				RemoveLimb("RightArm");
@@ -572,7 +572,7 @@ public class SCR_TradeLimb : MonoBehaviour
 		//player1 left leg
 		if(inputDevice.RightStickX < -0.5f)
 		{
-			if (limbs[1].activeSelf && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[2].activeSelf)
+			if (limbs[1].activeSelf && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[1].activeSelf)
 			{
 				//find the other player
 				LimFly("LeftLeg", otherPlayerTag);

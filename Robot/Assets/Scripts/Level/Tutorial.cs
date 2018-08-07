@@ -24,6 +24,7 @@ public class Tutorial : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
+		playerNum = this.GetComponentInParent<InControlMovement> ().playerNum;
 		keyboardButtonPlayer1 = GameObject.FindGameObjectWithTag ("KeyBoardPlayer1");
 		KeyboardButtonPlayer2 = GameObject.FindGameObjectWithTag ("KeyBoardPlayer2");
 

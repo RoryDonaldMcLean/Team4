@@ -35,11 +35,9 @@ public class TimelinePlaybackManager : MonoBehaviour
 
     [Header("Player 1 Settings")]
     public string playerTag = "Player1";
-    private GameObject playerObject;
 
     [Header("Player 2 Settings")]
     public string player2Tag = "Player2";
-    private GameObject playerObject2;
 
     [Header("Switch")]
     public bool Switch = false;
@@ -55,59 +53,25 @@ public class TimelinePlaybackManager : MonoBehaviour
     public string LimbToLose1 = "";
     public string LimbToLose2 = "";
 
-    private bool playerInZone = false;
-    private bool timelinePlaying = false;
     private float timelineDuration;
     private GameObject target;
 
     void Start()
     {
-        //Finds the player objects
-        playerObject = GameObject.FindWithTag(playerTag);
-        playerObject2 = GameObject.FindWithTag(player2Tag);
         target = GameObject.FindGameObjectWithTag("SwitchObject");
     }
 
     public void PlayerEnteredZone()
     {
-        //Checks if the players in the set zone
-        playerInZone = true;
     }
 
     public void PlayerExitedZone()
     {
-        //If he is not
-        playerInZone = false;
 
 
     }
 
-    void Update()
-    {
-        
-        //If his in the zone and the timelines off
-        /*if (playerInZone && !timelinePlaying)
-        {
-            //Checks the buttons
-			var activateTimelineInput = Input.GetKey(GameManager.Instance.playerSetting.currentButton [9]);
-			var activateTimelineInput2 = Input.GetKey(GameManager.Instance.playerSetting.currentButton [22]);
-
-
-            //If one player
-           	if (both == false)
-            { 
-                //If the interact key is hit then you play the timeline
-				if (activateTimelineInput || activateTimelineInput2)
-                {
-					Debug.Log ("the fuck is this script 2");
-                    PlayTimeline();
-                }
-                
-            }
-
-
-        }*/
-    }
+   
 
     public void PlayTimeline()
     {
@@ -116,15 +80,11 @@ public class TimelinePlaybackManager : MonoBehaviour
 			//Debug.Log ("or here?");
             //Plays the directer you set
             playableDirector.Play();
-
         }
-		//Debug.Log ("FUCKYOU!");
 
         //Sets the zone you just used to false
         triggerZoneObject.SetActive(false);
 
-        //Plays the timeline
-        timelinePlaying = true;
 
         //Starts the timer
         StartCoroutine(WaitForTimelineToFinish());
@@ -146,17 +106,14 @@ public class TimelinePlaybackManager : MonoBehaviour
         if (!playTimelineOnlyOnce)
         {
             triggerZoneObject.SetActive(true);
+			Debug.Log ("hello");
         }
-        else if (playTimelineOnlyOnce)
-        {
-            playerInZone = false;
-        }
-
-        timelinePlaying = false;
+       
 
         if (Switch == true)
         {
             target.SetActive(false);
+			Debug.Log ("goodbye");
         }
 
 

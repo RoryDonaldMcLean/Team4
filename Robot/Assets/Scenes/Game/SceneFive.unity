@@ -1347,6 +1347,10 @@ Prefab:
       propertyPath: colourToAllow.g
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1562722993330306, guid: b709b8560d448bd4e813dac9c2a9244d, type: 2}
+      propertyPath: m_TagString
+      value: SwitchObject
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b709b8560d448bd4e813dac9c2a9244d, type: 2}
   m_IsPrefabParent: 0
@@ -4873,22 +4877,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playableDirector: {fileID: 745051252}
-  playTimelineOnlyOnce: 1
-  disablePlayerInput: 0
-  both: 0
-  setPlayerTimelinePosition: 0
-  playerTimelinePosition: {fileID: 0}
   triggerZoneObject: {fileID: 2094869750}
-  displayUI: 0
-  interactDisplay: {fileID: 0}
-  playerTag: Player1
-  player2Tag: Player2
   Switch: 0
-  LoseLimb: 0
-  Player1: 0
-  Player2: 0
-  LimbToLose1: 
-  LimbToLose2: 
 --- !u!320 &745051252
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -13455,10 +13445,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timelinePlaybackManager: {fileID: 745051251}
-  playerString: Crate
-  playerString2: Crate2
   Switch: 1
-  Exit: 0
 --- !u!65 &2094869753
 BoxCollider:
   m_ObjectHideFlags: 0

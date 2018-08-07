@@ -431,8 +431,7 @@ public class SCR_TradeLimb : MonoBehaviour
 				}
 			}
 		}
-
-		if (playerNum == 1)
+		else if (playerNum == 1)
 		{
 			if(inputDevice.LeftBumper.IsPressed)
 			{
@@ -458,48 +457,30 @@ public class SCR_TradeLimb : MonoBehaviour
 
     private void SpecificLimbExchange()
     {
-        GameObject targetPlayer = GameObject.FindGameObjectWithTag(otherPlayerTag);
+		string LimbName = null;
+
         //this is what would change which limb you exchange
         //player 1 left arm
         if (isBlue == GameManager.Instance.whichAndroid.player1ControlBlue)
         {
             if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[4]))
             {
-
-                if (limbs[0].activeSelf && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[0].activeSelf)
-                {
-                    //find the other player
-                    LimFly("LeftArm", otherPlayerTag);
-                    RemoveLimb("LeftArm");
-                }
+				LimbName = "LeftArm";
             }
             //player1 right arm
             if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[5]))
             {
-                if (limbs[2].activeSelf && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[2].activeSelf)
-                {
-                    LimFly("RightArm", otherPlayerTag);
-                    RemoveLimb("RightArm");
-                }
+				LimbName = "RightArm";
             }
             //player1 left leg
             if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[6]))
             {
-                if (limbs[1].activeSelf && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[1].activeSelf)
-                {
-                    //find the other player
-                    LimFly("LeftLeg", otherPlayerTag);
-                    RemoveLimb("LeftLeg");
-                }
+				LimbName = "LeftLeg";
             }
             //player 1 right leg
             if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[7]))
             {
-                if (limbs[3].activeSelf && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[3].activeSelf)
-                {
-                    LimFly("RightLeg", otherPlayerTag);
-                    RemoveLimb("RightLeg");
-                }
+				LimbName = "RightLeg";
             }
         }
         else
@@ -507,88 +488,68 @@ public class SCR_TradeLimb : MonoBehaviour
             //player2 left arm
             if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[17]))
             {
-                if (limbs[0].activeSelf && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[0].activeSelf)
-                {
-                    LimFly("LeftArm", otherPlayerTag);
-                    RemoveLimb("LeftArm");
-                }
+				LimbName = "LeftArm";
             }
             //player2 right arm
             if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[18]))
             {
-                if (limbs[2].activeSelf && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[2].activeSelf)
-                {
-                    LimFly("RightArm", otherPlayerTag);
-                    RemoveLimb("RightArm");
-                }
+				LimbName = "RightArm";
             }  
             //player2 left leg
             if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[19]))
             {
-                if (limbs[1].activeSelf && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[1].activeSelf)
-                {
-                    LimFly("LeftLeg", otherPlayerTag);
-                    RemoveLimb("LeftLeg");
-                }
+				LimbName = "LeftLeg";
             }
             //player2 right leg
             if (Input.GetKey(GameManager.Instance.playerSetting.currentButton[20]))
             {
-                if (limbs[3].activeSelf && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[3].activeSelf)
-                {
-                    LimFly("RightLeg", otherPlayerTag);
-                    RemoveLimb("RightLeg");
-                }
+				LimbName = "RightLeg";
             }
         }
+
+		if (LimbName != null)
+			CheckOtherPlayerLimb (ref LimbName);
     }
 
 	void SpecificLimbExchangeIncontrol(InputDevice inputDevice)
 	{
-		GameObject targetPlayer = GameObject.FindGameObjectWithTag(otherPlayerTag);
+		string limbName = null;
 
 		//player  left arm
 		if(inputDevice.RightStickY > 0.5f)
 		{
-			if (limbs[0].activeSelf && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[0].activeSelf)
-			{
-				//find the other player
-				LimFly("LeftArm", otherPlayerTag);
-				RemoveLimb("LeftArm");
-			}
+			limbName = "LeftArm";
 		}
-
-
 		//player right arm
-		if(inputDevice.RightStickY < -0.5f)
+		else if(inputDevice.RightStickY < -0.5f)
 		{
-			if (limbs[2].activeSelf && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[2].activeSelf)
-			{
-				LimFly("RightArm", otherPlayerTag);
-				RemoveLimb("RightArm");
-			}
+			limbName = "RightArm";
 		}
 
 		//player1 left leg
 		if(inputDevice.RightStickX < -0.5f)
 		{
-			if (limbs[1].activeSelf && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[1].activeSelf)
-			{
-				//find the other player
-				LimFly("LeftLeg", otherPlayerTag);
-				RemoveLimb("LeftLeg");
-			}
+			limbName = "LeftLeg";
+		}
+		//player right leg
+		else if(inputDevice.RightStickX > 0.5f)
+		{
+			limbName = "RightLeg";
 		}
 
-		//player right leg
-		if(inputDevice.RightStickX > 0.5f)
+		if(limbName != null) CheckOtherPlayerLimb(ref limbName);
+	}
+
+	private void CheckOtherPlayerLimb(ref string limbName)
+	{
+		int limbNumber = LimbNumber(limbName);
+		GameObject targetPlayer = GameObject.FindGameObjectWithTag(otherPlayerTag);
+		if (limbs[limbNumber].activeSelf && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[limbNumber].activeSelf)
 		{
-			if (limbs[3].activeSelf && !targetPlayer.GetComponent<SCR_TradeLimb>().limbs[3].activeSelf)
-			{
-				LimFly("RightLeg", otherPlayerTag);
-				RemoveLimb("RightLeg");
-			}
-		}	
+			//find the other player
+			LimFly(limbName, otherPlayerTag);
+			RemoveLimb(limbName);
+		}
 	}
 
     private int LimbNumber(string newLimbName)

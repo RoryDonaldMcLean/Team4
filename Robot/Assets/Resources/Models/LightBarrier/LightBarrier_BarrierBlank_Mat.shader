@@ -5,19 +5,18 @@
 
 Shader "Shader Forge/LightBarrier_BarrierBlank_Mat" {
     Properties {
-        _Color ("Color", Color) = (1,1,1,1)
+        _Color ("Color", Color) = (1,1,1,0.5)
     }
     SubShader {
         Tags {
-            "RenderType"="Opaque"
+            "RenderType"="Transparent"
         }
         Pass {
             Name "FORWARD"
             Tags {
                 "LightMode"="ForwardBase"
             }
-            Cull Off
-            
+            Cull Off            
             
             CGPROGRAM
             #pragma vertex vert
@@ -74,6 +73,7 @@ Shader "Shader Forge/LightBarrier_BarrierBlank_Mat" {
                 float3 finalColor = diffuse;
                 fixed4 finalRGBA = fixed4(finalColor,1);
                 UNITY_APPLY_FOG(i.fogCoord, finalRGBA);
+				finalRGBA.a = 0.5;
                 return finalRGBA;
             }
             ENDCG
@@ -140,6 +140,7 @@ Shader "Shader Forge/LightBarrier_BarrierBlank_Mat" {
                 float3 finalColor = diffuse;
                 fixed4 finalRGBA = fixed4(finalColor * 1,0);
                 UNITY_APPLY_FOG(i.fogCoord, finalRGBA);
+				finalRGBA.a = 0.5;
                 return finalRGBA;
             }
             ENDCG
@@ -183,5 +184,5 @@ Shader "Shader Forge/LightBarrier_BarrierBlank_Mat" {
         }
     }
     FallBack "Diffuse"
-    CustomEditor "ShaderForgeMaterialInspector"
+   // CustomEditor "ShaderForgeMaterialInspector"
 }

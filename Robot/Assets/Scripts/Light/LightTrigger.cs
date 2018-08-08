@@ -18,11 +18,11 @@ public class LightTrigger : MonoBehaviour
     }
 
     //Upon a collison being detected with a Lightbeam 
-    void OnTriggerEnter(Collider lightbeam)
+    void OnTriggerEnter(Collider lightBeam)
     {
-        if(!lightbeam.name.Contains("pickup"))
+        if (lightBeam.gameObject.layer != LayerMask.NameToLayer("BeamLayer"))
         {
-            LineRenderer line = lightbeam.GetComponentInParent<LineRenderer>();
+            LineRenderer line = lightBeam.GetComponentInParent<LineRenderer>();
 
             //Checks to see if the predefined colour that is required to open this door, matches the lightbeams colour.
             if (CheckBeamColour(line.startColor))
@@ -49,11 +49,11 @@ public class LightTrigger : MonoBehaviour
         }
     }
 
-    void OnTriggerExit(Collider lightbeam)
+    void OnTriggerExit(Collider lightBeam)
     {
-        if (!lightbeam.name.Contains("pickup"))
+        if (lightBeam.gameObject.layer != LayerMask.NameToLayer("BeamLayer"))
         {
-            LineRenderer line = lightbeam.GetComponentInParent<LineRenderer>();
+            LineRenderer line = lightBeam.GetComponentInParent<LineRenderer>();
             if (CheckBeamColour(line.startColor))
             {
                 IncorrectColour();

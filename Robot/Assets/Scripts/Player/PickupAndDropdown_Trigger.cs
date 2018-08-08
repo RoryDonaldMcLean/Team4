@@ -13,8 +13,6 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
     //private float alpha; //float For lerp
 
     private GameObject pickupLocation; //picking location
-    
-    private float offset;
     #endregion
 
     #region public variable
@@ -92,23 +90,31 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
     {   
         if ((!holding) && (triggerList.Count > 0))
         {
-            foreach (GameObject go in triggerList)
+            for(int i = 0; i < triggerList.Count; i++)
             {
-                if (go.tag != "Untagged")
+                if (triggerList[i] == null)
+                {
+                    triggerList.RemoveAt(i);
+                }
+                else if (triggerList[i].tag != "Untagged")
                 {
                     //outline post process enable or activate
-                    go.GetComponent<MeshRenderer>().material.SetFloat("_PickUpDetected", 1);
+                    triggerList[i].GetComponent<MeshRenderer>().material.SetFloat("_PickUpDetected", 1);
                 }
             }
         }
         else if(holding)
         {
-            foreach (GameObject go in triggerList)
+            for (int i = 0; i < triggerList.Count; i++)
             {
-                if (go.tag != "Untagged")
+                if (triggerList[i] == null)
                 {
-                    //cancle outline when pick up something
-                    go.GetComponent<MeshRenderer>().material.SetFloat("_PickUpDetected", 0);
+                    triggerList.RemoveAt(i);
+                }
+                else if (triggerList[i].tag != "Untagged")
+                {
+                    //outline post process enable or activate
+                    triggerList[i].GetComponent<MeshRenderer>().material.SetFloat("_PickUpDetected", 0);
                 }
             }
         }
@@ -275,7 +281,6 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
     public void LimitDrop()
     {
         pickedUpGameObject.transform.parent.GetComponent<SCR_Movable>().pickedUp = false;
-        offset = 0;
         PutDownObject();
         AkSoundEngine.PostEvent("Place_Crystal", gameObject);
 
@@ -285,7 +290,6 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
     public void RotateDrop()
     {
         pickedUpGameObject.transform.parent.GetComponent<SCR_Rotatable>().pickedUp = false;
-        offset = 0;
         PutDownObject();
 
         anim.SetBool("IsLifting", false);
@@ -308,7 +312,17 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
     private void PutDownObject()
     {
         holding = false; //set pick up bool
-        pickedUpGameObject.GetComponent<Transform>().position = new Vector3(pickedUpGameObject.GetComponent<Transform>().position.x, pickedUpGameObject.GetComponent<Transform>().position.y - offset, pickedUpGameObject.GetComponent<Transform>().position.z);
+        RaycastHit hit;
+        float y = int.MinValue;
+        if (Physics.Raycast(new Vector3(pickedUpGameObject.GetComponent<Transform>().position.x,
+            pickedUpGameObject.GetComponent<Transform>().position.y + 2, pickedUpGameObject.GetComponent<Transform>().position.z), -Vector3.up, out hit))
+        {
+            y = hit.point.y;
+        }
+
+        pickedUpGameObject.GetComponent<Transform>().position = new Vector3(pickedUpGameObject.GetComponent<Transform>().position.x, 
+            y, pickedUpGameObject.GetComponent<Transform>().position.z);
+
         pickedUpGameObject = null; //empty the pick up object
         Destroy(pickupLocation);
 
@@ -328,7 +342,7 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
         pickupLocation = Instantiate(Resources.Load("Prefabs/Light/PickLocation")) as GameObject;
         pickupLocation.transform.parent = this.transform.parent;
         pickupLocation.transform.localPosition = new Vector3(0, 1.5f /30.0f, 2.0f / 30.0f);
-        offset = pickupLocation.transform.position.y - objectBeingPickedUp.position.y;
+       
 
         float x = pickedUpGameObject.GetComponent<BoxCollider>().size.x / pickupLocation.transform.lossyScale.x;
         float y = pickedUpGameObject.GetComponent<BoxCollider>().size.y / pickupLocation.transform.lossyScale.y;
@@ -388,13 +402,13 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag != "Player1" && other.tag != "Player2" && other.tag != "Line")
+        if (other.tag != "Player1" && other.tag != "Player2" && other.tag != "Line" && other.tag != "EndBeam")
             triggerList.Add(other.gameObject);
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag != "Player1" && other.tag != "Player2" && other.tag != "Line")
+        if (other.tag != "Player1" && other.tag != "Player2" && other.tag != "Line" && other.tag != "EndBeam")
             triggerList.Remove(other.gameObject);
         if (other.tag != "Untagged")
         {

@@ -17,6 +17,7 @@ public class LevelControlBaseClass : MonoBehaviour
 
     protected string puzzleIdentifier;
     protected bool doorStateOpen = false;
+    protected Vector3 walkwayPosition = Vector3.zero;
     private bool lightShowFinished = false;
 
     void Start()
@@ -66,6 +67,7 @@ public class LevelControlBaseClass : MonoBehaviour
 
                 GameObject walkway = Instantiate(Resources.Load("Prefabs/PuzzleGenericItems/tempFloor")) as GameObject;
                 walkway.name = "tempFloor";
+                walkway.transform.position = walkwayPosition;
 
                 doors[0].SpawnWalkway = false;
                 doors[0].Correct = false;

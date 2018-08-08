@@ -92,23 +92,31 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
     {   
         if ((!holding) && (triggerList.Count > 0))
         {
-            foreach (GameObject go in triggerList)
+            for(int i = 0; i < triggerList.Count; i++)
             {
-                if (go.tag != "Untagged")
+                if (triggerList[i] == null)
+                {
+                    triggerList.RemoveAt(i);
+                }
+                else if (triggerList[i].tag != "Untagged")
                 {
                     //outline post process enable or activate
-                    go.GetComponent<MeshRenderer>().material.SetFloat("_PickUpDetected", 1);
+                    triggerList[i].GetComponent<MeshRenderer>().material.SetFloat("_PickUpDetected", 1);
                 }
             }
         }
         else if(holding)
         {
-            foreach (GameObject go in triggerList)
+            for (int i = 0; i < triggerList.Count; i++)
             {
-                if (go.tag != "Untagged")
+                if (triggerList[i] == null)
                 {
-                    //cancle outline when pick up something
-                    go.GetComponent<MeshRenderer>().material.SetFloat("_PickUpDetected", 0);
+                    triggerList.RemoveAt(i);
+                }
+                else if (triggerList[i].tag != "Untagged")
+                {
+                    //outline post process enable or activate
+                    triggerList[i].GetComponent<MeshRenderer>().material.SetFloat("_PickUpDetected", 0);
                 }
             }
         }
@@ -388,13 +396,13 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag != "Player1" && other.tag != "Player2" && other.tag != "Line")
+        if (other.tag != "Player1" && other.tag != "Player2" && other.tag != "Line" && other.tag != "EndBeam")
             triggerList.Add(other.gameObject);
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag != "Player1" && other.tag != "Player2" && other.tag != "Line")
+        if (other.tag != "Player1" && other.tag != "Player2" && other.tag != "Line" && other.tag != "EndBeam")
             triggerList.Remove(other.gameObject);
         if (other.tag != "Untagged")
         {

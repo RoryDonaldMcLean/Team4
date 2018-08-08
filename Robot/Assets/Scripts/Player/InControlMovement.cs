@@ -335,10 +335,11 @@ public class InControlMovement : MonoBehaviour
 
     void OnTriggerExit(Collider col)
     {
-        if ((col.gameObject.tag == "Ground") &&(rb1.velocity.y < 0))
+        if ((col.gameObject.tag == "Ground") && (rb1.velocity.y == 0))
         {
             grounded = false;
             doubleJump = true;
+            velocity.y = -jumpSpeed;
         }
     }
 

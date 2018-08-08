@@ -190,6 +190,7 @@ namespace AK
         static const AkUniqueID MASTER_SECONDARY_BUS = 805203703U;
         static const AkUniqueID MUSIC = 3991942870U;
         static const AkUniqueID OBJECTS = 1695690031U;
+        static const AkUniqueID REVERBS = 3545700988U;
         static const AkUniqueID ROBOTS = 2494382374U;
     } // namespace BUSSES
 

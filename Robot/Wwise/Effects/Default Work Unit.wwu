@@ -285,6 +285,36 @@
 						<Property Name="FrequencyBand2" Type="Real32" Value="548"/>
 					</PropertyList>
 				</Effect>
+				<Effect Name="New_Wwise_Parametric_EQ_14" ID="{10259F01-758D-4026-8425-E79CA5343945}" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+					<PropertyList>
+						<Property Name="FrequencyBand2" Type="Real32" Value="79"/>
+						<Property Name="GainBand2" Type="Real32" Value="10"/>
+					</PropertyList>
+				</Effect>
+				<Effect Name="New_Wwise_Time_Stretch" ID="{2AD577E0-C0AF-4A6A-9855-55900BE91131}" PluginName="Wwise Time Stretch" CompanyID="0" PluginID="130" PluginType="3">
+					<PropertyList>
+						<Property Name="TimeStretch" Type="Real32" Value="1600"/>
+						<Property Name="WindowSize" Type="int32" Value="3072"/>
+					</PropertyList>
+				</Effect>
+				<Effect Name="New_Wwise_Guitar_Distortion" ID="{A2644578-B95A-46EB-9AEE-BC0FC6872746}" PluginName="Wwise Guitar Distortion" CompanyID="0" PluginID="126" PluginType="3">
+					<PropertyList>
+						<Property Name="DistortionDrive" Type="Real32" Value="9"/>
+						<Property Name="DistortionType" Type="int32" Value="2"/>
+						<Property Name="PostEQBand1Enable" Type="bool" Value="True"/>
+						<Property Name="PostEQBand1Gain" Type="Real32" Value="0.5"/>
+						<Property Name="PostEQBand3Enable" Type="bool" Value="True"/>
+						<Property Name="PostEQBand3FilterType" Type="int32" Value="2"/>
+						<Property Name="PostEQBand3Gain" Type="Real32" Value="3.5"/>
+					</PropertyList>
+				</Effect>
+				<Effect Name="New_Wwise_Parametric_EQ_15" ID="{3EF5E5EA-46AE-4184-BE14-74733BF49D7E}" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+					<PropertyList>
+						<Property Name="FrequencyBand2" Type="Real32" Value="246"/>
+						<Property Name="GainBand2" Type="Real32" Value="14"/>
+						<Property Name="QFactorBand2" Type="Real32" Value="8.4"/>
+					</PropertyList>
+				</Effect>
 			</ChildrenList>
 		</WorkUnit>
 	</Effects>

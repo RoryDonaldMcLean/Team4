@@ -181,8 +181,8 @@ MonoBehaviour:
   autoPopulateEnabled: 1
   AuxBusWwu:
   - Guid: '{2653943A-432D-488E-9B26-028C9F2C6C6D}'
-    m_lastTimePart2: -1999242976
-    m_lastTimePsrt1: -1487231115
+    m_lastTimePart2: -1999241921
+    m_lastTimePsrt1: -769913919
     ParentPhysicalPath: 
     PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
     List:
@@ -279,8 +279,8 @@ MonoBehaviour:
   defaultPoolSize: 12288
   EventWwu:
   - Guid: '{9208E778-4B37-4421-9C2A-46AAA42FFE85}'
-    m_lastTimePart2: -1999242976
-    m_lastTimePsrt1: -1487526452
+    m_lastTimePart2: -1999241917
+    m_lastTimePsrt1: -1823433103
     ParentPhysicalPath: 
     PhysicalPath: Events\Default Work Unit.wwu
     List:
@@ -410,6 +410,20 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
+    - Guid: ab7046908b21a944a6dce6f9a0cba0ce
+      ID: 445985469
+      Name: Die
+      Path: Default Work Unit\Robots\Die
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Robots
+        ObjectType: 4
+      - ElementName: Die
+        ObjectType: 3
+      maxAttenuation: 80
+      maxDuration: 0
+      minDuration: 0
     - Guid: d9f85935dd9c8f45a0b4df8f19ae938c
       ID: -1904219145
       Name: DoorChirp
@@ -439,15 +453,29 @@ MonoBehaviour:
       maxDuration: 0
       minDuration: 0
     - Guid: fa4e48f5bfed294698eaf71c55ec26c1
-      ID: 1866025847
-      Name: Footstep
-      Path: Default Work Unit\Robots\Footstep
+      ID: -43753970
+      Name: FootstepP1
+      Path: Default Work Unit\Robots\FootstepP1
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
       - ElementName: Robots
         ObjectType: 4
-      - ElementName: Footstep
+      - ElementName: FootstepP1
+        ObjectType: 3
+      maxAttenuation: 80
+      maxDuration: 0
+      minDuration: 0
+    - Guid: 5a3c3065c081ca4389bd27334f44e859
+      ID: -43753971
+      Name: FootstepP2
+      Path: Default Work Unit\Robots\FootstepP2
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Robots
+        ObjectType: 4
+      - ElementName: FootstepP2
         ObjectType: 3
       maxAttenuation: 80
       maxDuration: 0
@@ -490,6 +518,20 @@ MonoBehaviour:
       - ElementName: Robots
         ObjectType: 4
       - ElementName: GateNoteFinish
+        ObjectType: 3
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - Guid: a6512b391c5a5944aca5b0f5654b6cfc
+      ID: 1874288895
+      Name: Idle
+      Path: Default Work Unit\Robots\Idle
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Robots
+        ObjectType: 4
+      - ElementName: Idle
         ObjectType: 3
       maxAttenuation: 0
       maxDuration: 0
@@ -736,7 +778,7 @@ MonoBehaviour:
   - /Androids
   - /Androids/Events
   - /Androids/Events/Default Work Unit
-  - /Androids/Events/Default Work Unit/UI
+  - /Androids/Events/Default Work Unit/Robots
   language: English(US)
   lowerPoolSize: 12288
   m_lastPopulateTimePart2: 0
@@ -745,8 +787,8 @@ MonoBehaviour:
   preparePoolSize: 0
   RtpcWwu:
   - Guid: '{6FAB8A0D-1E75-4FC9-8CF4-258F9AA56D77}'
-    m_lastTimePart2: -1999242976
-    m_lastTimePsrt1: -1487526452
+    m_lastTimePart2: -1999241917
+    m_lastTimePsrt1: 284554193
     ParentPhysicalPath: 
     PhysicalPath: Game Parameters\Default Work Unit.wwu
     List:
@@ -768,10 +810,19 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: LimbNumber
         ObjectType: 13
+    - Guid: 080f3b328903254bb6c148ec37cf8d8a
+      ID: -756080566
+      Name: Strain
+      Path: Default Work Unit\Strain
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Strain
+        ObjectType: 13
   StateWwu:
   - Guid: '{217B9AB9-B641-4200-BF39-9F61C2C8E9A4}'
-    m_lastTimePart2: -1999242976
-    m_lastTimePsrt1: -1475356778
+    m_lastTimePart2: -1999241921
+    m_lastTimePsrt1: -769253919
     ParentPhysicalPath: 
     PhysicalPath: States\Default Work Unit.wwu
     List:

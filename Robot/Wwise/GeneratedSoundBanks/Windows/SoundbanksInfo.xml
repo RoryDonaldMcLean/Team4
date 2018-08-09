@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="11" SoundbankVersion="128">
 	<RootPaths>
-		<ProjectRoot>D:\Github\Team4\Robot\Wwise\</ProjectRoot>
-		<SourceFilesRoot>D:\Github\Team4\Robot\Wwise\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>D:\Github\Team4\Robot\Wwise\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ProjectRoot>C:\Users\1405188\Downloads\GITHUB\Team4\Robot\Wwise\</ProjectRoot>
+		<SourceFilesRoot>C:\Users\1405188\Downloads\GITHUB\Team4\Robot\Wwise\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>C:\Users\1405188\Downloads\GITHUB\Team4\Robot\Wwise\GeneratedSoundBanks\Windows\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>D:\Github\Team4\Robot\Wwise\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>C:\Users\1405188\Downloads\GITHUB\Team4\Robot\Wwise\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
@@ -24,7 +24,8 @@
 				<Event Id="4167342225" Name="Arm_Detatch" ObjectPath="\Events\Default Work Unit\Robots\Arm_Detatch"/>
 				<Event Id="640811495" Name="Chains" ObjectPath="\Events\Default Work Unit\Emitters\Chains" MaxAttenuation="80.000000"/>
 				<Event Id="1854679430" Name="Chains_Light" ObjectPath="\Events\Default Work Unit\Emitters\Chains_Light" MaxAttenuation="80.000000"/>
-				<Event Id="167209695" Name="Chirp" ObjectPath="\Events\Default Work Unit\Robots\Chirp"/>
+				<Event Id="167209695" Name="Chirp" ObjectPath="\Events\Default Work Unit\Robots\Chirp" MaxAttenuation="80.000000"/>
+				<Event Id="2034861142" Name="ChirpCombine" ObjectPath="\Events\Default Work Unit\Robots\ChirpCombine"/>
 				<Event Id="445985469" Name="Die" ObjectPath="\Events\Default Work Unit\Robots\Die" MaxAttenuation="80.000000"/>
 				<Event Id="2390748151" Name="DoorChirp" ObjectPath="\Events\Default Work Unit\Robots\DoorChirp" MaxAttenuation="80.000000"/>
 				<Event Id="4251213326" Name="FootstepP1" ObjectPath="\Events\Default Work Unit\Robots\FootstepP1" MaxAttenuation="80.000000"/>
@@ -518,17 +519,13 @@
 			<ShortName>Music</ShortName>
 			<Path>Music.bnk</Path>
 			<IncludedEvents>
-				<Event Id="167209695" Name="Chirp" ObjectPath="\Events\Default Work Unit\Robots\Chirp"/>
+				<Event Id="2034861142" Name="ChirpCombine" ObjectPath="\Events\Default Work Unit\Robots\ChirpCombine"/>
 				<Event Id="4133193861" Name="LoseArm1" ObjectPath="\Events\Default Work Unit\Music\LoseArm1"/>
 				<Event Id="4133193862" Name="LoseArm2" ObjectPath="\Events\Default Work Unit\Music\LoseArm2"/>
 				<Event Id="4133193863" Name="LoseArm3" ObjectPath="\Events\Default Work Unit\Music\LoseArm3"/>
 				<Event Id="3725903807" Name="Music_Start" ObjectPath="\Events\Default Work Unit\Music\Music_Start"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
-				<File Id="3057744" Language="SFX">
-					<ShortName>Chirp3A.wav</ShortName>
-					<Path>SFX\Chirp3A_F42F5D95.wem</Path>
-				</File>
 				<File Id="43476826" Language="SFX">
 					<ShortName>Puzzle - Warehouse.wav</ShortName>
 					<Path>SFX\Puzzle - Warehouse_F17FB28C.wem</Path>
@@ -541,10 +538,6 @@
 					<ShortName>Chirp3Cs.wav</ShortName>
 					<Path>SFX\Chirp3Cs_F42F5D95.wem</Path>
 				</File>
-				<File Id="74694613" Language="SFX">
-					<ShortName>Chirp2A.wav</ShortName>
-					<Path>SFX\Chirp2A_F42F5D95.wem</Path>
-				</File>
 				<File Id="120303871" Language="SFX">
 					<ShortName>Puzzle 2 (Factory).wav</ShortName>
 					<Path>SFX\Puzzle 2 (Factory)_F17FB28C.wem</Path>
@@ -553,14 +546,6 @@
 					<ShortName>Sacrifice Full.wav</ShortName>
 					<Path>SFX\Sacrifice Full_F17FB28C.wem</Path>
 				</File>
-				<File Id="152806878" Language="SFX">
-					<ShortName>Chirp2Bs.wav</ShortName>
-					<Path>SFX\Chirp2Bs_F42F5D95.wem</Path>
-				</File>
-				<File Id="161124012" Language="SFX">
-					<ShortName>Chirp2B.wav</ShortName>
-					<Path>SFX\Chirp2B_F42F5D95.wem</Path>
-				</File>
 				<File Id="185807177" Language="SFX">
 					<ShortName>Chirp1Cs.wav</ShortName>
 					<Path>SFX\Chirp1Cs_F42F5D95.wem</Path>
@@ -568,10 +553,6 @@
 				<File Id="197572328" Language="SFX">
 					<ShortName>Percussion3.wav</ShortName>
 					<Path>SFX\Percussion3_F17FB28C.wem</Path>
-				</File>
-				<File Id="198605169" Language="SFX">
-					<ShortName>Chirp4Bs.wav</ShortName>
-					<Path>SFX\Chirp4Bs_F42F5D95.wem</Path>
 				</File>
 				<File Id="257705756" Language="SFX">
 					<ShortName>Clouds.wav</ShortName>
@@ -585,37 +566,13 @@
 					<ShortName>Chirp2Cs.wav</ShortName>
 					<Path>SFX\Chirp2Cs_F42F5D95.wem</Path>
 				</File>
-				<File Id="337598221" Language="SFX">
-					<ShortName>Chirp4As.wav</ShortName>
-					<Path>SFX\Chirp4As_F42F5D95.wem</Path>
-				</File>
-				<File Id="354130550" Language="SFX">
-					<ShortName>Chirp3B.wav</ShortName>
-					<Path>SFX\Chirp3B_F42F5D95.wem</Path>
-				</File>
-				<File Id="363046842" Language="SFX">
-					<ShortName>Chirp1Bs.wav</ShortName>
-					<Path>SFX\Chirp1Bs_F42F5D95.wem</Path>
-				</File>
 				<File Id="367105548" Language="SFX">
 					<ShortName>Atm_01_Strings.wav</ShortName>
 					<Path>SFX\Atm_01_Strings_F17FB28C.wem</Path>
 				</File>
-				<File Id="393536708" Language="SFX">
-					<ShortName>Chirp4B.wav</ShortName>
-					<Path>SFX\Chirp4B_F42F5D95.wem</Path>
-				</File>
 				<File Id="415638795" Language="SFX">
 					<ShortName>Sacrifice P1.wav</ShortName>
 					<Path>SFX\Sacrifice P1_F17FB28C.wem</Path>
-				</File>
-				<File Id="428733254" Language="SFX">
-					<ShortName>Chirp4A.wav</ShortName>
-					<Path>SFX\Chirp4A_F42F5D95.wem</Path>
-				</File>
-				<File Id="445668404" Language="SFX">
-					<ShortName>Chirp3Bs.wav</ShortName>
-					<Path>SFX\Chirp3Bs_F42F5D95.wem</Path>
 				</File>
 				<File Id="446348536" Language="SFX">
 					<ShortName>losearm1.wav</ShortName>
@@ -649,18 +606,6 @@
 					<ShortName>Travel 1 - Viewpoint.wav</ShortName>
 					<Path>SFX\Travel 1 - Viewpoint_F17FB28C.wem</Path>
 				</File>
-				<File Id="630778783" Language="SFX">
-					<ShortName>Chirp1As.wav</ShortName>
-					<Path>SFX\Chirp1As_F42F5D95.wem</Path>
-				</File>
-				<File Id="651259921" Language="SFX">
-					<ShortName>Chirp1A.wav</ShortName>
-					<Path>SFX\Chirp1A_F42F5D95.wem</Path>
-				</File>
-				<File Id="680104423" Language="SFX">
-					<ShortName>Chirp1B.wav</ShortName>
-					<Path>SFX\Chirp1B_F42F5D95.wem</Path>
-				</File>
 				<File Id="701563146" Language="SFX">
 					<ShortName>Atm_01_Blown.wav</ShortName>
 					<Path>SFX\Atm_01_Blown_F17FB28C.wem</Path>
@@ -668,10 +613,6 @@
 				<File Id="705557722" Language="SFX">
 					<ShortName>Intro.wav</ShortName>
 					<Path>SFX\Intro_F17FB28C.wem</Path>
-				</File>
-				<File Id="715120946" Language="SFX">
-					<ShortName>Chirp3As.wav</ShortName>
-					<Path>SFX\Chirp3As_F42F5D95.wem</Path>
 				</File>
 				<File Id="728602149" Language="SFX">
 					<ShortName>PercussionOutro.wav</ShortName>
@@ -708,10 +649,6 @@
 				<File Id="958051178" Language="SFX">
 					<ShortName>Sacrifice P2 nonsacrifice.wav</ShortName>
 					<Path>SFX\Sacrifice P2 nonsacrifice_F17FB28C.wem</Path>
-				</File>
-				<File Id="1006666376" Language="SFX">
-					<ShortName>Chirp2As.wav</ShortName>
-					<Path>SFX\Chirp2As_F42F5D95.wem</Path>
 				</File>
 				<File Id="1027153236" Language="SFX">
 					<ShortName>Chirp1C.wav</ShortName>

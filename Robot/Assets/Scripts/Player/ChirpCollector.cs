@@ -10,18 +10,16 @@ public class ChirpCollector : MonoBehaviour
 	public bool startTimer = false;
 	public bool playEvent = false;
 
-	GameObject GameController;
-
 	bool addMovementCheck = false;
 
 	// Use this for initialization
 	void Start () 
 	{
-		GameController = GameObject.FindGameObjectWithTag ("GameController");
-	}
-	
-	// Update is called once per frame
-	void Update () 
+        AkSoundEngine.SetState("ChirpCombine", "Off");
+    }
+
+    // Update is called once per frame
+    void Update () 
 	{
 		//example of timer will be put elsewhere?
 		if (startTimer == true)
@@ -45,23 +43,27 @@ public class ChirpCollector : MonoBehaviour
 
 		if (playEvent == true)
 		{
-			Event ();
+			Event();
 		}
 	}
 
 	void Event()
 	{
-		//the event you want
-		startTimer = false;
+
+        AkSoundEngine.SetState("ChirpCombine", "On");
+        AkSoundEngine.PostEvent("ChirpCombine", gameObject);
+        Debug.Log(" hope");
+
+        //the event you want
+        startTimer = false;
 		playEvent = false;
 		eventCount = 0;
 		timeLeft = 2.0f;
 
-		AkSoundEngine.SetRTPCValue ("Chirps_Combine", 1); 
 
-		if (addMovementCheck == false)
+        if ((this.GetComponent<LevelController>().currentLevel==0)&&(addMovementCheck == false))
 		{
-			GameController.GetComponent<PuzzleOnBoardingProcess> ().ActivatePlayerMovement ();
+			this.GetComponent<PuzzleOnBoardingProcess> ().ActivatePlayerMovement ();
 			addMovementCheck = true;
 		}
 
@@ -72,5 +74,7 @@ public class ChirpCollector : MonoBehaviour
 	{
 		//if the timer reaches 0
 		Debug.Log("false hope");
-	}
+        AkSoundEngine.SetState("ChirpCombine", "Off");
+
+    }
 }

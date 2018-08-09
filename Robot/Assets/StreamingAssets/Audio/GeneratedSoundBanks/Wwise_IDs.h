@@ -22,6 +22,7 @@ namespace AK
         static const AkUniqueID CHAINS = 640811495U;
         static const AkUniqueID CHAINS_LIGHT = 1854679430U;
         static const AkUniqueID CHIRP = 167209695U;
+        static const AkUniqueID CHIRPCOMBINE = 2034861142U;
         static const AkUniqueID DIE = 445985469U;
         static const AkUniqueID DOORCHIRP = 2390748151U;
         static const AkUniqueID DRONE = 2739838641U;
@@ -64,6 +65,17 @@ namespace AK
                 static const AkUniqueID THERE = 1067353181U;
             } // namespace STATE
         } // namespace CHIRP_TYPE
+
+        namespace CHIRPCOMBINE
+        {
+            static const AkUniqueID GROUP = 2034861142U;
+
+            namespace STATE
+            {
+                static const AkUniqueID OFF = 930712164U;
+                static const AkUniqueID ON = 1651971902U;
+            } // namespace STATE
+        } // namespace CHIRPCOMBINE
 
         namespace DRONE_MODULATOR
         {
@@ -166,10 +178,14 @@ namespace AK
 
     namespace GAME_PARAMETERS
     {
-        static const AkUniqueID CHIRPS_COMBINE = 4148654648U;
         static const AkUniqueID LIMBNUMBER = 2589579194U;
         static const AkUniqueID STRAIN = 3538886730U;
     } // namespace GAME_PARAMETERS
+
+    namespace TRIGGERS
+    {
+        static const AkUniqueID CHIRPCOMBINE = 2034861142U;
+    } // namespace TRIGGERS
 
     namespace BANKS
     {

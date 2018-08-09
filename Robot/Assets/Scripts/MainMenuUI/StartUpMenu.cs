@@ -18,11 +18,17 @@ public class StartUpMenu : MonoBehaviour {
         {
             GameManager.Instance.whichAndroid.player1ControlBlue = true;
             btn.gameObject.SetActive(true);
+            AkSoundEngine.SetSwitch("PlayerID", "Player_2", gameObject);
+            AkSoundEngine.SetState("Chirp_Type", "Happy");
+            AkSoundEngine.PostEvent("Chirp", gameObject);
         }
         else if(red.GetComponent<Transform>().position.x > Screen.width / 2 && blue.GetComponent<Transform>().position.x < Screen.width / 2)
         {
             GameManager.Instance.whichAndroid.player1ControlBlue = false;
             btn.gameObject.SetActive(true);
+            AkSoundEngine.SetSwitch("PlayerID", "Player_1", gameObject);
+            AkSoundEngine.SetState("Chirp_Type", "Happy");
+            AkSoundEngine.PostEvent("Chirp", gameObject);
         }
         else
         {

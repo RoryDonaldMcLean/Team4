@@ -30,6 +30,9 @@ GameObject:
   - component: {fileID: 65681231496633474}
   - component: {fileID: 114803697489050124}
   - component: {fileID: 114526683578871506}
+  - component: {fileID: 114602964458818686}
+  - component: {fileID: 114523229776709592}
+  - component: {fileID: 114095593237303270}
   m_Layer: 14
   m_Name: Player1_Robot
   m_TagString: Player1
@@ -2045,6 +2048,28 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114095593237303270
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1006884219113564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7999ea7310cf3db408b1eb3ad84d3f23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: 
+  useOtherObject: 0
+  actionOnEventType: 0
+  curveInterpolation: 4
+  enableActionOnEvent: 0
+  eventID: 2034861142
+  m_callbackData: {fileID: 0}
+  playingId: 0
+  soundEmitterObject: {fileID: 0}
+  transitionDuration: 0
+  valueGuid: 7948de97bba44540a4e1bed420e41dcd
 --- !u!114 &114170667751785854
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2096,6 +2121,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdeab99c116cd8244b3c5ea0c8a66ce8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114523229776709592
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1006884219113564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b8ddc2a1a279bb46b9d526dffdc82ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  groupID: -620282575
+  valueID: -1526273950
+  groupGuid: ad58170b8c368e4696d54a550b0524ff
+  valueGuid: cc3d836ea93f0a4c8558f454cda5f3db
 --- !u!114 &114526683578871506
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2141,6 +2183,28 @@ MonoBehaviour:
   - {fileID: 23217446454607006}
   isBlue: 0
   playerNum: 0
+--- !u!114 &114602964458818686
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1006884219113564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7999ea7310cf3db408b1eb3ad84d3f23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: 
+  useOtherObject: 0
+  actionOnEventType: 0
+  curveInterpolation: 4
+  enableActionOnEvent: 0
+  eventID: 167209695
+  m_callbackData: {fileID: 0}
+  playingId: 0
+  soundEmitterObject: {fileID: 0}
+  transitionDuration: 0
+  valueGuid: 0a5505bc7d26c841b984ab934261ab34
 --- !u!114 &114728480098626952
 MonoBehaviour:
   m_ObjectHideFlags: 1

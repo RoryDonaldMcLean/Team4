@@ -17,7 +17,7 @@ public class LevelControlBaseClass : MonoBehaviour
 
     protected string puzzleIdentifier;
     protected bool doorStateOpen = false;
-    protected Vector3 walkwayPosition = Vector3.zero;
+	protected Vector3 walkwayPosition = Vector3.zero;
     private bool lightShowFinished = false;
 
     void Start()

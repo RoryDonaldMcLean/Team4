@@ -181,59 +181,67 @@ MonoBehaviour:
   autoPopulateEnabled: 1
   AuxBusWwu:
   - Guid: '{2653943A-432D-488E-9B26-028C9F2C6C6D}'
-    m_lastTimePart2: -1999241885
-    m_lastTimePsrt1: -1404826926
+    m_lastTimePart2: -1999241747
+    m_lastTimePsrt1: -1133204079
     ParentPhysicalPath: 
     PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
     List:
     - Guid: 302bd7a31c293b419e97c21fb997657e
       ID: 243379636
       Name: REFLECT
-      Path: Default Work Unit\Master Audio Bus\REFLECT
+      Path: Default Work Unit\Master Audio Bus\Reverbs\REFLECT
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
       - ElementName: Master Audio Bus
+        ObjectType: 2
+      - ElementName: Reverbs
         ObjectType: 2
       - ElementName: REFLECT
         ObjectType: 1
     - Guid: a7105a4b81d32d46975945bcf44ee239
       ID: -1600733366
       Name: REVERB_Factory
-      Path: Default Work Unit\Master Audio Bus\REVERB_Factory
+      Path: Default Work Unit\Master Audio Bus\Reverbs\REVERB_Factory
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
       - ElementName: Master Audio Bus
+        ObjectType: 2
+      - ElementName: Reverbs
         ObjectType: 2
       - ElementName: REVERB_Factory
         ObjectType: 1
     - Guid: a7cab601d81a51469fbe2eee4364eb69
       ID: -67181873
       Name: REVERB_Outdoors
-      Path: Default Work Unit\Master Audio Bus\REVERB_Outdoors
+      Path: Default Work Unit\Master Audio Bus\Reverbs\REVERB_Outdoors
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
       - ElementName: Master Audio Bus
+        ObjectType: 2
+      - ElementName: Reverbs
         ObjectType: 2
       - ElementName: REVERB_Outdoors
         ObjectType: 1
     - Guid: e5710ca5bc8d784988cec8892376b389
       ID: -855262111
       Name: REVERB_Warehouse
-      Path: Default Work Unit\Master Audio Bus\REVERB_Warehouse
+      Path: Default Work Unit\Master Audio Bus\Reverbs\REVERB_Warehouse
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
       - ElementName: Master Audio Bus
         ObjectType: 2
+      - ElementName: Reverbs
+        ObjectType: 2
       - ElementName: REVERB_Warehouse
         ObjectType: 1
   BankWwu:
   - Guid: '{99ADC241-66DB-450E-A27C-F54B78415578}'
-    m_lastTimePart2: -1999241885
-    m_lastTimePsrt1: -1320554657
+    m_lastTimePart2: -1999241750
+    m_lastTimePsrt1: 1153985867
     ParentPhysicalPath: 
     PhysicalPath: SoundBanks\Default Work Unit.wwu
     List:
@@ -279,8 +287,8 @@ MonoBehaviour:
   defaultPoolSize: 12288
   EventWwu:
   - Guid: '{9208E778-4B37-4421-9C2A-46AAA42FFE85}'
-    m_lastTimePart2: -1999241885
-    m_lastTimePsrt1: -1405830352
+    m_lastTimePart2: -1999241747
+    m_lastTimePsrt1: 695643217
     ParentPhysicalPath: 
     PhysicalPath: Events\Default Work Unit.wwu
     List:
@@ -406,6 +414,20 @@ MonoBehaviour:
       - ElementName: Robots
         ObjectType: 4
       - ElementName: Chirp
+        ObjectType: 3
+      maxAttenuation: 80
+      maxDuration: 0
+      minDuration: 0
+    - Guid: 7948de97bba44540a4e1bed420e41dcd
+      ID: 2034861142
+      Name: ChirpCombine
+      Path: Default Work Unit\Robots\ChirpCombine
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Robots
+        ObjectType: 4
+      - ElementName: ChirpCombine
         ObjectType: 3
       maxAttenuation: 0
       maxDuration: 0
@@ -787,20 +809,11 @@ MonoBehaviour:
   preparePoolSize: 0
   RtpcWwu:
   - Guid: '{6FAB8A0D-1E75-4FC9-8CF4-258F9AA56D77}'
-    m_lastTimePart2: -1999241885
-    m_lastTimePsrt1: -1405820349
+    m_lastTimePart2: -1999241733
+    m_lastTimePsrt1: 1304161073
     ParentPhysicalPath: 
     PhysicalPath: Game Parameters\Default Work Unit.wwu
     List:
-    - Guid: e75521f190e20547a9d38e95b7457f07
-      ID: -146312648
-      Name: Chirps_Combine
-      Path: Default Work Unit\Chirps_Combine
-      PathAndIcons:
-      - ElementName: Default Work Unit
-        ObjectType: 12
-      - ElementName: Chirps_Combine
-        ObjectType: 13
     - Guid: 98012c9d0b11074ebcc0fa350ff658cf
       ID: -1705388102
       Name: LimbNumber
@@ -821,8 +834,8 @@ MonoBehaviour:
         ObjectType: 13
   StateWwu:
   - Guid: '{217B9AB9-B641-4200-BF39-9F61C2C8E9A4}'
-    m_lastTimePart2: -1999241885
-    m_lastTimePsrt1: -1320312956
+    m_lastTimePart2: -1999241733
+    m_lastTimePsrt1: 1304031073
     ParentPhysicalPath: 
     PhysicalPath: States\Default Work Unit.wwu
     List:
@@ -859,6 +872,31 @@ MonoBehaviour:
       - None
       - Sad
       - There
+    - Guid: 4b3f0d28ce3859469725a77e7f302a87
+      ID: 2034861142
+      Name: ChirpCombine
+      Path: Default Work Unit\ChirpCombine
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: ChirpCombine
+        ObjectType: 9
+      ValueGuids:
+      - bytes: d738e2116e05b54098325fd5c7e17680
+      - bytes: 40028b476983084dbb368dea4e065541
+      - bytes: b192ca654e9cae4b921e139d64d20f98
+      ValueIcons:
+      - ElementName: None
+        ObjectType: 8
+      - ElementName: Off
+        ObjectType: 8
+      - ElementName: On
+        ObjectType: 8
+      valueIDs: db3ba32c648a79373e177762
+      values:
+      - None
+      - Off
+      - On
     - Guid: e3de9e6f63d86445b5ff2e703969af54
       ID: -1316484469
       Name: Drone_Modulator
@@ -1115,8 +1153,17 @@ MonoBehaviour:
       - Player_2
   TriggerWwu:
   - Guid: '{1445E234-9FFD-40E4-A0A0-B6CF9F4F5BEA}'
-    m_lastTimePart2: -1999243747
-    m_lastTimePsrt1: -637623791
+    m_lastTimePart2: -1999241748
+    m_lastTimePsrt1: -240571068
     ParentPhysicalPath: 
     PhysicalPath: Triggers\Default Work Unit.wwu
-    List: []
+    List:
+    - Guid: bf478892217e26439e38e1eb2d6812e3
+      ID: 2034861142
+      Name: ChirpCombine
+      Path: Default Work Unit\ChirpCombine
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: ChirpCombine
+        ObjectType: 14

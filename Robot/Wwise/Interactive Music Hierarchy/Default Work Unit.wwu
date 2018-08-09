@@ -2542,9 +2542,11 @@
 				</MusicSwitchContainer>
 				<MusicSwitchContainer Name="Chirps" ID="{C20DA0F8-7DC3-4A2E-8494-63BA85318019}" ShortID="105705022">
 					<PropertyList>
+						<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+						<Property Name="MaxReachedBehavior" Type="int16" Value="1"/>
 						<Property Name="MaxSoundPerInstance" Type="int16">
 							<ValueList>
-								<Value>5</Value>
+								<Value>1</Value>
 							</ValueList>
 						</Property>
 						<Property Name="UseGameAuxSends" Type="bool" Value="True"/>
@@ -2552,34 +2554,6 @@
 							<ValueList>
 								<Value>True</Value>
 							</ValueList>
-						</Property>
-						<Property Name="Volume" Type="Real64">
-							<RTPCList>
-								<RTPC Name="" ID="{2C8BC86C-1D43-4476-9190-F1B416B829AF}" ShortID="743727124">
-									<ReferenceList>
-										<Reference Name="ControlInput">
-											<ObjectRef Name="Chirps_Combine" ID="{F12155E7-E290-4705-A9D3-8E95B7457F07}" WorkUnitID="{6FAB8A0D-1E75-4FC9-8CF4-258F9AA56D77}"/>
-										</Reference>
-									</ReferenceList>
-									<Curve Name="" ID="{7B924A78-52DD-4A1F-BCAD-36BEEC9BC239}">
-										<PropertyList>
-											<Property Name="Flags" Type="int32" Value="3"/>
-										</PropertyList>
-										<PointList>
-											<Point>
-												<XPos>0</XPos>
-												<YPos>-200</YPos>
-												<Flags>5</Flags>
-											</Point>
-											<Point>
-												<XPos>1</XPos>
-												<YPos>0</YPos>
-												<Flags>37</Flags>
-											</Point>
-										</PointList>
-									</Curve>
-								</RTPC>
-							</RTPCList>
 						</Property>
 					</PropertyList>
 					<ReferenceList>
@@ -2657,6 +2631,11 @@
 								<MusicSegment Name="Note1" ID="{31AC2512-570B-4925-AF84-674701198B6C}" ShortID="725414996">
 									<PropertyList>
 										<Property Name="EndPosition" Type="Real64" Value="8000"/>
+										<Property Name="Inclusion" Type="bool">
+											<ValueList>
+												<Value>False</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -2716,6 +2695,11 @@
 								<MusicSegment Name="Note2" ID="{115D3F31-0928-43B0-8F49-9038C2C3607E}" ShortID="636818637">
 									<PropertyList>
 										<Property Name="EndPosition" Type="Real64" Value="8000"/>
+										<Property Name="Inclusion" Type="bool">
+											<ValueList>
+												<Value>False</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -2775,6 +2759,11 @@
 								<MusicSegment Name="Note3" ID="{469F6D55-DA18-43D5-8835-8BC9038BD653}" ShortID="85773974">
 									<PropertyList>
 										<Property Name="EndPosition" Type="Real64" Value="8000"/>
+										<Property Name="Inclusion" Type="bool">
+											<ValueList>
+												<Value>False</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -2834,6 +2823,11 @@
 								<MusicSegment Name="Note4" ID="{870F4AE9-6656-4C95-865E-069174AFED41}" ShortID="394892189">
 									<PropertyList>
 										<Property Name="EndPosition" Type="Real64" Value="8000"/>
+										<Property Name="Inclusion" Type="bool">
+											<ValueList>
+												<Value>False</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -2893,34 +2887,6 @@
 								<MusicSegment Name="Chirp1C" ID="{07095DD3-04B5-4728-A8ED-A12DC69DEE3E}" ShortID="796303343">
 									<PropertyList>
 										<Property Name="EndPosition" Type="Real64" Value="8000"/>
-										<Property Name="Volume" Type="Real64">
-											<RTPCList>
-												<RTPC Name="" ID="{CCB1D6C3-E9E6-4D45-8E53-BD376FBDD8AA}" ShortID="735129029">
-													<ReferenceList>
-														<Reference Name="ControlInput">
-															<ObjectRef Name="Chirps_Combine" ID="{F12155E7-E290-4705-A9D3-8E95B7457F07}" WorkUnitID="{6FAB8A0D-1E75-4FC9-8CF4-258F9AA56D77}"/>
-														</Reference>
-													</ReferenceList>
-													<Curve Name="" ID="{089FD962-BBAF-4A9C-BFE1-4C16A937B834}">
-														<PropertyList>
-															<Property Name="Flags" Type="int32" Value="3"/>
-														</PropertyList>
-														<PointList>
-															<Point>
-																<XPos>0</XPos>
-																<YPos>-200</YPos>
-																<Flags>5</Flags>
-															</Point>
-															<Point>
-																<XPos>1</XPos>
-																<YPos>0.03297</YPos>
-																<Flags>37</Flags>
-															</Point>
-														</PointList>
-													</Curve>
-												</RTPC>
-											</RTPCList>
-										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -2956,11 +2922,70 @@
 													<ClipList>
 														<MusicClip Name="Chirp1C" ID="{8EE5E371-6E17-4BA9-9FA0-D4F0D2451929}">
 															<PropertyList>
-																<Property Name="EndTrimOffset" Type="Real64" Value="8000"/>
+																<Property Name="EndTrimOffset" Type="Real64" Value="3500"/>
 																<Property Name="FadeInMode" Type="int16" Value="0"/>
-																<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																<Property Name="FadeOutDuration" Type="Real64" Value="975.834292289988"/>
 															</PropertyList>
 															<AudioSourceRef Name="Chirp1C" ID="{916C6FBB-F759-4247-8A17-B7610723D8C5}"/>
+															<PropertyCurveList>
+																<PropertyCurve PropertyName="Highpass">
+																	<Curve Name="" ID="{45058BFE-089C-43FF-BA1F-C45D7F24516A}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="1"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>0</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>3.5</XPos>
+																				<YPos>0</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</PropertyCurve>
+																<PropertyCurve PropertyName="Lowpass">
+																	<Curve Name="" ID="{B7965787-7CCA-4B06-9D32-A4343168BF16}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="1"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>0</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>3.5</XPos>
+																				<YPos>0</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</PropertyCurve>
+																<PropertyCurve PropertyName="Volume">
+																	<Curve Name="" ID="{26EB26F0-EE77-4C3B-B002-108B464949BD}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="3"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>0</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>3.5</XPos>
+																				<YPos>0</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</PropertyCurve>
+															</PropertyCurveList>
 														</MusicClip>
 													</ClipList>
 												</MusicTrackSequence>
@@ -2980,34 +3005,6 @@
 								<MusicSegment Name="Chirp2C" ID="{C8B9E87F-440B-49AE-BCF9-16DE9ABB3D7C}" ShortID="623523313">
 									<PropertyList>
 										<Property Name="EndPosition" Type="Real64" Value="8000"/>
-										<Property Name="Volume" Type="Real64">
-											<RTPCList>
-												<RTPC Name="" ID="{24E73FEA-BEFF-42C2-887C-7DFE65E7BF68}" ShortID="801837247">
-													<ReferenceList>
-														<Reference Name="ControlInput">
-															<ObjectRef Name="Chirps_Combine" ID="{F12155E7-E290-4705-A9D3-8E95B7457F07}" WorkUnitID="{6FAB8A0D-1E75-4FC9-8CF4-258F9AA56D77}"/>
-														</Reference>
-													</ReferenceList>
-													<Curve Name="" ID="{D4625B84-1FC9-4310-95EA-AA8D26961A64}">
-														<PropertyList>
-															<Property Name="Flags" Type="int32" Value="3"/>
-														</PropertyList>
-														<PointList>
-															<Point>
-																<XPos>0</XPos>
-																<YPos>-200</YPos>
-																<Flags>5</Flags>
-															</Point>
-															<Point>
-																<XPos>1</XPos>
-																<YPos>0.25234</YPos>
-																<Flags>37</Flags>
-															</Point>
-														</PointList>
-													</Curve>
-												</RTPC>
-											</RTPCList>
-										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -3043,11 +3040,70 @@
 													<ClipList>
 														<MusicClip Name="Chirp2C" ID="{C64578D4-6525-44F1-97A1-2F4EF731C523}">
 															<PropertyList>
-																<Property Name="EndTrimOffset" Type="Real64" Value="8000"/>
+																<Property Name="EndTrimOffset" Type="Real64" Value="3500"/>
 																<Property Name="FadeInMode" Type="int16" Value="0"/>
-																<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																<Property Name="FadeOutDuration" Type="Real64" Value="1150.74798619102"/>
 															</PropertyList>
 															<AudioSourceRef Name="Chirp2C" ID="{4131DC09-18EB-41DF-BB84-E91C1D5B606B}"/>
+															<PropertyCurveList>
+																<PropertyCurve PropertyName="Highpass">
+																	<Curve Name="" ID="{452CB19F-98D2-4452-A221-4FACA6749E52}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="1"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>0</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>3.5</XPos>
+																				<YPos>0</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</PropertyCurve>
+																<PropertyCurve PropertyName="Lowpass">
+																	<Curve Name="" ID="{AA1B3507-321E-4096-ACD8-04759F383005}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="1"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>0</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>3.5</XPos>
+																				<YPos>0</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</PropertyCurve>
+																<PropertyCurve PropertyName="Volume">
+																	<Curve Name="" ID="{B1E35EF7-F881-4753-84D9-A2894CA9B8ED}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="3"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>0</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>3.5</XPos>
+																				<YPos>0</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</PropertyCurve>
+															</PropertyCurveList>
 														</MusicClip>
 													</ClipList>
 												</MusicTrackSequence>
@@ -3067,34 +3123,6 @@
 								<MusicSegment Name="Chirp3C" ID="{3A26A041-81DC-4947-B62B-595CA0CC10BD}" ShortID="915484145">
 									<PropertyList>
 										<Property Name="EndPosition" Type="Real64" Value="8000"/>
-										<Property Name="Volume" Type="Real64">
-											<RTPCList>
-												<RTPC Name="" ID="{97010850-C2E6-4491-89BA-0DB2638E0A55}" ShortID="579195094">
-													<ReferenceList>
-														<Reference Name="ControlInput">
-															<ObjectRef Name="Chirps_Combine" ID="{F12155E7-E290-4705-A9D3-8E95B7457F07}" WorkUnitID="{6FAB8A0D-1E75-4FC9-8CF4-258F9AA56D77}"/>
-														</Reference>
-													</ReferenceList>
-													<Curve Name="" ID="{1B435260-91EE-4365-9E5E-51D41C138C73}">
-														<PropertyList>
-															<Property Name="Flags" Type="int32" Value="3"/>
-														</PropertyList>
-														<PointList>
-															<Point>
-																<XPos>0</XPos>
-																<YPos>-200</YPos>
-																<Flags>5</Flags>
-															</Point>
-															<Point>
-																<XPos>1</XPos>
-																<YPos>0.03297</YPos>
-																<Flags>37</Flags>
-															</Point>
-														</PointList>
-													</Curve>
-												</RTPC>
-											</RTPCList>
-										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -3130,11 +3158,70 @@
 													<ClipList>
 														<MusicClip Name="Chirp3C" ID="{4E229B3F-4659-48A2-88E3-CA13F153491E}">
 															<PropertyList>
-																<Property Name="EndTrimOffset" Type="Real64" Value="8000"/>
+																<Property Name="EndTrimOffset" Type="Real64" Value="3500"/>
 																<Property Name="FadeInMode" Type="int16" Value="0"/>
-																<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																<Property Name="FadeOutDuration" Type="Real64" Value="1233.60184119678"/>
 															</PropertyList>
 															<AudioSourceRef Name="Chirp3C" ID="{BC9D0A24-61A2-438D-87D2-7AEC7361851B}"/>
+															<PropertyCurveList>
+																<PropertyCurve PropertyName="Highpass">
+																	<Curve Name="" ID="{618FEB93-ADFA-46EC-9B2A-7EDD903FE0DC}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="1"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>0</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>3.5</XPos>
+																				<YPos>0</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</PropertyCurve>
+																<PropertyCurve PropertyName="Lowpass">
+																	<Curve Name="" ID="{2FE5D3A4-0D7A-4A53-9285-6516A042A6C4}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="1"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>0</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>3.5</XPos>
+																				<YPos>0</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</PropertyCurve>
+																<PropertyCurve PropertyName="Volume">
+																	<Curve Name="" ID="{9FDAB19E-0C1F-4D76-A79E-FFCA246E8F23}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="3"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>0</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>3.5</XPos>
+																				<YPos>0</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</PropertyCurve>
+															</PropertyCurveList>
 														</MusicClip>
 													</ClipList>
 												</MusicTrackSequence>
@@ -3155,32 +3242,9 @@
 									<PropertyList>
 										<Property Name="EndPosition" Type="Real64" Value="8000"/>
 										<Property Name="Volume" Type="Real64">
-											<RTPCList>
-												<RTPC Name="" ID="{DEE61147-3253-4E12-BF8C-FB2AF9F6B432}" ShortID="469967552">
-													<ReferenceList>
-														<Reference Name="ControlInput">
-															<ObjectRef Name="Chirps_Combine" ID="{F12155E7-E290-4705-A9D3-8E95B7457F07}" WorkUnitID="{6FAB8A0D-1E75-4FC9-8CF4-258F9AA56D77}"/>
-														</Reference>
-													</ReferenceList>
-													<Curve Name="" ID="{53F46C8C-BFD0-4EB7-BCD7-E56D65D63502}">
-														<PropertyList>
-															<Property Name="Flags" Type="int32" Value="3"/>
-														</PropertyList>
-														<PointList>
-															<Point>
-																<XPos>0</XPos>
-																<YPos>-200</YPos>
-																<Flags>5</Flags>
-															</Point>
-															<Point>
-																<XPos>1</XPos>
-																<YPos>0.03297</YPos>
-																<Flags>37</Flags>
-															</Point>
-														</PointList>
-													</Curve>
-												</RTPC>
-											</RTPCList>
+											<ValueList>
+												<Value>7</Value>
+											</ValueList>
 										</Property>
 									</PropertyList>
 									<ReferenceList>
@@ -3217,11 +3281,70 @@
 													<ClipList>
 														<MusicClip Name="Chirp4C" ID="{067EF705-6567-4694-A6D5-73B552067969}">
 															<PropertyList>
-																<Property Name="EndTrimOffset" Type="Real64" Value="8000"/>
+																<Property Name="EndTrimOffset" Type="Real64" Value="3500"/>
 																<Property Name="FadeInMode" Type="int16" Value="0"/>
-																<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																<Property Name="FadeOutDuration" Type="Real64" Value="1472.95742232451"/>
 															</PropertyList>
 															<AudioSourceRef Name="Chirp4C" ID="{307CBBA0-8D39-4AD4-B7EA-06347428D5FE}"/>
+															<PropertyCurveList>
+																<PropertyCurve PropertyName="Highpass">
+																	<Curve Name="" ID="{F3F8CC43-24A4-429E-84C3-214B1884EB6E}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="1"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>0</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>3.5</XPos>
+																				<YPos>0</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</PropertyCurve>
+																<PropertyCurve PropertyName="Lowpass">
+																	<Curve Name="" ID="{71FF5023-98B3-4747-BC10-E307C08BDC3F}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="1"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>0</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>3.5</XPos>
+																				<YPos>0</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</PropertyCurve>
+																<PropertyCurve PropertyName="Volume">
+																	<Curve Name="" ID="{9F662F7C-8D02-4DA0-8FB4-B74F968A5CE8}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="3"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>0</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>3.5</XPos>
+																				<YPos>0</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</PropertyCurve>
+															</PropertyCurveList>
 														</MusicClip>
 													</ClipList>
 												</MusicTrackSequence>
@@ -3255,37 +3378,6 @@
 							<Playlist>
 								<MusicPlaylistItem Name="" ID="{E2B12EDE-0FEE-4235-8D2A-E8E48AFC5991}" ShortID="1072775345">
 									<ChildrenList>
-										<MusicPlaylistItem Name="" ID="{6E1E0925-9891-470E-BA13-5C122230D46E}" ShortID="229489985">
-											<PropertyList>
-												<Property Name="PlayMode" Type="int16" Value="3"/>
-											</PropertyList>
-											<ChildrenList>
-												<MusicPlaylistItem Name="" ID="{080BAD31-06BE-41FB-8A6A-F49E95DB8A3B}" ShortID="107469189">
-													<PropertyList>
-														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
-													</PropertyList>
-													<SegmentRef Name="Note1" ID="{31AC2512-570B-4925-AF84-674701198B6C}"/>
-												</MusicPlaylistItem>
-												<MusicPlaylistItem Name="" ID="{E6D2300A-417D-4D18-B352-FC42BF647AF4}" ShortID="286707149">
-													<PropertyList>
-														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
-													</PropertyList>
-													<SegmentRef Name="Note2" ID="{115D3F31-0928-43B0-8F49-9038C2C3607E}"/>
-												</MusicPlaylistItem>
-												<MusicPlaylistItem Name="" ID="{25BF7CC4-9890-410C-83CD-AFF0F2DC4314}" ShortID="787788998">
-													<PropertyList>
-														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
-													</PropertyList>
-													<SegmentRef Name="Note3" ID="{469F6D55-DA18-43D5-8835-8BC9038BD653}"/>
-												</MusicPlaylistItem>
-												<MusicPlaylistItem Name="" ID="{357A49F1-C3B2-4DBA-89BF-C5FA65CCE000}" ShortID="437877695">
-													<PropertyList>
-														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
-													</PropertyList>
-													<SegmentRef Name="Note4" ID="{870F4AE9-6656-4C95-865E-069174AFED41}"/>
-												</MusicPlaylistItem>
-											</ChildrenList>
-										</MusicPlaylistItem>
 										<MusicPlaylistItem Name="" ID="{2DA06C12-A3D7-4FB4-894A-78C728E383D9}" ShortID="15548229">
 											<PropertyList>
 												<Property Name="PlayMode" Type="int16" Value="3"/>
@@ -3317,12 +3409,48 @@
 												</MusicPlaylistItem>
 											</ChildrenList>
 										</MusicPlaylistItem>
+										<MusicPlaylistItem Name="" ID="{6E1E0925-9891-470E-BA13-5C122230D46E}" ShortID="229489985">
+											<PropertyList>
+												<Property Name="PlayMode" Type="int16" Value="3"/>
+											</PropertyList>
+											<ChildrenList>
+												<MusicPlaylistItem Name="" ID="{080BAD31-06BE-41FB-8A6A-F49E95DB8A3B}" ShortID="107469189">
+													<PropertyList>
+														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+													</PropertyList>
+													<SegmentRef Name="Note1" ID="{31AC2512-570B-4925-AF84-674701198B6C}"/>
+												</MusicPlaylistItem>
+												<MusicPlaylistItem Name="" ID="{E6D2300A-417D-4D18-B352-FC42BF647AF4}" ShortID="286707149">
+													<PropertyList>
+														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+													</PropertyList>
+													<SegmentRef Name="Note2" ID="{115D3F31-0928-43B0-8F49-9038C2C3607E}"/>
+												</MusicPlaylistItem>
+												<MusicPlaylistItem Name="" ID="{25BF7CC4-9890-410C-83CD-AFF0F2DC4314}" ShortID="787788998">
+													<PropertyList>
+														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+													</PropertyList>
+													<SegmentRef Name="Note3" ID="{469F6D55-DA18-43D5-8835-8BC9038BD653}"/>
+												</MusicPlaylistItem>
+												<MusicPlaylistItem Name="" ID="{357A49F1-C3B2-4DBA-89BF-C5FA65CCE000}" ShortID="437877695">
+													<PropertyList>
+														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+													</PropertyList>
+													<SegmentRef Name="Note4" ID="{870F4AE9-6656-4C95-865E-069174AFED41}"/>
+												</MusicPlaylistItem>
+											</ChildrenList>
+										</MusicPlaylistItem>
 									</ChildrenList>
 								</MusicPlaylistItem>
 							</Playlist>
 						</MusicPlaylistContainer>
 						<MusicPlaylistContainer Name="Chirp_P2_ Happy" ID="{D61D3290-F1C7-4FB3-A381-FFB125BC16E1}" ShortID="861268366">
 							<PropertyList>
+								<Property Name="Inclusion" Type="bool">
+									<ValueList>
+										<Value>False</Value>
+									</ValueList>
+								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-3</Value>
@@ -3628,6 +3756,11 @@
 						</MusicPlaylistContainer>
 						<MusicPlaylistContainer Name="Chirp_P2_ Sad" ID="{478D65B1-FDAD-41B8-A6DB-A7B4BC31CA43}" ShortID="368028930">
 							<PropertyList>
+								<Property Name="Inclusion" Type="bool">
+									<ValueList>
+										<Value>False</Value>
+									</ValueList>
+								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-5</Value>
@@ -3957,6 +4090,11 @@
 								<MusicSegment Name="Chirp1As" ID="{FB98812B-1731-4B58-824E-28F4BA65A41A}" ShortID="142073012">
 									<PropertyList>
 										<Property Name="EndPosition" Type="Real64" Value="8000"/>
+										<Property Name="Inclusion" Type="bool">
+											<ValueList>
+												<Value>False</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -4016,6 +4154,11 @@
 								<MusicSegment Name="Chirp2As" ID="{17CF3721-0C27-4EDC-8AF2-041ECEA034F4}" ShortID="399317573">
 									<PropertyList>
 										<Property Name="EndPosition" Type="Real64" Value="8000"/>
+										<Property Name="Inclusion" Type="bool">
+											<ValueList>
+												<Value>False</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -4075,6 +4218,11 @@
 								<MusicSegment Name="Chirp3As" ID="{EE8C4629-6D0E-43D7-B720-1902A6A0B949}" ShortID="78795640">
 									<PropertyList>
 										<Property Name="EndPosition" Type="Real64" Value="8000"/>
+										<Property Name="Inclusion" Type="bool">
+											<ValueList>
+												<Value>False</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -4134,6 +4282,11 @@
 								<MusicSegment Name="Chirp4As" ID="{C7A5A99C-2C1D-4C1B-B029-B266EFD78299}" ShortID="478126449">
 									<PropertyList>
 										<Property Name="EndPosition" Type="Real64" Value="8018.41196777906"/>
+										<Property Name="Inclusion" Type="bool">
+											<ValueList>
+												<Value>False</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -4193,6 +4346,11 @@
 								<MusicSegment Name="Chirp1Cs" ID="{571A6514-30C7-4BBA-9A6A-F21170E21CED}" ShortID="979894053">
 									<PropertyList>
 										<Property Name="EndPosition" Type="Real64" Value="8000"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>5</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -4228,11 +4386,70 @@
 													<ClipList>
 														<MusicClip Name="Chirp1Cs" ID="{D645E6E8-1A72-4015-88A9-0F46C458E73E}">
 															<PropertyList>
-																<Property Name="EndTrimOffset" Type="Real64" Value="8000"/>
+																<Property Name="EndTrimOffset" Type="Real64" Value="3500"/>
 																<Property Name="FadeInMode" Type="int16" Value="0"/>
-																<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																<Property Name="FadeOutDuration" Type="Real64" Value="1454.54545454545"/>
 															</PropertyList>
 															<AudioSourceRef Name="Chirp1Cs" ID="{1F439969-920F-433F-BC81-53DAB07EBFE8}"/>
+															<PropertyCurveList>
+																<PropertyCurve PropertyName="Highpass">
+																	<Curve Name="" ID="{6EB76BFC-9E87-41EB-A649-AC9A75B89914}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="1"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>0</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>3.5</XPos>
+																				<YPos>0</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</PropertyCurve>
+																<PropertyCurve PropertyName="Lowpass">
+																	<Curve Name="" ID="{932CF559-C619-4293-8D5F-0C5F592591F6}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="1"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>0</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>3.5</XPos>
+																				<YPos>0</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</PropertyCurve>
+																<PropertyCurve PropertyName="Volume">
+																	<Curve Name="" ID="{1432A776-9DA4-4B3D-9746-197B586C8644}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="3"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>0</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>3.5</XPos>
+																				<YPos>0</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</PropertyCurve>
+															</PropertyCurveList>
 														</MusicClip>
 													</ClipList>
 												</MusicTrackSequence>
@@ -4252,6 +4469,11 @@
 								<MusicSegment Name="Chirp2Cs" ID="{1A1D704D-F500-4887-9C9E-96B834E9FE87}" ShortID="523646359">
 									<PropertyList>
 										<Property Name="EndPosition" Type="Real64" Value="8000"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>5</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -4287,11 +4509,70 @@
 													<ClipList>
 														<MusicClip Name="Chirp2Cs" ID="{5965A18D-AC72-463B-BD54-6DE80B0596D4}">
 															<PropertyList>
-																<Property Name="EndTrimOffset" Type="Real64" Value="8000"/>
+																<Property Name="EndTrimOffset" Type="Real64" Value="3500"/>
 																<Property Name="FadeInMode" Type="int16" Value="0"/>
-																<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																<Property Name="FadeOutDuration" Type="Real64" Value="1456.14035087719"/>
 															</PropertyList>
 															<AudioSourceRef Name="Chirp2Cs" ID="{E38AE337-E6B9-432D-8945-9E1D7218C64F}"/>
+															<PropertyCurveList>
+																<PropertyCurve PropertyName="Highpass">
+																	<Curve Name="" ID="{50833606-4E85-4ADD-9117-0EED21183F92}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="1"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>0</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>3.5</XPos>
+																				<YPos>0</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</PropertyCurve>
+																<PropertyCurve PropertyName="Lowpass">
+																	<Curve Name="" ID="{EB1FBA4F-FB8B-414E-94D8-7D9AF2237B87}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="1"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>0</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>3.5</XPos>
+																				<YPos>0</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</PropertyCurve>
+																<PropertyCurve PropertyName="Volume">
+																	<Curve Name="" ID="{FBFAFA0F-A992-48DC-BF09-81A812DD2073}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="3"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>0</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>3.5</XPos>
+																				<YPos>0</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</PropertyCurve>
+															</PropertyCurveList>
 														</MusicClip>
 													</ClipList>
 												</MusicTrackSequence>
@@ -4311,6 +4592,11 @@
 								<MusicSegment Name="Chirp3Cs" ID="{98CC96E7-1EA7-4CF7-B226-D02686EDF2E5}" ShortID="447495184">
 									<PropertyList>
 										<Property Name="EndPosition" Type="Real64" Value="8000"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>5</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -4346,11 +4632,70 @@
 													<ClipList>
 														<MusicClip Name="Chirp3Cs" ID="{972E4466-DD8E-466D-BDB6-0ED763439F9D}">
 															<PropertyList>
-																<Property Name="EndTrimOffset" Type="Real64" Value="8000"/>
+																<Property Name="EndTrimOffset" Type="Real64" Value="3500"/>
 																<Property Name="FadeInMode" Type="int16" Value="0"/>
-																<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																<Property Name="FadeOutDuration" Type="Real64" Value="1132.33601841197"/>
 															</PropertyList>
 															<AudioSourceRef Name="Chirp3Cs" ID="{678EFC59-9927-400B-8822-CBA67451C1FF}"/>
+															<PropertyCurveList>
+																<PropertyCurve PropertyName="Highpass">
+																	<Curve Name="" ID="{BCBADB3F-2401-4486-AA34-84FA2DDCBF61}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="1"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>0</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>3.5</XPos>
+																				<YPos>0</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</PropertyCurve>
+																<PropertyCurve PropertyName="Lowpass">
+																	<Curve Name="" ID="{67CD40F4-DAD6-46AE-A496-2405F9989752}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="1"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>0</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>3.5</XPos>
+																				<YPos>0</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</PropertyCurve>
+																<PropertyCurve PropertyName="Volume">
+																	<Curve Name="" ID="{3ECEDFD5-9998-491B-9527-0F64948AE3D2}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="3"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>0</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>3.5</XPos>
+																				<YPos>0</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</PropertyCurve>
+															</PropertyCurveList>
 														</MusicClip>
 													</ClipList>
 												</MusicTrackSequence>
@@ -4370,6 +4715,11 @@
 								<MusicSegment Name="Chirp4Cs" ID="{AE7BF1B8-C812-4D93-9073-9F7A760B744F}" ShortID="793675675">
 									<PropertyList>
 										<Property Name="EndPosition" Type="Real64" Value="8000"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>6</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -4405,11 +4755,70 @@
 													<ClipList>
 														<MusicClip Name="Chirp4Cs" ID="{38A6FE75-DAA3-4449-B132-59DD204FC34E}">
 															<PropertyList>
-																<Property Name="EndTrimOffset" Type="Real64" Value="8000"/>
+																<Property Name="EndTrimOffset" Type="Real64" Value="3500"/>
 																<Property Name="FadeInMode" Type="int16" Value="0"/>
-																<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																<Property Name="FadeOutDuration" Type="Real64" Value="1454.54545454545"/>
 															</PropertyList>
 															<AudioSourceRef Name="Chirp4Cs" ID="{7D54E4D3-DB1F-4736-A7D9-17B18ABC0A1B}"/>
+															<PropertyCurveList>
+																<PropertyCurve PropertyName="Highpass">
+																	<Curve Name="" ID="{216F99A0-C445-453D-B848-A59E3D79424C}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="1"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>0</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>3.5</XPos>
+																				<YPos>0</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</PropertyCurve>
+																<PropertyCurve PropertyName="Lowpass">
+																	<Curve Name="" ID="{22DA2002-D529-46FB-8424-473FA9A45AF4}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="1"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>0</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>3.5</XPos>
+																				<YPos>0</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</PropertyCurve>
+																<PropertyCurve PropertyName="Volume">
+																	<Curve Name="" ID="{338B0BA9-F79C-440B-8456-035E70CB9D96}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="3"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>0</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>3.5</XPos>
+																				<YPos>0</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</PropertyCurve>
+															</PropertyCurveList>
 														</MusicClip>
 													</ClipList>
 												</MusicTrackSequence>
@@ -4443,37 +4852,6 @@
 							<Playlist>
 								<MusicPlaylistItem Name="" ID="{7C5EF32A-23F5-42B6-AD01-E2381791A5F1}" ShortID="1035860653">
 									<ChildrenList>
-										<MusicPlaylistItem Name="" ID="{C0B455DF-E677-4A22-9AA6-8A7EA5D18F59}" ShortID="20425649">
-											<PropertyList>
-												<Property Name="PlayMode" Type="int16" Value="3"/>
-											</PropertyList>
-											<ChildrenList>
-												<MusicPlaylistItem Name="" ID="{D12AC830-A41D-49A0-B1A8-9D3FA1818A2F}" ShortID="1046137927">
-													<PropertyList>
-														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
-													</PropertyList>
-													<SegmentRef Name="Chirp1As" ID="{FB98812B-1731-4B58-824E-28F4BA65A41A}"/>
-												</MusicPlaylistItem>
-												<MusicPlaylistItem Name="" ID="{FC161448-F66E-4A49-885C-DBFE17E554AD}" ShortID="1051692783">
-													<PropertyList>
-														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
-													</PropertyList>
-													<SegmentRef Name="Chirp2As" ID="{17CF3721-0C27-4EDC-8AF2-041ECEA034F4}"/>
-												</MusicPlaylistItem>
-												<MusicPlaylistItem Name="" ID="{81133DB4-56CD-4AFD-A504-0D2545425733}" ShortID="674161842">
-													<PropertyList>
-														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
-													</PropertyList>
-													<SegmentRef Name="Chirp3As" ID="{EE8C4629-6D0E-43D7-B720-1902A6A0B949}"/>
-												</MusicPlaylistItem>
-												<MusicPlaylistItem Name="" ID="{1E8A2904-BE77-46A7-B6B8-97BB86F41FAE}" ShortID="1059173734">
-													<PropertyList>
-														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
-													</PropertyList>
-													<SegmentRef Name="Chirp4As" ID="{C7A5A99C-2C1D-4C1B-B029-B266EFD78299}"/>
-												</MusicPlaylistItem>
-											</ChildrenList>
-										</MusicPlaylistItem>
 										<MusicPlaylistItem Name="" ID="{57F45D65-1E8B-4108-A2F5-D006C2B1CBB8}" ShortID="528560843">
 											<PropertyList>
 												<Property Name="PlayMode" Type="int16" Value="3"/>
@@ -4505,11 +4883,63 @@
 												</MusicPlaylistItem>
 											</ChildrenList>
 										</MusicPlaylistItem>
+										<MusicPlaylistItem Name="" ID="{C0B455DF-E677-4A22-9AA6-8A7EA5D18F59}" ShortID="20425649">
+											<PropertyList>
+												<Property Name="PlayMode" Type="int16" Value="3"/>
+											</PropertyList>
+											<ChildrenList>
+												<MusicPlaylistItem Name="" ID="{D12AC830-A41D-49A0-B1A8-9D3FA1818A2F}" ShortID="1046137927">
+													<PropertyList>
+														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+													</PropertyList>
+													<SegmentRef Name="Chirp1As" ID="{FB98812B-1731-4B58-824E-28F4BA65A41A}"/>
+												</MusicPlaylistItem>
+												<MusicPlaylistItem Name="" ID="{FC161448-F66E-4A49-885C-DBFE17E554AD}" ShortID="1051692783">
+													<PropertyList>
+														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+													</PropertyList>
+													<SegmentRef Name="Chirp2As" ID="{17CF3721-0C27-4EDC-8AF2-041ECEA034F4}"/>
+												</MusicPlaylistItem>
+												<MusicPlaylistItem Name="" ID="{81133DB4-56CD-4AFD-A504-0D2545425733}" ShortID="674161842">
+													<PropertyList>
+														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+													</PropertyList>
+													<SegmentRef Name="Chirp3As" ID="{EE8C4629-6D0E-43D7-B720-1902A6A0B949}"/>
+												</MusicPlaylistItem>
+												<MusicPlaylistItem Name="" ID="{1E8A2904-BE77-46A7-B6B8-97BB86F41FAE}" ShortID="1059173734">
+													<PropertyList>
+														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+													</PropertyList>
+													<SegmentRef Name="Chirp4As" ID="{C7A5A99C-2C1D-4C1B-B029-B266EFD78299}"/>
+												</MusicPlaylistItem>
+											</ChildrenList>
+										</MusicPlaylistItem>
 									</ChildrenList>
 								</MusicPlaylistItem>
 							</Playlist>
 						</MusicPlaylistContainer>
 					</ChildrenList>
+					<StateInfo>
+						<StateGroupList>
+							<StateGroupInfo>
+								<StateGroupRef Name="ChirpCombine" ID="{280D3F4B-38CE-4659-9725-A77E7F302A87}"/>
+							</StateGroupInfo>
+						</StateGroupList>
+						<CustomStateList>
+							<CustomState>
+								<StateRef Name="On" ID="{65CA92B1-9C4E-4BAE-921E-139D64D20F98}"/>
+								<State Name="" ID="{76036953-F7EF-4DCE-AAF8-F2905978807C}" ShortID="34860031"/>
+							</CustomState>
+							<CustomState>
+								<StateRef Name="Off" ID="{478B0240-8369-4D08-BB36-8DEA4E065541}"/>
+								<State Name="" ID="{89FD833C-5BE1-4137-AC03-EEC567A85513}" ShortID="378594892">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64" Value="-96"/>
+									</PropertyList>
+								</State>
+							</CustomState>
+						</CustomStateList>
+					</StateInfo>
 					<TransitionList>
 						<MusicTransition Name="Root" ID="{6FD5C74B-1EDE-4C58-9449-8F56678210E6}">
 							<PropertyList>
@@ -4530,25 +4960,7 @@
 					<EntryList>
 						<Entry>
 							<Path>
-								<PathElementRef Name="Player_1" ID="{6E833DCC-3FA9-4C0A-8558-F454CDA5F3DB}"/>
-								<PathElementRef Name="Happy" ID="{8159EF55-F4EC-4B8F-8798-01F730CE0B04}"/>
-							</Path>
-							<AudioNodeInfo>
-								<AudioNodeRef Name="Chirp_P1_ Happy" ID="{519558EA-25B9-4C56-AD96-B216A3856917}" WorkUnitID="{C54CF3E9-0E60-4A5A-AD10-EFD580D533AD}" Platform="Linked"/>
-							</AudioNodeInfo>
-						</Entry>
-						<Entry>
-							<Path>
-								<PathElementRef Name="Player_1" ID="{6E833DCC-3FA9-4C0A-8558-F454CDA5F3DB}"/>
-								<PathElementRef Name="Here" ID="{85B64610-FADE-4DD0-A09F-8B53AB68EC9B}"/>
-							</Path>
-							<AudioNodeInfo>
-								<NoObject Platform="Linked"/>
-							</AudioNodeInfo>
-						</Entry>
-						<Entry>
-							<Path>
-								<PathElementRef Name="Player_1" ID="{6E833DCC-3FA9-4C0A-8558-F454CDA5F3DB}"/>
+								<PathElementRef Name="PlayerID" ID="{0B1758AD-368C-468E-96D5-4A550B0524FF}"/>
 								<PathElementRef Name="Sad" ID="{40ECCE0E-4C73-4F37-A8EA-50B4C67DDC81}"/>
 							</Path>
 							<AudioNodeInfo>
@@ -4557,47 +4969,11 @@
 						</Entry>
 						<Entry>
 							<Path>
-								<PathElementRef Name="Player_1" ID="{6E833DCC-3FA9-4C0A-8558-F454CDA5F3DB}"/>
-								<PathElementRef Name="There" ID="{BF665D39-C23F-4571-B25A-D81F4353F74F}"/>
-							</Path>
-							<AudioNodeInfo>
-								<NoObject Platform="Linked"/>
-							</AudioNodeInfo>
-						</Entry>
-						<Entry>
-							<Path>
-								<PathElementRef Name="Player_2" ID="{6CA7EC1D-3760-4AE3-8123-C5A6D695980E}"/>
+								<PathElementRef Name="PlayerID" ID="{0B1758AD-368C-468E-96D5-4A550B0524FF}"/>
 								<PathElementRef Name="Happy" ID="{8159EF55-F4EC-4B8F-8798-01F730CE0B04}"/>
 							</Path>
 							<AudioNodeInfo>
-								<AudioNodeRef Name="Chirp_P2_ Happy" ID="{D61D3290-F1C7-4FB3-A381-FFB125BC16E1}" WorkUnitID="{C54CF3E9-0E60-4A5A-AD10-EFD580D533AD}" Platform="Linked"/>
-							</AudioNodeInfo>
-						</Entry>
-						<Entry>
-							<Path>
-								<PathElementRef Name="Player_2" ID="{6CA7EC1D-3760-4AE3-8123-C5A6D695980E}"/>
-								<PathElementRef Name="Here" ID="{85B64610-FADE-4DD0-A09F-8B53AB68EC9B}"/>
-							</Path>
-							<AudioNodeInfo>
-								<NoObject Platform="Linked"/>
-							</AudioNodeInfo>
-						</Entry>
-						<Entry>
-							<Path>
-								<PathElementRef Name="Player_2" ID="{6CA7EC1D-3760-4AE3-8123-C5A6D695980E}"/>
-								<PathElementRef Name="Sad" ID="{40ECCE0E-4C73-4F37-A8EA-50B4C67DDC81}"/>
-							</Path>
-							<AudioNodeInfo>
-								<AudioNodeRef Name="Chirp_P2_ Sad" ID="{478D65B1-FDAD-41B8-A6DB-A7B4BC31CA43}" WorkUnitID="{C54CF3E9-0E60-4A5A-AD10-EFD580D533AD}" Platform="Linked"/>
-							</AudioNodeInfo>
-						</Entry>
-						<Entry>
-							<Path>
-								<PathElementRef Name="Player_2" ID="{6CA7EC1D-3760-4AE3-8123-C5A6D695980E}"/>
-								<PathElementRef Name="There" ID="{BF665D39-C23F-4571-B25A-D81F4353F74F}"/>
-							</Path>
-							<AudioNodeInfo>
-								<NoObject Platform="Linked"/>
+								<AudioNodeRef Name="Chirp_P1_ Happy" ID="{519558EA-25B9-4C56-AD96-B216A3856917}" WorkUnitID="{C54CF3E9-0E60-4A5A-AD10-EFD580D533AD}" Platform="Linked"/>
 							</AudioNodeInfo>
 						</Entry>
 					</EntryList>
@@ -4607,6 +4983,11 @@
 						<MusicSegment Name="losearm1" ID="{93BF02A5-2E8A-46E9-BC08-2021B393B30C}" ShortID="344180764">
 							<PropertyList>
 								<Property Name="EndPosition" Type="Real64" Value="13333.3333333333"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-14</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -4666,6 +5047,11 @@
 						<MusicSegment Name="losearm2" ID="{5458A6B8-9D1C-4A0B-B003-65BC1198EED2}" ShortID="204927986">
 							<PropertyList>
 								<Property Name="EndPosition" Type="Real64" Value="13333.3333333333"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-14</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -4725,6 +5111,11 @@
 						<MusicSegment Name="losearm3" ID="{9A46ECA5-2BF0-4AB8-BDC5-2B5C71FB860B}" ShortID="598913678">
 							<PropertyList>
 								<Property Name="EndPosition" Type="Real64" Value="13333.3333333333"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-14</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">

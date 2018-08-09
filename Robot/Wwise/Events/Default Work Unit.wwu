@@ -85,7 +85,11 @@
 								<Action Name="" ID="{940E1BC4-43F4-49C5-9E46-B7C8B1E7BE5E}" ShortID="778739752">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="1"/>
-										<Property Name="Delay" Type="Real64" Value="0.3"/>
+										<Property Name="Inclusion" Type="bool">
+											<ValueList>
+												<Value>False</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -273,6 +277,20 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Rob2 steam vent 2" ID="{1EA59CEC-EED8-456E-8B8B-09996C963EB5}" WorkUnitID="{6BAE9174-7CEB-4131-99B7-F2EC621355E0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="ChirpCombine" ID="{97DE4879-A4BB-4045-A4E1-BED420E41DCD}">
+							<ChildrenList>
+								<Action Name="" ID="{F0CEB049-5D47-4E2F-8758-D61040B35B8F}" ShortID="439714633">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Chirps" ID="{C20DA0F8-7DC3-4A2E-8494-63BA85318019}" WorkUnitID="{C54CF3E9-0E60-4A5A-AD10-EFD580D533AD}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>

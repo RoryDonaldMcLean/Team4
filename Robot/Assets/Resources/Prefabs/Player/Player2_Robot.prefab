@@ -581,6 +581,8 @@ GameObject:
   - component: {fileID: 114466430460393692}
   - component: {fileID: 114292497874772528}
   - component: {fileID: 114116279352576132}
+  - component: {fileID: 114950402195677490}
+  - component: {fileID: 114663872134595960}
   m_Layer: 14
   m_Name: Player2_Robot
   m_TagString: Player2
@@ -2287,6 +2289,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdeab99c116cd8244b3c5ea0c8a66ce8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114663872134595960
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1518905239815366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b8ddc2a1a279bb46b9d526dffdc82ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  groupID: -620282575
+  valueID: -1526273951
+  groupGuid: ad58170b8c368e4696d54a550b0524ff
+  valueGuid: 1deca76c6037e34a8123c5a6d695980e
 --- !u!114 &114700820306202340
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2332,6 +2351,28 @@ MonoBehaviour:
     positionOffset: {x: 0, y: 0, z: 0}
   m_posOffsetData: {fileID: 0}
   listenerMask: 1
+--- !u!114 &114950402195677490
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1518905239815366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7999ea7310cf3db408b1eb3ad84d3f23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: 
+  useOtherObject: 0
+  actionOnEventType: 0
+  curveInterpolation: 4
+  enableActionOnEvent: 0
+  eventID: 167209695
+  m_callbackData: {fileID: 0}
+  playingId: 0
+  soundEmitterObject: {fileID: 0}
+  transitionDuration: 0
+  valueGuid: 0a5505bc7d26c841b984ab934261ab34
 --- !u!137 &137113347083764242
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

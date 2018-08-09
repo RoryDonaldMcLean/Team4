@@ -105,7 +105,7 @@ public class MelodyInput : MonoBehaviour
                         if (GameObject.FindGameObjectWithTag("Player1").GetComponent<SCR_TradeLimb>().limbs[0].activeSelf)
                         {
                             MelodyDoor.GetComponent<InControlMelody>().Robotcode.Add(1);
-                            Notes[MelodyDoor.GetComponent<InControlMelody>().noteCounter].GetComponent<RawImage>().texture = Arrows[0].texture;
+							Notes[MelodyDoor.GetComponent<InControlMelody>().noteCounter].GetComponent<Image>().sprite = Arrows[0];
                             MelodyDoor.GetComponent<InControlMelody>().noteCounter += 1;
                             AkSoundEngine.PostEvent("GateNoteA", gameObject);
                             anim.SetBool("IsButtonPressed", true);
@@ -120,7 +120,7 @@ public class MelodyInput : MonoBehaviour
                         if (GameObject.FindGameObjectWithTag("Player1").GetComponent<SCR_TradeLimb>().limbs[2].activeSelf)
                         {
                             MelodyDoor.GetComponent<InControlMelody>().Robotcode.Add(2);
-                            Notes[MelodyDoor.GetComponent<InControlMelody>().noteCounter].GetComponent<RawImage>().texture = Arrows[3].texture;
+							Notes[MelodyDoor.GetComponent<InControlMelody>().noteCounter].GetComponent<Image>().sprite = Arrows[3];
                             MelodyDoor.GetComponent<InControlMelody>().noteCounter += 1;
                             AkSoundEngine.PostEvent("GateNoteA", gameObject);
                             anim.SetBool("IsButtonPressed", true);
@@ -135,7 +135,7 @@ public class MelodyInput : MonoBehaviour
                         if (GameObject.FindGameObjectWithTag("Player1").GetComponent<SCR_TradeLimb>().limbs[1].activeSelf)
                         {
                             MelodyDoor.GetComponent<InControlMelody>().Robotcode.Add(3);
-                            Notes[MelodyDoor.GetComponent<InControlMelody>().noteCounter].GetComponent<RawImage>().texture = Arrows[1].texture;
+							Notes[MelodyDoor.GetComponent<InControlMelody>().noteCounter].GetComponent<Image>().sprite = Arrows[1];
                             MelodyDoor.GetComponent<InControlMelody>().noteCounter += 1;
                             anim.SetBool("IsButtonPressed", true);
                             AkSoundEngine.PostEvent("GateNoteA", gameObject);
@@ -150,7 +150,7 @@ public class MelodyInput : MonoBehaviour
                         if (GameObject.FindGameObjectWithTag("Player1").GetComponent<SCR_TradeLimb>().limbs[3].activeSelf)
                         {
                             MelodyDoor.GetComponent<InControlMelody>().Robotcode.Add(4);
-                            Notes[MelodyDoor.GetComponent<InControlMelody>().noteCounter].GetComponent<RawImage>().texture = Arrows[2].texture;
+							Notes[MelodyDoor.GetComponent<InControlMelody>().noteCounter].GetComponent<Image>().sprite = Arrows[2];
                             MelodyDoor.GetComponent<InControlMelody>().noteCounter += 1;
                             AkSoundEngine.PostEvent("GateNoteA", gameObject);
                             anim.SetBool("IsButtonPressed", true);
@@ -190,7 +190,7 @@ public class MelodyInput : MonoBehaviour
                         if (GameObject.FindGameObjectWithTag("Player2").GetComponent<SCR_TradeLimb>().limbs[0].activeSelf)
                         {
                             MelodyDoor.GetComponent<InControlMelody>().Robotcode.Add(5);
-                            Notes[MelodyDoor.GetComponent<InControlMelody>().noteCounter].GetComponent<RawImage>().texture = Arrows[4].texture;
+							Notes[MelodyDoor.GetComponent<InControlMelody>().noteCounter].GetComponent<Image>().sprite = Arrows[4];
                             MelodyDoor.GetComponent<InControlMelody>().noteCounter += 1;
                             AkSoundEngine.PostEvent("GateNoteB", gameObject);
                             anim.SetBool("IsButtonPressed", true);
@@ -205,7 +205,7 @@ public class MelodyInput : MonoBehaviour
                         if (GameObject.FindGameObjectWithTag("Player2").GetComponent<SCR_TradeLimb>().limbs[2].activeSelf)
                         {
                             MelodyDoor.GetComponent<InControlMelody>().Robotcode.Add(6);
-                            Notes[MelodyDoor.GetComponent<InControlMelody>().noteCounter].GetComponent<RawImage>().texture = Arrows[7].texture;
+							Notes[MelodyDoor.GetComponent<InControlMelody>().noteCounter].GetComponent<Image>().sprite = Arrows[7];
                             MelodyDoor.GetComponent<InControlMelody>().noteCounter += 1;
                             AkSoundEngine.PostEvent("GateNoteB", gameObject);
                             anim.SetBool("IsButtonPressed", true);
@@ -220,7 +220,7 @@ public class MelodyInput : MonoBehaviour
                         if (GameObject.FindGameObjectWithTag("Player2").GetComponent<SCR_TradeLimb>().limbs[1].activeSelf)
                         {
                             MelodyDoor.GetComponent<InControlMelody>().Robotcode.Add(7);
-                            Notes[MelodyDoor.GetComponent<InControlMelody>().noteCounter].GetComponent<RawImage>().texture = Arrows[5].texture;
+							Notes[MelodyDoor.GetComponent<InControlMelody>().noteCounter].GetComponent<Image>().sprite = Arrows[5];
                             MelodyDoor.GetComponent<InControlMelody>().noteCounter += 1;
                             AkSoundEngine.PostEvent("GateNoteB", gameObject);
                             anim.SetBool("IsButtonPressed", true);
@@ -235,7 +235,7 @@ public class MelodyInput : MonoBehaviour
                         if (GameObject.FindGameObjectWithTag("Player2").GetComponent<SCR_TradeLimb>().limbs[3].activeSelf)
                         {
                             MelodyDoor.GetComponent<InControlMelody>().Robotcode.Add(8);
-                            Notes[MelodyDoor.GetComponent<InControlMelody>().noteCounter].GetComponent<RawImage>().texture = Arrows[6].texture;
+							Notes[MelodyDoor.GetComponent<InControlMelody>().noteCounter].GetComponent<Image>().sprite = Arrows[6];
                             MelodyDoor.GetComponent<InControlMelody>().noteCounter += 1;
                             AkSoundEngine.PostEvent("GateNoteB", gameObject);
                             anim.SetBool("IsButtonPressed", true);
@@ -282,7 +282,7 @@ public class MelodyInput : MonoBehaviour
                         if (GameObject.FindGameObjectWithTag("Player1").GetComponent<SCR_TradeLimb>().limbs[0].activeSelf)
                         {
                             MelodyDoor.GetComponent<InControlMelody>().Robotcode.Add(1);
-                            Notes[MelodyDoor.GetComponent<InControlMelody>().noteCounter].GetComponent<RawImage>().texture = Arrows[0].texture;
+							Notes[MelodyDoor.GetComponent<InControlMelody>().noteCounter].GetComponent<Image>().sprite = Arrows[0];
                             MelodyDoor.GetComponent<InControlMelody>().noteCounter += 1;
                             AkSoundEngine.PostEvent("GateNoteA", gameObject);
                             anim.SetBool("IsButtonPressed", true);
@@ -297,7 +297,7 @@ public class MelodyInput : MonoBehaviour
                         if (GameObject.FindGameObjectWithTag("Player1").GetComponent<SCR_TradeLimb>().limbs[2].activeSelf)
                         {
                             MelodyDoor.GetComponent<InControlMelody>().Robotcode.Add(2);
-                            Notes[MelodyDoor.GetComponent<InControlMelody>().noteCounter].GetComponent<RawImage>().texture = Arrows[3].texture;
+							Notes[MelodyDoor.GetComponent<InControlMelody>().noteCounter].GetComponent<Image>().sprite = Arrows[3];
                             MelodyDoor.GetComponent<InControlMelody>().noteCounter += 1;
                             AkSoundEngine.PostEvent("GateNoteA", gameObject);
                             anim.SetBool("IsButtonPressed", true);
@@ -312,7 +312,7 @@ public class MelodyInput : MonoBehaviour
                         if (GameObject.FindGameObjectWithTag("Player1").GetComponent<SCR_TradeLimb>().limbs[1].activeSelf)
                         {
                             MelodyDoor.GetComponent<InControlMelody>().Robotcode.Add(3);
-                            Notes[MelodyDoor.GetComponent<InControlMelody>().noteCounter].GetComponent<RawImage>().texture = Arrows[1].texture;
+							Notes[MelodyDoor.GetComponent<InControlMelody>().noteCounter].GetComponent<Image>().sprite = Arrows[1];
                             MelodyDoor.GetComponent<InControlMelody>().noteCounter += 1;
                             AkSoundEngine.PostEvent("GateNoteA", gameObject);
                             anim.SetBool("IsButtonPressed", true);
@@ -327,7 +327,7 @@ public class MelodyInput : MonoBehaviour
                         if (GameObject.FindGameObjectWithTag("Player1").GetComponent<SCR_TradeLimb>().limbs[3].activeSelf)
                         {
                             MelodyDoor.GetComponent<InControlMelody>().Robotcode.Add(4);
-                            Notes[MelodyDoor.GetComponent<InControlMelody>().noteCounter].GetComponent<RawImage>().texture = Arrows[2].texture;
+							Notes[MelodyDoor.GetComponent<InControlMelody>().noteCounter].GetComponent<Image>().sprite = Arrows[2];
                             MelodyDoor.GetComponent<InControlMelody>().noteCounter += 1;
                             AkSoundEngine.PostEvent("GateNoteA", gameObject);
                             anim.SetBool("IsButtonPressed", true);
@@ -366,7 +366,7 @@ public class MelodyInput : MonoBehaviour
                         if (GameObject.FindGameObjectWithTag("Player2").GetComponent<SCR_TradeLimb>().limbs[0].activeSelf)
                         {
                             MelodyDoor.GetComponent<InControlMelody>().Robotcode.Add(5);
-                            Notes[MelodyDoor.GetComponent<InControlMelody>().noteCounter].GetComponent<RawImage>().texture = Arrows[4].texture;
+							Notes[MelodyDoor.GetComponent<InControlMelody>().noteCounter].GetComponent<Image>().sprite = Arrows[4];
                             MelodyDoor.GetComponent<InControlMelody>().noteCounter += 1;
                             AkSoundEngine.PostEvent("GateNoteB", gameObject);
                             anim.SetBool("IsButtonPressed", true);
@@ -381,7 +381,7 @@ public class MelodyInput : MonoBehaviour
                         if (GameObject.FindGameObjectWithTag("Player2").GetComponent<SCR_TradeLimb>().limbs[2].activeSelf)
                         {
                             MelodyDoor.GetComponent<InControlMelody>().Robotcode.Add(6);
-                            Notes[MelodyDoor.GetComponent<InControlMelody>().noteCounter].GetComponent<RawImage>().texture = Arrows[7].texture;
+							Notes[MelodyDoor.GetComponent<InControlMelody>().noteCounter].GetComponent<Image>().sprite = Arrows[7];
                             MelodyDoor.GetComponent<InControlMelody>().noteCounter += 1;
                             AkSoundEngine.PostEvent("GateNoteB", gameObject);
                             anim.SetBool("IsButtonPressed", true);
@@ -396,7 +396,7 @@ public class MelodyInput : MonoBehaviour
                         if (GameObject.FindGameObjectWithTag("Player2").GetComponent<SCR_TradeLimb>().limbs[1].activeSelf)
                         {
                             MelodyDoor.GetComponent<InControlMelody>().Robotcode.Add(7);
-                            Notes[MelodyDoor.GetComponent<InControlMelody>().noteCounter].GetComponent<RawImage>().texture = Arrows[5].texture;
+							Notes[MelodyDoor.GetComponent<InControlMelody>().noteCounter].GetComponent<Image>().sprite = Arrows[5];
                             MelodyDoor.GetComponent<InControlMelody>().noteCounter += 1;
                             AkSoundEngine.PostEvent("GateNoteB", gameObject);
                             anim.SetBool("IsButtonPressed", true);
@@ -411,7 +411,7 @@ public class MelodyInput : MonoBehaviour
                         if (GameObject.FindGameObjectWithTag("Player2").GetComponent<SCR_TradeLimb>().limbs[3].activeSelf)
                         {
                             MelodyDoor.GetComponent<InControlMelody>().Robotcode.Add(8);
-                            Notes[MelodyDoor.GetComponent<InControlMelody>().noteCounter].GetComponent<RawImage>().texture = Arrows[6].texture;
+							Notes[MelodyDoor.GetComponent<InControlMelody>().noteCounter].GetComponent<Image>().sprite = Arrows[6];
                             MelodyDoor.GetComponent<InControlMelody>().noteCounter += 1;
                             AkSoundEngine.PostEvent("GateNoteB", gameObject);
                             anim.SetBool("IsButtonPressed", true);

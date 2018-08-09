@@ -21,6 +21,8 @@ public class Tutorial : MonoBehaviour
 	int playerNum;
 	bool ControllerUsed;
 
+	public bool ChirpsTutorial;
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -41,9 +43,7 @@ public class Tutorial : MonoBehaviour
 		}
 
 		scriptStart = true;
-
-
-
+		ChirpsTutorial = true;
 	}
 	
 	// Update is called once per frame
@@ -73,12 +73,49 @@ public class Tutorial : MonoBehaviour
 		if (inputDevice == null)
 		{
 			//Debug.Log ("no controllers plugged in");
-			ControllerUsed = true;
+			ControllerUsed = false;
 		} 
 		else
 		{
-			ControllerUsed = false;
-		}			
+			ControllerUsed = true;
+		}
+
+		if (this.GetComponentInParent<InControlMovement> ().enabled == false)
+		{
+			ChirpsTutorialFunction ();
+		}
+
+
+	}
+
+	void ChirpsTutorialFunction()
+	{
+		//at the beginning of the game, tutorial for the chirps intro
+		if (ChirpsTutorial == true && levelCounter == 0)
+		{
+			if (ControllerUsed == true)
+			{
+				UITutorial.SetActive (true);
+				UIButtons [0].SetActive (true);
+				UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Controller_Open Chirp Menu") as Sprite;
+				UIButtons [0].GetComponent<Image> ().preserveAspect = true;
+
+				UIButtons [1].SetActive (false);
+				UIButtons [2].SetActive (false);
+			} else
+			{
+				UITutorial.SetActive (true);
+				UIButtons [0].SetActive (true);
+				UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Keyboard promptbox Buttons") as Sprite;
+				UIButtons [0].GetComponent<Image> ().preserveAspect = true;
+				UIButtons [1].SetActive (true);
+				UIButtons [2].SetActive (true);
+
+				keyboardButtonPlayer1.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [12].ToString ();
+				KeyboardButtonPlayer2.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [25].ToString ();
+			}
+
+		}
 	}
 		
 	void OnTriggerEnter(Collider col)
@@ -86,7 +123,7 @@ public class Tutorial : MonoBehaviour
 		if ((col.transform.name.Contains ("LeftArm") && levelCounter == 0)
 		    || (col.transform.name.Contains ("RightArm") && levelCounter == 0))
 		{
-			if (ControllerUsed == false)
+			if (ControllerUsed == true)
 			{
 				startTimer = true;
 				UITutorial.SetActive (true);
@@ -116,7 +153,7 @@ public class Tutorial : MonoBehaviour
 		} 
 		else if (col.transform.name.Contains ("LightEmitter") && levelCounter == 0)
 		{
-			if (ControllerUsed == false)
+			if (ControllerUsed == true)
 			{
 				startTimer = true;
 				UITutorial.SetActive (true);
@@ -141,12 +178,10 @@ public class Tutorial : MonoBehaviour
 				keyboardButtonPlayer1.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [11].ToString ();
 				KeyboardButtonPlayer2.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [24].ToString ();
 			}
-
-
 		} 
 		else if (col.transform.name.Contains ("SlideBox") && levelCounter == 1)
 		{
-			if (ControllerUsed == false)
+			if (ControllerUsed == true)
 			{
 				startTimer = true;
 				UITutorial.SetActive (true);
@@ -176,7 +211,7 @@ public class Tutorial : MonoBehaviour
 		} 
 		else if (col.transform.name.Contains ("RotateBox") && levelCounter == 1)
 		{
-			if (ControllerUsed == false)
+			if (ControllerUsed == true)
 			{
 				startTimer = true;
 				UITutorial.SetActive (true);
@@ -207,7 +242,7 @@ public class Tutorial : MonoBehaviour
 		{
 			if (col.transform.GetChild (0).name.Contains ("Arm") && levelCounter == 1)
 			{
-				if (ControllerUsed == false)
+				if (ControllerUsed == true)
 				{
 					startTimer = true;
 					UITutorial.SetActive (true);
@@ -235,7 +270,7 @@ public class Tutorial : MonoBehaviour
 			} 
 			else
 			{
-				if (ControllerUsed == false)
+				if (ControllerUsed == true)
 				{
 					startTimer = true;
 					UITutorial.SetActive (true);
@@ -265,7 +300,7 @@ public class Tutorial : MonoBehaviour
 		} 
 		else if (col.transform.name.Contains ("Elevation") && levelCounter == 0)
 		{
-			if (ControllerUsed == false)
+			if (ControllerUsed == true)
 			{
 				startTimer = true;
 				UITutorial.SetActive (true);

@@ -766,4 +766,22 @@ public class SCR_TradeLimb : MonoBehaviour
 	{
 		return Input.GetKey(GameManager.Instance.playerSetting.currentButton[playerInput]);
 	}
+
+    public void DropDownLims(string limbToRemove)
+    {
+        int limbNumber = LimbNumber(limbToRemove);
+
+        if (limbs[limbNumber].activeSelf)
+        {
+            Vector3 dropDownLimsPosition = limbs[limbNumber].transform.position;
+            RemoveLimb(limbToRemove);
+            GameObject dropDownLims = Instantiate(Resources.Load("Prefabs/Player/" + GetPrefabsName(limbToRemove))) as GameObject;
+
+            dropDownLims.AddComponent<Collider>();
+            dropDownLims.AddComponent<Rigidbody>();
+            dropDownLims.name = limbToRemove;
+            dropDownLims.transform.position = dropDownLimsPosition;
+            Destroy(dropDownLims, 2f);
+        }
+    }
 }

@@ -5,7 +5,6 @@ using UnityEngine;
 public class ChirpCollector : MonoBehaviour 
 {
 	public int eventCount = 0;
-
 	public float timeLeft = 2.0f;
 	public bool startTimer = false;
 	public bool playEvent = false;

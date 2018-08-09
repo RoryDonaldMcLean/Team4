@@ -9,6 +9,7 @@ public class PuzzleOnBoardingProcess : LevelControlBaseClass
     void Awake()
     {
         puzzleIdentifier = "PuzzleZero";
+		walkwayPosition = new Vector3(9, 0, 45.83f);
     }
 
     //Disables player movement at the start of this 
@@ -31,6 +32,7 @@ public class PuzzleOnBoardingProcess : LevelControlBaseClass
     //directly is going to work all the time.
     private void AddMovement(string playerTag)
     {
+		GameObject.FindGameObjectWithTag (playerTag).GetComponentInChildren<Tutorial> ().ChirpsTutorial = false;
         GameObject.FindGameObjectWithTag(playerTag).GetComponent<InControlMovement>().enabled = true;
     }
 

@@ -155,7 +155,7 @@ public class InControlMelody : MonoBehaviour
 		//the 4 RawImages that your using to show the arrows, set their textures to null
 		for (int i = 0; i < Notes.Count; i++)
 		{
-			Notes[i].GetComponent<RawImage>().texture = null;
+			Notes[i].GetComponent<Image>().sprite = Resources.Load<Sprite> ("Art/PlaceHolder/UIBlankArrowBox") as Sprite;
 		}
 			
 

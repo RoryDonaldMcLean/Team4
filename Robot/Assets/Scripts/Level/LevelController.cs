@@ -78,11 +78,13 @@ public class LevelController : MonoBehaviour
     private void LevelTwo()
     {
         levelScripts.Add(this.gameObject.AddComponent<PuzzleTwoColourChanging>());
+        this.gameObject.AddComponent<TutorialTwo>();
     }
 
     private void LevelThree()
     {
         levelScripts.Add(this.gameObject.AddComponent<PuzzleThreeCombinersandRefractors>());
+        this.gameObject.AddComponent<TutorialThree>();
     }
 
     private void LevelFour()

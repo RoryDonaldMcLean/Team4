@@ -131,6 +131,7 @@ public class Chirps : MonoBehaviour
 							GameController.GetComponent<ChirpCollector> ().startTimer = true;
                             GameController.GetComponent<ChirpCollector>().playertwoChirped = true;
 
+							GameController.GetComponent<ChirpCollector> ().eventCount += 1;
                             //eventCount += 1;
                             AkSoundEngine.SetState ("Chirp_Type", "Happy");
 							AkSoundEngine.PostEvent ("Chirp", gameObject);
@@ -151,6 +152,7 @@ public class Chirps : MonoBehaviour
 							//play chirp
 							GameController.GetComponent<ChirpCollector> ().startTimer = true;
                         GameController.GetComponent<ChirpCollector>().playertwoChirped = true;
+						GameController.GetComponent<ChirpCollector> ().eventCount += 1;
                         Debug.Log ("player 1, right arm chirp");
 							AkSoundEngine.SetState ("Chirp_Type", "Sad");
 							AkSoundEngine.PostEvent ("Chirp", gameObject);
@@ -168,7 +170,7 @@ public class Chirps : MonoBehaviour
 							EmoteNumber = 3;
 							Emotes ();
 							//GameController.GetComponent<ChirpCollector> ().startTimer = true;
-							//GameController.GetComponent<ChirpCollector> ().eventCount += 1;
+							GameController.GetComponent<ChirpCollector> ().eventCount += 1;
 							Debug.Log ("player1, left leg chirp");
 							AkSoundEngine.SetState ("Chirp_Type", "Here");
 							AkSoundEngine.PostEvent ("Chirp", gameObject);
@@ -186,7 +188,7 @@ public class Chirps : MonoBehaviour
 							EmoteNumber = 4;
 							Emotes ();
 							//GameController.GetComponent<ChirpCollector> ().startTimer = true;
-							//GameController.GetComponent<ChirpCollector> ().eventCount += 1;
+							GameController.GetComponent<ChirpCollector> ().eventCount += 1;
 							Debug.Log ("player1, right leg chirp");
 							AkSoundEngine.SetState ("Chirp_Type", "There");
 							AkSoundEngine.PostEvent ("Chirp", gameObject);
@@ -229,6 +231,7 @@ public class Chirps : MonoBehaviour
 							Emotes ();
 							GameController.GetComponent<ChirpCollector> ().startTimer = true;
                             GameController.GetComponent<ChirpCollector>().playertwoChirped = true;
+						GameController.GetComponent<ChirpCollector> ().eventCount += 1;
                             //play chirp
                             AkSoundEngine.SetState ("Chirp_Type", "Happy");
 							AkSoundEngine.PostEvent ("Chirp", gameObject);
@@ -249,6 +252,7 @@ public class Chirps : MonoBehaviour
 							//play chirp
 							GameController.GetComponent<ChirpCollector> ().startTimer = true;
                             GameController.GetComponent<ChirpCollector>().playertwoChirped = true;
+						GameController.GetComponent<ChirpCollector> ().eventCount += 1;
                             AkSoundEngine.SetState ("Chirp_Type", "Sad");
 							AkSoundEngine.PostEvent ("Chirp", gameObject);
 
@@ -266,7 +270,7 @@ public class Chirps : MonoBehaviour
 							EmoteNumber = 3;
 							Emotes ();
 							//GameController.GetComponent<ChirpCollector> ().startTimer = true;
-							//GameController.GetComponent<ChirpCollector> ().eventCount += 1;
+							GameController.GetComponent<ChirpCollector> ().eventCount += 1;
 							//play chirp
 							AkSoundEngine.SetState ("Chirp_Type", "Here");
 							AkSoundEngine.PostEvent ("Chirp", gameObject);
@@ -285,7 +289,7 @@ public class Chirps : MonoBehaviour
 							EmoteNumber = 4;
 							Emotes ();
 							//GameController.GetComponent<ChirpCollector> ().startTimer = true;
-							//GameController.GetComponent<ChirpCollector> ().eventCount += 1;
+							GameController.GetComponent<ChirpCollector> ().eventCount += 1;
 							//play chirp
 							AkSoundEngine.SetState ("Chirp_Type", "There");
 							AkSoundEngine.PostEvent ("Chirp", gameObject);
@@ -348,9 +352,10 @@ public class Chirps : MonoBehaviour
 								Emotes ();
 								GameController.GetComponent<ChirpCollector> ().startTimer = true;
                                 GameController.GetComponent<ChirpCollector>().playeroneChirped = true;
+								GameController.GetComponent<ChirpCollector> ().eventCount += 1;
                         
-                        //play chirp
-                        AkSoundEngine.SetState ("Chirp_Type", "Happy");
+                       			 //play chirp
+                        		AkSoundEngine.SetState ("Chirp_Type", "Happy");
 								AkSoundEngine.PostEvent ("Chirp", gameObject);
 
 								Debug.Log ("player 1, left arm chirp");
@@ -369,6 +374,7 @@ public class Chirps : MonoBehaviour
 								Emotes ();
 								GameController.GetComponent<ChirpCollector> ().startTimer = true;
                                 GameController.GetComponent<ChirpCollector>().playeroneChirped = true;
+								GameController.GetComponent<ChirpCollector> ().eventCount += 1;
 								//play chirp
 								AkSoundEngine.SetState ("Chirp_Type", "Sad");
 								AkSoundEngine.PostEvent ("Chirp", gameObject);
@@ -390,6 +396,7 @@ public class Chirps : MonoBehaviour
 								//GameController.GetComponent<ChirpCollector> ().startTimer = true;
                                // GameController.GetComponent<ChirpCollector>().playeroneChirped = true;
                         
+								GameController.GetComponent<ChirpCollector> ().eventCount += 1;
                                 //play chirp
                                 AkSoundEngine.SetState ("Chirp_Type", "Here");
 								AkSoundEngine.PostEvent ("Chirp", gameObject);
@@ -411,6 +418,7 @@ public class Chirps : MonoBehaviour
 								//GameController.GetComponent<ChirpCollector> ().startTimer = true;
                                // GameController.GetComponent<ChirpCollector>().playeroneChirped = true;
                         
+								GameController.GetComponent<ChirpCollector> ().eventCount += 1;
                                 //play chirp
                                 AkSoundEngine.SetState ("Chirp_Type", "There");
 								AkSoundEngine.PostEvent ("Chirp", gameObject);
@@ -462,6 +470,7 @@ public class Chirps : MonoBehaviour
 
 							GameController.GetComponent<ChirpCollector> ().startTimer = true;
                             GameController.GetComponent<ChirpCollector>().playertwoChirped = true;
+						GameController.GetComponent<ChirpCollector> ().eventCount += 1;
                         //play chirp
                         AkSoundEngine.SetState ("Chirp_Type", "Happy");
 							AkSoundEngine.PostEvent ("Chirp", gameObject);
@@ -483,6 +492,7 @@ public class Chirps : MonoBehaviour
 
 							GameController.GetComponent<ChirpCollector> ().startTimer = true;
                             GameController.GetComponent<ChirpCollector>().playertwoChirped = true;
+						GameController.GetComponent<ChirpCollector> ().eventCount += 1;
                             //play chirp
                             AkSoundEngine.SetState ("Chirp_Type", "Sad");
 							AkSoundEngine.PostEvent ("Chirp", gameObject);
@@ -503,7 +513,7 @@ public class Chirps : MonoBehaviour
 							Emotes ();
 
 							//GameController.GetComponent<ChirpCollector> ().startTimer = true;
-							//GameController.GetComponent<ChirpCollector> ().eventCount += 1;
+							GameController.GetComponent<ChirpCollector> ().eventCount += 1;
 							//play chirp
 							AkSoundEngine.SetState ("Chirp_Type", "Here");
 							AkSoundEngine.PostEvent ("Chirp", gameObject);
@@ -524,7 +534,7 @@ public class Chirps : MonoBehaviour
 							Emotes ();
 
 							//GameController.GetComponent<ChirpCollector> ().startTimer = true;
-							//GameController.GetComponent<ChirpCollector> ().eventCount += 1;
+							GameController.GetComponent<ChirpCollector> ().eventCount += 1;
 							//play chirp
 							AkSoundEngine.SetState ("Chirp_Type", "There");
 							AkSoundEngine.PostEvent ("Chirp", gameObject);

@@ -268,7 +268,7 @@ public class InControlMovement : MonoBehaviour
 
             //if player 1 presses the A button or the left ctrl button AND they are on the ground AND! have at least 1 leg
             //JUMP!!!
-            if ((grounded ==true || doubleJump == true) && Input.GetKeyDown(GameManager.Instance.playerSetting.currentButton[8]))
+            if ((grounded ==true || doubleJump == true) && Input.GetKeyDown(GameManager.Instance.playerSetting.currentButton[8]) && this.GetLegQuantity() >= 1)
 
 			{
 				if (grounded && this.GetLegQuantity() >= 2)
@@ -370,7 +370,10 @@ public class InControlMovement : MonoBehaviour
         if ((col.gameObject.tag == "Ground") && (rb1.velocity.y == 0))
         {
             grounded = false;
-            doubleJump = true;
+            if (GetLegQuantity() >= 2)
+                doubleJump = true;
+            else
+                doubleJump = false;
             velocity.y = -jumpSpeed;
         }
     }
@@ -383,9 +386,9 @@ public class InControlMovement : MonoBehaviour
         //vel.x = ve2.normalized.x;
         //vel.z = ve2.normalized.y;
 
-        rb1.velocity = vel * playerSpeed;
+        rb1.velocity = new Vector3(vel.x * playerSpeed, vel.y, vel.z * playerSpeed);
         Vector3 lookAt = new Vector3(rb1.velocity.x, 0, rb1.velocity.z);
-
+        
         //will rotate the player to face the direction they are moving
         if (lookAt != Vector3.zero)
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(lookAt), 0.3f);

@@ -10,6 +10,7 @@ public class PuzzleThreeCombinersandRefractors : LevelControlBaseClass
     {
         puzzleIdentifier = "PuzzleThree";
     }
+
     protected override void LevelSpecificInit()
     {
         walkwayPosition = new Vector3(9, 0, 111.99f);

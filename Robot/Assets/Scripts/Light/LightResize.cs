@@ -331,7 +331,7 @@ public class LightResize : MonoBehaviour
         }
         else
         {
-            Debug.Log("issue");
+            //Debug.Log("issue");
         }
     }
 

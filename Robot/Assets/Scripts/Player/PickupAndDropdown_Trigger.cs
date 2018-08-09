@@ -315,7 +315,7 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
         RaycastHit hit;
         float y = int.MinValue;
         if (Physics.Raycast(new Vector3(pickedUpGameObject.GetComponent<Transform>().position.x,
-            pickedUpGameObject.GetComponent<Transform>().position.y + 2, pickedUpGameObject.GetComponent<Transform>().position.z), -Vector3.up, out hit))
+            pickedUpGameObject.GetComponent<Transform>().position.y + 1, pickedUpGameObject.GetComponent<Transform>().position.z), -Vector3.up, out hit))
         {
             y = hit.point.y;
         }

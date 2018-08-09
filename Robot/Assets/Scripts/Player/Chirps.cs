@@ -32,6 +32,14 @@ public class Chirps : MonoBehaviour
 
 	GameObject GameController;
 
+	bool p1RA = false;
+	bool p1LL = false;
+	bool p1RL = false;
+
+	bool p2LA = false;
+	bool p2LL = false;
+	bool p2RL = false;
+
 	// Use this for initialization
 	private void Start () 
 	{
@@ -125,12 +133,17 @@ public class Chirps : MonoBehaviour
 						{
 							EmoteNumber = 1;
 							Emotes ();
+							//if(chirpminigame) call func() in chirpcollector -> counter++
+							//if counter == 6 -> do code reaction.
 							//play chirp
+
 							Debug.Log ("player 1, left arm chirp");
-							//example. 
+							//example.
+							//since these three all called, change idea to one call
+							//masterfunc(); - > these below + stuff above, so only one call
 							GameController.GetComponent<ChirpCollector> ().startTimer = true;
                             GameController.GetComponent<ChirpCollector>().playertwoChirped = true;
-
+							GameController.GetComponent<ChirpCollector> ().eventCount += 1;
                             //eventCount += 1;
                             AkSoundEngine.SetState ("Chirp_Type", "Happy");
 							AkSoundEngine.PostEvent ("Chirp", gameObject);
@@ -151,9 +164,19 @@ public class Chirps : MonoBehaviour
 							//play chirp
 							GameController.GetComponent<ChirpCollector> ().startTimer = true;
                         GameController.GetComponent<ChirpCollector>().playertwoChirped = true;
+						GameController.GetComponent<ChirpCollector> ().eventCount += 1;
                         Debug.Log ("player 1, right arm chirp");
 							AkSoundEngine.SetState ("Chirp_Type", "Sad");
 							AkSoundEngine.PostEvent ("Chirp", gameObject);
+
+
+						if (p1RA == false)
+						{
+							GameController.GetComponent<ChirpCollector> ().addMovementCounter += 1;
+							p1RA = true;
+						}
+
+
 						} else if (inputDevice.DPadDown.WasPressed &&
 						!GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("RightArm"))
 						{
@@ -168,10 +191,18 @@ public class Chirps : MonoBehaviour
 							EmoteNumber = 3;
 							Emotes ();
 							//GameController.GetComponent<ChirpCollector> ().startTimer = true;
-							//GameController.GetComponent<ChirpCollector> ().eventCount += 1;
+							GameController.GetComponent<ChirpCollector> ().eventCount += 1;
 							Debug.Log ("player1, left leg chirp");
 							AkSoundEngine.SetState ("Chirp_Type", "Here");
 							AkSoundEngine.PostEvent ("Chirp", gameObject);
+
+						if (p1LL == false)
+						{
+							GameController.GetComponent<ChirpCollector> ().addMovementCounter += 1;
+							p1LL = true;
+						}
+
+
 						} else if (inputDevice.DPadLeft.WasPressed &&
 						!GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("LeftLeg"))
 						{
@@ -186,10 +217,18 @@ public class Chirps : MonoBehaviour
 							EmoteNumber = 4;
 							Emotes ();
 							//GameController.GetComponent<ChirpCollector> ().startTimer = true;
-							//GameController.GetComponent<ChirpCollector> ().eventCount += 1;
+							GameController.GetComponent<ChirpCollector> ().eventCount += 1;
 							Debug.Log ("player1, right leg chirp");
 							AkSoundEngine.SetState ("Chirp_Type", "There");
 							AkSoundEngine.PostEvent ("Chirp", gameObject);
+
+						if (p1RL == false)
+						{
+							GameController.GetComponent<ChirpCollector> ().addMovementCounter += 1;
+							p1RL = true;
+						}
+
+
 						} else if (inputDevice.DPadRight.WasPressed &&
 						!GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("RightLeg"))
 						{
@@ -229,9 +268,17 @@ public class Chirps : MonoBehaviour
 							Emotes ();
 							GameController.GetComponent<ChirpCollector> ().startTimer = true;
                             GameController.GetComponent<ChirpCollector>().playertwoChirped = true;
+						GameController.GetComponent<ChirpCollector> ().eventCount += 1;
                             //play chirp
                             AkSoundEngine.SetState ("Chirp_Type", "Happy");
 							AkSoundEngine.PostEvent ("Chirp", gameObject);
+
+
+						if (p2LA == false)
+						{
+							GameController.GetComponent<ChirpCollector> ().addMovementCounter += 1;
+							p2LA = true;
+						}
 
 							Debug.Log ("Player 2, left Arm Chirp");
 						} else if (inputDevice.DPadUp.WasPressed &&
@@ -249,6 +296,7 @@ public class Chirps : MonoBehaviour
 							//play chirp
 							GameController.GetComponent<ChirpCollector> ().startTimer = true;
                             GameController.GetComponent<ChirpCollector>().playertwoChirped = true;
+						GameController.GetComponent<ChirpCollector> ().eventCount += 1;
                             AkSoundEngine.SetState ("Chirp_Type", "Sad");
 							AkSoundEngine.PostEvent ("Chirp", gameObject);
 
@@ -266,12 +314,19 @@ public class Chirps : MonoBehaviour
 							EmoteNumber = 3;
 							Emotes ();
 							//GameController.GetComponent<ChirpCollector> ().startTimer = true;
-							//GameController.GetComponent<ChirpCollector> ().eventCount += 1;
+							GameController.GetComponent<ChirpCollector> ().eventCount += 1;
 							//play chirp
 							AkSoundEngine.SetState ("Chirp_Type", "Here");
 							AkSoundEngine.PostEvent ("Chirp", gameObject);
 
 							Debug.Log ("player2, left leg chirp");
+
+						if (p2LL == false)
+						{
+							GameController.GetComponent<ChirpCollector> ().addMovementCounter += 1;
+							p2LL = true;
+						}
+
 						} else if (inputDevice.DPadLeft.WasPressed &&
 						!GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("LeftLeg"))
 						{
@@ -285,12 +340,19 @@ public class Chirps : MonoBehaviour
 							EmoteNumber = 4;
 							Emotes ();
 							//GameController.GetComponent<ChirpCollector> ().startTimer = true;
-							//GameController.GetComponent<ChirpCollector> ().eventCount += 1;
+							GameController.GetComponent<ChirpCollector> ().eventCount += 1;
 							//play chirp
 							AkSoundEngine.SetState ("Chirp_Type", "There");
 							AkSoundEngine.PostEvent ("Chirp", gameObject);
 
 							Debug.Log ("player2, right leg chirp");
+
+						if (p2RL == false)
+						{
+							GameController.GetComponent<ChirpCollector> ().addMovementCounter += 1;
+							p2RL = true;
+						}
+
 						} else if (inputDevice.DPadRight.WasPressed &&
 						!GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("RightLeg"))
 						{
@@ -348,12 +410,16 @@ public class Chirps : MonoBehaviour
 								Emotes ();
 								GameController.GetComponent<ChirpCollector> ().startTimer = true;
                                 GameController.GetComponent<ChirpCollector>().playeroneChirped = true;
+								GameController.GetComponent<ChirpCollector> ().eventCount += 1;
                         
-                        //play chirp
-                        AkSoundEngine.SetState ("Chirp_Type", "Happy");
+                       			 //play chirp
+                        		AkSoundEngine.SetState ("Chirp_Type", "Happy");
 								AkSoundEngine.PostEvent ("Chirp", gameObject);
 
 								Debug.Log ("player 1, left arm chirp");
+
+
+
 							} else if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [4])
 						&& !GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("LeftArm"))
 							{
@@ -369,11 +435,19 @@ public class Chirps : MonoBehaviour
 								Emotes ();
 								GameController.GetComponent<ChirpCollector> ().startTimer = true;
                                 GameController.GetComponent<ChirpCollector>().playeroneChirped = true;
+								GameController.GetComponent<ChirpCollector> ().eventCount += 1;
 								//play chirp
 								AkSoundEngine.SetState ("Chirp_Type", "Sad");
 								AkSoundEngine.PostEvent ("Chirp", gameObject);
 
 								Debug.Log ("player 1, right arm chirp");
+
+						if (p1RA == false)
+						{
+							GameController.GetComponent<ChirpCollector> ().addMovementCounter += 1;
+							p1RA = true;
+						}
+
 							} else if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [5])
 						&& !GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("RightArm"))
 							{
@@ -390,10 +464,19 @@ public class Chirps : MonoBehaviour
 								//GameController.GetComponent<ChirpCollector> ().startTimer = true;
                                // GameController.GetComponent<ChirpCollector>().playeroneChirped = true;
                         
+								GameController.GetComponent<ChirpCollector> ().eventCount += 1;
                                 //play chirp
                                 AkSoundEngine.SetState ("Chirp_Type", "Here");
 								AkSoundEngine.PostEvent ("Chirp", gameObject);
 								Debug.Log ("player 1, left leg chirp");
+
+
+						if (p1LL == false)
+						{
+							GameController.GetComponent<ChirpCollector> ().addMovementCounter += 1;
+							p1LL = true;
+						}
+
 
 							} else if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [6])
 						&& !GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("LeftLeg"))
@@ -411,10 +494,18 @@ public class Chirps : MonoBehaviour
 								//GameController.GetComponent<ChirpCollector> ().startTimer = true;
                                // GameController.GetComponent<ChirpCollector>().playeroneChirped = true;
                         
+								GameController.GetComponent<ChirpCollector> ().eventCount += 1;
                                 //play chirp
                                 AkSoundEngine.SetState ("Chirp_Type", "There");
 								AkSoundEngine.PostEvent ("Chirp", gameObject);
 								Debug.Log ("player 1, right leg chirp");
+
+						if (p1RL == false)
+						{
+							GameController.GetComponent<ChirpCollector> ().addMovementCounter += 1;
+							p1RL = true;
+						}
+
 							}
 
                             else if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [7])
@@ -462,11 +553,20 @@ public class Chirps : MonoBehaviour
 
 							GameController.GetComponent<ChirpCollector> ().startTimer = true;
                             GameController.GetComponent<ChirpCollector>().playertwoChirped = true;
+						GameController.GetComponent<ChirpCollector> ().eventCount += 1;
                         //play chirp
                         AkSoundEngine.SetState ("Chirp_Type", "Happy");
 							AkSoundEngine.PostEvent ("Chirp", gameObject);
 
 							Debug.Log ("Player2, left arm chirp");	
+
+						if (p2LA == false)
+						{
+							GameController.GetComponent<ChirpCollector> ().addMovementCounter += 1;
+							p2LA = true;
+						}
+
+
 						} else if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [17])
 						&& !GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("LeftArm"))
 						{
@@ -483,11 +583,15 @@ public class Chirps : MonoBehaviour
 
 							GameController.GetComponent<ChirpCollector> ().startTimer = true;
                             GameController.GetComponent<ChirpCollector>().playertwoChirped = true;
+						GameController.GetComponent<ChirpCollector> ().eventCount += 1;
                             //play chirp
                             AkSoundEngine.SetState ("Chirp_Type", "Sad");
 							AkSoundEngine.PostEvent ("Chirp", gameObject);
 
 							Debug.Log ("Player2, right arm chirp");	
+
+
+
 						} else if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [18])
 						&& !GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("RightArm"))
 						{
@@ -503,12 +607,19 @@ public class Chirps : MonoBehaviour
 							Emotes ();
 
 							//GameController.GetComponent<ChirpCollector> ().startTimer = true;
-							//GameController.GetComponent<ChirpCollector> ().eventCount += 1;
+							GameController.GetComponent<ChirpCollector> ().eventCount += 1;
 							//play chirp
 							AkSoundEngine.SetState ("Chirp_Type", "Here");
 							AkSoundEngine.PostEvent ("Chirp", gameObject);
 
 							Debug.Log ("Player2, left leg chirp");	
+
+						if (p2LL == false)
+						{
+							GameController.GetComponent<ChirpCollector> ().addMovementCounter += 1;
+							p2LL = true;
+						}
+
 						} else if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [19])
 						&& !GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("LeftLeg"))
 						{
@@ -524,12 +635,19 @@ public class Chirps : MonoBehaviour
 							Emotes ();
 
 							//GameController.GetComponent<ChirpCollector> ().startTimer = true;
-							//GameController.GetComponent<ChirpCollector> ().eventCount += 1;
+							GameController.GetComponent<ChirpCollector> ().eventCount += 1;
 							//play chirp
 							AkSoundEngine.SetState ("Chirp_Type", "There");
 							AkSoundEngine.PostEvent ("Chirp", gameObject);
 
 							Debug.Log ("Player2, right leg chirp");	
+
+						if (p2RL == false)
+						{
+							GameController.GetComponent<ChirpCollector> ().addMovementCounter += 1;
+							p2RL = true;
+						}
+
 						} else if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [20])
 						&& !GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("RightLeg"))
 						{

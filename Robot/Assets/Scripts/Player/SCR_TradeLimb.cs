@@ -516,23 +516,23 @@ public class SCR_TradeLimb : MonoBehaviour
 		string limbName = null;
 
 		//player  left arm
-		if(inputDevice.RightStickY > 0.5f)
+		if(inputDevice.DPadUp.WasPressed)
 		{
 			limbName = "LeftArm";
 		}
 		//player right arm
-		else if(inputDevice.RightStickY < -0.5f)
+		else if(inputDevice.DPadDown.WasPressed)
 		{
 			limbName = "RightArm";
 		}
 
 		//player1 left leg
-		if(inputDevice.RightStickX < -0.5f)
+		if(inputDevice.DPadLeft.WasPressed)
 		{
 			limbName = "LeftLeg";
 		}
 		//player right leg
-		else if(inputDevice.RightStickX > 0.5f)
+		else if(inputDevice.DPadRight.WasPressed)
 		{
 			limbName = "RightLeg";
 		}

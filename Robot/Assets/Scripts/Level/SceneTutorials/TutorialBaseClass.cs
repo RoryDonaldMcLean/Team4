@@ -2,20 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TutorialTwo : MonoBehaviour
+public class TutorialBaseClass : MonoBehaviour
 {
     protected List<LightTrigger> lightTriggers;
     protected GameObject entranceWall;
     protected List<GameObject> lightSources;
     protected List<GameObject> destroyableWalls;
     protected string TutorialIdentifier;
-
-    //Used as reference point for the base class
-    //allowing various operations to stay dynamic.
-    void Awake()
-    {
-        TutorialIdentifier = "TutorialTwo";
-    }
 
     //Waits until the blinking lightbeam control is finished, then turns off the lightbeams
     //for good, to once again provide a visual response to the level/puzzle being completed.

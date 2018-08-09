@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ChirpCollector : MonoBehaviour
 {
-    //public int eventCount = 0;
+    public int eventCount = 0;
     public bool playeroneChirped = false;
     public bool playertwoChirped = false;
     public float timeLeft = 1.0f;
@@ -12,6 +12,8 @@ public class ChirpCollector : MonoBehaviour
     public bool playEvent = false;
 
     bool addMovementCheck = false;
+
+	public int addMovementCounter = 0;
 
     // Use this for initialization
     void Start()
@@ -24,10 +26,16 @@ public class ChirpCollector : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		if (addMovementCounter >= 6)
+		{
+			NormalEvent ();
+		}
+
         //example of timer will be put elsewhere?
         if (startTimer == true)
         {
             timeLeft -= Time.deltaTime;
+
             if (playeroneChirped == true && playertwoChirped == true)
             {
                 playEvent = true;
@@ -51,6 +59,15 @@ public class ChirpCollector : MonoBehaviour
 		}
 	}
 
+	void NormalEvent()
+	{
+		if ((this.GetComponent<LevelController>().currentLevel==0)&&(addMovementCheck == false))
+		{
+			this.GetComponent<PuzzleOnBoardingProcess> ().ActivatePlayerMovement ();
+			addMovementCheck = true;
+		}
+	}
+
 	void Event()
 	{
 
@@ -64,14 +81,6 @@ public class ChirpCollector : MonoBehaviour
         playeroneChirped = false;
         playertwoChirped = false;
         timeLeft = 1.0f;
-
-
-        if ((this.GetComponent<LevelController>().currentLevel==0)&&(addMovementCheck == false))
-		{
-			this.GetComponent<PuzzleOnBoardingProcess> ().ActivatePlayerMovement ();
-			addMovementCheck = true;
-		}
-
 
 	}
 

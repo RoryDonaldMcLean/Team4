@@ -26,12 +26,6 @@ public class ChirpCollector : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		/*if (eventCount >= 2)
-		{
-			NormalEvent ();
-		}*/
-		Debug.Log ("movementcounter " + addMovementCounter);
-
 		if (addMovementCounter >= 6)
 		{
 			NormalEvent ();

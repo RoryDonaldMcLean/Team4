@@ -87,6 +87,35 @@ public class InControlMovement : MonoBehaviour
 		rb1.MovePosition (transform.position + transform.forward * playerSpeed * Time.deltaTime);
 	}
 
+    void FootstepP1()
+    {
+            AkSoundEngine.PostEvent("FootstepP1", gameObject); 
+    }
+
+    void FootstepP2()
+    {
+            AkSoundEngine.PostEvent("FootstepP2", gameObject);
+    }
+
+    void PushingRTPC()
+    {
+        AkSoundEngine.SetRTPCValue("Strain", 100);
+    }
+
+    void PushingStopRTPC()
+    {
+        AkSoundEngine.SetRTPCValue("Strain", 0);
+    }
+
+    void Switch()
+    {
+        AkSoundEngine.PostEvent("Switch", gameObject);
+    }
+
+    void Idle()
+    {
+        AkSoundEngine.PostEvent("Idle", gameObject);
+    }
 
 
     // Update is called once per frame
@@ -236,6 +265,7 @@ public class InControlMovement : MonoBehaviour
                 Input.GetKey(GameManager.Instance.playerSetting.currentButton[3])))
                 anim.SetBool("IsMoving", false);
 
+
             //if player 1 presses the A button or the left ctrl button AND they are on the ground AND! have at least 1 leg
             //JUMP!!!
             if ((grounded ==true || doubleJump == true) && Input.GetKeyDown(GameManager.Instance.playerSetting.currentButton[8]))
@@ -281,6 +311,8 @@ public class InControlMovement : MonoBehaviour
                 velocity.x += 1.0f;
                 anim.SetBool("IsMoving", true);
             }
+
+             
 
             if (!(Input.GetKey(GameManager.Instance.playerSetting.currentButton[13]) ||
                 Input.GetKey(GameManager.Instance.playerSetting.currentButton[15]) ||

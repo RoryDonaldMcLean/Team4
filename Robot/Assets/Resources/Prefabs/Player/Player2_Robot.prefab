@@ -577,6 +577,10 @@ GameObject:
   - component: {fileID: 114561570122012540}
   - component: {fileID: 65076019385828320}
   - component: {fileID: 114376274897507588}
+  - component: {fileID: 114913289457752520}
+  - component: {fileID: 114466430460393692}
+  - component: {fileID: 114292497874772528}
+  - component: {fileID: 114116279352576132}
   m_Layer: 14
   m_Name: Player2_Robot
   m_TagString: Player2
@@ -2154,6 +2158,28 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114116279352576132
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1518905239815366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7999ea7310cf3db408b1eb3ad84d3f23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: 
+  useOtherObject: 0
+  actionOnEventType: 0
+  curveInterpolation: 4
+  enableActionOnEvent: 0
+  eventID: -1092650779
+  m_callbackData: {fileID: 0}
+  playingId: 0
+  soundEmitterObject: {fileID: 0}
+  transitionDuration: 0
+  valueGuid: 61a551ed1a1e854dbd29ca9caabd1246
 --- !u!114 &114141763719830752
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2180,9 +2206,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBlue: 1
   playerNum: 1
-  jumpSpeed: 3.3
+  jumpSpeed: 5
   turnSpeed: 1
   gravityAcceleration: -10
+--- !u!114 &114292497874772528
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1518905239815366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7999ea7310cf3db408b1eb3ad84d3f23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: 
+  useOtherObject: 0
+  actionOnEventType: 0
+  curveInterpolation: 4
+  enableActionOnEvent: 0
+  eventID: 1874288895
+  m_callbackData: {fileID: 0}
+  playingId: 0
+  soundEmitterObject: {fileID: 0}
+  transitionDuration: 0
+  valueGuid: a6512b391c5a5944aca5b0f5654b6cfc
 --- !u!114 &114376274897507588
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2206,6 +2254,28 @@ MonoBehaviour:
   - {fileID: 23260406100993810}
   isBlue: 1
   playerNum: 1
+--- !u!114 &114466430460393692
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1518905239815366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7999ea7310cf3db408b1eb3ad84d3f23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: 
+  useOtherObject: 0
+  actionOnEventType: 0
+  curveInterpolation: 4
+  enableActionOnEvent: 0
+  eventID: -43753971
+  m_callbackData: {fileID: 0}
+  playingId: 0
+  soundEmitterObject: {fileID: 0}
+  transitionDuration: 0
+  valueGuid: 5a3c3065c081ca4389bd27334f44e859
 --- !u!114 &114561570122012540
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2241,6 +2311,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerNum: 1
   isBlue: 1
+--- !u!114 &114913289457752520
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1518905239815366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb191167caef1d34fa9e4ac3fca351b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_listeners:
+    initialListenerList: []
+    useDefaultListeners: 1
+  isEnvironmentAware: 1
+  isStaticObject: 0
+  m_positionOffsetData:
+    KeepMe: 0
+    positionOffset: {x: 0, y: 0, z: 0}
+  m_posOffsetData: {fileID: 0}
+  listenerMask: 1
 --- !u!137 &137113347083764242
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

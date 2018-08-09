@@ -53,6 +53,11 @@
 						</Bus>
 						<Bus Name="Ambience" ID="{6DA28E5B-02CA-4B3F-8893-AC8791C9BF2D}">
 							<PropertyList>
+								<Property Name="BusVolume" Type="Real64">
+									<ValueList>
+										<Value>-4</Value>
+									</ValueList>
+								</Property>
 								<Property Name="DivergenceCenter" Type="int32">
 									<ValueList>
 										<Value>0</Value>
@@ -63,6 +68,9 @@
 							<ReferenceList>
 								<Reference Name="Effect0" PluginName="Wwise Meter" CompanyID="0" PluginID="129" PluginType="3">
 									<ObjectRef Name="Wind_Level" ID="{D885ED9F-FA4E-4A26-B660-4A247EEF2C90}" WorkUnitID="{DB5ADB83-997D-43F7-B226-D357913135AD}"/>
+								</Reference>
+								<Reference Name="Effect1" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+									<ObjectRef Name="New_Wwise_Parametric_EQ_16" ID="{7BBBF43C-B9BF-4AD8-B0D8-F5B5CFC6A69C}" WorkUnitID="{DB5ADB83-997D-43F7-B226-D357913135AD}"/>
 								</Reference>
 							</ReferenceList>
 							<StateInfo>
@@ -169,6 +177,11 @@
 						</Bus>
 						<Bus Name="Music" ID="{8B3FDD90-9F59-41B0-831B-94D60F3FFC3C}">
 							<PropertyList>
+								<Property Name="BusVolume" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
 								<Property Name="DivergenceCenter" Type="int32">
 									<ValueList>
 										<Value>0</Value>
@@ -259,69 +272,24 @@
 								</DuckItem>
 							</DuckingList>
 						</Bus>
-						<AuxBus Name="REVERB_Outdoors" ID="{01B6CAA7-1AD8-4651-9FBE-2EEE4364EB69}">
-							<PropertyList>
-								<Property Name="DivergenceCenter" Type="int32">
-									<ValueList>
-										<Value>0</Value>
-									</ValueList>
-								</Property>
-								<Property Name="EnablePositioning" Type="bool" Value="True"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Attenuation">
-									<ObjectRef Name="Main_Attentuation" ID="{7AFFEEA2-FEA6-4C5E-9350-4292CD58F98F}" WorkUnitID="{69E5E085-C55B-46C1-B440-1CB36DA8E2EE}"/>
-								</Reference>
-								<Reference Name="Effect0" CompanyID="4095" PluginID="65535" PluginType="15">
-									<ObjectRef Name="Church_Small_Wood" ID="{940CCB47-F031-4C6A-B0E6-726CAC418C02}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
-								</Reference>
-							</ReferenceList>
-						</AuxBus>
-						<AuxBus Name="REVERB_Warehouse" ID="{A50C71E5-8DBC-4978-88CE-C8892376B389}">
-							<PropertyList>
-								<Property Name="DivergenceCenter" Type="int32">
-									<ValueList>
-										<Value>0</Value>
-									</ValueList>
-								</Property>
-								<Property Name="EnablePositioning" Type="bool" Value="True"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Attenuation">
-									<ObjectRef Name="Main_Attentuation" ID="{7AFFEEA2-FEA6-4C5E-9350-4292CD58F98F}" WorkUnitID="{69E5E085-C55B-46C1-B440-1CB36DA8E2EE}"/>
-								</Reference>
-								<Reference Name="Effect0" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
-									<ObjectRef Name="Machine_Gun_Hangar" ID="{B8FD966C-FC0F-4CD3-8236-B28DF27CDE7D}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
-								</Reference>
-							</ReferenceList>
-						</AuxBus>
-						<AuxBus Name="REVERB_Factory" ID="{4B5A10A7-D381-462D-9759-45BCF44EE239}">
-							<PropertyList>
-								<Property Name="DivergenceCenter" Type="int32">
-									<ValueList>
-										<Value>0</Value>
-									</ValueList>
-								</Property>
-								<Property Name="EnablePositioning" Type="bool" Value="True"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Attenuation">
-									<ObjectRef Name="Main_Attentuation" ID="{7AFFEEA2-FEA6-4C5E-9350-4292CD58F98F}" WorkUnitID="{69E5E085-C55B-46C1-B440-1CB36DA8E2EE}"/>
-								</Reference>
-								<Reference Name="Effect0" CompanyID="4095" PluginID="65535" PluginType="15">
-									<ObjectRef Name="Metal_Hangar" ID="{C4A4605C-42EF-476A-B53C-E31C7A442C24}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
-								</Reference>
-							</ReferenceList>
-						</AuxBus>
 						<Bus Name="Chrip_Melody" ID="{F3863DCC-A218-4856-80C9-06DA2A671F46}"/>
-						<AuxBus Name="REFLECT" ID="{A3D72B30-291C-413B-9E97-C21FB997657E}">
+						<Bus Name="Reverbs" ID="{B4D23ADE-F5AD-4EB0-B904-04CC2B783141}">
 							<PropertyList>
-								<Property Name="EnablePositioning" Type="bool" Value="True"/>
+								<Property Name="BusVolume" Type="Real64">
+									<ValueList>
+										<Value>-1</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Effect0">
-									<Custom>
-										<Effect Name="Wwise Reflect (Custom)" ID="{356CB487-DDAB-4654-90C3-609E1D70C90D}" ShortID="354858717" PluginName="Wwise Reflect" CompanyID="0" PluginID="171" PluginType="3">											<PluginData>
+							<ChildrenList>
+								<AuxBus Name="REFLECT" ID="{A3D72B30-291C-413B-9E97-C21FB997657E}">
+									<PropertyList>
+										<Property Name="EnablePositioning" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Effect0">
+											<Custom>
+												<Effect Name="Wwise Reflect (Custom)" ID="{356CB487-DDAB-4654-90C3-609E1D70C90D}" ShortID="354858717" PluginName="Wwise Reflect" CompanyID="0" PluginID="171" PluginType="3">													<PluginData>
 	<ReflectData>
 		<CurveList Version="4">
 			<CurveInfo Name="Distance Attenuation (Emitter vs. Listener)">
@@ -422,11 +390,67 @@
 		</CurveList>
 	</ReflectData>
 </PluginData>
-										</Effect>
-									</Custom>
-								</Reference>
-							</ReferenceList>
-						</AuxBus>
+												</Effect>
+											</Custom>
+										</Reference>
+									</ReferenceList>
+								</AuxBus>
+								<AuxBus Name="REVERB_Outdoors" ID="{01B6CAA7-1AD8-4651-9FBE-2EEE4364EB69}">
+									<PropertyList>
+										<Property Name="DivergenceCenter" Type="int32">
+											<ValueList>
+												<Value>0</Value>
+											</ValueList>
+										</Property>
+										<Property Name="EnablePositioning" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Attenuation">
+											<ObjectRef Name="Main_Attentuation" ID="{7AFFEEA2-FEA6-4C5E-9350-4292CD58F98F}" WorkUnitID="{69E5E085-C55B-46C1-B440-1CB36DA8E2EE}"/>
+										</Reference>
+										<Reference Name="Effect0" CompanyID="4095" PluginID="65535" PluginType="15">
+											<ObjectRef Name="Church_Small_Wood" ID="{940CCB47-F031-4C6A-B0E6-726CAC418C02}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+										</Reference>
+									</ReferenceList>
+								</AuxBus>
+								<AuxBus Name="REVERB_Warehouse" ID="{A50C71E5-8DBC-4978-88CE-C8892376B389}">
+									<PropertyList>
+										<Property Name="DivergenceCenter" Type="int32">
+											<ValueList>
+												<Value>0</Value>
+											</ValueList>
+										</Property>
+										<Property Name="EnablePositioning" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Attenuation">
+											<ObjectRef Name="Main_Attentuation" ID="{7AFFEEA2-FEA6-4C5E-9350-4292CD58F98F}" WorkUnitID="{69E5E085-C55B-46C1-B440-1CB36DA8E2EE}"/>
+										</Reference>
+										<Reference Name="Effect0" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
+											<ObjectRef Name="Machine_Gun_Hangar" ID="{B8FD966C-FC0F-4CD3-8236-B28DF27CDE7D}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+										</Reference>
+									</ReferenceList>
+								</AuxBus>
+								<AuxBus Name="REVERB_Factory" ID="{4B5A10A7-D381-462D-9759-45BCF44EE239}">
+									<PropertyList>
+										<Property Name="DivergenceCenter" Type="int32">
+											<ValueList>
+												<Value>0</Value>
+											</ValueList>
+										</Property>
+										<Property Name="EnablePositioning" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Attenuation">
+											<ObjectRef Name="Main_Attentuation" ID="{7AFFEEA2-FEA6-4C5E-9350-4292CD58F98F}" WorkUnitID="{69E5E085-C55B-46C1-B440-1CB36DA8E2EE}"/>
+										</Reference>
+										<Reference Name="Effect0" CompanyID="4095" PluginID="65535" PluginType="15">
+											<ObjectRef Name="Metal_Hangar" ID="{C4A4605C-42EF-476A-B53C-E31C7A442C24}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+										</Reference>
+									</ReferenceList>
+								</AuxBus>
+							</ChildrenList>
+						</Bus>
 					</ChildrenList>
 					<StateInfo>
 						<StateGroupList>

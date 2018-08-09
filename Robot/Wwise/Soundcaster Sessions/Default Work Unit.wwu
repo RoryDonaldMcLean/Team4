@@ -90,7 +90,7 @@
 							<Position X="2" Y="4"/>
 						</Module>
 						<Module>
-							<ObjectRef Name="Footstep" ID="{F5484EFA-EDBF-4629-98EA-F71C55EC26C1}" WorkUnitID="{9208E778-4B37-4421-9C2A-46AAA42FFE85}"/>
+							<ObjectRef Name="FootstepP1" ID="{F5484EFA-EDBF-4629-98EA-F71C55EC26C1}" WorkUnitID="{9208E778-4B37-4421-9C2A-46AAA42FFE85}"/>
 							<Position X="3" Y="0"/>
 						</Module>
 						<Module>
@@ -101,6 +101,14 @@
 							<ObjectRef Name="Activate_Crystal" ID="{79E8771B-ED28-44E7-87B1-CCC32FEA5571}" WorkUnitID="{9208E778-4B37-4421-9C2A-46AAA42FFE85}"/>
 							<Position X="3" Y="3"/>
 						</Module>
+						<Module>
+							<ObjectRef Name="FootstepP2" ID="{65303C5A-81C0-43CA-89BD-27334F44E859}" WorkUnitID="{9208E778-4B37-4421-9C2A-46AAA42FFE85}"/>
+							<Position X="4" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Idle" ID="{392B51A6-5A1C-4459-ACA5-B0F5654B6CFC}" WorkUnitID="{9208E778-4B37-4421-9C2A-46AAA42FFE85}"/>
+							<Position X="4" Y="1"/>
+						</Module>
 					</ModuleList>
 					<RTPCValueList ShowAll="true">
 						<RTPCValue>
@@ -108,8 +116,12 @@
 							<Value>1</Value>
 						</RTPCValue>
 						<RTPCValue>
-							<GameParameterRef Name="LimbNumber" ID="{9D2C0198-110B-4E07-BCC0-FA350FF658CF}"/>
+							<GameParameterRef Name="Strain" ID="{323B0F08-0389-4B25-B6C1-48EC37CF8D8A}"/>
 							<Value>0</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="LimbNumber" ID="{9D2C0198-110B-4E07-BCC0-FA350FF658CF}"/>
+							<Value>4</Value>
 						</RTPCValue>
 					</RTPCValueList>
 					<CurrentStateList ShowAll="true">
@@ -117,9 +129,9 @@
 						<CurrentStateRef Name="Happy" ID="{8159EF55-F4EC-4B8F-8798-01F730CE0B04}"/>
 					</CurrentStateList>
 					<CurrentSwitchList ShowAll="true">
-						<CurrentSwitchRef Name="Gravel" ID="{E9FBDDC8-3667-438E-9011-09D21A9BD08D}"/>
+						<CurrentSwitchRef Name="Concrete" ID="{C238A2AA-1701-4871-AACD-CAD08E807EA5}"/>
 						<CurrentSwitchRef Name="Limb1" ID="{555828A5-CA04-4106-BB01-E09BCFFB5FDE}"/>
-						<CurrentSwitchRef Name="Player_1" ID="{6E833DCC-3FA9-4C0A-8558-F454CDA5F3DB}"/>
+						<CurrentSwitchRef Name="Player_2" ID="{6CA7EC1D-3760-4AE3-8123-C5A6D695980E}"/>
 					</CurrentSwitchList>
 				</SoundcasterSession>
 				<SoundcasterSession Name="Emitters" ID="{6E1217C6-EE92-4201-B3C1-19485B35815A}">

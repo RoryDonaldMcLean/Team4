@@ -22,12 +22,15 @@ namespace AK
         static const AkUniqueID CHAINS = 640811495U;
         static const AkUniqueID CHAINS_LIGHT = 1854679430U;
         static const AkUniqueID CHIRP = 167209695U;
+        static const AkUniqueID DIE = 445985469U;
         static const AkUniqueID DOORCHIRP = 2390748151U;
         static const AkUniqueID DRONE = 2739838641U;
-        static const AkUniqueID FOOTSTEP = 1866025847U;
+        static const AkUniqueID FOOTSTEPP1 = 4251213326U;
+        static const AkUniqueID FOOTSTEPP2 = 4251213325U;
         static const AkUniqueID GATENOTEA = 2675281845U;
         static const AkUniqueID GATENOTEB = 2675281846U;
         static const AkUniqueID GATENOTEFINISH = 2947944241U;
+        static const AkUniqueID IDLE = 1874288895U;
         static const AkUniqueID INSECTS = 3833343604U;
         static const AkUniqueID LIGHT_HITS_CRYSTAL = 3427421355U;
         static const AkUniqueID LIGHTBUZZ = 1863820488U;
@@ -165,6 +168,7 @@ namespace AK
     {
         static const AkUniqueID CHIRPS_COMBINE = 4148654648U;
         static const AkUniqueID LIMBNUMBER = 2589579194U;
+        static const AkUniqueID STRAIN = 3538886730U;
     } // namespace GAME_PARAMETERS
 
     namespace BANKS
@@ -186,6 +190,7 @@ namespace AK
         static const AkUniqueID MASTER_SECONDARY_BUS = 805203703U;
         static const AkUniqueID MUSIC = 3991942870U;
         static const AkUniqueID OBJECTS = 1695690031U;
+        static const AkUniqueID REVERBS = 3545700988U;
         static const AkUniqueID ROBOTS = 2494382374U;
     } // namespace BUSSES
 

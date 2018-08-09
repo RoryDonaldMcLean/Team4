@@ -13,6 +13,8 @@ public class ChirpCollector : MonoBehaviour
 
     bool addMovementCheck = false;
 
+	public int addMovementCounter = 0;
+
     // Use this for initialization
     void Start()
     {
@@ -24,7 +26,13 @@ public class ChirpCollector : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		if (eventCount >= 2)
+		/*if (eventCount >= 2)
+		{
+			NormalEvent ();
+		}*/
+		Debug.Log ("movementcounter " + addMovementCounter);
+
+		if (addMovementCounter >= 6)
 		{
 			NormalEvent ();
 		}

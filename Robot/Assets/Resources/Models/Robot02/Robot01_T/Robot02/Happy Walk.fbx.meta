@@ -147,7 +147,10 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
-    animationImportWarnings: 
+    animationImportWarnings: Event Footstep has a time (0.000000) outside the clip's
+      valid range (0.033333..0.066667). It will never be firedEvent Footstep has a
+      time (1.670626) outside the clip's valid range (0.033333..0.066667). It will
+      never be fired
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     animationCompression: 1
@@ -181,7 +184,23 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0
+        functionName: Footstep
+        data: Footstep
+        objectReferenceParameter: {fileID: 1518905239815366, guid: 598ddd03c9279d04bb373047e714ae08,
+          type: 2}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.5011879
+        functionName: Footstep
+        data: Footstep
+        objectReferenceParameter: {fileID: 1518905239815366, guid: 598ddd03c9279d04bb373047e714ae08,
+          type: 2}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
@@ -209,7 +228,31 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.0062111802
+        functionName: FootstepP2
+        data: FootstepP2
+        objectReferenceParameter: {fileID: 1518905239815366, guid: 598ddd03c9279d04bb373047e714ae08,
+          type: 2}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.5070534
+        functionName: FootstepP2
+        data: FootstepP2
+        objectReferenceParameter: {fileID: 1518905239815366, guid: 598ddd03c9279d04bb373047e714ae08,
+          type: 2}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0
+        functionName: PushingStopRTPC
+        data: PushingStopRTPC
+        objectReferenceParameter: {fileID: 1518905239815366, guid: 598ddd03c9279d04bb373047e714ae08,
+          type: 2}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}

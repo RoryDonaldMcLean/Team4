@@ -105,7 +105,7 @@
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="Footstep" ID="{F5484EFA-EDBF-4629-98EA-F71C55EC26C1}">
+						<Event Name="FootstepP1" ID="{F5484EFA-EDBF-4629-98EA-F71C55EC26C1}">
 							<ChildrenList>
 								<Action Name="" ID="{1423BF0D-75EA-4FBF-B3BD-AFD8002F6819}" ShortID="935762063">
 									<PropertyList>
@@ -113,7 +113,7 @@
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="Footsteps" ID="{AF6FDF83-A486-47BE-9CA9-12DDF97386DD}" WorkUnitID="{6BAE9174-7CEB-4131-99B7-F2EC621355E0}"/>
+											<ObjectRef Name="Footsteps" ID="{B2FB8CD8-D738-4CF4-AA1E-ED657C65B0F3}" WorkUnitID="{6BAE9174-7CEB-4131-99B7-F2EC621355E0}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -121,10 +121,11 @@
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="1"/>
 										<Property Name="Delay" Type="Real64" Value="0.08"/>
+										<Property Name="Probability" Type="Real64" Value="4"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="Grinding" ID="{C90EE5B3-E1D3-4A78-B57C-A2B541DE021E}" WorkUnitID="{6BAE9174-7CEB-4131-99B7-F2EC621355E0}"/>
+											<ObjectRef Name="P1Vocals" ID="{22127A05-8928-4416-B50C-7F889FD3E244}" WorkUnitID="{6BAE9174-7CEB-4131-99B7-F2EC621355E0}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -132,10 +133,15 @@
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="1"/>
 										<Property Name="Delay" Type="Real64" Value="0.08"/>
+										<Property Name="Inclusion" Type="bool">
+											<ValueList>
+												<Value>False</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="Pistons" ID="{B8DAE047-AD08-400C-B4BC-D50B077891F1}" WorkUnitID="{6BAE9174-7CEB-4131-99B7-F2EC621355E0}"/>
+											<ObjectRef Name="P1Pistons" ID="{B8DAE047-AD08-400C-B4BC-D50B077891F1}" WorkUnitID="{6BAE9174-7CEB-4131-99B7-F2EC621355E0}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -192,6 +198,81 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="GateNoteFInish" ID="{880886E0-F06C-4D47-B717-F36A02874F46}" WorkUnitID="{6BAE9174-7CEB-4131-99B7-F2EC621355E0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="FootstepP2" ID="{65303C5A-81C0-43CA-89BD-27334F44E859}">
+							<ChildrenList>
+								<Action Name="" ID="{A20D2C14-3C05-41D4-960F-527262CB54F2}" ShortID="242893355">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Footsteps" ID="{B2FB8CD8-D738-4CF4-AA1E-ED657C65B0F3}" WorkUnitID="{6BAE9174-7CEB-4131-99B7-F2EC621355E0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{AFC1F0C1-16BA-47EA-AD52-E4B9370AF194}" ShortID="592729445">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="Inclusion" Type="bool">
+											<ValueList>
+												<Value>False</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Robot2_Vent" ID="{1318A5C3-9985-4E1D-9220-5314C7BF9939}" WorkUnitID="{6BAE9174-7CEB-4131-99B7-F2EC621355E0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{A06AB20A-22CE-4E07-9166-8E84857AEC9F}" ShortID="1031869820">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="Delay" Type="Real64" Value="0.08"/>
+										<Property Name="Inclusion" Type="bool">
+											<ValueList>
+												<Value>False</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Probability" Type="Real64" Value="37"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Robot2_Vent" ID="{1318A5C3-9985-4E1D-9220-5314C7BF9939}" WorkUnitID="{6BAE9174-7CEB-4131-99B7-F2EC621355E0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Die" ID="{904670AB-218B-44A9-A6DC-E6F9A0CBA0CE}">
+							<ChildrenList>
+								<Action Name="" ID="{9DFD4F99-7ED6-4548-9082-27A9ED9CF2D2}" ShortID="118774288">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Robot_Die" ID="{91F44BD7-9E9A-4511-8EB8-B5FE1B3B7DA0}" WorkUnitID="{6BAE9174-7CEB-4131-99B7-F2EC621355E0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Idle" ID="{392B51A6-5A1C-4459-ACA5-B0F5654B6CFC}">
+							<ChildrenList>
+								<Action Name="" ID="{16B810F5-7940-4F85-BE0A-FC170163B96F}" ShortID="828967389">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="Probability" Type="Real64" Value="48"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Rob2 steam vent 2" ID="{1EA59CEC-EED8-456E-8B8B-09996C963EB5}" WorkUnitID="{6BAE9174-7CEB-4131-99B7-F2EC621355E0}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>

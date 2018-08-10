@@ -7,6 +7,7 @@ using InControl;
 public class Tutorial : MonoBehaviour 
 {
 	GameObject UITutorial;
+	GameObject UIText;
 	List<GameObject> UIButtons = new List<GameObject>();
 	bool scriptStart = false;
 
@@ -23,13 +24,14 @@ public class Tutorial : MonoBehaviour
 
 	public bool ChirpsTutorial;
 
+	bool tempBool = false;
+
 	// Use this for initialization
 	void Start () 
 	{
 		playerNum = this.GetComponentInParent<InControlMovement> ().playerNum;
 		keyboardButtonPlayer1 = GameObject.FindGameObjectWithTag ("KeyBoardPlayer1");
 		KeyboardButtonPlayer2 = GameObject.FindGameObjectWithTag ("KeyBoardPlayer2");
-
 
 		levelCounter = GameObject.FindGameObjectWithTag ("GameController").GetComponent<LevelController>().currentLevel;
 
@@ -41,6 +43,8 @@ public class Tutorial : MonoBehaviour
 				UIButtons.Add (UITutorial.transform.GetChild (i).gameObject);
 			}
 		}
+
+		UIText = GameObject.FindGameObjectWithTag ("TutorialText");
 
 		scriptStart = true;
 		ChirpsTutorial = true;
@@ -83,10 +87,40 @@ public class Tutorial : MonoBehaviour
 		if (this.GetComponentInParent<InControlMovement> ().enabled == false)
 		{
 			ChirpsTutorialFunction ();
+
+			if (tempBool == false)
+			{
+				UIText.GetComponent<Text> ().text = "Please perform Systems diagnostic...";
+			}
+
+
+			StartCoroutine (TestBool (1.0f));
+		}
+		else
+		{
+			//GetRidOfText ();
+			//StartCoroutine(WaitTwoSeconds (2.0f));
+			UIText.GetComponent<Text> ().text = "Diagnostic Complete. Movement re-activated";
+			StartCoroutine(GetRidOfText(2.0f));
 		}
 
 
 	}
+
+	IEnumerator GetRidOfText(float waitTime)
+	{
+		yield return new WaitForSeconds (waitTime);
+
+		UIText.SetActive (false);
+	}
+
+	IEnumerator TestBool(float waitTime)
+	{
+		yield return new WaitForSeconds (waitTime);
+
+		tempBool = true;
+	}
+
 
 	void ChirpsTutorialFunction()
 	{

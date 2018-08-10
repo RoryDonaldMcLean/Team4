@@ -153,10 +153,9 @@ public class SCR_TradeLimb : MonoBehaviour
     
 	public bool LimbActiveCheck(string newLimbName)
 	{
-		int index = LimbNumber (newLimbName);
-		return limbs [index].activeSelf;
+		int index = LimbNumber(newLimbName);
+		return limbs[index].activeSelf;
 	}
-
 
     private void childObjectLimbFinder()
     {

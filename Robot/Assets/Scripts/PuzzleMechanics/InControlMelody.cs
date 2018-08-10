@@ -35,7 +35,7 @@ public class InControlMelody : MonoBehaviour
 	//array of rawimages that are being used in the UI for the melodies
 	List<GameObject> Notes = new List<GameObject>();
 
-	int playerNum;
+	int playerNum =0;
 
 	// Use this for initialization
 	void Start () 

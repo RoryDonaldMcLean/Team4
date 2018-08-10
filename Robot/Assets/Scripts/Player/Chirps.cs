@@ -26,6 +26,8 @@ public class Chirps : MonoBehaviour
 	GameObject UIEmoteImage2;
 	List<GameObject> EmoteUI2 = new List<GameObject>();
 
+	GameObject UIText;
+
 
 	bool scriptStart = false;
 	bool ControllersUsed;
@@ -72,6 +74,7 @@ public class Chirps : MonoBehaviour
 		//UIEmoteImage.SetActive (false);
 		//UIEmoteImage2.SetActive (false);
 		scriptStart = true;
+		UIText = GameObject.FindGameObjectWithTag ("TutorialText");
 	}
 
 
@@ -172,6 +175,8 @@ public class Chirps : MonoBehaviour
 
 						if (p1RA == false)
 						{
+							UIText.SetActive (true);
+							UIText.GetComponent<Text> ().text = "Robot R. Right Arm Activated";
 							GameController.GetComponent<ChirpCollector> ().addMovementCounter += 1;
 							p1RA = true;
 						}
@@ -198,6 +203,8 @@ public class Chirps : MonoBehaviour
 
 						if (p1LL == false)
 						{
+							UIText.SetActive (true);
+							UIText.GetComponent<Text> ().text = "Robot R. Left Leg Activated";
 							GameController.GetComponent<ChirpCollector> ().addMovementCounter += 1;
 							p1LL = true;
 						}
@@ -224,6 +231,8 @@ public class Chirps : MonoBehaviour
 
 						if (p1RL == false)
 						{
+							UIText.SetActive (true);
+							UIText.GetComponent<Text> ().text = "Robot R. Right Leg Activated";
 							GameController.GetComponent<ChirpCollector> ().addMovementCounter += 1;
 							p1RL = true;
 						}
@@ -276,6 +285,8 @@ public class Chirps : MonoBehaviour
 
 						if (p2LA == false)
 						{
+							UIText.SetActive (true);
+							UIText.GetComponent<Text> ().text = "Robot B. Left Arm Activated";
 							GameController.GetComponent<ChirpCollector> ().addMovementCounter += 1;
 							p2LA = true;
 						}
@@ -323,6 +334,8 @@ public class Chirps : MonoBehaviour
 
 						if (p2LL == false)
 						{
+							UIText.SetActive (true);
+							UIText.GetComponent<Text> ().text = "Robot B. Left Leg Activated";
 							GameController.GetComponent<ChirpCollector> ().addMovementCounter += 1;
 							p2LL = true;
 						}
@@ -349,6 +362,8 @@ public class Chirps : MonoBehaviour
 
 						if (p2RL == false)
 						{
+							UIText.SetActive (true);
+							UIText.GetComponent<Text> ().text = "Robot B. Right Leg Activated";
 							GameController.GetComponent<ChirpCollector> ().addMovementCounter += 1;
 							p2RL = true;
 						}
@@ -444,6 +459,8 @@ public class Chirps : MonoBehaviour
 
 						if (p1RA == false)
 						{
+							UIText.SetActive (true);
+							UIText.GetComponent<Text> ().text = "Robot R. Right Arm Activated";
 							GameController.GetComponent<ChirpCollector> ().addMovementCounter += 1;
 							p1RA = true;
 						}
@@ -473,6 +490,8 @@ public class Chirps : MonoBehaviour
 
 						if (p1LL == false)
 						{
+							UIText.SetActive (true);
+							UIText.GetComponent<Text> ().text = "Robot R. Left Leg Activated";
 							GameController.GetComponent<ChirpCollector> ().addMovementCounter += 1;
 							p1LL = true;
 						}
@@ -502,6 +521,8 @@ public class Chirps : MonoBehaviour
 
 						if (p1RL == false)
 						{
+							UIText.SetActive (true);
+							UIText.GetComponent<Text> ().text = "Robot R. Right Leg Activated";
 							GameController.GetComponent<ChirpCollector> ().addMovementCounter += 1;
 							p1RL = true;
 						}
@@ -562,6 +583,8 @@ public class Chirps : MonoBehaviour
 
 						if (p2LA == false)
 						{
+							UIText.SetActive (true);
+							UIText.GetComponent<Text> ().text = "Robot B. Left Arm Activated";
 							GameController.GetComponent<ChirpCollector> ().addMovementCounter += 1;
 							p2LA = true;
 						}
@@ -616,6 +639,8 @@ public class Chirps : MonoBehaviour
 
 						if (p2LL == false)
 						{
+							UIText.SetActive (true);
+							UIText.GetComponent<Text> ().text = "Robot B. Left Leg Activated";
 							GameController.GetComponent<ChirpCollector> ().addMovementCounter += 1;
 							p2LL = true;
 						}
@@ -644,6 +669,8 @@ public class Chirps : MonoBehaviour
 
 						if (p2RL == false)
 						{
+							UIText.SetActive (true);
+							UIText.GetComponent<Text> ().text = "Robot B. Right Leg Activated";
 							GameController.GetComponent<ChirpCollector> ().addMovementCounter += 1;
 							p2RL = true;
 						}

@@ -38,7 +38,7 @@ Shader "Custom/Robots_BaseShader" {
 			#include "Lighting.cginc"  
 			#include "UnityCG.cginc"
 			fixed4 _XRayColor;
-			
+			float _PickUpDetected;
 			struct v2f
 			{
 				float4 pos : SV_POSITION;
@@ -60,7 +60,10 @@ Shader "Custom/Robots_BaseShader" {
 				float3 normal = normalize(i.normal);
 				float3 viewDir = normalize(i.viewDir);
 				float rim = 1 - max(0, dot(normal, viewDir));
-				return _XRayColor * rim;
+				fixed4 finalCol = _XRayColor * rim;
+				if (_PickUpDetected <= 0)
+					finalCol.a = 0;
+				return finalCol;
 			}
 			#pragma vertex vert  
 			#pragma fragment frag  

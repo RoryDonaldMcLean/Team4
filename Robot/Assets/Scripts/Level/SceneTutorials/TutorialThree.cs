@@ -8,6 +8,6 @@ public class TutorialThree : TutorialBaseClass
     //allowing various operations to stay dynamic.
     void Awake()
     {
-        TutorialIdentifier = "TutorialThree";
+        tutorialIdentifier = "TutorialThree";
     }
 }

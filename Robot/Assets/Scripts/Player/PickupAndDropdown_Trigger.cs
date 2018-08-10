@@ -317,7 +317,23 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
         if (Physics.Raycast(new Vector3(pickedUpGameObject.GetComponent<Transform>().position.x,
             pickedUpGameObject.GetComponent<Transform>().position.y + 1, pickedUpGameObject.GetComponent<Transform>().position.z), -Vector3.up, out hit))
         {
-            y = hit.point.y;
+            bool carry = false;
+            foreach(Transform mc in pickedUpGameObject.GetComponentsInChildren<Transform>())
+            {
+                if(mc.name.Contains("CarryCrate"))
+                {
+                    carry = true;
+                }
+            }
+
+            if(carry)
+            {
+                y = hit.point.y + 1;
+            }
+            else
+            {
+                y = hit.point.y;
+            }
         }
 
         pickedUpGameObject.GetComponent<Transform>().position = new Vector3(pickedUpGameObject.GetComponent<Transform>().position.x, 

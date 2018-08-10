@@ -8,12 +8,14 @@ public class SettingArea : MonoBehaviour
 {
     public GameObject btnlist, textlist;
     public Text volumeNum;
+	public Image controllerImage;
 
     private Button defaultbtn;
     private Toggle tog;
     private bool[] reboundButton;
     private Slider volume;
     private List<Button> playerButtons = new List<Button>();
+
 
 
     private void Awake()
@@ -107,11 +109,13 @@ public class SettingArea : MonoBehaviour
         {
             btnlist.SetActive(true);
             textlist.SetActive(true);
+			controllerImage.gameObject.SetActive (false);
         }
         else
         {
             btnlist.SetActive(false);
             textlist.SetActive(false);
+			controllerImage.gameObject.SetActive (true);
         }
 
         if (!allFalse())
@@ -130,7 +134,6 @@ public class SettingArea : MonoBehaviour
             tog.enabled = false;
             volume.enabled = false;
         }
-
 
 
     }
@@ -160,7 +163,8 @@ public class SettingArea : MonoBehaviour
         GameManager.Instance.playerSetting.volume = 50;
         volume.value = GameManager.Instance.playerSetting.volume;
         volumeNum.text = volume.value.ToString();
-        GameManager.Instance.playerSetting.player1Controller = false;
+		GameManager.Instance.playerSetting.player1Controller = false;
+		tog.isOn = GameManager.Instance.playerSetting.player1Controller;
         SaveNLoad.Save(GameManager.Instance.playerSetting);
     }
 

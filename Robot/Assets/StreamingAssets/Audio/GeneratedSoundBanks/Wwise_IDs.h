@@ -179,6 +179,7 @@ namespace AK
     namespace GAME_PARAMETERS
     {
         static const AkUniqueID LIMBNUMBER = 2589579194U;
+        static const AkUniqueID MASTER_VOLUME = 4179668880U;
         static const AkUniqueID STRAIN = 3538886730U;
     } // namespace GAME_PARAMETERS
 

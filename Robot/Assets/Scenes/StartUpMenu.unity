@@ -878,9 +878,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   basePath: Audio\GeneratedSoundBanks
   language: English(US)
-  defaultPoolSize: 4096
-  lowerPoolSize: 2048
-  streamingPoolSize: 1024
+  defaultPoolSize: 12288
+  lowerPoolSize: 12288
+  streamingPoolSize: 12288
   preparePoolSize: 0
   memoryCutoffThreshold: 0.95
   monitorPoolSize: 128
@@ -928,6 +928,8 @@ GameObject:
   - component: {fileID: 1935912214}
   - component: {fileID: 1935912209}
   - component: {fileID: 1935912215}
+  - component: {fileID: 1935912217}
+  - component: {fileID: 1935912216}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1046,6 +1048,47 @@ MonoBehaviour:
   btn: {fileID: 578713661}
   red: {fileID: 46456540}
   blue: {fileID: 748763592}
+--- !u!114 &1935912216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1935912208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7999ea7310cf3db408b1eb3ad84d3f23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: 
+  useOtherObject: 0
+  actionOnEventType: 0
+  curveInterpolation: 4
+  enableActionOnEvent: 0
+  eventID: 167209695
+  m_callbackData: {fileID: 0}
+  playingId: 0
+  soundEmitterObject: {fileID: 0}
+  transitionDuration: 0
+  valueGuid: 0a5505bc7d26c841b984ab934261ab34
+--- !u!114 &1935912217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1935912208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1681246d21e17d149a40dc50e8a6d405, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  bankName: SFX
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 
+  valueGuid: c45e12efda304147b80f4ca40989112f
 --- !u!1 &2083009633
 GameObject:
   m_ObjectHideFlags: 0

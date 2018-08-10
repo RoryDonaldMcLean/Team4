@@ -5,6 +5,34 @@
 			<ChildrenList>
 				<Bus Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}">
 					<PropertyList>
+						<Property Name="BusVolume" Type="Real64">
+							<RTPCList>
+								<RTPC Name="" ID="{C738A536-4AB7-4E4E-9C85-126099C8E077}" ShortID="708848771">
+									<ReferenceList>
+										<Reference Name="ControlInput">
+											<ObjectRef Name="Master_Volume" ID="{C36D756F-98DD-449E-B9A1-239D3501BA9F}" WorkUnitID="{6FAB8A0D-1E75-4FC9-8CF4-258F9AA56D77}"/>
+										</Reference>
+									</ReferenceList>
+									<Curve Name="" ID="{FB779BA4-9B5E-4EEA-B359-0DA4ACDA19BB}">
+										<PropertyList>
+											<Property Name="Flags" Type="int32" Value="3"/>
+										</PropertyList>
+										<PointList>
+											<Point>
+												<XPos>0</XPos>
+												<YPos>-200</YPos>
+												<Flags>5</Flags>
+											</Point>
+											<Point>
+												<XPos>100</XPos>
+												<YPos>0</YPos>
+												<Flags>37</Flags>
+											</Point>
+										</PointList>
+									</Curve>
+								</RTPC>
+							</RTPCList>
+						</Property>
 						<Property Name="BypassEffect0" Type="bool">
 							<ValueList>
 								<Value>True</Value>

@@ -2454,9 +2454,9 @@ GameObject:
   - component: {fileID: 251687172}
   - component: {fileID: 251687175}
   - component: {fileID: 251687177}
-  - component: {fileID: 251687171}
   - component: {fileID: 251687169}
   - component: {fileID: 251687174}
+  - component: {fileID: 251687171}
   - component: {fileID: 251687176}
   m_Layer: 0
   m_Name: Main Camera
@@ -2585,7 +2585,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 251687163}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7999ea7310cf3db408b1eb3ad84d3f23, type: 3}
   m_Name: 
@@ -2655,12 +2655,12 @@ MonoBehaviour:
   actionOnEventType: 0
   curveInterpolation: 4
   enableActionOnEvent: 0
-  eventID: 77978275
+  eventID: -569063489
   m_callbackData: {fileID: 0}
   playingId: 0
   soundEmitterObject: {fileID: 0}
   transitionDuration: 0
-  valueGuid: dbf532625ab62c4c995e200b86589351
+  valueGuid: 9dee883bf2a4374c96016a387e91d0d0
   multiPositionArray: []
   MultiPositionType: 1
   multiPositionTypeLabel: 0
@@ -2689,7 +2689,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 251687163}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7999ea7310cf3db408b1eb3ad84d3f23, type: 3}
   m_Name: 
@@ -2987,6 +2987,9 @@ GameObject:
   m_Component:
   - component: {fileID: 339432124}
   - component: {fileID: 339432125}
+  - component: {fileID: 339432128}
+  - component: {fileID: 339432127}
+  - component: {fileID: 339432126}
   m_Layer: 5
   m_Name: ButtonList
   m_TagString: Untagged
@@ -3031,6 +3034,68 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settingArea: {fileID: 164189637}
   chapterArea: {fileID: 1250377806}
+--- !u!114 &339432126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 339432123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7999ea7310cf3db408b1eb3ad84d3f23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: 
+  useOtherObject: 0
+  actionOnEventType: 0
+  curveInterpolation: 4
+  enableActionOnEvent: 0
+  eventID: -91591945
+  m_callbackData: {fileID: 0}
+  playingId: 0
+  soundEmitterObject: {fileID: 0}
+  transitionDuration: 0
+  valueGuid: 46c0c36c645a4b4680bd64368f7bc07b
+--- !u!114 &339432127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 339432123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1681246d21e17d149a40dc50e8a6d405, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  bankName: SFX
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 
+  valueGuid: c45e12efda304147b80f4ca40989112f
+--- !u!114 &339432128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 339432123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb191167caef1d34fa9e4ac3fca351b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_listeners:
+    initialListenerList: []
+    useDefaultListeners: 1
+  isEnvironmentAware: 1
+  isStaticObject: 0
+  m_positionOffsetData:
+    KeepMe: 0
+    positionOffset: {x: 0, y: 0, z: 0}
+  m_posOffsetData: {fileID: 0}
+  listenerMask: 1
 --- !u!1 &352160090
 GameObject:
   m_ObjectHideFlags: 0
@@ -3180,6 +3245,7 @@ GameObject:
   m_Component:
   - component: {fileID: 365750043}
   - component: {fileID: 365750044}
+  - component: {fileID: 365750045}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -3256,6 +3322,17 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &365750045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 365750042}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a73ced8a829b394cbdc719e431168e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &366128574
 GameObject:
   m_ObjectHideFlags: 0
@@ -5711,8 +5788,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -141.04999, y: 213.15}
-  m_SizeDelta: {x: 236.80005, y: 27.799988}
+  m_AnchoredPosition: {x: -151.2, y: 213.15}
+  m_SizeDelta: {x: 239.37, y: 27.799988}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &926772596
 MonoBehaviour:
@@ -6934,7 +7011,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Android in a lonely world
+  m_Text: Androids in a Lonely World
 --- !u!222 &1301254336
 CanvasRenderer:
   m_ObjectHideFlags: 0

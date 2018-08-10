@@ -138,5 +138,7 @@ public class MainMenuUI : MonoBehaviour
                     break;
             }
         }
+        //
+        AkSoundEngine.PostEvent("Menu_Select", gameObject);
     }
 }

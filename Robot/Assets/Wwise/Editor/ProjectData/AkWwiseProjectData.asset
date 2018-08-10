@@ -181,19 +181,21 @@ MonoBehaviour:
   autoPopulateEnabled: 1
   AuxBusWwu:
   - Guid: '{2653943A-432D-488E-9B26-028C9F2C6C6D}'
-    m_lastTimePart2: -1999241573
-    m_lastTimePsrt1: -59802166
+    m_lastTimePart2: -1999241540
+    m_lastTimePsrt1: 1476015388
     ParentPhysicalPath: 
     PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
     List:
     - Guid: 302bd7a31c293b419e97c21fb997657e
       ID: 243379636
       Name: REFLECT
-      Path: Default Work Unit\Master Audio Bus\Reverbs\REFLECT
+      Path: Default Work Unit\Master Audio Bus\Submaster\Reverbs\REFLECT
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
       - ElementName: Master Audio Bus
+        ObjectType: 2
+      - ElementName: Submaster
         ObjectType: 2
       - ElementName: Reverbs
         ObjectType: 2
@@ -202,11 +204,13 @@ MonoBehaviour:
     - Guid: a7105a4b81d32d46975945bcf44ee239
       ID: -1600733366
       Name: REVERB_Factory
-      Path: Default Work Unit\Master Audio Bus\Reverbs\REVERB_Factory
+      Path: Default Work Unit\Master Audio Bus\Submaster\Reverbs\REVERB_Factory
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
       - ElementName: Master Audio Bus
+        ObjectType: 2
+      - ElementName: Submaster
         ObjectType: 2
       - ElementName: Reverbs
         ObjectType: 2
@@ -215,11 +219,13 @@ MonoBehaviour:
     - Guid: a7cab601d81a51469fbe2eee4364eb69
       ID: -67181873
       Name: REVERB_Outdoors
-      Path: Default Work Unit\Master Audio Bus\Reverbs\REVERB_Outdoors
+      Path: Default Work Unit\Master Audio Bus\Submaster\Reverbs\REVERB_Outdoors
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
       - ElementName: Master Audio Bus
+        ObjectType: 2
+      - ElementName: Submaster
         ObjectType: 2
       - ElementName: Reverbs
         ObjectType: 2
@@ -228,11 +234,13 @@ MonoBehaviour:
     - Guid: e5710ca5bc8d784988cec8892376b389
       ID: -855262111
       Name: REVERB_Warehouse
-      Path: Default Work Unit\Master Audio Bus\Reverbs\REVERB_Warehouse
+      Path: Default Work Unit\Master Audio Bus\Submaster\Reverbs\REVERB_Warehouse
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
       - ElementName: Master Audio Bus
+        ObjectType: 2
+      - ElementName: Submaster
         ObjectType: 2
       - ElementName: Reverbs
         ObjectType: 2
@@ -241,7 +249,7 @@ MonoBehaviour:
   BankWwu:
   - Guid: '{99ADC241-66DB-450E-A27C-F54B78415578}'
     m_lastTimePart2: -1999241750
-    m_lastTimePsrt1: 1153985867
+    m_lastTimePsrt1: 1173032192
     ParentPhysicalPath: 
     PhysicalPath: SoundBanks\Default Work Unit.wwu
     List:
@@ -287,8 +295,8 @@ MonoBehaviour:
   defaultPoolSize: 12288
   EventWwu:
   - Guid: '{9208E778-4B37-4421-9C2A-46AAA42FFE85}'
-    m_lastTimePart2: -1999241730
-    m_lastTimePsrt1: 2144348949
+    m_lastTimePart2: -1999241747
+    m_lastTimePsrt1: 708130304
     ParentPhysicalPath: 
     PhysicalPath: Events\Default Work Unit.wwu
     List:
@@ -737,7 +745,7 @@ MonoBehaviour:
         ObjectType: 4
       - ElementName: Push_Box
         ObjectType: 3
-      maxAttenuation: 0
+      maxAttenuation: 80
       maxDuration: 0
       minDuration: 0
     - Guid: 801b4dbe25e71341a36dd2db004a38f5
@@ -800,7 +808,7 @@ MonoBehaviour:
   - /Androids
   - /Androids/Events
   - /Androids/Events/Default Work Unit
-  - /Androids/Events/Default Work Unit/Robots
+  - /Androids/Events/Default Work Unit/Emitters
   language: English(US)
   lowerPoolSize: 12288
   m_lastPopulateTimePart2: 0
@@ -809,8 +817,8 @@ MonoBehaviour:
   preparePoolSize: 0
   RtpcWwu:
   - Guid: '{6FAB8A0D-1E75-4FC9-8CF4-258F9AA56D77}'
-    m_lastTimePart2: -1999241573
-    m_lastTimePsrt1: -60196140
+    m_lastTimePart2: -1999241709
+    m_lastTimePsrt1: -2095594240
     ParentPhysicalPath: 
     PhysicalPath: Game Parameters\Default Work Unit.wwu
     List:
@@ -843,8 +851,8 @@ MonoBehaviour:
         ObjectType: 13
   StateWwu:
   - Guid: '{217B9AB9-B641-4200-BF39-9F61C2C8E9A4}'
-    m_lastTimePart2: -1999241730
-    m_lastTimePsrt1: 2146206849
+    m_lastTimePart2: -1999241563
+    m_lastTimePsrt1: -1800819456
     ParentPhysicalPath: 
     PhysicalPath: States\Default Work Unit.wwu
     List:
@@ -969,6 +977,7 @@ MonoBehaviour:
       - ElementName: Environment
         ObjectType: 9
       ValueGuids:
+      - bytes: ac4b79074d6adf4e9f27404acf53d536
       - bytes: ecfdffc16dfc544b9d541db3342adac8
       - bytes: ff27fa3a399644449c9f20a568e90221
       - bytes: ccddb0ee2e1dc0468783269c3657fd16
@@ -987,6 +996,8 @@ MonoBehaviour:
       - bytes: 3016ede8b194fb46a5dce890f8746d73
       - bytes: 636378b2b6aa234d9f0a8407408276b0
       ValueIcons:
+      - ElementName: Credits
+        ObjectType: 8
       - ElementName: Empty
         ObjectType: 8
       - ElementName: Menu
@@ -1021,8 +1032,9 @@ MonoBehaviour:
         ObjectType: 8
       - ElementName: P6_EndSacrifice
         ObjectType: 8
-      valueIDs: 9485eec7f0256c9bdb3ba32cbf638638e292611b1d4459541e445954d79c82ccfa51f1098dd436ae8d1276cbe6c945694a9f62eac6b0f826e65c407d3649cdb8b88c397a
+      valueIDs: ad3432839485eec7f0256c9bdb3ba32cbf638638e292611b1d4459541e445954d79c82ccfa51f1098dd436ae8d1276cbe6c945694a9f62eac6b0f826e65c407d3649cdb8b88c397a
       values:
+      - Credits
       - Empty
       - Menu
       - None
@@ -1069,7 +1081,7 @@ MonoBehaviour:
   SwitchWwu:
   - Guid: '{58100D4C-AF7E-4F01-9581-C8921E80B431}'
     m_lastTimePart2: -1999243566
-    m_lastTimePsrt1: 181844645
+    m_lastTimePsrt1: 193641728
     ParentPhysicalPath: 
     PhysicalPath: Switches\Default Work Unit.wwu
     List:
@@ -1162,8 +1174,8 @@ MonoBehaviour:
       - Player_2
   TriggerWwu:
   - Guid: '{1445E234-9FFD-40E4-A0A0-B6CF9F4F5BEA}'
-    m_lastTimePart2: -1999241730
-    m_lastTimePsrt1: 2146236629
+    m_lastTimePart2: -1999241748
+    m_lastTimePsrt1: -231869696
     ParentPhysicalPath: 
     PhysicalPath: Triggers\Default Work Unit.wwu
     List:

@@ -16,6 +16,7 @@ State	ID	Name	State Group			Notes
 	1766181350	P4_Clouds	Environment			
 	2050591928	P6_EndSacrifice	Environment			
 	2101370086	P6_AChoice	Environment			
+	2201105581	Credits	Environment			
 	2607556080	Menu	Environment			
 	2922828941	P3_ConstructionScenery	Environment			
 	3100461366	P6_EndLeave	Environment			
@@ -46,8 +47,14 @@ State	ID	Name	State Group			Notes
 	4103990255	Hit_Wall	Drone_Modulator			
 
 Custom State	ID	Name	State Group	Owner		Notes
-	55981715	Complete	Drone_Modulator	\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Ambience		
+	55981715	Complete	Drone_Modulator	\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Submaster\Ambience		
 	89021964	On	UI	\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus		
+	204163729	P2_FactoryPuzzle1	Environment	\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Submaster\Music		
+	565830653	P2_FactoryPuzzle1	Environment	\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Submaster\Reverbs		
+	658861384	P5_CorePuzzle	Environment	\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Submaster\Music		
+	942735799	Start	Drone_Modulator	\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Submaster\Drone		
+	974808288	P4_Clouds	Environment	\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Submaster\Music		
+	1060807266	P2_FactoryPuzzle1	Environment	\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Submaster\Ambience		
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
 	504532776	Brick			\Factory Reflect Acoustic Textures\Textures\Brick	
@@ -67,31 +74,37 @@ Game Parameter	ID	Name			Wwise Object Path	Notes
 	4262522749	Wood_Bright			\Factory Reflect Acoustic Textures\Textures\Wood_Bright	
 
 Audio Bus	ID	Name			Wwise Object Path	Notes
-	85412153	Ambience			\Default Work Unit\Master Audio Bus\Ambience	
+	85412153	Ambience			\Default Work Unit\Master Audio Bus\Submaster\Ambience	
 	805203703	Master Secondary Bus			\Default Work Unit\Master Secondary Bus	
-	1695690031	Objects			\Default Work Unit\Master Audio Bus\Objects	
-	2407349630	Chirps			\Default Work Unit\Master Audio Bus\Chirps	
-	2494382374	Robots			\Default Work Unit\Master Audio Bus\Robots	
-	2739838641	Drone			\Default Work Unit\Master Audio Bus\Drone	
-	3545700988	Reverbs			\Default Work Unit\Master Audio Bus\Reverbs	
+	1695690031	Objects			\Default Work Unit\Master Audio Bus\Submaster\Objects	
+	2407349630	Chirps			\Default Work Unit\Master Audio Bus\Submaster\Chirps	
+	2494382374	Robots			\Default Work Unit\Master Audio Bus\Submaster\Robots	
+	2625406123	Submaster			\Default Work Unit\Master Audio Bus\Submaster	
+	2739838641	Drone			\Default Work Unit\Master Audio Bus\Submaster\Drone	
+	3545700988	Reverbs			\Default Work Unit\Master Audio Bus\Submaster\Reverbs	
 	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
-	3991942870	Music			\Default Work Unit\Master Audio Bus\Music	
-	4185302672	Chrip_Melody			\Default Work Unit\Master Audio Bus\Chrip_Melody	
+	3991942870	Music			\Default Work Unit\Master Audio Bus\Submaster\Music	
+	4185302672	Chrip_Melody			\Default Work Unit\Master Audio Bus\Submaster\Chrip_Melody	
 
 Auxiliary Bus	ID	Name			Wwise Object Path	Notes
-	243379636	REFLECT			\Default Work Unit\Master Audio Bus\Reverbs\REFLECT	
-	2694233930	REVERB_Factory			\Default Work Unit\Master Audio Bus\Reverbs\REVERB_Factory	
-	3439705185	REVERB_Warehouse			\Default Work Unit\Master Audio Bus\Reverbs\REVERB_Warehouse	
-	4227785423	REVERB_Outdoors			\Default Work Unit\Master Audio Bus\Reverbs\REVERB_Outdoors	
+	243379636	REFLECT			\Default Work Unit\Master Audio Bus\Submaster\Reverbs\REFLECT	
+	2694233930	REVERB_Factory			\Default Work Unit\Master Audio Bus\Submaster\Reverbs\REVERB_Factory	
+	3439705185	REVERB_Warehouse			\Default Work Unit\Master Audio Bus\Submaster\Reverbs\REVERB_Warehouse	
+	4227785423	REVERB_Outdoors			\Default Work Unit\Master Audio Bus\Submaster\Reverbs\REVERB_Outdoors	
 
 Effect plug-ins	ID	Name	Type				Notes
 	133191268	Wwise Tremolo (Custom)	Wwise Tremolo			
 	354858717	Wwise Reflect (Custom)	Wwise Reflect			
 	381122005	Auro Headphone (Custom)	Auro Headphone			
 	484890516	Church_Small_Wood	Wwise RoomVerb			
+	531085421	New_Wwise_Compressor_01	Wwise Compressor			
+	1169110113	New_Wwise_Compressor	Wwise Compressor			
 	1203617187	Machine_Gun_Hangar	Wwise RoomVerb			
 	1891532784	Wind_Level	Wwise Meter			
+	2258521792	Brick_Wall_Minus_1dB_Peak_Slow_Release	Wwise Peak Limiter			
+	2706554259	New_Wwise_Parametric_EQ_18	Wwise Parametric EQ			
 	2706554267	New_Wwise_Parametric_EQ_10	Wwise Parametric EQ			
+	2706554268	New_Wwise_Parametric_EQ_17	Wwise Parametric EQ			
 	2706554269	New_Wwise_Parametric_EQ_16	Wwise Parametric EQ			
 	3900114836	Metal_Hangar	Wwise RoomVerb			
 

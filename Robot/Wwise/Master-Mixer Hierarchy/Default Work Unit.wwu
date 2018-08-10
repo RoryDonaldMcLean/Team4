@@ -50,273 +50,838 @@
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
-						<Bus Name="Robots" ID="{2CF2209D-D7EA-4591-BE9C-0A89A9A34326}">
-							<PropertyList>
-								<Property Name="DivergenceCenter" Type="int32">
-									<ValueList>
-										<Value>0</Value>
-									</ValueList>
-								</Property>
-								<Property Name="EnablePositioning" Type="bool" Value="True"/>
-								<Property Name="PositioningType" Type="int16" Value="1"/>
-								<Property Name="UseGameAuxSends" Type="bool" Value="True"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Attenuation">
-									<ObjectRef Name="Main_Attentuation" ID="{7AFFEEA2-FEA6-4C5E-9350-4292CD58F98F}" WorkUnitID="{69E5E085-C55B-46C1-B440-1CB36DA8E2EE}"/>
-								</Reference>
-							</ReferenceList>
-							<DuckingList>
-								<DuckItem>
-									<BusRef Name="Drone" ID="{6BAF7145-A163-40D7-A216-C4BC3B0F1656}"/>
-									<DuckingParam>
-										<Volume>-7</Volume>
-										<FadeInTime>0.5</FadeInTime>
-										<FadeOutTime>0.200000002980232</FadeOutTime>
-										<FadeCurve>FadeExp1</FadeCurve>
-										<TargetProp>BusVolume</TargetProp>
-									</DuckingParam>
-								</DuckItem>
-							</DuckingList>
-						</Bus>
-						<Bus Name="Ambience" ID="{6DA28E5B-02CA-4B3F-8893-AC8791C9BF2D}">
+						<Bus Name="Submaster" ID="{E78323AB-5AE0-4D90-84F5-3B9E6D1631B4}">
 							<PropertyList>
 								<Property Name="BusVolume" Type="Real64">
 									<ValueList>
-										<Value>-4</Value>
+										<Value>12</Value>
 									</ValueList>
 								</Property>
-								<Property Name="DivergenceCenter" Type="int32">
-									<ValueList>
-										<Value>0</Value>
-									</ValueList>
-								</Property>
-								<Property Name="EnablePositioning" Type="bool" Value="True"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Effect0" PluginName="Wwise Meter" CompanyID="0" PluginID="129" PluginType="3">
-									<ObjectRef Name="Wind_Level" ID="{D885ED9F-FA4E-4A26-B660-4A247EEF2C90}" WorkUnitID="{DB5ADB83-997D-43F7-B226-D357913135AD}"/>
-								</Reference>
-								<Reference Name="Effect1" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
-									<ObjectRef Name="New_Wwise_Parametric_EQ_16" ID="{7BBBF43C-B9BF-4AD8-B0D8-F5B5CFC6A69C}" WorkUnitID="{DB5ADB83-997D-43F7-B226-D357913135AD}"/>
-								</Reference>
-							</ReferenceList>
-							<StateInfo>
-								<StateGroupList>
-									<StateGroupInfo>
-										<StateGroupRef Name="Drone_Modulator" ID="{6F9EDEE3-D863-4564-B5FF-2E703969AF54}"/>
-									</StateGroupInfo>
-								</StateGroupList>
-								<CustomStateList>
-									<CustomState>
-										<StateRef Name="Reflector" ID="{F0FD1677-1293-401E-83C0-409A107A0ED2}"/>
-										<State Name="" ID="{3AD89DD5-F14E-4F34-8A71-2DFADB57FD11}" ShortID="880925765"/>
-									</CustomState>
-									<CustomState>
-										<StateRef Name="Hit_Wall" ID="{1632BA91-329C-42DF-B8C4-64F6C03B69BB}"/>
-										<State Name="" ID="{0016531E-7FF1-4A29-BED2-410F49758556}" ShortID="545370876"/>
-									</CustomState>
-									<CustomState>
-										<StateRef Name="Combiner" ID="{B61D639E-400F-4387-BC00-375A61AD9377}"/>
-										<State Name="" ID="{72BECDF4-46C2-465F-BB82-4F6E48E41CFA}" ShortID="494982802"/>
-									</CustomState>
-									<CustomState>
-										<StateRef Name="Start" ID="{D1DB9805-02B1-44BF-A049-F23022B18534}"/>
-										<State Name="" ID="{8E41988D-15C5-41E5-AB4F-A9D716EA77AC}" ShortID="943748192"/>
-									</CustomState>
-									<CustomState>
-										<StateRef Name="Splitter" ID="{D99A732E-8412-4623-8A82-C396413A931C}"/>
-										<State Name="" ID="{64F7FD6E-2E9F-4B07-871C-A958E4B52CB7}" ShortID="518265799"/>
-									</CustomState>
-									<CustomState>
-										<StateRef Name="Complete" ID="{5B42DFA5-E7F9-47A0-8E1C-22A385CE8DC2}"/>
-										<State Name="" ID="{38045BC2-6B9F-458B-88BD-B5B78EC31CBB}" ShortID="55981715">
-											<PropertyList>
-												<Property Name="Volume" Type="Real64" Value="-9"/>
-											</PropertyList>
-										</State>
-									</CustomState>
-									<CustomState>
-										<StateRef Name="Through_Barrier" ID="{A75B3983-3FDB-4882-BAED-D345BBAA0523}"/>
-										<State Name="" ID="{CD53684F-6210-400B-8B5F-1A4A65BEAE6E}" ShortID="433971737"/>
-									</CustomState>
-									<CustomState>
-										<StateRef Name="Hit_Switch" ID="{5DBE742A-FF4B-4888-A989-F0958DD1AA8E}"/>
-										<State Name="" ID="{7CB19A9C-3E2E-4220-8C09-871B1C6DCAFF}" ShortID="865404335"/>
-									</CustomState>
-									<CustomState>
-										<StateRef Name="Colour_Change" ID="{52D58239-FA93-4CCE-A3E2-8E4C3E0E91B2}"/>
-										<State Name="" ID="{9C03454A-939C-42AB-BB2F-88DF8DF698D1}" ShortID="1003739775"/>
-									</CustomState>
-								</CustomStateList>
-							</StateInfo>
-						</Bus>
-						<Bus Name="Drone" ID="{6BAF7145-A163-40D7-A216-C4BC3B0F1656}">
-							<PropertyList>
-								<Property Name="BusVolume" Type="Real64">
-									<ValueList>
-										<Value>-7</Value>
-									</ValueList>
-								</Property>
-								<Property Name="DivergenceCenter" Type="int32">
-									<ValueList>
-										<Value>0</Value>
-									</ValueList>
-								</Property>
-								<Property Name="EnablePositioning" Type="bool" Value="True"/>
-								<Property Name="PositioningType" Type="int16" Value="1"/>
-								<Property Name="UseGameAuxSends" Type="bool" Value="True"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Attenuation">
-									<ObjectRef Name="Main_Attentuation" ID="{7AFFEEA2-FEA6-4C5E-9350-4292CD58F98F}" WorkUnitID="{69E5E085-C55B-46C1-B440-1CB36DA8E2EE}"/>
-								</Reference>
-								<Reference Name="Effect0">
-									<Custom>
-										<Effect Name="Wwise Tremolo (Custom)" ID="{A5B26D81-8E52-4F6B-9F00-A02F670FF12B}" ShortID="133191268" PluginName="Wwise Tremolo" CompanyID="0" PluginID="131" PluginType="3">
-											<PropertyList>
-												<Property Name="ModDepth" Type="Real32" Value="59.5"/>
-												<Property Name="ModFrequency" Type="Real32" Value="0.48"/>
-											</PropertyList>
-										</Effect>
-									</Custom>
-								</Reference>
-							</ReferenceList>
-							<DuckingList>
-								<DuckItem>
-									<BusRef Name="Ambience" ID="{6DA28E5B-02CA-4B3F-8893-AC8791C9BF2D}"/>
-									<DuckingParam>
-										<Volume>-12</Volume>
-										<FadeInTime>5</FadeInTime>
-										<FadeOutTime>5</FadeOutTime>
-										<FadeCurve>FadeLinear</FadeCurve>
-									</DuckingParam>
-								</DuckItem>
-								<DuckItem>
-									<BusRef Name="Music" ID="{8B3FDD90-9F59-41B0-831B-94D60F3FFC3C}"/>
-									<DuckingParam>
-										<Volume>-12</Volume>
-										<FadeInTime>5</FadeInTime>
-										<FadeOutTime>5</FadeOutTime>
-										<FadeCurve>FadeLinear</FadeCurve>
-									</DuckingParam>
-								</DuckItem>
-							</DuckingList>
-						</Bus>
-						<Bus Name="Music" ID="{8B3FDD90-9F59-41B0-831B-94D60F3FFC3C}">
-							<PropertyList>
-								<Property Name="BusVolume" Type="Real64">
-									<ValueList>
-										<Value>-6</Value>
-									</ValueList>
-								</Property>
-								<Property Name="DivergenceCenter" Type="int32">
-									<ValueList>
-										<Value>0</Value>
-									</ValueList>
-								</Property>
-								<Property Name="EnablePositioning" Type="bool" Value="True"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Effect0" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
-									<ObjectRef Name="New_Wwise_Parametric_EQ_10" ID="{BB215799-0D39-4B41-826D-A226E7EA8EC6}" WorkUnitID="{DB5ADB83-997D-43F7-B226-D357913135AD}"/>
+									<ObjectRef Name="New_Wwise_Parametric_EQ_18" ID="{636B4597-E043-4341-A70E-2D87ECED258B}" WorkUnitID="{DB5ADB83-997D-43F7-B226-D357913135AD}"/>
+								</Reference>
+								<Reference Name="Effect1" PluginName="Wwise Compressor" CompanyID="0" PluginID="108" PluginType="3">
+									<ObjectRef Name="New_Wwise_Compressor" ID="{3E578C48-A225-45EF-9353-06E36CE6D780}" WorkUnitID="{DB5ADB83-997D-43F7-B226-D357913135AD}"/>
+								</Reference>
+								<Reference Name="Effect2" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+									<ObjectRef Name="New_Wwise_Parametric_EQ_17" ID="{8FFF9D00-5424-49EF-9D8B-2705C69E9EC2}" WorkUnitID="{DB5ADB83-997D-43F7-B226-D357913135AD}"/>
+								</Reference>
+								<Reference Name="Effect3" PluginName="Wwise Peak Limiter" CompanyID="0" PluginID="110" PluginType="3">
+									<ObjectRef Name="Brick_Wall_Minus_1dB_Peak_Slow_Release" ID="{9FB8DC2B-7F1C-4E4E-8FA5-50872652D2DD}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
 								</Reference>
 							</ReferenceList>
-							<DuckingList>
-								<DuckItem>
-									<BusRef Name="Drone" ID="{6BAF7145-A163-40D7-A216-C4BC3B0F1656}"/>
-									<DuckingParam>
-										<Volume>0</Volume>
-										<FadeInTime>3</FadeInTime>
-										<FadeOutTime>3</FadeOutTime>
-										<FadeCurve>FadeLinear</FadeCurve>
-									</DuckingParam>
-								</DuckItem>
-								<DuckItem>
-									<BusRef Name="Chrip_Melody" ID="{F3863DCC-A218-4856-80C9-06DA2A671F46}"/>
-									<DuckingParam>
-										<Volume>-96</Volume>
-										<FadeInTime>1</FadeInTime>
-										<FadeOutTime>0</FadeOutTime>
-										<FadeCurve>FadeLinear</FadeCurve>
-										<TargetProp>BusVolume</TargetProp>
-									</DuckingParam>
-								</DuckItem>
-							</DuckingList>
-						</Bus>
-						<Bus Name="Chirps" ID="{CFE7271A-38F8-4E0A-BFAD-CBA746BA6DD4}">
-							<PropertyList>
-								<Property Name="DivergenceCenter" Type="int32">
-									<ValueList>
-										<Value>0</Value>
-									</ValueList>
-								</Property>
-								<Property Name="EnablePositioning" Type="bool" Value="True"/>
-								<Property Name="UseGameAuxSends" Type="bool" Value="True"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Attenuation">
-									<ObjectRef Name="Main_Attentuation" ID="{7AFFEEA2-FEA6-4C5E-9350-4292CD58F98F}" WorkUnitID="{69E5E085-C55B-46C1-B440-1CB36DA8E2EE}"/>
-								</Reference>
-							</ReferenceList>
-						</Bus>
-						<Bus Name="Objects" ID="{CA2680CC-BAFB-4640-B105-3ABB8404E954}">
-							<PropertyList>
-								<Property Name="DivergenceCenter" Type="int32">
-									<ValueList>
-										<Value>0</Value>
-									</ValueList>
-								</Property>
-								<Property Name="EnablePositioning" Type="bool" Value="True"/>
-								<Property Name="PositioningType" Type="int16" Value="1"/>
-								<Property Name="UseGameAuxSends" Type="bool" Value="True"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Attenuation">
-									<ObjectRef Name="Main_Attentuation" ID="{7AFFEEA2-FEA6-4C5E-9350-4292CD58F98F}" WorkUnitID="{69E5E085-C55B-46C1-B440-1CB36DA8E2EE}"/>
-								</Reference>
-							</ReferenceList>
-							<DuckingList>
-								<DuckItem>
-									<BusRef Name="Drone" ID="{6BAF7145-A163-40D7-A216-C4BC3B0F1656}"/>
-									<DuckingParam>
-										<Volume>0</Volume>
-										<FadeInTime>1</FadeInTime>
-										<FadeOutTime>0</FadeOutTime>
-										<FadeCurve>FadeExp1</FadeCurve>
-										<TargetProp>BusVolume</TargetProp>
-									</DuckingParam>
-								</DuckItem>
-								<DuckItem>
-									<BusRef Name="Music" ID="{8B3FDD90-9F59-41B0-831B-94D60F3FFC3C}"/>
-									<DuckingParam>
-										<Volume>0</Volume>
-										<FadeInTime>1</FadeInTime>
-										<FadeOutTime>0</FadeOutTime>
-										<FadeCurve>FadeExp1</FadeCurve>
-										<TargetProp>BusVolume</TargetProp>
-									</DuckingParam>
-								</DuckItem>
-							</DuckingList>
-						</Bus>
-						<Bus Name="Chrip_Melody" ID="{F3863DCC-A218-4856-80C9-06DA2A671F46}"/>
-						<Bus Name="Reverbs" ID="{B4D23ADE-F5AD-4EB0-B904-04CC2B783141}">
-							<PropertyList>
-								<Property Name="BusVolume" Type="Real64">
-									<ValueList>
-										<Value>-1</Value>
-									</ValueList>
-								</Property>
-							</PropertyList>
 							<ChildrenList>
-								<AuxBus Name="REFLECT" ID="{A3D72B30-291C-413B-9E97-C21FB997657E}">
+								<Bus Name="Robots" ID="{2CF2209D-D7EA-4591-BE9C-0A89A9A34326}">
 									<PropertyList>
+										<Property Name="DivergenceCenter" Type="int32">
+											<ValueList>
+												<Value>0</Value>
+											</ValueList>
+										</Property>
+										<Property Name="EnablePositioning" Type="bool" Value="True"/>
+										<Property Name="PositioningType" Type="int16" Value="1"/>
+										<Property Name="UseGameAuxSends" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Attenuation">
+											<ObjectRef Name="Main_Attentuation" ID="{7AFFEEA2-FEA6-4C5E-9350-4292CD58F98F}" WorkUnitID="{69E5E085-C55B-46C1-B440-1CB36DA8E2EE}"/>
+										</Reference>
+										<Reference Name="Effect0" PluginName="Wwise Compressor" CompanyID="0" PluginID="108" PluginType="3">
+											<ObjectRef Name="New_Wwise_Compressor_01" ID="{5935E7CA-3C3E-4D14-BDC5-AAEA2B4B3946}" WorkUnitID="{DB5ADB83-997D-43F7-B226-D357913135AD}"/>
+										</Reference>
+									</ReferenceList>
+									<StateInfo>
+										<StateGroupList>
+											<StateGroupInfo>
+												<StateGroupRef Name="Environment" ID="{368540B0-9326-43CE-A20D-CD99DFFC54DE}"/>
+											</StateGroupInfo>
+										</StateGroupList>
+										<CustomStateList>
+											<CustomState>
+												<StateRef Name="P1_Intro" ID="{FC8BB0BF-7A44-40B1-8D27-D1EA7366289D}"/>
+												<State Name="" ID="{62D65712-87FB-4857-ABE0-12D3AC4719B7}" ShortID="52009843"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P2_FactoryPuzzle1" ID="{79494580-3976-425E-971D-CB193C870700}"/>
+												<State Name="" ID="{49890972-3392-485C-9A98-D316E82911F8}" ShortID="359183908"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="Menu" ID="{3AFA27FF-9639-4444-9C9F-20A568E90221}"/>
+												<State Name="" ID="{0BE2BE30-C657-4B39-B849-4CE4985B8655}" ShortID="962383568"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P3_ConstructionStorm" ID="{0D1A02F3-9577-4504-8C6C-58D99D7925E6}"/>
+												<State Name="" ID="{2702EE64-FEF6-4C8B-84E9-5817F789982D}" ShortID="1068423277"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P1_IntroViewpoint" ID="{A0830815-1BB2-456C-BC25-BF32D2547E4E}"/>
+												<State Name="" ID="{DE9E8F37-F73F-4213-BB58-BB449325B9A9}" ShortID="867582905"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P2_FactoryPuzzle2" ID="{DC03589A-BDD2-45D6-A826-EA9C0315B998}"/>
+												<State Name="" ID="{3C7C749F-38ED-4D43-A787-F670362941C2}" ShortID="27747542"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P2_FactoryViewpoint" ID="{EB070CD5-C2C2-46D1-9A5B-C15943D11787}"/>
+												<State Name="" ID="{BF75275C-402E-4528-9B51-9F5D04FA9FDE}" ShortID="838220759"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P6_EndLeave" ID="{E8ED1630-94B1-46FB-A5DC-E890F8746D73}"/>
+												<State Name="" ID="{E9E17B15-E235-4551-BABA-B921163E0008}" ShortID="80838413"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P5_Core" ID="{6B59E6D1-4DA6-487E-91B0-1AE559B70CD1}"/>
+												<State Name="" ID="{9041FFCD-637F-4F7B-98C5-FE572C6A1BEA}" ShortID="519588720"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P3_ConstructionScenery" ID="{D01D8749-D570-4885-88A1-4E868784E367}"/>
+												<State Name="" ID="{B316B0FA-4921-4AF7-BDF3-E5478BE6A810}" ShortID="800667503"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P5_CorePuzzle" ID="{C972704B-6D26-49FC-8229-7838BCD59F79}"/>
+												<State Name="" ID="{9A6072B0-FC21-4B54-ABBD-B5678A23912C}" ShortID="348576590"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P3_Construction" ID="{3BD738C0-1FEE-4A31-B833-5BDB23300B01}"/>
+												<State Name="" ID="{B00932FF-7AA8-4C91-A99A-815517DDA00C}" ShortID="690092611"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P4_Clouds" ID="{B92ABBFE-ED7C-4AE0-A739-CF81428935A0}"/>
+												<State Name="" ID="{96115160-629A-40FA-9D24-BC1526E3AC7C}" ShortID="163059877"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="Empty" ID="{C1FFFDEC-FC6D-4B54-9D54-1DB3342ADAC8}"/>
+												<State Name="" ID="{636DC2BB-4818-4EAF-918C-0EC189CE7EED}" ShortID="992199262"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P6_EndSacrifice" ID="{B2786363-AAB6-4D23-9F0A-8407408276B0}"/>
+												<State Name="" ID="{E63F1289-534A-45AC-A1D7-DEEB44505E4F}" ShortID="1032430896"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P6_AChoice" ID="{300F983C-BC50-4E36-BF53-75418BDAB6CF}"/>
+												<State Name="" ID="{2B251C73-7F6D-4AB1-B9E4-6F5309716094}" ShortID="129713666"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="Credits" ID="{07794BAC-6A4D-4EDF-9F27-404ACF53D536}"/>
+												<State Name="" ID="{2DA33252-2A56-4B11-8FD1-C77E3AFBBEF6}" ShortID="257894681"/>
+											</CustomState>
+										</CustomStateList>
+									</StateInfo>
+									<DuckingList>
+										<DuckItem>
+											<BusRef Name="Drone" ID="{6BAF7145-A163-40D7-A216-C4BC3B0F1656}"/>
+											<DuckingParam>
+												<Volume>-7</Volume>
+												<FadeInTime>0.5</FadeInTime>
+												<FadeOutTime>0.200000002980232</FadeOutTime>
+												<FadeCurve>FadeExp1</FadeCurve>
+												<TargetProp>BusVolume</TargetProp>
+											</DuckingParam>
+										</DuckItem>
+									</DuckingList>
+								</Bus>
+								<Bus Name="Ambience" ID="{6DA28E5B-02CA-4B3F-8893-AC8791C9BF2D}">
+									<PropertyList>
+										<Property Name="DivergenceCenter" Type="int32">
+											<ValueList>
+												<Value>0</Value>
+											</ValueList>
+										</Property>
 										<Property Name="EnablePositioning" Type="bool" Value="True"/>
 									</PropertyList>
 									<ReferenceList>
+										<Reference Name="Effect0" PluginName="Wwise Meter" CompanyID="0" PluginID="129" PluginType="3">
+											<ObjectRef Name="Wind_Level" ID="{D885ED9F-FA4E-4A26-B660-4A247EEF2C90}" WorkUnitID="{DB5ADB83-997D-43F7-B226-D357913135AD}"/>
+										</Reference>
+										<Reference Name="Effect1" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+											<ObjectRef Name="New_Wwise_Parametric_EQ_16" ID="{7BBBF43C-B9BF-4AD8-B0D8-F5B5CFC6A69C}" WorkUnitID="{DB5ADB83-997D-43F7-B226-D357913135AD}"/>
+										</Reference>
+										<Reference Name="Effect2" PluginName="Wwise Compressor" CompanyID="0" PluginID="108" PluginType="3">
+											<ObjectRef Name="New_Wwise_Compressor_01" ID="{5935E7CA-3C3E-4D14-BDC5-AAEA2B4B3946}" WorkUnitID="{DB5ADB83-997D-43F7-B226-D357913135AD}"/>
+										</Reference>
+									</ReferenceList>
+									<StateInfo>
+										<StateGroupList>
+											<StateGroupInfo>
+												<StateGroupRef Name="Drone_Modulator" ID="{6F9EDEE3-D863-4564-B5FF-2E703969AF54}"/>
+											</StateGroupInfo>
+											<StateGroupInfo>
+												<StateGroupRef Name="Environment" ID="{368540B0-9326-43CE-A20D-CD99DFFC54DE}"/>
+											</StateGroupInfo>
+										</StateGroupList>
+										<CustomStateList>
+											<CustomState>
+												<StateRef Name="Reflector" ID="{F0FD1677-1293-401E-83C0-409A107A0ED2}"/>
+												<State Name="" ID="{3AD89DD5-F14E-4F34-8A71-2DFADB57FD11}" ShortID="880925765"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P1_Intro" ID="{FC8BB0BF-7A44-40B1-8D27-D1EA7366289D}"/>
+												<State Name="" ID="{6F3A7C03-F7A0-4D01-B543-66865ADE303B}" ShortID="530481070"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P2_FactoryPuzzle1" ID="{79494580-3976-425E-971D-CB193C870700}"/>
+												<State Name="" ID="{C4927BFD-F3C9-4878-9F51-D1F8EE1CBB6B}" ShortID="1060807266">
+													<PropertyList>
+														<Property Name="BusVolume" Type="Real64" Value="2"/>
+													</PropertyList>
+												</State>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="Hit_Wall" ID="{1632BA91-329C-42DF-B8C4-64F6C03B69BB}"/>
+												<State Name="" ID="{0016531E-7FF1-4A29-BED2-410F49758556}" ShortID="545370876"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="Combiner" ID="{B61D639E-400F-4387-BC00-375A61AD9377}"/>
+												<State Name="" ID="{72BECDF4-46C2-465F-BB82-4F6E48E41CFA}" ShortID="494982802"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="Menu" ID="{3AFA27FF-9639-4444-9C9F-20A568E90221}"/>
+												<State Name="" ID="{AA55120B-55E6-4255-9098-8BEC53EAC025}" ShortID="843969787"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="Start" ID="{D1DB9805-02B1-44BF-A049-F23022B18534}"/>
+												<State Name="" ID="{8E41988D-15C5-41E5-AB4F-A9D716EA77AC}" ShortID="943748192"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P3_ConstructionStorm" ID="{0D1A02F3-9577-4504-8C6C-58D99D7925E6}"/>
+												<State Name="" ID="{91A3F962-6CDE-4492-B266-276E0E5F7D06}" ShortID="741248426"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P1_IntroViewpoint" ID="{A0830815-1BB2-456C-BC25-BF32D2547E4E}"/>
+												<State Name="" ID="{D80C83F2-2990-4067-8A53-81F3A61021B2}" ShortID="420421848"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P2_FactoryPuzzle2" ID="{DC03589A-BDD2-45D6-A826-EA9C0315B998}"/>
+												<State Name="" ID="{74C8BE60-7F8C-4E89-99BA-8F95BCE23A30}" ShortID="694715999"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="Splitter" ID="{D99A732E-8412-4623-8A82-C396413A931C}"/>
+												<State Name="" ID="{64F7FD6E-2E9F-4B07-871C-A958E4B52CB7}" ShortID="518265799"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P2_FactoryViewpoint" ID="{EB070CD5-C2C2-46D1-9A5B-C15943D11787}"/>
+												<State Name="" ID="{8977D365-E6BE-40AB-8F20-B8AEB56CF9A3}" ShortID="233914400"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P6_EndLeave" ID="{E8ED1630-94B1-46FB-A5DC-E890F8746D73}"/>
+												<State Name="" ID="{EC013848-501D-4B1C-AD5F-52819C35718A}" ShortID="351562649"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="Complete" ID="{5B42DFA5-E7F9-47A0-8E1C-22A385CE8DC2}"/>
+												<State Name="" ID="{38045BC2-6B9F-458B-88BD-B5B78EC31CBB}" ShortID="55981715">
+													<PropertyList>
+														<Property Name="Volume" Type="Real64" Value="-9"/>
+													</PropertyList>
+												</State>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P5_Core" ID="{6B59E6D1-4DA6-487E-91B0-1AE559B70CD1}"/>
+												<State Name="" ID="{30BD01EB-E604-4A26-809F-1AC2745F021A}" ShortID="731834796"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="Through_Barrier" ID="{A75B3983-3FDB-4882-BAED-D345BBAA0523}"/>
+												<State Name="" ID="{CD53684F-6210-400B-8B5F-1A4A65BEAE6E}" ShortID="433971737"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P3_ConstructionScenery" ID="{D01D8749-D570-4885-88A1-4E868784E367}"/>
+												<State Name="" ID="{325E9E77-921A-4C60-8C83-65D58068EED6}" ShortID="272766910"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="Hit_Switch" ID="{5DBE742A-FF4B-4888-A989-F0958DD1AA8E}"/>
+												<State Name="" ID="{7CB19A9C-3E2E-4220-8C09-871B1C6DCAFF}" ShortID="865404335"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P5_CorePuzzle" ID="{C972704B-6D26-49FC-8229-7838BCD59F79}"/>
+												<State Name="" ID="{72BBA98E-6E37-4FB8-A229-5B062396C451}" ShortID="902367873"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P3_Construction" ID="{3BD738C0-1FEE-4A31-B833-5BDB23300B01}"/>
+												<State Name="" ID="{D8205735-114F-4F7B-AE82-5FE17BD55F3A}" ShortID="1063974158"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P4_Clouds" ID="{B92ABBFE-ED7C-4AE0-A739-CF81428935A0}"/>
+												<State Name="" ID="{85CBC7A5-F348-4B20-8F78-9A0B8E687C82}" ShortID="62210103"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="Empty" ID="{C1FFFDEC-FC6D-4B54-9D54-1DB3342ADAC8}"/>
+												<State Name="" ID="{41CF07B1-E17F-4433-B052-3F57C53B3FE7}" ShortID="582635401"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="Colour_Change" ID="{52D58239-FA93-4CCE-A3E2-8E4C3E0E91B2}"/>
+												<State Name="" ID="{9C03454A-939C-42AB-BB2F-88DF8DF698D1}" ShortID="1003739775"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P6_EndSacrifice" ID="{B2786363-AAB6-4D23-9F0A-8407408276B0}"/>
+												<State Name="" ID="{00710429-AB50-4736-BD8B-A0CF715AADFF}" ShortID="29669497"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P6_AChoice" ID="{300F983C-BC50-4E36-BF53-75418BDAB6CF}"/>
+												<State Name="" ID="{94F7D9C9-9898-4F12-A2C5-0E4A67826227}" ShortID="572737049"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="Credits" ID="{07794BAC-6A4D-4EDF-9F27-404ACF53D536}"/>
+												<State Name="" ID="{4A47D798-0EB2-4111-AD1B-DD6E56851241}" ShortID="325897137"/>
+											</CustomState>
+										</CustomStateList>
+									</StateInfo>
+								</Bus>
+								<Bus Name="Drone" ID="{6BAF7145-A163-40D7-A216-C4BC3B0F1656}">
+									<PropertyList>
+										<Property Name="BusVolume" Type="Real64">
+											<ValueList>
+												<Value>-14</Value>
+											</ValueList>
+										</Property>
+										<Property Name="DivergenceCenter" Type="int32">
+											<ValueList>
+												<Value>0</Value>
+											</ValueList>
+										</Property>
+										<Property Name="EnablePositioning" Type="bool" Value="True"/>
+										<Property Name="PositioningType" Type="int16" Value="1"/>
+										<Property Name="UseGameAuxSends" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Attenuation">
+											<ObjectRef Name="Main_Attentuation" ID="{7AFFEEA2-FEA6-4C5E-9350-4292CD58F98F}" WorkUnitID="{69E5E085-C55B-46C1-B440-1CB36DA8E2EE}"/>
+										</Reference>
 										<Reference Name="Effect0">
 											<Custom>
-												<Effect Name="Wwise Reflect (Custom)" ID="{356CB487-DDAB-4654-90C3-609E1D70C90D}" ShortID="354858717" PluginName="Wwise Reflect" CompanyID="0" PluginID="171" PluginType="3">													<PluginData>
+												<Effect Name="Wwise Tremolo (Custom)" ID="{A5B26D81-8E52-4F6B-9F00-A02F670FF12B}" ShortID="133191268" PluginName="Wwise Tremolo" CompanyID="0" PluginID="131" PluginType="3">
+													<PropertyList>
+														<Property Name="ModDepth" Type="Real32" Value="59.5"/>
+														<Property Name="ModFrequency" Type="Real32" Value="0.48"/>
+													</PropertyList>
+												</Effect>
+											</Custom>
+										</Reference>
+										<Reference Name="Effect1" PluginName="Wwise Compressor" CompanyID="0" PluginID="108" PluginType="3">
+											<ObjectRef Name="New_Wwise_Compressor_01" ID="{5935E7CA-3C3E-4D14-BDC5-AAEA2B4B3946}" WorkUnitID="{DB5ADB83-997D-43F7-B226-D357913135AD}"/>
+										</Reference>
+									</ReferenceList>
+									<StateInfo>
+										<StateGroupList>
+											<StateGroupInfo>
+												<StateGroupRef Name="Drone_Modulator" ID="{6F9EDEE3-D863-4564-B5FF-2E703969AF54}"/>
+											</StateGroupInfo>
+										</StateGroupList>
+										<CustomStateList>
+											<CustomState>
+												<StateRef Name="Reflector" ID="{F0FD1677-1293-401E-83C0-409A107A0ED2}"/>
+												<State Name="" ID="{B8FD1763-E18A-4CF8-85EB-5B7A3F6E3E23}" ShortID="405593370"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="Hit_Wall" ID="{1632BA91-329C-42DF-B8C4-64F6C03B69BB}"/>
+												<State Name="" ID="{01F02E24-5B2D-408D-881A-DDA21839CBAB}" ShortID="786039540"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="Combiner" ID="{B61D639E-400F-4387-BC00-375A61AD9377}"/>
+												<State Name="" ID="{328E05CA-AF41-4A86-9201-E11E54A22E28}" ShortID="209952897"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="Start" ID="{D1DB9805-02B1-44BF-A049-F23022B18534}"/>
+												<State Name="" ID="{AEA01652-1904-4AC4-AD4C-CED25A1FF29F}" ShortID="942735799">
+													<PropertyList>
+														<Property Name="BusVolume" Type="Real64" Value="-6"/>
+													</PropertyList>
+												</State>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="Splitter" ID="{D99A732E-8412-4623-8A82-C396413A931C}"/>
+												<State Name="" ID="{0D3BBF1A-EAEE-4855-889A-09731E64EB2B}" ShortID="438238513"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="Complete" ID="{5B42DFA5-E7F9-47A0-8E1C-22A385CE8DC2}"/>
+												<State Name="" ID="{573ACB35-CAE5-41DE-931C-B9275437D14C}" ShortID="568609427"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="Through_Barrier" ID="{A75B3983-3FDB-4882-BAED-D345BBAA0523}"/>
+												<State Name="" ID="{5755CE66-CA60-4C2A-8920-1261C41FA0E6}" ShortID="863267867"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="Hit_Switch" ID="{5DBE742A-FF4B-4888-A989-F0958DD1AA8E}"/>
+												<State Name="" ID="{199E6BB4-1F8F-44BD-AB05-A8937E8DB9B0}" ShortID="612231188"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="Colour_Change" ID="{52D58239-FA93-4CCE-A3E2-8E4C3E0E91B2}"/>
+												<State Name="" ID="{E5BC107D-F9BA-4C1E-BC64-3458B9C68CC6}" ShortID="482716863"/>
+											</CustomState>
+										</CustomStateList>
+									</StateInfo>
+									<DuckingList>
+										<DuckItem>
+											<BusRef Name="Ambience" ID="{6DA28E5B-02CA-4B3F-8893-AC8791C9BF2D}"/>
+											<DuckingParam>
+												<Volume>-12</Volume>
+												<FadeInTime>5</FadeInTime>
+												<FadeOutTime>5</FadeOutTime>
+												<FadeCurve>FadeLinear</FadeCurve>
+											</DuckingParam>
+										</DuckItem>
+										<DuckItem>
+											<BusRef Name="Music" ID="{8B3FDD90-9F59-41B0-831B-94D60F3FFC3C}"/>
+											<DuckingParam>
+												<Volume>-12</Volume>
+												<FadeInTime>5</FadeInTime>
+												<FadeOutTime>5</FadeOutTime>
+												<FadeCurve>FadeLinear</FadeCurve>
+											</DuckingParam>
+										</DuckItem>
+									</DuckingList>
+								</Bus>
+								<Bus Name="Music" ID="{8B3FDD90-9F59-41B0-831B-94D60F3FFC3C}">
+									<PropertyList>
+										<Property Name="BusVolume" Type="Real64">
+											<ValueList>
+												<Value>-11</Value>
+											</ValueList>
+										</Property>
+										<Property Name="DivergenceCenter" Type="int32">
+											<ValueList>
+												<Value>0</Value>
+											</ValueList>
+										</Property>
+										<Property Name="EnablePositioning" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Effect0" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+											<ObjectRef Name="New_Wwise_Parametric_EQ_10" ID="{BB215799-0D39-4B41-826D-A226E7EA8EC6}" WorkUnitID="{DB5ADB83-997D-43F7-B226-D357913135AD}"/>
+										</Reference>
+										<Reference Name="Effect1" PluginName="Wwise Compressor" CompanyID="0" PluginID="108" PluginType="3">
+											<ObjectRef Name="New_Wwise_Compressor_01" ID="{5935E7CA-3C3E-4D14-BDC5-AAEA2B4B3946}" WorkUnitID="{DB5ADB83-997D-43F7-B226-D357913135AD}"/>
+										</Reference>
+									</ReferenceList>
+									<StateInfo>
+										<StateGroupList>
+											<StateGroupInfo>
+												<StateGroupRef Name="Environment" ID="{368540B0-9326-43CE-A20D-CD99DFFC54DE}"/>
+											</StateGroupInfo>
+										</StateGroupList>
+										<CustomStateList>
+											<CustomState>
+												<StateRef Name="P1_Intro" ID="{FC8BB0BF-7A44-40B1-8D27-D1EA7366289D}"/>
+												<State Name="" ID="{B767996F-EE24-4683-AA6A-91BEB014345C}" ShortID="126248837"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P2_FactoryPuzzle1" ID="{79494580-3976-425E-971D-CB193C870700}"/>
+												<State Name="" ID="{69AC3684-FE94-4ED0-8338-91E0C98C7756}" ShortID="204163729">
+													<PropertyList>
+														<Property Name="BusVolume" Type="Real64" Value="5"/>
+													</PropertyList>
+												</State>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="Menu" ID="{3AFA27FF-9639-4444-9C9F-20A568E90221}"/>
+												<State Name="" ID="{8BC91567-0114-4B0B-9FB9-046E4082B3C8}" ShortID="722190530"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P3_ConstructionStorm" ID="{0D1A02F3-9577-4504-8C6C-58D99D7925E6}"/>
+												<State Name="" ID="{BF7745A8-7C8B-4698-BAEA-BBD5D489330A}" ShortID="860606900"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P1_IntroViewpoint" ID="{A0830815-1BB2-456C-BC25-BF32D2547E4E}"/>
+												<State Name="" ID="{317C54B3-92AA-4CB2-A7AA-F5126D114A3D}" ShortID="22484875"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P2_FactoryPuzzle2" ID="{DC03589A-BDD2-45D6-A826-EA9C0315B998}"/>
+												<State Name="" ID="{045A1999-724D-4682-9F8F-CABBA84AA5CD}" ShortID="820929788"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P2_FactoryViewpoint" ID="{EB070CD5-C2C2-46D1-9A5B-C15943D11787}"/>
+												<State Name="" ID="{8D262C7C-B802-4528-9E93-8DDDE954D0F6}" ShortID="206153821"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P6_EndLeave" ID="{E8ED1630-94B1-46FB-A5DC-E890F8746D73}"/>
+												<State Name="" ID="{B406C3CD-A1EE-4A2E-9F5B-35122EC8BFE2}" ShortID="721369652"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P5_Core" ID="{6B59E6D1-4DA6-487E-91B0-1AE559B70CD1}"/>
+												<State Name="" ID="{79EB243B-4F49-4B5C-A977-36F4FDC7C363}" ShortID="1042463136"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P3_ConstructionScenery" ID="{D01D8749-D570-4885-88A1-4E868784E367}"/>
+												<State Name="" ID="{30CBD7C3-13F2-45F1-93CC-BF74A0280A07}" ShortID="324844823"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P5_CorePuzzle" ID="{C972704B-6D26-49FC-8229-7838BCD59F79}"/>
+												<State Name="" ID="{625D1BF4-67AB-4449-ADCB-08D179D799BC}" ShortID="658861384">
+													<PropertyList>
+														<Property Name="BusVolume" Type="Real64" Value="3"/>
+													</PropertyList>
+												</State>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P3_Construction" ID="{3BD738C0-1FEE-4A31-B833-5BDB23300B01}"/>
+												<State Name="" ID="{F8F8B855-01FD-477F-9D70-51412B74FC23}" ShortID="639343567"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P4_Clouds" ID="{B92ABBFE-ED7C-4AE0-A739-CF81428935A0}"/>
+												<State Name="" ID="{B5FE7B10-6B7E-49D6-BAF8-10E7B26020FC}" ShortID="974808288">
+													<PropertyList>
+														<Property Name="BusVolume" Type="Real64" Value="7"/>
+													</PropertyList>
+												</State>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="Empty" ID="{C1FFFDEC-FC6D-4B54-9D54-1DB3342ADAC8}"/>
+												<State Name="" ID="{687A2174-8721-494E-BA87-EB099BA3F6B7}" ShortID="257080486"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P6_EndSacrifice" ID="{B2786363-AAB6-4D23-9F0A-8407408276B0}"/>
+												<State Name="" ID="{666591BE-F2F8-4C4A-9AA2-A6F8BE43F8CE}" ShortID="658618981"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P6_AChoice" ID="{300F983C-BC50-4E36-BF53-75418BDAB6CF}"/>
+												<State Name="" ID="{0CE4E87B-A04C-48DC-B6D9-C89C9725150C}" ShortID="511357669"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="Credits" ID="{07794BAC-6A4D-4EDF-9F27-404ACF53D536}"/>
+												<State Name="" ID="{4BABEABC-DC6E-4139-BA77-20A0A08E6448}" ShortID="283560250"/>
+											</CustomState>
+										</CustomStateList>
+									</StateInfo>
+									<DuckingList>
+										<DuckItem>
+											<BusRef Name="Drone" ID="{6BAF7145-A163-40D7-A216-C4BC3B0F1656}"/>
+											<DuckingParam>
+												<Volume>0</Volume>
+												<FadeInTime>3</FadeInTime>
+												<FadeOutTime>3</FadeOutTime>
+												<FadeCurve>FadeLinear</FadeCurve>
+											</DuckingParam>
+										</DuckItem>
+										<DuckItem>
+											<BusRef Name="Chrip_Melody" ID="{F3863DCC-A218-4856-80C9-06DA2A671F46}"/>
+											<DuckingParam>
+												<Volume>-96</Volume>
+												<FadeInTime>1</FadeInTime>
+												<FadeOutTime>0</FadeOutTime>
+												<FadeCurve>FadeLinear</FadeCurve>
+												<TargetProp>BusVolume</TargetProp>
+											</DuckingParam>
+										</DuckItem>
+									</DuckingList>
+								</Bus>
+								<Bus Name="Chirps" ID="{CFE7271A-38F8-4E0A-BFAD-CBA746BA6DD4}">
+									<PropertyList>
+										<Property Name="DivergenceCenter" Type="int32">
+											<ValueList>
+												<Value>0</Value>
+											</ValueList>
+										</Property>
+										<Property Name="EnablePositioning" Type="bool" Value="True"/>
+										<Property Name="PositioningType" Type="int16" Value="1"/>
+										<Property Name="UseGameAuxSends" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Attenuation">
+											<ObjectRef Name="Main_Attentuation" ID="{7AFFEEA2-FEA6-4C5E-9350-4292CD58F98F}" WorkUnitID="{69E5E085-C55B-46C1-B440-1CB36DA8E2EE}"/>
+										</Reference>
+										<Reference Name="Effect0" PluginName="Wwise Compressor" CompanyID="0" PluginID="108" PluginType="3">
+											<ObjectRef Name="New_Wwise_Compressor_01" ID="{5935E7CA-3C3E-4D14-BDC5-AAEA2B4B3946}" WorkUnitID="{DB5ADB83-997D-43F7-B226-D357913135AD}"/>
+										</Reference>
+									</ReferenceList>
+									<StateInfo>
+										<StateGroupList>
+											<StateGroupInfo>
+												<StateGroupRef Name="Environment" ID="{368540B0-9326-43CE-A20D-CD99DFFC54DE}"/>
+											</StateGroupInfo>
+										</StateGroupList>
+										<CustomStateList>
+											<CustomState>
+												<StateRef Name="P1_Intro" ID="{FC8BB0BF-7A44-40B1-8D27-D1EA7366289D}"/>
+												<State Name="" ID="{9567AE9B-ADEB-4225-87B4-F36AB28F89BB}" ShortID="175757882"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P2_FactoryPuzzle1" ID="{79494580-3976-425E-971D-CB193C870700}"/>
+												<State Name="" ID="{7ECF0292-DDC3-433D-A153-51F759E5823F}" ShortID="515343011"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="Menu" ID="{3AFA27FF-9639-4444-9C9F-20A568E90221}"/>
+												<State Name="" ID="{B75BE9B8-34A0-47C1-AF69-BB92FAEE76C7}" ShortID="982360733"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P3_ConstructionStorm" ID="{0D1A02F3-9577-4504-8C6C-58D99D7925E6}"/>
+												<State Name="" ID="{A889D205-B672-4C08-B03E-09324A189489}" ShortID="741994972"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P1_IntroViewpoint" ID="{A0830815-1BB2-456C-BC25-BF32D2547E4E}"/>
+												<State Name="" ID="{85B847E1-36EA-4210-BDEA-CDF23EFEE9AE}" ShortID="356455451"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P2_FactoryPuzzle2" ID="{DC03589A-BDD2-45D6-A826-EA9C0315B998}"/>
+												<State Name="" ID="{A3BCDBB9-1A70-4E8D-8737-96BE8D724F84}" ShortID="674061631"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P2_FactoryViewpoint" ID="{EB070CD5-C2C2-46D1-9A5B-C15943D11787}"/>
+												<State Name="" ID="{DC88813A-DD23-4035-B5C6-C4EFB96EF6E2}" ShortID="117101193"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P6_EndLeave" ID="{E8ED1630-94B1-46FB-A5DC-E890F8746D73}"/>
+												<State Name="" ID="{555741B1-6F2C-4804-B405-4D489240C63C}" ShortID="341856307"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P5_Core" ID="{6B59E6D1-4DA6-487E-91B0-1AE559B70CD1}"/>
+												<State Name="" ID="{5218CC86-2657-4B4A-8292-255E240A826D}" ShortID="588971996"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P3_ConstructionScenery" ID="{D01D8749-D570-4885-88A1-4E868784E367}"/>
+												<State Name="" ID="{95C57621-FAE3-45DE-A456-BF9CB2ED07FC}" ShortID="431844626"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P5_CorePuzzle" ID="{C972704B-6D26-49FC-8229-7838BCD59F79}"/>
+												<State Name="" ID="{4089D2CF-CA10-4CD9-91AF-F636E850BDC8}" ShortID="167118244"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P3_Construction" ID="{3BD738C0-1FEE-4A31-B833-5BDB23300B01}"/>
+												<State Name="" ID="{C7CCE9EA-F2B2-40AF-98BE-639859FFC84E}" ShortID="581602562"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P4_Clouds" ID="{B92ABBFE-ED7C-4AE0-A739-CF81428935A0}"/>
+												<State Name="" ID="{3678F091-5EDD-472D-9DFC-B238FD7D587C}" ShortID="899427645"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="Empty" ID="{C1FFFDEC-FC6D-4B54-9D54-1DB3342ADAC8}"/>
+												<State Name="" ID="{E01D5AB0-2509-4AD0-8D77-8F55A9EC8416}" ShortID="786949105"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P6_EndSacrifice" ID="{B2786363-AAB6-4D23-9F0A-8407408276B0}"/>
+												<State Name="" ID="{B3582F4E-B88F-4D9B-BC5D-CF49F4F27AD3}" ShortID="396564105"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P6_AChoice" ID="{300F983C-BC50-4E36-BF53-75418BDAB6CF}"/>
+												<State Name="" ID="{DB01155B-04F6-47D5-8A5D-204A81F70397}" ShortID="545775448"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="Credits" ID="{07794BAC-6A4D-4EDF-9F27-404ACF53D536}"/>
+												<State Name="" ID="{4CA17B9B-73BE-44EE-B7A5-DF88ACE4F7F1}" ShortID="371682229"/>
+											</CustomState>
+										</CustomStateList>
+									</StateInfo>
+								</Bus>
+								<Bus Name="Objects" ID="{CA2680CC-BAFB-4640-B105-3ABB8404E954}">
+									<PropertyList>
+										<Property Name="DivergenceCenter" Type="int32">
+											<ValueList>
+												<Value>0</Value>
+											</ValueList>
+										</Property>
+										<Property Name="EnablePositioning" Type="bool" Value="True"/>
+										<Property Name="PositioningType" Type="int16" Value="1"/>
+										<Property Name="UseGameAuxSends" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Attenuation">
+											<ObjectRef Name="Main_Attentuation" ID="{7AFFEEA2-FEA6-4C5E-9350-4292CD58F98F}" WorkUnitID="{69E5E085-C55B-46C1-B440-1CB36DA8E2EE}"/>
+										</Reference>
+										<Reference Name="Effect0" PluginName="Wwise Compressor" CompanyID="0" PluginID="108" PluginType="3">
+											<ObjectRef Name="New_Wwise_Compressor_01" ID="{5935E7CA-3C3E-4D14-BDC5-AAEA2B4B3946}" WorkUnitID="{DB5ADB83-997D-43F7-B226-D357913135AD}"/>
+										</Reference>
+									</ReferenceList>
+									<StateInfo>
+										<StateGroupList>
+											<StateGroupInfo>
+												<StateGroupRef Name="Environment" ID="{368540B0-9326-43CE-A20D-CD99DFFC54DE}"/>
+											</StateGroupInfo>
+										</StateGroupList>
+										<CustomStateList>
+											<CustomState>
+												<StateRef Name="P1_Intro" ID="{FC8BB0BF-7A44-40B1-8D27-D1EA7366289D}"/>
+												<State Name="" ID="{7CD5F4A4-54AC-431E-A9B6-2535FE34E55D}" ShortID="551112177"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P2_FactoryPuzzle1" ID="{79494580-3976-425E-971D-CB193C870700}"/>
+												<State Name="" ID="{317A3729-34A0-497C-811F-680D9E66F83C}" ShortID="132530341"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="Menu" ID="{3AFA27FF-9639-4444-9C9F-20A568E90221}"/>
+												<State Name="" ID="{D59408A1-9982-4A46-90EB-8542D90FAA97}" ShortID="748431117"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P3_ConstructionStorm" ID="{0D1A02F3-9577-4504-8C6C-58D99D7925E6}"/>
+												<State Name="" ID="{CE52023C-106F-42F5-9075-1E8FF0509BB3}" ShortID="592479313"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P1_IntroViewpoint" ID="{A0830815-1BB2-456C-BC25-BF32D2547E4E}"/>
+												<State Name="" ID="{6D0B585D-104C-407F-A936-1654DC5290FF}" ShortID="171842106"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P2_FactoryPuzzle2" ID="{DC03589A-BDD2-45D6-A826-EA9C0315B998}"/>
+												<State Name="" ID="{FA6EAA1E-C556-4842-9DE3-D025A2BD7D5F}" ShortID="803211177"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P2_FactoryViewpoint" ID="{EB070CD5-C2C2-46D1-9A5B-C15943D11787}"/>
+												<State Name="" ID="{CDB50188-B45B-49E0-A471-898D4D54750C}" ShortID="853031940"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P6_EndLeave" ID="{E8ED1630-94B1-46FB-A5DC-E890F8746D73}"/>
+												<State Name="" ID="{A09FBC3D-2763-4648-A1D8-EE6EFD1EF209}" ShortID="986129218"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P5_Core" ID="{6B59E6D1-4DA6-487E-91B0-1AE559B70CD1}"/>
+												<State Name="" ID="{FF68FF06-DEFE-42B5-BEEE-CD90462BCDF4}" ShortID="414553908"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P3_ConstructionScenery" ID="{D01D8749-D570-4885-88A1-4E868784E367}"/>
+												<State Name="" ID="{31FF912B-43DB-4726-8E17-7ABAE52F6063}" ShortID="160408517"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P5_CorePuzzle" ID="{C972704B-6D26-49FC-8229-7838BCD59F79}"/>
+												<State Name="" ID="{5031414D-EE83-4A4D-81C5-EB88C024EC0D}" ShortID="289045923"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P3_Construction" ID="{3BD738C0-1FEE-4A31-B833-5BDB23300B01}"/>
+												<State Name="" ID="{7D881DFF-AE75-403A-BC3A-8F992B407C01}" ShortID="160341212"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P4_Clouds" ID="{B92ABBFE-ED7C-4AE0-A739-CF81428935A0}"/>
+												<State Name="" ID="{F816926A-3378-40A5-9C27-9A7C378EA4F4}" ShortID="1015187715"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="Empty" ID="{C1FFFDEC-FC6D-4B54-9D54-1DB3342ADAC8}"/>
+												<State Name="" ID="{E6C5A9C2-A251-4470-9D0C-7A177A529200}" ShortID="2678924"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P6_EndSacrifice" ID="{B2786363-AAB6-4D23-9F0A-8407408276B0}"/>
+												<State Name="" ID="{D68989D4-E90B-4200-822B-BF72E44AC994}" ShortID="623205071"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P6_AChoice" ID="{300F983C-BC50-4E36-BF53-75418BDAB6CF}"/>
+												<State Name="" ID="{3365547D-04DF-4F51-87B4-62FDFCA33290}" ShortID="667571285"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="Credits" ID="{07794BAC-6A4D-4EDF-9F27-404ACF53D536}"/>
+												<State Name="" ID="{7806996B-B0C1-442C-B55E-DB375F2A4F28}" ShortID="213511090"/>
+											</CustomState>
+										</CustomStateList>
+									</StateInfo>
+									<DuckingList>
+										<DuckItem>
+											<BusRef Name="Drone" ID="{6BAF7145-A163-40D7-A216-C4BC3B0F1656}"/>
+											<DuckingParam>
+												<Volume>0</Volume>
+												<FadeInTime>1</FadeInTime>
+												<FadeOutTime>0</FadeOutTime>
+												<FadeCurve>FadeExp1</FadeCurve>
+												<TargetProp>BusVolume</TargetProp>
+											</DuckingParam>
+										</DuckItem>
+										<DuckItem>
+											<BusRef Name="Music" ID="{8B3FDD90-9F59-41B0-831B-94D60F3FFC3C}"/>
+											<DuckingParam>
+												<Volume>0</Volume>
+												<FadeInTime>1</FadeInTime>
+												<FadeOutTime>0</FadeOutTime>
+												<FadeCurve>FadeExp1</FadeCurve>
+												<TargetProp>BusVolume</TargetProp>
+											</DuckingParam>
+										</DuckItem>
+									</DuckingList>
+								</Bus>
+								<Bus Name="Chrip_Melody" ID="{F3863DCC-A218-4856-80C9-06DA2A671F46}">
+									<ReferenceList>
+										<Reference Name="Effect0" PluginName="Wwise Compressor" CompanyID="0" PluginID="108" PluginType="3">
+											<ObjectRef Name="New_Wwise_Compressor_01" ID="{5935E7CA-3C3E-4D14-BDC5-AAEA2B4B3946}" WorkUnitID="{DB5ADB83-997D-43F7-B226-D357913135AD}"/>
+										</Reference>
+									</ReferenceList>
+									<StateInfo>
+										<StateGroupList>
+											<StateGroupInfo>
+												<StateGroupRef Name="Environment" ID="{368540B0-9326-43CE-A20D-CD99DFFC54DE}"/>
+											</StateGroupInfo>
+										</StateGroupList>
+										<CustomStateList>
+											<CustomState>
+												<StateRef Name="P1_Intro" ID="{FC8BB0BF-7A44-40B1-8D27-D1EA7366289D}"/>
+												<State Name="" ID="{F069408C-D878-4126-BCCE-B0D11AB816EC}" ShortID="961322686"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P2_FactoryPuzzle1" ID="{79494580-3976-425E-971D-CB193C870700}"/>
+												<State Name="" ID="{E4B4E4F0-F179-4B75-9ED7-E4B01519D56B}" ShortID="26928049"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="Menu" ID="{3AFA27FF-9639-4444-9C9F-20A568E90221}"/>
+												<State Name="" ID="{FE2BA0D0-45B2-4A37-8578-26A73DD53E00}" ShortID="1030181028"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P3_ConstructionStorm" ID="{0D1A02F3-9577-4504-8C6C-58D99D7925E6}"/>
+												<State Name="" ID="{9CFD7220-89DE-4385-9344-2A6B322BB20D}" ShortID="771283220"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P1_IntroViewpoint" ID="{A0830815-1BB2-456C-BC25-BF32D2547E4E}"/>
+												<State Name="" ID="{8480BB5D-76F4-446B-AA95-0750B28E3C1F}" ShortID="220707655"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P2_FactoryPuzzle2" ID="{DC03589A-BDD2-45D6-A826-EA9C0315B998}"/>
+												<State Name="" ID="{FE9DD90F-65BD-460F-9AAA-DFC4E7F2DF18}" ShortID="125314380"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P2_FactoryViewpoint" ID="{EB070CD5-C2C2-46D1-9A5B-C15943D11787}"/>
+												<State Name="" ID="{26F4947E-CB23-4565-BB81-4FEAC4ACCEDC}" ShortID="539175621"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P6_EndLeave" ID="{E8ED1630-94B1-46FB-A5DC-E890F8746D73}"/>
+												<State Name="" ID="{A798858C-AC99-40A3-B71C-D60239966991}" ShortID="144060031"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P5_Core" ID="{6B59E6D1-4DA6-487E-91B0-1AE559B70CD1}"/>
+												<State Name="" ID="{61A0B517-2FAD-406C-9A39-70FA9F47C069}" ShortID="334025916"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P3_ConstructionScenery" ID="{D01D8749-D570-4885-88A1-4E868784E367}"/>
+												<State Name="" ID="{1F5739B0-4023-48E2-B1EF-1804D7A4CF28}" ShortID="513414307"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P5_CorePuzzle" ID="{C972704B-6D26-49FC-8229-7838BCD59F79}"/>
+												<State Name="" ID="{6566C843-9E9E-4FCD-A899-CB04C2455868}" ShortID="545836821"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P3_Construction" ID="{3BD738C0-1FEE-4A31-B833-5BDB23300B01}"/>
+												<State Name="" ID="{2A37AB97-652D-42FF-A9DE-2C7B8C346BCF}" ShortID="135251262"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P4_Clouds" ID="{B92ABBFE-ED7C-4AE0-A739-CF81428935A0}"/>
+												<State Name="" ID="{53D3A072-FE1C-429C-8C52-FF834188E948}" ShortID="593506067"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="Empty" ID="{C1FFFDEC-FC6D-4B54-9D54-1DB3342ADAC8}"/>
+												<State Name="" ID="{C8DFD88E-70D1-4656-B7F2-12B525D7EE11}" ShortID="490597339"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P6_EndSacrifice" ID="{B2786363-AAB6-4D23-9F0A-8407408276B0}"/>
+												<State Name="" ID="{BFFFA0CC-56F8-4440-BC59-6E0E1F1FA069}" ShortID="1004628536"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P6_AChoice" ID="{300F983C-BC50-4E36-BF53-75418BDAB6CF}"/>
+												<State Name="" ID="{31ED9006-D07D-4760-9CB1-55116F5FA031}" ShortID="1059409463"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="Credits" ID="{07794BAC-6A4D-4EDF-9F27-404ACF53D536}"/>
+												<State Name="" ID="{AE2DDEBF-F502-4884-B1AB-C9B67345E416}" ShortID="569045883"/>
+											</CustomState>
+										</CustomStateList>
+									</StateInfo>
+								</Bus>
+								<Bus Name="Reverbs" ID="{B4D23ADE-F5AD-4EB0-B904-04CC2B783141}">
+									<PropertyList>
+										<Property Name="BusVolume" Type="Real64">
+											<ValueList>
+												<Value>-2</Value>
+											</ValueList>
+										</Property>
+										<Property Name="EnablePositioning" Type="bool" Value="True"/>
+									</PropertyList>
+									<ChildrenList>
+										<AuxBus Name="REFLECT" ID="{A3D72B30-291C-413B-9E97-C21FB997657E}">
+											<PropertyList>
+												<Property Name="EnablePositioning" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Effect0">
+													<Custom>
+														<Effect Name="Wwise Reflect (Custom)" ID="{356CB487-DDAB-4654-90C3-609E1D70C90D}" ShortID="354858717" PluginName="Wwise Reflect" CompanyID="0" PluginID="171" PluginType="3">															<PluginData>
 	<ReflectData>
 		<CurveList Version="4">
 			<CurveInfo Name="Distance Attenuation (Emitter vs. Listener)">
@@ -417,65 +982,153 @@
 		</CurveList>
 	</ReflectData>
 </PluginData>
-												</Effect>
-											</Custom>
-										</Reference>
-									</ReferenceList>
-								</AuxBus>
-								<AuxBus Name="REVERB_Outdoors" ID="{01B6CAA7-1AD8-4651-9FBE-2EEE4364EB69}">
-									<PropertyList>
-										<Property Name="DivergenceCenter" Type="int32">
-											<ValueList>
-												<Value>0</Value>
-											</ValueList>
-										</Property>
-										<Property Name="EnablePositioning" Type="bool" Value="True"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Attenuation">
-											<ObjectRef Name="Main_Attentuation" ID="{7AFFEEA2-FEA6-4C5E-9350-4292CD58F98F}" WorkUnitID="{69E5E085-C55B-46C1-B440-1CB36DA8E2EE}"/>
-										</Reference>
-										<Reference Name="Effect0" CompanyID="4095" PluginID="65535" PluginType="15">
-											<ObjectRef Name="Church_Small_Wood" ID="{940CCB47-F031-4C6A-B0E6-726CAC418C02}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
-										</Reference>
-									</ReferenceList>
-								</AuxBus>
-								<AuxBus Name="REVERB_Warehouse" ID="{A50C71E5-8DBC-4978-88CE-C8892376B389}">
-									<PropertyList>
-										<Property Name="DivergenceCenter" Type="int32">
-											<ValueList>
-												<Value>0</Value>
-											</ValueList>
-										</Property>
-										<Property Name="EnablePositioning" Type="bool" Value="True"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Attenuation">
-											<ObjectRef Name="Main_Attentuation" ID="{7AFFEEA2-FEA6-4C5E-9350-4292CD58F98F}" WorkUnitID="{69E5E085-C55B-46C1-B440-1CB36DA8E2EE}"/>
-										</Reference>
-										<Reference Name="Effect0" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
-											<ObjectRef Name="Machine_Gun_Hangar" ID="{B8FD966C-FC0F-4CD3-8236-B28DF27CDE7D}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
-										</Reference>
-									</ReferenceList>
-								</AuxBus>
-								<AuxBus Name="REVERB_Factory" ID="{4B5A10A7-D381-462D-9759-45BCF44EE239}">
-									<PropertyList>
-										<Property Name="DivergenceCenter" Type="int32">
-											<ValueList>
-												<Value>0</Value>
-											</ValueList>
-										</Property>
-										<Property Name="EnablePositioning" Type="bool" Value="True"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Attenuation">
-											<ObjectRef Name="Main_Attentuation" ID="{7AFFEEA2-FEA6-4C5E-9350-4292CD58F98F}" WorkUnitID="{69E5E085-C55B-46C1-B440-1CB36DA8E2EE}"/>
-										</Reference>
-										<Reference Name="Effect0" CompanyID="4095" PluginID="65535" PluginType="15">
-											<ObjectRef Name="Metal_Hangar" ID="{C4A4605C-42EF-476A-B53C-E31C7A442C24}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
-										</Reference>
-									</ReferenceList>
-								</AuxBus>
+														</Effect>
+													</Custom>
+												</Reference>
+											</ReferenceList>
+										</AuxBus>
+										<AuxBus Name="REVERB_Outdoors" ID="{01B6CAA7-1AD8-4651-9FBE-2EEE4364EB69}">
+											<PropertyList>
+												<Property Name="DivergenceCenter" Type="int32">
+													<ValueList>
+														<Value>0</Value>
+													</ValueList>
+												</Property>
+												<Property Name="EnablePositioning" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Main_Attentuation" ID="{7AFFEEA2-FEA6-4C5E-9350-4292CD58F98F}" WorkUnitID="{69E5E085-C55B-46C1-B440-1CB36DA8E2EE}"/>
+												</Reference>
+												<Reference Name="Effect0" CompanyID="4095" PluginID="65535" PluginType="15">
+													<ObjectRef Name="Church_Small_Wood" ID="{940CCB47-F031-4C6A-B0E6-726CAC418C02}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+												</Reference>
+											</ReferenceList>
+										</AuxBus>
+										<AuxBus Name="REVERB_Warehouse" ID="{A50C71E5-8DBC-4978-88CE-C8892376B389}">
+											<PropertyList>
+												<Property Name="DivergenceCenter" Type="int32">
+													<ValueList>
+														<Value>0</Value>
+													</ValueList>
+												</Property>
+												<Property Name="EnablePositioning" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Main_Attentuation" ID="{7AFFEEA2-FEA6-4C5E-9350-4292CD58F98F}" WorkUnitID="{69E5E085-C55B-46C1-B440-1CB36DA8E2EE}"/>
+												</Reference>
+												<Reference Name="Effect0" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
+													<ObjectRef Name="Machine_Gun_Hangar" ID="{B8FD966C-FC0F-4CD3-8236-B28DF27CDE7D}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+												</Reference>
+											</ReferenceList>
+										</AuxBus>
+										<AuxBus Name="REVERB_Factory" ID="{4B5A10A7-D381-462D-9759-45BCF44EE239}">
+											<PropertyList>
+												<Property Name="BusVolume" Type="Real64">
+													<ValueList>
+														<Value>-4</Value>
+													</ValueList>
+												</Property>
+												<Property Name="DivergenceCenter" Type="int32">
+													<ValueList>
+														<Value>0</Value>
+													</ValueList>
+												</Property>
+												<Property Name="EnablePositioning" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Main_Attentuation" ID="{7AFFEEA2-FEA6-4C5E-9350-4292CD58F98F}" WorkUnitID="{69E5E085-C55B-46C1-B440-1CB36DA8E2EE}"/>
+												</Reference>
+												<Reference Name="Effect0" CompanyID="4095" PluginID="65535" PluginType="15">
+													<ObjectRef Name="Metal_Hangar" ID="{C4A4605C-42EF-476A-B53C-E31C7A442C24}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+												</Reference>
+											</ReferenceList>
+										</AuxBus>
+									</ChildrenList>
+									<StateInfo>
+										<StateGroupList>
+											<StateGroupInfo>
+												<StateGroupRef Name="Environment" ID="{368540B0-9326-43CE-A20D-CD99DFFC54DE}"/>
+											</StateGroupInfo>
+										</StateGroupList>
+										<CustomStateList>
+											<CustomState>
+												<StateRef Name="P1_Intro" ID="{FC8BB0BF-7A44-40B1-8D27-D1EA7366289D}"/>
+												<State Name="" ID="{AA6D8E54-1DAA-48A5-A0CC-8530091F5A6B}" ShortID="946049756"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P2_FactoryPuzzle1" ID="{79494580-3976-425E-971D-CB193C870700}"/>
+												<State Name="" ID="{B99F5911-21C8-46F2-B39F-D0A37F8DDDEE}" ShortID="565830653">
+													<PropertyList>
+														<Property Name="BusVolume" Type="Real64" Value="12"/>
+													</PropertyList>
+												</State>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="Menu" ID="{3AFA27FF-9639-4444-9C9F-20A568E90221}"/>
+												<State Name="" ID="{5BA3D3BF-CCFA-4482-86BA-6C15AE413114}" ShortID="854414510"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P3_ConstructionStorm" ID="{0D1A02F3-9577-4504-8C6C-58D99D7925E6}"/>
+												<State Name="" ID="{A4A17E25-F7BC-4D26-8F1A-1D0F625F5289}" ShortID="171096234"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P1_IntroViewpoint" ID="{A0830815-1BB2-456C-BC25-BF32D2547E4E}"/>
+												<State Name="" ID="{548EDE13-B0BE-44B2-AE63-5656FFD89352}" ShortID="997079739"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P2_FactoryPuzzle2" ID="{DC03589A-BDD2-45D6-A826-EA9C0315B998}"/>
+												<State Name="" ID="{47E9DD29-B257-4FE3-BB0E-0A6023655AA9}" ShortID="731621229"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P2_FactoryViewpoint" ID="{EB070CD5-C2C2-46D1-9A5B-C15943D11787}"/>
+												<State Name="" ID="{3914D970-0DBE-46BC-8DAB-F5B88C59722E}" ShortID="877673845"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P6_EndLeave" ID="{E8ED1630-94B1-46FB-A5DC-E890F8746D73}"/>
+												<State Name="" ID="{894D9A0D-5E35-4EC6-8743-50C803FA508A}" ShortID="101839637"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P5_Core" ID="{6B59E6D1-4DA6-487E-91B0-1AE559B70CD1}"/>
+												<State Name="" ID="{63FC25DD-1BC3-4F59-B9E8-97C8C26B9021}" ShortID="197977392"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P3_ConstructionScenery" ID="{D01D8749-D570-4885-88A1-4E868784E367}"/>
+												<State Name="" ID="{2F473491-2AAA-4332-9560-EFECE12325C6}" ShortID="784264045"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P5_CorePuzzle" ID="{C972704B-6D26-49FC-8229-7838BCD59F79}"/>
+												<State Name="" ID="{21F3005C-9135-44DA-BC16-F0C7905716C8}" ShortID="662754929"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P3_Construction" ID="{3BD738C0-1FEE-4A31-B833-5BDB23300B01}"/>
+												<State Name="" ID="{4DBDE441-672B-432D-934A-C999C421650C}" ShortID="1018460316"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P4_Clouds" ID="{B92ABBFE-ED7C-4AE0-A739-CF81428935A0}"/>
+												<State Name="" ID="{DD518185-E25D-4CD0-8EC3-E07B04CEE0C3}" ShortID="516621015"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="Empty" ID="{C1FFFDEC-FC6D-4B54-9D54-1DB3342ADAC8}"/>
+												<State Name="" ID="{65524271-C9E2-4180-97C0-19FA6F6CED0D}" ShortID="718006492"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P6_EndSacrifice" ID="{B2786363-AAB6-4D23-9F0A-8407408276B0}"/>
+												<State Name="" ID="{48DF9208-07A1-478B-B64C-8A175266AD86}" ShortID="186352334"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P6_AChoice" ID="{300F983C-BC50-4E36-BF53-75418BDAB6CF}"/>
+												<State Name="" ID="{685FECD1-4708-401B-A88D-CA081FD6DA34}" ShortID="921177801"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="Credits" ID="{07794BAC-6A4D-4EDF-9F27-404ACF53D536}"/>
+												<State Name="" ID="{CCAF4555-8302-41A1-B1F9-E442721EFC0A}" ShortID="315934249"/>
+											</CustomState>
+										</CustomStateList>
+									</StateInfo>
+								</Bus>
 							</ChildrenList>
 						</Bus>
 					</ChildrenList>

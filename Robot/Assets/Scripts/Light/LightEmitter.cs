@@ -20,7 +20,12 @@ public class LightEmitter : MonoBehaviour
         lineBeam.beamColour = colouredBeam;
         lineBeam.beamLength = beamLength;
         beamLength = beamLength * 2;
-        if (!switchedOn) ToggleLight();
+        if (!switchedOn)
+        {
+            ToggleLight();
+            AkSoundEngine.PostEvent("Drone", gameObject);
+
+        }
     }
 
     //This function is called when the player hits the interact button on the emitter,

@@ -101,6 +101,7 @@ namespace AK
 
             namespace STATE
             {
+                static const AkUniqueID CREDITS = 2201105581U;
                 static const AkUniqueID EMPTY = 3354297748U;
                 static const AkUniqueID MENU = 2607556080U;
                 static const AkUniqueID P1_INTRO = 948331455U;
@@ -209,6 +210,7 @@ namespace AK
         static const AkUniqueID OBJECTS = 1695690031U;
         static const AkUniqueID REVERBS = 3545700988U;
         static const AkUniqueID ROBOTS = 2494382374U;
+        static const AkUniqueID SUBMASTER = 2625406123U;
     } // namespace BUSSES
 
     namespace AUX_BUSSES

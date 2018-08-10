@@ -8,6 +8,7 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
 {
     #region private variable
     private bool holding;
+    private bool rotateGeneric = false;
     private GameObject pickedUpGameObject;
     private Animator anim;
     //private float alpha; //float For lerp
@@ -59,18 +60,30 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
         }
     }
 
-    private void PickUpDropControl(bool PickUp, bool Interact, InputDevice device)
+    private void PickUpDropControl(bool PickUp, bool interact, InputDevice device)
     {
         if (!holding)
         {
             GameObject hit;
             if (PickUp)
             {
-                PickUpObject(out hit);
+                if (rotateGeneric)
+                {
+                    ToggleRotateState();
+                    CleanupRotateState();
+                }
+                else
+                {
+                    PickUpObject(out hit);
+                }
             }
-            else if (Interact)
+            else if (interact)
             {
                 InteractWithObject(out hit);
+            }
+            else if(rotateGeneric)
+            {
+                RotationExecution(ref device);
             }
         }
         else
@@ -120,8 +133,35 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
         }
     }
 
+    private void AnimStop()
+    {
+        if((anim.GetCurrentAnimatorStateInfo(0).IsName("Carrying")) && (anim.speed == 1))
+        {
+            Rigidbody rb = this.transform.parent.GetComponent<Rigidbody>();
+            if (Mathf.Abs(rb.velocity.x) <= 0.1 && Mathf.Abs(rb.velocity.z) <= 0.1)
+            {
+                anim.speed = 0;
+
+                CancelInvoke("AnimPlay");
+                InvokeRepeating("AnimPlay", 0.1f, 0.16666f);
+            }
+        }
+    }
+
+    private void AnimPlay()
+    {
+        Rigidbody rb = this.transform.parent.GetComponent<Rigidbody>();
+        if (Mathf.Abs(rb.velocity.x) > 0.1 || Mathf.Abs(rb.velocity.z) > 0.1) 
+        {
+            anim.speed = 1;
+            CancelInvoke("AnimPlay");
+        }
+    }
+
     private void ObjectHeld(bool pickUpState, InputDevice device)
     {
+        AnimStop();
+
         if (pickedUpGameObject.transform.name.Contains("SlideBox"))
         {
             Vector3 temp = pickedUpGameObject.transform.position;
@@ -143,22 +183,7 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
         }
         else if (pickedUpGameObject.transform.name.Contains("RotateBox"))
         {
-            Vector3 eulerAng = pickedUpGameObject.GetComponent<Transform>().rotation.eulerAngles;
-
-            if (device == null)
-            {
-                bool left = RotationControl(1, 14);
-                bool right = RotationControl(3, 16);
-
-                float leftrot = left ? -1.0f : 0.0f;
-                float rightrot = right ? 1.0f : 0.0f;
-
-                pickedUpGameObject.transform.rotation = Quaternion.Euler(eulerAng.x, eulerAng.y + leftrot + rightrot, eulerAng.z);
-            }
-            else
-            {
-                pickedUpGameObject.transform.rotation = Quaternion.Euler(eulerAng.x, eulerAng.y + device.LeftStickX, eulerAng.z);
-            }
+            RotationExecution(ref device);
             if (pickUpState)
             {
                 RotateDrop();
@@ -174,7 +199,44 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
             if (pickUpState)
             {
                 PutDownObject();
+                ToggleRotateState();
             }
+        }
+    }
+
+    private void ToggleRotateState()
+    {
+        Debug.Log("Place down object");
+        this.transform.parent.GetComponentInChildren<InControlMovement>().enabled = rotateGeneric;
+        rotateGeneric = !rotateGeneric;
+    }
+
+    private void CleanupRotateState()
+    {
+        pickedUpGameObject = null; //empty the pick up object
+        Destroy(pickupLocation);
+        AkSoundEngine.PostEvent("Place_Crystal", gameObject);
+        anim.SetBool("IsLifting", false);
+    }
+
+    private void RotationExecution(ref InputDevice device)
+    {
+        this.transform.parent.GetComponentInParent<Rigidbody>().velocity = Vector3.zero;
+        Vector3 eulerAng = pickedUpGameObject.GetComponent<Transform>().rotation.eulerAngles;
+
+        if (device == null)
+        {
+            bool left = RotationControl(1, 14);
+            bool right = RotationControl(3, 16);
+
+            float leftrot = left ? -1.0f : 0.0f;
+            float rightrot = right ? 1.0f : 0.0f;
+
+            pickedUpGameObject.transform.rotation = Quaternion.Euler(eulerAng.x, eulerAng.y + leftrot + rightrot, eulerAng.z);
+        }
+        else
+        {
+            pickedUpGameObject.transform.rotation = Quaternion.Euler(eulerAng.x, eulerAng.y + device.LeftStickX, eulerAng.z);
         }
     }
 
@@ -282,8 +344,11 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
     {
         pickedUpGameObject.transform.parent.GetComponent<SCR_Movable>().pickedUp = false;
         PutDownObject();
-        AkSoundEngine.PostEvent("Place_Crystal", gameObject);
 
+        pickedUpGameObject = null; //empty the pick up object
+        Destroy(pickupLocation);
+
+        AkSoundEngine.PostEvent("Place_Crystal", gameObject);
         anim.SetBool("IsLifting", false);
     }
 
@@ -292,6 +357,10 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
         pickedUpGameObject.transform.parent.GetComponent<SCR_Rotatable>().pickedUp = false;
         PutDownObject();
 
+        pickedUpGameObject = null; //empty the pick up object
+        Destroy(pickupLocation);
+
+        AkSoundEngine.PostEvent("Place_Crystal", gameObject);
         anim.SetBool("IsLifting", false);
     }
 
@@ -338,12 +407,6 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
 
         pickedUpGameObject.GetComponent<Transform>().position = new Vector3(pickedUpGameObject.GetComponent<Transform>().position.x, 
             y, pickedUpGameObject.GetComponent<Transform>().position.z);
-
-        pickedUpGameObject = null; //empty the pick up object
-        Destroy(pickupLocation);
-
-        AkSoundEngine.PostEvent("Place_Crystal", gameObject);
-        anim.SetBool("IsLifting", false);
     }
 
     private void PickUpObject(Transform objectBeingPickedUp)

@@ -8,7 +8,8 @@ public class TutorialBaseClass : MonoBehaviour
     protected GameObject entranceWall;
     protected List<GameObject> lightSources;
     protected List<GameObject> destroyableWalls;
-    protected string TutorialIdentifier;
+    protected string tutorialIdentifier;
+    protected GameObject tutorialPrompt;
 
     //Waits until the blinking lightbeam control is finished, then turns off the lightbeams
     //for good, to once again provide a visual response to the level/puzzle being completed.
@@ -48,7 +49,7 @@ public class TutorialBaseClass : MonoBehaviour
             foreach (GameObject parentObject in parentObjects)
             {
                 Transform puzzleObjectContainer = parentObject.transform;
-                if (puzzleObjectContainer.parent.name.Contains(TutorialIdentifier))
+                if (puzzleObjectContainer.parent.name.Contains(tutorialIdentifier))
                 {
                     for (int i = 0; i < puzzleObjectContainer.childCount; i++)
                     {
@@ -83,6 +84,16 @@ public class TutorialBaseClass : MonoBehaviour
         }
     }
 
+    protected virtual void TextPromptTutorialSetup()
+    {
+
+    }
+
+    protected virtual void TextPromptTutorial()
+    {
+
+    }
+
     // Use this for initialization
     void Start()
     {
@@ -91,6 +102,8 @@ public class TutorialBaseClass : MonoBehaviour
         SpecficPuzzleSetup("DestroyableWalls");
 
         EntranceWallSetup();
+
+        TextPromptTutorialSetup();
     }
 
     // Update is called once per frame
@@ -109,6 +122,8 @@ public class TutorialBaseClass : MonoBehaviour
                 break;
             }
         }
+
+        TextPromptTutorial();
     }
 
     private void ExitTutorial()

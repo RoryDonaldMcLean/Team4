@@ -30,7 +30,6 @@ public class Tutorial : MonoBehaviour
 		keyboardButtonPlayer1 = GameObject.FindGameObjectWithTag ("KeyBoardPlayer1");
 		KeyboardButtonPlayer2 = GameObject.FindGameObjectWithTag ("KeyBoardPlayer2");
 
-
 		levelCounter = GameObject.FindGameObjectWithTag ("GameController").GetComponent<LevelController>().currentLevel;
 
 		UITutorial = GameObject.FindGameObjectWithTag ("TutorialImage");

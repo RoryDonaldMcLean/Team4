@@ -84,13 +84,13 @@ public class Tutorial : MonoBehaviour
 			ControllerUsed = true;
 		}
 
-		if (this.GetComponentInParent<InControlMovement>().enabled == false)
+		if (this.GetComponentInParent<InControlMovement> ().enabled == false  && levelCounter == 0)
 		{
 			ChirpsTutorialFunction();
 
 			if (tempBool == false)
 			{
-				//UIText.GetComponent<Text> ().text = "Please perform Systems diagnostic...";
+				UIText.GetComponent<Text> ().text = "Please perform Systems diagnostic... (Perform chirps with available Limbs)";
 			}
             //CancelInvoke("func");
 			//StartCoroutine (TestBool (1.0f));

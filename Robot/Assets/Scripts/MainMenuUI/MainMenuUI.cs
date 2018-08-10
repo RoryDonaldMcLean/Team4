@@ -58,7 +58,7 @@ public class MainMenuUI : MonoBehaviour
     {
         if (btn == mainMenuBtn[0])
         {
-            SceneManager.LoadScene("SceneOne");
+            SceneManager.LoadScene("ShowsController");
         }
         if (btn == mainMenuBtn[3])
         {

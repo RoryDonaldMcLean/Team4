@@ -100,8 +100,13 @@ public class Tutorial : MonoBehaviour
 		{
 			//GetRidOfText ();
 			//StartCoroutine(WaitTwoSeconds (2.0f));
-			UIText.GetComponent<Text> ().text = "Diagnostic Complete. Movement re-activated";
-			StartCoroutine(GetRidOfText(2.0f));
+            if(UIText != null)
+            {
+                UIText.GetComponent<Text>().text = "Diagnostic Complete. Movement re-activated";
+                StartCoroutine(GetRidOfText(2.0f));
+
+            }
+			
 		}
 
 

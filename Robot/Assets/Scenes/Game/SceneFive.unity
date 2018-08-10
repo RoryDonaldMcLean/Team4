@@ -289,6 +289,7 @@ GameObject:
   - component: {fileID: 101738975}
   - component: {fileID: 101738977}
   - component: {fileID: 101738976}
+  - component: {fileID: 101738982}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -536,6 +537,23 @@ MonoBehaviour:
   saveDecodedBank: 0
   unloadTriggerList: 
   valueGuid: 19536a611599544ca9240d68c0a3ec2e
+--- !u!114 &101738982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 101738968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7248607a4f66e448990b0db68f57258, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  groupID: -1316484469
+  valueID: 1281810935
+  groupGuid: e3de9e6f63d86445b5ff2e703969af54
+  valueGuid: 0598dbd1b102bf44a049f23022b18534
 --- !u!1001 &108038616
 Prefab:
   m_ObjectHideFlags: 0
@@ -3422,6 +3440,11 @@ Prefab:
     - target: {fileID: 4893508831788652, guid: ca3e18e03629d6344b28cf28c1b29098, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 114387808237935254, guid: ca3e18e03629d6344b28cf28c1b29098,
+        type: 2}
+      propertyPath: beamLength
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ca3e18e03629d6344b28cf28c1b29098, type: 2}

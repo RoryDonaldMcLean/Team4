@@ -263,6 +263,7 @@
 										<Value>1</Value>
 									</ValueList>
 								</Property>
+								<Property Name="OverrideEffect" Type="bool" Value="True"/>
 								<Property Name="UseMaxSoundPerInstance" Type="bool">
 									<ValueList>
 										<Value>True</Value>
@@ -277,6 +278,9 @@
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
+								</Reference>
+								<Reference Name="Effect0" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+									<ObjectRef Name="New_Wwise_Parametric_EQ_19" ID="{DFE16478-8B32-45B3-8FA8-1960B1AAB2AA}" WorkUnitID="{DB5ADB83-997D-43F7-B226-D357913135AD}"/>
 								</Reference>
 								<Reference Name="OutputBus">
 									<ObjectRef Name="Music" ID="{8B3FDD90-9F59-41B0-831B-94D60F3FFC3C}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
@@ -500,6 +504,7 @@
 										<Value>1</Value>
 									</ValueList>
 								</Property>
+								<Property Name="OverrideEffect" Type="bool" Value="True"/>
 								<Property Name="UseMaxSoundPerInstance" Type="bool">
 									<ValueList>
 										<Value>True</Value>
@@ -514,6 +519,9 @@
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
+								</Reference>
+								<Reference Name="Effect0" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+									<ObjectRef Name="New_Wwise_Parametric_EQ_19" ID="{DFE16478-8B32-45B3-8FA8-1960B1AAB2AA}" WorkUnitID="{DB5ADB83-997D-43F7-B226-D357913135AD}"/>
 								</Reference>
 								<Reference Name="OutputBus">
 									<ObjectRef Name="Music" ID="{8B3FDD90-9F59-41B0-831B-94D60F3FFC3C}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
@@ -1236,7 +1244,7 @@
 											<PropertyList>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-22</Value>
+														<Value>-10</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>

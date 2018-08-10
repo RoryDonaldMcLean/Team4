@@ -104,7 +104,7 @@
 										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-6</Value>
+												<Value>-15</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -937,7 +937,20 @@
 										<Sound Name="Arm Break" ID="{CA13BAEA-717D-4DC0-96F0-2B5AC1252C0A}" ShortID="986116882">
 											<PropertyList>
 												<Property Name="EnablePositioning" Type="bool" Value="False"/>
+												<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
+												<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+												<Property Name="MaxReachedBehavior" Type="int16" Value="1"/>
+												<Property Name="MaxSoundPerInstance" Type="int16">
+													<ValueList>
+														<Value>1</Value>
+													</ValueList>
+												</Property>
 												<Property Name="OverridePositioning" Type="bool" Value="True"/>
+												<Property Name="UseMaxSoundPerInstance" Type="bool">
+													<ValueList>
+														<Value>True</Value>
+													</ValueList>
+												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
 														<Value>-14</Value>
@@ -965,13 +978,20 @@
 										<Sound Name="Detatch Arm" ID="{4352F0CD-BB83-42CF-8379-B533F4172C2D}" ShortID="571022422">
 											<PropertyList>
 												<Property Name="EnablePositioning" Type="bool" Value="False"/>
+												<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
 												<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+												<Property Name="MaxReachedBehavior" Type="int16" Value="1"/>
 												<Property Name="MaxSoundPerInstance" Type="int16">
 													<ValueList>
 														<Value>1</Value>
 													</ValueList>
 												</Property>
 												<Property Name="OverridePositioning" Type="bool" Value="True"/>
+												<Property Name="UseMaxSoundPerInstance" Type="bool">
+													<ValueList>
+														<Value>True</Value>
+													</ValueList>
+												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
 														<Value>-8</Value>
@@ -1007,7 +1027,20 @@
 										<Sound Name="Attach Arm" ID="{13A66DB5-C2C5-4011-B4AD-335A7DA45232}" ShortID="517032755">
 											<PropertyList>
 												<Property Name="EnablePositioning" Type="bool" Value="False"/>
+												<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
+												<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+												<Property Name="MaxReachedBehavior" Type="int16" Value="1"/>
+												<Property Name="MaxSoundPerInstance" Type="int16">
+													<ValueList>
+														<Value>1</Value>
+													</ValueList>
+												</Property>
 												<Property Name="OverridePositioning" Type="bool" Value="True"/>
+												<Property Name="UseMaxSoundPerInstance" Type="bool">
+													<ValueList>
+														<Value>True</Value>
+													</ValueList>
+												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
 														<Value>-10</Value>
@@ -1242,7 +1275,7 @@
 														</Property>
 														<Property Name="Volume" Type="Real64">
 															<ValueList>
-																<Value>-15</Value>
+																<Value>-22</Value>
 															</ValueList>
 															<RTPCList>
 																<RTPC Name="" ID="{41A97A30-057B-4000-B7F8-A14F945B8157}" ShortID="257955872">
@@ -4295,7 +4328,7 @@
 										<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-18</Value>
+												<Value>-30</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -4396,7 +4429,7 @@
 										<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-26</Value>
+												<Value>-37</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -4493,6 +4526,11 @@
 								<Sound Name="Insects" ID="{4637132E-3762-43C5-9FE8-6B05E6FAF229}" ShortID="179999017">
 									<PropertyList>
 										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-28</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -4517,7 +4555,7 @@
 										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-8</Value>
+												<Value>-12</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -4550,7 +4588,7 @@
 										<Property Name="UseGameAuxSends" Type="bool" Value="True"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-7</Value>
+												<Value>-32</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -4578,7 +4616,7 @@
 										<Property Name="UseGameAuxSends" Type="bool" Value="True"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-14</Value>
+												<Value>-29</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -5468,7 +5506,7 @@ Air currents change during the hours of the day and foliage changes during  the 
 													<PropertyList>
 														<Property Name="Highpass" Type="int16" Value="19"/>
 														<Property Name="Lowpass" Type="int16" Value="33"/>
-														<Property Name="Volume" Type="Real64" Value="-6"/>
+														<Property Name="Volume" Type="Real64" Value="-12"/>
 													</PropertyList>
 												</State>
 											</CustomState>
@@ -5493,7 +5531,7 @@ Air currents change during the hours of the day and foliage changes during  the 
 												<State Name="" ID="{C22AD0E4-E318-4583-9979-EDFE0834B8DF}" ShortID="712776087">
 													<PropertyList>
 														<Property Name="Highpass" Type="int16" Value="17"/>
-														<Property Name="Volume" Type="Real64" Value="-9"/>
+														<Property Name="Volume" Type="Real64" Value="-8"/>
 													</PropertyList>
 												</State>
 											</CustomState>
@@ -5503,6 +5541,7 @@ Air currents change during the hours of the day and foliage changes during  the 
 													<PropertyList>
 														<Property Name="Highpass" Type="int16" Value="27"/>
 														<Property Name="Lowpass" Type="int16" Value="33"/>
+														<Property Name="Volume" Type="Real64" Value="-12"/>
 													</PropertyList>
 												</State>
 											</CustomState>
@@ -6356,6 +6395,7 @@ Air currents change during the hours of the day and foliage changes during  the 
 										</Property>
 										<Property Name="OverrideEffect" Type="bool" Value="True"/>
 										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="PositioningType" Type="int16" Value="1"/>
 										<Property Name="SwitchBehavior" Type="int16" Value="1"/>
 										<Property Name="UseMaxSoundPerInstance" Type="bool">
 											<ValueList>
@@ -6364,6 +6404,9 @@ Air currents change during the hours of the day and foliage changes during  the 
 										</Property>
 									</PropertyList>
 									<ReferenceList>
+										<Reference Name="Attenuation">
+											<ObjectRef Name="New Attenuation" ID="{6142B6A9-39EB-4625-A944-97227294EB41}" WorkUnitID="{69E5E085-C55B-46C1-B440-1CB36DA8E2EE}"/>
+										</Reference>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
 										</Reference>

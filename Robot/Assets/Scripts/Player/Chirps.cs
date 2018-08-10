@@ -135,7 +135,7 @@ public class Chirps : MonoBehaviour
 					if (inputDevice.DPadUp.WasPressed && GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().LimbActiveCheck ("LeftArm"))
 						{
 							EmoteNumber = 1;
-							Emotes ();
+							//Emotes ();
 							//if(chirpminigame) call func() in chirpcollector -> counter++
 							//if counter == 6 -> do code reaction.
 							//play chirp
@@ -163,7 +163,7 @@ public class Chirps : MonoBehaviour
 					if (inputDevice.DPadDown.WasPressed && GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("RightArm"))
 						{
 							EmoteNumber = 2;
-							Emotes ();
+							//Emotes ();
 							//play chirp
 							GameController.GetComponent<ChirpCollector> ().startTimer = true;
                         GameController.GetComponent<ChirpCollector>().playertwoChirped = true;
@@ -175,8 +175,12 @@ public class Chirps : MonoBehaviour
 
 						if (p1RA == false)
 						{
-							UIText.SetActive (true);
-							UIText.GetComponent<Text> ().text = "Robot R. Right Arm Activated";
+                            if(UIText != null)
+                            {
+                                UIText.SetActive(true);
+                                UIText.GetComponent<Text>().text = "Robot R. Right Arm Activated";
+                            }
+							
 							GameController.GetComponent<ChirpCollector> ().addMovementCounter += 1;
 							p1RA = true;
 						}
@@ -194,7 +198,7 @@ public class Chirps : MonoBehaviour
 					if (inputDevice.DPadLeft.WasPressed && GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("LeftLeg"))
 						{
 							EmoteNumber = 3;
-							Emotes ();
+							//Emotes ();
 							//GameController.GetComponent<ChirpCollector> ().startTimer = true;
 							GameController.GetComponent<ChirpCollector> ().eventCount += 1;
 							Debug.Log ("player1, left leg chirp");
@@ -203,8 +207,12 @@ public class Chirps : MonoBehaviour
 
 						if (p1LL == false)
 						{
-							UIText.SetActive (true);
-							UIText.GetComponent<Text> ().text = "Robot R. Left Leg Activated";
+                            if(UIText != null)
+                            {
+                                UIText.SetActive(true);
+                                UIText.GetComponent<Text>().text = "Robot R. Left Leg Activated";
+                            }
+							
 							GameController.GetComponent<ChirpCollector> ().addMovementCounter += 1;
 							p1LL = true;
 						}
@@ -222,7 +230,7 @@ public class Chirps : MonoBehaviour
 					if (inputDevice.DPadRight.WasPressed && GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("RightLeg"))
 						{
 							EmoteNumber = 4;
-							Emotes ();
+							//Emotes ();
 							//GameController.GetComponent<ChirpCollector> ().startTimer = true;
 							GameController.GetComponent<ChirpCollector> ().eventCount += 1;
 							Debug.Log ("player1, right leg chirp");
@@ -231,8 +239,12 @@ public class Chirps : MonoBehaviour
 
 						if (p1RL == false)
 						{
-							UIText.SetActive (true);
-							UIText.GetComponent<Text> ().text = "Robot R. Right Leg Activated";
+                            if(UIText != null)
+                            {
+                                UIText.SetActive(true);
+                                UIText.GetComponent<Text>().text = "Robot R. Right Leg Activated";
+                            }
+							
 							GameController.GetComponent<ChirpCollector> ().addMovementCounter += 1;
 							p1RL = true;
 						}
@@ -274,7 +286,7 @@ public class Chirps : MonoBehaviour
 					if (inputDevice.DPadUp.WasPressed && GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("LeftArm"))
 						{
 							EmoteNumber = 1;
-							Emotes ();
+							//Emotes ();
 							GameController.GetComponent<ChirpCollector> ().startTimer = true;
                             GameController.GetComponent<ChirpCollector>().playertwoChirped = true;
 						GameController.GetComponent<ChirpCollector> ().eventCount += 1;
@@ -285,8 +297,12 @@ public class Chirps : MonoBehaviour
 
 						if (p2LA == false)
 						{
-							UIText.SetActive (true);
-							UIText.GetComponent<Text> ().text = "Robot B. Left Arm Activated";
+                            if(UIText != null)
+                            {
+                                UIText.SetActive(true);
+                                UIText.GetComponent<Text>().text = "Robot B. Left Arm Activated";
+                            }
+							
 							GameController.GetComponent<ChirpCollector> ().addMovementCounter += 1;
 							p2LA = true;
 						}
@@ -303,7 +319,7 @@ public class Chirps : MonoBehaviour
 					if (inputDevice.DPadDown.WasPressed && GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("RightArm"))
 						{
 							EmoteNumber = 2;
-							Emotes ();
+							//Emotes ();
 							//play chirp
 							GameController.GetComponent<ChirpCollector> ().startTimer = true;
                             GameController.GetComponent<ChirpCollector>().playertwoChirped = true;
@@ -323,7 +339,7 @@ public class Chirps : MonoBehaviour
 					if (inputDevice.DPadLeft.WasPressed && GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("LeftLeg"))
 						{
 							EmoteNumber = 3;
-							Emotes ();
+							//Emotes ();
 							//GameController.GetComponent<ChirpCollector> ().startTimer = true;
 							GameController.GetComponent<ChirpCollector> ().eventCount += 1;
 							//play chirp
@@ -334,8 +350,12 @@ public class Chirps : MonoBehaviour
 
 						if (p2LL == false)
 						{
-							UIText.SetActive (true);
-							UIText.GetComponent<Text> ().text = "Robot B. Left Leg Activated";
+                            if(UIText != null)
+                            {
+                                UIText.SetActive(true);
+                                UIText.GetComponent<Text>().text = "Robot B. Left Leg Activated";
+                            }
+							
 							GameController.GetComponent<ChirpCollector> ().addMovementCounter += 1;
 							p2LL = true;
 						}
@@ -351,7 +371,7 @@ public class Chirps : MonoBehaviour
 					if (inputDevice.DPadRight.WasPressed && GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("RightLeg"))
 						{
 							EmoteNumber = 4;
-							Emotes ();
+							//Emotes ();
 							//GameController.GetComponent<ChirpCollector> ().startTimer = true;
 							GameController.GetComponent<ChirpCollector> ().eventCount += 1;
 							//play chirp
@@ -362,8 +382,12 @@ public class Chirps : MonoBehaviour
 
 						if (p2RL == false)
 						{
-							UIText.SetActive (true);
-							UIText.GetComponent<Text> ().text = "Robot B. Right Leg Activated";
+                            if(UIText != null)
+                            {
+                                UIText.SetActive(true);
+                                UIText.GetComponent<Text>().text = "Robot B. Right Leg Activated";
+                            }
+							
 							GameController.GetComponent<ChirpCollector> ().addMovementCounter += 1;
 							p2RL = true;
 						}
@@ -422,7 +446,7 @@ public class Chirps : MonoBehaviour
 						&& GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("LeftArm"))
 							{
 								EmoteNumber = 1;
-								Emotes ();
+								//Emotes ();
 								GameController.GetComponent<ChirpCollector> ().startTimer = true;
                                 GameController.GetComponent<ChirpCollector>().playeroneChirped = true;
 								GameController.GetComponent<ChirpCollector> ().eventCount += 1;
@@ -447,7 +471,7 @@ public class Chirps : MonoBehaviour
 						&& GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("RightArm"))
 							{
 								EmoteNumber = 2;
-								Emotes ();
+								//Emotes ();
 								GameController.GetComponent<ChirpCollector> ().startTimer = true;
                                 GameController.GetComponent<ChirpCollector>().playeroneChirped = true;
 								GameController.GetComponent<ChirpCollector> ().eventCount += 1;
@@ -459,8 +483,12 @@ public class Chirps : MonoBehaviour
 
 						if (p1RA == false)
 						{
-							UIText.SetActive (true);
-							UIText.GetComponent<Text> ().text = "Robot R. Right Arm Activated";
+                            if(UIText != null)
+                            {
+                                UIText.SetActive(true);
+                                UIText.GetComponent<Text>().text = "Robot R. Right Arm Activated";
+                            }
+							
 							GameController.GetComponent<ChirpCollector> ().addMovementCounter += 1;
 							p1RA = true;
 						}
@@ -477,7 +505,7 @@ public class Chirps : MonoBehaviour
 						&& GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("LeftLeg"))
 							{
 								EmoteNumber = 3;
-								Emotes ();
+								//Emotes ();
 								//GameController.GetComponent<ChirpCollector> ().startTimer = true;
                                // GameController.GetComponent<ChirpCollector>().playeroneChirped = true;
                         
@@ -490,8 +518,12 @@ public class Chirps : MonoBehaviour
 
 						if (p1LL == false)
 						{
-							UIText.SetActive (true);
-							UIText.GetComponent<Text> ().text = "Robot R. Left Leg Activated";
+                            if(UIText != null)
+                            {
+                                UIText.SetActive(true);
+                                UIText.GetComponent<Text>().text = "Robot R. Left Leg Activated";
+                            }
+							
 							GameController.GetComponent<ChirpCollector> ().addMovementCounter += 1;
 							p1LL = true;
 						}
@@ -509,7 +541,7 @@ public class Chirps : MonoBehaviour
 						&& GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("RightLeg"))
 							{
 								EmoteNumber = 4;
-								Emotes ();
+								//Emotes ();
 								//GameController.GetComponent<ChirpCollector> ().startTimer = true;
                                // GameController.GetComponent<ChirpCollector>().playeroneChirped = true;
                         
@@ -521,8 +553,12 @@ public class Chirps : MonoBehaviour
 
 						if (p1RL == false)
 						{
-							UIText.SetActive (true);
-							UIText.GetComponent<Text> ().text = "Robot R. Right Leg Activated";
+                            if(UIText != null)
+                            {
+                                UIText.SetActive(true);
+                                UIText.GetComponent<Text>().text = "Robot R. Right Leg Activated";
+                            }
+							
 							GameController.GetComponent<ChirpCollector> ().addMovementCounter += 1;
 							p1RL = true;
 						}
@@ -570,7 +606,7 @@ public class Chirps : MonoBehaviour
 						&& GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("LeftArm"))
 						{
 							EmoteNumber = 1;
-							Emotes ();
+							//Emotes ();
 
 							GameController.GetComponent<ChirpCollector> ().startTimer = true;
                             GameController.GetComponent<ChirpCollector>().playertwoChirped = true;
@@ -583,8 +619,12 @@ public class Chirps : MonoBehaviour
 
 						if (p2LA == false)
 						{
-							UIText.SetActive (true);
-							UIText.GetComponent<Text> ().text = "Robot B. Left Arm Activated";
+                            if(UIText != null)
+                            {
+                                UIText.SetActive(true);
+                                UIText.GetComponent<Text>().text = "Robot B. Left Arm Activated";
+                            }
+							
 							GameController.GetComponent<ChirpCollector> ().addMovementCounter += 1;
 							p2LA = true;
 						}
@@ -602,7 +642,7 @@ public class Chirps : MonoBehaviour
 						&& GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("RightArm"))
 						{
 							EmoteNumber = 2;
-							Emotes ();
+							//Emotes ();
 
 							GameController.GetComponent<ChirpCollector> ().startTimer = true;
                             GameController.GetComponent<ChirpCollector>().playertwoChirped = true;
@@ -627,7 +667,7 @@ public class Chirps : MonoBehaviour
 						&& GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("LeftLeg"))
 						{
 							EmoteNumber = 3;
-							Emotes ();
+							//Emotes ();
 
 							//GameController.GetComponent<ChirpCollector> ().startTimer = true;
 							GameController.GetComponent<ChirpCollector> ().eventCount += 1;
@@ -639,8 +679,12 @@ public class Chirps : MonoBehaviour
 
 						if (p2LL == false)
 						{
-							UIText.SetActive (true);
-							UIText.GetComponent<Text> ().text = "Robot B. Left Leg Activated";
+                            if(UIText != null)
+                            {
+                                UIText.SetActive(true);
+                                UIText.GetComponent<Text>().text = "Robot B. Left Leg Activated";
+                            }
+							
 							GameController.GetComponent<ChirpCollector> ().addMovementCounter += 1;
 							p2LL = true;
 						}
@@ -657,7 +701,7 @@ public class Chirps : MonoBehaviour
 						&& GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("RightLeg"))
 						{
 							EmoteNumber = 4;
-							Emotes ();
+							//Emotes ();
 
 							//GameController.GetComponent<ChirpCollector> ().startTimer = true;
 							GameController.GetComponent<ChirpCollector> ().eventCount += 1;
@@ -669,8 +713,12 @@ public class Chirps : MonoBehaviour
 
 						if (p2RL == false)
 						{
-							UIText.SetActive (true);
-							UIText.GetComponent<Text> ().text = "Robot B. Right Leg Activated";
+                            if(UIText != null)
+                            {
+                                UIText.SetActive(true);
+                                UIText.GetComponent<Text>().text = "Robot B. Right Leg Activated";
+                            }
+							
 							GameController.GetComponent<ChirpCollector> ().addMovementCounter += 1;
 							p2RL = true;
 						}

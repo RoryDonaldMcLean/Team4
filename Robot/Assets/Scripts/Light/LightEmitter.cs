@@ -23,8 +23,10 @@ public class LightEmitter : MonoBehaviour
         if (!switchedOn)
         {
             ToggleLight();
+        }
+        else
+        {
             AkSoundEngine.PostEvent("Drone", gameObject);
-
         }
     }
 

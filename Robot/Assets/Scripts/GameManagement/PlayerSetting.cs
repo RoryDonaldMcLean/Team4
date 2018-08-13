@@ -16,6 +16,9 @@ public class PlayerSetting
     public int volume;
 
     public bool player1Controller;
+
+    public string versionInfo;
+     
     public PlayerSetting()
     {
         defaultButton[0] = KeyCode.W;
@@ -57,6 +60,8 @@ public class PlayerSetting
         player1Controller = false;
 
         lastLevel = Level.None;
+
+        versionInfo = "1.0";
     }
 
     public void sameButton(int number)

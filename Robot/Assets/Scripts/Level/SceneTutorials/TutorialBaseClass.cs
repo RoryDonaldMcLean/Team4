@@ -116,8 +116,11 @@ public class TutorialBaseClass : MonoBehaviour
         {
             if (lightTriggers[i].correctLight)
             {
-                Destroy(destroyableWalls[i]);
-                destroyableWalls.RemoveAt(i);
+                if (destroyableWalls.Count != 0)
+                {
+                    Destroy(destroyableWalls[i]);
+                    destroyableWalls.RemoveAt(i);
+                }
                 lightTriggers.RemoveAt(i);
                 break;
             }

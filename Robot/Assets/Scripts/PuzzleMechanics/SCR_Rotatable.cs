@@ -6,7 +6,8 @@ public class SCR_Rotatable : MonoBehaviour
 {
     public bool switchOn = false;
 	public bool pickedUp = false;
-	public string playerTag;
+    public bool interactable = false;
+    public string playerTag;
 	public string rotatableObjectString;
 	public bool Entered = false;
     public Color beamColour = Color.white;
@@ -25,7 +26,12 @@ public class SCR_Rotatable : MonoBehaviour
         {
             newRotatable.GetComponent<LightEmitter>().colouredBeam = beamColour;
             newRotatable.GetComponent<LightEmitter>().beamLength = beamLength;
-            if (switchOn) newRotatable.GetComponent<LightEmitter>().switchedOn = true;
+            if (switchOn)
+            {
+                Debug.Log("?");
+                newRotatable.GetComponent<LightEmitter>().switchedOn = true;
+            }
+            if (interactable) newRotatable.GetComponent<LightEmitter>().canBeTurnedOff = true;
         }
         Destroy(this.transform.GetChild(1).gameObject);
 	}

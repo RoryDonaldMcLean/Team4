@@ -713,6 +713,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   switchOn: 1
   pickedUp: 0
+  interactable: 0
   playerTag: 
   rotatableObjectString: LightEmitter
   Entered: 0
@@ -1647,6 +1648,11 @@ Prefab:
         type: 2}
       propertyPath: beamLength
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114854267101794134, guid: 52c750e3f00c234409992bd5cabecfe7,
+        type: 2}
+      propertyPath: switchedOn
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 52c750e3f00c234409992bd5cabecfe7, type: 2}

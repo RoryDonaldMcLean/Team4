@@ -117,7 +117,7 @@ public class Tutorial : MonoBehaviour
 				UIText.GetComponent<Text> ().text = "Please perform Systems diagnostic... (Perform chirps with available Limbs)";
 			}
             //CancelInvoke("func");
-			//StartCoroutine (TestBool (1.0f));
+			StartCoroutine (TestBool (1.0f));
 		}
 		else
 		{

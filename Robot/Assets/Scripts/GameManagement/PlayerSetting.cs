@@ -61,7 +61,7 @@ public class PlayerSetting
 
         lastLevel = Level.None;
 
-        versionInfo = "1.0";
+        versionInfo = "2.0";
     }
 
     public void sameButton(int number)

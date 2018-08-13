@@ -8,7 +8,7 @@ Material:
   m_PrefabInternal: {fileID: 0}
   m_Name: lambert1
   m_Shader: {fileID: 4800000, guid: 2753d4bcdc6905e429b97a319b8ee423, type: 3}
-  m_ShaderKeywords: 
+  m_ShaderKeywords: _PLAYER_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -78,7 +78,10 @@ Material:
     - _Metallic: 0.55
     - _Mode: 0
     - _OcclusionStrength: 1
+    - _Outline: 0.1
     - _Parallax: 0.02
+    - _PickUpDetected: 0
+    - _Player: 1
     - _ShadowFalloff: 0.41
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -88,4 +91,5 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _OutlineColor: {r: 1, g: 0, b: 0, a: 1}
     - _XRayColor: {r: 1, g: 1, b: 1, a: 1}

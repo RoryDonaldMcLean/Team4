@@ -5,6 +5,7 @@
 
 Shader "Custom/Robots_BaseShader" {
     Properties {
+		[Toggle]_Player("Is That a Player?", Range(0, 1)) = 0
     	_PickUpDetected("PickUp", Range(0, 1)) = 0
 
 		_Outline("Outline", Range(0, 1)) = 0.1
@@ -63,10 +64,14 @@ Shader "Custom/Robots_BaseShader" {
 				fixed4 finalCol = _XRayColor * rim;
 				if (_PickUpDetected <= 0)
 					finalCol.a = 0;
+				#if _PLAYER_ON
+				final.a = 1;
+				#endif
 				return finalCol;
 			}
 			#pragma vertex vert  
 			#pragma fragment frag  
+			#pragma shader_feature _PLAYER_ON
 			ENDCG
 		}
 

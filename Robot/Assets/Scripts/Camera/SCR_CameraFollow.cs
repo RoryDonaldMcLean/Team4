@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SCR_CameraFollow : MonoBehaviour 
 {
-    //
 	Camera cam;
 	Transform t1, t2;
 
@@ -20,8 +19,6 @@ public class SCR_CameraFollow : MonoBehaviour
 	public bool followP1, followP2;
 	public bool leftPuzzle;
 
-	private bool endOfTravel = false;
-
 	float timeTakenDuringLerp = 1.0f;
 	bool isLerping = false;
 	Vector3 startPosition;
@@ -30,16 +27,20 @@ public class SCR_CameraFollow : MonoBehaviour
 	float timeStartedLerping;
 
 	//the time it takes for the rotation to happen.
-	float speed = 0.2f;
 	float timeLeft = 2.0f;
 
 	private bool delay = false;
 
 	private int level = 0;
 
+	int levelCount;
+	int MaxZoom;
+	int MinZoom;
+
 	// Use this for initialization
 	void Start () 
 	{
+		levelCount = this.GetComponent<LevelController> ().currentLevel;
 		cam = Camera.main;
 		t1 = GameObject.FindGameObjectWithTag ("Player1").transform;
 		t2 = GameObject.FindGameObjectWithTag ("Player2").transform;
@@ -61,6 +62,29 @@ public class SCR_CameraFollow : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
+		if (levelCount == 0)
+		{
+			MaxZoom = 29;
+			MinZoom = 20;
+				
+		} else if (levelCount == 1)
+		{
+			MaxZoom = 32;
+			MinZoom = 20;
+		} else if (levelCount == 2)
+		{
+			MaxZoom = 32;
+			MinZoom = 20;
+		} else if (levelCount == 3)
+		{
+			MaxZoom = 32;
+			MinZoom = 20;
+		} else if (levelCount == 4)
+		{
+			MaxZoom = 32;
+			MinZoom = 20;
+		}
+
 		//if you are still in the travel area
 		if (leftPuzzle == false)
 		{
@@ -72,86 +96,12 @@ public class SCR_CameraFollow : MonoBehaviour
 				FixedCameraFollowSmooth (cam, t1, t2);
 			}
 		} 
-		else
-		{
-            //get the distance between the end point and the players
-            distanceP1 = (t1.transform.position - CameraTransitionPoints[2].transform.position).magnitude;
-            distanceP2 = (t2.transform.position - CameraTransitionPoints[2].transform.position).magnitude;
 
-            //get who ever is closest to the end point for the travel camera
-            GetSmallestDistance();
-
-            //if the shortest distance is player 1's distance, the camera 
-            //should follow player 1.
-            if (smallestDistance == distanceP1)
-            {
-                followP1 = true;
-                //make the camera look at player1
-
-            }
-            else if (smallestDistance == distanceP2)
-            {
-                followP2 = true;
-                //make the camera look at player2
-            }
-
-			if(!endOfTravel)
-			{
-				//if the players have reached close enough to the end point of the travel section
-				if (smallestDistance <= 5.0f)
-				{
-					ChangeCameraPoints();
-					endOfTravel = true;
-				}
-			}
-            //lerp camera to new position
-            //camera will switch to the traveling camera which follows the leading player
-            TravelCamera();
-		}
 	}
 		
-	void StartLerpingPuzzlePoint()
-	{
-		isLerping = true;
-		endOfTravel = false;
-		timeStartedLerping = Time.time;
-
-		startPosition = cam.transform.position;
-	
-		endPosition = new Vector3 (CameraTransitionPoints [1].transform.position.x,
-			CameraTransitionPoints [1].transform.position.y,
-			CameraTransitionPoints [1].transform.position.z);
-
-		//rotate to the same angle as the camera puzzle point
-		cam.transform.rotation = Quaternion.Lerp (cam.transform.rotation, 
-			CameraTransitionPoints [1].transform.rotation, Time.time * speed);
-
-		leftPuzzle = false;
-	}
-
-	void StartLerpingTravelPoint()
-	{
-		isLerping = true;
-		timeStartedLerping = Time.time;
-
-		//lerp toward the CameraTransitionPoints
-		startPosition = cam.transform.position;
-		endPosition = new Vector3 (CameraTransitionPoints [0].transform.position.x,
-			CameraTransitionPoints [0].transform.position.y,
-			CameraTransitionPoints [0].transform.position.z);
-
-
-		//rotate to the same angle as the travel point
-		cam.transform.rotation = Quaternion.Lerp (cam.transform.rotation, 
-			CameraTransitionPoints [0].transform.rotation, Time.time * speed);
-
-		leftPuzzle = true;
-	}
 
 	public void FixedCameraFollowSmooth(Camera cam, Transform t1, Transform t2)
 	{
-		
-
 		//how many units should we keep from the players
 		float zoomFactor = 1.5f;
 		float followTimeDelta = 0.8f;
@@ -163,14 +113,14 @@ public class SCR_CameraFollow : MonoBehaviour
 		float distance = (t1.position - t2.position).magnitude;
 
 		//set a cap zoom in
-		if (distance <= 15)
+		if (distance <= MinZoom)
 		{
-			distance = 15;
+			distance = MinZoom;
 		}
 		//max zoom out
-		if (distance >= 23)
+		if (distance >= MaxZoom)
 		{
-			distance = 23;
+			distance = MaxZoom;
 		}
 
 		//Debug.Log ("camera distance: " + distance);
@@ -191,41 +141,9 @@ public class SCR_CameraFollow : MonoBehaviour
 		//snap when close enough to prevent annoying slerp behavior
 		if ((cameraDestination - cam.transform.position).magnitude <= 0.05f)
 			cam.transform.position = cameraDestination;
-
 	}
 
 
-
-	/// <Travel Camera Code>
-	void GetSmallestDistance()
-	{
-		smallestDistance = Mathf.Min (distanceP1, distanceP2);
-	}
-
-	void TravelCamera()
-	{
-		if (leftPuzzle == true)
-		{
-			//follow player 1
-			if (followP1 == true)
-			{
-				cam.transform.position = 
-					new Vector3 (cam.transform.position.x,
-						cam.transform.position.y,
-						t1.transform.position.z);
-				followP1 = false;
-			}
-			//follow player 2
-			if (followP2 == true)
-			{
-				cam.transform.position = 
-					new Vector3 (cam.transform.position.x,
-						cam.transform.position.y,
-						t2.transform.position.z);
-				followP2 = false;
-			}
-		}
-	}
 
 	void FixedUpdate()
 	{
@@ -243,25 +161,7 @@ public class SCR_CameraFollow : MonoBehaviour
 		}
         
 	}
-
-
-	public void Exit()
-	{
-		StartLerpingTravelPoint();
-	}
-
-	public void Enter()
-	{
-		if (delay)
-		{
-			StartLerpingPuzzlePoint ();
-			timeLeft = 2.0f;
-		} 
-		else
-		{
-			FixedCameraFollowSmooth (cam, t1, t2);
-		}
-	}
+		
 
 	void ChangeCameraPoints()
 	{

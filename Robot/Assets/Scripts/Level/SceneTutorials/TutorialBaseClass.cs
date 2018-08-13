@@ -28,7 +28,7 @@ public class TutorialBaseClass : MonoBehaviour
     private void EntranceWallSetup()
     {
         entranceWall = GameObject.FindGameObjectWithTag("EntranceWall");
-        entranceWall.SetActive(false);
+        //entranceWall.SetActive(false);
     }
 
     public void TurnOnEntranceWall()

@@ -65,7 +65,7 @@ Shader "Custom/Robots_BaseShader" {
 				if (_PickUpDetected <= 0)
 					finalCol.a = 0;
 				#if _PLAYER_ON
-				final.a = 1;
+				finalCol.a = 1;
 				#endif
 				return finalCol;
 			}

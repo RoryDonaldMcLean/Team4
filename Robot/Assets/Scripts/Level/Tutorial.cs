@@ -239,8 +239,7 @@ public class Tutorial : MonoBehaviour
 					UIButtons2 [1].SetActive (false);
 				}
 
-			}
-			else
+			} else
 			{
 				if (playerNum == 0)
 				{
@@ -253,6 +252,7 @@ public class Tutorial : MonoBehaviour
 					UIButtons [1].SetActive (true);
 					//test to see if i can display the keyboard controls
 					keyboardButtonPlayer1.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [9].ToString ();
+					UIButtons [2].GetComponent<Text> ().text = "Pick Up Limb";
 				}
 
 				if (playerNum == 1)
@@ -267,14 +267,14 @@ public class Tutorial : MonoBehaviour
 					//test to see if i can display the keyboard controls
 
 					KeyboardButtonPlayer2.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [22].ToString ();
+					UIButtons2 [2].GetComponent<Text> ().text = "Pick Up Limb";
 				}
 
 
 
 			}
 
-		} 
-		else if (col.transform.name.Contains ("LightEmitter"))
+		} else if (col.transform.name.Contains ("LightEmitter"))
 		{
 			if (ControllerUsed == true)
 			{
@@ -300,8 +300,7 @@ public class Tutorial : MonoBehaviour
 					UIButtons2 [1].SetActive (false);
 				}
 
-			}
-			else
+			} else
 			{
 				if (playerNum == 0)
 				{
@@ -314,6 +313,7 @@ public class Tutorial : MonoBehaviour
 					UIButtons [1].SetActive (true);
 					//test to see if i can display the keyboard controls
 					keyboardButtonPlayer1.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [11].ToString ();
+					UIButtons [2].GetComponent<Text> ().text = "Turn On Emitter";
 				}
 
 				if (playerNum == 1)
@@ -328,12 +328,12 @@ public class Tutorial : MonoBehaviour
 					//test to see if i can display the keyboard controls
 
 					KeyboardButtonPlayer2.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [24].ToString ();
+					UIButtons2 [2].GetComponent<Text> ().text = "Turn On Emitter";
 				}
 
 
 			}
-		} 
-		else if (col.transform.name.Contains ("SlideBox"))
+		} else if (col.transform.name.Contains ("SlideBox"))
 		{
 			if (ControllerUsed == true)
 			{
@@ -359,8 +359,7 @@ public class Tutorial : MonoBehaviour
 					UIButtons2 [1].SetActive (false);
 				}
 
-			} 
-			else
+			} else
 			{
 				if (playerNum == 0)
 				{
@@ -373,6 +372,7 @@ public class Tutorial : MonoBehaviour
 					UIButtons [1].SetActive (true);
 					//test to see if i can display the keyboard controls
 					keyboardButtonPlayer1.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [9].ToString ();
+					UIButtons [2].GetComponent<Text> ().text = "Pick Up Slider";
 				}
 
 				if (playerNum == 1)
@@ -387,14 +387,14 @@ public class Tutorial : MonoBehaviour
 					//test to see if i can display the keyboard controls
 
 					KeyboardButtonPlayer2.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [22].ToString ();
+					UIButtons2 [2].GetComponent<Text> ().text = "Pick Up Slider";
 				}
 
 
 			}
 
 
-		} 
-		else if (col.transform.name.Contains ("RotateBox"))
+		} else if (col.transform.name.Contains ("RotateBox"))
 		{
 			if (ControllerUsed == true)
 			{
@@ -419,8 +419,7 @@ public class Tutorial : MonoBehaviour
 				}
 
 
-			} 
-			else
+			} else
 			{
 				if (playerNum == 0)
 				{
@@ -433,6 +432,7 @@ public class Tutorial : MonoBehaviour
 					UIButtons [1].SetActive (true);
 					//test to see if i can display the keyboard controls
 					keyboardButtonPlayer1.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [9].ToString ();
+					UIButtons [2].GetComponent<Text> ().text = "Pick Up Rotatable";
 				}
 
 				if (playerNum == 1)
@@ -447,6 +447,7 @@ public class Tutorial : MonoBehaviour
 					//test to see if i can display the keyboard controls
 
 					KeyboardButtonPlayer2.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [22].ToString ();
+					UIButtons2 [2].GetComponent<Text> ().text = "Pick Up Rotatable";
 				}
 
 
@@ -454,8 +455,7 @@ public class Tutorial : MonoBehaviour
 			}
 
 
-		} 
-		else if (col.transform.name.Contains ("LimbLight(ARM_MOVE)"))
+		} else if (col.transform.name.Contains ("LimbLight(ARM_MOVE)"))
 		{
 			if (col.transform.GetChild (0).name.Contains ("Arm"))
 			{
@@ -482,8 +482,7 @@ public class Tutorial : MonoBehaviour
 					}
 
 
-				}
-				else
+				} else
 				{
 					if (playerNum == 0)
 					{
@@ -496,6 +495,7 @@ public class Tutorial : MonoBehaviour
 						UIButtons [1].SetActive (true);
 						//test to see if i can display the keyboard controls
 						keyboardButtonPlayer1.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [9].ToString ();
+						UIButtons [2].GetComponent<Text> ().text = "Pick up device";
 					}
 
 					if (playerNum == 1)
@@ -510,13 +510,13 @@ public class Tutorial : MonoBehaviour
 						//test to see if i can display the keyboard controls
 
 						KeyboardButtonPlayer2.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [22].ToString ();
+						UIButtons2 [2].GetComponent<Text> ().text = "Pick up device";
 					}
 
 
 				}
 
-			} 
-			else
+			} else
 			{
 				if (ControllerUsed == true)
 				{
@@ -541,8 +541,7 @@ public class Tutorial : MonoBehaviour
 					}
 
 
-				}
-				else
+				} else
 				{
 					if (playerNum == 0)
 					{
@@ -555,6 +554,7 @@ public class Tutorial : MonoBehaviour
 						UIButtons [1].SetActive (true);
 						//test to see if i can display the keyboard controls
 						keyboardButtonPlayer1.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [11].ToString ();
+						UIButtons [2].GetComponent<Text> ().text = "Insert/ withdraw Limb";
 					}
 
 					if (playerNum == 1)
@@ -569,6 +569,7 @@ public class Tutorial : MonoBehaviour
 						//test to see if i can display the keyboard controls
 
 						KeyboardButtonPlayer2.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [24].ToString ();
+						UIButtons2 [2].GetComponent<Text> ().text = "Insert/ withdraw Limb";
 					}
 
 
@@ -577,8 +578,7 @@ public class Tutorial : MonoBehaviour
 
 			}
 
-		} 
-		else if (col.transform.name.Contains ("Elevation"))
+		} else if (col.transform.name.Contains ("Elevation"))
 		{
 			if (ControllerUsed == true)
 			{
@@ -605,8 +605,7 @@ public class Tutorial : MonoBehaviour
 				}
 
 
-			}
-			else
+			} else
 			{
 				if (playerNum == 0)
 				{
@@ -619,6 +618,7 @@ public class Tutorial : MonoBehaviour
 					UIButtons [1].SetActive (true);
 					//test to see if i can display the keyboard controls
 					keyboardButtonPlayer1.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [8].ToString ();
+					UIButtons [2].GetComponent<Text> ().text = "Jump";
 				}
 
 				if (playerNum == 1)
@@ -633,12 +633,70 @@ public class Tutorial : MonoBehaviour
 					//test to see if i can display the keyboard controls
 
 					KeyboardButtonPlayer2.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [21].ToString ();
+					UIButtons2 [2].GetComponent<Text> ().text = "Jump";
 				}
 
 
 
 			}
 
+		} 
+		else if (col.transform.name.Contains("MelodyGate"))
+		{
+			if (ControllerUsed == true)
+			{
+				if (playerNum == 0)
+				{
+					startTimer = true;
+					UITutorial.SetActive (true);
+					UIButtons [0].SetActive (true);
+					UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Controller_Cancel Melody Code") as Sprite;
+					UIButtons [0].GetComponent<Image> ().preserveAspect = true;
+
+					UIButtons [1].SetActive (false);
+				}
+
+				if (playerNum == 1)
+				{
+					startTimer = true;
+					UITutorial2.SetActive (true);
+					UIButtons2 [0].SetActive (true);
+					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Controller_Cancel Melody Code") as Sprite;
+					UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
+
+					UIButtons2 [1].SetActive (false);
+				}
+			} 
+			else
+			{
+				if (playerNum == 0)
+				{
+					startTimer = true;
+					UITutorial.SetActive (true);
+					UIButtons [0].SetActive (true);
+					UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Keyboard promptbox Buttons") as Sprite;
+					UIButtons [0].GetComponent<Image> ().preserveAspect = true;
+
+					UIButtons [1].SetActive (true);
+					//test to see if i can display the keyboard controls
+					keyboardButtonPlayer1.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [26].ToString ();
+					UIButtons [2].GetComponent<Text> ().text = "Cancel Code";
+				}
+
+				if (playerNum == 1)
+				{
+					startTimer = true;
+					UITutorial2.SetActive (true);
+					UIButtons2 [0].SetActive (true);
+					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Keyboard promptbox Buttons") as Sprite;
+					UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
+
+					UIButtons2 [1].SetActive (true);
+					//test to see if i can display the keyboard controls
+					keyboardButtonPlayer1.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [27].ToString ();
+					UIButtons2 [2].GetComponent<Text> ().text = "Cancel Code";
+				}
+			}
 		}
 
 	}

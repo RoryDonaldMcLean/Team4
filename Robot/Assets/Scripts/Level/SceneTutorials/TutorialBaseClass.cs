@@ -28,7 +28,7 @@ public class TutorialBaseClass : MonoBehaviour
     private void EntranceWallSetup()
     {
         entranceWall = GameObject.FindGameObjectWithTag("EntranceWall");
-        //entranceWall.SetActive(false);
+        entranceWall.SetActive(false);
     }
 
     public void TurnOnEntranceWall()
@@ -116,8 +116,11 @@ public class TutorialBaseClass : MonoBehaviour
         {
             if (lightTriggers[i].correctLight)
             {
-                Destroy(destroyableWalls[i]);
-                destroyableWalls.RemoveAt(i);
+                if (destroyableWalls.Count != 0)
+                {
+                    Destroy(destroyableWalls[i]);
+                    destroyableWalls.RemoveAt(i);
+                }
                 lightTriggers.RemoveAt(i);
                 break;
             }

@@ -137,8 +137,12 @@ public class InControlMelody : MonoBehaviour
             //check to see what level your in and position the floor accordingly.
             this.GetComponent<SCR_Door>().SpawnWalkway = true;
             AkSoundEngine.PostEvent("GateNoteFinish", gameObject);
-            GameObject.FindGameObjectWithTag("Player1").GetComponent<Animator>().SetBool("IsButtonPressed", false);
-            GameObject.FindGameObjectWithTag("Player2").GetComponent<Animator>().SetBool("IsButtonPressed", false);
+            GameObject p1 = GameObject.FindGameObjectWithTag("Player1");
+            GameObject p2 = GameObject.FindGameObjectWithTag("Player2");
+            p1.GetComponent<Animator>().SetBool("IsButtonPressed", false);
+            p2.GetComponent<Animator>().SetBool("IsButtonPressed", false);
+            p1.GetComponent<SCR_player1Initalise>().enabled = false;
+            p2.GetComponent<SCR_player2Initalise>().enabled = false;
             //next whatever
         } 
 		else

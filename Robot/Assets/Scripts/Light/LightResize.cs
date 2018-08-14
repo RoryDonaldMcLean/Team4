@@ -55,6 +55,12 @@ public class LightResize : MonoBehaviour
         StartCoroutine(RaycastOnRepeat());
 	}
 
+    public void EndLightBeamInteraction()
+    {
+        StopCoroutine(RaycastOnRepeat());
+        StopCoroutine(LightInterruptionCheck());
+    }
+
     private IEnumerator RaycastOnRepeat()
     {
         while (!contact)

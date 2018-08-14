@@ -583,6 +583,7 @@ GameObject:
   - component: {fileID: 114116279352576132}
   - component: {fileID: 114950402195677490}
   - component: {fileID: 114663872134595960}
+  - component: {fileID: 114420123106716644}
   m_Layer: 14
   m_Name: Player2_Robot
   m_TagString: Player2
@@ -2256,6 +2257,28 @@ MonoBehaviour:
   - {fileID: 23260406100993810}
   isBlue: 1
   playerNum: 1
+--- !u!114 &114420123106716644
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1518905239815366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7999ea7310cf3db408b1eb3ad84d3f23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: 
+  useOtherObject: 0
+  actionOnEventType: 0
+  curveInterpolation: 4
+  enableActionOnEvent: 0
+  eventID: -963702315
+  m_callbackData: {fileID: 0}
+  playingId: 0
+  soundEmitterObject: {fileID: 0}
+  transitionDuration: 0
+  valueGuid: 87d72b544a0737438ca3df0cb3664434
 --- !u!114 &114466430460393692
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -354,6 +354,10 @@
 					<ShortName>Light Flicker 2.wav</ShortName>
 					<Path>SFX\Light Flicker 2_38C05CA7.wem</Path>
 				</File>
+				<File Id="818662968" Language="SFX">
+					<ShortName>losearm3.wav</ShortName>
+					<Path>SFX\losearm3_F42F5D95.wem</Path>
+				</File>
 				<File Id="828079118" Language="SFX">
 					<ShortName>Light Flicker 3.wav</ShortName>
 					<Path>SFX\Light Flicker 3_38C05CA7.wem</Path>
@@ -519,6 +523,7 @@
 			<ShortName>Music</ShortName>
 			<Path>Music.bnk</Path>
 			<IncludedEvents>
+				<Event Id="3331264981" Name="Arm_Break" ObjectPath="\Events\Default Work Unit\Robots\Arm_Break"/>
 				<Event Id="2034861142" Name="ChirpCombine" ObjectPath="\Events\Default Work Unit\Robots\ChirpCombine"/>
 				<Event Id="4133193861" Name="LoseArm1" ObjectPath="\Events\Default Work Unit\Music\LoseArm1"/>
 				<Event Id="4133193862" Name="LoseArm2" ObjectPath="\Events\Default Work Unit\Music\LoseArm2"/>

@@ -5469,6 +5469,18 @@
 						<MusicSegment Name="losearm3" ID="{9A46ECA5-2BF0-4AB8-BDC5-2B5C71FB860B}" ShortID="598913678">
 							<PropertyList>
 								<Property Name="EndPosition" Type="Real64" Value="13333.3333333333"/>
+								<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+								<Property Name="MaxReachedBehavior" Type="int16" Value="1"/>
+								<Property Name="MaxSoundPerInstance" Type="int16">
+									<ValueList>
+										<Value>1</Value>
+									</ValueList>
+								</Property>
+								<Property Name="UseMaxSoundPerInstance" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-14</Value>

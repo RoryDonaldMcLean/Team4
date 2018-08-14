@@ -271,7 +271,7 @@
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>2</Value>
+										<Value>-7</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -378,7 +378,7 @@
 								</MusicPlaylistItem>
 							</Playlist>
 						</MusicPlaylistContainer>
-						<MusicPlaylistContainer Name="P2_Factory_Viewpoint" ID="{47F781BC-2A48-4006-AAF3-23B8A6B49077}" ShortID="1065859970">
+						<MusicPlaylistContainer Name="P3_Factory_Viewpoint" ID="{47F781BC-2A48-4006-AAF3-23B8A6B49077}" ShortID="1065859970">
 							<PropertyList>
 								<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
 								<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
@@ -495,7 +495,7 @@
 								</MusicPlaylistItem>
 							</Playlist>
 						</MusicPlaylistContainer>
-						<MusicPlaylistContainer Name="P2_Factory_Puzzle2" ID="{8492F173-1D38-48A6-87AE-52523534C9AE}" ShortID="801485664">
+						<MusicPlaylistContainer Name="P3_Factory_Puzzle2" ID="{8492F173-1D38-48A6-87AE-52523534C9AE}" ShortID="801485664">
 							<PropertyList>
 								<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
 								<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
@@ -851,7 +851,7 @@
 								</MusicPlaylistItem>
 							</Playlist>
 						</MusicPlaylistContainer>
-						<MusicPlaylistContainer Name="P3 - Construction_Puzzle4" ID="{CEBFA3ED-FBAC-4E6E-BD5A-022CFB6A53B3}" ShortID="521485751">
+						<MusicPlaylistContainer Name="P4 - Construction_Puzzle4 NULL" ID="{CEBFA3ED-FBAC-4E6E-BD5A-022CFB6A53B3}" ShortID="521485751">
 							<PropertyList>
 								<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
 								<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
@@ -1201,7 +1201,7 @@
 								</MusicPlaylistItem>
 							</Playlist>
 						</MusicPlaylistContainer>
-						<MusicPlaylistContainer Name="P3_ConstructionCutscene - Scenery" ID="{F09C3F4B-C161-4A21-839C-565826EFB6AC}" ShortID="470008495">
+						<MusicPlaylistContainer Name="P4_ConstructionCutscene - Scenery" ID="{F09C3F4B-C161-4A21-839C-565826EFB6AC}" ShortID="470008495">
 							<PropertyList>
 								<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
 								<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
@@ -1531,7 +1531,7 @@
 								<MusicPlaylistItem Name="" ID="{B98C2177-8512-40CE-85AF-ED9BB676F043}" ShortID="377996277"/>
 							</Playlist>
 						</MusicPlaylistContainer>
-						<MusicPlaylistContainer Name="P4 - Clouds" ID="{11DE2D00-1BE2-486F-A5FE-C1D500E078CF}" ShortID="88124174">
+						<MusicPlaylistContainer Name="P5 - Clouds" ID="{11DE2D00-1BE2-486F-A5FE-C1D500E078CF}" ShortID="88124174">
 							<PropertyList>
 								<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
 								<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
@@ -1774,11 +1774,6 @@
 								<Property Name="UseMaxSoundPerInstance" Type="bool">
 									<ValueList>
 										<Value>True</Value>
-									</ValueList>
-								</Property>
-								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>-9</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -2772,7 +2767,7 @@
 								<PathElementRef Name="P2_FactoryPuzzle2" ID="{DC03589A-BDD2-45D6-A826-EA9C0315B998}"/>
 							</Path>
 							<AudioNodeInfo>
-								<AudioNodeRef Name="P2_Factory_Puzzle2" ID="{8492F173-1D38-48A6-87AE-52523534C9AE}" WorkUnitID="{C54CF3E9-0E60-4A5A-AD10-EFD580D533AD}" Platform="Linked"/>
+								<AudioNodeRef Name="P3_Factory_Puzzle2" ID="{8492F173-1D38-48A6-87AE-52523534C9AE}" WorkUnitID="{C54CF3E9-0E60-4A5A-AD10-EFD580D533AD}" Platform="Linked"/>
 							</AudioNodeInfo>
 						</Entry>
 						<Entry>
@@ -2780,7 +2775,7 @@
 								<PathElementRef Name="P2_FactoryViewpoint" ID="{EB070CD5-C2C2-46D1-9A5B-C15943D11787}"/>
 							</Path>
 							<AudioNodeInfo>
-								<AudioNodeRef Name="P2_Factory_Viewpoint" ID="{47F781BC-2A48-4006-AAF3-23B8A6B49077}" WorkUnitID="{C54CF3E9-0E60-4A5A-AD10-EFD580D533AD}" Platform="Linked"/>
+								<AudioNodeRef Name="P3_Factory_Viewpoint" ID="{47F781BC-2A48-4006-AAF3-23B8A6B49077}" WorkUnitID="{C54CF3E9-0E60-4A5A-AD10-EFD580D533AD}" Platform="Linked"/>
 							</AudioNodeInfo>
 						</Entry>
 						<Entry>
@@ -2788,7 +2783,7 @@
 								<PathElementRef Name="P3_Construction" ID="{3BD738C0-1FEE-4A31-B833-5BDB23300B01}"/>
 							</Path>
 							<AudioNodeInfo>
-								<AudioNodeRef Name="P3 - Construction_Puzzle4" ID="{CEBFA3ED-FBAC-4E6E-BD5A-022CFB6A53B3}" WorkUnitID="{C54CF3E9-0E60-4A5A-AD10-EFD580D533AD}" Platform="Linked"/>
+								<AudioNodeRef Name="P4 - Construction_Puzzle4 NULL" ID="{CEBFA3ED-FBAC-4E6E-BD5A-022CFB6A53B3}" WorkUnitID="{C54CF3E9-0E60-4A5A-AD10-EFD580D533AD}" Platform="Linked"/>
 							</AudioNodeInfo>
 						</Entry>
 						<Entry>
@@ -2796,7 +2791,7 @@
 								<PathElementRef Name="P3_ConstructionScenery" ID="{D01D8749-D570-4885-88A1-4E868784E367}"/>
 							</Path>
 							<AudioNodeInfo>
-								<AudioNodeRef Name="P3_ConstructionCutscene - Scenery" ID="{F09C3F4B-C161-4A21-839C-565826EFB6AC}" WorkUnitID="{C54CF3E9-0E60-4A5A-AD10-EFD580D533AD}" Platform="Linked"/>
+								<AudioNodeRef Name="P4_ConstructionCutscene - Scenery" ID="{F09C3F4B-C161-4A21-839C-565826EFB6AC}" WorkUnitID="{C54CF3E9-0E60-4A5A-AD10-EFD580D533AD}" Platform="Linked"/>
 							</AudioNodeInfo>
 						</Entry>
 						<Entry>
@@ -2812,7 +2807,7 @@
 								<PathElementRef Name="P4_Clouds" ID="{B92ABBFE-ED7C-4AE0-A739-CF81428935A0}"/>
 							</Path>
 							<AudioNodeInfo>
-								<AudioNodeRef Name="P4 - Clouds" ID="{11DE2D00-1BE2-486F-A5FE-C1D500E078CF}" WorkUnitID="{C54CF3E9-0E60-4A5A-AD10-EFD580D533AD}" Platform="Linked"/>
+								<AudioNodeRef Name="P5 - Clouds" ID="{11DE2D00-1BE2-486F-A5FE-C1D500E078CF}" WorkUnitID="{C54CF3E9-0E60-4A5A-AD10-EFD580D533AD}" Platform="Linked"/>
 							</AudioNodeInfo>
 						</Entry>
 						<Entry>

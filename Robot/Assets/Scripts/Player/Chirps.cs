@@ -101,12 +101,8 @@ public class Chirps : MonoBehaviour
 		{
 			ProcessInputInControl (inputDevice);
 			ControllersUsed = true;
-		}
-
-
-			
-	}
-		
+		}			
+	}	
 
 	void ProcessInputInControl(InputDevice inputDevice)
 	{
@@ -123,7 +119,6 @@ public class Chirps : MonoBehaviour
 				{
 					if (inputDevice.RightBumper.IsPressed)
 					{
-
 						chirpsButton = true;
 						Vector3 UIposition = Camera.main.WorldToScreenPoint (this.transform.position);
 						if (UIEmoteImage != null)
@@ -132,7 +127,7 @@ public class Chirps : MonoBehaviour
 							UIEmoteImage.SetActive (true);
 						}
 
-					if (inputDevice.DPadUp.WasPressed && GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().LimbActiveCheck ("LeftArm"))
+					if (inputDevice.DPadUp.WasPressed && GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb>().LimbActiveCheck ("LeftArm"))
 						{
 							EmoteNumber = 1;
 							//Emotes ();

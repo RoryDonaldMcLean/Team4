@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SCR_Rotatable : MonoBehaviour 
 {
@@ -13,8 +14,10 @@ public class SCR_Rotatable : MonoBehaviour
     public Color beamColour = Color.white;
     public int beamLength = 5;
 
-	// Use this for initialization
-	void Start () 
+    private GameObject tutorialPrompt;
+
+    // Use this for initialization
+    void Start () 
 	{
 		GameObject newRotatable = Instantiate(Resources.Load("Prefabs/Light/" + rotatableObjectString)) as GameObject;
 		newRotatable.name = "RotateBox";
@@ -37,12 +40,12 @@ public class SCR_Rotatable : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void Update () 
+	void Update() 
 	{
 		if (pickedUp)
 		{
-			//if the player leaves the movable trigger box then drop the box thing
-			if (Entered == false)
+            //if the player leaves the movable trigger box then drop the box thing
+            if (Entered == false)
 			{
 				GameObject.FindGameObjectWithTag(playerTag).GetComponent<PickupAndDropdown_Trigger>().RotateDrop();
 			}
@@ -54,14 +57,36 @@ public class SCR_Rotatable : MonoBehaviour
 		if(col.gameObject.name.Contains("Player"))
 		{
 			Entered = true;
-		}
+            if (tutorialPrompt == null)
+            {
+                tutorialPrompt = Instantiate(Resources.Load("Prefabs/UI/RotatableObjectVisualAid")) as GameObject;
+                tutorialPrompt.transform.SetParent(GameObject.FindGameObjectWithTag("TutorialUI").transform, false);
+                StartCoroutine(RotateObjectUI());
+            }
+        }
 	}
+
+    private IEnumerator RotateObjectUI()
+    {
+        while (tutorialPrompt != null)
+        {
+            Vector3 objectPosition = this.transform.GetChild(1).position;
+            objectPosition.y = 0;
+            objectPosition.z += 1;
+            Vector3 UIposition = Camera.main.WorldToScreenPoint(objectPosition);
+            tutorialPrompt.transform.position = UIposition;
+
+            yield return new WaitForFixedUpdate();
+        }
+    }
 
 	void OnTriggerExit(Collider col)
 	{
 		if (col.gameObject.name.Contains ("Player"))
 		{
 			Entered = false;
+            StopCoroutine(RotateObjectUI());
+            Destroy(tutorialPrompt);
 		}
 	}
 }

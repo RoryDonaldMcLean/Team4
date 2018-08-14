@@ -286,17 +286,19 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
             //if the object the player is trying to pick up is the RotateBox
             else if (hit.transform.name.Contains("RotateBox"))
             {
-                pickedUpGameObject = hit.transform.gameObject;
+                if (!hit.GetComponent<SCR_Rotatable>().pickedUp)
+                {
+                    pickedUpGameObject = hit.transform.gameObject;
 
-                AkSoundEngine.PostEvent("Arm_Attach", gameObject);
+                    AkSoundEngine.PostEvent("Arm_Attach", gameObject);
 
-                this.transform.parent.GetComponentInChildren<InControlMovement>().enabled = false;
+                    this.transform.parent.GetComponentInChildren<InControlMovement>().enabled = false;
 
-                pickedUpGameObject.transform.parent.GetComponent<SCR_Rotatable>().pickedUp = true;
-                pickedUpGameObject.transform.parent.GetComponent<SCR_Rotatable>().playerTag = this.transform.parent.tag;
-                holding = true;
-                anim.SetBool("IsLifting", true);
-
+                    pickedUpGameObject.transform.parent.GetComponent<SCR_Rotatable>().pickedUp = true;
+                    pickedUpGameObject.transform.parent.GetComponent<SCR_Rotatable>().playerTag = this.transform.parent.tag;
+                    holding = true;
+                    anim.SetBool("IsLifting", true);
+                }
             }
             else
             {

@@ -14,12 +14,15 @@ public class SCR_Rotatable : MonoBehaviour
     public Color beamColour = Color.white;
     public int beamLength = 5;
 
-    private GameObject tutorialPrompt;
+    private GameObject rotateVisualAid;
 
     // Use this for initialization
     void Start () 
 	{
-		GameObject newRotatable = Instantiate(Resources.Load("Prefabs/Light/" + rotatableObjectString)) as GameObject;
+        rotateVisualAid = this.transform.GetChild(0).gameObject;
+        rotateVisualAid.SetActive(false);
+
+        GameObject newRotatable = Instantiate(Resources.Load("Prefabs/Light/" + rotatableObjectString)) as GameObject;
 		newRotatable.name = "RotateBox";
 		newRotatable.transform.position = this.transform.GetChild(1).position;
 		newRotatable.transform.SetParent(this.transform);
@@ -54,39 +57,19 @@ public class SCR_Rotatable : MonoBehaviour
 
 	void OnTriggerEnter(Collider col)
 	{
-		if(col.gameObject.name.Contains("Player"))
+		if ((col.gameObject.name.Contains("Player")) && (!Entered))
 		{
 			Entered = true;
-            if (tutorialPrompt == null)
-            {
-                tutorialPrompt = Instantiate(Resources.Load("Prefabs/UI/RotatableObjectVisualAid")) as GameObject;
-                tutorialPrompt.transform.SetParent(GameObject.FindGameObjectWithTag("TutorialUI").transform, false);
-                StartCoroutine(RotateObjectUI());
-            }
+            rotateVisualAid.SetActive(true);
         }
 	}
 
-    private IEnumerator RotateObjectUI()
-    {
-        while (tutorialPrompt != null)
-        {
-            Vector3 objectPosition = this.transform.GetChild(1).position;
-            objectPosition.y = 0;
-            objectPosition.z += 1;
-            Vector3 UIposition = Camera.main.WorldToScreenPoint(objectPosition);
-            tutorialPrompt.transform.position = UIposition;
-
-            yield return new WaitForFixedUpdate();
-        }
-    }
-
 	void OnTriggerExit(Collider col)
 	{
-		if (col.gameObject.name.Contains ("Player"))
+		if ((col.gameObject.name.Contains ("Player")) && (Entered))
 		{
 			Entered = false;
-            StopCoroutine(RotateObjectUI());
-            Destroy(tutorialPrompt);
-		}
+            rotateVisualAid.SetActive(false);
+        }
 	}
 }

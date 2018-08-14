@@ -291,7 +291,11 @@
 											</CustomState>
 											<CustomState>
 												<StateRef Name="P3_ConstructionScenery" ID="{D01D8749-D570-4885-88A1-4E868784E367}"/>
-												<State Name="" ID="{325E9E77-921A-4C60-8C83-65D58068EED6}" ShortID="272766910"/>
+												<State Name="" ID="{325E9E77-921A-4C60-8C83-65D58068EED6}" ShortID="272766910">
+													<PropertyList>
+														<Property Name="BusVolume" Type="Real64" Value="-3"/>
+													</PropertyList>
+												</State>
 											</CustomState>
 											<CustomState>
 												<StateRef Name="Hit_Switch" ID="{5DBE742A-FF4B-4888-A989-F0958DD1AA8E}"/>
@@ -371,6 +375,9 @@
 											<StateGroupInfo>
 												<StateGroupRef Name="Drone_Modulator" ID="{6F9EDEE3-D863-4564-B5FF-2E703969AF54}"/>
 											</StateGroupInfo>
+											<StateGroupInfo>
+												<StateGroupRef Name="Environment" ID="{368540B0-9326-43CE-A20D-CD99DFFC54DE}"/>
+											</StateGroupInfo>
 										</StateGroupList>
 										<CustomStateList>
 											<CustomState>
@@ -378,12 +385,28 @@
 												<State Name="" ID="{B8FD1763-E18A-4CF8-85EB-5B7A3F6E3E23}" ShortID="405593370"/>
 											</CustomState>
 											<CustomState>
+												<StateRef Name="P1_Intro" ID="{FC8BB0BF-7A44-40B1-8D27-D1EA7366289D}"/>
+												<State Name="" ID="{812B2512-5518-48CE-B20B-4968B844B347}" ShortID="302665616"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P2_FactoryPuzzle1" ID="{79494580-3976-425E-971D-CB193C870700}"/>
+												<State Name="" ID="{8F6833BA-BA8C-454A-B33B-54C2F9B7BAD2}" ShortID="534448789"/>
+											</CustomState>
+											<CustomState>
 												<StateRef Name="Hit_Wall" ID="{1632BA91-329C-42DF-B8C4-64F6C03B69BB}"/>
-												<State Name="" ID="{01F02E24-5B2D-408D-881A-DDA21839CBAB}" ShortID="786039540"/>
+												<State Name="" ID="{01F02E24-5B2D-408D-881A-DDA21839CBAB}" ShortID="786039540">
+													<PropertyList>
+														<Property Name="BusVolume" Type="Real64" Value="-9"/>
+													</PropertyList>
+												</State>
 											</CustomState>
 											<CustomState>
 												<StateRef Name="Combiner" ID="{B61D639E-400F-4387-BC00-375A61AD9377}"/>
 												<State Name="" ID="{328E05CA-AF41-4A86-9201-E11E54A22E28}" ShortID="209952897"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="Menu" ID="{3AFA27FF-9639-4444-9C9F-20A568E90221}"/>
+												<State Name="" ID="{E756C591-13C5-47C0-948B-BA40219A11E2}" ShortID="862149469"/>
 											</CustomState>
 											<CustomState>
 												<StateRef Name="Start" ID="{D1DB9805-02B1-44BF-A049-F23022B18534}"/>
@@ -394,24 +417,96 @@
 												</State>
 											</CustomState>
 											<CustomState>
+												<StateRef Name="P3_ConstructionStorm" ID="{0D1A02F3-9577-4504-8C6C-58D99D7925E6}"/>
+												<State Name="" ID="{3986F686-B52D-4628-82DA-F7B791324516}" ShortID="894594974"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P1_IntroViewpoint" ID="{A0830815-1BB2-456C-BC25-BF32D2547E4E}"/>
+												<State Name="" ID="{8C7A1291-A2E8-459E-92AE-B9AE6C51FD6F}" ShortID="233557969">
+													<PropertyList>
+														<Property Name="BusVolume" Type="Real64" Value="-96"/>
+													</PropertyList>
+												</State>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P2_FactoryPuzzle2" ID="{DC03589A-BDD2-45D6-A826-EA9C0315B998}"/>
+												<State Name="" ID="{48D4F261-67F0-4361-991B-3B89B9E89F68}" ShortID="274337467"/>
+											</CustomState>
+											<CustomState>
 												<StateRef Name="Splitter" ID="{D99A732E-8412-4623-8A82-C396413A931C}"/>
 												<State Name="" ID="{0D3BBF1A-EAEE-4855-889A-09731E64EB2B}" ShortID="438238513"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P2_FactoryViewpoint" ID="{EB070CD5-C2C2-46D1-9A5B-C15943D11787}"/>
+												<State Name="" ID="{43B3AFC1-C92E-4675-AA80-62E643BB2E12}" ShortID="318446422">
+													<PropertyList>
+														<Property Name="BusVolume" Type="Real64" Value="-26"/>
+													</PropertyList>
+												</State>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P6_EndLeave" ID="{E8ED1630-94B1-46FB-A5DC-E890F8746D73}"/>
+												<State Name="" ID="{F0891432-5EE6-4152-B786-E6676D9A00E4}" ShortID="469096709"/>
 											</CustomState>
 											<CustomState>
 												<StateRef Name="Complete" ID="{5B42DFA5-E7F9-47A0-8E1C-22A385CE8DC2}"/>
 												<State Name="" ID="{573ACB35-CAE5-41DE-931C-B9275437D14C}" ShortID="568609427"/>
 											</CustomState>
 											<CustomState>
+												<StateRef Name="P5_Core" ID="{6B59E6D1-4DA6-487E-91B0-1AE559B70CD1}"/>
+												<State Name="" ID="{0C17C868-AD4B-459C-81D7-C76DAB792897}" ShortID="754878725">
+													<PropertyList>
+														<Property Name="BusVolume" Type="Real64" Value="-3"/>
+													</PropertyList>
+												</State>
+											</CustomState>
+											<CustomState>
 												<StateRef Name="Through_Barrier" ID="{A75B3983-3FDB-4882-BAED-D345BBAA0523}"/>
 												<State Name="" ID="{5755CE66-CA60-4C2A-8920-1261C41FA0E6}" ShortID="863267867"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P3_ConstructionScenery" ID="{D01D8749-D570-4885-88A1-4E868784E367}"/>
+												<State Name="" ID="{6E75D3E5-C03C-4B3E-9DA4-CFA6598665D5}" ShortID="383717847"/>
 											</CustomState>
 											<CustomState>
 												<StateRef Name="Hit_Switch" ID="{5DBE742A-FF4B-4888-A989-F0958DD1AA8E}"/>
 												<State Name="" ID="{199E6BB4-1F8F-44BD-AB05-A8937E8DB9B0}" ShortID="612231188"/>
 											</CustomState>
 											<CustomState>
+												<StateRef Name="P5_CorePuzzle" ID="{C972704B-6D26-49FC-8229-7838BCD59F79}"/>
+												<State Name="" ID="{26A05AAB-3354-4285-9B45-6F171CAE61AB}" ShortID="461257304"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P3_Construction" ID="{3BD738C0-1FEE-4A31-B833-5BDB23300B01}"/>
+												<State Name="" ID="{78F464B4-58A8-40D0-BABE-F2A99B962430}" ShortID="461724267"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P4_Clouds" ID="{B92ABBFE-ED7C-4AE0-A739-CF81428935A0}"/>
+												<State Name="" ID="{F7284EC6-47E2-486D-867C-4C37E7BE252E}" ShortID="927524772">
+													<PropertyList>
+														<Property Name="BusVolume" Type="Real64" Value="-96"/>
+													</PropertyList>
+												</State>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="Empty" ID="{C1FFFDEC-FC6D-4B54-9D54-1DB3342ADAC8}"/>
+												<State Name="" ID="{C1095F03-3FC4-40FB-AEB4-7FA00148BBD3}" ShortID="755039614"/>
+											</CustomState>
+											<CustomState>
 												<StateRef Name="Colour_Change" ID="{52D58239-FA93-4CCE-A3E2-8E4C3E0E91B2}"/>
 												<State Name="" ID="{E5BC107D-F9BA-4C1E-BC64-3458B9C68CC6}" ShortID="482716863"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P6_EndSacrifice" ID="{B2786363-AAB6-4D23-9F0A-8407408276B0}"/>
+												<State Name="" ID="{4399AD99-DDA6-439E-8276-A5B31D746D21}" ShortID="29974398"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P6_AChoice" ID="{300F983C-BC50-4E36-BF53-75418BDAB6CF}"/>
+												<State Name="" ID="{DE65AC43-12B0-4908-91B1-1A9C404F9AF1}" ShortID="526986449"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="Credits" ID="{07794BAC-6A4D-4EDF-9F27-404ACF53D536}"/>
+												<State Name="" ID="{D6E07482-2523-4CC5-ADF6-8BAB1BC80CC1}" ShortID="1001327089"/>
 											</CustomState>
 										</CustomStateList>
 									</StateInfo>
@@ -467,7 +562,11 @@
 										<CustomStateList>
 											<CustomState>
 												<StateRef Name="P1_Intro" ID="{FC8BB0BF-7A44-40B1-8D27-D1EA7366289D}"/>
-												<State Name="" ID="{B767996F-EE24-4683-AA6A-91BEB014345C}" ShortID="126248837"/>
+												<State Name="" ID="{B767996F-EE24-4683-AA6A-91BEB014345C}" ShortID="126248837">
+													<PropertyList>
+														<Property Name="BusVolume" Type="Real64" Value="-9"/>
+													</PropertyList>
+												</State>
 											</CustomState>
 											<CustomState>
 												<StateRef Name="P2_FactoryPuzzle1" ID="{79494580-3976-425E-971D-CB193C870700}"/>
@@ -495,19 +594,35 @@
 											</CustomState>
 											<CustomState>
 												<StateRef Name="P2_FactoryViewpoint" ID="{EB070CD5-C2C2-46D1-9A5B-C15943D11787}"/>
-												<State Name="" ID="{8D262C7C-B802-4528-9E93-8DDDE954D0F6}" ShortID="206153821"/>
+												<State Name="" ID="{8D262C7C-B802-4528-9E93-8DDDE954D0F6}" ShortID="206153821">
+													<PropertyList>
+														<Property Name="BusVolume" Type="Real64" Value="-3"/>
+													</PropertyList>
+												</State>
 											</CustomState>
 											<CustomState>
 												<StateRef Name="P6_EndLeave" ID="{E8ED1630-94B1-46FB-A5DC-E890F8746D73}"/>
-												<State Name="" ID="{B406C3CD-A1EE-4A2E-9F5B-35122EC8BFE2}" ShortID="721369652"/>
+												<State Name="" ID="{B406C3CD-A1EE-4A2E-9F5B-35122EC8BFE2}" ShortID="721369652">
+													<PropertyList>
+														<Property Name="BusVolume" Type="Real64" Value="-12"/>
+													</PropertyList>
+												</State>
 											</CustomState>
 											<CustomState>
 												<StateRef Name="P5_Core" ID="{6B59E6D1-4DA6-487E-91B0-1AE559B70CD1}"/>
-												<State Name="" ID="{79EB243B-4F49-4B5C-A977-36F4FDC7C363}" ShortID="1042463136"/>
+												<State Name="" ID="{79EB243B-4F49-4B5C-A977-36F4FDC7C363}" ShortID="1042463136">
+													<PropertyList>
+														<Property Name="BusVolume" Type="Real64" Value="-6"/>
+													</PropertyList>
+												</State>
 											</CustomState>
 											<CustomState>
 												<StateRef Name="P3_ConstructionScenery" ID="{D01D8749-D570-4885-88A1-4E868784E367}"/>
-												<State Name="" ID="{30CBD7C3-13F2-45F1-93CC-BF74A0280A07}" ShortID="324844823"/>
+												<State Name="" ID="{30CBD7C3-13F2-45F1-93CC-BF74A0280A07}" ShortID="324844823">
+													<PropertyList>
+														<Property Name="BusVolume" Type="Real64" Value="-4"/>
+													</PropertyList>
+												</State>
 											</CustomState>
 											<CustomState>
 												<StateRef Name="P5_CorePuzzle" ID="{C972704B-6D26-49FC-8229-7838BCD59F79}"/>
@@ -525,7 +640,7 @@
 												<StateRef Name="P4_Clouds" ID="{B92ABBFE-ED7C-4AE0-A739-CF81428935A0}"/>
 												<State Name="" ID="{B5FE7B10-6B7E-49D6-BAF8-10E7B26020FC}" ShortID="974808288">
 													<PropertyList>
-														<Property Name="BusVolume" Type="Real64" Value="7"/>
+														<Property Name="BusVolume" Type="Real64" Value="-3"/>
 													</PropertyList>
 												</State>
 											</CustomState>
@@ -535,11 +650,19 @@
 											</CustomState>
 											<CustomState>
 												<StateRef Name="P6_EndSacrifice" ID="{B2786363-AAB6-4D23-9F0A-8407408276B0}"/>
-												<State Name="" ID="{666591BE-F2F8-4C4A-9AA2-A6F8BE43F8CE}" ShortID="658618981"/>
+												<State Name="" ID="{666591BE-F2F8-4C4A-9AA2-A6F8BE43F8CE}" ShortID="658618981">
+													<PropertyList>
+														<Property Name="BusVolume" Type="Real64" Value="-9"/>
+													</PropertyList>
+												</State>
 											</CustomState>
 											<CustomState>
 												<StateRef Name="P6_AChoice" ID="{300F983C-BC50-4E36-BF53-75418BDAB6CF}"/>
-												<State Name="" ID="{0CE4E87B-A04C-48DC-B6D9-C89C9725150C}" ShortID="511357669"/>
+												<State Name="" ID="{0CE4E87B-A04C-48DC-B6D9-C89C9725150C}" ShortID="511357669">
+													<PropertyList>
+														<Property Name="BusVolume" Type="Real64" Value="-9"/>
+													</PropertyList>
+												</State>
 											</CustomState>
 											<CustomState>
 												<StateRef Name="Credits" ID="{07794BAC-6A4D-4EDF-9F27-404ACF53D536}"/>
@@ -1014,7 +1137,7 @@
 											<PropertyList>
 												<Property Name="BusVolume" Type="Real64">
 													<ValueList>
-														<Value>-12</Value>
+														<Value>-9</Value>
 													</ValueList>
 												</Property>
 												<Property Name="DivergenceCenter" Type="int32">
@@ -1037,7 +1160,7 @@
 											<PropertyList>
 												<Property Name="BusVolume" Type="Real64">
 													<ValueList>
-														<Value>-3</Value>
+														<Value>-12</Value>
 													</ValueList>
 												</Property>
 												<Property Name="DivergenceCenter" Type="int32">

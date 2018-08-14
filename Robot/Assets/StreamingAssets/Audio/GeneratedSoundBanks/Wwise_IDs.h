@@ -132,6 +132,17 @@ namespace AK
             } // namespace STATE
         } // namespace UI
 
+        namespace WIND
+        {
+            static const AkUniqueID GROUP = 1537061107U;
+
+            namespace STATE
+            {
+                static const AkUniqueID OFF = 930712164U;
+                static const AkUniqueID ON = 1651971902U;
+            } // namespace STATE
+        } // namespace WIND
+
     } // namespace STATES
 
     namespace SWITCHES

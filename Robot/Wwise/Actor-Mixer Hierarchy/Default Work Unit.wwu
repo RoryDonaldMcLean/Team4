@@ -4446,7 +4446,7 @@
 										<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-37</Value>
+												<Value>-49</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -5506,6 +5506,9 @@ Air currents change during the hours of the day and foliage changes during  the 
 											<StateGroupInfo>
 												<StateGroupRef Name="Environment" ID="{368540B0-9326-43CE-A20D-CD99DFFC54DE}"/>
 											</StateGroupInfo>
+											<StateGroupInfo>
+												<StateGroupRef Name="Wind" ID="{BF9DDFD0-0E85-4730-AA45-CCF1673AA1F4}"/>
+											</StateGroupInfo>
 										</StateGroupList>
 										<CustomStateList>
 											<CustomState>
@@ -5513,7 +5516,7 @@ Air currents change during the hours of the day and foliage changes during  the 
 												<State Name="" ID="{A6DD188F-2048-45A7-BA0B-EC5767744B3F}" ShortID="211268061">
 													<PropertyList>
 														<Property Name="Highpass" Type="int16" Value="21"/>
-														<Property Name="Volume" Type="Real64" Value="-11"/>
+														<Property Name="Volume" Type="Real64" Value="-26"/>
 													</PropertyList>
 												</State>
 											</CustomState>
@@ -5526,6 +5529,18 @@ Air currents change during the hours of the day and foliage changes during  the 
 														<Property Name="Volume" Type="Real64" Value="-12"/>
 													</PropertyList>
 												</State>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="Off" ID="{A5654227-E0E4-42A8-BC8A-7564D07F7D34}"/>
+												<State Name="" ID="{5742A0BB-EDE8-4BA6-8FF3-5CF6EF2B6107}" ShortID="359306668">
+													<PropertyList>
+														<Property Name="Volume" Type="Real64" Value="-20"/>
+													</PropertyList>
+												</State>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="On" ID="{BE324E5E-3B9A-439E-B5AB-B49924B63FDE}"/>
+												<State Name="" ID="{EED821E4-128B-445B-84D0-192104F8B492}" ShortID="137348216"/>
 											</CustomState>
 											<CustomState>
 												<StateRef Name="Menu" ID="{3AFA27FF-9639-4444-9C9F-20A568E90221}"/>
@@ -5567,7 +5582,7 @@ Air currents change during the hours of the day and foliage changes during  the 
 												<State Name="" ID="{9C39D879-2C0F-49C1-9E2E-4745FAED0573}" ShortID="482366905">
 													<PropertyList>
 														<Property Name="Highpass" Type="int16" Value="28"/>
-														<Property Name="Volume" Type="Real64" Value="1"/>
+														<Property Name="Volume" Type="Real64" Value="-8"/>
 													</PropertyList>
 												</State>
 											</CustomState>
@@ -5607,7 +5622,7 @@ Air currents change during the hours of the day and foliage changes during  the 
 												<StateRef Name="P4_Clouds" ID="{B92ABBFE-ED7C-4AE0-A739-CF81428935A0}"/>
 												<State Name="" ID="{217ABB8E-7133-430F-8186-D230B91E6B9E}" ShortID="712459084">
 													<PropertyList>
-														<Property Name="Volume" Type="Real64" Value="-15"/>
+														<Property Name="Volume" Type="Real64" Value="-26"/>
 													</PropertyList>
 												</State>
 											</CustomState>
@@ -6150,7 +6165,11 @@ Air currents change during the hours of the day and foliage changes during  the 
 											</CustomState>
 											<CustomState>
 												<StateRef Name="P1_Intro" ID="{FC8BB0BF-7A44-40B1-8D27-D1EA7366289D}"/>
-												<State Name="" ID="{73B880CA-6C87-4FAB-9792-654BC52396B9}" ShortID="93067352"/>
+												<State Name="" ID="{73B880CA-6C87-4FAB-9792-654BC52396B9}" ShortID="93067352">
+													<PropertyList>
+														<Property Name="Volume" Type="Real64" Value="-3"/>
+													</PropertyList>
+												</State>
 											</CustomState>
 											<CustomState>
 												<StateRef Name="P2_FactoryPuzzle1" ID="{79494580-3976-425E-971D-CB193C870700}"/>
@@ -6182,7 +6201,11 @@ Air currents change during the hours of the day and foliage changes during  the 
 											</CustomState>
 											<CustomState>
 												<StateRef Name="P1_IntroViewpoint" ID="{A0830815-1BB2-456C-BC25-BF32D2547E4E}"/>
-												<State Name="" ID="{39D1EB39-ED95-49C6-970F-4938BB5567E4}" ShortID="418511641"/>
+												<State Name="" ID="{39D1EB39-ED95-49C6-970F-4938BB5567E4}" ShortID="418511641">
+													<PropertyList>
+														<Property Name="Volume" Type="Real64" Value="-6"/>
+													</PropertyList>
+												</State>
 											</CustomState>
 											<CustomState>
 												<StateRef Name="P2_FactoryPuzzle2" ID="{DC03589A-BDD2-45D6-A826-EA9C0315B998}"/>
@@ -6243,7 +6266,11 @@ Air currents change during the hours of the day and foliage changes during  the 
 											</CustomState>
 											<CustomState>
 												<StateRef Name="P4_Clouds" ID="{B92ABBFE-ED7C-4AE0-A739-CF81428935A0}"/>
-												<State Name="" ID="{55B11952-9DF8-4CB7-ADA0-EBDBA7075719}" ShortID="299605225"/>
+												<State Name="" ID="{55B11952-9DF8-4CB7-ADA0-EBDBA7075719}" ShortID="299605225">
+													<PropertyList>
+														<Property Name="Volume" Type="Real64" Value="-7"/>
+													</PropertyList>
+												</State>
 											</CustomState>
 											<CustomState>
 												<StateRef Name="Empty" ID="{C1FFFDEC-FC6D-4B54-9D54-1DB3342ADAC8}"/>
@@ -6371,9 +6398,21 @@ Air currents change during the hours of the day and foliage changes during  the 
 												</ItemList>
 											</Grouping>
 											<Grouping>
+												<SwitchRef Name="P1_Intro" ID="{FC8BB0BF-7A44-40B1-8D27-D1EA7366289D}"/>
+												<ItemList>
+													<ItemRef Name="Metal Amb" ID="{B6403DBA-7FDE-4E49-B0B2-B37B54378B81}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
 												<SwitchRef Name="P5_Core" ID="{6B59E6D1-4DA6-487E-91B0-1AE559B70CD1}"/>
 												<ItemList>
 													<ItemRef Name="Tower Hum" ID="{91EAB744-37A2-4F64-80FB-B19BF7AB5AFC}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="P2_FactoryViewpoint" ID="{EB070CD5-C2C2-46D1-9A5B-C15943D11787}"/>
+												<ItemList>
+													<ItemRef Name="Metal Amb" ID="{B6403DBA-7FDE-4E49-B0B2-B37B54378B81}"/>
 												</ItemList>
 											</Grouping>
 											<Grouping>

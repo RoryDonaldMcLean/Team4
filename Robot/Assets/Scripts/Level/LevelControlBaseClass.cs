@@ -90,7 +90,12 @@ public class LevelControlBaseClass : MonoBehaviour
 
         foreach(GameObject lightsource in lightSources)
         {
-			if ((lightsource.name.Contains("Rotatable")) || (lightsource.name.Contains("Movable")))
+			if (lightsource.name.Contains("Rotatable"))
+            {
+                lightsource.GetComponent<SCR_Rotatable>().interactable = false;
+                EmittersEndControl(lightsource.GetComponentInChildren<LightEmitter>());
+            }
+            else if((lightsource.name.Contains("Movable")))
             {
                 EmittersEndControl(lightsource.GetComponentInChildren<LightEmitter>());
             }
@@ -120,6 +125,7 @@ public class LevelControlBaseClass : MonoBehaviour
 
         foreach (LineRenderer beam in lightBeams)
         {
+            beam.transform.parent.GetComponent<LightResize>().EndLightBeamInteraction();
             StartCoroutine(BlinkingLightControl(beam));
         }
     }

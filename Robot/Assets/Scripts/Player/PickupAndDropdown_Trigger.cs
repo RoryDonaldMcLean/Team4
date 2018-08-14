@@ -81,7 +81,7 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
             {
                 InteractWithObject(out hit);
             }
-            else if(rotateGeneric)
+            else if (rotateGeneric)
             {
                 RotationExecution(ref device);
             }
@@ -100,10 +100,10 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
     }
 
     private void OutlinePickUpObjects()
-    {   
+    {
         if ((!holding) && (triggerList.Count > 0))
         {
-            for(int i = 0; i < triggerList.Count; i++)
+            for (int i = 0; i < triggerList.Count; i++)
             {
                 if (triggerList[i] == null)
                 {
@@ -116,7 +116,7 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
                 }
             }
         }
-        else if(holding)
+        else if (holding)
         {
             for (int i = 0; i < triggerList.Count; i++)
             {
@@ -135,7 +135,7 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
 
     private void AnimStop()
     {
-        if((anim.GetCurrentAnimatorStateInfo(0).IsName("Carrying")) && (anim.speed == 1))
+        if ((anim.GetCurrentAnimatorStateInfo(0).IsName("Carrying")) && (anim.speed == 1))
         {
             Rigidbody rb = this.transform.parent.GetComponent<Rigidbody>();
             if (Mathf.Abs(rb.velocity.x) <= 0.1 && Mathf.Abs(rb.velocity.z) <= 0.1)
@@ -151,7 +151,7 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
     private void AnimPlay()
     {
         Rigidbody rb = this.transform.parent.GetComponent<Rigidbody>();
-        if (Mathf.Abs(rb.velocity.x) > 0.1 || Mathf.Abs(rb.velocity.z) > 0.1) 
+        if (Mathf.Abs(rb.velocity.x) > 0.1 || Mathf.Abs(rb.velocity.z) > 0.1)
         {
             anim.speed = 1;
             CancelInvoke("AnimPlay");
@@ -242,8 +242,8 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
 
     private bool RotationControl(int player1BtnIndex, int player2BtnIndex)
     {
-       return (Input.GetKey(GameManager.Instance.playerSetting.currentButton[player1BtnIndex]) && isBlue == GameManager.Instance.whichAndroid.player1ControlBlue)
-                || (Input.GetKey(GameManager.Instance.playerSetting.currentButton[player2BtnIndex]) && isBlue != GameManager.Instance.whichAndroid.player1ControlBlue);
+        return (Input.GetKey(GameManager.Instance.playerSetting.currentButton[player1BtnIndex]) && isBlue == GameManager.Instance.whichAndroid.player1ControlBlue)
+                 || (Input.GetKey(GameManager.Instance.playerSetting.currentButton[player2BtnIndex]) && isBlue != GameManager.Instance.whichAndroid.player1ControlBlue);
     }
 
     private bool PlayerOnePickUp(int btnIndex)
@@ -292,12 +292,12 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
                     holding = true;
                     anim.SetBool("IsLifting", true);
                 }
-            }
-            //if the object the player is trying to pick up is the RotateBox
-            else if (hit.transform.name.Contains("RotateBox"))
-            {
-                //if (!hit.GetComponent<SCR_Rotatable>().pickedUp)
-                //{
+
+                //if the object the player is trying to pick up is the RotateBox
+                else if (hit.transform.name.Contains("RotateBox"))
+                {
+                    
+                    Debug.Log(1);
                     pickedUpGameObject = hit.transform.gameObject;
 
                     AkSoundEngine.PostEvent("Arm_Attach", gameObject);
@@ -308,11 +308,12 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
                     pickedUpGameObject.transform.parent.GetComponent<SCR_Rotatable>().playerTag = this.transform.parent.tag;
                     holding = true;
                     anim.SetBool("IsLifting", true);
-                //}
-            }
-            else
-            {
-                GenericPickUpCheck(ref hit);
+                }
+                else
+                {
+                    Debug.Log(2);
+                    GenericPickUpCheck(ref hit);
+                }
             }
         }
     }
@@ -321,33 +322,36 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
     {
         if (ObjectFound(out hit))//ray cast detection
         {
-			if (hit.transform.name.Contains ("LimbLight"))
-			{
-				LimbLight limbLightBox = hit.transform.GetComponent<LimbLight> ();
-				if (limbLightBox.IsLimbAttached ())
-				{
-					limbLightBox.RemoveLimbFromLightBox (this.transform.parent.tag);
-				} else
-				{
-					limbLightBox.AttachLimbToLightBox (this.transform.parent.tag);
-				}
-			} else if (hit.transform.name.Contains ("LightEmitter"))
-			{
-				hit.transform.GetComponent<LightEmitter> ().InteractWithEmitter ();
-				hit.transform.GetComponent<LightEmitter> ().switchedOn = !hit.transform.GetComponent<LightEmitter> ().switchedOn;
-				Debug.Log ("light emitter hit");
-			} else if (hit.transform.name.Contains ("RotateBox"))
-			{
-				if (hit.transform.parent.GetComponent<SCR_Rotatable> ().rotatableObjectString.Contains ("LightEmitter"))
-				{
-					hit.transform.GetComponent<LightEmitter> ().InteractWithEmitter ();
-				}
-			} 
-			else if (hit.transform.name.Contains ("Switch"))
-			{
-				//Debug.Log ("you have indeed hit the switch. please don't hate me anymore :'(");
-				hit.transform.GetComponentInChildren<TimelinePlaybackManager> ().PlayTimeline ();
-			}
+            if (hit.transform.name.Contains("LimbLight"))
+            {
+                LimbLight limbLightBox = hit.transform.GetComponent<LimbLight>();
+                if (limbLightBox.IsLimbAttached())
+                {
+                    limbLightBox.RemoveLimbFromLightBox(this.transform.parent.tag);
+                }
+                else
+                {
+                    limbLightBox.AttachLimbToLightBox(this.transform.parent.tag);
+                }
+            }
+            else if (hit.transform.name.Contains("LightEmitter"))
+            {
+                hit.transform.GetComponent<LightEmitter>().InteractWithEmitter();
+                hit.transform.GetComponent<LightEmitter>().switchedOn = !hit.transform.GetComponent<LightEmitter>().switchedOn;
+                Debug.Log("light emitter hit");
+            }
+            else if (hit.transform.name.Contains("RotateBox"))
+            {
+                if (hit.transform.parent.GetComponent<SCR_Rotatable>().rotatableObjectString.Contains("LightEmitter"))
+                {
+                    hit.transform.GetComponent<LightEmitter>().InteractWithEmitter();
+                }
+            }
+            else if (hit.transform.name.Contains("Switch"))
+            {
+                //Debug.Log ("you have indeed hit the switch. please don't hate me anymore :'(");
+                hit.transform.GetComponentInChildren<TimelinePlaybackManager>().PlayTimeline();
+            }
 
         }
     }
@@ -367,6 +371,7 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
     public void RotateDrop()
     {
         pickedUpGameObject.transform.parent.GetComponent<SCR_Rotatable>().pickedUp = false;
+        pickedUpGameObject.transform.parent.GetComponent<SCR_Rotatable>().playerTag = null;
         PutDownObject();
 
         pickedUpGameObject = null; //empty the pick up object
@@ -399,15 +404,15 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
             pickedUpGameObject.GetComponent<Transform>().position.y + 1, pickedUpGameObject.GetComponent<Transform>().position.z), -Vector3.up, out hit))
         {
             bool carry = false;
-            foreach(Transform mc in pickedUpGameObject.GetComponentsInChildren<Transform>())
+            foreach (Transform mc in pickedUpGameObject.GetComponentsInChildren<Transform>())
             {
-                if(mc.name.Contains("CarryCrate"))
+                if (mc.name.Contains("CarryCrate"))
                 {
                     carry = true;
                 }
             }
 
-            if(carry)
+            if (carry)
             {
                 y = hit.point.y + 1;
             }
@@ -417,7 +422,7 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
             }
         }
 
-        pickedUpGameObject.GetComponent<Transform>().position = new Vector3(pickedUpGameObject.GetComponent<Transform>().position.x, 
+        pickedUpGameObject.GetComponent<Transform>().position = new Vector3(pickedUpGameObject.GetComponent<Transform>().position.x,
             y, pickedUpGameObject.GetComponent<Transform>().position.z);
     }
 
@@ -432,8 +437,8 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
 
         pickupLocation = Instantiate(Resources.Load("Prefabs/Light/PickLocation")) as GameObject;
         pickupLocation.transform.parent = this.transform.parent;
-        pickupLocation.transform.localPosition = new Vector3(0, 1.5f /30.0f, 2.0f / 30.0f);
-       
+        pickupLocation.transform.localPosition = new Vector3(0, 1.5f / 30.0f, 2.0f / 30.0f);
+
 
         float x = pickedUpGameObject.GetComponent<BoxCollider>().size.x / pickupLocation.transform.lossyScale.x;
         float y = pickedUpGameObject.GetComponent<BoxCollider>().size.y / pickupLocation.transform.lossyScale.y;

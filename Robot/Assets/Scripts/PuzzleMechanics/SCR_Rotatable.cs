@@ -50,7 +50,7 @@ public class SCR_Rotatable : MonoBehaviour
             //if the player leaves the movable trigger box then drop the box thing
             if (Entered == false)
 			{
-				GameObject.FindGameObjectWithTag(playerTag).GetComponent<PickupAndDropdown_Trigger>().RotateDrop();
+				GameObject.FindGameObjectWithTag(playerTag).GetComponentInChildren<PickupAndDropdown_Trigger>().RotateDrop();
 			}
 		}
 	}

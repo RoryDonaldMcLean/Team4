@@ -290,12 +290,14 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
                     pickedUpGameObject.transform.parent.GetComponent<SCR_Movable>().pickedUp = true;
                     pickedUpGameObject.transform.parent.GetComponent<SCR_Movable>().playerTag = this.transform.parent.tag;
                     holding = true;
-
                     anim.SetBool("IsLifting", true);
                 }
-                //if the object the player is trying to pick up is the RotateBox
-                else if (hit.transform.name.Contains("RotateBox"))
-                {
+            }
+            //if the object the player is trying to pick up is the RotateBox
+            else if (hit.transform.name.Contains("RotateBox"))
+            {
+                //if (!hit.GetComponent<SCR_Rotatable>().pickedUp)
+                //{
                     pickedUpGameObject = hit.transform.gameObject;
 
                     AkSoundEngine.PostEvent("Arm_Attach", gameObject);
@@ -306,12 +308,11 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
                     pickedUpGameObject.transform.parent.GetComponent<SCR_Rotatable>().playerTag = this.transform.parent.tag;
                     holding = true;
                     anim.SetBool("IsLifting", true);
-
-                }
-                else
-                {
-                    GenericPickUpCheck(ref hit);
-                }
+                //}
+            }
+            else
+            {
+                GenericPickUpCheck(ref hit);
             }
         }
     }

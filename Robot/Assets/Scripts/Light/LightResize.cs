@@ -16,6 +16,7 @@ public class LightResize : MonoBehaviour
     private int defaultBeamLength;
     private float defaultBeamEndPoint;
     private float distance;
+    private bool finished = false;
 
     void Start()
 	{
@@ -57,6 +58,7 @@ public class LightResize : MonoBehaviour
 
     public void EndLightBeamInteraction()
     {
+        finished = true;
         StopCoroutine(RaycastOnRepeat());
         StopCoroutine(LightInterruptionCheck());
     }
@@ -199,26 +201,29 @@ public class LightResize : MonoBehaviour
     //Upon a collison being detected with a object
     void OnEnterObject()
     {
-        if (objectInfo.collider.name.Contains("ColourBarrier"))
+        if (!finished)
         {
-            if (objectInfo.transform.GetComponent<LightBarrier>().OnEnter(lineBeam.beamColour))
+            if (objectInfo.collider.name.Contains("ColourBarrier"))
             {
-                BeamResizeController();
-                AkSoundEngine.SetState("Drone_Modulator", "Hit_Wall");
-            }
-            else 
-            {              
-                lightBarrier = true;
-                if (ObjectFoundBehindIgnoredObject())
+                if (objectInfo.transform.GetComponent<LightBarrier>().OnEnter(lineBeam.beamColour))
                 {
-                    distance += objectInfo.distance + 0.5f;
                     BeamResizeController();
+                    AkSoundEngine.SetState("Drone_Modulator", "Hit_Wall");
                 }
-                AkSoundEngine.SetState("Drone_Modulator", "Through_Barrier");
+                else
+                {
+                    lightBarrier = true;
+                    if (ObjectFoundBehindIgnoredObject())
+                    {
+                        distance += objectInfo.distance + 0.5f;
+                        BeamResizeController();
+                    }
+                    AkSoundEngine.SetState("Drone_Modulator", "Through_Barrier");
+                }
             }
+            //prolly remove this if statement at some pt
+            else if ((!objectInfo.collider.name.Contains("Pole")) && (!objectInfo.collider.name.Contains("LineColliderObject"))) BeamResizeController();
         }
-        //prolly remove this if statement at some pt
-        else if ((!objectInfo.collider.name.Contains("Pole"))&&(!objectInfo.collider.name.Contains("LineColliderObject"))) BeamResizeController();
     }
 
     public void TriggerExitControl(Transform objectBlocked)
@@ -313,13 +318,16 @@ public class LightResize : MonoBehaviour
 
     private void CleanUpCollidedObject()
     {
-        //if (lineBeam.IsBeamAlive())
+        if (!finished)
         {
-            ObjectExitBeamAreaResponse();
-        }
+            //if (lineBem.IsBeamAlive())
+            {
+                ObjectExitBeamAreaResponse();
+            }
 
-        lineBeam.ToggleBeam();
-        lineBeam.ToggleBeam();
+            lineBeam.ToggleBeam();
+            lineBeam.ToggleBeam();
+        }
     }
 
     private void LightInterruptionControl()

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SCR_Rotatable : MonoBehaviour 
 {
@@ -13,10 +14,15 @@ public class SCR_Rotatable : MonoBehaviour
     public Color beamColour = Color.white;
     public int beamLength = 5;
 
-	// Use this for initialization
-	void Start () 
+    private GameObject rotateVisualAid;
+
+    // Use this for initialization
+    void Start () 
 	{
-		GameObject newRotatable = Instantiate(Resources.Load("Prefabs/Light/" + rotatableObjectString)) as GameObject;
+        rotateVisualAid = this.transform.GetChild(0).gameObject;
+        rotateVisualAid.SetActive(false);
+
+        GameObject newRotatable = Instantiate(Resources.Load("Prefabs/Light/" + rotatableObjectString)) as GameObject;
 		newRotatable.name = "RotateBox";
 		newRotatable.transform.position = this.transform.GetChild(1).position;
 		newRotatable.transform.SetParent(this.transform);
@@ -37,31 +43,33 @@ public class SCR_Rotatable : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void Update () 
+	void Update() 
 	{
 		if (pickedUp)
 		{
-			//if the player leaves the movable trigger box then drop the box thing
-			if (Entered == false)
+            //if the player leaves the movable trigger box then drop the box thing
+            if (Entered == false)
 			{
-				GameObject.FindGameObjectWithTag (playerTag).GetComponent<PickupAndDropdown>().RotateDrop();
+				GameObject.FindGameObjectWithTag(playerTag).GetComponentInChildren<PickupAndDropdown_Trigger>().RotateDrop();
 			}
 		}
 	}
 
 	void OnTriggerEnter(Collider col)
 	{
-		if(col.gameObject.name.Contains("Player"))
+		if ((col.gameObject.name.Contains("Player")) && (!Entered))
 		{
 			Entered = true;
-		}
+            rotateVisualAid.SetActive(true);
+        }
 	}
 
 	void OnTriggerExit(Collider col)
 	{
-		if (col.gameObject.name.Contains ("Player"))
+		if ((col.gameObject.name.Contains ("Player")) && (Entered))
 		{
 			Entered = false;
-		}
+            rotateVisualAid.SetActive(false);
+        }
 	}
 }

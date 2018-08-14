@@ -163,7 +163,7 @@ public class MelodyInput : MonoBehaviour
 					else if (Input.GetKeyDown(GameManager.Instance.playerSetting.currentButton[26]))
                     {
                         Debug.Log("b0ss plz");
-                        MelodyDoor.GetComponent<InControlMelody>().CheckCode();
+						MelodyDoor.GetComponent<InControlMelody>().ClearCode();
                     }
                     else
                     {
@@ -248,7 +248,7 @@ public class MelodyInput : MonoBehaviour
 					else if (Input.GetKeyDown(GameManager.Instance.playerSetting.currentButton[27]))
                     {
                         Debug.Log("b0ss plz");
-                        MelodyDoor.GetComponent<InControlMelody>().CheckCode();
+						MelodyDoor.GetComponent<InControlMelody>().ClearCode();
                     }
                     else
                     {
@@ -340,7 +340,7 @@ public class MelodyInput : MonoBehaviour
                     else if (inputDevice.Action3.WasPressed)
                     {
                         Debug.Log("b0ss plz");
-                        MelodyDoor.GetComponent<InControlMelody>().CheckCode();
+						MelodyDoor.GetComponent<InControlMelody>().ClearCode();
                     }
                     else
                     {
@@ -424,7 +424,7 @@ public class MelodyInput : MonoBehaviour
                     else if (inputDevice.Action3.WasPressed)
                     {
                         Debug.Log("b0ss plz");
-                        MelodyDoor.GetComponent<InControlMelody>().CheckCode();
+						MelodyDoor.GetComponent<InControlMelody>().ClearCode();
                     }
                     else
                     {

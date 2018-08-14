@@ -26,6 +26,8 @@ public class TutorialOne : TutorialBaseClass
 
         textParent.GetChild(0).GetComponent<Text>().text = GameManager.Instance.playerSetting.currentButton[10].ToString();
         textParent.GetChild(1).GetComponent<Text>().text = GameManager.Instance.playerSetting.currentButton[23].ToString();
+
+		TurnOnEntranceWall();
     }
 
     protected override void TextPromptTutorial()

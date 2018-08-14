@@ -772,15 +772,20 @@ public class SCR_TradeLimb : MonoBehaviour
 
         if (limbs[limbNumber].activeSelf)
         {
-            Vector3 dropDownLimsPosition = limbs[limbNumber].transform.position;
-            RemoveLimb(limbToRemove);
-            GameObject dropDownLims = Instantiate(Resources.Load("Prefabs/Player/" + GetPrefabsName(limbToRemove))) as GameObject;
+            RaycastHit hit;
+            if (Physics.Raycast(limbs[limbNumber].transform.position, -Vector3.up, out hit))
+            {
+                Vector3 dropDownLimsPosition = hit.point;
 
-            dropDownLims.AddComponent<Collider>();
-            dropDownLims.AddComponent<Rigidbody>();
-            dropDownLims.name = limbToRemove;
-            dropDownLims.transform.position = dropDownLimsPosition;
-            Destroy(dropDownLims, 2f);
+                RemoveLimb(limbToRemove);
+                GameObject dropDownLims = Instantiate(Resources.Load("Prefabs/Player/" + limbToRemove)) as GameObject;
+                
+                dropDownLims.name = limbToRemove;
+                dropDownLims.transform.position = dropDownLimsPosition;
+                //
+                //this.GetComponent<Chirps>().
+                Destroy(dropDownLims, 3f);
+            }
         }
     }
 }

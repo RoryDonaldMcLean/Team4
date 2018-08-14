@@ -166,9 +166,9 @@ public class Chirps : MonoBehaviour
 							//Emotes ();
 							//play chirp
 							GameController.GetComponent<ChirpCollector> ().startTimer = true;
-                        GameController.GetComponent<ChirpCollector>().playertwoChirped = true;
-						GameController.GetComponent<ChirpCollector> ().eventCount += 1;
-                        Debug.Log ("player 1, right arm chirp");
+                            GameController.GetComponent<ChirpCollector>().playertwoChirped = true;
+						    GameController.GetComponent<ChirpCollector> ().eventCount += 1;
+                            Debug.Log ("player 1, right arm chirp");
 							AkSoundEngine.SetState ("Chirp_Type", "Sad");
 							AkSoundEngine.PostEvent ("Chirp", gameObject);
 

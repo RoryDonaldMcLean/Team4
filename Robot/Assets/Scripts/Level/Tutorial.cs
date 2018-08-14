@@ -29,7 +29,7 @@ public class Tutorial : MonoBehaviour
 
 	public bool ChirpsTutorial;
 
-
+	bool UISwitch = false;
 
 	// Use this for initialization
 	void Start () 
@@ -108,38 +108,49 @@ public class Tutorial : MonoBehaviour
 			ControllerUsed = true;
 		}
 
+		InitialText();
+		 
+
+
+	}
+
+	void InitialText()
+	{
 		if (this.GetComponentInParent<InControlMovement> ().enabled == false  && levelCounter == 0)
 		{
 			ChirpsTutorialFunction();
 
 			if (tempBool == false)
 			{
-				UIText.GetComponent<Text> ().text = "Please perform Systems diagnostic... (Perform chirps with available Limbs)";
+				UIText.GetComponent<Text> ().text = "Accessing Diagnostic systems; checking limb functionality through communication systems: access communication systems via (Chirps Menu)";
 			}
-            //CancelInvoke("func");
+			//CancelInvoke("func");
 			StartCoroutine (TestBool (1.0f));
 		}
-		else
+		else if(levelCounter == 0)
 		{
 			//GetRidOfText ();
 			//StartCoroutine(WaitTwoSeconds (2.0f));
-            if(UIText != null)
-            {
-                UIText.GetComponent<Text>().text = "Diagnostic Complete. Movement re-activated";
-                StartCoroutine(GetRidOfText(2.0f));
+			if(UIText != null)
+			{
+				if (UISwitch == false)
+				{
+					UIText.GetComponent<Text> ().text = "Diagnostic Complete. Movement re-activated";
+					StartCoroutine (GetRidOfText (2.0f));
+				}
 
-            }
-			
+			}
+
 		}
-
 
 	}
 
 	IEnumerator GetRidOfText(float waitTime)
 	{
 		yield return new WaitForSeconds (waitTime);
-
+		Debug.Log ("AHHHHHHHHHHHHHHHHHHHHHHHHHHH");
 		UIText.SetActive (false);
+		UISwitch = true;
 	}
 
 	IEnumerator TestBool(float waitTime)
@@ -147,6 +158,14 @@ public class Tutorial : MonoBehaviour
 		yield return new WaitForSeconds (waitTime);
 
 		tempBool = true;
+	}
+
+	IEnumerator DisplayText(float waitTime)
+	{
+		yield return new WaitForSeconds (waitTime);
+		UIText.SetActive (true);
+		UIText.GetComponent<Text> ().text = "Found operational arm. Directive; acquite arm.";
+		//UISwitch = true;
 	}
 
 
@@ -225,6 +244,14 @@ public class Tutorial : MonoBehaviour
 		{
 			if (ControllerUsed == true)
 			{
+				if (levelCounter == 0)
+				{
+					UIText.SetActive (true);
+					UIText.GetComponent<Text> ().text = "Found operational arm. Directive; acquite arm.";
+					StartCoroutine (GetRidOfText (3.0f));
+
+				}
+
 				if (playerNum == 0)
 				{
 					startTimer = true;
@@ -248,11 +275,19 @@ public class Tutorial : MonoBehaviour
 
 					UIButtons2 [1].SetActive (false);
 					UIButtons2 [3].SetActive (false);
-					UIButtons [4].SetActive (false);
+					UIButtons2 [4].SetActive (false);
 				}
 
 			} else
 			{
+				if (levelCounter == 0)
+				{
+					UIText.SetActive (true);
+					UIText.GetComponent<Text> ().text = "Found operational arm. Directive; acquite arm.";
+					StartCoroutine (GetRidOfText (3.0f));
+
+				}
+
 				if (playerNum == 0)
 				{
 					startTimer = true;
@@ -294,7 +329,15 @@ public class Tutorial : MonoBehaviour
 		{
 			if (ControllerUsed == true)
 			{
-				if ((playerNum == 0) &&(col.transform.GetComponent<LightEmitter>().canBeTurnedOff == true))
+				if (levelCounter == 0)
+				{
+					UIText.SetActive (true);
+					UIText.GetComponent<Text> ().text = "Industrial equipment discovered. Initiate interact function";
+					StartCoroutine (GetRidOfText (3.0f));
+
+				}
+
+				if ((playerNum == 0) && (col.transform.GetComponent<LightEmitter> ().canBeTurnedOff == true))
 				{
 					startTimer = true;
 					UITutorial.SetActive (true);
@@ -309,7 +352,7 @@ public class Tutorial : MonoBehaviour
 
 				}
 
-				if ((playerNum == 1) &&(col.transform.GetComponent<LightEmitter>().canBeTurnedOff == true))
+				if ((playerNum == 1) && (col.transform.GetComponent<LightEmitter> ().canBeTurnedOff == true))
 				{
 					startTimer = true;
 					UITutorial2.SetActive (true);
@@ -324,7 +367,15 @@ public class Tutorial : MonoBehaviour
 
 			} else
 			{
-				if ((playerNum == 0) &&(col.transform.GetComponent<LightEmitter>().canBeTurnedOff == true))
+				if (levelCounter == 0)
+				{
+					UIText.SetActive (true);
+					UIText.GetComponent<Text> ().text = "Industrial equipment discovered. Initiate interact function";
+					StartCoroutine (GetRidOfText (3.0f));
+
+				}
+
+				if ((playerNum == 0) && (col.transform.GetComponent<LightEmitter> ().canBeTurnedOff == true))
 				{
 					startTimer = true;
 					UITutorial.SetActive (true);
@@ -341,7 +392,7 @@ public class Tutorial : MonoBehaviour
 				
 				}
 
-				if ((playerNum == 1) &&(col.transform.GetComponent<LightEmitter>().canBeTurnedOff == true))
+				if ((playerNum == 1) && (col.transform.GetComponent<LightEmitter> ().canBeTurnedOff == true))
 				{
 					startTimer = true;
 					UITutorial2.SetActive (true);
@@ -433,6 +484,14 @@ public class Tutorial : MonoBehaviour
 		{
 			if (ControllerUsed == true)
 			{
+				if (levelCounter == 0)
+				{
+					UIText.SetActive (true);
+					UIText.GetComponent<Text> ().text = "Industrial equipment requires rotation to achieve maximum efficiency";
+					StartCoroutine (GetRidOfText (3.0f));
+
+				}
+
 				if (playerNum == 0)
 				{
 					startTimer = true;
@@ -478,6 +537,14 @@ public class Tutorial : MonoBehaviour
 
 			} else
 			{
+				if (levelCounter == 0)
+				{
+					UIText.SetActive (true);
+					UIText.GetComponent<Text> ().text = "Industrial equipment requires rotation to achieve maximum efficiency";
+					StartCoroutine (GetRidOfText (3.0f));
+
+				}
+
 				if (playerNum == 0)
 				{
 					startTimer = true;
@@ -534,8 +601,7 @@ public class Tutorial : MonoBehaviour
 			}
 
 
-		} 
-		else if ((col.transform.name.Contains ("LimbLight(ARM_MOVE)")) || (col.transform.name.Contains("LimbLight(LEG_MOVE)")))
+		} else if ((col.transform.name.Contains ("LimbLight(ARM_MOVE)")))
 		{
 			if (col.transform.GetChild (0).name.Contains ("Arm"))
 			{
@@ -566,8 +632,7 @@ public class Tutorial : MonoBehaviour
 					}
 
 
-				} 
-				else
+				} else
 				{
 					if (playerNum == 0)
 					{
@@ -689,8 +754,8 @@ public class Tutorial : MonoBehaviour
 
 					UIButtons [1].SetActive (false);
 					//UIButtons [3].SetActive (false);
-					UIButtons[4].SetActive(true);
-					UIButtons [4].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Controller_Turn ONOff Light Emitter") as Sprite;
+					UIButtons [4].SetActive (false);
+					//UIButtons [4].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Controller_Turn ONOff Light Emitter") as Sprite;
 
 				}
 
@@ -703,8 +768,8 @@ public class Tutorial : MonoBehaviour
 					UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
 
 					UIButtons2 [1].SetActive (false);
-					UIButtons2 [4].SetActive (true);
-					UIButtons2 [4].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Controller_Turn ONOff Light Emitter") as Sprite;
+					UIButtons2 [4].SetActive (false);
+					//UIButtons2 [4].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Controller_Turn ONOff Light Emitter") as Sprite;
 				}
 
 
@@ -722,8 +787,8 @@ public class Tutorial : MonoBehaviour
 					//test to see if i can display the keyboard controls
 					keyboardButtonPlayer1.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [8].ToString ();
 					UIButtons [2].GetComponent<Text> ().text = "Jump";
-					UIButtons [3].SetActive (true);
-					UIButtons [3].GetComponent<Text> ().text = "Turn on Emitter " + GameManager.Instance.playerSetting.currentButton [9].ToString ();
+					UIButtons [4].SetActive (false);
+					//UIButtons [3].GetComponent<Text> ().text = "Turn on Emitter " + GameManager.Instance.playerSetting.currentButton [9].ToString ();
 				}
 
 				if (playerNum == 1)
@@ -739,78 +804,239 @@ public class Tutorial : MonoBehaviour
 
 					KeyboardButtonPlayer2.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [21].ToString ();
 					UIButtons2 [2].GetComponent<Text> ().text = "Jump";
-					UIButtons2 [3].SetActive (true);
-					UIButtons2 [3].GetComponent<Text> ().text = "Turn on Emitter " + GameManager.Instance.playerSetting.currentButton [24].ToString ();
+					UIButtons2 [4].SetActive (false);
+					//UIButtons2 [3].GetComponent<Text> ().text = "Turn on Emitter " + GameManager.Instance.playerSetting.currentButton [24].ToString ();
 				}
 
 
 
 			}
 
-		} 
-		else if (col.transform.name.Contains("MelodyGate"))
+		} else if (col.transform.name.Contains ("MelodyGate"))
 		{
 			if (ControllerUsed == true)
 			{
+				if (levelCounter == 0)
+				{
+					UIText.SetActive (true);
+					UIText.GetComponent<Text> ().text = "Sound based password door discovered. Attempt override...";
+					StartCoroutine (GetRidOfText (3.0f));
+
+				}
+
 				if (playerNum == 0)
 				{
 					startTimer = true;
-					UITutorial.SetActive (true);
-					UIButtons [0].SetActive (true);
-					UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Controller_Cancel Melody Code") as Sprite;
-					UIButtons [0].GetComponent<Image> ().preserveAspect = true;
-
-					UIButtons [1].SetActive (false);
-					UIButtons [3].SetActive (false);
-					UIButtons [4].SetActive (false);
+					UITutorial.SetActive (false);
 				}
 
 				if (playerNum == 1)
 				{
 					startTimer = true;
-					UITutorial2.SetActive (true);
-					UIButtons2 [0].SetActive (true);
-					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Controller_Cancel Melody Code") as Sprite;
-					UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
-
-					UIButtons2 [1].SetActive (false);
-					UIButtons2 [3].SetActive (false);
-					UIButtons2 [4].SetActive (false);
+					UITutorial2.SetActive (false);
 				}
-			} 
-			else
+			} else
 			{
+				if (levelCounter == 0)
+				{
+					UIText.SetActive (true);
+					UIText.GetComponent<Text> ().text = "Sound based password door discovered. Attempt override...";
+					StartCoroutine (GetRidOfText (3.0f));
+
+				}
+
 				if (playerNum == 0)
 				{
 					startTimer = true;
-					UITutorial.SetActive (true);
-					UIButtons [0].SetActive (true);
-					UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Keyboard promptbox Buttons") as Sprite;
-					UIButtons [0].GetComponent<Image> ().preserveAspect = true;
-
-					UIButtons [1].SetActive (true);
-					//test to see if i can display the keyboard controls
-					keyboardButtonPlayer1.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [26].ToString ();
-					UIButtons [2].GetComponent<Text> ().text = "Cancel Code";
-					UIButtons [3].SetActive (false);
-					UIButtons [4].SetActive (false);
+					UITutorial.SetActive (false);
 				}
 
 				if (playerNum == 1)
 				{
 					startTimer = true;
-					UITutorial2.SetActive (true);
-					UIButtons2 [0].SetActive (true);
-					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Keyboard promptbox Buttons") as Sprite;
-					UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
-
-					UIButtons2 [1].SetActive (true);
-					//test to see if i can display the keyboard controls
-					keyboardButtonPlayer1.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [27].ToString ();
-					UIButtons2 [2].GetComponent<Text> ().text = "Cancel Code";
-					UIButtons2 [3].SetActive (false);
-					UIButtons2[4].SetActive (false);
+					UITutorial2.SetActive (false);
 				}
+			}
+		} else if (col.transform.name.Contains ("LimbLight(LEG_MOVE)"))
+		{
+			if (col.transform.GetChild (0).name.Contains ("Leg"))
+			{
+				if (ControllerUsed == true)
+				{
+					if (playerNum == 0)
+					{
+						startTimer = true;
+						UITutorial.SetActive (true);
+						UIButtons [0].SetActive (true);
+						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Controller_Pick-Drop Object") as Sprite;
+						UIButtons [0].GetComponent<Image> ().preserveAspect = true;
+						UIButtons [1].SetActive (false);
+						UIButtons [3].SetActive (false);
+						UIButtons [4].SetActive (false);
+					}
+
+					if (playerNum == 1)
+					{
+						startTimer = true;
+						UITutorial2.SetActive (true);
+						UIButtons2 [0].SetActive (true);
+						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Controller_Pick-Drop Object") as Sprite;
+						UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
+						UIButtons2 [1].SetActive (false);
+						UIButtons2 [3].SetActive (false);
+						UIButtons2 [4].SetActive (false);
+					}
+
+
+				} else
+				{
+					if (playerNum == 0)
+					{
+						startTimer = true;
+						UITutorial.SetActive (true);
+						UIButtons [0].SetActive (true);
+						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Keyboard promptbox Buttons") as Sprite;
+						UIButtons [0].GetComponent<Image> ().preserveAspect = true;
+
+						UIButtons [1].SetActive (true);
+						//test to see if i can display the keyboard controls
+						keyboardButtonPlayer1.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [9].ToString ();
+						UIButtons [2].GetComponent<Text> ().text = "Pick up device";
+						UIButtons [3].SetActive (false);
+						//UIButtons [4].SetActive (false);
+					}
+
+					if (playerNum == 1)
+					{
+						startTimer = true;
+						UITutorial2.SetActive (true);
+						UIButtons2 [0].SetActive (true);
+						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Keyboard promptbox Buttons") as Sprite;
+						UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
+
+						UIButtons2 [1].SetActive (true);
+						//test to see if i can display the keyboard controls
+
+						KeyboardButtonPlayer2.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [22].ToString ();
+						UIButtons2 [2].GetComponent<Text> ().text = "Pick up device";
+						UIButtons2 [3].SetActive (false);
+						UIButtons2 [4].SetActive (false);
+					}
+
+
+				}
+
+			} else
+			{
+				if (ControllerUsed == true)
+				{
+					if (levelCounter == 2)
+					{
+						UIText.SetActive (true);
+						UIText.GetComponent<Text> ().text = "New equipment sighted accessing drive...Equipment function is to change the spectrum of beam, requires limb to function.";
+						StartCoroutine (GetRidOfText (3.0f));
+
+					}
+
+					if (playerNum == 0)
+					{
+						startTimer = true;
+						UITutorial.SetActive (true);
+						UIButtons [0].SetActive (true);
+						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Controller_Insert Withdraw Limb") as Sprite;
+						UIButtons [0].GetComponent<Image> ().preserveAspect = true;
+						UIButtons [1].SetActive (false);
+						UIButtons [3].SetActive (false);
+						UIButtons [4].SetActive (false);
+					}
+
+					if (playerNum == 1)
+					{
+						startTimer = true;
+						UITutorial2.SetActive (true);
+						UIButtons2 [0].SetActive (true);
+						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Controller_Insert Withdraw Limb") as Sprite;
+						UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
+						UIButtons2 [1].SetActive (false);
+						UIButtons2 [3].SetActive (false);
+						UIButtons2 [4].SetActive (false);
+					}
+
+
+				} else
+				{
+					if (levelCounter == 2)
+					{
+						UIText.SetActive (true);
+						UIText.GetComponent<Text> ().text = "New equipment sighted accessing drive...Equipment function is to change the spectrum of beam, requires limb to function.";
+						StartCoroutine (GetRidOfText (3.0f));
+
+					}
+
+					if (playerNum == 0)
+					{
+						startTimer = true;
+						UITutorial.SetActive (true);
+						UIButtons [0].SetActive (true);
+						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Keyboard promptbox Buttons") as Sprite;
+						UIButtons [0].GetComponent<Image> ().preserveAspect = true;
+
+						UIButtons [1].SetActive (true);
+						//test to see if i can display the keyboard controls
+						keyboardButtonPlayer1.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [11].ToString ();
+						UIButtons [2].GetComponent<Text> ().text = "Insert/ withdraw Limb";
+						UIButtons [3].SetActive (false);
+						UIButtons [4].SetActive (false);
+					}
+
+					if (playerNum == 1)
+					{
+						startTimer = true;
+						UITutorial2.SetActive (true);
+						UIButtons2 [0].SetActive (true);
+						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Keyboard promptbox Buttons") as Sprite;
+						UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
+
+						UIButtons2 [1].SetActive (true);
+						//test to see if i can display the keyboard controls
+
+						KeyboardButtonPlayer2.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [24].ToString ();
+						UIButtons2 [2].GetComponent<Text> ().text = "Insert/ withdraw Limb";
+						UIButtons2 [3].SetActive (false);
+						UIButtons2 [4].SetActive (false);
+					}
+
+
+
+				}
+
+			}
+		} else if (col.transform.name.Contains ("LightSplitter"))
+		{
+			if (levelCounter == 3)
+			{
+				UIText.SetActive (true);
+				UIText.GetComponent<Text> ().text = "New equipment sighted: Function: splits the neutron beam into two different beams (can be picked up)";
+				StartCoroutine (GetRidOfText (3.0f));
+
+			}
+		} else if (col.transform.name.Contains ("LightBarrier"))
+		{
+			if (levelCounter == 3)
+			{
+				UIText.SetActive (true);
+				UIText.GetComponent<Text> ().text = "New equipment sighted: Function: Prevents neutron beam of a specific spectrum from passing through barrier.";
+				StartCoroutine (GetRidOfText (3.0f));
+
+			}
+		} else if (col.transform.name.Contains ("LightColourCombo"))
+		{
+			if (levelCounter == 3)
+			{
+				UIText.SetActive (true);
+				UIText.GetComponent<Text> ().text = "New equipment sighted: Function: Combines two different neutron beams to create a new single beam of a different spectrum (can be picked up)";
+				StartCoroutine (GetRidOfText (3.0f));
+
 			}
 		}
 

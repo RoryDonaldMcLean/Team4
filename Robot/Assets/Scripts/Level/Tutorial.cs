@@ -827,27 +827,13 @@ public class Tutorial : MonoBehaviour
 				if (playerNum == 0)
 				{
 					startTimer = true;
-					UITutorial.SetActive (true);
-					UIButtons [0].SetActive (true);
-					UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Controller_Cancel Melody Code") as Sprite;
-					UIButtons [0].GetComponent<Image> ().preserveAspect = true;
-
-					UIButtons [1].SetActive (false);
-					UIButtons [3].SetActive (false);
-					UIButtons [4].SetActive (false);
+					UITutorial.SetActive (false);
 				}
 
 				if (playerNum == 1)
 				{
 					startTimer = true;
-					UITutorial2.SetActive (true);
-					UIButtons2 [0].SetActive (true);
-					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Controller_Cancel Melody Code") as Sprite;
-					UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
-
-					UIButtons2 [1].SetActive (false);
-					UIButtons2 [3].SetActive (false);
-					UIButtons2 [4].SetActive (false);
+					UITutorial2.SetActive (false);
 				}
 			} else
 			{
@@ -862,33 +848,13 @@ public class Tutorial : MonoBehaviour
 				if (playerNum == 0)
 				{
 					startTimer = true;
-					UITutorial.SetActive (true);
-					UIButtons [0].SetActive (true);
-					UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Keyboard promptbox Buttons") as Sprite;
-					UIButtons [0].GetComponent<Image> ().preserveAspect = true;
-
-					UIButtons [1].SetActive (true);
-					//test to see if i can display the keyboard controls
-					keyboardButtonPlayer1.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [26].ToString ();
-					UIButtons [2].GetComponent<Text> ().text = "Cancel Code";
-					UIButtons [3].SetActive (false);
-					UIButtons [4].SetActive (false);
+					UITutorial.SetActive (false);
 				}
 
 				if (playerNum == 1)
 				{
 					startTimer = true;
-					UITutorial2.SetActive (true);
-					UIButtons2 [0].SetActive (true);
-					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Keyboard promptbox Buttons") as Sprite;
-					UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
-
-					UIButtons2 [1].SetActive (true);
-					//test to see if i can display the keyboard controls
-					keyboardButtonPlayer1.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [27].ToString ();
-					UIButtons2 [2].GetComponent<Text> ().text = "Cancel Code";
-					UIButtons2 [3].SetActive (false);
-					UIButtons2 [4].SetActive (false);
+					UITutorial2.SetActive (false);
 				}
 			}
 		} else if (col.transform.name.Contains ("LimbLight(LEG_MOVE)"))

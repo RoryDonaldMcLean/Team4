@@ -10,4 +10,9 @@ public class PuzzleTwoColourChanging : LevelControlBaseClass
     {
         puzzleIdentifier = "PuzzleTwo";
     }
+
+	protected override void LevelSpecificInit()
+	{
+		walkwayPosition = new Vector3(9, 0, 112.33f);
+	}
 }

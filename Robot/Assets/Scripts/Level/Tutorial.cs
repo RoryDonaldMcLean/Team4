@@ -165,7 +165,8 @@ public class Tutorial : MonoBehaviour
 					UIButtons [0].GetComponent<Image> ().preserveAspect = true;
 
 					UIButtons [1].SetActive (false);
-					//UIButtons [2].SetActive (false);
+					UIButtons [3].SetActive (false);
+					UIButtons [4].SetActive (false);
 				}
 
 				if (playerNum == 1)
@@ -176,7 +177,8 @@ public class Tutorial : MonoBehaviour
 					UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
 
 					UIButtons2 [1].SetActive (false);
-					//UIButtons2 [2].SetActive (false);
+					UIButtons2 [3].SetActive (false);
+					UIButtons2 [4].SetActive (false);
 				}
 
 			} 
@@ -191,6 +193,9 @@ public class Tutorial : MonoBehaviour
 					UIButtons [1].SetActive (true);
 
 					keyboardButtonPlayer1.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [12].ToString ();
+					UIButtons [2].GetComponent<Text> ().text = "Open Chirps Menu";
+					UIButtons [3].SetActive (false);
+					UIButtons [4].SetActive (false);
 				}
 
 				if (playerNum == 1)
@@ -202,6 +207,9 @@ public class Tutorial : MonoBehaviour
 					UIButtons2 [1].SetActive (true);
 
 					KeyboardButtonPlayer2.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [25].ToString ();
+					UIButtons2 [2].GetComponent<Text> ().text = "Open Chirps Menu";
+					UIButtons2 [3].SetActive (false);
+					UIButtons2 [4].SetActive (false);
 				}
 
 
@@ -226,6 +234,8 @@ public class Tutorial : MonoBehaviour
 					UIButtons [0].GetComponent<Image> ().preserveAspect = true;
 
 					UIButtons [1].SetActive (false);
+					UIButtons [3].SetActive (false);
+					UIButtons [4].SetActive (false);
 				}
 
 				if (playerNum == 1)
@@ -237,6 +247,8 @@ public class Tutorial : MonoBehaviour
 					UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
 
 					UIButtons2 [1].SetActive (false);
+					UIButtons2 [3].SetActive (false);
+					UIButtons [4].SetActive (false);
 				}
 
 			} else
@@ -253,6 +265,8 @@ public class Tutorial : MonoBehaviour
 					//test to see if i can display the keyboard controls
 					keyboardButtonPlayer1.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [9].ToString ();
 					UIButtons [2].GetComponent<Text> ().text = "Pick Up Limb";
+					UIButtons [3].SetActive (false);
+					UIButtons [4].SetActive (false);
 				}
 
 				if (playerNum == 1)
@@ -268,6 +282,8 @@ public class Tutorial : MonoBehaviour
 
 					KeyboardButtonPlayer2.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [22].ToString ();
 					UIButtons2 [2].GetComponent<Text> ().text = "Pick Up Limb";
+					UIButtons2 [3].SetActive (false);
+					UIButtons2 [4].SetActive (false);
 				}
 
 
@@ -278,7 +294,7 @@ public class Tutorial : MonoBehaviour
 		{
 			if (ControllerUsed == true)
 			{
-				if (playerNum == 0)
+				if ((playerNum == 0) &&(col.transform.GetComponent<LightEmitter>().canBeTurnedOff == true))
 				{
 					startTimer = true;
 					UITutorial.SetActive (true);
@@ -287,9 +303,13 @@ public class Tutorial : MonoBehaviour
 					UIButtons [0].GetComponent<Image> ().preserveAspect = true;
 
 					UIButtons [1].SetActive (false);
+					UIButtons [3].SetActive (false);
+					UIButtons [4].SetActive (false);
+
+
 				}
 
-				if (playerNum == 1)
+				if ((playerNum == 1) &&(col.transform.GetComponent<LightEmitter>().canBeTurnedOff == true))
 				{
 					startTimer = true;
 					UITutorial2.SetActive (true);
@@ -298,11 +318,13 @@ public class Tutorial : MonoBehaviour
 					UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
 
 					UIButtons2 [1].SetActive (false);
+					UIButtons2 [3].SetActive (false);
+					UIButtons2 [4].SetActive (false);
 				}
 
 			} else
 			{
-				if (playerNum == 0)
+				if ((playerNum == 0) &&(col.transform.GetComponent<LightEmitter>().canBeTurnedOff == true))
 				{
 					startTimer = true;
 					UITutorial.SetActive (true);
@@ -314,9 +336,12 @@ public class Tutorial : MonoBehaviour
 					//test to see if i can display the keyboard controls
 					keyboardButtonPlayer1.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [11].ToString ();
 					UIButtons [2].GetComponent<Text> ().text = "Turn On Emitter";
+					UIButtons [3].SetActive (false);
+					UIButtons [4].SetActive (false);
+				
 				}
 
-				if (playerNum == 1)
+				if ((playerNum == 1) &&(col.transform.GetComponent<LightEmitter>().canBeTurnedOff == true))
 				{
 					startTimer = true;
 					UITutorial2.SetActive (true);
@@ -329,6 +354,8 @@ public class Tutorial : MonoBehaviour
 
 					KeyboardButtonPlayer2.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [24].ToString ();
 					UIButtons2 [2].GetComponent<Text> ().text = "Turn On Emitter";
+					UIButtons2 [3].SetActive (false);
+					UIButtons2 [4].SetActive (false);
 				}
 
 
@@ -346,6 +373,8 @@ public class Tutorial : MonoBehaviour
 					UIButtons [0].GetComponent<Image> ().preserveAspect = true;
 
 					UIButtons [1].SetActive (false);
+					UIButtons [3].SetActive (false);
+					UIButtons [4].SetActive (false);
 				}
 
 				if (playerNum == 1)
@@ -357,6 +386,8 @@ public class Tutorial : MonoBehaviour
 					UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
 
 					UIButtons2 [1].SetActive (false);
+					UIButtons2 [3].SetActive (false);
+					UIButtons2 [4].SetActive (false);
 				}
 
 			} else
@@ -373,6 +404,8 @@ public class Tutorial : MonoBehaviour
 					//test to see if i can display the keyboard controls
 					keyboardButtonPlayer1.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [9].ToString ();
 					UIButtons [2].GetComponent<Text> ().text = "Pick Up Slider";
+					UIButtons [3].SetActive (false);
+					UIButtons [4].SetActive (false);
 				}
 
 				if (playerNum == 1)
@@ -388,6 +421,8 @@ public class Tutorial : MonoBehaviour
 
 					KeyboardButtonPlayer2.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [22].ToString ();
 					UIButtons2 [2].GetComponent<Text> ().text = "Pick Up Slider";
+					UIButtons2 [3].SetActive (false);
+					UIButtons2 [4].SetActive (false);
 				}
 
 
@@ -406,6 +441,18 @@ public class Tutorial : MonoBehaviour
 					UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Controller_Pick-Drop Object") as Sprite;
 					UIButtons [0].GetComponent<Image> ().preserveAspect = true;
 					UIButtons [1].SetActive (false);
+					UIButtons [2].SetActive (false);
+
+
+					if (col.transform.GetComponent<LightEmitter> ().canBeTurnedOff == true)
+					{
+						UIButtons [4].SetActive (true);
+						UIButtons [4].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Controller_Turn ONOff Light Emitter") as Sprite;
+					} else
+					{
+						UIButtons [4].SetActive (false);
+					}
+
 				}
 
 				if (playerNum == 1)
@@ -416,6 +463,16 @@ public class Tutorial : MonoBehaviour
 					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Controller_Pick-Drop Object") as Sprite;
 					UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
 					UIButtons2 [1].SetActive (false);
+					UIButtons2 [2].SetActive (false);
+
+					if (col.transform.GetComponent<LightEmitter> ().canBeTurnedOff == true)
+					{
+						UIButtons2 [4].SetActive (true);
+						UIButtons2 [4].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Controller_Turn ONOff Light Emitter") as Sprite;
+					} else
+					{
+						UIButtons2 [4].SetActive (false);
+					}
 				}
 
 
@@ -432,7 +489,19 @@ public class Tutorial : MonoBehaviour
 					UIButtons [1].SetActive (true);
 					//test to see if i can display the keyboard controls
 					keyboardButtonPlayer1.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [9].ToString ();
+
 					UIButtons [2].GetComponent<Text> ().text = "Pick Up Rotatable";
+
+
+					if (col.transform.GetComponent<LightEmitter> ().canBeTurnedOff == true)
+					{
+						UIButtons [3].SetActive (true);
+						UIButtons [3].GetComponent<Text> ().text = "Turn on Emitter " + GameManager.Instance.playerSetting.currentButton [11].ToString ();
+					} else
+					{
+						UIButtons [3].SetActive (false);
+					}
+					UIButtons [4].SetActive (false);
 				}
 
 				if (playerNum == 1)
@@ -448,6 +517,16 @@ public class Tutorial : MonoBehaviour
 
 					KeyboardButtonPlayer2.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [22].ToString ();
 					UIButtons2 [2].GetComponent<Text> ().text = "Pick Up Rotatable";
+
+					if (col.transform.GetComponent<LightEmitter> ().canBeTurnedOff == true)
+					{
+						UIButtons2 [3].SetActive (true);
+						UIButtons2 [3].GetComponent<Text> ().text = "Turn on Emitter " + GameManager.Instance.playerSetting.currentButton [24].ToString ();
+					} else
+					{
+						UIButtons2 [3].SetActive (false);
+					}
+					UIButtons2 [4].SetActive (false);
 				}
 
 
@@ -455,7 +534,8 @@ public class Tutorial : MonoBehaviour
 			}
 
 
-		} else if (col.transform.name.Contains ("LimbLight(ARM_MOVE)"))
+		} 
+		else if ((col.transform.name.Contains ("LimbLight(ARM_MOVE)")) || (col.transform.name.Contains("LimbLight(LEG_MOVE)")))
 		{
 			if (col.transform.GetChild (0).name.Contains ("Arm"))
 			{
@@ -469,6 +549,8 @@ public class Tutorial : MonoBehaviour
 						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Controller_Pick-Drop Object") as Sprite;
 						UIButtons [0].GetComponent<Image> ().preserveAspect = true;
 						UIButtons [1].SetActive (false);
+						UIButtons [3].SetActive (false);
+						UIButtons [4].SetActive (false);
 					}
 
 					if (playerNum == 1)
@@ -479,10 +561,13 @@ public class Tutorial : MonoBehaviour
 						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Controller_Pick-Drop Object") as Sprite;
 						UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
 						UIButtons2 [1].SetActive (false);
+						UIButtons2 [3].SetActive (false);
+						UIButtons2 [4].SetActive (false);
 					}
 
 
-				} else
+				} 
+				else
 				{
 					if (playerNum == 0)
 					{
@@ -496,6 +581,8 @@ public class Tutorial : MonoBehaviour
 						//test to see if i can display the keyboard controls
 						keyboardButtonPlayer1.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [9].ToString ();
 						UIButtons [2].GetComponent<Text> ().text = "Pick up device";
+						UIButtons [3].SetActive (false);
+						//UIButtons [4].SetActive (false);
 					}
 
 					if (playerNum == 1)
@@ -511,6 +598,8 @@ public class Tutorial : MonoBehaviour
 
 						KeyboardButtonPlayer2.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [22].ToString ();
 						UIButtons2 [2].GetComponent<Text> ().text = "Pick up device";
+						UIButtons2 [3].SetActive (false);
+						UIButtons2 [4].SetActive (false);
 					}
 
 
@@ -528,6 +617,8 @@ public class Tutorial : MonoBehaviour
 						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Controller_Insert Withdraw Limb") as Sprite;
 						UIButtons [0].GetComponent<Image> ().preserveAspect = true;
 						UIButtons [1].SetActive (false);
+						UIButtons [3].SetActive (false);
+						UIButtons [4].SetActive (false);
 					}
 
 					if (playerNum == 1)
@@ -538,6 +629,8 @@ public class Tutorial : MonoBehaviour
 						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Controller_Insert Withdraw Limb") as Sprite;
 						UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
 						UIButtons2 [1].SetActive (false);
+						UIButtons2 [3].SetActive (false);
+						UIButtons2 [4].SetActive (false);
 					}
 
 
@@ -555,6 +648,8 @@ public class Tutorial : MonoBehaviour
 						//test to see if i can display the keyboard controls
 						keyboardButtonPlayer1.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [11].ToString ();
 						UIButtons [2].GetComponent<Text> ().text = "Insert/ withdraw Limb";
+						UIButtons [3].SetActive (false);
+						UIButtons [4].SetActive (false);
 					}
 
 					if (playerNum == 1)
@@ -570,6 +665,8 @@ public class Tutorial : MonoBehaviour
 
 						KeyboardButtonPlayer2.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [24].ToString ();
 						UIButtons2 [2].GetComponent<Text> ().text = "Insert/ withdraw Limb";
+						UIButtons2 [3].SetActive (false);
+						UIButtons2 [4].SetActive (false);
 					}
 
 
@@ -591,6 +688,10 @@ public class Tutorial : MonoBehaviour
 					UIButtons [0].GetComponent<Image> ().preserveAspect = true;
 
 					UIButtons [1].SetActive (false);
+					//UIButtons [3].SetActive (false);
+					UIButtons[4].SetActive(true);
+					UIButtons [4].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Controller_Turn ONOff Light Emitter") as Sprite;
+
 				}
 
 				if (playerNum == 1)
@@ -602,6 +703,8 @@ public class Tutorial : MonoBehaviour
 					UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
 
 					UIButtons2 [1].SetActive (false);
+					UIButtons2 [4].SetActive (true);
+					UIButtons2 [4].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Controller_Turn ONOff Light Emitter") as Sprite;
 				}
 
 
@@ -619,6 +722,8 @@ public class Tutorial : MonoBehaviour
 					//test to see if i can display the keyboard controls
 					keyboardButtonPlayer1.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [8].ToString ();
 					UIButtons [2].GetComponent<Text> ().text = "Jump";
+					UIButtons [3].SetActive (true);
+					UIButtons [3].GetComponent<Text> ().text = "Turn on Emitter " + GameManager.Instance.playerSetting.currentButton [9].ToString ();
 				}
 
 				if (playerNum == 1)
@@ -634,6 +739,8 @@ public class Tutorial : MonoBehaviour
 
 					KeyboardButtonPlayer2.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [21].ToString ();
 					UIButtons2 [2].GetComponent<Text> ().text = "Jump";
+					UIButtons2 [3].SetActive (true);
+					UIButtons2 [3].GetComponent<Text> ().text = "Turn on Emitter " + GameManager.Instance.playerSetting.currentButton [24].ToString ();
 				}
 
 
@@ -654,6 +761,8 @@ public class Tutorial : MonoBehaviour
 					UIButtons [0].GetComponent<Image> ().preserveAspect = true;
 
 					UIButtons [1].SetActive (false);
+					UIButtons [3].SetActive (false);
+					UIButtons [4].SetActive (false);
 				}
 
 				if (playerNum == 1)
@@ -665,6 +774,8 @@ public class Tutorial : MonoBehaviour
 					UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
 
 					UIButtons2 [1].SetActive (false);
+					UIButtons2 [3].SetActive (false);
+					UIButtons2 [4].SetActive (false);
 				}
 			} 
 			else
@@ -681,6 +792,8 @@ public class Tutorial : MonoBehaviour
 					//test to see if i can display the keyboard controls
 					keyboardButtonPlayer1.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [26].ToString ();
 					UIButtons [2].GetComponent<Text> ().text = "Cancel Code";
+					UIButtons [3].SetActive (false);
+					UIButtons [4].SetActive (false);
 				}
 
 				if (playerNum == 1)
@@ -695,6 +808,8 @@ public class Tutorial : MonoBehaviour
 					//test to see if i can display the keyboard controls
 					keyboardButtonPlayer1.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [27].ToString ();
 					UIButtons2 [2].GetComponent<Text> ().text = "Cancel Code";
+					UIButtons2 [3].SetActive (false);
+					UIButtons2[4].SetActive (false);
 				}
 			}
 		}

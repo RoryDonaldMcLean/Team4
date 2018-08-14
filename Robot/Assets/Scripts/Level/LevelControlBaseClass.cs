@@ -90,18 +90,24 @@ public class LevelControlBaseClass : MonoBehaviour
 
         foreach(GameObject lightsource in lightSources)
         {
-            if (lightsource.name.Contains("Rotatable"))
+			if ((lightsource.name.Contains("Rotatable")) || (lightsource.name.Contains("Movable")))
             {
-                lightsource.GetComponentInChildren<LightEmitter>().canBeTurnedOff = false;
+                EmittersEndControl(lightsource.GetComponentInChildren<LightEmitter>());
             }
             else
             {
-                lightsource.GetComponent<LightEmitter>().canBeTurnedOff = false;
+                EmittersEndControl(lightsource.GetComponent<LightEmitter>());
             }
         }
 
         StartCoroutine(LevelCompleteLightShow());
         StartCoroutine(TurnOffLights());
+    }
+
+    private void EmittersEndControl(LightEmitter emitter)
+    {
+        emitter.canBeTurnedOff = false;
+        emitter.GetComponentInChildren<LightResize>().EndLightBeamInteraction();
     }
 
     //Waits half a second before starting the light show, by calling the blinking

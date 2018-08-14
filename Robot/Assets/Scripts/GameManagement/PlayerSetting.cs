@@ -49,8 +49,8 @@ public class PlayerSetting
         defaultButton[24] = KeyCode.Keypad9; //drop code
 		defaultButton[25] = KeyCode.Keypad5; //player2 emote menu
 
-		defaultButton [26] = KeyCode.R;
-		defaultButton [27] = KeyCode.Keypad2;
+		defaultButton [26] = KeyCode.R; //cancel code player 1
+		defaultButton [27] = KeyCode.Keypad2; //cancel code player 2
 
 
         for (int i = 0; i < defaultButton.Length; i++)

@@ -79,7 +79,7 @@ public class SCR_Movable : MonoBehaviour
 	//the far left of the pole
 	private void LeftLimit(ref float movableObjectPosition)
 	{
-		if (movableObjectPosition <= minDistance)
+        if (movableObjectPosition <= minDistance)
         {
 			LimitBreachResponse(minDistance + (movableObject.transform.lossyScale.x / 2.0f));
         }

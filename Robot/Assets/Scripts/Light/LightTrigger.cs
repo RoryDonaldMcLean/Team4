@@ -42,7 +42,7 @@ public class LightTrigger : MonoBehaviour
     //with a simply bool changing the effects displayed. 
     private void GenerateVFXResponse(bool correctLight)
     {
-        if(this.transform.childCount == 1)
+        if(this.transform.childCount == 3)
         {
             GameObject responseVFX = Instantiate(Resources.Load("Prefabs/Particle/ParticleOrbElectric")) as GameObject;
             responseVFX.GetComponent<LightTriggerVFXResponse>().Initialize(this.transform, correctLight);

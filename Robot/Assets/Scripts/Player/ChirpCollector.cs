@@ -73,7 +73,7 @@ public class ChirpCollector : MonoBehaviour
 
         AkSoundEngine.SetState("ChirpCombine", "On");
         AkSoundEngine.PostEvent("ChirpCombine", gameObject);
-        Debug.Log(" hope");
+        //Debug.Log(" hope");
 
         //the event you want
         startTimer = false;
@@ -87,7 +87,7 @@ public class ChirpCollector : MonoBehaviour
 	void FalseEvent()
 	{
 		//if the timer reaches 0
-		Debug.Log("false hope");
+		//Debug.Log("false hope");
         AkSoundEngine.SetState("ChirpCombine", "Off");
 
     }

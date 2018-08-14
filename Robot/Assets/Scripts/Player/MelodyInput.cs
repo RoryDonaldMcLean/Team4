@@ -167,7 +167,6 @@ public class MelodyInput : MonoBehaviour
                     }
                     else
                     {
-                        Debug.Log(111);
                         anim.SetBool("IsButtonPressed", false);
                     }
 
@@ -252,7 +251,6 @@ public class MelodyInput : MonoBehaviour
                     }
                     else
                     {
-                        Debug.Log(222);
                         anim.SetBool("IsButtonPressed", false);
                     }
 

@@ -66,7 +66,7 @@ public class SCR_Rotatable : MonoBehaviour
 
 	void OnTriggerExit(Collider col)
 	{
-		if ((col.gameObject.name.Contains ("Player")) && (Entered))
+		if ((col.gameObject.name.Contains ("Player")) && (Entered) && ((col.tag == playerTag) || (playerTag == null)))
 		{
 			Entered = false;
             rotateVisualAid.SetActive(false);

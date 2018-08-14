@@ -37,6 +37,12 @@ public class InControlMelody : MonoBehaviour
 
 	int playerNum =0;
 
+	GameObject RedCancel;
+	List<GameObject> RedCancelChildren = new List<GameObject>();
+
+	GameObject BlueCancel;
+	List<GameObject> BlueCancelChildren = new List<GameObject>();
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -73,6 +79,21 @@ public class InControlMelody : MonoBehaviour
 		{
 			BlueDPAD.Add(BlueArrows.transform.GetChild(i).gameObject);
 		}
+
+
+		RedCancel = GameObject.FindGameObjectWithTag ("RedCancel");
+		for (int i = 0; i < RedCancel.transform.childCount; i++)
+		{
+			RedCancelChildren.Add (RedCancel.transform.GetChild (i).gameObject);
+		}
+
+		BlueCancel = GameObject.FindGameObjectWithTag ("BlueCancel");
+		for (int i = 0; i < BlueCancel.transform.childCount; i++)
+		{
+			BlueCancelChildren.Add (BlueCancel.transform.GetChild (i).gameObject);
+		}
+
+
 	}
 	
 	// Update is called once per frame
@@ -84,11 +105,29 @@ public class InControlMelody : MonoBehaviour
 			//no controllers
 			RedDPAD [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/LimbsMenu/UIDPadIcon - 1234") as Sprite;
 			BlueDPAD [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/LimbsMenu/UIDPadIcon - 5678") as Sprite;
+
+			RedCancelChildren [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Keyboard promptbox Buttons") as Sprite;
+			RedCancelChildren [1].SetActive (true);
+			RedCancelChildren[1].GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [26].ToString ();
+			RedCancelChildren [2].SetActive (true);
+
+			BlueCancelChildren [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Keyboard promptbox Buttons") as Sprite;
+			BlueCancelChildren [1].SetActive (true);
+			BlueCancelChildren[1].GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [27].ToString ();
+			BlueCancelChildren [2].SetActive (true);
 		} 
 		else
 		{
 			RedDPAD [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/LimbsMenu/UIDPadIcon - Unedited") as Sprite;
 			BlueDPAD [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/LimbsMenu/UIDPadIcon - Unedited") as Sprite;
+
+			RedCancelChildren [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Controller_Cancel Melody Code") as Sprite;
+			RedCancelChildren [1].SetActive (false);
+			RedCancelChildren [2].SetActive (false);
+
+			BlueCancelChildren [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Controller_Cancel Melody Code") as Sprite;
+			BlueCancelChildren [1].SetActive (false);
+			BlueCancelChildren [2].SetActive (false);
 		}
 
 
@@ -99,12 +138,17 @@ public class InControlMelody : MonoBehaviour
 			CanvasNoteSheet.SetActive (true);
 			RedArrows.SetActive (true);
 			BlueArrows.SetActive (true);
+
+			RedCancel.SetActive (true);
+			BlueCancel.SetActive (true);
 		} 
 		else
 		{
 			CanvasNoteSheet.SetActive (false);
 			RedArrows.SetActive (false);
 			BlueArrows.SetActive (false);
+			RedCancel.SetActive (false);
+			BlueCancel.SetActive (false);
 		}
 
 	}

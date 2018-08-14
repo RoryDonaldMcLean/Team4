@@ -258,45 +258,57 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
                     && isBlue != GameManager.Instance.whichAndroid.player1ControlBlue;
     }
 
+    private bool SamePickUpObject(GameObject hit)
+    {
+        PickupAndDropdown_Trigger[] p = new PickupAndDropdown_Trigger[2];
+        p = FindObjectsOfType<PickupAndDropdown_Trigger>();
+        PickupAndDropdown_Trigger other = p[0].playerNum == this.playerNum ? p[1] : p[0];
+        return hit == other.GetPickObject();
+    }
+
     private void PickUpObject(out GameObject hit)
     {
         if (ObjectFound(out hit))//ray cast detection
         {
-            //if the object the player is trying to pick up is the SlideBox (object attached to the pole)
-            if (hit.transform.name.Contains("SlideBox"))
+            if (!SamePickUpObject(hit))
             {
-                pickedUpGameObject = hit.transform.gameObject;
-                Vector3 temp = pickedUpGameObject.transform.position;
-                if ((int)pickedUpGameObject.transform.parent.right.x == 0)
+                //if the object the player is trying to pick up is the SlideBox (object attached to the pole)
+                if (hit.transform.name.Contains("SlideBox"))
                 {
-                    temp.z = this.transform.parent.position.z;
-                }
-                else
-                {
-                    temp.x = this.transform.parent.position.x;
-                }
+                    pickedUpGameObject = hit.transform.gameObject;
+                    Vector3 temp = pickedUpGameObject.transform.position;
+                    if ((int)pickedUpGameObject.transform.parent.right.x == 0)
+                    {
+                        temp.z = this.transform.parent.position.z;
+                    }
+                    else
+                    {
+                        temp.x = this.transform.parent.position.x;
+                    }
 
-                pickedUpGameObject.transform.position = temp;
-                pickedUpGameObject.transform.parent.GetComponent<SCR_Movable>().pickedUp = true;
-                pickedUpGameObject.transform.parent.GetComponent<SCR_Movable>().playerTag = this.transform.parent.tag;
-                holding = true;
-
-                anim.SetBool("IsLifting", true);
+                    pickedUpGameObject.transform.position = temp;
+                    pickedUpGameObject.transform.parent.GetComponent<SCR_Movable>().pickedUp = true;
+                    pickedUpGameObject.transform.parent.GetComponent<SCR_Movable>().playerTag = this.transform.parent.tag;
+                    holding = true;
+                    anim.SetBool("IsLifting", true);
+                }
             }
             //if the object the player is trying to pick up is the RotateBox
             else if (hit.transform.name.Contains("RotateBox"))
             {
-                pickedUpGameObject = hit.transform.gameObject;
+                //if (!hit.GetComponent<SCR_Rotatable>().pickedUp)
+                //{
+                    pickedUpGameObject = hit.transform.gameObject;
 
-                AkSoundEngine.PostEvent("Arm_Attach", gameObject);
+                    AkSoundEngine.PostEvent("Arm_Attach", gameObject);
 
-                this.transform.parent.GetComponentInChildren<InControlMovement>().enabled = false;
+                    this.transform.parent.GetComponentInChildren<InControlMovement>().enabled = false;
 
-                pickedUpGameObject.transform.parent.GetComponent<SCR_Rotatable>().pickedUp = true;
-                pickedUpGameObject.transform.parent.GetComponent<SCR_Rotatable>().playerTag = this.transform.parent.tag;
-                holding = true;
-                anim.SetBool("IsLifting", true);
-
+                    pickedUpGameObject.transform.parent.GetComponent<SCR_Rotatable>().pickedUp = true;
+                    pickedUpGameObject.transform.parent.GetComponent<SCR_Rotatable>().playerTag = this.transform.parent.tag;
+                    holding = true;
+                    anim.SetBool("IsLifting", true);
+                //}
             }
             else
             {
@@ -477,6 +489,11 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
         }
 
         return hit != null ? true : false;
+    }
+
+    public GameObject GetPickObject()
+    {
+        return pickedUpGameObject;
     }
 
     private void OnTriggerEnter(Collider other)

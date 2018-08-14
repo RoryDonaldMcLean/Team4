@@ -23,6 +23,7 @@ public class SCR_player1Initalise : SCR_TradeLimb
 		else if (levelCounter == 1)
 		{
 			//factory part 1
+			Exchange ("LeftArm", this.gameObject.tag, true);
 			Exchange ("RightArm", this.gameObject.tag, true);
 			Exchange ("LeftLeg", this.gameObject.tag, true);
 			Exchange ("RightLeg", this.gameObject.tag, true);

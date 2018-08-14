@@ -160,7 +160,7 @@ public class MelodyInput : MonoBehaviour
                             Debug.Log("Player1 has no right leg");
                         }
                     }// clear the code incase you get it wrong
-                    else if (Input.GetKeyDown(KeyCode.R))
+					else if (Input.GetKeyDown(GameManager.Instance.playerSetting.currentButton[26]))
                     {
                         Debug.Log("b0ss plz");
                         MelodyDoor.GetComponent<InControlMelody>().CheckCode();
@@ -245,7 +245,7 @@ public class MelodyInput : MonoBehaviour
                             Debug.Log("Player2 has no right leg");
                         }
                     }
-                    else if (Input.GetKeyDown(KeyCode.Keypad2))
+					else if (Input.GetKeyDown(GameManager.Instance.playerSetting.currentButton[27]))
                     {
                         Debug.Log("b0ss plz");
                         MelodyDoor.GetComponent<InControlMelody>().CheckCode();

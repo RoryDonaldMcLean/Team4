@@ -10,4 +10,9 @@ public class PuzzleOneReflectors : LevelControlBaseClass
     {
         puzzleIdentifier = "PuzzleOne";
     }
+
+	protected override void LevelSpecificInit()
+	{
+		walkwayPosition = new Vector3(9, 0, 42.55f);
+	}
 }

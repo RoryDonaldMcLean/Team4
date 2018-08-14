@@ -90,7 +90,7 @@ public class LevelControlBaseClass : MonoBehaviour
 
         foreach(GameObject lightsource in lightSources)
         {
-            if (lightsource.name.Contains("Rotatable"))
+			if ((lightsource.name.Contains("Rotatable")) || (lightsource.name.Contains("Movable")))
             {
                 lightsource.GetComponentInChildren<LightEmitter>().canBeTurnedOff = false;
             }

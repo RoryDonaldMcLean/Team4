@@ -274,7 +274,7 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
     {
         if ((ObjectFound(out hit)) && (!rotateGeneric))
         {
-            if ((!SamePickUpObject(hit)) && (!hit.transform.name.Contains("SlideBox")) && (!hit.transform.name.Contains("MelodyGate")))
+            if ((!SamePickUpObject(hit)) && (!hit.transform.name.Contains("SlideBox")) && (!hit.transform.name.Contains("MelodyGate")) && (!hit.tag.Contains("Ground")))
             {
                 GenericPickUpCheck(ref hit);
                 holding = false;

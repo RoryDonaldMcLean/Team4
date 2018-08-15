@@ -72,7 +72,6 @@ public class LevelController : MonoBehaviour
     private void LevelOne()
     {
         levelScripts.Add(this.gameObject.AddComponent<PuzzleOneReflectors>());
-        this.gameObject.AddComponent<TutorialOne>();
     }
 
     private void LevelTwo()

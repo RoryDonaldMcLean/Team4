@@ -34,7 +34,6 @@ public class SCR_Rotatable : MonoBehaviour
             newRotatable.GetComponent<LightEmitter>().beamLength = beamLength;
             if (switchOn)
             {
-                Debug.Log("?");
                 newRotatable.GetComponent<LightEmitter>().switchedOn = true;
             }
             if (interactable) newRotatable.GetComponent<LightEmitter>().canBeTurnedOff = true;

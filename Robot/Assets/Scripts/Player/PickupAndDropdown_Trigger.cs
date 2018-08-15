@@ -279,6 +279,8 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
                 GenericPickUpCheck(ref hit);
                 holding = false;
                 ToggleRotateState();
+                CancelInvoke("AnimStop");
+                CancelInvoke("AnimPlay");
                 Invoke("AnimStop", 1.2f);
             }
         }

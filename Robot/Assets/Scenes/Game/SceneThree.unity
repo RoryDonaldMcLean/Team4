@@ -399,9 +399,9 @@ GameObject:
   m_Component:
   - component: {fileID: 87631207}
   - component: {fileID: 87631210}
-  - component: {fileID: 87631209}
   - component: {fileID: 87631208}
   - component: {fileID: 87631211}
+  - component: {fileID: 87631209}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Ground
@@ -454,8 +454,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &87631209
-MeshCollider:
+--- !u!65 &87631209
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -464,10 +464,8 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Convex: 0
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+  m_Size: {x: 9.999999, y: 2.220446e-16, z: 10.000001}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &87631210
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1804,9 +1802,9 @@ GameObject:
   m_Component:
   - component: {fileID: 434552104}
   - component: {fileID: 434552108}
-  - component: {fileID: 434552107}
   - component: {fileID: 434552106}
   - component: {fileID: 434552105}
+  - component: {fileID: 434552107}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Ground
@@ -1877,8 +1875,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &434552107
-MeshCollider:
+--- !u!65 &434552107
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -1887,10 +1885,8 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Convex: 0
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+  m_Size: {x: 9.999999, y: 2.220446e-16, z: 9.999999}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &434552108
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -4059,9 +4055,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1329862883}
   - component: {fileID: 1329862886}
-  - component: {fileID: 1329862885}
   - component: {fileID: 1329862884}
   - component: {fileID: 1329862887}
+  - component: {fileID: 1329862885}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Ground
@@ -4114,8 +4110,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &1329862885
-MeshCollider:
+--- !u!65 &1329862885
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -4124,10 +4120,8 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Convex: 0
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+  m_Size: {x: 10, y: 2.220446e-16, z: 9.999999}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1329862886
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -5685,9 +5679,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1707131936}
   - component: {fileID: 1707131940}
-  - component: {fileID: 1707131939}
   - component: {fileID: 1707131938}
   - component: {fileID: 1707131937}
+  - component: {fileID: 1707131939}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Ground
@@ -5758,8 +5752,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &1707131939
-MeshCollider:
+--- !u!65 &1707131939
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -5768,10 +5762,8 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Convex: 0
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+  m_Size: {x: 10, y: 2.220446e-16, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1707131940
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -6458,9 +6450,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1867201616}
   - component: {fileID: 1867201619}
-  - component: {fileID: 1867201618}
   - component: {fileID: 1867201617}
   - component: {fileID: 1867201615}
+  - component: {fileID: 1867201618}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Ground
@@ -6533,21 +6525,18 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &1867201618
-MeshCollider:
+--- !u!65 &1867201618
+BoxCollider:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 64039735569052758, guid: 04b2f0824bfc38d4b9079bf6a6f41f61,
-    type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1867201614}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Convex: 0
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+  m_Size: {x: 10, y: 2.220446e-16, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1867201619
 MeshFilter:
   m_ObjectHideFlags: 0

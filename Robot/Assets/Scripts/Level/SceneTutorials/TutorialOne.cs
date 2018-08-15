@@ -7,7 +7,6 @@ public class TutorialOne : TutorialBaseClass
 {
     private SCR_TradeLimb player;
     private bool checkOnce = true;
-    private bool tempUntilCutscene = false;
     //Used as reference point for the base class
     //allowing various operations to stay dynamic.
     void Awake()
@@ -37,12 +36,5 @@ public class TutorialOne : TutorialBaseClass
             checkOnce = false;
             Destroy(tutorialPrompt);
         }
-
-        if (!tempUntilCutscene)
-        {
-            TurnOnEntranceWall();
-            tempUntilCutscene = true;
-        }
-
     }
 }

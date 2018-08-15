@@ -274,7 +274,7 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
     {
         if ((ObjectFound(out hit)) && (!rotateGeneric))
         {
-            if ((!SamePickUpObject(hit)) && (!hit.transform.name.Contains("SlideBox")))
+            if ((!SamePickUpObject(hit)) && (!hit.transform.name.Contains("SlideBox")) && (!hit.transform.name.Contains("MelodyGate")) && (!hit.tag.Contains("Ground")))
             {
                 GenericPickUpCheck(ref hit);
                 holding = false;
@@ -387,7 +387,7 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
     public void RotateDrop()
     {
         pickedUpGameObject.transform.parent.GetComponent<SCR_Rotatable>().pickedUp = false;
-        pickedUpGameObject.transform.parent.GetComponent<SCR_Rotatable>().playerTag = null;
+        pickedUpGameObject.transform.parent.GetComponent<SCR_Rotatable>().playerTag = "Reset";
         PutDownObject();
 
         pickedUpGameObject = null; //empty the pick up object

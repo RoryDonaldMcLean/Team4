@@ -829,6 +829,7 @@ public class Chirps : MonoBehaviour
 		if (isBlue == GameManager.Instance.whichAndroid.player1ControlBlue)
 		{
 			List<GameObject> ls = !GameManager.Instance.whichAndroid.player1ControlBlue ? EmoteUI : EmoteUI2;
+			ls [5].SetActive (true);
 
 			if (GameObject.FindGameObjectWithTag ("Player1").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("LeftArm"))
 			{
@@ -900,6 +901,7 @@ public class Chirps : MonoBehaviour
 		{ //player2
 
 			List<GameObject> ls = GameManager.Instance.whichAndroid.player1ControlBlue ? EmoteUI : EmoteUI2;
+			ls [5].SetActive (true);
 
 			if (GameObject.FindGameObjectWithTag ("Player2").GetComponent<SCR_TradeLimb> ().LimbActiveCheck  ("LeftArm"))
 			{

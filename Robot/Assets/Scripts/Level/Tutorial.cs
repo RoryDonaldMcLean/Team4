@@ -116,9 +116,9 @@ public class Tutorial : MonoBehaviour
 
 	void InitialText()
 	{
-		if (this.GetComponentInParent<InControlMovement> ().enabled == false  && levelCounter == 0)
+		/*if (this.GetComponentInParent<InControlMovement> ().enabled == false  && levelCounter == 0)
 		{
-			ChirpsTutorialFunction();
+			//ChirpsTutorialFunction();
 
 			if (tempBool == false)
 			{
@@ -126,8 +126,8 @@ public class Tutorial : MonoBehaviour
 			}
 			//CancelInvoke("func");
 			StartCoroutine (TestBool (1.0f));
-		}
-		else if(levelCounter == 0)
+		}*/
+		if(levelCounter == 0)
 		{
 			//GetRidOfText ();
 			//StartCoroutine(WaitTwoSeconds (2.0f));
@@ -148,7 +148,6 @@ public class Tutorial : MonoBehaviour
 	IEnumerator GetRidOfText(float waitTime)
 	{
 		yield return new WaitForSeconds (waitTime);
-		Debug.Log ("AHHHHHHHHHHHHHHHHHHHHHHHHHHH");
 		UIText.SetActive (false);
 		UISwitch = true;
 	}
@@ -254,7 +253,7 @@ public class Tutorial : MonoBehaviour
 
 				if (playerNum == 0)
 				{
-					startTimer = true;
+					//startTimer = true;
 					UITutorial.SetActive (true);
 					UIButtons [0].SetActive (true);
 					UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Pick Limb") as Sprite;
@@ -267,7 +266,7 @@ public class Tutorial : MonoBehaviour
 
 				if (playerNum == 1)
 				{
-					startTimer = true;
+					//startTimer = true;
 					UITutorial2.SetActive (true);
 					UIButtons2 [0].SetActive (true);
 					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Pick Limb") as Sprite;
@@ -290,7 +289,7 @@ public class Tutorial : MonoBehaviour
 
 				if (playerNum == 0)
 				{
-					startTimer = true;
+					//startTimer = true;
 					UITutorial.SetActive (true);
 					UIButtons [0].SetActive (true);
 					UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/Red promptbox") as Sprite;
@@ -306,7 +305,7 @@ public class Tutorial : MonoBehaviour
 
 				if (playerNum == 1)
 				{
-					startTimer = true;
+					//startTimer = true;
 					UITutorial2.SetActive (true);
 					UIButtons2 [0].SetActive (true);
 					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/Blue promptbox") as Sprite;
@@ -339,7 +338,7 @@ public class Tutorial : MonoBehaviour
 
 				if ((playerNum == 0) && (col.transform.GetComponent<LightEmitter> ().canBeTurnedOff == true))
 				{
-					startTimer = true;
+					//startTimer = true;
 					UITutorial.SetActive (true);
 					UIButtons [0].SetActive (true);
 					UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Turn ONOff Light Emitter") as Sprite;
@@ -354,7 +353,7 @@ public class Tutorial : MonoBehaviour
 
 				if ((playerNum == 1) && (col.transform.GetComponent<LightEmitter> ().canBeTurnedOff == true))
 				{
-					startTimer = true;
+					//startTimer = true;
 					UITutorial2.SetActive (true);
 					UIButtons2 [0].SetActive (true);
 					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Turn ONOff Light Emitter") as Sprite;
@@ -377,7 +376,7 @@ public class Tutorial : MonoBehaviour
 
 				if ((playerNum == 0) && (col.transform.GetComponent<LightEmitter> ().canBeTurnedOff == true))
 				{
-					startTimer = true;
+					//startTimer = true;
 					UITutorial.SetActive (true);
 					UIButtons [0].SetActive (true);
 					UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/Red promptbox") as Sprite;
@@ -394,7 +393,7 @@ public class Tutorial : MonoBehaviour
 
 				if ((playerNum == 1) && (col.transform.GetComponent<LightEmitter> ().canBeTurnedOff == true))
 				{
-					startTimer = true;
+					//startTimer = true;
 					UITutorial2.SetActive (true);
 					UIButtons2 [0].SetActive (true);
 					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/Blue promptbox") as Sprite;
@@ -417,7 +416,7 @@ public class Tutorial : MonoBehaviour
 			{
 				if (playerNum == 0)
 				{
-					startTimer = true;
+					//startTimer = true;
 					UITutorial.SetActive (true);
 					UIButtons [0].SetActive (true);
 					UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Pick-Drop Object") as Sprite;
@@ -430,7 +429,7 @@ public class Tutorial : MonoBehaviour
 
 				if (playerNum == 1)
 				{
-					startTimer = true;
+					//startTimer = true;
 					UITutorial2.SetActive (true);
 					UIButtons2 [0].SetActive (true);
 					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Pick-Drop Object") as Sprite;
@@ -445,7 +444,7 @@ public class Tutorial : MonoBehaviour
 			{
 				if (playerNum == 0)
 				{
-					startTimer = true;
+					//startTimer = true;
 					UITutorial.SetActive (true);
 					UIButtons [0].SetActive (true);
 					UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/Red promptbox") as Sprite;
@@ -461,7 +460,7 @@ public class Tutorial : MonoBehaviour
 
 				if (playerNum == 1)
 				{
-					startTimer = true;
+					//startTimer = true;
 					UITutorial2.SetActive (true);
 					UIButtons2 [0].SetActive (true);
 					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/Blue promptbox") as Sprite;
@@ -494,7 +493,7 @@ public class Tutorial : MonoBehaviour
 
 				if (playerNum == 0)
 				{
-					startTimer = true;
+					//startTimer = true;
 					UITutorial.SetActive (true);
 					UIButtons [0].SetActive (true);
 					UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Pick-Drop Object") as Sprite;
@@ -516,7 +515,7 @@ public class Tutorial : MonoBehaviour
 
 				if (playerNum == 1)
 				{
-					startTimer = true;
+					//startTimer = true;
 					UITutorial2.SetActive (true);
 					UIButtons2 [0].SetActive (true);
 					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Pick-Drop Object") as Sprite;
@@ -547,7 +546,7 @@ public class Tutorial : MonoBehaviour
 
 				if (playerNum == 0)
 				{
-					startTimer = true;
+					//startTimer = true;
 					UITutorial.SetActive (true);
 					UIButtons [0].SetActive (true);
 					UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/Red promptbox") as Sprite;
@@ -573,7 +572,7 @@ public class Tutorial : MonoBehaviour
 
 				if (playerNum == 1)
 				{
-					startTimer = true;
+					//startTimer = true;
 					UITutorial2.SetActive (true);
 					UIButtons2 [0].SetActive (true);
 					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/Blue promptbox") as Sprite;
@@ -603,13 +602,21 @@ public class Tutorial : MonoBehaviour
 
 		} else if ((col.transform.name.Contains ("LimbLight(ARM_MOVE)")))
 		{
+			if (levelCounter == 1)
+			{
+				UIText.SetActive (true);
+				UIText.GetComponent<Text> ().text = "Reflection equipment has sustained damage: Insert Limb to re-activate functionality";
+				StartCoroutine (GetRidOfText (3.0f));
+			}
+
+
 			if (col.transform.GetChild (0).name.Contains ("Arm"))
 			{
 				if (ControllerUsed == true)
 				{
 					if (playerNum == 0)
 					{
-						startTimer = true;
+						//startTimer = true;
 						UITutorial.SetActive (true);
 						UIButtons [0].SetActive (true);
 						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Pick-Drop Object") as Sprite;
@@ -621,7 +628,7 @@ public class Tutorial : MonoBehaviour
 
 					if (playerNum == 1)
 					{
-						startTimer = true;
+						//startTimer = true;
 						UITutorial2.SetActive (true);
 						UIButtons2 [0].SetActive (true);
 						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Pick-Drop Object") as Sprite;
@@ -636,7 +643,7 @@ public class Tutorial : MonoBehaviour
 				{
 					if (playerNum == 0)
 					{
-						startTimer = true;
+						//startTimer = true;
 						UITutorial.SetActive (true);
 						UIButtons [0].SetActive (true);
 						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/Red promptbox") as Sprite;
@@ -652,7 +659,7 @@ public class Tutorial : MonoBehaviour
 
 					if (playerNum == 1)
 					{
-						startTimer = true;
+						//startTimer = true;
 						UITutorial2.SetActive (true);
 						UIButtons2 [0].SetActive (true);
 						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/Blue promptbox") as Sprite;
@@ -676,7 +683,7 @@ public class Tutorial : MonoBehaviour
 				{
 					if (playerNum == 0)
 					{
-						startTimer = true;
+						//startTimer = true;
 						UITutorial.SetActive (true);
 						UIButtons [0].SetActive (true);
 						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Insert Withdraw Limb") as Sprite;
@@ -688,7 +695,7 @@ public class Tutorial : MonoBehaviour
 
 					if (playerNum == 1)
 					{
-						startTimer = true;
+						//startTimer = true;
 						UITutorial2.SetActive (true);
 						UIButtons2 [0].SetActive (true);
 						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Insert Withdraw Limb") as Sprite;
@@ -703,7 +710,7 @@ public class Tutorial : MonoBehaviour
 				{
 					if (playerNum == 0)
 					{
-						startTimer = true;
+						//startTimer = true;
 						UITutorial.SetActive (true);
 						UIButtons [0].SetActive (true);
 						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/Red promptbox") as Sprite;
@@ -719,7 +726,7 @@ public class Tutorial : MonoBehaviour
 
 					if (playerNum == 1)
 					{
-						startTimer = true;
+						//startTimer = true;
 						UITutorial2.SetActive (true);
 						UIButtons2 [0].SetActive (true);
 						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/Blue promptbox") as Sprite;
@@ -746,7 +753,7 @@ public class Tutorial : MonoBehaviour
 			{
 				if (playerNum == 0)
 				{
-					startTimer = true;
+					//startTimer = true;
 					UITutorial.SetActive (true);
 					UIButtons [0].SetActive (true);
 					UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Jump") as Sprite;
@@ -761,7 +768,7 @@ public class Tutorial : MonoBehaviour
 
 				if (playerNum == 1)
 				{
-					startTimer = true;
+					//startTimer = true;
 					UITutorial2.SetActive (true);
 					UIButtons2 [0].SetActive (true);
 					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Jump") as Sprite;
@@ -777,7 +784,7 @@ public class Tutorial : MonoBehaviour
 			{
 				if (playerNum == 0)
 				{
-					startTimer = true;
+					//startTimer = true;
 					UITutorial.SetActive (true);
 					UIButtons [0].SetActive (true);
 					UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/Red promptbox") as Sprite;
@@ -793,7 +800,7 @@ public class Tutorial : MonoBehaviour
 
 				if (playerNum == 1)
 				{
-					startTimer = true;
+					//startTimer = true;
 					UITutorial2.SetActive (true);
 					UIButtons2 [0].SetActive (true);
 					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/Blue promptbox") as Sprite;
@@ -826,13 +833,13 @@ public class Tutorial : MonoBehaviour
 
 				if (playerNum == 0)
 				{
-					startTimer = true;
+					//startTimer = true;
 					UITutorial.SetActive (false);
 				}
 
 				if (playerNum == 1)
 				{
-					startTimer = true;
+					//startTimer = true;
 					UITutorial2.SetActive (false);
 				}
 			} else
@@ -847,25 +854,32 @@ public class Tutorial : MonoBehaviour
 
 				if (playerNum == 0)
 				{
-					startTimer = true;
+					//startTimer = true;
 					UITutorial.SetActive (false);
 				}
 
 				if (playerNum == 1)
 				{
-					startTimer = true;
+					//startTimer = true;
 					UITutorial2.SetActive (false);
 				}
 			}
 		} else if (col.transform.name.Contains ("LimbLight(LEG_MOVE)"))
 		{
+			if (levelCounter == 2)
+			{
+				UIText.SetActive (true);
+				UIText.GetComponent<Text> ().text = "Reflection equipment has sustained damage: Insert Limb to re-activate functionality";
+				StartCoroutine (GetRidOfText (3.0f));
+			}
+
 			if (col.transform.GetChild (0).name.Contains ("Leg"))
 			{
 				if (ControllerUsed == true)
 				{
 					if (playerNum == 0)
 					{
-						startTimer = true;
+						//startTimer = true;
 						UITutorial.SetActive (true);
 						UIButtons [0].SetActive (true);
 						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Pick-Drop Object") as Sprite;
@@ -877,7 +891,7 @@ public class Tutorial : MonoBehaviour
 
 					if (playerNum == 1)
 					{
-						startTimer = true;
+						//startTimer = true;
 						UITutorial2.SetActive (true);
 						UIButtons2 [0].SetActive (true);
 						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Pick-Drop Object") as Sprite;
@@ -892,7 +906,7 @@ public class Tutorial : MonoBehaviour
 				{
 					if (playerNum == 0)
 					{
-						startTimer = true;
+						//startTimer = true;
 						UITutorial.SetActive (true);
 						UIButtons [0].SetActive (true);
 						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/Red promptbox") as Sprite;
@@ -908,7 +922,7 @@ public class Tutorial : MonoBehaviour
 
 					if (playerNum == 1)
 					{
-						startTimer = true;
+						//startTimer = true;
 						UITutorial2.SetActive (true);
 						UIButtons2 [0].SetActive (true);
 						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/Blue promptbox") as Sprite;
@@ -940,7 +954,7 @@ public class Tutorial : MonoBehaviour
 
 					if (playerNum == 0)
 					{
-						startTimer = true;
+						//startTimer = true;
 						UITutorial.SetActive (true);
 						UIButtons [0].SetActive (true);
 						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Insert Withdraw Limb") as Sprite;
@@ -952,7 +966,7 @@ public class Tutorial : MonoBehaviour
 
 					if (playerNum == 1)
 					{
-						startTimer = true;
+						//startTimer = true;
 						UITutorial2.SetActive (true);
 						UIButtons2 [0].SetActive (true);
 						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Insert Withdraw Limb") as Sprite;
@@ -975,7 +989,7 @@ public class Tutorial : MonoBehaviour
 
 					if (playerNum == 0)
 					{
-						startTimer = true;
+						//startTimer = true;
 						UITutorial.SetActive (true);
 						UIButtons [0].SetActive (true);
 						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/Red promptbox") as Sprite;
@@ -991,7 +1005,7 @@ public class Tutorial : MonoBehaviour
 
 					if (playerNum == 1)
 					{
-						startTimer = true;
+						//startTimer = true;
 						UITutorial2.SetActive (true);
 						UIButtons2 [0].SetActive (true);
 						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/Blue promptbox") as Sprite;
@@ -1039,6 +1053,78 @@ public class Tutorial : MonoBehaviour
 
 			}
 		}
+		else if (col.transform.name.Contains ("LightRedirect"))
+		{
+			if (levelCounter == 1)
+			{
+				UIText.SetActive (true);
+				UIText.GetComponent<Text> ().text = "New equipment sighted: LightRedirect: Place in-frount of light beam to redirect light. Requires Two Arms";
+				StartCoroutine (GetRidOfText (3.0f));
+
+				if (ControllerUsed == true)
+				{
+					if (playerNum == 0)
+					{
+						//startTimer = true;
+						UITutorial.SetActive (true);
+						UIButtons [0].SetActive (true);
+						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Pick-Drop Object") as Sprite;
+						UIButtons [0].GetComponent<Image> ().preserveAspect = true;
+						UIButtons [1].SetActive (false);
+						UIButtons [3].SetActive (false);
+						UIButtons [4].SetActive (false);
+					}
+
+					if (playerNum == 1)
+					{
+						//startTimer = true;
+						UITutorial2.SetActive (true);
+						UIButtons2 [0].SetActive (true);
+						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Pick-Drop Object") as Sprite;
+						UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
+						UIButtons2 [1].SetActive (false);
+						UIButtons2 [3].SetActive (false);
+						UIButtons2 [4].SetActive (false);
+					}
+
+				} 
+				else
+				{
+					if (playerNum == 0)
+					{
+						//startTimer = true;
+						UITutorial.SetActive (true);
+						UIButtons [0].SetActive (true);
+						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/Red promptbox") as Sprite;
+						UIButtons [0].GetComponent<Image> ().preserveAspect = true;
+
+						UIButtons [1].SetActive (true);
+						//test to see if i can display the keyboard controls
+						keyboardButtonPlayer1.GetComponent<Text> ().text = "Press: " + GameManager.Instance.playerSetting.currentButton [9].ToString ();
+						UIButtons [2].GetComponent<Text> ().text = "Pick up device";
+						UIButtons [3].SetActive (false);
+						UIButtons [4].SetActive (false);
+					}
+
+					if (playerNum == 1)
+					{
+						//startTimer = true;
+						UITutorial2.SetActive (true);
+						UIButtons2 [0].SetActive (true);
+						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/Blue promptbox") as Sprite;
+						UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
+
+						UIButtons2 [1].SetActive (true);
+						//test to see if i can display the keyboard controls
+
+						KeyboardButtonPlayer2.GetComponent<Text> ().text = "Press: " + GameManager.Instance.playerSetting.currentButton [22].ToString ();
+						UIButtons2 [2].GetComponent<Text> ().text = "Pick up device";
+						UIButtons2 [3].SetActive (false);
+						UIButtons2 [4].SetActive (false);
+					}
+				}
+			}
+		}
 
 	}
 
@@ -1062,8 +1148,7 @@ public class Tutorial : MonoBehaviour
 				UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
 			}
 
-		} 
-		else if (col.transform.name.Contains ("LightEmitter"))
+		} else if (col.transform.name.Contains ("LightEmitter"))
 		{
 			if (playerNum == 0)
 			{
@@ -1079,8 +1164,7 @@ public class Tutorial : MonoBehaviour
 				UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
 			}
 
-		} 
-		else if (col.transform.name.Contains ("SlideBox"))
+		} else if (col.transform.name.Contains ("SlideBox"))
 		{
 			if (playerNum == 0)
 			{
@@ -1096,26 +1180,7 @@ public class Tutorial : MonoBehaviour
 				UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
 			}
 
-		} 
-		else if (col.transform.name.Contains ("RotateBox"))
-		{
-			if (playerNum == 0)
-			{
-				UITutorial.SetActive (false);
-				UIButtons [0].SetActive (false);
-				UIButtons [0].GetComponent<Image> ().preserveAspect = true;
-			}
-
-			if (playerNum == 1)
-			{
-				UITutorial2.SetActive (false);
-				UIButtons2 [0].SetActive (false);
-				UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
-			}
-
-
-		} 
-		else if (col.transform.name.Contains ("LimbLight(ARM_MOVE)"))
+		} else if (col.transform.name.Contains ("RotateBox"))
 		{
 			if (playerNum == 0)
 			{
@@ -1132,8 +1197,7 @@ public class Tutorial : MonoBehaviour
 			}
 
 
-		} 
-		else if (col.transform.name.Contains ("Elevation"))
+		} else if (col.transform.name.Contains ("LimbLight(ARM_MOVE)"))
 		{
 			if (playerNum == 0)
 			{
@@ -1150,6 +1214,100 @@ public class Tutorial : MonoBehaviour
 			}
 
 
+		} else if (col.transform.name.Contains ("Elevation"))
+		{
+			if (playerNum == 0)
+			{
+				UITutorial.SetActive (false);
+				UIButtons [0].SetActive (false);
+				UIButtons [0].GetComponent<Image> ().preserveAspect = true;
+			}
+
+			if (playerNum == 1)
+			{
+				UITutorial2.SetActive (false);
+				UIButtons2 [0].SetActive (false);
+				UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
+			}
+
+
+		} else if (col.transform.name.Contains ("LimbLight(LEG_MOVE)"))
+		{
+			if (playerNum == 0)
+			{
+				UITutorial.SetActive (false);
+				UIButtons [0].SetActive (false);
+				UIButtons [0].GetComponent<Image> ().preserveAspect = true;
+			}
+
+			if (playerNum == 1)
+			{
+				UITutorial2.SetActive (false);
+				UIButtons2 [0].SetActive (false);
+				UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
+			}
+
+		} else if (col.transform.name.Contains ("LightSplitter"))
+		{
+			if (playerNum == 0)
+			{
+				UITutorial.SetActive (false);
+				UIButtons [0].SetActive (false);
+				UIButtons [0].GetComponent<Image> ().preserveAspect = true;
+			}
+
+			if (playerNum == 1)
+			{
+				UITutorial2.SetActive (false);
+				UIButtons2 [0].SetActive (false);
+				UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
+			}
+		} else if (col.transform.name.Contains ("LightBarrier"))
+		{
+			if (playerNum == 0)
+			{
+				UITutorial.SetActive (false);
+				UIButtons [0].SetActive (false);
+				UIButtons [0].GetComponent<Image> ().preserveAspect = true;
+			}
+
+			if (playerNum == 1)
+			{
+				UITutorial2.SetActive (false);
+				UIButtons2 [0].SetActive (false);
+				UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
+			}
+		} else if (col.transform.name.Contains ("LightColourCombo"))
+		{
+			if (playerNum == 0)
+			{
+				UITutorial.SetActive (false);
+				UIButtons [0].SetActive (false);
+				UIButtons [0].GetComponent<Image> ().preserveAspect = true;
+			}
+
+			if (playerNum == 1)
+			{
+				UITutorial2.SetActive (false);
+				UIButtons2 [0].SetActive (false);
+				UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
+			}
+		} else if (col.transform.name.Contains ("LightRedirect"))
+		{
+			if (playerNum == 0)
+			{
+				UITutorial.SetActive (false);
+				UIButtons [0].SetActive (false);
+				UIButtons [0].GetComponent<Image> ().preserveAspect = true;
+			}
+
+			if (playerNum == 1)
+			{
+				UITutorial2.SetActive (false);
+				UIButtons2 [0].SetActive (false);
+				UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
+			}
 		}
+			
 	}
 }

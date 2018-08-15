@@ -106,14 +106,14 @@ public class InControlMelody : MonoBehaviour
 			RedDPAD [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/LimbsMenu/UIDPadIcon - 1234") as Sprite;
 			BlueDPAD [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/LimbsMenu/UIDPadIcon - 5678") as Sprite;
 
-			RedCancelChildren [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Keyboard promptbox Buttons") as Sprite;
+			RedCancelChildren [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/Red promptbox") as Sprite;
 			RedCancelChildren [1].SetActive (true);
-			RedCancelChildren[1].GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [26].ToString ();
+			RedCancelChildren[1].GetComponent<Text> ().text = "Hold: " + GameManager.Instance.playerSetting.currentButton [26].ToString ();
 			RedCancelChildren [2].SetActive (true);
 
-			BlueCancelChildren [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Keyboard promptbox Buttons") as Sprite;
+			BlueCancelChildren [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/Blue promptbox") as Sprite;
 			BlueCancelChildren [1].SetActive (true);
-			BlueCancelChildren[1].GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [27].ToString ();
+			BlueCancelChildren[1].GetComponent<Text> ().text = "Hold: " + GameManager.Instance.playerSetting.currentButton [27].ToString ();
 			BlueCancelChildren [2].SetActive (true);
 		} 
 		else
@@ -121,11 +121,11 @@ public class InControlMelody : MonoBehaviour
 			RedDPAD [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/LimbsMenu/UIDPadIcon - Unedited") as Sprite;
 			BlueDPAD [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/LimbsMenu/UIDPadIcon - Unedited") as Sprite;
 
-			RedCancelChildren [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Controller_Cancel Melody Code") as Sprite;
+			RedCancelChildren [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Cancel Melody Code") as Sprite;
 			RedCancelChildren [1].SetActive (false);
 			RedCancelChildren [2].SetActive (false);
 
-			BlueCancelChildren [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Controller_Cancel Melody Code") as Sprite;
+			BlueCancelChildren [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Cancel Melody Code") as Sprite;
 			BlueCancelChildren [1].SetActive (false);
 			BlueCancelChildren [2].SetActive (false);
 		}

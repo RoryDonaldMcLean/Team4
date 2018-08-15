@@ -180,7 +180,7 @@ public class Tutorial : MonoBehaviour
 				{
 					UITutorial.SetActive (true);
 					UIButtons [0].SetActive (true);
-					UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Controller_Open Chirp Menu") as Sprite;
+					UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Open Chirp Menu") as Sprite;
 					UIButtons [0].GetComponent<Image> ().preserveAspect = true;
 
 					UIButtons [1].SetActive (false);
@@ -192,7 +192,7 @@ public class Tutorial : MonoBehaviour
 				{
 					UITutorial2.SetActive (true);
 					UIButtons2 [0].SetActive (true);
-					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Controller_Open Chirp Menu") as Sprite;
+					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Open Chirp Menu") as Sprite;
 					UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
 
 					UIButtons2 [1].SetActive (false);
@@ -207,11 +207,11 @@ public class Tutorial : MonoBehaviour
 				{
 					UITutorial.SetActive (true);
 					UIButtons [0].SetActive (true);
-					UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Keyboard promptbox Buttons") as Sprite;
+					UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/Red promptbox") as Sprite;
 					UIButtons [0].GetComponent<Image> ().preserveAspect = true;
 					UIButtons [1].SetActive (true);
 
-					keyboardButtonPlayer1.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [12].ToString ();
+					keyboardButtonPlayer1.GetComponent<Text> ().text = "Hold: " + GameManager.Instance.playerSetting.currentButton [12].ToString ();
 					UIButtons [2].GetComponent<Text> ().text = "Open Chirps Menu";
 					UIButtons [3].SetActive (false);
 					UIButtons [4].SetActive (false);
@@ -221,11 +221,11 @@ public class Tutorial : MonoBehaviour
 				{
 					UITutorial2.SetActive (true);
 					UIButtons2 [0].SetActive (true);
-					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Keyboard promptbox Buttons") as Sprite;
+					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/Blue promptbox") as Sprite;
 					UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
 					UIButtons2 [1].SetActive (true);
 
-					KeyboardButtonPlayer2.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [25].ToString ();
+					KeyboardButtonPlayer2.GetComponent<Text> ().text = "Hold: " + GameManager.Instance.playerSetting.currentButton [25].ToString ();
 					UIButtons2 [2].GetComponent<Text> ().text = "Open Chirps Menu";
 					UIButtons2 [3].SetActive (false);
 					UIButtons2 [4].SetActive (false);
@@ -257,7 +257,7 @@ public class Tutorial : MonoBehaviour
 					startTimer = true;
 					UITutorial.SetActive (true);
 					UIButtons [0].SetActive (true);
-					UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Controller_Pick Limb") as Sprite;
+					UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Pick Limb") as Sprite;
 					UIButtons [0].GetComponent<Image> ().preserveAspect = true;
 
 					UIButtons [1].SetActive (false);
@@ -270,7 +270,7 @@ public class Tutorial : MonoBehaviour
 					startTimer = true;
 					UITutorial2.SetActive (true);
 					UIButtons2 [0].SetActive (true);
-					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Controller_Pick Limb") as Sprite;
+					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Pick Limb") as Sprite;
 					UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
 
 					UIButtons2 [1].SetActive (false);
@@ -293,12 +293,12 @@ public class Tutorial : MonoBehaviour
 					startTimer = true;
 					UITutorial.SetActive (true);
 					UIButtons [0].SetActive (true);
-					UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Keyboard promptbox Buttons") as Sprite;
+					UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/Red promptbox") as Sprite;
 					UIButtons [0].GetComponent<Image> ().preserveAspect = true;
 
 					UIButtons [1].SetActive (true);
 					//test to see if i can display the keyboard controls
-					keyboardButtonPlayer1.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [9].ToString ();
+					keyboardButtonPlayer1.GetComponent<Text> ().text = "Press: " + GameManager.Instance.playerSetting.currentButton [9].ToString ();
 					UIButtons [2].GetComponent<Text> ().text = "Pick Up Limb";
 					UIButtons [3].SetActive (false);
 					UIButtons [4].SetActive (false);
@@ -309,13 +309,13 @@ public class Tutorial : MonoBehaviour
 					startTimer = true;
 					UITutorial2.SetActive (true);
 					UIButtons2 [0].SetActive (true);
-					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Keyboard promptbox Buttons") as Sprite;
+					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/Blue promptbox") as Sprite;
 					UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
 
 					UIButtons2 [1].SetActive (true);
 					//test to see if i can display the keyboard controls
 
-					KeyboardButtonPlayer2.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [22].ToString ();
+					KeyboardButtonPlayer2.GetComponent<Text> ().text = "Press: " + GameManager.Instance.playerSetting.currentButton [22].ToString ();
 					UIButtons2 [2].GetComponent<Text> ().text = "Pick Up Limb";
 					UIButtons2 [3].SetActive (false);
 					UIButtons2 [4].SetActive (false);
@@ -342,7 +342,7 @@ public class Tutorial : MonoBehaviour
 					startTimer = true;
 					UITutorial.SetActive (true);
 					UIButtons [0].SetActive (true);
-					UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Controller_Turn ONOff Light Emitter") as Sprite;
+					UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Turn ONOff Light Emitter") as Sprite;
 					UIButtons [0].GetComponent<Image> ().preserveAspect = true;
 
 					UIButtons [1].SetActive (false);
@@ -357,7 +357,7 @@ public class Tutorial : MonoBehaviour
 					startTimer = true;
 					UITutorial2.SetActive (true);
 					UIButtons2 [0].SetActive (true);
-					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Controller_Turn ONOff Light Emitter") as Sprite;
+					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Turn ONOff Light Emitter") as Sprite;
 					UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
 
 					UIButtons2 [1].SetActive (false);
@@ -380,12 +380,12 @@ public class Tutorial : MonoBehaviour
 					startTimer = true;
 					UITutorial.SetActive (true);
 					UIButtons [0].SetActive (true);
-					UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Keyboard promptbox Buttons") as Sprite;
+					UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/Red promptbox") as Sprite;
 					UIButtons [0].GetComponent<Image> ().preserveAspect = true;
 
 					UIButtons [1].SetActive (true);
 					//test to see if i can display the keyboard controls
-					keyboardButtonPlayer1.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [11].ToString ();
+					keyboardButtonPlayer1.GetComponent<Text> ().text = "Press: " + GameManager.Instance.playerSetting.currentButton [11].ToString ();
 					UIButtons [2].GetComponent<Text> ().text = "Turn On Emitter";
 					UIButtons [3].SetActive (false);
 					UIButtons [4].SetActive (false);
@@ -397,13 +397,13 @@ public class Tutorial : MonoBehaviour
 					startTimer = true;
 					UITutorial2.SetActive (true);
 					UIButtons2 [0].SetActive (true);
-					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Keyboard promptbox Buttons") as Sprite;
+					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/Blue promptbox") as Sprite;
 					UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
 
 					UIButtons2 [1].SetActive (true);
 					//test to see if i can display the keyboard controls
 
-					KeyboardButtonPlayer2.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [24].ToString ();
+					KeyboardButtonPlayer2.GetComponent<Text> ().text = "Press: " + GameManager.Instance.playerSetting.currentButton [24].ToString ();
 					UIButtons2 [2].GetComponent<Text> ().text = "Turn On Emitter";
 					UIButtons2 [3].SetActive (false);
 					UIButtons2 [4].SetActive (false);
@@ -420,7 +420,7 @@ public class Tutorial : MonoBehaviour
 					startTimer = true;
 					UITutorial.SetActive (true);
 					UIButtons [0].SetActive (true);
-					UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Controller_Pick-Drop Object") as Sprite;
+					UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Pick-Drop Object") as Sprite;
 					UIButtons [0].GetComponent<Image> ().preserveAspect = true;
 
 					UIButtons [1].SetActive (false);
@@ -433,7 +433,7 @@ public class Tutorial : MonoBehaviour
 					startTimer = true;
 					UITutorial2.SetActive (true);
 					UIButtons2 [0].SetActive (true);
-					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Controller_Pick-Drop Object") as Sprite;
+					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Pick-Drop Object") as Sprite;
 					UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
 
 					UIButtons2 [1].SetActive (false);
@@ -448,12 +448,12 @@ public class Tutorial : MonoBehaviour
 					startTimer = true;
 					UITutorial.SetActive (true);
 					UIButtons [0].SetActive (true);
-					UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Keyboard promptbox Buttons") as Sprite;
+					UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/Red promptbox") as Sprite;
 					UIButtons [0].GetComponent<Image> ().preserveAspect = true;
 
 					UIButtons [1].SetActive (true);
 					//test to see if i can display the keyboard controls
-					keyboardButtonPlayer1.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [9].ToString ();
+					keyboardButtonPlayer1.GetComponent<Text> ().text = "Press: " + GameManager.Instance.playerSetting.currentButton [9].ToString ();
 					UIButtons [2].GetComponent<Text> ().text = "Pick Up Slider";
 					UIButtons [3].SetActive (false);
 					UIButtons [4].SetActive (false);
@@ -464,13 +464,13 @@ public class Tutorial : MonoBehaviour
 					startTimer = true;
 					UITutorial2.SetActive (true);
 					UIButtons2 [0].SetActive (true);
-					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Keyboard promptbox Buttons") as Sprite;
+					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/Blue promptbox") as Sprite;
 					UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
 
 					UIButtons2 [1].SetActive (true);
 					//test to see if i can display the keyboard controls
 
-					KeyboardButtonPlayer2.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [22].ToString ();
+					KeyboardButtonPlayer2.GetComponent<Text> ().text = "Press: " + GameManager.Instance.playerSetting.currentButton [22].ToString ();
 					UIButtons2 [2].GetComponent<Text> ().text = "Pick Up Slider";
 					UIButtons2 [3].SetActive (false);
 					UIButtons2 [4].SetActive (false);
@@ -497,7 +497,7 @@ public class Tutorial : MonoBehaviour
 					startTimer = true;
 					UITutorial.SetActive (true);
 					UIButtons [0].SetActive (true);
-					UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Controller_Pick-Drop Object") as Sprite;
+					UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Pick-Drop Object") as Sprite;
 					UIButtons [0].GetComponent<Image> ().preserveAspect = true;
 					UIButtons [1].SetActive (false);
 					UIButtons [2].SetActive (false);
@@ -506,7 +506,7 @@ public class Tutorial : MonoBehaviour
 					if (col.transform.GetComponent<LightEmitter> ().canBeTurnedOff == true)
 					{
 						UIButtons [4].SetActive (true);
-						UIButtons [4].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Controller_Turn ONOff Light Emitter") as Sprite;
+						UIButtons [4].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Turn ONOff Light Emitter") as Sprite;
 					} else
 					{
 						UIButtons [4].SetActive (false);
@@ -519,7 +519,7 @@ public class Tutorial : MonoBehaviour
 					startTimer = true;
 					UITutorial2.SetActive (true);
 					UIButtons2 [0].SetActive (true);
-					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Controller_Pick-Drop Object") as Sprite;
+					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Pick-Drop Object") as Sprite;
 					UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
 					UIButtons2 [1].SetActive (false);
 					UIButtons2 [2].SetActive (false);
@@ -527,7 +527,7 @@ public class Tutorial : MonoBehaviour
 					if (col.transform.GetComponent<LightEmitter> ().canBeTurnedOff == true)
 					{
 						UIButtons2 [4].SetActive (true);
-						UIButtons2 [4].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Controller_Turn ONOff Light Emitter") as Sprite;
+						UIButtons2 [4].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Turn ONOff Light Emitter") as Sprite;
 					} else
 					{
 						UIButtons2 [4].SetActive (false);
@@ -550,12 +550,12 @@ public class Tutorial : MonoBehaviour
 					startTimer = true;
 					UITutorial.SetActive (true);
 					UIButtons [0].SetActive (true);
-					UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Keyboard promptbox Buttons") as Sprite;
+					UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/Red promptbox") as Sprite;
 					UIButtons [0].GetComponent<Image> ().preserveAspect = true;
 
 					UIButtons [1].SetActive (true);
 					//test to see if i can display the keyboard controls
-					keyboardButtonPlayer1.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [9].ToString ();
+					keyboardButtonPlayer1.GetComponent<Text> ().text = "Press: " + GameManager.Instance.playerSetting.currentButton [9].ToString ();
 
 					UIButtons [2].GetComponent<Text> ().text = "Pick Up Rotatable";
 
@@ -576,13 +576,13 @@ public class Tutorial : MonoBehaviour
 					startTimer = true;
 					UITutorial2.SetActive (true);
 					UIButtons2 [0].SetActive (true);
-					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Keyboard promptbox Buttons") as Sprite;
+					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/Blue promptbox") as Sprite;
 					UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
 
 					UIButtons [1].SetActive (true);
 					//test to see if i can display the keyboard controls
 
-					KeyboardButtonPlayer2.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [22].ToString ();
+					KeyboardButtonPlayer2.GetComponent<Text> ().text = "Press: " + GameManager.Instance.playerSetting.currentButton [22].ToString ();
 					UIButtons2 [2].GetComponent<Text> ().text = "Pick Up Rotatable";
 
 					if (col.transform.GetComponent<LightEmitter> ().canBeTurnedOff == true)
@@ -612,7 +612,7 @@ public class Tutorial : MonoBehaviour
 						startTimer = true;
 						UITutorial.SetActive (true);
 						UIButtons [0].SetActive (true);
-						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Controller_Pick-Drop Object") as Sprite;
+						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Pick-Drop Object") as Sprite;
 						UIButtons [0].GetComponent<Image> ().preserveAspect = true;
 						UIButtons [1].SetActive (false);
 						UIButtons [3].SetActive (false);
@@ -624,7 +624,7 @@ public class Tutorial : MonoBehaviour
 						startTimer = true;
 						UITutorial2.SetActive (true);
 						UIButtons2 [0].SetActive (true);
-						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Controller_Pick-Drop Object") as Sprite;
+						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Pick-Drop Object") as Sprite;
 						UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
 						UIButtons2 [1].SetActive (false);
 						UIButtons2 [3].SetActive (false);
@@ -639,12 +639,12 @@ public class Tutorial : MonoBehaviour
 						startTimer = true;
 						UITutorial.SetActive (true);
 						UIButtons [0].SetActive (true);
-						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Keyboard promptbox Buttons") as Sprite;
+						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/Red promptbox") as Sprite;
 						UIButtons [0].GetComponent<Image> ().preserveAspect = true;
 
 						UIButtons [1].SetActive (true);
 						//test to see if i can display the keyboard controls
-						keyboardButtonPlayer1.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [9].ToString ();
+						keyboardButtonPlayer1.GetComponent<Text> ().text = "Press: " + GameManager.Instance.playerSetting.currentButton [9].ToString ();
 						UIButtons [2].GetComponent<Text> ().text = "Pick up device";
 						UIButtons [3].SetActive (false);
 						//UIButtons [4].SetActive (false);
@@ -655,13 +655,13 @@ public class Tutorial : MonoBehaviour
 						startTimer = true;
 						UITutorial2.SetActive (true);
 						UIButtons2 [0].SetActive (true);
-						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Keyboard promptbox Buttons") as Sprite;
+						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/Blue promptbox") as Sprite;
 						UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
 
 						UIButtons2 [1].SetActive (true);
 						//test to see if i can display the keyboard controls
 
-						KeyboardButtonPlayer2.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [22].ToString ();
+						KeyboardButtonPlayer2.GetComponent<Text> ().text = "Press: " + GameManager.Instance.playerSetting.currentButton [22].ToString ();
 						UIButtons2 [2].GetComponent<Text> ().text = "Pick up device";
 						UIButtons2 [3].SetActive (false);
 						UIButtons2 [4].SetActive (false);
@@ -679,7 +679,7 @@ public class Tutorial : MonoBehaviour
 						startTimer = true;
 						UITutorial.SetActive (true);
 						UIButtons [0].SetActive (true);
-						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Controller_Insert Withdraw Limb") as Sprite;
+						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Insert Withdraw Limb") as Sprite;
 						UIButtons [0].GetComponent<Image> ().preserveAspect = true;
 						UIButtons [1].SetActive (false);
 						UIButtons [3].SetActive (false);
@@ -691,7 +691,7 @@ public class Tutorial : MonoBehaviour
 						startTimer = true;
 						UITutorial2.SetActive (true);
 						UIButtons2 [0].SetActive (true);
-						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Controller_Insert Withdraw Limb") as Sprite;
+						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Insert Withdraw Limb") as Sprite;
 						UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
 						UIButtons2 [1].SetActive (false);
 						UIButtons2 [3].SetActive (false);
@@ -706,12 +706,12 @@ public class Tutorial : MonoBehaviour
 						startTimer = true;
 						UITutorial.SetActive (true);
 						UIButtons [0].SetActive (true);
-						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Keyboard promptbox Buttons") as Sprite;
+						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/Red promptbox") as Sprite;
 						UIButtons [0].GetComponent<Image> ().preserveAspect = true;
 
 						UIButtons [1].SetActive (true);
 						//test to see if i can display the keyboard controls
-						keyboardButtonPlayer1.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [11].ToString ();
+						keyboardButtonPlayer1.GetComponent<Text> ().text = "Press: " + GameManager.Instance.playerSetting.currentButton [11].ToString ();
 						UIButtons [2].GetComponent<Text> ().text = "Insert/ withdraw Limb";
 						UIButtons [3].SetActive (false);
 						UIButtons [4].SetActive (false);
@@ -722,13 +722,13 @@ public class Tutorial : MonoBehaviour
 						startTimer = true;
 						UITutorial2.SetActive (true);
 						UIButtons2 [0].SetActive (true);
-						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Keyboard promptbox Buttons") as Sprite;
+						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/Blue promptbox") as Sprite;
 						UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
 
 						UIButtons2 [1].SetActive (true);
 						//test to see if i can display the keyboard controls
 
-						KeyboardButtonPlayer2.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [24].ToString ();
+						KeyboardButtonPlayer2.GetComponent<Text> ().text = "Press: " + GameManager.Instance.playerSetting.currentButton [24].ToString ();
 						UIButtons2 [2].GetComponent<Text> ().text = "Insert/ withdraw Limb";
 						UIButtons2 [3].SetActive (false);
 						UIButtons2 [4].SetActive (false);
@@ -749,7 +749,7 @@ public class Tutorial : MonoBehaviour
 					startTimer = true;
 					UITutorial.SetActive (true);
 					UIButtons [0].SetActive (true);
-					UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Controller_Jump") as Sprite;
+					UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Jump") as Sprite;
 					UIButtons [0].GetComponent<Image> ().preserveAspect = true;
 
 					UIButtons [1].SetActive (false);
@@ -764,7 +764,7 @@ public class Tutorial : MonoBehaviour
 					startTimer = true;
 					UITutorial2.SetActive (true);
 					UIButtons2 [0].SetActive (true);
-					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Controller_Jump") as Sprite;
+					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Jump") as Sprite;
 					UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
 
 					UIButtons2 [1].SetActive (false);
@@ -780,12 +780,12 @@ public class Tutorial : MonoBehaviour
 					startTimer = true;
 					UITutorial.SetActive (true);
 					UIButtons [0].SetActive (true);
-					UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Keyboard promptbox Buttons") as Sprite;
+					UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/Red promptbox") as Sprite;
 					UIButtons [0].GetComponent<Image> ().preserveAspect = true;
 
 					UIButtons [1].SetActive (true);
 					//test to see if i can display the keyboard controls
-					keyboardButtonPlayer1.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [8].ToString ();
+					keyboardButtonPlayer1.GetComponent<Text> ().text = "Press: " + GameManager.Instance.playerSetting.currentButton [8].ToString ();
 					UIButtons [2].GetComponent<Text> ().text = "Jump";
 					UIButtons [4].SetActive (false);
 					//UIButtons [3].GetComponent<Text> ().text = "Turn on Emitter " + GameManager.Instance.playerSetting.currentButton [9].ToString ();
@@ -796,13 +796,13 @@ public class Tutorial : MonoBehaviour
 					startTimer = true;
 					UITutorial2.SetActive (true);
 					UIButtons2 [0].SetActive (true);
-					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Keyboard promptbox Buttons") as Sprite;
+					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/Blue promptbox") as Sprite;
 					UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
 
 					UIButtons2 [1].SetActive (true);
 					//test to see if i can display the keyboard controls
 
-					KeyboardButtonPlayer2.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [21].ToString ();
+					KeyboardButtonPlayer2.GetComponent<Text> ().text = "Press: " + GameManager.Instance.playerSetting.currentButton [21].ToString ();
 					UIButtons2 [2].GetComponent<Text> ().text = "Jump";
 					UIButtons2 [4].SetActive (false);
 					//UIButtons2 [3].GetComponent<Text> ().text = "Turn on Emitter " + GameManager.Instance.playerSetting.currentButton [24].ToString ();
@@ -868,7 +868,7 @@ public class Tutorial : MonoBehaviour
 						startTimer = true;
 						UITutorial.SetActive (true);
 						UIButtons [0].SetActive (true);
-						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Controller_Pick-Drop Object") as Sprite;
+						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Pick-Drop Object") as Sprite;
 						UIButtons [0].GetComponent<Image> ().preserveAspect = true;
 						UIButtons [1].SetActive (false);
 						UIButtons [3].SetActive (false);
@@ -880,7 +880,7 @@ public class Tutorial : MonoBehaviour
 						startTimer = true;
 						UITutorial2.SetActive (true);
 						UIButtons2 [0].SetActive (true);
-						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Controller_Pick-Drop Object") as Sprite;
+						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Pick-Drop Object") as Sprite;
 						UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
 						UIButtons2 [1].SetActive (false);
 						UIButtons2 [3].SetActive (false);
@@ -895,12 +895,12 @@ public class Tutorial : MonoBehaviour
 						startTimer = true;
 						UITutorial.SetActive (true);
 						UIButtons [0].SetActive (true);
-						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Keyboard promptbox Buttons") as Sprite;
+						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/Red promptbox") as Sprite;
 						UIButtons [0].GetComponent<Image> ().preserveAspect = true;
 
 						UIButtons [1].SetActive (true);
 						//test to see if i can display the keyboard controls
-						keyboardButtonPlayer1.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [9].ToString ();
+						keyboardButtonPlayer1.GetComponent<Text> ().text = "Press: " + GameManager.Instance.playerSetting.currentButton [9].ToString ();
 						UIButtons [2].GetComponent<Text> ().text = "Pick up device";
 						UIButtons [3].SetActive (false);
 						//UIButtons [4].SetActive (false);
@@ -911,13 +911,13 @@ public class Tutorial : MonoBehaviour
 						startTimer = true;
 						UITutorial2.SetActive (true);
 						UIButtons2 [0].SetActive (true);
-						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Keyboard promptbox Buttons") as Sprite;
+						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/Blue promptbox") as Sprite;
 						UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
 
 						UIButtons2 [1].SetActive (true);
 						//test to see if i can display the keyboard controls
 
-						KeyboardButtonPlayer2.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [22].ToString ();
+						KeyboardButtonPlayer2.GetComponent<Text> ().text = "Press: " + GameManager.Instance.playerSetting.currentButton [22].ToString ();
 						UIButtons2 [2].GetComponent<Text> ().text = "Pick up device";
 						UIButtons2 [3].SetActive (false);
 						UIButtons2 [4].SetActive (false);
@@ -943,7 +943,7 @@ public class Tutorial : MonoBehaviour
 						startTimer = true;
 						UITutorial.SetActive (true);
 						UIButtons [0].SetActive (true);
-						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Controller_Insert Withdraw Limb") as Sprite;
+						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Insert Withdraw Limb") as Sprite;
 						UIButtons [0].GetComponent<Image> ().preserveAspect = true;
 						UIButtons [1].SetActive (false);
 						UIButtons [3].SetActive (false);
@@ -955,7 +955,7 @@ public class Tutorial : MonoBehaviour
 						startTimer = true;
 						UITutorial2.SetActive (true);
 						UIButtons2 [0].SetActive (true);
-						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Controller_Insert Withdraw Limb") as Sprite;
+						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Insert Withdraw Limb") as Sprite;
 						UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
 						UIButtons2 [1].SetActive (false);
 						UIButtons2 [3].SetActive (false);
@@ -978,12 +978,12 @@ public class Tutorial : MonoBehaviour
 						startTimer = true;
 						UITutorial.SetActive (true);
 						UIButtons [0].SetActive (true);
-						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Keyboard promptbox Buttons") as Sprite;
+						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/Red promptbox") as Sprite;
 						UIButtons [0].GetComponent<Image> ().preserveAspect = true;
 
 						UIButtons [1].SetActive (true);
 						//test to see if i can display the keyboard controls
-						keyboardButtonPlayer1.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [11].ToString ();
+						keyboardButtonPlayer1.GetComponent<Text> ().text = "Press: " + GameManager.Instance.playerSetting.currentButton [11].ToString ();
 						UIButtons [2].GetComponent<Text> ().text = "Insert/ withdraw Limb";
 						UIButtons [3].SetActive (false);
 						UIButtons [4].SetActive (false);
@@ -994,13 +994,13 @@ public class Tutorial : MonoBehaviour
 						startTimer = true;
 						UITutorial2.SetActive (true);
 						UIButtons2 [0].SetActive (true);
-						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Keyboard promptbox Buttons") as Sprite;
+						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/Blue promptbox") as Sprite;
 						UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
 
 						UIButtons2 [1].SetActive (true);
 						//test to see if i can display the keyboard controls
 
-						KeyboardButtonPlayer2.GetComponent<Text> ().text = GameManager.Instance.playerSetting.currentButton [24].ToString ();
+						KeyboardButtonPlayer2.GetComponent<Text> ().text = "Press: " + GameManager.Instance.playerSetting.currentButton [24].ToString ();
 						UIButtons2 [2].GetComponent<Text> ().text = "Insert/ withdraw Limb";
 						UIButtons2 [3].SetActive (false);
 						UIButtons2 [4].SetActive (false);

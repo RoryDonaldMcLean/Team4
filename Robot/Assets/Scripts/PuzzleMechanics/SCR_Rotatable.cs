@@ -8,7 +8,7 @@ public class SCR_Rotatable : MonoBehaviour
     public bool switchOn = false;
 	public bool pickedUp = false;
     public bool interactable = false;
-    public string playerTag;
+    public string playerTag = "Reset";
 	public string rotatableObjectString;
 	public bool Entered = false;
     public Color beamColour = Color.white;
@@ -66,10 +66,15 @@ public class SCR_Rotatable : MonoBehaviour
 
 	void OnTriggerExit(Collider col)
 	{
-		if ((col.gameObject.name.Contains ("Player")) && (Entered) && ((col.tag == playerTag) || (playerTag == null)))
+		if ((col.gameObject.name.Contains ("Player")) && (Entered) && ((col.tag == playerTag) || (playerTag.Contains("Reset"))))
 		{
 			Entered = false;
+            Debug.Log("work");
             rotateVisualAid.SetActive(false);
+        }
+        else
+        {
+            Debug.Log("broken " + playerTag);
         }
 	}
 }

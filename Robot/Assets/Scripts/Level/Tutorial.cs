@@ -148,7 +148,6 @@ public class Tutorial : MonoBehaviour
 	IEnumerator GetRidOfText(float waitTime)
 	{
 		yield return new WaitForSeconds (waitTime);
-		Debug.Log ("AHHHHHHHHHHHHHHHHHHHHHHHHHHH");
 		UIText.SetActive (false);
 		UISwitch = true;
 	}

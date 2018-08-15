@@ -51,16 +51,17 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
         {
             bool pickUp = ((PlayerOnePickUp(9)) || (PlayerTwoPickUp(22)));
             bool interact = ((PlayerOnePickUp(11)) || (PlayerTwoPickUp(24)));
+            bool rotateMode = ((PlayerOnePickUp(26)) || (PlayerTwoPickUp(27)));
 
-            PickUpDropControl(pickUp, interact, null);
+            PickUpDropControl(pickUp, interact, rotateMode, null);
         }
         else //controllers
         {
-            PickUpDropControl(inputDevice.Action2.WasPressed, inputDevice.Action4.WasPressed, inputDevice);
+            PickUpDropControl(inputDevice.Action2.WasPressed, inputDevice.Action4.WasPressed, inputDevice.Action3.WasPressed, inputDevice);
         }
     }
 
-    private void PickUpDropControl(bool PickUp, bool interact, InputDevice device)
+    private void PickUpDropControl(bool PickUp, bool interact, bool rotateMode, InputDevice device)
     {
         if (!holding)
         {
@@ -76,6 +77,10 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
                 {
                     PickUpObject(out hit);
                 }
+            }
+            else if (rotateMode)
+            {
+                RotateImmediateState(out hit);
             }
             else if (interact)
             {
@@ -206,7 +211,6 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
 
     private void ToggleRotateState()
     {
-        Debug.Log("Place down object");
         this.transform.parent.GetComponentInChildren<InControlMovement>().enabled = rotateGeneric;
         rotateGeneric = !rotateGeneric;
     }
@@ -266,6 +270,19 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
         return hit == other.GetPickObject();
     }
 
+    private void RotateImmediateState(out GameObject hit)
+    {
+        if (ObjectFound(out hit))//ray cast detection
+        {
+            if ((!SamePickUpObject(hit)) && (!hit.transform.name.Contains("SlideBox")))
+            {
+                GenericPickUpCheck(ref hit);
+                holding = false;
+                ToggleRotateState();
+            }
+        }
+    }
+
     private void PickUpObject(out GameObject hit)
     {
         if (ObjectFound(out hit))//ray cast detection
@@ -296,8 +313,6 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
                 //if the object the player is trying to pick up is the RotateBox
                 else if (hit.transform.name.Contains("RotateBox"))
                 {
-                    
-                    Debug.Log(1);
                     pickedUpGameObject = hit.transform.gameObject;
 
                     AkSoundEngine.PostEvent("Arm_Attach", gameObject);
@@ -311,7 +326,6 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log(2);
                     GenericPickUpCheck(ref hit);
                 }
             }
@@ -349,7 +363,6 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
             }
             else if (hit.transform.name.Contains("Switch"))
             {
-                //Debug.Log ("you have indeed hit the switch. please don't hate me anymore :'(");
                 hit.transform.GetComponentInChildren<TimelinePlaybackManager>().PlayTimeline();
             }
 
@@ -430,15 +443,12 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
     {
         AkSoundEngine.PostEvent("PickUp_Crystal", gameObject);
 
-        Debug.Log("at the pickup function");
-        holding = true; //set pick up boolean
+        holding = true;
         pickedUpGameObject = objectBeingPickedUp.gameObject; // set the pick up object
-        //alpha = 0;
 
         pickupLocation = Instantiate(Resources.Load("Prefabs/Light/PickLocation")) as GameObject;
         pickupLocation.transform.parent = this.transform.parent;
         pickupLocation.transform.localPosition = new Vector3(0, 1.5f / 30.0f, 2.0f / 30.0f);
-
 
         float x = pickedUpGameObject.GetComponent<BoxCollider>().size.x / pickupLocation.transform.lossyScale.x;
         float y = pickedUpGameObject.GetComponent<BoxCollider>().size.y / pickupLocation.transform.lossyScale.y;
@@ -446,8 +456,6 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
 
         Vector3 colliderScale = new Vector3(x, y, z);
         pickupLocation.GetComponent<BoxCollider>().size = colliderScale;
-
-        //PickCrystalSource.Play();
     }
 
     private int GetArmQuantity()

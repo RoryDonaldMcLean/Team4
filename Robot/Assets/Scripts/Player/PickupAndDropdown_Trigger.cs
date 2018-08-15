@@ -272,13 +272,14 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
 
     private void RotateImmediateState(out GameObject hit)
     {
-        if (ObjectFound(out hit))//ray cast detection
+        if ((ObjectFound(out hit)) && (!rotateGeneric))
         {
             if ((!SamePickUpObject(hit)) && (!hit.transform.name.Contains("SlideBox")))
             {
                 GenericPickUpCheck(ref hit);
                 holding = false;
                 ToggleRotateState();
+                Invoke("AnimStop", 1.2f);
             }
         }
     }

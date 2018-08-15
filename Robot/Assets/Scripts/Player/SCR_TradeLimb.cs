@@ -784,6 +784,10 @@ public class SCR_TradeLimb : MonoBehaviour
                 dropDownLims.transform.position = dropDownLimsPosition;
                 //
                 //this.GetComponent<Chirps>().
+
+                /////
+                AkSoundEngine.PostEvent("Arm_Break", gameObject);
+            
                 Destroy(dropDownLims, 3f);
             }
         }

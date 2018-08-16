@@ -16,4 +16,9 @@ public class BaseCutScene : MonoBehaviour {
     {
 
     }
+
+    protected virtual void OnCollisionStay(Collision other)
+    {
+
+    }
 }

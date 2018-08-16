@@ -35,9 +35,6 @@ namespace AK
         static const AkUniqueID INSECTS = 3833343604U;
         static const AkUniqueID LIGHT_HITS_CRYSTAL = 3427421355U;
         static const AkUniqueID LIGHTBUZZ = 1863820488U;
-        static const AkUniqueID LOSEARM1 = 4133193861U;
-        static const AkUniqueID LOSEARM2 = 4133193862U;
-        static const AkUniqueID LOSEARM3 = 4133193863U;
         static const AkUniqueID MENU_ENTER = 1952436935U;
         static const AkUniqueID MENU_EXIT = 3663878895U;
         static const AkUniqueID MENU_SELECT = 4203375351U;
@@ -221,6 +218,7 @@ namespace AK
         static const AkUniqueID OBJECTS = 1695690031U;
         static const AkUniqueID REVERBS = 3545700988U;
         static const AkUniqueID ROBOTS = 2494382374U;
+        static const AkUniqueID STINGERS = 2940432316U;
         static const AkUniqueID SUBMASTER = 2625406123U;
     } // namespace BUSSES
 

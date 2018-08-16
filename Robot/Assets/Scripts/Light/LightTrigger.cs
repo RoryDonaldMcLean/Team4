@@ -6,6 +6,7 @@ public class LightTrigger : MonoBehaviour
 {
     public Color correctLightBeamColour = Color.white;
     public bool correctLight = false;
+    private bool connectedToLight = false;
 
     //Sets the trigger colour indicator to the correct defined colour required in order to open the door
     void Start()
@@ -20,7 +21,7 @@ public class LightTrigger : MonoBehaviour
     //Upon a collison being detected with a Lightbeam 
     void OnTriggerEnter(Collider lightBeam)
     {
-        if (lightBeam.gameObject.layer != LayerMask.NameToLayer("BeamLayer"))
+        if ((lightBeam.gameObject.layer != LayerMask.NameToLayer("BeamLayer")))// && (!connectedToLight))
         {
             LineRenderer line = lightBeam.GetComponentInParent<LineRenderer>();
 
@@ -32,7 +33,7 @@ public class LightTrigger : MonoBehaviour
             }
             else
             {
-                IncorrectColour();
+                //IncorrectColour();
                 GenerateVFXResponse(false);
             }
         }
@@ -74,7 +75,9 @@ public class LightTrigger : MonoBehaviour
         if (!correctLight)
         {
             correctLight = true;
-			AkSoundEngine.SetState("Drone_Modulator", "Hit_Switch");
+           // connectedToLight = true;
+
+            AkSoundEngine.SetState("Drone_Modulator", "Hit_Switch");
         }
     }
 
@@ -83,6 +86,8 @@ public class LightTrigger : MonoBehaviour
         if (correctLight)
         {
             correctLight = false;
+            //connectedToLight = false;
+
             AkSoundEngine.SetState("Drone_Modulator", "Hit_Wall");
         }
     }

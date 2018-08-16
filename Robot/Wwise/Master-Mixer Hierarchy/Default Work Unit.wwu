@@ -1262,6 +1262,37 @@
 										</CustomStateList>
 									</StateInfo>
 								</Bus>
+								<Bus Name="Stingers" ID="{CA07E774-79A2-44CE-B0B4-D0F017DA7B2E}">
+									<DuckingList>
+										<DuckItem>
+											<BusRef Name="Ambience" ID="{6DA28E5B-02CA-4B3F-8893-AC8791C9BF2D}"/>
+											<DuckingParam>
+												<Volume>-6</Volume>
+												<FadeInTime>4</FadeInTime>
+												<FadeOutTime>1</FadeOutTime>
+												<FadeCurve>FadeLinear</FadeCurve>
+											</DuckingParam>
+										</DuckItem>
+										<DuckItem>
+											<BusRef Name="Music" ID="{8B3FDD90-9F59-41B0-831B-94D60F3FFC3C}"/>
+											<DuckingParam>
+												<Volume>-6</Volume>
+												<FadeInTime>4</FadeInTime>
+												<FadeOutTime>1</FadeOutTime>
+												<FadeCurve>FadeLinear</FadeCurve>
+											</DuckingParam>
+										</DuckItem>
+										<DuckItem>
+											<BusRef Name="Drone" ID="{6BAF7145-A163-40D7-A216-C4BC3B0F1656}"/>
+											<DuckingParam>
+												<Volume>-6</Volume>
+												<FadeInTime>4</FadeInTime>
+												<FadeOutTime>1</FadeOutTime>
+												<FadeCurve>FadeLinear</FadeCurve>
+											</DuckingParam>
+										</DuckItem>
+									</DuckingList>
+								</Bus>
 							</ChildrenList>
 						</Bus>
 					</ChildrenList>

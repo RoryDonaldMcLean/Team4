@@ -68,12 +68,7 @@ public class SCR_Rotatable : MonoBehaviour
 		if ((col.gameObject.name.Contains ("Player")) && (Entered) && ((col.tag == playerTag) || (playerTag.Contains("Reset"))))
 		{
 			Entered = false;
-            Debug.Log("work");
             rotateVisualAid.SetActive(false);
-        }
-        else
-        {
-            Debug.Log("broken " + playerTag);
         }
 	}
 }

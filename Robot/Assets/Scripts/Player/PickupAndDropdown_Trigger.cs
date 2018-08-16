@@ -225,6 +225,8 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
 
     private void RotationExecution(ref InputDevice device)
     {
+        AnimStop();
+
         this.transform.parent.GetComponentInParent<Rigidbody>().velocity = Vector3.zero;
         Vector3 eulerAng = pickedUpGameObject.GetComponent<Transform>().rotation.eulerAngles;
 
@@ -285,6 +287,11 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
                     Invoke("AnimStop", 1.2f);
                 }
             }
+        }
+        else
+        {
+            ToggleRotateState();
+            CleanupRotateState();
         }
     }
 

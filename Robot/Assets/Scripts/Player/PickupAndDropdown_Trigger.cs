@@ -225,6 +225,8 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
 
     private void RotationExecution(ref InputDevice device)
     {
+        AnimStop();
+
         this.transform.parent.GetComponentInParent<Rigidbody>().velocity = Vector3.zero;
         Vector3 eulerAng = pickedUpGameObject.GetComponent<Transform>().rotation.eulerAngles;
 
@@ -274,15 +276,22 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
     {
         if ((ObjectFound(out hit)) && (!rotateGeneric))
         {
-            if ((!SamePickUpObject(hit)) && (!hit.transform.name.Contains("SlideBox")))
+            if ((!SamePickUpObject(hit)) && (!hit.transform.name.Contains("SlideBox")) && (!hit.transform.name.Contains("MelodyGate")) && (!hit.tag.Contains("Ground")))
             {
-                GenericPickUpCheck(ref hit);
-                holding = false;
-                ToggleRotateState();
-                CancelInvoke("AnimStop");
-                CancelInvoke("AnimPlay");
-                Invoke("AnimStop", 1.2f);
+                if(GenericPickUpCheck(ref hit))
+                {
+                    holding = false;
+                    ToggleRotateState();
+                    CancelInvoke("AnimStop");
+                    CancelInvoke("AnimPlay");
+                    Invoke("AnimStop", 1.2f);
+                }
             }
+        }
+        else
+        {
+            ToggleRotateState();
+            CleanupRotateState();
         }
     }
 
@@ -387,7 +396,7 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
     public void RotateDrop()
     {
         pickedUpGameObject.transform.parent.GetComponent<SCR_Rotatable>().pickedUp = false;
-        pickedUpGameObject.transform.parent.GetComponent<SCR_Rotatable>().playerTag = null;
+        pickedUpGameObject.transform.parent.GetComponent<SCR_Rotatable>().playerTag = "Reset";
         PutDownObject();
 
         pickedUpGameObject = null; //empty the pick up object
@@ -397,17 +406,23 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
         anim.SetBool("IsLifting", false);
     }
 
-    private void GenericPickUpCheck(ref GameObject hit)
+    private bool GenericPickUpCheck(ref GameObject hit)
     {
         if ((hit.tag == "LightBox") && (GetArmQuantity() >= 1))
         {
             anim.SetBool("IsLifting", true);
             PickUpObject(hit.transform);
+            return true;
         }
         else if ((hit.tag == "HeavyBox") && (GetArmQuantity() >= 2))
         {
             anim.SetBool("IsLifting", true);
             PickUpObject(hit.transform);
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 

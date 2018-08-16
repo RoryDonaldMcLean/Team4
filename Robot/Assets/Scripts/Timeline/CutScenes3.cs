@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CutScenes3 : BaseCutScene {
-
+public class CutScenes3 : BaseCutScene
+{
     protected override void OnCollisionEnter(Collision other)
     { 
         base.OnCollisionEnter(other);
@@ -11,6 +11,7 @@ public class CutScenes3 : BaseCutScene {
         {
             p1.GetComponent<SCR_TradeLimb>().DropDownLims("LeftArm");
             p1.GetComponent<Animator>().SetBool("IsPushing", false);
+            GameObject.FindGameObjectWithTag("GameController").AddComponent<TutorialOne>();
         }
     }
 }

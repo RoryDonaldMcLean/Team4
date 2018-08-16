@@ -469,7 +469,7 @@ Prefab:
     - target: {fileID: 114262206567903622, guid: 90d45ebe3039a2f4ba6f8b35bda850e5,
         type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114262206567903622, guid: 90d45ebe3039a2f4ba6f8b35bda850e5,
         type: 2}
@@ -938,56 +938,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 224526247288984118, guid: f9284eaaa7486d4478ae6b59a9c8e4ed,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 1.56
-      objectReference: {fileID: 0}
-    - target: {fileID: 224526247288984118, guid: f9284eaaa7486d4478ae6b59a9c8e4ed,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: 3.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 224526247288984118, guid: f9284eaaa7486d4478ae6b59a9c8e4ed,
-        type: 2}
-      propertyPath: m_SizeDelta.y
-      value: 92.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 224526247288984118, guid: f9284eaaa7486d4478ae6b59a9c8e4ed,
-        type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 173.52
-      objectReference: {fileID: 0}
-    - target: {fileID: 114665262143146256, guid: f9284eaaa7486d4478ae6b59a9c8e4ed,
-        type: 2}
-      propertyPath: m_FontData.m_FontSize
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 224448726384251866, guid: f9284eaaa7486d4478ae6b59a9c8e4ed,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: -0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 224448726384251866, guid: f9284eaaa7486d4478ae6b59a9c8e4ed,
-        type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 173.36
-      objectReference: {fileID: 0}
-    - target: {fileID: 224448726384251866, guid: f9284eaaa7486d4478ae6b59a9c8e4ed,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: 0.9625
-      objectReference: {fileID: 0}
-    - target: {fileID: 224448726384251866, guid: f9284eaaa7486d4478ae6b59a9c8e4ed,
-        type: 2}
-      propertyPath: m_SizeDelta.y
-      value: 85.325
-      objectReference: {fileID: 0}
-    - target: {fileID: 114676596314319068, guid: f9284eaaa7486d4478ae6b59a9c8e4ed,
-        type: 2}
-      propertyPath: m_FontData.m_FontSize
-      value: 20
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f9284eaaa7486d4478ae6b59a9c8e4ed, type: 2}
   m_IsPrefabParent: 0
@@ -1282,6 +1232,11 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 0.01
       objectReference: {fileID: 0}
+    - target: {fileID: 114500053005654756, guid: fcc3d75b34145674d98006ed6ff23989,
+        type: 2}
+      propertyPath: playerTag
+      value: Reset
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fcc3d75b34145674d98006ed6ff23989, type: 2}
   m_IsPrefabParent: 0
@@ -1411,7 +1366,7 @@ Prefab:
     - target: {fileID: 114260442008569370, guid: 598ddd03c9279d04bb373047e714ae08,
         type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114260442008569370, guid: 598ddd03c9279d04bb373047e714ae08,
         type: 2}
@@ -1842,7 +1797,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1296724388
 MonoBehaviour:
@@ -1983,7 +1938,7 @@ Prefab:
     - target: {fileID: 224448043703613556, guid: 505f23fba311c7a408e9d040e5749b59,
         type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 224448043703613556, guid: 505f23fba311c7a408e9d040e5749b59,
         type: 2}
@@ -2900,9 +2855,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2051288499}
   - component: {fileID: 2051288503}
-  - component: {fileID: 2051288502}
   - component: {fileID: 2051288501}
   - component: {fileID: 2051288500}
+  - component: {fileID: 2051288502}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Ground
@@ -2976,21 +2931,18 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &2051288502
-MeshCollider:
+--- !u!65 &2051288502
+BoxCollider:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 64507923372356870, guid: 88df1fc92a41b7a44b7a18959a0d2401,
-    type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2051288498}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Convex: 0
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+  m_Size: {x: 9.999999, y: 2.220446e-16, z: 9.999999}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &2051288503
 MeshFilter:
   m_ObjectHideFlags: 0

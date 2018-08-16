@@ -220,6 +220,7 @@ public class SCR_TradeLimb : MonoBehaviour
 		if (isBlue == GameManager.Instance.whichAndroid.player1ControlBlue)
 		{
             List<GameObject> ls = !GameManager.Instance.whichAndroid.player1ControlBlue ? limbsUI : limbsUI2;
+			ls [5].SetActive (true);
 
             if (limbs [0].activeSelf)
 			{
@@ -291,6 +292,7 @@ public class SCR_TradeLimb : MonoBehaviour
 		else
 		{
             List<GameObject> ls = GameManager.Instance.whichAndroid.player1ControlBlue ? limbsUI : limbsUI2;
+			ls [5].SetActive (true);
 
             //player 2
             if (limbs [0].activeSelf)

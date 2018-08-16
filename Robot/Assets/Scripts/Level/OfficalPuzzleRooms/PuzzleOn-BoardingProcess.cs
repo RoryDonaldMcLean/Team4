@@ -17,8 +17,8 @@ public class PuzzleOnBoardingProcess : LevelControlBaseClass
     //is completed.  
     protected override void LevelSpecificInit()
     {
-        DestroyMovement("Player1");
-        DestroyMovement("Player2");
+        DestroyTradeLimb("Player1");
+        DestroyTradeLimb("Player2");
     }
 
     public void ActivatePlayerMovement()
@@ -36,8 +36,8 @@ public class PuzzleOnBoardingProcess : LevelControlBaseClass
         GameObject.FindGameObjectWithTag(playerTag).GetComponent<InControlMovement>().enabled = true;
     }
 
-    private void DestroyMovement(string playerTag)
+    private void DestroyTradeLimb(string playerTag)
     {
-        GameObject.FindGameObjectWithTag(playerTag).GetComponent<InControlMovement>().enabled = false; 
+		GameObject.FindGameObjectWithTag(playerTag).GetComponent<SCR_TradeLimb>().enabled = false; 
     }
 }

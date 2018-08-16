@@ -14,6 +14,7 @@ public class SCR_Rotatable : MonoBehaviour
     public Color beamColour = Color.white;
     public int beamLength = 5;
 
+    private int playerNumbersEntered = 0;
     private GameObject rotateVisualAid;
 
     // Use this for initialization
@@ -56,19 +57,27 @@ public class SCR_Rotatable : MonoBehaviour
 
 	void OnTriggerEnter(Collider col)
 	{
-		if ((col.gameObject.name.Contains("Player")) && (!Entered))
+		if (col.gameObject.name.Contains("Player"))
 		{
-			Entered = true;
-            rotateVisualAid.SetActive(true);
+            if (!Entered)
+            {
+                Entered = true;
+                rotateVisualAid.SetActive(true);
+            }
+            playerNumbersEntered++;
         }
 	}
 
 	void OnTriggerExit(Collider col)
 	{
-		if ((col.gameObject.name.Contains ("Player")) && (Entered) && ((col.tag == playerTag) || (playerTag.Contains("Reset"))))
+		if ((col.gameObject.name.Contains("Player")) && (Entered)) //&& ((col.tag == playerTag) || (playerTag.Contains("Reset"))))
 		{
-			Entered = false;
-            rotateVisualAid.SetActive(false);
+            playerNumbersEntered--;
+            if (playerNumbersEntered == 0)
+            {
+                Entered = false;
+                rotateVisualAid.SetActive(false);
+            }
         }
 	}
 }

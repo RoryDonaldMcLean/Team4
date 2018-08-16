@@ -31,6 +31,10 @@ public class InControlMovement : MonoBehaviour
     private Vector3 EulerAngleVelocity;
     private Transform cam;
     private Quaternion targetRotation;
+
+	public bool UsingPlayStation = false;
+	public bool UsingXbox = false;
+
     #endregion
     // Use this for initialization
     void Start()
@@ -132,6 +136,17 @@ public class InControlMovement : MonoBehaviour
 		{
 			//Debug.Log ("Controllers are plugged in, using plug in");
 			ProcessInputInControl (inputDevice);
+			if(inputDevice.Name.Contains("PlayStation"))// == "PlayStation 4 Controller")
+			{
+				UsingPlayStation = true;
+				UsingXbox = false;
+			}
+
+			if (inputDevice.Name.Contains ("XBOX"))
+			{
+				UsingXbox = true;
+				UsingPlayStation = false;
+			}
 		}
     }
 

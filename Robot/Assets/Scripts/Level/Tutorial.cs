@@ -258,7 +258,7 @@ public class Tutorial : MonoBehaviour
 				if (levelCounter == 0)
 				{
 					UIText.SetActive (true);
-					UIText.GetComponent<Text> ().text = "Found operational arm. Directive; acquite arm.";
+					UIText.GetComponent<Text> ().text = "Found operational arm. Directive; acquire arm.";
 					StartCoroutine (GetRidOfText (3.0f));
 
 				}
@@ -268,7 +268,15 @@ public class Tutorial : MonoBehaviour
 					startTimer = true;
 					UITutorial.SetActive (true);
 					UIButtons [0].SetActive (true);
-					UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Pick Limb") as Sprite;
+
+					if (this.GetComponentInParent<InControlMovement> ().UsingPlayStation == true)
+					{
+						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_PickLimb_Circle_PS") as Sprite;
+					} else
+					{
+						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_PickLimb_B_XBOX") as Sprite;
+					}
+
 					UIButtons [0].GetComponent<Image> ().preserveAspect = true;
 
 					UIButtons [1].SetActive (false);
@@ -282,7 +290,13 @@ public class Tutorial : MonoBehaviour
 					startTimer = true;
 					UITutorial2.SetActive (true);
 					UIButtons2 [0].SetActive (true);
-					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Pick Limb") as Sprite;
+					if (this.GetComponentInParent<InControlMovement> ().UsingPlayStation == true)
+					{
+						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_PickLimb_Circle_PS") as Sprite;
+					} else
+					{
+						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_PickLimb_B_XBOX") as Sprite;
+					}
 					UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
 
 					UIButtons2 [1].SetActive (false);
@@ -354,7 +368,13 @@ public class Tutorial : MonoBehaviour
 					//startTimer = true;
 					UITutorial.SetActive (true);
 					UIButtons [0].SetActive (true);
-					UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Turn ONOff Light Emitter") as Sprite;
+					if (this.GetComponentInParent<InControlMovement> ().UsingPlayStation == true)
+					{
+						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_Turn OnOff Light Emitter_Triangle_PS") as Sprite;
+					} else
+					{
+						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_Turn OnOff LightEmitter_Y_XBOX") as Sprite;
+					}
 					UIButtons [0].GetComponent<Image> ().preserveAspect = true;
 
 					UIButtons [1].SetActive (false);
@@ -369,7 +389,13 @@ public class Tutorial : MonoBehaviour
 					//startTimer = true;
 					UITutorial2.SetActive (true);
 					UIButtons2 [0].SetActive (true);
-					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Turn ONOff Light Emitter") as Sprite;
+					if (this.GetComponentInParent<InControlMovement> ().UsingPlayStation == true)
+					{
+						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_Turn OnOff Light Emitter_Triangle_PS") as Sprite;
+					} else
+					{
+						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_Turn OnOff LightEmitter_Y_XBOX") as Sprite;
+					}
 					UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
 
 					UIButtons2 [1].SetActive (false);
@@ -432,7 +458,13 @@ public class Tutorial : MonoBehaviour
 					//startTimer = true;
 					UITutorial.SetActive (true);
 					UIButtons [0].SetActive (true);
-					UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Pick-Drop Object") as Sprite;
+					if (this.GetComponentInParent<InControlMovement> ().UsingPlayStation == true)
+					{
+						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_PickDropObject_Circle_PS") as Sprite;
+					} else
+					{
+						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_PickDropObject_B_XBOX") as Sprite;
+					}
 					UIButtons [0].GetComponent<Image> ().preserveAspect = true;
 
 					UIButtons [1].SetActive (false);
@@ -445,7 +477,13 @@ public class Tutorial : MonoBehaviour
 					//startTimer = true;
 					UITutorial2.SetActive (true);
 					UIButtons2 [0].SetActive (true);
-					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Pick-Drop Object") as Sprite;
+					if (this.GetComponentInParent<InControlMovement> ().UsingPlayStation == true)
+					{
+						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_PickDropObject_Circle_PS") as Sprite;
+					} else
+					{
+						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_PickDropObject_B_XBOX") as Sprite;
+					}
 					UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
 
 					UIButtons2 [1].SetActive (false);
@@ -509,7 +547,13 @@ public class Tutorial : MonoBehaviour
 					//startTimer = true;
 					UITutorial.SetActive (true);
 					UIButtons [0].SetActive (true);
-					UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Pick-Drop Object") as Sprite;
+					if (this.GetComponentInParent<InControlMovement> ().UsingPlayStation == true)
+					{
+						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_PickDropObject_Circle_PS") as Sprite;
+					} else
+					{
+						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_PickDropObject_B_XBOX") as Sprite;
+					}
 					UIButtons [0].GetComponent<Image> ().preserveAspect = true;
 					UIButtons [1].SetActive (false);
 					UIButtons [2].SetActive (false);
@@ -518,7 +562,13 @@ public class Tutorial : MonoBehaviour
 					if (col.transform.GetComponent<LightEmitter> ().canBeTurnedOff == true)
 					{
 						UIButtons [4].SetActive (true);
-						UIButtons [4].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Turn ONOff Light Emitter") as Sprite;
+						if (this.GetComponentInParent<InControlMovement> ().UsingPlayStation == true)
+						{
+							UIButtons [4].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_Turn OnOff Light Emitter_Triangle_PS") as Sprite;
+						} else
+						{
+							UIButtons [4].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_Turn OnOff Light Emitter_Y_XBOX") as Sprite;
+						}
 					} else
 					{
 						UIButtons [4].SetActive (false);
@@ -531,7 +581,13 @@ public class Tutorial : MonoBehaviour
 					//startTimer = true;
 					UITutorial2.SetActive (true);
 					UIButtons2 [0].SetActive (true);
-					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Pick-Drop Object") as Sprite;
+					if (this.GetComponentInParent<InControlMovement> ().UsingPlayStation == true)
+					{
+						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_PickDropObject_Circle_PS") as Sprite;
+					} else
+					{
+						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_PickDropObject_B_XBOX") as Sprite;
+					}
 					UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
 					UIButtons2 [1].SetActive (false);
 					UIButtons2 [2].SetActive (false);
@@ -539,7 +595,13 @@ public class Tutorial : MonoBehaviour
 					if (col.transform.GetComponent<LightEmitter> ().canBeTurnedOff == true)
 					{
 						UIButtons2 [4].SetActive (true);
-						UIButtons2 [4].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Turn ONOff Light Emitter") as Sprite;
+						if (this.GetComponentInParent<InControlMovement> ().UsingPlayStation == true)
+						{
+							UIButtons2 [4].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_Turn OnOff Light Emitter_Triangle_PS") as Sprite;
+						} else
+						{
+							UIButtons2 [4].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_Turn OnOff Light Emitter_Y_XBOX") as Sprite;
+						}
 					} else
 					{
 						UIButtons2 [4].SetActive (false);
@@ -632,7 +694,13 @@ public class Tutorial : MonoBehaviour
 						//startTimer = true;
 						UITutorial.SetActive (true);
 						UIButtons [0].SetActive (true);
-						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Pick-Drop Object") as Sprite;
+						if (this.GetComponentInParent<InControlMovement> ().UsingPlayStation == true)
+						{
+							UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_PickDropObject_Circle_PS") as Sprite;
+						} else
+						{
+							UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_PickDropObject_B_XBOX") as Sprite;
+						}
 						UIButtons [0].GetComponent<Image> ().preserveAspect = true;
 						UIButtons [1].SetActive (false);
 						UIButtons [3].SetActive (false);
@@ -644,7 +712,13 @@ public class Tutorial : MonoBehaviour
 						//startTimer = true;
 						UITutorial2.SetActive (true);
 						UIButtons2 [0].SetActive (true);
-						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Pick-Drop Object") as Sprite;
+						if (this.GetComponentInParent<InControlMovement> ().UsingPlayStation == true)
+						{
+							UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_PickDropObject_Circle_PS") as Sprite;
+						} else
+						{
+							UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_PickDropObject_B_XBOX") as Sprite;
+						}
 						UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
 						UIButtons2 [1].SetActive (false);
 						UIButtons2 [3].SetActive (false);
@@ -699,7 +773,13 @@ public class Tutorial : MonoBehaviour
 						//startTimer = true;
 						UITutorial.SetActive (true);
 						UIButtons [0].SetActive (true);
-						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Insert Withdraw Limb") as Sprite;
+						if (this.GetComponentInParent<InControlMovement> ().UsingPlayStation == true)
+						{
+							UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_InsertWithdrawLimb_Triangle_PS") as Sprite;
+						} else
+						{
+							UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_InsertWithdrawLimb_Y_XBOX") as Sprite;
+						}
 						UIButtons [0].GetComponent<Image> ().preserveAspect = true;
 						UIButtons [1].SetActive (false);
 						UIButtons [3].SetActive (false);
@@ -711,7 +791,13 @@ public class Tutorial : MonoBehaviour
 						//startTimer = true;
 						UITutorial2.SetActive (true);
 						UIButtons2 [0].SetActive (true);
-						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Insert Withdraw Limb") as Sprite;
+						if (this.GetComponentInParent<InControlMovement> ().UsingPlayStation == true)
+						{
+							UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_InsertWithdrawLimb_Triangle_PS") as Sprite;
+						} else
+						{
+							UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_InsertWithdrawLimb_Y_XBOX") as Sprite;
+						}
 						UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
 						UIButtons2 [1].SetActive (false);
 						UIButtons2 [3].SetActive (false);
@@ -769,7 +855,13 @@ public class Tutorial : MonoBehaviour
 					//startTimer = true;
 					UITutorial.SetActive (true);
 					UIButtons [0].SetActive (true);
-					UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Jump") as Sprite;
+					if (this.GetComponentInParent<InControlMovement> ().UsingPlayStation == true)
+					{
+						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_Jump_Cross_PS") as Sprite;
+					} else
+					{
+						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_Jump_A_XBOX") as Sprite;
+					}
 					UIButtons [0].GetComponent<Image> ().preserveAspect = true;
 
 					UIButtons [1].SetActive (false);
@@ -784,7 +876,13 @@ public class Tutorial : MonoBehaviour
 					//startTimer = true;
 					UITutorial2.SetActive (true);
 					UIButtons2 [0].SetActive (true);
-					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Jump") as Sprite;
+					if (this.GetComponentInParent<InControlMovement> ().UsingPlayStation == true)
+					{
+						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_Jump_Cross_PS") as Sprite;
+					} else
+					{
+						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_Jump_A_XBOX") as Sprite;
+					}
 					UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
 
 					UIButtons2 [1].SetActive (false);
@@ -895,7 +993,13 @@ public class Tutorial : MonoBehaviour
 						//startTimer = true;
 						UITutorial.SetActive (true);
 						UIButtons [0].SetActive (true);
-						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Pick-Drop Object") as Sprite;
+						if (this.GetComponentInParent<InControlMovement> ().UsingPlayStation == true)
+						{
+							UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_PickDropObject_Circle_PS") as Sprite;
+						} else
+						{
+							UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_PickDropObject_B_XBOX") as Sprite;
+						}
 						UIButtons [0].GetComponent<Image> ().preserveAspect = true;
 						UIButtons [1].SetActive (false);
 						UIButtons [3].SetActive (false);
@@ -907,7 +1011,13 @@ public class Tutorial : MonoBehaviour
 						//startTimer = true;
 						UITutorial2.SetActive (true);
 						UIButtons2 [0].SetActive (true);
-						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Pick-Drop Object") as Sprite;
+						if (this.GetComponentInParent<InControlMovement> ().UsingPlayStation == true)
+						{
+							UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_PickDropObject_Circle_PS") as Sprite;
+						} else
+						{
+							UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_PickDropObject_B_XBOX") as Sprite;
+						}
 						UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
 						UIButtons2 [1].SetActive (false);
 						UIButtons2 [3].SetActive (false);
@@ -970,7 +1080,13 @@ public class Tutorial : MonoBehaviour
 						//startTimer = true;
 						UITutorial.SetActive (true);
 						UIButtons [0].SetActive (true);
-						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Insert Withdraw Limb") as Sprite;
+						if (this.GetComponentInParent<InControlMovement> ().UsingPlayStation == true)
+						{
+							UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_InsertWithdrawLimb_Triangle_PS") as Sprite;
+						} else
+						{
+							UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_InsertWithdrawLimb_Y_XBOX") as Sprite;
+						}
 						UIButtons [0].GetComponent<Image> ().preserveAspect = true;
 						UIButtons [1].SetActive (false);
 						UIButtons [3].SetActive (false);
@@ -982,7 +1098,13 @@ public class Tutorial : MonoBehaviour
 						//startTimer = true;
 						UITutorial2.SetActive (true);
 						UIButtons2 [0].SetActive (true);
-						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Insert Withdraw Limb") as Sprite;
+						if (this.GetComponentInParent<InControlMovement> ().UsingPlayStation == true)
+						{
+							UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_InsertWithdrawLimb_Triangle_PS") as Sprite;
+						} else
+						{
+							UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_InsertWithdrawLimb_Y_XBOX") as Sprite;
+						}
 						UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
 						UIButtons2 [1].SetActive (false);
 						UIButtons2 [3].SetActive (false);
@@ -1081,7 +1203,13 @@ public class Tutorial : MonoBehaviour
 						//startTimer = true;
 						UITutorial.SetActive (true);
 						UIButtons [0].SetActive (true);
-						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Pick-Drop Object") as Sprite;
+						if (this.GetComponentInParent<InControlMovement> ().UsingPlayStation == true)
+						{
+							UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_PickDropObject_Circle_PS") as Sprite;
+						} else
+						{
+							UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_PickDropObject_B_XBOX") as Sprite;
+						}
 						UIButtons [0].GetComponent<Image> ().preserveAspect = true;
 						UIButtons [1].SetActive (false);
 						UIButtons [3].SetActive (false);
@@ -1093,7 +1221,13 @@ public class Tutorial : MonoBehaviour
 						//startTimer = true;
 						UITutorial2.SetActive (true);
 						UIButtons2 [0].SetActive (true);
-						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Pick-Drop Object") as Sprite;
+						if (this.GetComponentInParent<InControlMovement> ().UsingPlayStation == true)
+						{
+							UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_PickDropObject_Circle_PS") as Sprite;
+						} else
+						{
+							UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_PickDropObject_B_XBOX") as Sprite;
+						}
 						UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
 						UIButtons2 [1].SetActive (false);
 						UIButtons2 [3].SetActive (false);

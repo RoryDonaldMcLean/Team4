@@ -21,12 +21,27 @@ public class CutScene10_2 : BaseCutScene {
             {
                 if (Input.GetKeyDown(GameManager.Instance.playerSetting.currentButton[btnIndex]))
                 {
+
+                    AkSoundEngine.PostEvent("Switch", gameObject);
+                    AkSoundEngine.SetState("Environment", "P6_EndSacrifice");
+                    AkSoundEngine.PostEvent("Die", Tube);
+                    //AkSoundEngine.PostEvent("TheCore", Tube);
+
+
                     controlPlayer.GetComponent<Animator>().SetBool("IsButtonPressed", true);
                     Destroy(otherPlayer);
+
+                    
+                    
+
+
                     GameObject.FindObjectOfType<SCR_CameraFollow>().enabled = false;
                     //SceneManager.LoadScene("Transition");
+
                 }
             }
         }
     }
+
+   
 }

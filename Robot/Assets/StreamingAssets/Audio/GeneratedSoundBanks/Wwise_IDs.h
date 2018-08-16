@@ -227,6 +227,7 @@ namespace AK
         static const AkUniqueID REFLECT = 243379636U;
         static const AkUniqueID REVERB_FACTORY = 2694233930U;
         static const AkUniqueID REVERB_OUTDOORS = 4227785423U;
+        static const AkUniqueID REVERB_TUNNEL = 2261546958U;
         static const AkUniqueID REVERB_WAREHOUSE = 3439705185U;
     } // namespace AUX_BUSSES
 

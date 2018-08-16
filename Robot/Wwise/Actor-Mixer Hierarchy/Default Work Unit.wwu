@@ -4585,10 +4585,15 @@
 								</Sound>
 								<Sound Name="The Core Hum" ID="{FC6754F1-B700-4104-9610-F89C459F000B}" ShortID="147585186">
 									<PropertyList>
-										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="Pitch" Type="int32">
+											<ValueList>
+												<Value>280</Value>
+											</ValueList>
+										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-12</Value>
+												<Value>-15</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -4603,9 +4608,11 @@
 									<ChildrenList>
 										<AudioFileSource Name="The Core Hum" ID="{A81C88B8-1AB4-4B54-A3D4-F9CF4AD523E9}" ShortID="195856999">
 											<PropertyList>
-												<Property Name="FadeOutDuration" Type="Real64" Value="1.64732142857143"/>
+												<Property Name="FadeInDuration" Type="Real64" Value="0.241071428571429"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="4.41964285714286"/>
 												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-												<Property Name="TrimEnd" Type="Real64" Value="29.9732142857143"/>
+												<Property Name="TrimBegin" Type="Real64" Value="3.05357142857143"/>
+												<Property Name="TrimEnd" Type="Real64" Value="12.6964285714286"/>
 											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>The Core Hum.wav</AudioFile>

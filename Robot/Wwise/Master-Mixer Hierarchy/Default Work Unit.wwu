@@ -608,17 +608,13 @@
 												<StateRef Name="P6_EndLeave" ID="{E8ED1630-94B1-46FB-A5DC-E890F8746D73}"/>
 												<State Name="" ID="{B406C3CD-A1EE-4A2E-9F5B-35122EC8BFE2}" ShortID="721369652">
 													<PropertyList>
-														<Property Name="BusVolume" Type="Real64" Value="-12"/>
+														<Property Name="BusVolume" Type="Real64" Value="-1"/>
 													</PropertyList>
 												</State>
 											</CustomState>
 											<CustomState>
 												<StateRef Name="P5_Core" ID="{6B59E6D1-4DA6-487E-91B0-1AE559B70CD1}"/>
-												<State Name="" ID="{79EB243B-4F49-4B5C-A977-36F4FDC7C363}" ShortID="1042463136">
-													<PropertyList>
-														<Property Name="BusVolume" Type="Real64" Value="-4"/>
-													</PropertyList>
-												</State>
+												<State Name="" ID="{79EB243B-4F49-4B5C-A977-36F4FDC7C363}" ShortID="1042463136"/>
 											</CustomState>
 											<CustomState>
 												<StateRef Name="P3_ConstructionScenery" ID="{D01D8749-D570-4885-88A1-4E868784E367}"/>
@@ -644,7 +640,7 @@
 												<StateRef Name="P4_Clouds" ID="{B92ABBFE-ED7C-4AE0-A739-CF81428935A0}"/>
 												<State Name="" ID="{B5FE7B10-6B7E-49D6-BAF8-10E7B26020FC}" ShortID="974808288">
 													<PropertyList>
-														<Property Name="BusVolume" Type="Real64" Value="-3"/>
+														<Property Name="BusVolume" Type="Real64" Value="1"/>
 													</PropertyList>
 												</State>
 											</CustomState>
@@ -656,7 +652,7 @@
 												<StateRef Name="P6_EndSacrifice" ID="{B2786363-AAB6-4D23-9F0A-8407408276B0}"/>
 												<State Name="" ID="{666591BE-F2F8-4C4A-9AA2-A6F8BE43F8CE}" ShortID="658618981">
 													<PropertyList>
-														<Property Name="BusVolume" Type="Real64" Value="-9"/>
+														<Property Name="BusVolume" Type="Real64" Value="-1"/>
 													</PropertyList>
 												</State>
 											</CustomState>
@@ -664,7 +660,7 @@
 												<StateRef Name="P6_AChoice" ID="{300F983C-BC50-4E36-BF53-75418BDAB6CF}"/>
 												<State Name="" ID="{0CE4E87B-A04C-48DC-B6D9-C89C9725150C}" ShortID="511357669">
 													<PropertyList>
-														<Property Name="BusVolume" Type="Real64" Value="-9"/>
+														<Property Name="BusVolume" Type="Real64" Value="3"/>
 													</PropertyList>
 												</State>
 											</CustomState>
@@ -1180,6 +1176,16 @@
 												</Reference>
 												<Reference Name="Effect0" CompanyID="4095" PluginID="65535" PluginType="15">
 													<ObjectRef Name="Metal_Hangar" ID="{C4A4605C-42EF-476A-B53C-E31C7A442C24}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+												</Reference>
+											</ReferenceList>
+										</AuxBus>
+										<AuxBus Name="REVERB_Tunnel" ID="{103EFAB4-0BD3-45B5-B9DC-53211DB1901F}">
+											<ReferenceList>
+												<Reference Name="Effect0" CompanyID="4095" PluginID="65535" PluginType="15">
+													<ObjectRef Name="Aluminium_Tank" ID="{0D20C91A-F750-47E0-AE32-00E5F2AA1272}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+												</Reference>
+												<Reference Name="Effect1" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+													<ObjectRef Name="High_Pass_60Hz" ID="{F9627628-0B10-4272-BC30-D4C20423CB38}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
 												</Reference>
 											</ReferenceList>
 										</AuxBus>

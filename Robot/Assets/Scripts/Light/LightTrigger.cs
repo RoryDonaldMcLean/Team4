@@ -21,7 +21,7 @@ public class LightTrigger : MonoBehaviour
     //Upon a collison being detected with a Lightbeam 
     void OnTriggerEnter(Collider lightBeam)
     {
-        if ((lightBeam.gameObject.layer != LayerMask.NameToLayer("BeamLayer")) && (!connectedToLight))
+        if ((lightBeam.gameObject.layer != LayerMask.NameToLayer("BeamLayer")))// && (!connectedToLight))
         {
             LineRenderer line = lightBeam.GetComponentInParent<LineRenderer>();
 
@@ -33,7 +33,7 @@ public class LightTrigger : MonoBehaviour
             }
             else
             {
-                IncorrectColour();
+                //IncorrectColour();
                 GenerateVFXResponse(false);
             }
         }
@@ -75,7 +75,7 @@ public class LightTrigger : MonoBehaviour
         if (!correctLight)
         {
             correctLight = true;
-            connectedToLight = true;
+           // connectedToLight = true;
 
             AkSoundEngine.SetState("Drone_Modulator", "Hit_Switch");
         }
@@ -86,7 +86,7 @@ public class LightTrigger : MonoBehaviour
         if (correctLight)
         {
             correctLight = false;
-            connectedToLight = false;
+            //connectedToLight = false;
 
             AkSoundEngine.SetState("Drone_Modulator", "Hit_Wall");
         }

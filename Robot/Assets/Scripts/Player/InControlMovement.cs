@@ -163,8 +163,15 @@ public class InControlMovement : MonoBehaviour
 		//forward and backwards movement
 		velocity.z = inputDevice.LeftStickY;
 
+
+
         if(inputDevice.LeftStickX || inputDevice.LeftStickY)
         {
+			/*if (inputDevice.Name == "PlayStation 4 Controller")
+			{
+				inputDevice.Vibrate (100.0f, 100.0f);
+				Debug.Log ("ye man");
+			}*/
             anim.SetBool("IsMoving", true);
         }
         else

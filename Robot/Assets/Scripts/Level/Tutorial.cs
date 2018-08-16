@@ -31,9 +31,16 @@ public class Tutorial : MonoBehaviour
 
 	bool UISwitch = false;
 
+	GameObject LeftArm, RightArm;
+	bool LeftArmOn = true;
+	bool RightArmOn = true;
+
 	// Use this for initialization
 	void Start () 
 	{
+		LeftArm = GameObject.Find ("LeftArm");
+		RightArm = GameObject.Find ("RightArm");
+
 		playerNum = this.GetComponentInParent<InControlMovement> ().playerNum;
 		keyboardButtonPlayer1 = GameObject.FindGameObjectWithTag ("KeyBoardPlayer1");
 		KeyboardButtonPlayer2 = GameObject.FindGameObjectWithTag ("KeyBoardPlayer2");
@@ -70,6 +77,11 @@ public class Tutorial : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
+		if (LeftArm == null)
+		{
+			LeftArmOn = false;
+		}
+
 		if (scriptStart == true)
 		{
 			UITutorial.SetActive (false);
@@ -206,7 +218,7 @@ public class Tutorial : MonoBehaviour
 				{
 					UITutorial.SetActive (true);
 					UIButtons [0].SetActive (true);
-					UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/Red promptbox") as Sprite;
+					UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/UITutorialBox_Red") as Sprite;
 					UIButtons [0].GetComponent<Image> ().preserveAspect = true;
 					UIButtons [1].SetActive (true);
 
@@ -220,7 +232,7 @@ public class Tutorial : MonoBehaviour
 				{
 					UITutorial2.SetActive (true);
 					UIButtons2 [0].SetActive (true);
-					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/Blue promptbox") as Sprite;
+					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/UITutorialBox_Blue") as Sprite;
 					UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
 					UIButtons2 [1].SetActive (true);
 
@@ -253,7 +265,7 @@ public class Tutorial : MonoBehaviour
 
 				if (playerNum == 0)
 				{
-					//startTimer = true;
+					startTimer = true;
 					UITutorial.SetActive (true);
 					UIButtons [0].SetActive (true);
 					UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Pick Limb") as Sprite;
@@ -264,9 +276,10 @@ public class Tutorial : MonoBehaviour
 					UIButtons [4].SetActive (false);
 				}
 
+
 				if (playerNum == 1)
 				{
-					//startTimer = true;
+					startTimer = true;
 					UITutorial2.SetActive (true);
 					UIButtons2 [0].SetActive (true);
 					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Pick Limb") as Sprite;
@@ -289,10 +302,10 @@ public class Tutorial : MonoBehaviour
 
 				if (playerNum == 0)
 				{
-					//startTimer = true;
+					startTimer = true;
 					UITutorial.SetActive (true);
 					UIButtons [0].SetActive (true);
-					UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/Red promptbox") as Sprite;
+					UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/UITutorialBox_Red") as Sprite;
 					UIButtons [0].GetComponent<Image> ().preserveAspect = true;
 
 					UIButtons [1].SetActive (true);
@@ -305,10 +318,10 @@ public class Tutorial : MonoBehaviour
 
 				if (playerNum == 1)
 				{
-					//startTimer = true;
+					startTimer = true;
 					UITutorial2.SetActive (true);
 					UIButtons2 [0].SetActive (true);
-					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/Blue promptbox") as Sprite;
+					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/UITutorialBox_Blue") as Sprite;
 					UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
 
 					UIButtons2 [1].SetActive (true);
@@ -379,7 +392,7 @@ public class Tutorial : MonoBehaviour
 					//startTimer = true;
 					UITutorial.SetActive (true);
 					UIButtons [0].SetActive (true);
-					UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/Red promptbox") as Sprite;
+					UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/UITutorialBox_Red") as Sprite;
 					UIButtons [0].GetComponent<Image> ().preserveAspect = true;
 
 					UIButtons [1].SetActive (true);
@@ -396,7 +409,7 @@ public class Tutorial : MonoBehaviour
 					//startTimer = true;
 					UITutorial2.SetActive (true);
 					UIButtons2 [0].SetActive (true);
-					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/Blue promptbox") as Sprite;
+					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/UITutorialBox_Blue") as Sprite;
 					UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
 
 					UIButtons2 [1].SetActive (true);
@@ -447,7 +460,7 @@ public class Tutorial : MonoBehaviour
 					//startTimer = true;
 					UITutorial.SetActive (true);
 					UIButtons [0].SetActive (true);
-					UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/Red promptbox") as Sprite;
+					UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/UITutorialBox_Red") as Sprite;
 					UIButtons [0].GetComponent<Image> ().preserveAspect = true;
 
 					UIButtons [1].SetActive (true);
@@ -463,7 +476,7 @@ public class Tutorial : MonoBehaviour
 					//startTimer = true;
 					UITutorial2.SetActive (true);
 					UIButtons2 [0].SetActive (true);
-					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/Blue promptbox") as Sprite;
+					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/UITutorialBox_Blue") as Sprite;
 					UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
 
 					UIButtons2 [1].SetActive (true);
@@ -549,7 +562,7 @@ public class Tutorial : MonoBehaviour
 					//startTimer = true;
 					UITutorial.SetActive (true);
 					UIButtons [0].SetActive (true);
-					UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/Red promptbox") as Sprite;
+					UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/UITutorialBox_Red") as Sprite;
 					UIButtons [0].GetComponent<Image> ().preserveAspect = true;
 
 					UIButtons [1].SetActive (true);
@@ -575,7 +588,7 @@ public class Tutorial : MonoBehaviour
 					//startTimer = true;
 					UITutorial2.SetActive (true);
 					UIButtons2 [0].SetActive (true);
-					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/Blue promptbox") as Sprite;
+					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/UITutorialBox_Blue") as Sprite;
 					UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
 
 					UIButtons [1].SetActive (true);
@@ -646,7 +659,7 @@ public class Tutorial : MonoBehaviour
 						//startTimer = true;
 						UITutorial.SetActive (true);
 						UIButtons [0].SetActive (true);
-						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/Red promptbox") as Sprite;
+						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/UITutorialBox_Red") as Sprite;
 						UIButtons [0].GetComponent<Image> ().preserveAspect = true;
 
 						UIButtons [1].SetActive (true);
@@ -662,7 +675,7 @@ public class Tutorial : MonoBehaviour
 						//startTimer = true;
 						UITutorial2.SetActive (true);
 						UIButtons2 [0].SetActive (true);
-						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/Blue promptbox") as Sprite;
+						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/UITutorialBox_Blue") as Sprite;
 						UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
 
 						UIButtons2 [1].SetActive (true);
@@ -713,7 +726,7 @@ public class Tutorial : MonoBehaviour
 						//startTimer = true;
 						UITutorial.SetActive (true);
 						UIButtons [0].SetActive (true);
-						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/Red promptbox") as Sprite;
+						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/UITutorialBox_Red") as Sprite;
 						UIButtons [0].GetComponent<Image> ().preserveAspect = true;
 
 						UIButtons [1].SetActive (true);
@@ -729,7 +742,7 @@ public class Tutorial : MonoBehaviour
 						//startTimer = true;
 						UITutorial2.SetActive (true);
 						UIButtons2 [0].SetActive (true);
-						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/Blue promptbox") as Sprite;
+						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/UITutorialBox_Blue") as Sprite;
 						UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
 
 						UIButtons2 [1].SetActive (true);
@@ -787,7 +800,7 @@ public class Tutorial : MonoBehaviour
 					//startTimer = true;
 					UITutorial.SetActive (true);
 					UIButtons [0].SetActive (true);
-					UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/Red promptbox") as Sprite;
+					UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/UITutorialBox_Red") as Sprite;
 					UIButtons [0].GetComponent<Image> ().preserveAspect = true;
 
 					UIButtons [1].SetActive (true);
@@ -803,7 +816,7 @@ public class Tutorial : MonoBehaviour
 					//startTimer = true;
 					UITutorial2.SetActive (true);
 					UIButtons2 [0].SetActive (true);
-					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/Blue promptbox") as Sprite;
+					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/UITutorialBox_Blue") as Sprite;
 					UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
 
 					UIButtons2 [1].SetActive (true);
@@ -909,7 +922,7 @@ public class Tutorial : MonoBehaviour
 						//startTimer = true;
 						UITutorial.SetActive (true);
 						UIButtons [0].SetActive (true);
-						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/Red promptbox") as Sprite;
+						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/UITutorialBox_Red") as Sprite;
 						UIButtons [0].GetComponent<Image> ().preserveAspect = true;
 
 						UIButtons [1].SetActive (true);
@@ -925,7 +938,7 @@ public class Tutorial : MonoBehaviour
 						//startTimer = true;
 						UITutorial2.SetActive (true);
 						UIButtons2 [0].SetActive (true);
-						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/Blue promptbox") as Sprite;
+						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/UITutorialBox_Blue") as Sprite;
 						UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
 
 						UIButtons2 [1].SetActive (true);
@@ -992,7 +1005,7 @@ public class Tutorial : MonoBehaviour
 						//startTimer = true;
 						UITutorial.SetActive (true);
 						UIButtons [0].SetActive (true);
-						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/Red promptbox") as Sprite;
+						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/UITutorialBox_Red") as Sprite;
 						UIButtons [0].GetComponent<Image> ().preserveAspect = true;
 
 						UIButtons [1].SetActive (true);
@@ -1008,7 +1021,7 @@ public class Tutorial : MonoBehaviour
 						//startTimer = true;
 						UITutorial2.SetActive (true);
 						UIButtons2 [0].SetActive (true);
-						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/Blue promptbox") as Sprite;
+						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/UITutorialBox_Blue") as Sprite;
 						UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
 
 						UIButtons2 [1].SetActive (true);
@@ -1095,7 +1108,7 @@ public class Tutorial : MonoBehaviour
 						//startTimer = true;
 						UITutorial.SetActive (true);
 						UIButtons [0].SetActive (true);
-						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/Red promptbox") as Sprite;
+						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/UITutorialBox_Red") as Sprite;
 						UIButtons [0].GetComponent<Image> ().preserveAspect = true;
 
 						UIButtons [1].SetActive (true);
@@ -1111,7 +1124,7 @@ public class Tutorial : MonoBehaviour
 						//startTimer = true;
 						UITutorial2.SetActive (true);
 						UIButtons2 [0].SetActive (true);
-						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/Blue promptbox") as Sprite;
+						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/UITutorialBox_Blue") as Sprite;
 						UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
 
 						UIButtons2 [1].SetActive (true);
@@ -1310,4 +1323,5 @@ public class Tutorial : MonoBehaviour
 		}
 			
 	}
+		
 }

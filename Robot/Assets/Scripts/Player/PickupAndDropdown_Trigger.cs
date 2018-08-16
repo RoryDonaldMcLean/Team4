@@ -289,7 +289,7 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
                 }
             }
         }
-        else
+        else if (rotateGeneric)
         {
             ToggleRotateState();
             CleanupRotateState();
@@ -538,6 +538,7 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
     {
         if (other.tag != "Player1" && other.tag != "Player2" && other.tag != "Line" && other.tag != "EndBeam")
         {   
+            
             if(pickedUpGameObject != null)
             {
                 if (pickedUpGameObject.name.Contains("RotateBox"))
@@ -545,13 +546,8 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
                     RotateDrop();
                     this.transform.parent.GetComponentInChildren<InControlMovement>().enabled = true;
                 }
-                else
-                {
-                    PutDownObject();
-                    if (rotateGeneric) ToggleRotateState();
-                    CleanupRotateState();
-                }
-            }   
+            }  
+             
             triggerList.Remove(other.gameObject);
         }
         if (other.tag != "Untagged")

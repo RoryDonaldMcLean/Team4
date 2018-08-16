@@ -197,7 +197,8 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
         }
         else
         {
-            pickedUpGameObject.GetComponent<Transform>().position = pickupLocation.transform.position; // set the picking up object position
+            // set the picking up object position
+            pickedUpGameObject.GetComponent<Transform>().position = pickupLocation.transform.position;
             pickedUpGameObject.GetComponent<Transform>().rotation = Quaternion.Lerp(pickedUpGameObject.GetComponent<Transform>().rotation, this.transform.parent.GetComponent<Transform>().rotation, 1); //make the rotation of object same as camera
             pickedUpGameObject.GetComponent<Transform>().rotation = new Quaternion(0, pickedUpGameObject.GetComponent<Transform>().rotation.y, 0, pickedUpGameObject.GetComponent<Transform>().rotation.w);
 
@@ -536,7 +537,23 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         if (other.tag != "Player1" && other.tag != "Player2" && other.tag != "Line" && other.tag != "EndBeam")
+        {   
+            if(pickedUpGameObject != null)
+            {
+                if (pickedUpGameObject.name.Contains("RotateBox"))
+                {
+                    RotateDrop();
+                    this.transform.parent.GetComponentInChildren<InControlMovement>().enabled = true;
+                }
+                else
+                {
+                    PutDownObject();
+                    if (rotateGeneric) ToggleRotateState();
+                    CleanupRotateState();
+                }
+            }   
             triggerList.Remove(other.gameObject);
+        }
         if (other.tag != "Untagged")
         {
             //disable when out of range 

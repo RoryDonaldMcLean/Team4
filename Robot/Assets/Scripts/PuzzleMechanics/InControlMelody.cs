@@ -106,12 +106,12 @@ public class InControlMelody : MonoBehaviour
 			RedDPAD [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/LimbsMenu/UIDPadIcon - 1234") as Sprite;
 			BlueDPAD [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/LimbsMenu/UIDPadIcon - 5678") as Sprite;
 
-			RedCancelChildren [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/Red promptbox") as Sprite;
+			RedCancelChildren [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/UITutorialBox_Red") as Sprite;
 			RedCancelChildren [1].SetActive (true);
 			RedCancelChildren[1].GetComponent<Text> ().text = "Press: " + GameManager.Instance.playerSetting.currentButton [26].ToString ();
 			RedCancelChildren [2].SetActive (true);
 
-			BlueCancelChildren [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/Blue promptbox") as Sprite;
+			BlueCancelChildren [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/UITutorialBox_Blue") as Sprite;
 			BlueCancelChildren [1].SetActive (true);
 			BlueCancelChildren[1].GetComponent<Text> ().text = "Press: " + GameManager.Instance.playerSetting.currentButton [27].ToString ();
 			BlueCancelChildren [2].SetActive (true);

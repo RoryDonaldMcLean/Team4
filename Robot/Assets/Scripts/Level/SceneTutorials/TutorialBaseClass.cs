@@ -6,6 +6,7 @@ public class TutorialBaseClass : MonoBehaviour
 {
     protected List<LightTrigger> lightTriggers;
     protected GameObject entranceWall;
+    protected GameObject exitWall;
     protected List<GameObject> lightSources;
     protected List<GameObject> destroyableWalls;
     protected string tutorialIdentifier;
@@ -25,10 +26,12 @@ public class TutorialBaseClass : MonoBehaviour
 
     //Sets up the visual aid component of the door, which is used to show that the door is now
     //turned on following a correctly completed level.  
-    private void EntranceWallSetup()
+    private void SpecialWallsSetup()
     {
         entranceWall = GameObject.FindGameObjectWithTag("EntranceWall");
         entranceWall.SetActive(false);
+
+        exitWall = GameObject.FindGameObjectWithTag("ExitWall");
     }
 
     public void TurnOnEntranceWall()
@@ -101,7 +104,7 @@ public class TutorialBaseClass : MonoBehaviour
         SpecficPuzzleSetup("LightSources");
         SpecficPuzzleSetup("DestroyableWalls");
 
-        EntranceWallSetup();
+        SpecialWallsSetup();
 
         TextPromptTutorialSetup();
     }
@@ -131,7 +134,15 @@ public class TutorialBaseClass : MonoBehaviour
 
     private void ExitTutorial()
     {
-        TurnOffLights();
+        TurnOffLights();     
+        ToggleExitControl();
         Destroy(this);
+    }
+
+    private void ToggleExitControl()
+    {
+        bool wallState = exitWall.GetComponent<MeshRenderer>().enabled;
+        exitWall.GetComponent<MeshRenderer>().enabled = !wallState;
+        exitWall.GetComponent<BoxCollider>().isTrigger = wallState;
     }
 }

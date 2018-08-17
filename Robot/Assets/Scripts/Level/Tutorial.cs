@@ -1193,48 +1193,36 @@ public class Tutorial : MonoBehaviour
 		{
 			if (playerNum == 0)
 			{
-				UITutorial.SetActive (false);
-				UIButtons [0].SetActive (false);
-				UIButtons [0].GetComponent<Image> ().preserveAspect = true;
+				PlayerOneToggleUI();
 			}
 
 			if (playerNum == 1)
 			{
-				UITutorial2.SetActive (false);
-				UIButtons2 [0].SetActive (false);
-				UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
+				PlayerTwoToggleUI();
 			}
 
 		} else if (col.transform.name.Contains ("SlideBox"))
 		{
 			if (playerNum == 0)
 			{
-				UITutorial.SetActive (false);
-				UIButtons [0].SetActive (false);
-				UIButtons [0].GetComponent<Image> ().preserveAspect = true;
+				PlayerOneToggleUI();
 			}
 
 			if (playerNum == 1)
 			{
-				UITutorial2.SetActive (false);
-				UIButtons2 [0].SetActive (false);
-				UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
+				PlayerTwoToggleUI();
 			}
 
 		} else if (col.transform.name.Contains ("RotateBox"))
 		{
 			if (playerNum == 0)
 			{
-				UITutorial.SetActive (false);
-				UIButtons [0].SetActive (false);
-				UIButtons [0].GetComponent<Image> ().preserveAspect = true;
+				PlayerOneToggleUI();
 			}
 
 			if (playerNum == 1)
 			{
-				UITutorial2.SetActive (false);
-				UIButtons2 [0].SetActive (false);
-				UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
+				PlayerTwoToggleUI();
 			}
 
 
@@ -1242,16 +1230,12 @@ public class Tutorial : MonoBehaviour
 		{
 			if (playerNum == 0)
 			{
-				UITutorial.SetActive (false);
-				UIButtons [0].SetActive (false);
-				UIButtons [0].GetComponent<Image> ().preserveAspect = true;
+				PlayerOneToggleUI();
 			}
 
 			if (playerNum == 1)
 			{
-				UITutorial2.SetActive (false);
-				UIButtons2 [0].SetActive (false);
-				UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
+				PlayerTwoToggleUI();
 			}
 
 
@@ -1259,16 +1243,12 @@ public class Tutorial : MonoBehaviour
 		{
 			if (playerNum == 0)
 			{
-				UITutorial.SetActive (false);
-				UIButtons [0].SetActive (false);
-				UIButtons [0].GetComponent<Image> ().preserveAspect = true;
+				PlayerOneToggleUI();
 			}
 
 			if (playerNum == 1)
 			{
-				UITutorial2.SetActive (false);
-				UIButtons2 [0].SetActive (false);
-				UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
+				PlayerTwoToggleUI();
 			}
 
 
@@ -1276,77 +1256,57 @@ public class Tutorial : MonoBehaviour
 		{
 			if (playerNum == 0)
 			{
-				UITutorial.SetActive (false);
-				UIButtons [0].SetActive (false);
-				UIButtons [0].GetComponent<Image> ().preserveAspect = true;
+				PlayerOneToggleUI();
 			}
 
 			if (playerNum == 1)
 			{
-				UITutorial2.SetActive (false);
-				UIButtons2 [0].SetActive (false);
-				UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
+				PlayerTwoToggleUI();
 			}
 
 		} else if (col.transform.name.Contains ("LightSplitter"))
 		{
 			if (playerNum == 0)
 			{
-				UITutorial.SetActive (false);
-				UIButtons [0].SetActive (false);
-				UIButtons [0].GetComponent<Image> ().preserveAspect = true;
+				PlayerOneToggleUI();
 			}
 
 			if (playerNum == 1)
 			{
-				UITutorial2.SetActive (false);
-				UIButtons2 [0].SetActive (false);
-				UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
+				PlayerTwoToggleUI();
 			}
 		} else if (col.transform.name.Contains ("LightBarrier"))
 		{
 			if (playerNum == 0)
 			{
-				UITutorial.SetActive (false);
-				UIButtons [0].SetActive (false);
-				UIButtons [0].GetComponent<Image> ().preserveAspect = true;
+				PlayerOneToggleUI();
 			}
 
 			if (playerNum == 1)
 			{
-				UITutorial2.SetActive (false);
-				UIButtons2 [0].SetActive (false);
-				UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
+				PlayerTwoToggleUI();
 			}
 		} else if (col.transform.name.Contains ("LightColourCombo"))
 		{
 			if (playerNum == 0)
 			{
-				UITutorial.SetActive (false);
-				UIButtons [0].SetActive (false);
-				UIButtons [0].GetComponent<Image> ().preserveAspect = true;
+				PlayerOneToggleUI();
 			}
 
 			if (playerNum == 1)
 			{
-				UITutorial2.SetActive (false);
-				UIButtons2 [0].SetActive (false);
-				UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
+				PlayerTwoToggleUI();
 			}
 		} else if (col.transform.name.Contains ("LightRedirect"))
 		{
 			if (playerNum == 0)
 			{
-				UITutorial.SetActive (false);
-				UIButtons [0].SetActive (false);
-				UIButtons [0].GetComponent<Image> ().preserveAspect = true;
+				PlayerOneToggleUI();
 			}
 
 			if (playerNum == 1)
 			{
-				UITutorial2.SetActive (false);
-				UIButtons2 [0].SetActive (false);
-				UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
+				PlayerTwoToggleUI();
 			}
 		}
 			

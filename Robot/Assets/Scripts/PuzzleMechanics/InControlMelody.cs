@@ -43,6 +43,8 @@ public class InControlMelody : MonoBehaviour
 	GameObject BlueCancel;
 	List<GameObject> BlueCancelChildren = new List<GameObject>();
 
+	GameObject GetLimbText;
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -93,6 +95,7 @@ public class InControlMelody : MonoBehaviour
 			BlueCancelChildren.Add (BlueCancel.transform.GetChild (i).gameObject);
 		}
 
+		GetLimbText = GameObject.FindGameObjectWithTag ("GetLimbsText");
 
 	}
 	
@@ -141,6 +144,7 @@ public class InControlMelody : MonoBehaviour
 
 			RedCancel.SetActive (true);
 			BlueCancel.SetActive (true);
+			GetLimbText.SetActive (true);
 		} 
 		else
 		{
@@ -149,6 +153,7 @@ public class InControlMelody : MonoBehaviour
 			BlueArrows.SetActive (false);
 			RedCancel.SetActive (false);
 			BlueCancel.SetActive (false);
+			GetLimbText.SetActive (false);
 		}
 
 	}

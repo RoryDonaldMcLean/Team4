@@ -699,6 +699,15 @@ public class SCR_TradeLimb : MonoBehaviour
         string pickupName = pickUpObject.name;
         Destroy(pickUpObject);
 
+		if (this.gameObject.tag == "Player1")
+		{
+			this.GetComponentInChildren<Tutorial>().PlayerOneToggleUI();
+		} 
+		else if (this.gameObject.tag == "Player2")
+		{
+			this.GetComponentInChildren<Tutorial>().PlayerTwoToggleUI();	
+		}
+
         Exchange(pickupName, this.gameObject.tag);
 
 		AkSoundEngine.PostEvent ("Arm_Attach", gameObject);

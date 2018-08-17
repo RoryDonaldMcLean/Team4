@@ -54,43 +54,6 @@ public class InControlMovement : MonoBehaviour
     }
 
 
-	/*void FixedUpdate()
-	{
-		GetInput ();
-
-		if (Mathf.Abs (input.x) < 1 && Mathf.Abs (input.y) < 1)
-			return;
-
-		CalculateDirection ();
-		Rotate ();
-		Move ();
-
-	}*/
-
-	void GetInput()
-	{
-		input.x = Input.GetAxisRaw ("Horizontal");
-		input.y = Input.GetAxisRaw ("Vertical");
-	}
-
-	void CalculateDirection()
-	{
-		currentAngle = Mathf.Atan2 (input.x, input.y);
-		currentAngle = Mathf.Rad2Deg * currentAngle;
-		currentAngle += cam.eulerAngles.y;
-	}
-
-	void Rotate()
-	{
-		targetRotation = Quaternion.Euler (0, currentAngle, 0);
-		rb1.rotation = Quaternion.Slerp (transform.rotation, targetRotation, turnSpeed * Time.deltaTime);
-	}
-
-	void Move()
-	{
-		rb1.MovePosition (transform.position + transform.forward * playerSpeed * Time.deltaTime);
-	}
-
     void FootstepP1()
     {
             AkSoundEngine.PostEvent("FootstepP1", gameObject); 
@@ -163,12 +126,12 @@ public class InControlMovement : MonoBehaviour
 		} 
 		else if (GetLegQuantity () == 1)
 		{
-			playerSpeed = 5.0f;
+			playerSpeed = 6.5f;
 			AkSoundEngine.SetRTPCValue ("LimbNumber", 1.0f);
 
 		} else
 		{
-			playerSpeed = 2.5f;
+			playerSpeed = 5.0f;
 			AkSoundEngine.SetRTPCValue ("LimbNumber", 0.0f);
 
 		}
@@ -195,7 +158,7 @@ public class InControlMovement : MonoBehaviour
         }
 
 		//jumping
-		if ((grounded == true || doubleJump == true) && inputDevice.Action1 && this.GetLegQuantity () >= 1)
+		if ((grounded == true || doubleJump == true) && inputDevice.Action1.WasPressed && this.GetLegQuantity () >= 1)
 		{
 			if (grounded && this.GetLegQuantity() >= 2)
 				doubleJump = true;
@@ -236,12 +199,12 @@ public class InControlMovement : MonoBehaviour
 		} 
 		else if (GetLegQuantity () == 1)
 		{
-			playerSpeed = 5.0f;
+			playerSpeed = 6.5f;
 			AkSoundEngine.SetRTPCValue ("LimbNumber", 1.0f);
 
 		} else
 		{
-			playerSpeed = 2.5f;
+			playerSpeed = 5.0f;
 			AkSoundEngine.SetRTPCValue ("LimbNumber", 0.0f);
 
 		}

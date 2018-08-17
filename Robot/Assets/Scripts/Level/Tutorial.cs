@@ -17,8 +17,8 @@ public class Tutorial : MonoBehaviour
 
 	int levelCounter;
 
-	float timeLeft = 4.0f;
-	bool startTimer;
+	//float timeLeft = 4.0f;
+	//bool startTimer;
 
 	GameObject keyboardButtonPlayer1;
 	GameObject KeyboardButtonPlayer2;
@@ -32,7 +32,6 @@ public class Tutorial : MonoBehaviour
 	bool UISwitch = false;
 
 	GameObject LeftArm, RightArm;
-	bool LeftArmOn = true;
 	bool RightArmOn = true;
 
 	// Use this for initialization
@@ -73,40 +72,32 @@ public class Tutorial : MonoBehaviour
 		scriptStart = true;
 		ChirpsTutorial = true;
 	}
-	
+
+	public void PlayerOneToggleUI()
+	{
+		bool UIState = !UITutorial.activeSelf;
+		UITutorial.SetActive (UIState);
+		UIButtons [0].SetActive (UIState);
+		UIButtons [0].GetComponent<Image> ().preserveAspect = true;
+
+	}
+
+	public void PlayerTwoToggleUI()
+	{
+		bool UIState = !UITutorial2.activeSelf;
+		UITutorial2.SetActive (UIState);
+		UIButtons2 [0].SetActive (UIState);
+		UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
+	}
+
 	// Update is called once per frame
 	void Update () 
 	{
-		if (LeftArm == null)
-		{
-			LeftArmOn = false;
-		}
-
 		if (scriptStart == true)
 		{
 			UITutorial.SetActive (false);
 			UITutorial2.SetActive (false);
 			scriptStart = false;
-		}
-
-		if (startTimer == true)
-		{
-			timeLeft -= Time.deltaTime;
-		}
-
-		if (timeLeft <= 0)
-		{
-			startTimer = false;
-			timeLeft = 4.0f;
-			UITutorial.SetActive (false);
-			UIButtons [0].SetActive (false);
-			UIButtons [0].GetComponent<Image> ().preserveAspect = true;
-
-
-			UITutorial2.SetActive (false);
-			UIButtons2 [0].SetActive (false);
-			UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
-
 		}
 
 		var inputDevice = (InputManager.Devices.Count > playerNum) ? InputManager.Devices [playerNum] : null;
@@ -128,21 +119,8 @@ public class Tutorial : MonoBehaviour
 
 	void InitialText()
 	{
-		/*if (this.GetComponentInParent<InControlMovement> ().enabled == false  && levelCounter == 0)
-		{
-			//ChirpsTutorialFunction();
-
-			if (tempBool == false)
-			{
-				UIText.GetComponent<Text> ().text = "Accessing Diagnostic systems; checking limb functionality through communication systems: access communication systems via (Chirps Menu)";
-			}
-			//CancelInvoke("func");
-			StartCoroutine (TestBool (1.0f));
-		}*/
 		if(levelCounter == 0)
 		{
-			//GetRidOfText ();
-			//StartCoroutine(WaitTwoSeconds (2.0f));
 			if(UIText != null)
 			{
 				if (UISwitch == false)
@@ -176,78 +154,10 @@ public class Tutorial : MonoBehaviour
 		yield return new WaitForSeconds (waitTime);
 		UIText.SetActive (true);
 		UIText.GetComponent<Text> ().text = "Found operational arm. Directive; acquite arm.";
-		//UISwitch = true;
 	}
 
 
-	void ChirpsTutorialFunction()
-	{
-		//at the beginning of the game, tutorial for the chirps intro
-		if (ChirpsTutorial == true)
-		{
-			if (ControllerUsed == true)
-			{
-				if (playerNum == 0)
-				{
-					UITutorial.SetActive (true);
-					UIButtons [0].SetActive (true);
-					UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Open Chirp Menu") as Sprite;
-					UIButtons [0].GetComponent<Image> ().preserveAspect = true;
 
-					UIButtons [1].SetActive (false);
-					UIButtons [3].SetActive (false);
-					UIButtons [4].SetActive (false);
-				}
-
-				if (playerNum == 1)
-				{
-					UITutorial2.SetActive (true);
-					UIButtons2 [0].SetActive (true);
-					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/White_Controller_Open Chirp Menu") as Sprite;
-					UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
-
-					UIButtons2 [1].SetActive (false);
-					UIButtons2 [3].SetActive (false);
-					UIButtons2 [4].SetActive (false);
-				}
-
-			} 
-			else
-			{
-				if (playerNum == 0)
-				{
-					UITutorial.SetActive (true);
-					UIButtons [0].SetActive (true);
-					UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/UITutorialBox_Red") as Sprite;
-					UIButtons [0].GetComponent<Image> ().preserveAspect = true;
-					UIButtons [1].SetActive (true);
-
-					keyboardButtonPlayer1.GetComponent<Text> ().text = "Hold: " + GameManager.Instance.playerSetting.currentButton [12].ToString ();
-					UIButtons [2].GetComponent<Text> ().text = "Open Chirps Menu";
-					UIButtons [3].SetActive (false);
-					UIButtons [4].SetActive (false);
-				}
-
-				if (playerNum == 1)
-				{
-					UITutorial2.SetActive (true);
-					UIButtons2 [0].SetActive (true);
-					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/UITutorialBox_Blue") as Sprite;
-					UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
-					UIButtons2 [1].SetActive (true);
-
-					KeyboardButtonPlayer2.GetComponent<Text> ().text = "Hold: " + GameManager.Instance.playerSetting.currentButton [25].ToString ();
-					UIButtons2 [2].GetComponent<Text> ().text = "Open Chirps Menu";
-					UIButtons2 [3].SetActive (false);
-					UIButtons2 [4].SetActive (false);
-				}
-
-
-			}
-
-		}
-	}
-		
 	void OnTriggerEnter(Collider col)
 	{
 		if ((col.transform.name.Contains ("LeftArm"))
@@ -260,14 +170,11 @@ public class Tutorial : MonoBehaviour
 					UIText.SetActive (true);
 					UIText.GetComponent<Text> ().text = "Found operational arm. Directive; acquire arm.";
 					StartCoroutine (GetRidOfText (3.0f));
-
 				}
 
 				if (playerNum == 0)
 				{
-					startTimer = true;
-					UITutorial.SetActive (true);
-					UIButtons [0].SetActive (true);
+					PlayerOneToggleUI();
 
 					if (this.GetComponentInParent<InControlMovement> ().UsingPlayStation == true)
 					{
@@ -277,19 +184,15 @@ public class Tutorial : MonoBehaviour
 						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_PickLimb_B_XBOX") as Sprite;
 					}
 
-					UIButtons [0].GetComponent<Image> ().preserveAspect = true;
 
 					UIButtons [1].SetActive (false);
 					UIButtons [3].SetActive (false);
 					UIButtons [4].SetActive (false);
 				}
 
-
 				if (playerNum == 1)
 				{
-					startTimer = true;
-					UITutorial2.SetActive (true);
-					UIButtons2 [0].SetActive (true);
+					PlayerTwoToggleUI();
 					if (this.GetComponentInParent<InControlMovement> ().UsingPlayStation == true)
 					{
 						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_PickLimb_Circle_PS") as Sprite;
@@ -297,7 +200,6 @@ public class Tutorial : MonoBehaviour
 					{
 						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_PickLimb_B_XBOX") as Sprite;
 					}
-					UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
 
 					UIButtons2 [1].SetActive (false);
 					UIButtons2 [3].SetActive (false);
@@ -316,9 +218,7 @@ public class Tutorial : MonoBehaviour
 
 				if (playerNum == 0)
 				{
-					startTimer = true;
-					UITutorial.SetActive (true);
-					UIButtons [0].SetActive (true);
+					PlayerOneToggleUI();
 					UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/UITutorialBox_Red") as Sprite;
 					UIButtons [0].GetComponent<Image> ().preserveAspect = true;
 
@@ -332,9 +232,7 @@ public class Tutorial : MonoBehaviour
 
 				if (playerNum == 1)
 				{
-					startTimer = true;
-					UITutorial2.SetActive (true);
-					UIButtons2 [0].SetActive (true);
+					PlayerTwoToggleUI();
 					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/UITutorialBox_Blue") as Sprite;
 					UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
 
@@ -373,7 +271,7 @@ public class Tutorial : MonoBehaviour
 						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_Turn OnOff Light Emitter_Triangle_PS") as Sprite;
 					} else
 					{
-						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_Turn OnOff LightEmitter_Y_XBOX") as Sprite;
+						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_Turn OnOff Light Emitter_Y_XBOX") as Sprite;
 					}
 					UIButtons [0].GetComponent<Image> ().preserveAspect = true;
 
@@ -394,7 +292,7 @@ public class Tutorial : MonoBehaviour
 						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_Turn OnOff Light Emitter_Triangle_PS") as Sprite;
 					} else
 					{
-						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_Turn OnOff LightEmitter_Y_XBOX") as Sprite;
+						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_Turn OnOff Light Emitter_Y_XBOX") as Sprite;
 					}
 					UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
 
@@ -1283,16 +1181,12 @@ public class Tutorial : MonoBehaviour
 		{
 			if (playerNum == 0)
 			{
-				UITutorial.SetActive (false);
-				UIButtons [0].SetActive (false);
-				UIButtons [0].GetComponent<Image> ().preserveAspect = true;
+				PlayerOneToggleUI();
 			}
 
 			if (playerNum == 1)
 			{
-				UITutorial2.SetActive (false);
-				UIButtons2 [0].SetActive (false);
-				UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
+				PlayerTwoToggleUI();
 			}
 
 		} else if (col.transform.name.Contains ("LightEmitter"))

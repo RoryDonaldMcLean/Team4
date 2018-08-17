@@ -11,6 +11,7 @@ public class LimbLight : MonoBehaviour
     private Color beamColour = Color.white;
     private LightRedirect lightRedirect;
     private GameObject limbJoint;
+    private string limbOwner;
 
     //Finds the limb object, and runs a quick setup procedure
     //Since its always a hinge at the start, this simply acts
@@ -53,6 +54,7 @@ public class LimbLight : MonoBehaviour
         if (GameObject.FindGameObjectWithTag(playerTag).GetComponent<SCR_TradeLimb>().LimbLightGiveLimb(boxLimbType, limbJoint))
         {
             limbJointSetup();
+            limbOwner = playerTag;
         }
     }
 
@@ -78,6 +80,15 @@ public class LimbLight : MonoBehaviour
         if (GameObject.FindGameObjectWithTag(playerTag).GetComponent<SCR_TradeLimb>().LimbLightTakeLimb(limbJoint))
         {
             limbJointSetup();
+            limbOwner = "Reset";
+        }
+    }
+
+    public void ReturnLimbsToPlayer()
+    {
+        if(IsLimbAttached())
+        {
+            GameObject.FindGameObjectWithTag(limbOwner).GetComponent<SCR_TradeLimb>().ResetLimbsFromLimbBoxes(limbJoint);
         }
     }
 

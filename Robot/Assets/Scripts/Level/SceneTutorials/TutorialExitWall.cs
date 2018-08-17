@@ -28,8 +28,7 @@ public class TutorialExitWall : MonoBehaviour
 
                 if (BothPlayersInRightArea())
                 {
-                    //ToggleExitControl();
-                    Destroy(this);
+                    ExitControl();
                 }
             }
             else
@@ -51,12 +50,23 @@ public class TutorialExitWall : MonoBehaviour
         }
     }
 
-    private void ToggleExitControl()
+    private void ExitControl()
     {
         bool wallState = this.GetComponent<MeshRenderer>().enabled;
         this.GetComponent<MeshRenderer>().enabled = !wallState;
         this.GetComponent<BoxCollider>().isTrigger = wallState;
+        LimbBoxesReset();
         Destroy(this);
+    }
+
+    private void LimbBoxesReset()
+    {
+        LimbLight[] limbLights = this.transform.parent.GetComponentsInChildren<LimbLight>();
+
+        foreach(LimbLight limbLight in limbLights)
+        {
+            limbLight.ReturnLimbsToPlayer();
+        }
     }
 
     private bool BothPlayersInRightArea()

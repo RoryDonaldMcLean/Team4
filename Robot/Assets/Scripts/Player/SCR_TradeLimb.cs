@@ -549,6 +549,23 @@ public class SCR_TradeLimb : MonoBehaviour
 		if(limbName != null) CheckOtherPlayerLimb(ref limbName);
 	}
 
+    public void ResetLimbsFromLimbBoxes(GameObject limbJoint)
+    {
+        string nameOfLimbToRemoveFromBox = GetPrefabsName(limbJoint.name);
+
+        int limbNumber = LimbNumber(nameOfLimbToRemoveFromBox);
+
+        if (!limbs[limbNumber].activeSelf)
+        {
+            LimFly(nameOfLimbToRemoveFromBox, this.tag, limbJoint);
+        }
+        else
+        {
+            //give to other player
+            LimFly(nameOfLimbToRemoveFromBox, otherPlayerTag, limbJoint);
+        }
+    }
+
 	private void CheckOtherPlayerLimb(ref string limbName)
 	{
 		int limbNumber = LimbNumber(limbName);
@@ -641,19 +658,19 @@ public class SCR_TradeLimb : MonoBehaviour
         return false;        
     }
 
-    public bool LimbLightTakeLimb(GameObject boxLimbLocation)
+    public bool LimbLightTakeLimb(GameObject limbJoint)
     {
-        string nameOfLimbToRemoveFromBox = GetPrefabsName(boxLimbLocation.name);
+        string nameOfLimbToRemoveFromBox = GetPrefabsName(limbJoint.name);
         int hingeNumber = HingeNumber(nameOfLimbToRemoveFromBox);
         if(hinges[hingeNumber].gameObject.activeSelf)
         {
             Exchange(nameOfLimbToRemoveFromBox, this.gameObject.tag);
             GameObject hinge = Instantiate(Resources.Load("Prefabs/Player/Hinge")) as GameObject;
-            hinge.transform.position = boxLimbLocation.transform.position;
-            hinge.transform.parent = boxLimbLocation.transform.parent;
+            hinge.transform.position = limbJoint.transform.position;
+            hinge.transform.parent = limbJoint.transform.parent;
             hinge.name = "Hinge";
 
-            Destroy(boxLimbLocation);
+            Destroy(limbJoint);
 
             return true;
         }
@@ -724,9 +741,9 @@ public class SCR_TradeLimb : MonoBehaviour
 
 		//while the object is flying. turn off its capusleCollider
 		//if it has limb even has a capsuleCollider
-		if (limToFly.GetComponent<CapsuleCollider> ())
+		if (limToFly.GetComponent<CapsuleCollider>())
 		{	//if it does turn it off
-			limToFly.GetComponent<CapsuleCollider> ().enabled = false;
+			limToFly.GetComponent<CapsuleCollider>().enabled = false;
 		}
 
         limToFly.AddComponent<LimsFly>();
@@ -750,7 +767,39 @@ public class SCR_TradeLimb : MonoBehaviour
                 break;
         }
     }
-    
+
+    private void LimFly(string limName, string targetPlayerTag, GameObject limbJoint)
+    {
+        Vector3 pos = limbJoint.GetComponent<Transform>().position;
+        Quaternion rot = limbJoint.GetComponent<Transform>().rotation;
+        GameObject player = GameObject.FindGameObjectWithTag(targetPlayerTag);
+
+        int limbNumber = LimbNumber(limName);
+        GameObject limToFly = Instantiate(Resources.Load("Prefabs/Player/" + limName), pos, rot) as GameObject;
+
+        //while the object is flying. turn off its capusleCollider
+        //if it has limb even has a capsuleCollider
+        if (limToFly.GetComponent<CapsuleCollider>())
+        {   //if it does turn it off
+            limToFly.GetComponent<CapsuleCollider>().enabled = false;
+        }
+
+        limToFly.AddComponent<LimsFly>();
+        limToFly.GetComponent<LimsFly>().SetStartPosition(pos);
+        limToFly.GetComponent<LimsFly>().SetLimsNunber(limbNumber);
+        limToFly.GetComponent<LimsFly>().SetTargetPlayer(player);
+
+        StartCoroutine(LimbFlyCheck(limToFly, limbJoint));
+    }
+
+    private IEnumerator LimbFlyCheck(GameObject limbsFly, GameObject limbJoint)
+    {
+        yield return new WaitUntil(() => limbsFly.GetComponent<LimsFly>().GetFinish());    
+        Destroy(limbsFly);
+        LimbLightTakeLimb(limbJoint);
+        AkSoundEngine.PostEvent("Arm_Attach", gameObject);
+    }
+
     private void OnTriggerStay(Collider other)
     {	//player 1
 		if ((other.gameObject.transform.parent != this.gameObject.transform) && ((other.name.Contains("Arm")) || (other.name.Contains("Leg"))))

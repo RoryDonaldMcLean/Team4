@@ -49,6 +49,8 @@ public class LevelControlBaseClass : MonoBehaviour
             //This line will enable the melody door when a puzzle is finished
             doors[0].enabled = true;
 
+            LimbBoxesReset();
+
             doorStateOpen = !doorStateOpen;
             exitDoor.OpenDoor();
             AkSoundEngine.SetState("Drone_Modulator", "Complete");
@@ -72,6 +74,17 @@ public class LevelControlBaseClass : MonoBehaviour
                 doors[0].SpawnWalkway = false;
                 doors[0].Correct = false;
             }
+        }
+    }
+
+    private void LimbBoxesReset()
+    {
+        Transform puzzleContainer = doors[0].transform.parent.parent;
+        LimbLight[] limbLights = puzzleContainer.GetComponentsInChildren<LimbLight>();
+
+        foreach (LimbLight limbLight in limbLights)
+        {
+            limbLight.ReturnLimbsToPlayer();
         }
     }
 

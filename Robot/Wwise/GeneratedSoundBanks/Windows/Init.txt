@@ -51,6 +51,8 @@ State	ID	Name	State Group			Notes
 	4103990255	Hit_Wall	Drone_Modulator			
 
 Custom State	ID	Name	State Group	Owner		Notes
+	29669497	P6_EndSacrifice	Environment	\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Submaster\Ambience		
+	29974398	P6_EndSacrifice	Environment	\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Submaster\Drone		
 	55981715	Complete	Drone_Modulator	\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Submaster\Ambience		
 	89021964	On	UI	\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus		
 	126248837	P1_Intro	Environment	\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Submaster\Music		
@@ -60,7 +62,10 @@ Custom State	ID	Name	State Group	Owner		Notes
 	272766910	P3_ConstructionScenery	Environment	\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Submaster\Ambience		
 	318446422	P2_FactoryViewpoint	Environment	\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Submaster\Drone		
 	324844823	P3_ConstructionScenery	Environment	\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Submaster\Music		
+	351562649	P6_EndLeave	Environment	\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Submaster\Ambience		
+	469096709	P6_EndLeave	Environment	\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Submaster\Drone		
 	511357669	P6_AChoice	Environment	\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Submaster\Music		
+	526986449	P6_AChoice	Environment	\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Submaster\Drone		
 	565830653	P2_FactoryPuzzle1	Environment	\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Submaster\Reverbs		
 	658618981	P6_EndSacrifice	Environment	\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Submaster\Music		
 	658861384	P5_CorePuzzle	Environment	\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Submaster\Music		
@@ -71,7 +76,6 @@ Custom State	ID	Name	State Group	Owner		Notes
 	927524772	P4_Clouds	Environment	\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Submaster\Drone		
 	942735799	Start	Drone_Modulator	\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Submaster\Drone		
 	974808288	P4_Clouds	Environment	\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Submaster\Music		
-	1042463136	P5_Core	Environment	\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Submaster\Music		
 	1060807266	P2_FactoryPuzzle1	Environment	\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Submaster\Ambience		
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
@@ -107,6 +111,7 @@ Audio Bus	ID	Name			Wwise Object Path	Notes
 
 Auxiliary Bus	ID	Name			Wwise Object Path	Notes
 	243379636	REFLECT			\Default Work Unit\Master Audio Bus\Submaster\Reverbs\REFLECT	
+	2261546958	REVERB_Tunnel			\Default Work Unit\Master Audio Bus\Submaster\Reverbs\REVERB_Tunnel	
 	2694233930	REVERB_Factory			\Default Work Unit\Master Audio Bus\Submaster\Reverbs\REVERB_Factory	
 	3439705185	REVERB_Warehouse			\Default Work Unit\Master Audio Bus\Submaster\Reverbs\REVERB_Warehouse	
 	4227785423	REVERB_Outdoors			\Default Work Unit\Master Audio Bus\Submaster\Reverbs\REVERB_Outdoors	
@@ -125,6 +130,8 @@ Effect plug-ins	ID	Name	Type				Notes
 	2706554267	New_Wwise_Parametric_EQ_10	Wwise Parametric EQ			
 	2706554268	New_Wwise_Parametric_EQ_17	Wwise Parametric EQ			
 	2706554269	New_Wwise_Parametric_EQ_16	Wwise Parametric EQ			
+	3290519051	Aluminium_Tank	Wwise RoomVerb			
+	3604890626	High_Pass_60Hz	Wwise Parametric EQ			
 	3900114836	Metal_Hangar	Wwise RoomVerb			
 
 Audio Devices	ID	Name	Type				Notes

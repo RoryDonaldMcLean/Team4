@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using InControl;
 
 public class BaseCutScene : MonoBehaviour {
     protected GameObject p1, p2;

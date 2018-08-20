@@ -341,7 +341,7 @@
 						<Property Name="AttackTime" Type="Real32" Value="0.11"/>
 						<Property Name="Ratio" Type="Real32" Value="3.1"/>
 						<Property Name="ReleaseTime" Type="Real32" Value="0.52"/>
-						<Property Name="Threshold" Type="Real32" Value="-36"/>
+						<Property Name="Threshold" Type="Real32" Value="-7.6"/>
 					</PropertyList>
 				</Effect>
 				<Effect Name="New_Wwise_Meter" ID="{04DBB0E1-805F-4476-854C-4F8FF440805B}" PluginName="Wwise Meter" CompanyID="0" PluginID="129" PluginType="3"/>
@@ -382,6 +382,33 @@
 					</PropertyList>
 				</Effect>
 				<Effect Name="New_Wwise_Parametric_EQ_21" ID="{6D5B05D6-158B-403A-8326-641DB0997FFE}" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3"/>
+				<Effect Name="New_Wwise_Parametric_EQ_22" ID="{1D8430E5-97D3-4509-87E1-91349BC3A9BD}" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+					<PropertyList>
+						<Property Name="FrequencyBand2" Type="Real32" Value="1215"/>
+						<Property Name="FrequencyBand3" Type="Real32" Value="333"/>
+						<Property Name="GainBand2" Type="Real32" Value="24"/>
+						<Property Name="GainBand3" Type="Real32" Value="24"/>
+						<Property Name="OnOffBand2" Type="bool" Value="False"/>
+						<Property Name="OnOffBand3" Type="bool" Value="False"/>
+					</PropertyList>
+				</Effect>
+				<Effect Name="New_Wwise_Parametric_EQ_23" ID="{7C3852DD-B409-4530-B7A1-91412421332C}" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+					<PropertyList>
+						<Property Name="FrequencyBand2" Type="Real32" Value="261"/>
+						<Property Name="FrequencyBand3" Type="Real32" Value="8536"/>
+						<Property Name="GainBand2" Type="Real32" Value="-7"/>
+					</PropertyList>
+				</Effect>
+				<Effect Name="musiceq1" ID="{90BAA4AA-CA41-4584-BAF6-5CEEA3E0F369}" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+					<PropertyList>
+						<Property Name="FilterTypeBand1" Type="int32" Value="6"/>
+						<Property Name="FrequencyBand1" Type="Real32" Value="93"/>
+						<Property Name="FrequencyBand2" Type="Real32" Value="620"/>
+						<Property Name="GainBand1" Type="Real32" Value="6"/>
+						<Property Name="GainBand2" Type="Real32" Value="-6.5"/>
+						<Property Name="QFactorBand2" Type="Real32" Value="1.5"/>
+					</PropertyList>
+				</Effect>
 			</ChildrenList>
 		</WorkUnit>
 	</Effects>

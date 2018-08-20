@@ -2,11 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class CutScene10_2 : BaseCutScene {
     private GameObject controlPlayer;
     private GameObject otherPlayer;
     public GameObject Tube;
+
+	GameObject BlackFade;
+	Animator anim;
+
+	private void Start()
+	{
+		BlackFade = GameObject.Find ("BlackFade");
+		anim = BlackFade.GetComponent<Animator> ();
+	}
 
     protected override void OnCollisionStay(Collision other)
     {
@@ -33,7 +43,8 @@ public class CutScene10_2 : BaseCutScene {
                     Destroy(otherPlayer);
                     CancelInvoke();
                     Invoke("StopAnim", 1.5f);
-                    Invoke("End", 5.0f);
+					//StartCoroutine ("Fading", 10.0f);
+                    Invoke("End", 10.0f);
                     GameObject.FindObjectOfType<SCR_CameraFollow>().enabled = false;
                     //SceneManager.LoadScene("Transition");
 
@@ -50,6 +61,21 @@ public class CutScene10_2 : BaseCutScene {
    
     private void End()
     {
-        SceneManager.LoadScene("End");
+		//BlackFade = GameObject.Find ("BlackFade");
+		//anim = BlackFade.GetComponent<Animator> ();
+		//anim.Play("FadeOut");
+		//yield return new WaitUntil (() => BlackFade.GetComponent<Image>().color.a==1);
+		//if (BlackFade.GetComponent<Image> ().color.a == 1)
+		//{
+			SceneManager.LoadScene("End");
+		//}
     }
+
+	IEnumerator Fading()
+	{
+		
+		anim.Play("FadeOut");
+		yield return new WaitUntil (() => BlackFade.GetComponent<Image>().color.a==1);
+		SceneManager.LoadScene("End");
+	}
 }

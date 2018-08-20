@@ -50,6 +50,8 @@ public class LightSplitter : MonoBehaviour
     //currently operating for.
     private bool IsRightObject(Transform exitingObject)
     {
+        Debug.Log("s " + exitingObject);
+        Debug.Log("c " + connectedObject);
         return (exitingObject == connectedObject);
     }
 

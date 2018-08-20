@@ -269,7 +269,8 @@ public class LightResize : MonoBehaviour
                 }
                 else
                 {
-                    objectBlocked.GetComponentInParent<PrismColourCombo>().TriggerExitFunction(this.transform);
+                    PrismColourCombo prismColourCombo = objectBlocked.GetComponentInParent<PrismColourCombo>();
+                    if(prismColourCombo != null) prismColourCombo.TriggerExitFunction(this.transform);
                 }
                 break;
         }

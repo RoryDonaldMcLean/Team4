@@ -485,7 +485,8 @@ public class Tutorial : MonoBehaviour
 						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_PickDropObject_Circle_PS") as Sprite;
 					} else
 					{
-						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_PickDropObject_B_XBOX") as Sprite;
+						Debug.Log ("hehehehehehehe");
+						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_PickDropObject_B_XBOX") as Sprite;
 					}
 					UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
 					UIButtons2 [1].SetActive (false);
@@ -552,7 +553,8 @@ public class Tutorial : MonoBehaviour
 					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/UITutorialBox_Blue") as Sprite;
 					UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
 
-					UIButtons [1].SetActive (true);
+					UIButtons2 [1].SetActive (true);
+					UIButtons2 [2].SetActive (true);
 					//test to see if i can display the keyboard controls
 
 					KeyboardButtonPlayer2.GetComponent<Text> ().text = "Press: " + GameManager.Instance.playerSetting.currentButton [22].ToString ();

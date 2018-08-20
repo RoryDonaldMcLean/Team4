@@ -4323,6 +4323,98 @@
 										</Sound>
 									</ChildrenList>
 								</RandomSequenceContainer>
+								<Sound Name="Door_Open" ID="{B71A2F8E-975D-4D66-B442-7BEF759AB6FA}" ShortID="34106999">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ValueList>
+												<Value>-150</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-21</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Door_Open" ID="{35433346-1DE6-4825-895B-3538206E57D0}" ShortID="123562785">
+											<Language>SFX</Language>
+											<AudioFile>Door_Open.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Door_Open" ID="{35433346-1DE6-4825-895B-3538206E57D0}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="MACHINE_CHARGE" ID="{1E9581B3-C4DB-43A3-9E22-209E55464ACC}" ShortID="926487769">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-13</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="MACHINE_CHARGE" ID="{F3245361-21A8-41ED-8728-2A961B48EF4D}" ShortID="1009647933">
+											<PropertyList>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.98775390625"/>
+												<Property Name="TrimEnd" Type="Real64" Value="1.17589750744048"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>MACHINE_CHARGE.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="MACHINE_CHARGE" ID="{F3245361-21A8-41ED-8728-2A961B48EF4D}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="entermachine" ID="{7C87D69A-F8E7-4ED6-AE8B-738B06751B38}" ShortID="267133949">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-12</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Door_Open" ID="{CA5A5AE9-9263-47C7-8EE1-3D3FBD648984}" ShortID="98498055">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="4.11564127604167E-02"/>
+												<Property Name="TrimBegin" Type="Real64" Value="2.2224462890625"/>
+												<Property Name="TrimEnd" Type="Real64" Value="3.2219591703869"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>Door_Open.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Door_Open" ID="{CA5A5AE9-9263-47C7-8EE1-3D3FBD648984}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
 							</ChildrenList>
 						</ActorMixer>
 						<ActorMixer Name="Emitters" ID="{8B672896-7E7B-47E7-99B3-91A5D79900B1}" ShortID="420492628">

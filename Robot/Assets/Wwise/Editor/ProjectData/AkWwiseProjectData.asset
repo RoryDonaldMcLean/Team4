@@ -181,8 +181,8 @@ MonoBehaviour:
   autoPopulateEnabled: 1
   AuxBusWwu:
   - Guid: '{2653943A-432D-488E-9B26-028C9F2C6C6D}'
-    m_lastTimePart2: -1999240303
-    m_lastTimePsrt1: -1430075476
+    m_lastTimePart2: -1999240304
+    m_lastTimePsrt1: -1941980268
     ParentPhysicalPath: 
     PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
     List:
@@ -263,8 +263,8 @@ MonoBehaviour:
         ObjectType: 1
   BankWwu:
   - Guid: '{99ADC241-66DB-450E-A27C-F54B78415578}'
-    m_lastTimePart2: -1999240322
-    m_lastTimePsrt1: -1014573396
+    m_lastTimePart2: -1999240334
+    m_lastTimePsrt1: 1545555908
     ParentPhysicalPath: 
     PhysicalPath: SoundBanks\Default Work Unit.wwu
     List:
@@ -310,8 +310,8 @@ MonoBehaviour:
   defaultPoolSize: 12288
   EventWwu:
   - Guid: '{9208E778-4B37-4421-9C2A-46AAA42FFE85}'
-    m_lastTimePart2: -1999240303
-    m_lastTimePsrt1: -1430692985
+    m_lastTimePart2: -1999239541
+    m_lastTimePsrt1: -2028555302
     ParentPhysicalPath: 
     PhysicalPath: Events\Default Work Unit.wwu
     List:
@@ -467,6 +467,20 @@ MonoBehaviour:
       - ElementName: Die
         ObjectType: 3
       maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - Guid: 2baad3996c845145bc5c9b3a3d82ba8f
+      ID: 535830432
+      Name: Door_Open
+      Path: Default Work Unit\Objects\Door_Open
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Objects
+        ObjectType: 4
+      - ElementName: Door_Open
+        ObjectType: 3
+      maxAttenuation: 80
       maxDuration: 0
       minDuration: 0
     - Guid: d9f85935dd9c8f45a0b4df8f19ae938c
@@ -665,6 +679,20 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
+    - Guid: eadf5e795943b34ea760abef76756b5f
+      ID: -1937979193
+      Name: Machine_Charge
+      Path: Default Work Unit\Objects\Machine_Charge
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Objects
+        ObjectType: 4
+      - ElementName: Machine_Charge
+        ObjectType: 3
+      maxAttenuation: 80
+      maxDuration: 0
+      minDuration: 0
     - Guid: 9a3a01ca65571243ae3174e1ae8f04ef
       ID: 1952436935
       Name: Menu_Enter
@@ -823,7 +851,9 @@ MonoBehaviour:
   - /Androids
   - /Androids/Events
   - /Androids/Events/Default Work Unit
-  - /Androids/Events/Default Work Unit/UI
+  - /Androids/Events/Default Work Unit/Emitters
+  - /Androids/Events/Default Work Unit/Environment
+  - /Androids/Events/Default Work Unit/Objects
   language: English(US)
   lowerPoolSize: 12288
   m_lastPopulateTimePart2: 0
@@ -832,8 +862,8 @@ MonoBehaviour:
   preparePoolSize: 0
   RtpcWwu:
   - Guid: '{6FAB8A0D-1E75-4FC9-8CF4-258F9AA56D77}'
-    m_lastTimePart2: -1999240335
-    m_lastTimePsrt1: -861434092
+    m_lastTimePart2: -1999239541
+    m_lastTimePsrt1: -2028515302
     ParentPhysicalPath: 
     PhysicalPath: Game Parameters\Default Work Unit.wwu
     List:

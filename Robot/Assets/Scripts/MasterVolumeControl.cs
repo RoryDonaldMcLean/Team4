@@ -10,7 +10,7 @@ public class MasterVolumeControl : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-       // GameManager.Instance.playerSetting.volume.onValueChanged.AddListener(ListenerMethod);
+       //GameManager.Instance.playerSetting.volume.onValueChanged.AddListener(ListenerMethod);
 
     }
 
@@ -22,7 +22,7 @@ public class MasterVolumeControl : MonoBehaviour {
     void Update ()
     {
 
-      //  AkSoundEngine.SetRTPCValue ("Master_Volume", GameManager.Instance.playerSetting.volume); 
+      //AkSoundEngine.SetRTPCValue ("Master_Volume", GameManager.Instance.playerSetting.volume); 
 
     }
 }

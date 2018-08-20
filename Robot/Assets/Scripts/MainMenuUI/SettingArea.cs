@@ -175,9 +175,10 @@ public class SettingArea : MonoBehaviour
 
     private void sliderChanged()
     {
+		Debug.Log ("volume changed " + volume.value);
         GameManager.Instance.playerSetting.volume = (int)volume.value;
         volumeNum.text = GameManager.Instance.playerSetting.volume.ToString();
-        AkSoundEngine.SetRTPCValue("Master_Vol", GameManager.Instance.playerSetting.volume, gameObject);
+		AkSoundEngine.SetRTPCValue("Master_Vol", volume.value, Camera.main.gameObject);
         SaveNLoad.Save(GameManager.Instance.playerSetting);
     }
 

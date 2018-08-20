@@ -67,9 +67,12 @@ public class LevelControlBaseClass : MonoBehaviour
 				GameObject exit = GameObject.FindGameObjectWithTag("ExitDoor");
 				exit.SetActive(false);
 
-                GameObject walkway = Instantiate(Resources.Load("Prefabs/PuzzleGenericItems/tempFloor")) as GameObject;
-                walkway.name = "tempFloor";
-                walkway.transform.position = walkwayPosition;
+                if (!puzzleIdentifier.Contains("PuzzleFour"))
+                {
+                    GameObject walkway = Instantiate(Resources.Load("Prefabs/PuzzleGenericItems/tempFloor")) as GameObject;
+                    walkway.name = "tempFloor";
+                    walkway.transform.position = walkwayPosition;
+                }
 
                 doors[0].SpawnWalkway = false;
                 doors[0].Correct = false;

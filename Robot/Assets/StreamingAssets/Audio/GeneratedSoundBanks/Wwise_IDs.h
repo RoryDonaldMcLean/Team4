@@ -24,6 +24,7 @@ namespace AK
         static const AkUniqueID CHIRP = 167209695U;
         static const AkUniqueID CHIRPCOMBINE = 2034861142U;
         static const AkUniqueID DIE = 445985469U;
+        static const AkUniqueID DOOR_OPEN = 535830432U;
         static const AkUniqueID DOORCHIRP = 2390748151U;
         static const AkUniqueID DRONE = 2739838641U;
         static const AkUniqueID FOOTSTEPP1 = 4251213326U;
@@ -35,6 +36,7 @@ namespace AK
         static const AkUniqueID INSECTS = 3833343604U;
         static const AkUniqueID LIGHT_HITS_CRYSTAL = 3427421355U;
         static const AkUniqueID LIGHTBUZZ = 1863820488U;
+        static const AkUniqueID MACHINE_CHARGE = 2356988103U;
         static const AkUniqueID MENU_ENTER = 1952436935U;
         static const AkUniqueID MENU_EXIT = 3663878895U;
         static const AkUniqueID MENU_SELECT = 4203375351U;

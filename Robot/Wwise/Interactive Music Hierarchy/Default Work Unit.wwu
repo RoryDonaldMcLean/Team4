@@ -2149,7 +2149,7 @@
 														<MusicClip Name="Sacrifice Full" ID="{EFA571DB-C701-4D11-A924-4696E59BEEAF}">
 															<PropertyList>
 																<Property Name="BeginTrimOffset" Type="Real64" Value="76500"/>
-																<Property Name="EndTrimOffset" Type="Real64" Value="106666.666666667"/>
+																<Property Name="EndTrimOffset" Type="Real64" Value="104500"/>
 																<Property Name="FadeInDuration" Type="Real64" Value="346.545375785136"/>
 																<Property Name="FadeOutDuration" Type="Real64" Value="3118.90838206629"/>
 																<Property Name="PlayAt" Type="Real64" Value="-76500"/>
@@ -2168,7 +2168,7 @@
 																				<Flags>5</Flags>
 																			</Point>
 																			<Point>
-																				<XPos>106.666666666667</XPos>
+																				<XPos>104.5</XPos>
 																				<YPos>0</YPos>
 																				<Flags>37</Flags>
 																			</Point>
@@ -2187,7 +2187,7 @@
 																				<Flags>5</Flags>
 																			</Point>
 																			<Point>
-																				<XPos>106.666666666667</XPos>
+																				<XPos>104.5</XPos>
 																				<YPos>0</YPos>
 																				<Flags>37</Flags>
 																			</Point>
@@ -2206,7 +2206,7 @@
 																				<Flags>5</Flags>
 																			</Point>
 																			<Point>
-																				<XPos>106.666666666667</XPos>
+																				<XPos>104.5</XPos>
 																				<YPos>0</YPos>
 																				<Flags>37</Flags>
 																			</Point>
@@ -2225,7 +2225,7 @@
 										<MusicCue Name="Exit Cue" ID="{8896B786-A24A-496C-A845-6F84E7814039}">
 											<PropertyList>
 												<Property Name="CueType" Type="int16" Value="1"/>
-												<Property Name="TimeMs" Type="Real64" Value="30000"/>
+												<Property Name="TimeMs" Type="Real64" Value="26000"/>
 											</PropertyList>
 										</MusicCue>
 									</CueList>
@@ -2506,7 +2506,7 @@
 								<Property Name="OverrideEffect" Type="bool" Value="True"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>3</Value>
+										<Value>-12</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -2769,6 +2769,21 @@
 											</MusicFade>
 										</DestinationFadeIn>
 									</TransitionInfo>
+								</MusicTransition>
+								<MusicTransition Name="Transition" ID="{70236E92-58D9-4B2C-9DE6-ABCE779AF48C}">
+									<PropertyList>
+										<Property Name="DestinationContextType" Type="int16" Value="2"/>
+										<Property Name="SourceContextType" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="DestinationContextObject">
+											<ObjectRef Name="Credits" ID="{CC402FB3-6A25-4E7B-B679-946C86B167FB}" WorkUnitID="{C54CF3E9-0E60-4A5A-AD10-EFD580D533AD}"/>
+										</Reference>
+										<Reference Name="SourceContextObject">
+											<ObjectRef Name="P6_Sacrifice" ID="{254A9C03-8FE9-4A69-A13A-31B9C527BC61}" WorkUnitID="{C54CF3E9-0E60-4A5A-AD10-EFD580D533AD}"/>
+										</Reference>
+									</ReferenceList>
+									<TransitionInfo/>
 								</MusicTransition>
 							</ChildrenList>
 							<TransitionInfo/>

@@ -10,6 +10,7 @@ public class PuzzleOnBoardingProcess : LevelControlBaseClass
     {
         puzzleIdentifier = "PuzzleZero";
 		walkwayPosition = new Vector3(9, 0, 45.83f);
+		walkwayScale = new Vector3 (3.0f, 1.0f, 1.5f);
     }
 
     //Disables player movement at the start of this 

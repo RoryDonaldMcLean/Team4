@@ -4701,10 +4701,10 @@
 										<AudioFileSource Name="The Core Hum" ID="{A81C88B8-1AB4-4B54-A3D4-F9CF4AD523E9}" ShortID="195856999">
 											<PropertyList>
 												<Property Name="FadeInDuration" Type="Real64" Value="0.241071428571429"/>
-												<Property Name="FadeOutDuration" Type="Real64" Value="4.41964285714286"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="3.21428571428574"/>
 												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
 												<Property Name="TrimBegin" Type="Real64" Value="3.05357142857143"/>
-												<Property Name="TrimEnd" Type="Real64" Value="12.6964285714286"/>
+												<Property Name="TrimEnd" Type="Real64" Value="6.26785714285717"/>
 											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>The Core Hum.wav</AudioFile>
@@ -7057,7 +7057,13 @@ Air currents change during the hours of the day and foliage changes during  the 
 						</ActorMixer>
 						<ActorMixer Name="UI" ID="{46733510-C0E9-4DEC-BC16-73CF394A9139}" ShortID="394665514">
 							<PropertyList>
+								<Property Name="DivergenceCenter" Type="int32">
+									<ValueList>
+										<Value>100</Value>
+									</ValueList>
+								</Property>
 								<Property Name="OverrideOutput" Type="bool" Value="True"/>
+								<Property Name="OverridePositioning" Type="bool" Value="True"/>
 								<Property Name="Pitch" Type="int32">
 									<ModifierList>
 										<ModifierInfo>
@@ -7070,6 +7076,11 @@ Air currents change during the hours of the day and foliage changes during  the 
 											</Modifier>
 										</ModifierInfo>
 									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-8</Value>
+									</ValueList>
 								</Property>
 							</PropertyList>
 							<ReferenceList>
@@ -7120,6 +7131,13 @@ Air currents change during the hours of the day and foliage changes during  the 
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="exit menu" ID="{43E7B51C-C2B2-4AD3-A0F1-AFF1EC56E35A}" ShortID="469313715">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-5</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>

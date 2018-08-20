@@ -24,8 +24,14 @@ public class WhichLevel : MonoBehaviour {
             pauseCanvas.SetActive(true);
             AkSoundEngine.SetState("UI", "On");
             AkSoundEngine.PostEvent("Menu_Enter", gameObject);
-
-
         }
+
+        /*
+        if (Input.GetKeyDown(KeyCode.Escape) && pauseCanvas.activeSelf)
+        {
+            AkSoundEngine.SetState("UI", "Off");
+            AkSoundEngine.PostEvent("Menu_Exit", gameObject);
+        }
+        */
     }
 }

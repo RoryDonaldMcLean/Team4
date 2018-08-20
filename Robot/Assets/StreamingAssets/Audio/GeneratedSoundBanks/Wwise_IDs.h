@@ -19,6 +19,7 @@ namespace AK
         static const AkUniqueID ARM_ATTACH = 3720067015U;
         static const AkUniqueID ARM_BREAK = 3331264981U;
         static const AkUniqueID ARM_DETATCH = 4167342225U;
+        static const AkUniqueID ARM_INNODE = 4103094805U;
         static const AkUniqueID CHAINS = 640811495U;
         static const AkUniqueID CHAINS_LIGHT = 1854679430U;
         static const AkUniqueID CHIRP = 167209695U;

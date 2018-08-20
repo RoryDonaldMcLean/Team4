@@ -28,6 +28,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	3725903807	Music_Start			\Default Work Unit\Music\Music_Start	
 	3781481881	Activate_Crystal			\Default Work Unit\Objects\Activate_Crystal	
 	3833343604	Insects			\Default Work Unit\Emitters\Insects	
+	4103094805	Arm_InNode			\Default Work Unit\Robots\Arm_InNode	
 	4149295597	Place_Crystal			\Default Work Unit\Objects\Place_Crystal	
 	4167342225	Arm_Detatch			\Default Work Unit\Robots\Arm_Detatch	
 	4203375351	Menu_Select			\Default Work Unit\UI\Menu_Select	
@@ -97,6 +98,7 @@ Custom State	ID	Name	State Group	Owner		Notes
 	33956688	P3_ConstructionScenery	Environment	\Actor-Mixer Hierarchy\Default Work Unit\Main\Ambience\Ambience Wind		
 	93067352	P1_Intro	Environment	\Actor-Mixer Hierarchy\Default Work Unit\Main\Ambience\Ambient_Env		
 	96136121	P2_FactoryPuzzle2	Environment	\Actor-Mixer Hierarchy\Default Work Unit\Main\Ambience\Ambient_Env		
+	208753731	Empty	Environment	\Actor-Mixer Hierarchy\Default Work Unit\Main\Emitters\Tarp		
 	211268061	P1_Intro	Environment	\Actor-Mixer Hierarchy\Default Work Unit\Main\Ambience\Ambience Wind		
 	261698418	P6_EndSacrifice	Environment	\Actor-Mixer Hierarchy\Default Work Unit\Main\Ambience\Ambient_Env\Tower Hum		
 	273383357	P3_ConstructionStorm	Environment	\Actor-Mixer Hierarchy\Default Work Unit\Main\Ambience\Ambience Wind		
@@ -105,7 +107,10 @@ Custom State	ID	Name	State Group	Owner		Notes
 	380155547	P3_ConstructionScenery	Environment	\Actor-Mixer Hierarchy\Default Work Unit\Main\Ambience\Ambient_Env\Rain + Thunder		
 	392172188	P2_FactoryPuzzle1	Environment	\Actor-Mixer Hierarchy\Default Work Unit\Main\Ambience\Ambience Wind		
 	418511641	P1_IntroViewpoint	Environment	\Actor-Mixer Hierarchy\Default Work Unit\Main\Ambience\Ambient_Env		
+	473745760	P2_FactoryPuzzle2	Environment	\Actor-Mixer Hierarchy\Default Work Unit\Main\Emitters\Tarp		
+	477558560	Empty	Environment	\Actor-Mixer Hierarchy\Default Work Unit\Main\Emitters\ChainsLight		
 	482366905	P2_FactoryViewpoint	Environment	\Actor-Mixer Hierarchy\Default Work Unit\Main\Ambience\Ambience Wind		
+	516626154	P2_FactoryPuzzle1	Environment	\Actor-Mixer Hierarchy\Default Work Unit\Main\Emitters\Tarp		
 	531769377	P3_Construction	Environment	\Actor-Mixer Hierarchy\Default Work Unit\Main\Ambience\Ambience Wind		
 	534640673	P5_Core	Environment	\Actor-Mixer Hierarchy\Default Work Unit\Main\Ambience\Ambience Wind		
 	562263960	P6_EndLeave	Environment	\Actor-Mixer Hierarchy\Default Work Unit\Main\Ambience\Ambient_Env\Tower Hum		
@@ -115,6 +120,7 @@ Custom State	ID	Name	State Group	Owner		Notes
 	799122245	P4_Clouds	Environment	\Actor-Mixer Hierarchy\Default Work Unit\Main\Ambience\Ambient_Env\Rain + Thunder		
 	839451957	P2_FactoryPuzzle1	Environment	\Actor-Mixer Hierarchy\Default Work Unit\Main\Ambience\Ambient_Env		
 	929062956	P2_FactoryPuzzle2	Environment	\Actor-Mixer Hierarchy\Default Work Unit\Main\Ambience\Ambience Wind		
+	939874141	P3_ConstructionScenery	Environment	\Actor-Mixer Hierarchy\Default Work Unit\Main\Emitters\Tarp		
 	974272157	P6_EndSacrifice	Environment	\Actor-Mixer Hierarchy\Default Work Unit\Main\Ambience\Ambient_Env		
 	1009362998	P5_CorePuzzle	Environment	\Actor-Mixer Hierarchy\Default Work Unit\Main\Ambience\Ambient_Env		
 	1071987477	Menu	Environment	\Actor-Mixer Hierarchy\Default Work Unit\Main\Ambience\Ambience Wind		
@@ -131,6 +137,7 @@ Effect plug-ins	ID	Name	Type				Notes
 	922684830	New_Wwise_Guitar_Distortion	Wwise Guitar Distortion			
 	1008402193	Low_Pass_20KHz	Wwise Parametric EQ			
 	1197812857	LowpassFly	Wwise Parametric EQ			
+	1262232815	limbeq	Wwise Parametric EQ			
 	1866712633	High_Freq_Cut_3	Wwise Parametric EQ			
 	1891532784	Wind_Level	Wwise Meter			
 	2453598386	HighPass	Wwise Parametric EQ			
@@ -164,11 +171,12 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	127393820	Tarp2	C:\Users\1405188\Downloads\GITHUB\Team4\Robot\Wwise\.cache\Windows\SFX\Tarp2_38C05CA7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Emitters\Tarp\Tarp2		384068
 	132139423	GateNote8	C:\Users\1405188\Downloads\GITHUB\Team4\Robot\Wwise\.cache\Windows\SFX\GateNote8_38C05CA7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Gate Chirps\5-8\GateNote8		768064
 	173025359	Attach Arm	C:\Users\1405188\Downloads\GITHUB\Team4\Robot\Wwise\.cache\Windows\SFX\Attach Arm_38C05CA7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Limbs\Attach Arm		173556
-	195856999	The Core Hum	C:\Users\1405188\Downloads\GITHUB\Team4\Robot\Wwise\.cache\Windows\SFX\The Core Hum_7588DA54.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Emitters\The Core Hum		1851492
+	195856999	The Core Hum	C:\Users\1405188\Downloads\GITHUB\Team4\Robot\Wwise\.cache\Windows\SFX\The Core Hum_68D770BE.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Emitters\The Core Hum		617208
 	198922247	Footstep_Concrete04	C:\Users\1405188\Downloads\GITHUB\Team4\Robot\Wwise\.cache\Windows\SFX\Footstep_Concrete04_38C05CA7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Footsteps\FootstepsP1\Concrete\Footstep_Concrete04		54336
 	205327039	Tarp1	C:\Users\1405188\Downloads\GITHUB\Team4\Robot\Wwise\.cache\Windows\SFX\Tarp1_38C05CA7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Emitters\Tarp\Tarp1		384068
 	225673735	Footstep_Concrete03	C:\Users\1405188\Downloads\GITHUB\Team4\Robot\Wwise\.cache\Windows\SFX\Footstep_Concrete03_38C05CA7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Footsteps\FootstepsP1\Concrete\Footstep_Concrete03		54336
 	235748016	Tarp3	C:\Users\1405188\Downloads\GITHUB\Team4\Robot\Wwise\.cache\Windows\SFX\Tarp3_38C05CA7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Emitters\Tarp\Tarp3		480068
+	269206818	Attach Arm_01	C:\Users\1405188\Downloads\GITHUB\Team4\Robot\Wwise\.cache\Windows\SFX\Attach Arm_3391C2AF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Limbs\Attach Arm_01		112368
 	288807580	Metal Creaks	C:\Users\1405188\Downloads\GITHUB\Team4\Robot\Wwise\.cache\Windows\SFX\Metal Creaks_F42F5D95.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Ambience\Ambient_Env\Metal Creaks		8483312
 	300938007	Chirp_Sad01	C:\Users\1405188\Downloads\GITHUB\Team4\Robot\Wwise\.cache\Windows\SFX\Chirp_Sad01_38C05CA7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Chirps\Type_P1\Sad\Chirp_Sad01		384064
 	301099333	GateNote5	C:\Users\1405188\Downloads\GITHUB\Team4\Robot\Wwise\.cache\Windows\SFX\GateNote5_38C05CA7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Gate Chirps\5-8\GateNote5		768064
@@ -251,6 +259,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	1008677897	Chirp_Here01	C:\Users\1405188\Downloads\GITHUB\Team4\Robot\Wwise\.cache\Windows\SFX\Chirp_Here01_38C05CA7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Chirps\Type_P1\Here\Chirp_Here01		384064
 	1009647933	MACHINE_CHARGE	C:\Users\1405188\Downloads\GITHUB\Team4\Robot\Wwise\.cache\Windows\SFX\MACHINE_CHARGE_745A2C71.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Objects\MACHINE_CHARGE		225836
 	1011223190	LightHitCrystal	C:\Users\1405188\Downloads\GITHUB\Team4\Robot\Wwise\.cache\Windows\SFX\LightHitCrystal_38C05CA7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Objects\Crystals\LightHitCrystal		917528
+	1040630316	ArmNode	C:\Users\1405188\Downloads\GITHUB\Team4\Robot\Wwise\.cache\Windows\SFX\Detatch Arm_3D5E903E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Limbs\ArmNode		101236
 	1050795964	Footstep_Sand03	C:\Users\1405188\Downloads\GITHUB\Team4\Robot\Wwise\.cache\Windows\SFX\Footstep_Sand03_38C05CA7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Footsteps\FootstepsP1\Sand\Footstep_Sand03		42066
 	1050888784	Robot2_Fs03	C:\Users\1405188\Downloads\GITHUB\Team4\Robot\Wwise\.cache\Windows\SFX\Robot2_Fs03_38C05CA7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Movement\Footsteps\P2Mechanical\Robot2_Fs03		188740
 	1054563115	Chirp_There01	C:\Users\1405188\Downloads\GITHUB\Team4\Robot\Wwise\.cache\Windows\SFX\Chirp_There01_38C05CA7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Main\Robots\Chirps\Type_P1\There\Chirp_There01		384064

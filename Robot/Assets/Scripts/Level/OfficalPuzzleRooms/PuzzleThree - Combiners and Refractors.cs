@@ -14,5 +14,6 @@ public class PuzzleThreeCombinersandRefractors : LevelControlBaseClass
     protected override void LevelSpecificInit()
     {
         walkwayPosition = new Vector3(9, 0, 118.46f);
+		walkwayScale = new Vector3 (3.0f, 1.0f, 1.5f);
     }
 }

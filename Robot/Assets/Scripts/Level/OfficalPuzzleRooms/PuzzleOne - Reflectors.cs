@@ -14,5 +14,6 @@ public class PuzzleOneReflectors : LevelControlBaseClass
 	protected override void LevelSpecificInit()
 	{
 		walkwayPosition = new Vector3(9, 0, 42.55f);
+		walkwayScale = new Vector3 (4.5f, 1.0f, 1.5f);
 	}
 }

@@ -93,13 +93,15 @@ public class PuaseMenu : MonoBehaviour
             pauseBtn[3].GetComponent<Transform>().parent.gameObject.SetActive(true);
             pauseBtn[1].GetComponent<Text>().text = "Options";
 
-            //AkSoundEngine.SetState("UI", "Off");
-            //AkSoundEngine.PostEvent("Menu_Exit", gameObject);
+            AkSoundEngine.SetState("UI", "Off");
+            AkSoundEngine.PostEvent("Menu_Exit", gameObject);
 
 
             FindObjectOfType<EventSystem>().firstSelectedGameObject = null;
             FindObjectOfType<SwitchSelectController>().selectObj = null;
             FindObjectOfType<SwitchSelectController>().enabled = false;
+            //
+
         }
     }
 

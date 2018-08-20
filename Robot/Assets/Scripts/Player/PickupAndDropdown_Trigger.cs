@@ -148,7 +148,7 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
                 anim.speed = 0;
 
                 CancelInvoke("AnimPlay");
-                InvokeRepeating("AnimPlay", 0.1f, 0.16666f);
+                InvokeRepeating("AnimPlay", 0.1f, 0.016666f);
             }
         }
     }
@@ -285,7 +285,7 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
                     ToggleRotateState();
                     CancelInvoke("AnimStop");
                     CancelInvoke("AnimPlay");
-                    Invoke("AnimStop", 1.2f);
+                    Invoke("AnimStop", 1.1f);
                 }
             }
         }

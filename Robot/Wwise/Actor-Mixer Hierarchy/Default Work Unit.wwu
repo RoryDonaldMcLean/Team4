@@ -104,7 +104,7 @@
 										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-17</Value>
+												<Value>-14</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -925,9 +925,15 @@
 									</GroupingInfo>
 								</SwitchContainer>
 								<ActorMixer Name="Limbs" ID="{44AEB499-6F2E-40D8-87CD-5AD1284F95F4}" ShortID="1046186012">
+									<PropertyList>
+										<Property Name="OverrideEffect" Type="bool" Value="True"/>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
+										</Reference>
+										<Reference Name="Effect0" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+											<ObjectRef Name="limbeq" ID="{5AAB97E9-55B9-4DEE-965F-34BC6DDEB88D}" WorkUnitID="{DB5ADB83-997D-43F7-B226-D357913135AD}"/>
 										</Reference>
 										<Reference Name="OutputBus">
 											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
@@ -953,7 +959,7 @@
 												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-21</Value>
+														<Value>-13</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -967,6 +973,10 @@
 											</ReferenceList>
 											<ChildrenList>
 												<AudioFileSource Name="Arm Break" ID="{DDDA23D4-6F79-492D-BF84-BB590A99C99C}" ShortID="80702525">
+													<PropertyList>
+														<Property Name="FadeInDuration" Type="Real64" Value="0.274303664434524"/>
+														<Property Name="TrimBegin" Type="Real64" Value="0.625250999813987"/>
+													</PropertyList>
 													<Language>SFX</Language>
 													<AudioFile>Arm Break.wav</AudioFile>
 												</AudioFileSource>
@@ -1001,6 +1011,9 @@
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
+												</Reference>
+												<Reference Name="Effect0" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+													<ObjectRef Name="limbeq" ID="{5AAB97E9-55B9-4DEE-965F-34BC6DDEB88D}" WorkUnitID="{DB5ADB83-997D-43F7-B226-D357913135AD}"/>
 												</Reference>
 												<Reference Name="OutputBus">
 													<ObjectRef Name="Objects" ID="{CA2680CC-BAFB-4640-B105-3ABB8404E954}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
@@ -1043,7 +1056,7 @@
 												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-13</Value>
+														<Value>-10</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -1106,6 +1119,111 @@
 											</ChildrenList>
 											<ActiveSourceList>
 												<ActiveSource Name="Arm Fly" ID="{A4A424D5-B571-49B6-B450-7AB4941822BA}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="ArmNode" ID="{FE83FA9F-B18C-4FC3-A87A-2DD07D172275}" ShortID="699605177">
+											<PropertyList>
+												<Property Name="EnablePositioning" Type="bool" Value="False"/>
+												<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
+												<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+												<Property Name="MaxReachedBehavior" Type="int16" Value="1"/>
+												<Property Name="MaxSoundPerInstance" Type="int16">
+													<ValueList>
+														<Value>1</Value>
+													</ValueList>
+												</Property>
+												<Property Name="OverridePositioning" Type="bool" Value="True"/>
+												<Property Name="Pitch" Type="int32">
+													<ValueList>
+														<Value>200</Value>
+													</ValueList>
+												</Property>
+												<Property Name="UseMaxSoundPerInstance" Type="bool">
+													<ValueList>
+														<Value>True</Value>
+													</ValueList>
+												</Property>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-14</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
+												</Reference>
+												<Reference Name="Effect0" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+													<ObjectRef Name="limbeq" ID="{5AAB97E9-55B9-4DEE-965F-34BC6DDEB88D}" WorkUnitID="{DB5ADB83-997D-43F7-B226-D357913135AD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Objects" ID="{CA2680CC-BAFB-4640-B105-3ABB8404E954}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Detatch Arm" ID="{0230F9CE-51BD-4FD0-951B-E1FF59C03CAF}" ShortID="1040630316">
+													<PropertyList>
+														<Property Name="FadeInDuration" Type="Real64" Value="0.228169084821429"/>
+														<Property Name="FadeOutDuration" Type="Real64" Value="7.94179687500003E-02"/>
+														<Property Name="TrimBegin" Type="Real64" Value="0.310108258928571"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.837040178571429"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>Detatch Arm.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Detatch Arm" ID="{0230F9CE-51BD-4FD0-951B-E1FF59C03CAF}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Attach Arm_01" ID="{48E6D366-16BA-48F7-9414-F070E6A36DC7}" ShortID="500664592">
+											<PropertyList>
+												<Property Name="EnablePositioning" Type="bool" Value="False"/>
+												<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
+												<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+												<Property Name="MaxReachedBehavior" Type="int16" Value="1"/>
+												<Property Name="MaxSoundPerInstance" Type="int16">
+													<ValueList>
+														<Value>1</Value>
+													</ValueList>
+												</Property>
+												<Property Name="OverridePositioning" Type="bool" Value="True"/>
+												<Property Name="Pitch" Type="int32">
+													<ValueList>
+														<Value>30</Value>
+													</ValueList>
+												</Property>
+												<Property Name="UseMaxSoundPerInstance" Type="bool">
+													<ValueList>
+														<Value>True</Value>
+													</ValueList>
+												</Property>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-10</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Objects" ID="{CA2680CC-BAFB-4640-B105-3ABB8404E954}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Attach Arm" ID="{2285C7A8-5467-4D3F-9DE2-9D6DD76176C9}" ShortID="269206818">
+													<PropertyList>
+														<Property Name="FadeInDuration" Type="Real64" Value="5.34498000372024E-02"/>
+														<Property Name="TrimBegin" Type="Real64" Value="0.318681826636905"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>Attach Arm.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Attach Arm" ID="{2285C7A8-5467-4D3F-9DE2-9D6DD76176C9}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
 									</ChildrenList>
@@ -3649,7 +3767,7 @@
 										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-1</Value>
+												<Value>3</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -3709,7 +3827,7 @@
 										<Property Name="UseGameAuxSends" Type="bool" Value="True"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-35</Value>
+												<Value>-32</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -4447,13 +4565,15 @@
 							<ChildrenList>
 								<RandomSequenceContainer Name="Tarp" ID="{7F4DBC36-D752-4CBA-9B7F-3E04C95E19AE}" ShortID="479781519">
 									<PropertyList>
+										<Property Name="EnablePanner" Type="bool" Value="True"/>
 										<Property Name="OverrideEffect" Type="bool" Value="True"/>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
 										<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
 										<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
 										<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-30</Value>
+												<Value>-24</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -4546,6 +4666,107 @@
 											</ActiveSourceList>
 										</Sound>
 									</ChildrenList>
+									<PositioningInfo>
+										<Panner Name="" ID="{2875836D-D1D1-4256-B31C-B584FC12D07C}">
+											<PropertyList>
+												<Property Name="PanX" Type="Real64" Value="59.4704684317719"/>
+												<Property Name="PanY" Type="Real64" Value="-1.29589632829374"/>
+											</PropertyList>
+										</Panner>
+									</PositioningInfo>
+									<StateInfo>
+										<StateGroupList>
+											<StateGroupInfo>
+												<StateGroupRef Name="Environment" ID="{368540B0-9326-43CE-A20D-CD99DFFC54DE}"/>
+											</StateGroupInfo>
+										</StateGroupList>
+										<CustomStateList>
+											<CustomState>
+												<StateRef Name="P1_Intro" ID="{FC8BB0BF-7A44-40B1-8D27-D1EA7366289D}"/>
+												<State Name="" ID="{B6DEEB35-9DB2-4BDD-B943-BCF3BBA764EC}" ShortID="920466293"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P2_FactoryPuzzle1" ID="{79494580-3976-425E-971D-CB193C870700}"/>
+												<State Name="" ID="{68F9FF37-CC6B-4BE9-97CF-EABACFE678A8}" ShortID="516626154">
+													<PropertyList>
+														<Property Name="Volume" Type="Real64" Value="-15"/>
+													</PropertyList>
+												</State>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="Menu" ID="{3AFA27FF-9639-4444-9C9F-20A568E90221}"/>
+												<State Name="" ID="{A74D7C85-D092-4F5A-BD1C-E366342112AC}" ShortID="324882186"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P3_ConstructionStorm" ID="{0D1A02F3-9577-4504-8C6C-58D99D7925E6}"/>
+												<State Name="" ID="{3769C178-52FC-4525-8917-7A15208FB380}" ShortID="372721657"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P1_IntroViewpoint" ID="{A0830815-1BB2-456C-BC25-BF32D2547E4E}"/>
+												<State Name="" ID="{4E2C6739-751B-4F09-8B09-87BC0423D39C}" ShortID="626992282"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P2_FactoryPuzzle2" ID="{DC03589A-BDD2-45D6-A826-EA9C0315B998}"/>
+												<State Name="" ID="{1F8E1469-0DA7-4BAB-A93A-61FCE6309ED9}" ShortID="473745760">
+													<PropertyList>
+														<Property Name="Volume" Type="Real64" Value="-96"/>
+													</PropertyList>
+												</State>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P2_FactoryViewpoint" ID="{EB070CD5-C2C2-46D1-9A5B-C15943D11787}"/>
+												<State Name="" ID="{534B0A60-05BE-4458-991A-8EEA4E094586}" ShortID="1033609265"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P6_EndLeave" ID="{E8ED1630-94B1-46FB-A5DC-E890F8746D73}"/>
+												<State Name="" ID="{EC65D9CA-E78A-4F2F-A3D0-7D6DE8A903EB}" ShortID="256045370"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P5_Core" ID="{6B59E6D1-4DA6-487E-91B0-1AE559B70CD1}"/>
+												<State Name="" ID="{320DBCB0-7F5B-4E4D-B37E-0C9122D6C55E}" ShortID="916417278"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P3_ConstructionScenery" ID="{D01D8749-D570-4885-88A1-4E868784E367}"/>
+												<State Name="" ID="{22E87559-867C-48C1-ADF9-6B72565A9CD2}" ShortID="939874141">
+													<PropertyList>
+														<Property Name="Volume" Type="Real64" Value="-26"/>
+													</PropertyList>
+												</State>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P5_CorePuzzle" ID="{C972704B-6D26-49FC-8229-7838BCD59F79}"/>
+												<State Name="" ID="{27FA6651-722A-4C0F-991A-637AB50EDE65}" ShortID="279669339"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P3_Construction" ID="{3BD738C0-1FEE-4A31-B833-5BDB23300B01}"/>
+												<State Name="" ID="{F95768D2-F0A2-4204-8F9D-33640C6F5EE4}" ShortID="368258605"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P4_Clouds" ID="{B92ABBFE-ED7C-4AE0-A739-CF81428935A0}"/>
+												<State Name="" ID="{2D96FC3A-40FF-425A-8BFF-CA9DCB301AA6}" ShortID="398278619"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="Empty" ID="{C1FFFDEC-FC6D-4B54-9D54-1DB3342ADAC8}"/>
+												<State Name="" ID="{B7A83608-4E40-4A62-A6F9-4A7369D7CBAA}" ShortID="208753731">
+													<PropertyList>
+														<Property Name="Volume" Type="Real64" Value="-96"/>
+													</PropertyList>
+												</State>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P6_EndSacrifice" ID="{B2786363-AAB6-4D23-9F0A-8407408276B0}"/>
+												<State Name="" ID="{15436943-02D7-4A13-BF38-A0BA0C2A8283}" ShortID="136821471"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P6_AChoice" ID="{300F983C-BC50-4E36-BF53-75418BDAB6CF}"/>
+												<State Name="" ID="{6B1C372B-A9F5-4730-961B-38750D4C6610}" ShortID="906104778"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="Credits" ID="{07794BAC-6A4D-4EDF-9F27-404ACF53D536}"/>
+												<State Name="" ID="{B7FA34FB-1AF8-44F9-8DEB-0BDE7028C873}" ShortID="1034291677"/>
+											</CustomState>
+										</CustomStateList>
+									</StateInfo>
 								</RandomSequenceContainer>
 								<RandomSequenceContainer Name="LightFlicker" ID="{BCAC932E-04FC-4D7A-9C81-6C9E723A7915}" ShortID="678946972">
 									<PropertyList>
@@ -4701,10 +4922,10 @@
 										<AudioFileSource Name="The Core Hum" ID="{A81C88B8-1AB4-4B54-A3D4-F9CF4AD523E9}" ShortID="195856999">
 											<PropertyList>
 												<Property Name="FadeInDuration" Type="Real64" Value="0.241071428571429"/>
-												<Property Name="FadeOutDuration" Type="Real64" Value="4.41964285714286"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="3.21428571428574"/>
 												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
 												<Property Name="TrimBegin" Type="Real64" Value="3.05357142857143"/>
-												<Property Name="TrimEnd" Type="Real64" Value="12.6964285714286"/>
+												<Property Name="TrimEnd" Type="Real64" Value="6.26785714285717"/>
 											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>The Core Hum.wav</AudioFile>
@@ -4720,7 +4941,7 @@
 										<Property Name="UseGameAuxSends" Type="bool" Value="True"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-49</Value>
+												<Value>-39</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -4748,7 +4969,7 @@
 										<Property Name="UseGameAuxSends" Type="bool" Value="True"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-39</Value>
+												<Value>-25</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -4766,6 +4987,87 @@
 											<AudioFile>ChainsLight.wav</AudioFile>
 										</AudioFileSource>
 									</ChildrenList>
+									<StateInfo>
+										<StateGroupList>
+											<StateGroupInfo>
+												<StateGroupRef Name="Environment" ID="{368540B0-9326-43CE-A20D-CD99DFFC54DE}"/>
+											</StateGroupInfo>
+										</StateGroupList>
+										<CustomStateList>
+											<CustomState>
+												<StateRef Name="P1_Intro" ID="{FC8BB0BF-7A44-40B1-8D27-D1EA7366289D}"/>
+												<State Name="" ID="{390366C5-F074-4A18-8F16-05BF288CB4F6}" ShortID="951983136"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P2_FactoryPuzzle1" ID="{79494580-3976-425E-971D-CB193C870700}"/>
+												<State Name="" ID="{3213A1F7-6A2C-464C-928B-724F3084A27F}" ShortID="286673849"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="Menu" ID="{3AFA27FF-9639-4444-9C9F-20A568E90221}"/>
+												<State Name="" ID="{1000F456-DE09-4753-BE23-38F87539579B}" ShortID="937158218"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P3_ConstructionStorm" ID="{0D1A02F3-9577-4504-8C6C-58D99D7925E6}"/>
+												<State Name="" ID="{C290198D-CDD2-475F-AF81-6872D09476C1}" ShortID="882011101"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P1_IntroViewpoint" ID="{A0830815-1BB2-456C-BC25-BF32D2547E4E}"/>
+												<State Name="" ID="{E841DA9D-FB96-4215-B0D1-F7952E8DD22A}" ShortID="233074339"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P2_FactoryPuzzle2" ID="{DC03589A-BDD2-45D6-A826-EA9C0315B998}"/>
+												<State Name="" ID="{9AD96D9D-383D-4CD3-B3C9-666B34770E12}" ShortID="699593861"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P2_FactoryViewpoint" ID="{EB070CD5-C2C2-46D1-9A5B-C15943D11787}"/>
+												<State Name="" ID="{37DDB429-3E33-475C-9118-8F8D953863E0}" ShortID="503512418"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P6_EndLeave" ID="{E8ED1630-94B1-46FB-A5DC-E890F8746D73}"/>
+												<State Name="" ID="{E3C1C431-7894-447A-B3C0-C7AAEF02D6F1}" ShortID="820884798"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P5_Core" ID="{6B59E6D1-4DA6-487E-91B0-1AE559B70CD1}"/>
+												<State Name="" ID="{FE027929-40E7-4CDE-BF9E-F085AA5D87D5}" ShortID="228881134"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P3_ConstructionScenery" ID="{D01D8749-D570-4885-88A1-4E868784E367}"/>
+												<State Name="" ID="{93403E12-DCA1-494D-9A9B-E92AD8536C2B}" ShortID="56664768"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P5_CorePuzzle" ID="{C972704B-6D26-49FC-8229-7838BCD59F79}"/>
+												<State Name="" ID="{6B8C566A-4E51-4693-B495-3781B5D3107B}" ShortID="355669467"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P3_Construction" ID="{3BD738C0-1FEE-4A31-B833-5BDB23300B01}"/>
+												<State Name="" ID="{8128087B-E1B8-4088-A998-EE1B5B724847}" ShortID="302412826"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P4_Clouds" ID="{B92ABBFE-ED7C-4AE0-A739-CF81428935A0}"/>
+												<State Name="" ID="{822A9FCB-248D-4030-B0F5-653E035F97BA}" ShortID="643587190"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="Empty" ID="{C1FFFDEC-FC6D-4B54-9D54-1DB3342ADAC8}"/>
+												<State Name="" ID="{AFFAA525-9A32-4AAF-B3B8-F67D9AB5DF94}" ShortID="477558560">
+													<PropertyList>
+														<Property Name="Volume" Type="Real64" Value="-9"/>
+													</PropertyList>
+												</State>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P6_EndSacrifice" ID="{B2786363-AAB6-4D23-9F0A-8407408276B0}"/>
+												<State Name="" ID="{C861E301-0543-4E12-9D03-924AC6F56D9B}" ShortID="605098902"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P6_AChoice" ID="{300F983C-BC50-4E36-BF53-75418BDAB6CF}"/>
+												<State Name="" ID="{C53F82FA-D594-46B8-A697-A31AE06FC6C7}" ShortID="699665951"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="Credits" ID="{07794BAC-6A4D-4EDF-9F27-404ACF53D536}"/>
+												<State Name="" ID="{6F5696C1-5F49-4A9A-81C5-FA0F74121F76}" ShortID="1058081873"/>
+											</CustomState>
+										</CustomStateList>
+									</StateInfo>
 									<ActiveSourceList>
 										<ActiveSource Name="ChainsLight" ID="{D143EAB0-F994-4F46-8DCE-C97A280EAA8B}" Platform="Linked"/>
 									</ActiveSourceList>
@@ -7057,7 +7359,13 @@ Air currents change during the hours of the day and foliage changes during  the 
 						</ActorMixer>
 						<ActorMixer Name="UI" ID="{46733510-C0E9-4DEC-BC16-73CF394A9139}" ShortID="394665514">
 							<PropertyList>
+								<Property Name="DivergenceCenter" Type="int32">
+									<ValueList>
+										<Value>100</Value>
+									</ValueList>
+								</Property>
 								<Property Name="OverrideOutput" Type="bool" Value="True"/>
+								<Property Name="OverridePositioning" Type="bool" Value="True"/>
 								<Property Name="Pitch" Type="int32">
 									<ModifierList>
 										<ModifierInfo>
@@ -7070,6 +7378,11 @@ Air currents change during the hours of the day and foliage changes during  the 
 											</Modifier>
 										</ModifierInfo>
 									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-8</Value>
+									</ValueList>
 								</Property>
 							</PropertyList>
 							<ReferenceList>
@@ -7120,6 +7433,13 @@ Air currents change during the hours of the day and foliage changes during  the 
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="exit menu" ID="{43E7B51C-C2B2-4AD3-A0F1-AFF1EC56E35A}" ShortID="469313715">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-5</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>

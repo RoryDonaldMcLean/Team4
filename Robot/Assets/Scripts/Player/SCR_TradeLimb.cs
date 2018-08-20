@@ -651,6 +651,7 @@ public class SCR_TradeLimb : MonoBehaviour
 
                 //remove limb
                 RemoveLimb(GetPrefabsName(limbs[i].name));
+                AkSoundEngine.PostEvent("Arm_InNode", gameObject);
                 
                 return true;
             }
@@ -671,6 +672,8 @@ public class SCR_TradeLimb : MonoBehaviour
             hinge.name = "Hinge";
 
             Destroy(limbJoint);
+            AkSoundEngine.PostEvent("Arm_Attach", gameObject);
+
 
             return true;
         }
@@ -682,13 +685,14 @@ public class SCR_TradeLimb : MonoBehaviour
         if(playerTag != this.tag)
         {
             GameObject.FindGameObjectWithTag(playerTag).GetComponent<SCR_TradeLimb>().ToggleLimb(newLimbName);
+            if (!start) AkSoundEngine.PostEvent("Arm_Detatch", gameObject);
         }
         else
         {
             ToggleLimb(newLimbName);
         }
 
-        if (!start) AkSoundEngine.PostEvent("Arm_Detatch", gameObject);
+       
     }
 
     private void RemoveLimb(string limbToRemove)

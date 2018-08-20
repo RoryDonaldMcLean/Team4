@@ -3,12 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using InControl;
+using UnityEngine.UI;
 
 public class CutScene10_2 : BaseCutScene
 {
     private GameObject controlPlayer;
     private GameObject otherPlayer;
     public GameObject Tube;
+
+	GameObject BlackFade;
+	Animator anim;
+
+	private void Start()
+	{
+		BlackFade = GameObject.Find ("BlackFade");
+		anim = BlackFade.GetComponent<Animator> ();
+	}
 
     protected override void OnCollisionStay(Collision other)
     {
@@ -27,10 +37,9 @@ public class CutScene10_2 : BaseCutScene
             PressButton(other, btnIndex, device);
         }
     }
-
+    
     private void PressButton(Collision other, int btnIndex, InputDevice device)
     {
-
         if (otherPlayer != null && other.gameObject.tag == controlPlayer.tag)
         {
             if (Input.GetKeyDown(GameManager.Instance.playerSetting.currentButton[btnIndex]) && device == null)
@@ -71,6 +80,21 @@ public class CutScene10_2 : BaseCutScene
 
     private void End()
     {
-        SceneManager.LoadScene("End");
+		//BlackFade = GameObject.Find ("BlackFade");
+		//anim = BlackFade.GetComponent<Animator> ();
+		//anim.Play("FadeOut");
+		//yield return new WaitUntil (() => BlackFade.GetComponent<Image>().color.a==1);
+		//if (BlackFade.GetComponent<Image> ().color.a == 1)
+		//{
+			SceneManager.LoadScene("End");
+		//}
     }
+
+	IEnumerator Fading()
+	{
+		
+		anim.Play("FadeOut");
+		yield return new WaitUntil (() => BlackFade.GetComponent<Image>().color.a==1);
+		SceneManager.LoadScene("End");
+	}
 }

@@ -129,7 +129,6 @@ public class LevelControlBaseClass : MonoBehaviour
     private void EmittersEndControl(LightEmitter emitter)
     {
         emitter.canBeTurnedOff = false;
-        //emitter.GetComponentInChildren<LightResize>().EndLightBeamInteraction();
     }
 
     //Waits half a second before starting the light show, by calling the blinking

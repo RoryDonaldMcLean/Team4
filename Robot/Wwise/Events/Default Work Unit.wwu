@@ -608,6 +608,50 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Door_Open" ID="{99D3AA2B-846C-4551-BC5C-9B3A3D82BA8F}">
+							<ChildrenList>
+								<Action Name="" ID="{13B7D582-6C05-431B-B539-F49D12380527}" ShortID="1017219147">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Door_Open" ID="{B71A2F8E-975D-4D66-B442-7BEF759AB6FA}" WorkUnitID="{6BAE9174-7CEB-4131-99B7-F2EC621355E0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Machine_Charge" ID="{795EDFEA-4359-4EB3-A760-ABEF76756B5F}">
+							<ChildrenList>
+								<Action Name="" ID="{DEF6F513-A694-4A83-AE9C-FA889018E706}" ShortID="172621661">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="Delay" Type="Real64" Value="0.3"/>
+										<Property Name="Inclusion" Type="bool">
+											<ValueList>
+												<Value>False</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="MACHINE_CHARGE" ID="{1E9581B3-C4DB-43A3-9E22-209E55464ACC}" WorkUnitID="{6BAE9174-7CEB-4131-99B7-F2EC621355E0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{B66CB220-DE9F-4F33-BD73-1B4BD5CE1090}" ShortID="419179782">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="entermachine" ID="{7C87D69A-F8E7-4ED6-AE8B-738B06751B38}" WorkUnitID="{6BAE9174-7CEB-4131-99B7-F2EC621355E0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Emitters" ID="{F6C50FC6-7A72-41C2-8063-B743EC6BEB1D}" ShortID="550013825">

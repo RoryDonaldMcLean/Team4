@@ -951,6 +951,7 @@
 														<Value>1</Value>
 													</ValueList>
 												</Property>
+												<Property Name="OverrideOutput" Type="bool" Value="True"/>
 												<Property Name="OverridePositioning" Type="bool" Value="True"/>
 												<Property Name="UseMaxSoundPerInstance" Type="bool">
 													<ValueList>
@@ -959,7 +960,7 @@
 												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-13</Value>
+														<Value>-25</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -968,7 +969,7 @@
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
 												</Reference>
 												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
+													<ObjectRef Name="Special" ID="{C102F2E8-E835-49F9-BC0F-9CDF22925062}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
@@ -1056,7 +1057,7 @@
 												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-10</Value>
+														<Value>-9</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -1096,7 +1097,7 @@
 												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-13</Value>
+														<Value>-11</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>

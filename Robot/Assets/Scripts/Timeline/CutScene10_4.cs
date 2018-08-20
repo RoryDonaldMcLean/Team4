@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class CutScene10_4 : MonoBehaviour {
     
     private bool p1Back = false, p2Back = false;
-        
-	private void OnTriggerEnter(Collider other)
+    private GameObject BlackFade;
+    private Animator anim;
+
+    private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Player1" && FindObjectOfType<CutScene10_3>().BothEnter())
         {
@@ -33,7 +36,25 @@ public class CutScene10_4 : MonoBehaviour {
     {
         if(p1Back && p2Back)
         {
-            SceneManager.LoadScene("End");
+            CancelInvoke();
+            Invoke("Fadeing", 1.0f);
+            Invoke("Fading", 3.0f);
         }
+    }
+
+    private void Start()
+    {
+        BlackFade = GameObject.Find("BlackFade");
+        anim = BlackFade.GetComponent<Animator>();
+    }
+
+    private void End()
+    {
+        SceneManager.LoadScene("End");
+    }
+
+    private void Fading()
+    {
+        anim.Play("FadeOut");
     }
 }

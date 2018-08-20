@@ -181,8 +181,8 @@ MonoBehaviour:
   autoPopulateEnabled: 1
   AuxBusWwu:
   - Guid: '{2653943A-432D-488E-9B26-028C9F2C6C6D}'
-    m_lastTimePart2: -1999240304
-    m_lastTimePsrt1: -1941980268
+    m_lastTimePart2: -1999239516
+    m_lastTimePsrt1: -1797317702
     ParentPhysicalPath: 
     PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
     List:
@@ -263,8 +263,8 @@ MonoBehaviour:
         ObjectType: 1
   BankWwu:
   - Guid: '{99ADC241-66DB-450E-A27C-F54B78415578}'
-    m_lastTimePart2: -1999240334
-    m_lastTimePsrt1: 1545555908
+    m_lastTimePart2: -1999239523
+    m_lastTimePsrt1: 756670666
     ParentPhysicalPath: 
     PhysicalPath: SoundBanks\Default Work Unit.wwu
     List:
@@ -310,8 +310,8 @@ MonoBehaviour:
   defaultPoolSize: 12288
   EventWwu:
   - Guid: '{9208E778-4B37-4421-9C2A-46AAA42FFE85}'
-    m_lastTimePart2: -1999239541
-    m_lastTimePsrt1: -2028555302
+    m_lastTimePart2: -1999239513
+    m_lastTimePsrt1: 1899387706
     ParentPhysicalPath: 
     PhysicalPath: Events\Default Work Unit.wwu
     List:
@@ -395,6 +395,20 @@ MonoBehaviour:
       - ElementName: Robots
         ObjectType: 4
       - ElementName: Arm_Detatch
+        ObjectType: 3
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - Guid: 97a1c9720fe0fb4ba49783a3a19914b5
+      ID: -191872491
+      Name: Arm_InNode
+      Path: Default Work Unit\Robots\Arm_InNode
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Robots
+        ObjectType: 4
+      - ElementName: Arm_InNode
         ObjectType: 3
       maxAttenuation: 0
       maxDuration: 0
@@ -849,11 +863,9 @@ MonoBehaviour:
       minDuration: 0
   ExpandedItems:
   - /Androids
-  - /Androids/Events
-  - /Androids/Events/Default Work Unit
-  - /Androids/Events/Default Work Unit/Emitters
-  - /Androids/Events/Default Work Unit/Environment
-  - /Androids/Events/Default Work Unit/Objects
+  - /Androids/States
+  - /Androids/States/Default Work Unit
+  - /Androids/States/Default Work Unit/Environment
   language: English(US)
   lowerPoolSize: 12288
   m_lastPopulateTimePart2: 0
@@ -862,8 +874,8 @@ MonoBehaviour:
   preparePoolSize: 0
   RtpcWwu:
   - Guid: '{6FAB8A0D-1E75-4FC9-8CF4-258F9AA56D77}'
-    m_lastTimePart2: -1999239541
-    m_lastTimePsrt1: -2028515302
+    m_lastTimePart2: -1999239527
+    m_lastTimePsrt1: -251327446
     ParentPhysicalPath: 
     PhysicalPath: Game Parameters\Default Work Unit.wwu
     List:

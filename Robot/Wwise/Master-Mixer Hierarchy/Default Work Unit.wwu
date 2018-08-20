@@ -110,7 +110,11 @@
 											</CustomState>
 											<CustomState>
 												<StateRef Name="P2_FactoryPuzzle1" ID="{79494580-3976-425E-971D-CB193C870700}"/>
-												<State Name="" ID="{49890972-3392-485C-9A98-D316E82911F8}" ShortID="359183908"/>
+												<State Name="" ID="{49890972-3392-485C-9A98-D316E82911F8}" ShortID="359183908">
+													<PropertyList>
+														<Property Name="Volume" Type="Real64" Value="-9"/>
+													</PropertyList>
+												</State>
 											</CustomState>
 											<CustomState>
 												<StateRef Name="Menu" ID="{3AFA27FF-9639-4444-9C9F-20A568E90221}"/>
@@ -126,7 +130,11 @@
 											</CustomState>
 											<CustomState>
 												<StateRef Name="P2_FactoryPuzzle2" ID="{DC03589A-BDD2-45D6-A826-EA9C0315B998}"/>
-												<State Name="" ID="{3C7C749F-38ED-4D43-A787-F670362941C2}" ShortID="27747542"/>
+												<State Name="" ID="{3C7C749F-38ED-4D43-A787-F670362941C2}" ShortID="27747542">
+													<PropertyList>
+														<Property Name="Volume" Type="Real64" Value="4"/>
+													</PropertyList>
+												</State>
 											</CustomState>
 											<CustomState>
 												<StateRef Name="P2_FactoryViewpoint" ID="{EB070CD5-C2C2-46D1-9A5B-C15943D11787}"/>
@@ -158,7 +166,11 @@
 											</CustomState>
 											<CustomState>
 												<StateRef Name="Empty" ID="{C1FFFDEC-FC6D-4B54-9D54-1DB3342ADAC8}"/>
-												<State Name="" ID="{636DC2BB-4818-4EAF-918C-0EC189CE7EED}" ShortID="992199262"/>
+												<State Name="" ID="{636DC2BB-4818-4EAF-918C-0EC189CE7EED}" ShortID="992199262">
+													<PropertyList>
+														<Property Name="Volume" Type="Real64" Value="6"/>
+													</PropertyList>
+												</State>
 											</CustomState>
 											<CustomState>
 												<StateRef Name="P6_EndSacrifice" ID="{B2786363-AAB6-4D23-9F0A-8407408276B0}"/>
@@ -228,7 +240,11 @@
 											</CustomState>
 											<CustomState>
 												<StateRef Name="P1_Intro" ID="{FC8BB0BF-7A44-40B1-8D27-D1EA7366289D}"/>
-												<State Name="" ID="{6F3A7C03-F7A0-4D01-B543-66865ADE303B}" ShortID="530481070"/>
+												<State Name="" ID="{6F3A7C03-F7A0-4D01-B543-66865ADE303B}" ShortID="530481070">
+													<PropertyList>
+														<Property Name="BusVolume" Type="Real64" Value="10"/>
+													</PropertyList>
+												</State>
 											</CustomState>
 											<CustomState>
 												<StateRef Name="P2_FactoryPuzzle1" ID="{79494580-3976-425E-971D-CB193C870700}"/>
@@ -260,7 +276,11 @@
 											</CustomState>
 											<CustomState>
 												<StateRef Name="P1_IntroViewpoint" ID="{A0830815-1BB2-456C-BC25-BF32D2547E4E}"/>
-												<State Name="" ID="{D80C83F2-2990-4067-8A53-81F3A61021B2}" ShortID="420421848"/>
+												<State Name="" ID="{D80C83F2-2990-4067-8A53-81F3A61021B2}" ShortID="420421848">
+													<PropertyList>
+														<Property Name="BusVolume" Type="Real64" Value="6"/>
+													</PropertyList>
+												</State>
 											</CustomState>
 											<CustomState>
 												<StateRef Name="P2_FactoryPuzzle2" ID="{DC03589A-BDD2-45D6-A826-EA9C0315B998}"/>
@@ -404,7 +424,11 @@
 											</CustomState>
 											<CustomState>
 												<StateRef Name="P1_Intro" ID="{FC8BB0BF-7A44-40B1-8D27-D1EA7366289D}"/>
-												<State Name="" ID="{812B2512-5518-48CE-B20B-4968B844B347}" ShortID="302665616"/>
+												<State Name="" ID="{812B2512-5518-48CE-B20B-4968B844B347}" ShortID="302665616">
+													<PropertyList>
+														<Property Name="BusVolume" Type="Real64" Value="2"/>
+													</PropertyList>
+												</State>
 											</CustomState>
 											<CustomState>
 												<StateRef Name="P2_FactoryPuzzle1" ID="{79494580-3976-425E-971D-CB193C870700}"/>
@@ -512,7 +536,11 @@
 											</CustomState>
 											<CustomState>
 												<StateRef Name="Empty" ID="{C1FFFDEC-FC6D-4B54-9D54-1DB3342ADAC8}"/>
-												<State Name="" ID="{C1095F03-3FC4-40FB-AEB4-7FA00148BBD3}" ShortID="755039614"/>
+												<State Name="" ID="{C1095F03-3FC4-40FB-AEB4-7FA00148BBD3}" ShortID="755039614">
+													<PropertyList>
+														<Property Name="BusVolume" Type="Real64" Value="4"/>
+													</PropertyList>
+												</State>
 											</CustomState>
 											<CustomState>
 												<StateRef Name="Colour_Change" ID="{52D58239-FA93-4CCE-A3E2-8E4C3E0E91B2}"/>
@@ -568,11 +596,6 @@
 								</Bus>
 								<Bus Name="Music" ID="{8B3FDD90-9F59-41B0-831B-94D60F3FFC3C}">
 									<PropertyList>
-										<Property Name="BusVolume" Type="Real64">
-											<ValueList>
-												<Value>-2</Value>
-											</ValueList>
-										</Property>
 										<Property Name="DivergenceCenter" Type="int32">
 											<ValueList>
 												<Value>0</Value>
@@ -625,17 +648,25 @@
 											</CustomState>
 											<CustomState>
 												<StateRef Name="P1_IntroViewpoint" ID="{A0830815-1BB2-456C-BC25-BF32D2547E4E}"/>
-												<State Name="" ID="{317C54B3-92AA-4CB2-A7AA-F5126D114A3D}" ShortID="22484875"/>
+												<State Name="" ID="{317C54B3-92AA-4CB2-A7AA-F5126D114A3D}" ShortID="22484875">
+													<PropertyList>
+														<Property Name="BusVolume" Type="Real64" Value="3"/>
+													</PropertyList>
+												</State>
 											</CustomState>
 											<CustomState>
 												<StateRef Name="P2_FactoryPuzzle2" ID="{DC03589A-BDD2-45D6-A826-EA9C0315B998}"/>
-												<State Name="" ID="{045A1999-724D-4682-9F8F-CABBA84AA5CD}" ShortID="820929788"/>
+												<State Name="" ID="{045A1999-724D-4682-9F8F-CABBA84AA5CD}" ShortID="820929788">
+													<PropertyList>
+														<Property Name="BusVolume" Type="Real64" Value="7"/>
+													</PropertyList>
+												</State>
 											</CustomState>
 											<CustomState>
 												<StateRef Name="P2_FactoryViewpoint" ID="{EB070CD5-C2C2-46D1-9A5B-C15943D11787}"/>
 												<State Name="" ID="{8D262C7C-B802-4528-9E93-8DDDE954D0F6}" ShortID="206153821">
 													<PropertyList>
-														<Property Name="BusVolume" Type="Real64" Value="-3"/>
+														<Property Name="BusVolume" Type="Real64" Value="5"/>
 													</PropertyList>
 												</State>
 											</CustomState>
@@ -1187,7 +1218,7 @@
 											<PropertyList>
 												<Property Name="BusVolume" Type="Real64">
 													<ValueList>
-														<Value>-9</Value>
+														<Value>-4</Value>
 													</ValueList>
 												</Property>
 												<Property Name="DivergenceCenter" Type="int32">

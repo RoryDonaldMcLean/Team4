@@ -33,7 +33,7 @@ public class CutScene10_4 : MonoBehaviour {
     {
         if(p1Back && p2Back)
         {
-            SceneManager.LoadScene("Transition");
+            SceneManager.LoadScene("End");
         }
     }
 }

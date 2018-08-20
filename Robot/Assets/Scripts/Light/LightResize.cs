@@ -16,7 +16,7 @@ public class LightResize : MonoBehaviour
     private int defaultBeamLength;
     private float defaultBeamEndPoint;
     private float distance;
-    private bool finished = false;
+    public bool finished = false;
 
     void Start()
 	{

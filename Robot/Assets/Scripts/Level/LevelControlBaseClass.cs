@@ -129,7 +129,7 @@ public class LevelControlBaseClass : MonoBehaviour
     private void EmittersEndControl(LightEmitter emitter)
     {
         emitter.canBeTurnedOff = false;
-        emitter.GetComponentInChildren<LightResize>().EndLightBeamInteraction();
+        //emitter.GetComponentInChildren<LightResize>().EndLightBeamInteraction();
     }
 
     //Waits half a second before starting the light show, by calling the blinking
@@ -138,12 +138,20 @@ public class LevelControlBaseClass : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
 
+        QuantifyLightSourcesEndGameSetup();
+    }
+
+    private void QuantifyLightSourcesEndGameSetup()
+    {
         LineRenderer[] lightBeams = GameObject.Find(puzzleIdentifier).GetComponentsInChildren<LineRenderer>();
 
         foreach (LineRenderer beam in lightBeams)
         {
-            beam.transform.parent.GetComponent<LightResize>().EndLightBeamInteraction();
-            StartCoroutine(BlinkingLightControl(beam));
+            if (!beam.transform.parent.GetComponent<LightResize>().finished)
+            {
+                beam.transform.parent.GetComponent<LightResize>().EndLightBeamInteraction();
+                StartCoroutine(BlinkingLightControl(beam));
+            }
         }
     }
 
@@ -172,10 +180,15 @@ public class LevelControlBaseClass : MonoBehaviour
 
         while (counter < 10)
         {
-            yield return StartCoroutine(BlinkingLight(line));
+            if (line != null)
+            {
+                yield return StartCoroutine(BlinkingLight(line));
+            }
             counter++;
         }
-        lightShowFinished = true;
+
+        if(counter < 0) lightShowFinished = true;
+        yield return null;
     }
 
     //Using a coroutine, every half a second will simply switch the light beam 
@@ -183,19 +196,23 @@ public class LevelControlBaseClass : MonoBehaviour
     private IEnumerator BlinkingLight(LineRenderer line)
     {
         yield return new WaitForSeconds(0.5f);
-        Color beamColour = line.startColor;
 
-        if (beamColour.a > 0)
+        if (line != null)
         {
-            beamColour.a = 0;
-            line.startColor = beamColour;
-            line.endColor = beamColour;
-        }
-        else
-        {
-            beamColour.a = 1;
-            line.startColor = beamColour;
-            line.endColor = beamColour;
+            Color beamColour = line.startColor;
+
+            if (beamColour.a > 0)
+            {
+                beamColour.a = 0;
+                line.startColor = beamColour;
+                line.endColor = beamColour;
+            }
+            else
+            {
+                beamColour.a = 1;
+                line.startColor = beamColour;
+                line.endColor = beamColour;
+            }
         }
     }
 

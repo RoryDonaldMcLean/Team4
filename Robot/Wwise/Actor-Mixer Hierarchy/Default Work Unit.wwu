@@ -1123,7 +1123,6 @@
 										</Sound>
 										<Sound Name="ArmNode" ID="{FE83FA9F-B18C-4FC3-A87A-2DD07D172275}" ShortID="699605177">
 											<PropertyList>
-												<Property Name="EnablePositioning" Type="bool" Value="False"/>
 												<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
 												<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
 												<Property Name="MaxReachedBehavior" Type="int16" Value="1"/>
@@ -1178,7 +1177,6 @@
 										</Sound>
 										<Sound Name="Attach Arm_01" ID="{48E6D366-16BA-48F7-9414-F070E6A36DC7}" ShortID="500664592">
 											<PropertyList>
-												<Property Name="EnablePositioning" Type="bool" Value="False"/>
 												<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
 												<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
 												<Property Name="MaxReachedBehavior" Type="int16" Value="1"/>
@@ -1200,7 +1198,7 @@
 												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-10</Value>
+														<Value>-22</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -1230,6 +1228,7 @@
 								</ActorMixer>
 								<ActorMixer Name="Movement" ID="{E577481A-43E9-41D2-A904-A6307FA88553}" ShortID="306677712">
 									<PropertyList>
+										<Property Name="OverrideEffect" Type="bool" Value="True"/>
 										<Property Name="Pitch" Type="int32">
 											<ModifierList>
 												<ModifierInfo>
@@ -1252,6 +1251,9 @@
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
+										</Reference>
+										<Reference Name="Effect0" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+											<ObjectRef Name="New_Wwise_Parametric_EQ_21" ID="{6D5B05D6-158B-403A-8326-641DB0997FFE}" WorkUnitID="{DB5ADB83-997D-43F7-B226-D357913135AD}"/>
 										</Reference>
 										<Reference Name="OutputBus">
 											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
@@ -1393,7 +1395,7 @@
 														</Property>
 														<Property Name="Volume" Type="Real64">
 															<ValueList>
-																<Value>-25</Value>
+																<Value>-28</Value>
 															</ValueList>
 															<RTPCList>
 																<RTPC Name="" ID="{41A97A30-057B-4000-B7F8-A14F945B8157}" ShortID="257955872">

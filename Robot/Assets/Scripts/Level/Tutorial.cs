@@ -160,6 +160,7 @@ public class Tutorial : MonoBehaviour
 
 	void OnTriggerEnter(Collider col)
 	{
+		//Debug.Log ("you are hitting " + col);
 		if ((col.transform.name.Contains ("LeftArm"))
 		    || (col.transform.name.Contains ("RightArm")))
 		{
@@ -280,7 +281,7 @@ public class Tutorial : MonoBehaviour
 					UIButtons [4].SetActive (false);
 
 
-				}
+				} 
 
 				if ((playerNum == 1) && (col.transform.GetComponent<LightEmitter> ().canBeTurnedOff == true))
 				{
@@ -1067,6 +1068,86 @@ public class Tutorial : MonoBehaviour
 				StartCoroutine (GetRidOfText (3.0f));
 
 			}
+
+			if (ControllerUsed == true)
+			{
+				if (playerNum == 0)
+				{
+					//startTimer = true;
+					UITutorial.SetActive (true);
+					UIButtons [0].SetActive (true);
+					if (this.GetComponentInParent<InControlMovement> ().UsingPlayStation == true)
+					{
+						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_PickDropObject_Circle_PS") as Sprite;
+					} else
+					{
+						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_PickDropObject_B_XBOX") as Sprite;
+					}
+					UIButtons [0].GetComponent<Image> ().preserveAspect = true;
+					UIButtons [1].SetActive (false);
+					UIButtons [3].SetActive (false);
+					UIButtons [4].SetActive (false);
+				}
+
+				if (playerNum == 1)
+				{
+					//startTimer = true;
+					UITutorial2.SetActive (true);
+					UIButtons2 [0].SetActive (true);
+					if (this.GetComponentInParent<InControlMovement> ().UsingPlayStation == true)
+					{
+						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_PickDropObject_Circle_PS") as Sprite;
+					} else
+					{
+						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_PickDropObject_B_XBOX") as Sprite;
+					}
+					UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
+					UIButtons2 [1].SetActive (false);
+					UIButtons2 [3].SetActive (false);
+					UIButtons2 [4].SetActive (false);
+				}
+
+
+			} else
+			{
+				if (playerNum == 0)
+				{
+					//startTimer = true;
+					UITutorial.SetActive (true);
+					UIButtons [0].SetActive (true);
+					UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/UITutorialBox_Red") as Sprite;
+					UIButtons [0].GetComponent<Image> ().preserveAspect = true;
+
+					UIButtons [1].SetActive (true);
+					//test to see if i can display the keyboard controls
+					keyboardButtonPlayer1.GetComponent<Text> ().text = "Press: " + GameManager.Instance.playerSetting.currentButton [9].ToString ();
+					UIButtons [2].GetComponent<Text> ().text = "Pick up device";
+					UIButtons [3].SetActive (false);
+					UIButtons [4].SetActive (false);
+				}
+
+				if (playerNum == 1)
+				{
+					//startTimer = true;
+					UITutorial2.SetActive (true);
+					UIButtons2 [0].SetActive (true);
+					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/UITutorialBox_Blue") as Sprite;
+					UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
+
+					UIButtons2 [1].SetActive (true);
+					//test to see if i can display the keyboard controls
+
+					KeyboardButtonPlayer2.GetComponent<Text> ().text = "Press: " + GameManager.Instance.playerSetting.currentButton [22].ToString ();
+					UIButtons2 [2].GetComponent<Text> ().text = "Pick up device";
+					UIButtons2 [3].SetActive (false);
+					UIButtons2 [4].SetActive (false);
+				}
+
+
+			}
+
+
+
 		} else if (col.transform.name.Contains ("LightBarrier"))
 		{
 			if (levelCounter == 3)
@@ -1085,6 +1166,84 @@ public class Tutorial : MonoBehaviour
 				StartCoroutine (GetRidOfText (3.0f));
 
 			}
+
+			if (ControllerUsed == true)
+			{
+				if (playerNum == 0)
+				{
+					//startTimer = true;
+					UITutorial.SetActive (true);
+					UIButtons [0].SetActive (true);
+					if (this.GetComponentInParent<InControlMovement> ().UsingPlayStation == true)
+					{
+						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_PickDropObject_Circle_PS") as Sprite;
+					} else
+					{
+						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_PickDropObject_B_XBOX") as Sprite;
+					}
+					UIButtons [0].GetComponent<Image> ().preserveAspect = true;
+					UIButtons [1].SetActive (false);
+					UIButtons [3].SetActive (false);
+					UIButtons [4].SetActive (false);
+				}
+
+				if (playerNum == 1)
+				{
+					//startTimer = true;
+					UITutorial2.SetActive (true);
+					UIButtons2 [0].SetActive (true);
+					if (this.GetComponentInParent<InControlMovement> ().UsingPlayStation == true)
+					{
+						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_PickDropObject_Circle_PS") as Sprite;
+					} else
+					{
+						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_PickDropObject_B_XBOX") as Sprite;
+					}
+					UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
+					UIButtons2 [1].SetActive (false);
+					UIButtons2 [3].SetActive (false);
+					UIButtons2 [4].SetActive (false);
+				}
+
+
+			} else
+			{
+				if (playerNum == 0)
+				{
+					//startTimer = true;
+					UITutorial.SetActive (true);
+					UIButtons [0].SetActive (true);
+					UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/UITutorialBox_Red") as Sprite;
+					UIButtons [0].GetComponent<Image> ().preserveAspect = true;
+
+					UIButtons [1].SetActive (true);
+					//test to see if i can display the keyboard controls
+					keyboardButtonPlayer1.GetComponent<Text> ().text = "Press: " + GameManager.Instance.playerSetting.currentButton [9].ToString ();
+					UIButtons [2].GetComponent<Text> ().text = "Pick up device";
+					UIButtons [3].SetActive (false);
+					UIButtons [4].SetActive (false);
+				}
+
+				if (playerNum == 1)
+				{
+					//startTimer = true;
+					UITutorial2.SetActive (true);
+					UIButtons2 [0].SetActive (true);
+					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/UITutorialBox_Blue") as Sprite;
+					UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
+
+					UIButtons2 [1].SetActive (true);
+					//test to see if i can display the keyboard controls
+
+					KeyboardButtonPlayer2.GetComponent<Text> ().text = "Press: " + GameManager.Instance.playerSetting.currentButton [22].ToString ();
+					UIButtons2 [2].GetComponent<Text> ().text = "Pick up device";
+					UIButtons2 [3].SetActive (false);
+					UIButtons2 [4].SetActive (false);
+				}
+
+
+			}
+
 		}
 		else if (col.transform.name.Contains ("LightRedirect"))
 		{
@@ -1093,6 +1252,7 @@ public class Tutorial : MonoBehaviour
 				UIText.SetActive (true);
 				UIText.GetComponent<Text> ().text = "New equipment sighted: LightRedirect: Place in-frount of light beam to redirect light. Requires Two Arms";
 				StartCoroutine (GetRidOfText (3.0f));
+			}
 
 				if (ControllerUsed == true)
 				{
@@ -1169,7 +1329,7 @@ public class Tutorial : MonoBehaviour
 					}
 				}
 			}
-		}
+
 
 	}
 
@@ -1191,12 +1351,12 @@ public class Tutorial : MonoBehaviour
 
 		} else if (col.transform.name.Contains ("LightEmitter"))
 		{
-			if (playerNum == 0)
+			if (playerNum == 0 && col.transform.GetComponent<LightEmitter> ().canBeTurnedOff == true)
 			{
 				PlayerOneToggleUI();
 			}
 
-			if (playerNum == 1)
+			if (playerNum == 1 && col.transform.GetComponent<LightEmitter> ().canBeTurnedOff == true)
 			{
 				PlayerTwoToggleUI();
 			}

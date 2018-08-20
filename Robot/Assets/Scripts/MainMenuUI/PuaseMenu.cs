@@ -18,7 +18,7 @@ public class PuaseMenu : MonoBehaviour
 
     private void Awake()
     {
-        pauseMenuWwise = GameObject.Find("PauseMenuWwise");
+       // pauseMenuWwise = GameObject.Find("PauseMenuWwise");
 
         red = GameObject.FindGameObjectWithTag("Player1");
         blue = GameObject.FindGameObjectWithTag("Player2");
@@ -122,7 +122,7 @@ public class PuaseMenu : MonoBehaviour
             blue.GetComponent<MelodyInput>().enabled = true;
 
             AkSoundEngine.SetState("UI", "Off");
-            AkSoundEngine.PostEvent("Menu_Exit", pauseMenuWwise);
+			AkSoundEngine.PostEvent("Menu_Exit", gameObject);
 
         }
         if (btn == pauseBtn[1])
@@ -136,7 +136,7 @@ public class PuaseMenu : MonoBehaviour
                 pauseBtn[3].GetComponent<Transform>().parent.gameObject.SetActive(false);
                 pauseBtn[1].GetComponent<Text>().text = "Back";
                 isSetting = true;
-                AkSoundEngine.PostEvent("Menu_Select", pauseMenuWwise);
+				AkSoundEngine.PostEvent("Menu_Select", gameObject);
 
 
             }
@@ -148,7 +148,7 @@ public class PuaseMenu : MonoBehaviour
                 pauseBtn[3].GetComponent<Transform>().parent.gameObject.SetActive(true);
                 pauseBtn[1].GetComponent<Text>().text = "Options";
                 isSetting = false;
-                AkSoundEngine.PostEvent("Menu_Select", pauseMenuWwise);
+				AkSoundEngine.PostEvent("Menu_Select", gameObject);
 
             }
 
@@ -157,13 +157,13 @@ public class PuaseMenu : MonoBehaviour
         if (btn == pauseBtn[2])
         {
             SceneManager.LoadScene("MainMenu");
-            AkSoundEngine.PostEvent("Menu_Select", pauseMenuWwise);
+			AkSoundEngine.PostEvent("Menu_Select", gameObject);
 
         }
         if (btn == pauseBtn[3])
         {
             Application.Quit();
-            AkSoundEngine.PostEvent("Menu_Select", pauseMenuWwise);
+			AkSoundEngine.PostEvent("Menu_Select", gameObject);
         }
     }
 }

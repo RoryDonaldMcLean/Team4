@@ -220,13 +220,15 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
 
 
 			//Rory added bullshit to try and prevent objects going through walls
-			/*if (pickedUpGameObject.GetComponent<Rigidbody> () == null)
+			/*if (pickupLocation.transform.GetComponent<Rigidbody> () == null)
 			{
-				Rigidbody rb = pickedUpGameObject.AddComponent (typeof(Rigidbody)) as Rigidbody;
+				Rigidbody rb = pickupLocation.transform.gameObject.AddComponent (typeof(Rigidbody)) as Rigidbody;
 				rb.useGravity = false;
-				rb.constraints = RigidbodyConstraints.FreezeAll;
-				//rb.constraints = RigidbodyConstraints.FreezeRotation;
-				//pickupLocation.layer = LayerMask.NameToLayer("WallDetect");
+				//rb.constraints = RigidbodyConstraints.FreezeAll;
+				rb.constraints = RigidbodyConstraints.FreezeRotation;
+				pickupLocation.layer = LayerMask.NameToLayer("WallDetect");
+
+				rb.transform.position = pickupLocation.transform.position;
 			}*/
 
 

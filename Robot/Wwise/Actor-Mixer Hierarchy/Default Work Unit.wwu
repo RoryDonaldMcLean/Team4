@@ -4652,15 +4652,20 @@
 							<ChildrenList>
 								<RandomSequenceContainer Name="Tarp" ID="{7F4DBC36-D752-4CBA-9B7F-3E04C95E19AE}" ShortID="479781519">
 									<PropertyList>
-										<Property Name="EnablePanner" Type="bool" Value="True"/>
+										<Property Name="EnablePositioning" Type="bool" Value="False"/>
 										<Property Name="OverrideEffect" Type="bool" Value="True"/>
 										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="Pitch" Type="int32">
+											<ValueList>
+												<Value>-780</Value>
+											</ValueList>
+										</Property>
 										<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
 										<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
 										<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-24</Value>
+												<Value>-23</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -6214,7 +6219,7 @@ Air currents change during the hours of the day and foliage changes during  the 
 												<State Name="" ID="{C22AD0E4-E318-4583-9979-EDFE0834B8DF}" ShortID="712776087">
 													<PropertyList>
 														<Property Name="Highpass" Type="int16" Value="17"/>
-														<Property Name="Volume" Type="Real64" Value="-20"/>
+														<Property Name="Volume" Type="Real64" Value="-12"/>
 													</PropertyList>
 												</State>
 											</CustomState>
@@ -6849,7 +6854,7 @@ Air currents change during the hours of the day and foliage changes during  the 
 												<StateRef Name="P1_IntroViewpoint" ID="{A0830815-1BB2-456C-BC25-BF32D2547E4E}"/>
 												<State Name="" ID="{39D1EB39-ED95-49C6-970F-4938BB5567E4}" ShortID="418511641">
 													<PropertyList>
-														<Property Name="Volume" Type="Real64" Value="-6"/>
+														<Property Name="Volume" Type="Real64" Value="-4"/>
 													</PropertyList>
 												</State>
 											</CustomState>

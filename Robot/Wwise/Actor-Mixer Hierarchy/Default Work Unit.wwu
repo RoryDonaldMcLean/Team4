@@ -5312,7 +5312,6 @@
 							<PropertyList>
 								<Property Name="OverrideOutput" Type="bool" Value="True"/>
 								<Property Name="OverridePositioning" Type="bool" Value="True"/>
-								<Property Name="UseGameAuxSends" Type="bool" Value="True"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -5326,6 +5325,7 @@
 								<SwitchContainer Name="Ambience Wind" ID="{F5BA30B6-0D15-47FD-8E24-F697C07DC3CB}" ShortID="263144444">
 									<PropertyList>
 										<Property Name="OverrideEffect" Type="bool" Value="True"/>
+										<Property Name="OverrideGameAuxSends" Type="bool" Value="True"/>
 										<Property Name="SwitchBehavior" Type="int16" Value="1"/>
 									</PropertyList>
 									<ReferenceList>
@@ -6214,7 +6214,7 @@ Air currents change during the hours of the day and foliage changes during  the 
 												<State Name="" ID="{C22AD0E4-E318-4583-9979-EDFE0834B8DF}" ShortID="712776087">
 													<PropertyList>
 														<Property Name="Highpass" Type="int16" Value="17"/>
-														<Property Name="Volume" Type="Real64" Value="-8"/>
+														<Property Name="Volume" Type="Real64" Value="-20"/>
 													</PropertyList>
 												</State>
 											</CustomState>

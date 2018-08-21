@@ -119,9 +119,9 @@ Shader "Custom/Robots_BaseShader"
 			fixed4 frag(v2f i) : SV_Target
 			{
 				fixed4 col = _OutlineColor;
-				//#if !_PICKUPDETECTED_ON
+				#if !_PICKUPDETECTED_ON
 				col.a = 0;
-				//#endif
+				#endif
 				return col;
 			}
 

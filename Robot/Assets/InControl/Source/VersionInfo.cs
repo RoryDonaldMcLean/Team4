@@ -28,11 +28,11 @@ namespace InControl
 				Major = 1,
 				Minor = 4,
 				Patch = 4,
-<<<<<<< HEAD
-				Build = 4141
-=======
-				Build = 4083
->>>>>>> 0c05da32b7cbe2bab8985d6efc11a3b06d0a745c
+//<<<<<<< HEAD
+				Build = 4146
+//=======
+				//Build = 4088
+//>>>>>>> 0c05da32b7cbe2bab8985d6efc11a3b06d0a745c
 			};
 		}
 

@@ -104,7 +104,7 @@
 										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-14</Value>
+												<Value>-18</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -899,6 +899,87 @@
 											</GroupingInfo>
 										</SwitchContainer>
 									</ChildrenList>
+									<StateInfo>
+										<StateGroupList>
+											<StateGroupInfo>
+												<StateGroupRef Name="Environment" ID="{368540B0-9326-43CE-A20D-CD99DFFC54DE}"/>
+											</StateGroupInfo>
+										</StateGroupList>
+										<CustomStateList>
+											<CustomState>
+												<StateRef Name="P1_Intro" ID="{FC8BB0BF-7A44-40B1-8D27-D1EA7366289D}"/>
+												<State Name="" ID="{5440E2AD-829F-431D-A3B2-5251510C5FDD}" ShortID="45435620"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P2_FactoryPuzzle1" ID="{79494580-3976-425E-971D-CB193C870700}"/>
+												<State Name="" ID="{104E4D6E-FB3B-4794-921E-5D36B5E7881A}" ShortID="831909455"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="Menu" ID="{3AFA27FF-9639-4444-9C9F-20A568E90221}"/>
+												<State Name="" ID="{FB4A8300-65DD-47A6-89A6-2342DEBCE6BA}" ShortID="435061426"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P3_ConstructionStorm" ID="{0D1A02F3-9577-4504-8C6C-58D99D7925E6}"/>
+												<State Name="" ID="{4A4CCFAF-0285-4228-A6A9-757D67EE73E7}" ShortID="1050220628"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P1_IntroViewpoint" ID="{A0830815-1BB2-456C-BC25-BF32D2547E4E}"/>
+												<State Name="" ID="{BCE390F1-FA17-4F19-92F9-9AF05AB1A189}" ShortID="851929236"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P2_FactoryPuzzle2" ID="{DC03589A-BDD2-45D6-A826-EA9C0315B998}"/>
+												<State Name="" ID="{8C823998-0882-4DCE-9E94-90637918ACA7}" ShortID="708665512"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P2_FactoryViewpoint" ID="{EB070CD5-C2C2-46D1-9A5B-C15943D11787}"/>
+												<State Name="" ID="{B32F5EB6-9B30-430A-9B3D-8F13D2AF00A1}" ShortID="410395152"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P6_EndLeave" ID="{E8ED1630-94B1-46FB-A5DC-E890F8746D73}"/>
+												<State Name="" ID="{C52248D0-4168-4119-9938-D5A94A856C3D}" ShortID="861298021"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P5_Core" ID="{6B59E6D1-4DA6-487E-91B0-1AE559B70CD1}"/>
+												<State Name="" ID="{7644FA37-DDD4-403F-A83A-34138C01D9DD}" ShortID="160809243"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P3_ConstructionScenery" ID="{D01D8749-D570-4885-88A1-4E868784E367}"/>
+												<State Name="" ID="{A7D65F5D-8EF0-4F0A-9B01-092BE6486E38}" ShortID="446411474">
+													<PropertyList>
+														<Property Name="Volume" Type="Real64" Value="4"/>
+													</PropertyList>
+												</State>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P5_CorePuzzle" ID="{C972704B-6D26-49FC-8229-7838BCD59F79}"/>
+												<State Name="" ID="{827123AF-8760-4754-AF09-771CD2CA96EA}" ShortID="338212204"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P3_Construction" ID="{3BD738C0-1FEE-4A31-B833-5BDB23300B01}"/>
+												<State Name="" ID="{BDC62DE3-21DC-46ED-877E-C32F8B7DAE54}" ShortID="540331460"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P4_Clouds" ID="{B92ABBFE-ED7C-4AE0-A739-CF81428935A0}"/>
+												<State Name="" ID="{F134EA4C-1028-463B-9B0F-B5DAB45B5988}" ShortID="1005207415"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="Empty" ID="{C1FFFDEC-FC6D-4B54-9D54-1DB3342ADAC8}"/>
+												<State Name="" ID="{04852F45-BA0D-46F0-BA47-F946AD4CD68F}" ShortID="1014814362"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P6_EndSacrifice" ID="{B2786363-AAB6-4D23-9F0A-8407408276B0}"/>
+												<State Name="" ID="{888C261C-80ED-46E7-BF50-7BFBF0128FB6}" ShortID="614489764"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="P6_AChoice" ID="{300F983C-BC50-4E36-BF53-75418BDAB6CF}"/>
+												<State Name="" ID="{4AE1FAEB-5989-41F8-85EA-BBD117A67D92}" ShortID="336579684"/>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="Credits" ID="{07794BAC-6A4D-4EDF-9F27-404ACF53D536}"/>
+												<State Name="" ID="{6B367202-40A8-4C97-BF30-2E846443702F}" ShortID="811485296"/>
+											</CustomState>
+										</CustomStateList>
+									</StateInfo>
 									<GroupingInfo>
 										<GroupingBehaviorList>
 											<GroupingBehavior>
@@ -951,6 +1032,7 @@
 														<Value>1</Value>
 													</ValueList>
 												</Property>
+												<Property Name="OverrideGameAuxSends" Type="bool" Value="True"/>
 												<Property Name="OverrideOutput" Type="bool" Value="True"/>
 												<Property Name="OverridePositioning" Type="bool" Value="True"/>
 												<Property Name="UseMaxSoundPerInstance" Type="bool">
@@ -960,7 +1042,7 @@
 												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-25</Value>
+														<Value>-18</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -1005,7 +1087,7 @@
 												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-12</Value>
+														<Value>-7</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -1049,6 +1131,7 @@
 														<Value>1</Value>
 													</ValueList>
 												</Property>
+												<Property Name="OverrideGameAuxSends" Type="bool" Value="True"/>
 												<Property Name="OverridePositioning" Type="bool" Value="True"/>
 												<Property Name="UseMaxSoundPerInstance" Type="bool">
 													<ValueList>
@@ -1057,7 +1140,7 @@
 												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-9</Value>
+														<Value>-6</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -1090,6 +1173,7 @@
 													</ValueList>
 												</Property>
 												<Property Name="OverrideEffect" Type="bool" Value="True"/>
+												<Property Name="OverrideGameAuxSends" Type="bool" Value="True"/>
 												<Property Name="UseMaxSoundPerInstance" Type="bool">
 													<ValueList>
 														<Value>True</Value>
@@ -1097,7 +1181,7 @@
 												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-11</Value>
+														<Value>-5</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -1145,7 +1229,7 @@
 												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-14</Value>
+														<Value>-12</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -1199,7 +1283,7 @@
 												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-22</Value>
+														<Value>-12</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -4134,7 +4218,7 @@
 												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-22</Value>
+														<Value>-17</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -4236,7 +4320,7 @@
 												<Property Name="RandomOrSequence" Type="int16" Value="0"/>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-12</Value>
+														<Value>-9</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -4706,7 +4790,11 @@
 											</CustomState>
 											<CustomState>
 												<StateRef Name="P1_IntroViewpoint" ID="{A0830815-1BB2-456C-BC25-BF32D2547E4E}"/>
-												<State Name="" ID="{4E2C6739-751B-4F09-8B09-87BC0423D39C}" ShortID="626992282"/>
+												<State Name="" ID="{4E2C6739-751B-4F09-8B09-87BC0423D39C}" ShortID="626992282">
+													<PropertyList>
+														<Property Name="Volume" Type="Real64" Value="-5"/>
+													</PropertyList>
+												</State>
 											</CustomState>
 											<CustomState>
 												<StateRef Name="P2_FactoryPuzzle2" ID="{DC03589A-BDD2-45D6-A826-EA9C0315B998}"/>
@@ -4968,7 +5056,10 @@
 								</Sound>
 								<Sound Name="ChainsLight" ID="{7FC38F16-136B-4976-90F7-7844C8D91498}" ShortID="1007527176">
 									<PropertyList>
+										<Property Name="EnablePanner" Type="bool" Value="True"/>
 										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="PositioningType" Type="int16" Value="1"/>
 										<Property Name="UseGameAuxSends" Type="bool" Value="True"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
@@ -4990,6 +5081,14 @@
 											<AudioFile>ChainsLight.wav</AudioFile>
 										</AudioFileSource>
 									</ChildrenList>
+									<PositioningInfo>
+										<Panner Name="" ID="{72854248-6C2C-48D3-A1D0-8F9848203A36}">
+											<PropertyList>
+												<Property Name="PanX" Type="Real64" Value="49.2871690427699"/>
+												<Property Name="PanY" Type="Real64" Value="0.863930885529158"/>
+											</PropertyList>
+										</Panner>
+									</PositioningInfo>
 									<StateInfo>
 										<StateGroupList>
 											<StateGroupInfo>
@@ -5076,6 +5175,138 @@
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
+							<StateInfo>
+								<StateGroupList>
+									<StateGroupInfo>
+										<StateGroupRef Name="Drone_Modulator" ID="{6F9EDEE3-D863-4564-B5FF-2E703969AF54}"/>
+									</StateGroupInfo>
+									<StateGroupInfo>
+										<StateGroupRef Name="Environment" ID="{368540B0-9326-43CE-A20D-CD99DFFC54DE}"/>
+									</StateGroupInfo>
+								</StateGroupList>
+								<CustomStateList>
+									<CustomState>
+										<StateRef Name="Reflector" ID="{F0FD1677-1293-401E-83C0-409A107A0ED2}"/>
+										<State Name="" ID="{7B3D894B-A540-495B-80C2-2570294888F6}" ShortID="31894714"/>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="P1_Intro" ID="{FC8BB0BF-7A44-40B1-8D27-D1EA7366289D}"/>
+										<State Name="" ID="{656B2C53-13C6-4541-BAAC-B6318A059F83}" ShortID="1030267179"/>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="P2_FactoryPuzzle1" ID="{79494580-3976-425E-971D-CB193C870700}"/>
+										<State Name="" ID="{2EDF58E4-586A-4E4D-8748-CC728AFBF6F2}" ShortID="826030174"/>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="Hit_Wall" ID="{1632BA91-329C-42DF-B8C4-64F6C03B69BB}"/>
+										<State Name="" ID="{D2FB0897-94A7-4B1B-98CB-B6B59CD5018C}" ShortID="677050762"/>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="Combiner" ID="{B61D639E-400F-4387-BC00-375A61AD9377}"/>
+										<State Name="" ID="{8F76013D-1F4E-40FD-9079-EF5C519A4155}" ShortID="319482774"/>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="Menu" ID="{3AFA27FF-9639-4444-9C9F-20A568E90221}"/>
+										<State Name="" ID="{E8A02458-C366-4463-B547-43154E0307D0}" ShortID="817103123"/>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="Start" ID="{D1DB9805-02B1-44BF-A049-F23022B18534}"/>
+										<State Name="" ID="{BB49E1F2-FEBB-44EB-BC9D-F89FA0C39338}" ShortID="611022434"/>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="P3_ConstructionStorm" ID="{0D1A02F3-9577-4504-8C6C-58D99D7925E6}"/>
+										<State Name="" ID="{78D0C173-8609-42CC-ADDF-E629E15D9FD7}" ShortID="837128514"/>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="P1_IntroViewpoint" ID="{A0830815-1BB2-456C-BC25-BF32D2547E4E}"/>
+										<State Name="" ID="{96F38AF1-BD7A-45C2-9045-845C93AD8DCA}" ShortID="327417525"/>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="P2_FactoryPuzzle2" ID="{DC03589A-BDD2-45D6-A826-EA9C0315B998}"/>
+										<State Name="" ID="{AD25222D-D83A-443E-BDBC-D2D0912F6DC0}" ShortID="788015570"/>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="Splitter" ID="{D99A732E-8412-4623-8A82-C396413A931C}"/>
+										<State Name="" ID="{B3181F71-C28A-44D9-A817-0A9468FFED1D}" ShortID="1071157691"/>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="P2_FactoryViewpoint" ID="{EB070CD5-C2C2-46D1-9A5B-C15943D11787}"/>
+										<State Name="" ID="{6F2F0261-3E72-4429-B173-9EDF89EF20FA}" ShortID="472201395"/>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="P6_EndLeave" ID="{E8ED1630-94B1-46FB-A5DC-E890F8746D73}"/>
+										<State Name="" ID="{E73541DA-5AC8-4A45-B3DD-952A9F98123D}" ShortID="936100752">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64" Value="-96"/>
+											</PropertyList>
+										</State>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="Complete" ID="{5B42DFA5-E7F9-47A0-8E1C-22A385CE8DC2}"/>
+										<State Name="" ID="{E927F612-C7E6-4402-95D4-AF7594B31CA0}" ShortID="994371707">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64" Value="-12"/>
+											</PropertyList>
+										</State>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="P5_Core" ID="{6B59E6D1-4DA6-487E-91B0-1AE559B70CD1}"/>
+										<State Name="" ID="{4D6B3DA3-EA5E-4D48-9879-663428F10706}" ShortID="453275899"/>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="Through_Barrier" ID="{A75B3983-3FDB-4882-BAED-D345BBAA0523}"/>
+										<State Name="" ID="{C55A42C0-DD08-4D11-97E5-C22731270F20}" ShortID="627115359"/>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="P3_ConstructionScenery" ID="{D01D8749-D570-4885-88A1-4E868784E367}"/>
+										<State Name="" ID="{DD5BA372-2AF6-4364-9FAE-D3192E7EAFCD}" ShortID="868003548"/>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="Hit_Switch" ID="{5DBE742A-FF4B-4888-A989-F0958DD1AA8E}"/>
+										<State Name="" ID="{C67B8BFA-2756-41F5-B376-907BEBCF40B6}" ShortID="8670279"/>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="P5_CorePuzzle" ID="{C972704B-6D26-49FC-8229-7838BCD59F79}"/>
+										<State Name="" ID="{1B6ED31E-48C2-4F7A-A730-2DF07E4BB68F}" ShortID="943655547"/>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="P3_Construction" ID="{3BD738C0-1FEE-4A31-B833-5BDB23300B01}"/>
+										<State Name="" ID="{2444B2B3-7035-4B9C-A8CF-87D0E65D794F}" ShortID="976618392"/>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="P4_Clouds" ID="{B92ABBFE-ED7C-4AE0-A739-CF81428935A0}"/>
+										<State Name="" ID="{FF969C5F-529C-4A24-B67F-8C57965D35DE}" ShortID="833484715"/>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="Empty" ID="{C1FFFDEC-FC6D-4B54-9D54-1DB3342ADAC8}"/>
+										<State Name="" ID="{99A08FC4-2EF2-4143-86D3-EE47FA3A7E9A}" ShortID="38265305"/>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="Colour_Change" ID="{52D58239-FA93-4CCE-A3E2-8E4C3E0E91B2}"/>
+										<State Name="" ID="{D4F98491-34A1-4D99-A160-0E5037B4008A}" ShortID="813503866"/>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="P6_EndSacrifice" ID="{B2786363-AAB6-4D23-9F0A-8407408276B0}"/>
+										<State Name="" ID="{4DE3E48B-073F-45A4-A12D-8BC24E12EDF9}" ShortID="292996376">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64" Value="-96"/>
+											</PropertyList>
+										</State>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="P6_AChoice" ID="{300F983C-BC50-4E36-BF53-75418BDAB6CF}"/>
+										<State Name="" ID="{737E2BEF-0FA8-4712-95D1-4CA713C064F6}" ShortID="842404801">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64" Value="-96"/>
+											</PropertyList>
+										</State>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="Credits" ID="{07794BAC-6A4D-4EDF-9F27-404ACF53D536}"/>
+										<State Name="" ID="{26A3A6D3-2995-47FC-9911-00BCB6432B2D}" ShortID="571163878"/>
+									</CustomState>
+								</CustomStateList>
+							</StateInfo>
 						</ActorMixer>
 						<ActorMixer Name="Ambience" ID="{E98BB56A-AA65-4049-B55B-0BB4DF81421E}" ShortID="890859157">
 							<PropertyList>
@@ -6042,7 +6273,7 @@ Air currents change during the hours of the day and foliage changes during  the 
 												<StateRef Name="P4_Clouds" ID="{B92ABBFE-ED7C-4AE0-A739-CF81428935A0}"/>
 												<State Name="" ID="{217ABB8E-7133-430F-8186-D230B91E6B9E}" ShortID="712459084">
 													<PropertyList>
-														<Property Name="Volume" Type="Real64" Value="-26"/>
+														<Property Name="Volume" Type="Real64" Value="-23"/>
 													</PropertyList>
 												</State>
 											</CustomState>
@@ -6392,11 +6623,6 @@ Air currents change during the hours of the day and foliage changes during  the 
 											<PropertyList>
 												<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 												<Property Name="OverrideEffect" Type="bool" Value="True"/>
-												<Property Name="Volume" Type="Real64">
-													<ValueList>
-														<Value>6</Value>
-													</ValueList>
-												</Property>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -6947,6 +7173,11 @@ Air currents change during the hours of the day and foliage changes during  the 
 										<Sound Name="Drone Complete" ID="{B7911413-1702-4D70-B91C-E1EB9EAA04B4}" ShortID="1036866979">
 											<PropertyList>
 												<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-5</Value>
+													</ValueList>
+												</Property>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -7384,7 +7615,7 @@ Air currents change during the hours of the day and foliage changes during  the 
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-8</Value>
+										<Value>-3</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -7410,6 +7641,11 @@ Air currents change during the hours of the day and foliage changes during  the 
 													</Modifier>
 												</ModifierInfo>
 											</ModifierList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>5</Value>
+											</ValueList>
 										</Property>
 									</PropertyList>
 									<ReferenceList>

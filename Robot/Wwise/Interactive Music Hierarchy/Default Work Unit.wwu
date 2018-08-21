@@ -1225,6 +1225,7 @@
 										<Value>1</Value>
 									</ValueList>
 								</Property>
+								<Property Name="OverrideEffect" Type="bool" Value="True"/>
 								<Property Name="UseMaxSoundPerInstance" Type="bool">
 									<ValueList>
 										<Value>True</Value>
@@ -1239,6 +1240,9 @@
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
+								</Reference>
+								<Reference Name="Effect0" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+									<ObjectRef Name="New_Wwise_Parametric_EQ_24" ID="{79F3CAF7-3FD9-456F-8A0F-DDDA81CAF2AF}" WorkUnitID="{DB5ADB83-997D-43F7-B226-D357913135AD}"/>
 								</Reference>
 								<Reference Name="OutputBus">
 									<ObjectRef Name="Music" ID="{8B3FDD90-9F59-41B0-831B-94D60F3FFC3C}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
@@ -2106,7 +2110,7 @@
 								<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
 								<Property Name="MaxSoundPerInstance" Type="int16">
 									<ValueList>
-										<Value>1</Value>
+										<Value>2</Value>
 									</ValueList>
 								</Property>
 								<Property Name="UseMaxSoundPerInstance" Type="bool">
@@ -2244,7 +2248,11 @@
 										</MusicTrack>
 									</ChildrenList>
 									<CueList>
-										<MusicCue Name="Entry Cue" ID="{15122CAE-4FB6-4C77-B36E-04ACD9201922}"/>
+										<MusicCue Name="Entry Cue" ID="{15122CAE-4FB6-4C77-B36E-04ACD9201922}">
+											<PropertyList>
+												<Property Name="TimeMs" Type="Real64" Value="2000"/>
+											</PropertyList>
+										</MusicCue>
 										<MusicCue Name="Exit Cue" ID="{8896B786-A24A-496C-A845-6F84E7814039}">
 											<PropertyList>
 												<Property Name="CueType" Type="int16" Value="1"/>
@@ -2317,6 +2325,141 @@
 										</MusicCue>
 									</CueList>
 								</MusicSegment>
+								<MusicSegment Name="losearm3" ID="{9A46ECA5-2BF0-4AB8-BDC5-2B5C71FB860B}" ShortID="598913678">
+									<PropertyList>
+										<Property Name="EndPosition" Type="Real64" Value="13500"/>
+										<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+										<Property Name="MaxReachedBehavior" Type="int16" Value="1"/>
+										<Property Name="MaxSoundPerInstance" Type="int16">
+											<ValueList>
+												<Value>1</Value>
+											</ValueList>
+										</Property>
+										<Property Name="UseMaxSoundPerInstance" Type="bool">
+											<ValueList>
+												<Value>True</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-8</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Music" ID="{8B3FDD90-9F59-41B0-831B-94D60F3FFC3C}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<MusicTrack Name="losearm3" ID="{63234FB0-F19E-4479-85A6-C8ABE6DCD07D}" ShortID="716350730">
+											<ReferenceList>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="losearm3" ID="{69AFA2F0-2D2A-428D-A027-06461081FB61}" ShortID="818662968">
+													<Language>SFX</Language>
+													<AudioFile>losearm3.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{AE7F075C-C6CB-490B-BC41-9BB543137F6B}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<SequenceList>
+												<MusicTrackSequence Name="" ID="{C958010A-10A3-4034-B9B3-FB704860B05B}">
+													<ClipList>
+														<MusicClip Name="losearm3" ID="{76189290-1E2E-4D26-A4F1-4B4E02DAE0A7}">
+															<PropertyList>
+																<Property Name="EndTrimOffset" Type="Real64" Value="12000"/>
+																<Property Name="FadeInMode" Type="int16" Value="0"/>
+																<Property Name="FadeOutDuration" Type="Real64" Value="2938.59649122807"/>
+															</PropertyList>
+															<AudioSourceRef Name="losearm3" ID="{69AFA2F0-2D2A-428D-A027-06461081FB61}"/>
+															<PropertyCurveList>
+																<PropertyCurve PropertyName="Highpass">
+																	<Curve Name="" ID="{5026BB3C-F757-49B3-8989-A2308D96FCBB}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="1"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>0</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>12</XPos>
+																				<YPos>0</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</PropertyCurve>
+																<PropertyCurve PropertyName="Lowpass">
+																	<Curve Name="" ID="{36168CC6-1761-4219-A8AD-3FE89FF6B38F}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="1"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>0</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>12</XPos>
+																				<YPos>0</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</PropertyCurve>
+																<PropertyCurve PropertyName="Volume">
+																	<Curve Name="" ID="{952C56AE-6AD2-4B92-A6DB-4036051F960B}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="3"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>0</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>12</XPos>
+																				<YPos>0</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</PropertyCurve>
+															</PropertyCurveList>
+														</MusicClip>
+													</ClipList>
+												</MusicTrackSequence>
+											</SequenceList>
+										</MusicTrack>
+									</ChildrenList>
+									<CueList>
+										<MusicCue Name="Entry Cue" ID="{54826E53-61B7-4A42-8B3A-E0F7CC43E013}"/>
+										<MusicCue Name="Exit Cue" ID="{5C9E5895-CBFA-4B8E-9A80-8749E517E4BF}">
+											<PropertyList>
+												<Property Name="CueType" Type="int16" Value="1"/>
+												<Property Name="TimeMs" Type="Real64" Value="8500"/>
+											</PropertyList>
+										</MusicCue>
+									</CueList>
+								</MusicSegment>
 							</ChildrenList>
 							<TransitionList>
 								<MusicTransition Name="Root" ID="{69594153-B257-4BB7-A4BF-86311B90765D}">
@@ -2325,7 +2468,54 @@
 									</PropertyList>
 									<ChildrenList>
 										<MusicTransition Name="Transition" ID="{A3932967-3889-4A01-94DE-B4EA1CBFBA36}">
-											<TransitionInfo/>
+											<PropertyList>
+												<Property Name="EnableDestinationFadeIn" Type="bool" Value="True"/>
+												<Property Name="EnableSourceFadeOut" Type="bool" Value="True"/>
+											</PropertyList>
+											<TransitionInfo>
+												<SourceFadeOut>
+													<MusicFade Name="Source Fade-out" ID="{4BBCF8DE-C9F2-40C6-A396-D37CA7B46771}">
+														<PropertyList>
+															<Property Name="FadeOffset" Type="Real64" Value="2.5"/>
+															<Property Name="FadeTime" Type="Real64" Value="5"/>
+															<Property Name="FadeType" Type="int16" Value="1"/>
+														</PropertyList>
+													</MusicFade>
+												</SourceFadeOut>
+												<DestinationFadeIn>
+													<MusicFade Name="Destination Fade-in" ID="{45756889-33C7-4498-A059-F4EC7C9B9ADF}">
+														<PropertyList>
+															<Property Name="FadeOffset" Type="Real64" Value="-3"/>
+															<Property Name="FadeTime" Type="Real64" Value="3"/>
+														</PropertyList>
+													</MusicFade>
+												</DestinationFadeIn>
+											</TransitionInfo>
+										</MusicTransition>
+										<MusicTransition Name="Transition" ID="{A61A311B-5381-4236-9D7B-1F276D86C442}">
+											<PropertyList>
+												<Property Name="EnableDestinationFadeIn" Type="bool" Value="True"/>
+												<Property Name="EnableSourceFadeOut" Type="bool" Value="True"/>
+											</PropertyList>
+											<TransitionInfo>
+												<SourceFadeOut>
+													<MusicFade Name="Source Fade-out" ID="{26EEA803-59AD-40AE-A041-20BE5ED223AE}">
+														<PropertyList>
+															<Property Name="FadeOffset" Type="Real64" Value="2.5"/>
+															<Property Name="FadeTime" Type="Real64" Value="2.5"/>
+															<Property Name="FadeType" Type="int16" Value="1"/>
+														</PropertyList>
+													</MusicFade>
+												</SourceFadeOut>
+												<DestinationFadeIn>
+													<MusicFade Name="Destination Fade-in" ID="{FCD4F195-CF13-45A8-917C-ED3EF342919F}">
+														<PropertyList>
+															<Property Name="FadeOffset" Type="Real64" Value="-2.5"/>
+															<Property Name="FadeTime" Type="Real64" Value="2.5"/>
+														</PropertyList>
+													</MusicFade>
+												</DestinationFadeIn>
+											</TransitionInfo>
 										</MusicTransition>
 									</ChildrenList>
 									<TransitionInfo/>
@@ -2334,6 +2524,12 @@
 							<Playlist>
 								<MusicPlaylistItem Name="" ID="{23D22546-C478-47E9-BC3E-F8A85D7CEB87}" ShortID="946994703">
 									<ChildrenList>
+										<MusicPlaylistItem Name="" ID="{419F9CE1-1D77-45B5-9F6C-188E9F8CAD8C}" ShortID="862549114">
+											<PropertyList>
+												<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+											</PropertyList>
+											<SegmentRef Name="losearm3" ID="{9A46ECA5-2BF0-4AB8-BDC5-2B5C71FB860B}"/>
+										</MusicPlaylistItem>
 										<MusicPlaylistItem Name="" ID="{8A24238E-FFD7-43BF-ABFA-BF622ACE6CFD}" ShortID="1060100381">
 											<PropertyList>
 												<Property Name="PlaylistItemType" Type="int16" Value="1"/>
@@ -2966,7 +3162,7 @@
 						</Property>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>-9</Value>
+								<Value>-7</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>
@@ -5505,82 +5701,6 @@
 							<CueList>
 								<MusicCue Name="Entry Cue" ID="{14F58580-6677-4B2B-AB2E-5FCA7CAE2CA9}"/>
 								<MusicCue Name="Exit Cue" ID="{363A2DB4-036B-47A1-965D-BCAE7D19187D}">
-									<PropertyList>
-										<Property Name="CueType" Type="int16" Value="1"/>
-										<Property Name="TimeMs" Type="Real64" Value="13333.3333333333"/>
-									</PropertyList>
-								</MusicCue>
-							</CueList>
-						</MusicSegment>
-						<MusicSegment Name="losearm3" ID="{9A46ECA5-2BF0-4AB8-BDC5-2B5C71FB860B}" ShortID="598913678">
-							<PropertyList>
-								<Property Name="EndPosition" Type="Real64" Value="13333.3333333333"/>
-								<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
-								<Property Name="MaxReachedBehavior" Type="int16" Value="1"/>
-								<Property Name="MaxSoundPerInstance" Type="int16">
-									<ValueList>
-										<Value>1</Value>
-									</ValueList>
-								</Property>
-								<Property Name="UseMaxSoundPerInstance" Type="bool">
-									<ValueList>
-										<Value>True</Value>
-									</ValueList>
-								</Property>
-								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>-96</Value>
-									</ValueList>
-								</Property>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Music" ID="{8B3FDD90-9F59-41B0-831B-94D60F3FFC3C}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<MusicTrack Name="losearm3" ID="{63234FB0-F19E-4479-85A6-C8ABE6DCD07D}" ShortID="716350730">
-									<ReferenceList>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="losearm3" ID="{69AFA2F0-2D2A-428D-A027-06461081FB61}" ShortID="818662968">
-											<Language>SFX</Language>
-											<AudioFile>losearm3.wav</AudioFile>
-										</AudioFileSource>
-									</ChildrenList>
-									<TransitionList>
-										<MusicTransition Name="Root" ID="{AE7F075C-C6CB-490B-BC41-9BB543137F6B}">
-											<PropertyList>
-												<Property Name="IsFolder" Type="bool" Value="True"/>
-											</PropertyList>
-											<TransitionInfo/>
-										</MusicTransition>
-									</TransitionList>
-									<SequenceList>
-										<MusicTrackSequence Name="" ID="{C958010A-10A3-4034-B9B3-FB704860B05B}">
-											<ClipList>
-												<MusicClip Name="losearm3" ID="{76189290-1E2E-4D26-A4F1-4B4E02DAE0A7}">
-													<PropertyList>
-														<Property Name="EndTrimOffset" Type="Real64" Value="13333.3333333333"/>
-														<Property Name="FadeInMode" Type="int16" Value="0"/>
-														<Property Name="FadeOutMode" Type="int16" Value="0"/>
-													</PropertyList>
-													<AudioSourceRef Name="losearm3" ID="{69AFA2F0-2D2A-428D-A027-06461081FB61}"/>
-												</MusicClip>
-											</ClipList>
-										</MusicTrackSequence>
-									</SequenceList>
-								</MusicTrack>
-							</ChildrenList>
-							<CueList>
-								<MusicCue Name="Entry Cue" ID="{54826E53-61B7-4A42-8B3A-E0F7CC43E013}"/>
-								<MusicCue Name="Exit Cue" ID="{5C9E5895-CBFA-4B8E-9A80-8749E517E4BF}">
 									<PropertyList>
 										<Property Name="CueType" Type="int16" Value="1"/>
 										<Property Name="TimeMs" Type="Real64" Value="13333.3333333333"/>

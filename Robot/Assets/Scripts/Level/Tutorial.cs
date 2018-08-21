@@ -1248,7 +1248,7 @@ public class Tutorial : MonoBehaviour
 
 		} else if (col.transform.name.Contains ("LightRedirect"))
 		{
-			if (levelCounter == 1)
+			if (levelCounter == 1 && col.transform.tag != "Untagged")
 			{
 				UIText.SetActive (true);
 				UIText.GetComponent<Text> ().text = "New equipment sighted: LightRedirect: Place in-frount of light beam to redirect light. Requires Two Arms";
@@ -1257,7 +1257,7 @@ public class Tutorial : MonoBehaviour
 
 			if (ControllerUsed == true)
 			{
-				if (playerNum == 0)
+				if (playerNum == 0 && col.transform.tag != "Untagged")
 				{
 					//startTimer = true;
 					UITutorial.SetActive (true);
@@ -1275,7 +1275,7 @@ public class Tutorial : MonoBehaviour
 					UIButtons [4].SetActive (false);
 				}
 
-				if (playerNum == 1)
+				if (playerNum == 1 && col.transform.tag != "Untagged")
 				{
 					//startTimer = true;
 					UITutorial2.SetActive (true);
@@ -1295,7 +1295,7 @@ public class Tutorial : MonoBehaviour
 
 			} else
 			{
-				if (playerNum == 0)
+				if (playerNum == 0 && col.transform.tag != "Untagged")
 				{
 					//startTimer = true;
 					UITutorial.SetActive (true);
@@ -1311,7 +1311,7 @@ public class Tutorial : MonoBehaviour
 					UIButtons [4].SetActive (false);
 				}
 
-				if (playerNum == 1)
+				if (playerNum == 1 && col.transform.tag != "Untagged")
 				{
 					//startTimer = true;
 					UITutorial2.SetActive (true);
@@ -1543,12 +1543,12 @@ public class Tutorial : MonoBehaviour
 			}
 		} else if (col.transform.name.Contains ("LightRedirect"))
 		{
-			if (playerNum == 0)
+			if (playerNum == 0 && col.transform.tag != "Untagged")
 			{
 				PlayerOneToggleUI ();
 			}
 
-			if (playerNum == 1)
+			if (playerNum == 1 && col.transform.tag != "Untagged")
 			{
 				PlayerTwoToggleUI ();
 			}

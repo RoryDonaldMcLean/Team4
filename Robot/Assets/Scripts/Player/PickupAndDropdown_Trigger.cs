@@ -218,6 +218,18 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
             pickedUpGameObject.GetComponent<Transform>().rotation = Quaternion.Lerp(pickedUpGameObject.GetComponent<Transform>().rotation, this.transform.parent.GetComponent<Transform>().rotation, 1); //make the rotation of object same as camera
             pickedUpGameObject.GetComponent<Transform>().rotation = new Quaternion(0, pickedUpGameObject.GetComponent<Transform>().rotation.y, 0, pickedUpGameObject.GetComponent<Transform>().rotation.w);
 
+
+			//Rory added bullshit to try and prevent objects going through walls
+			/*if (pickedUpGameObject.GetComponent<Rigidbody> () == null)
+			{
+				Rigidbody rb = pickedUpGameObject.AddComponent (typeof(Rigidbody)) as Rigidbody;
+				rb.useGravity = false;
+				rb.constraints = RigidbodyConstraints.FreezeAll;
+				//rb.constraints = RigidbodyConstraints.FreezeRotation;
+				//pickupLocation.layer = LayerMask.NameToLayer("WallDetect");
+			}*/
+
+
             if (pickUpState)
             {
                 PutDownObject();
@@ -491,6 +503,7 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
 
         Vector3 colliderScale = new Vector3(x, y, z);
         pickupLocation.GetComponent<BoxCollider>().size = colliderScale;
+
     }
 
     private int GetArmQuantity()
@@ -548,6 +561,7 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
     {
         if (other.tag != "Player1" && other.tag != "Player2" && other.tag != "Line" && other.tag != "EndBeam")
             triggerList.Add(other.gameObject);
+
     }
 
     private void OnTriggerExit(Collider other)

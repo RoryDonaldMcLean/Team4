@@ -61,12 +61,25 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
         }
     }
 
-    private void PickUpDropControl(bool PickUp, bool interact, bool rotateMode, InputDevice device)
+    public void DropObject()
+    {
+        if (rotateGeneric)
+        {
+            ToggleRotateState();
+            CleanupRotateState();
+        }
+        else if (holding)
+        {
+            ObjectHeld(true, null);
+        }
+    }
+
+    private void PickUpDropControl(bool pickUp, bool interact, bool rotateMode, InputDevice device)
     {
         if (!holding)
         {
             GameObject hit;
-            if (PickUp)
+            if (pickUp)
             {
                 if (rotateGeneric)
                 {
@@ -93,7 +106,7 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
         }
         else
         {
-            ObjectHeld(PickUp, device);
+            ObjectHeld(pickUp, device);
         }
     }
 
@@ -187,12 +200,15 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
             }
         }
         else if (pickedUpGameObject.transform.name.Contains("RotateBox"))
-        {
-            RotationExecution(ref device);
+        {            
             if (pickUpState)
             {
                 RotateDrop();
                 this.transform.parent.GetComponentInChildren<InControlMovement>().enabled = true;
+            }
+            else
+            {
+                RotationExecution(ref device);
             }
         }
         else

@@ -221,6 +221,7 @@ namespace AK
         static const AkUniqueID OBJECTS = 1695690031U;
         static const AkUniqueID REVERBS = 3545700988U;
         static const AkUniqueID ROBOTS = 2494382374U;
+        static const AkUniqueID SPECIAL = 3064974266U;
         static const AkUniqueID STINGERS = 2940432316U;
         static const AkUniqueID SUBMASTER = 2625406123U;
     } // namespace BUSSES

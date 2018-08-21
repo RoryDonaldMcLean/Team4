@@ -57,6 +57,7 @@
 										<Value>1</Value>
 									</ValueList>
 								</Property>
+								<Property Name="OverrideEffect" Type="bool" Value="True"/>
 								<Property Name="UseMaxSoundPerInstance" Type="bool">
 									<ValueList>
 										<Value>True</Value>
@@ -71,6 +72,9 @@
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
+								</Reference>
+								<Reference Name="Effect0" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+									<ObjectRef Name="New_Wwise_Parametric_EQ_22" ID="{1D8430E5-97D3-4509-87E1-91349BC3A9BD}" WorkUnitID="{DB5ADB83-997D-43F7-B226-D357913135AD}"/>
 								</Reference>
 								<Reference Name="OutputBus">
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
@@ -90,6 +94,9 @@
 										</Reference>
 										<Reference Name="Effect0" PluginName="Wwise Gain" CompanyID="0" PluginID="139" PluginType="3">
 											<ObjectRef Name="New_Wwise_Gain" ID="{F1658A87-D0F5-44CE-A27C-9B5A14317334}" WorkUnitID="{DB5ADB83-997D-43F7-B226-D357913135AD}"/>
+										</Reference>
+										<Reference Name="Effect1" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+											<ObjectRef Name="New_Wwise_Parametric_EQ_23" ID="{7C3852DD-B409-4530-B7A1-91412421332C}" WorkUnitID="{DB5ADB83-997D-43F7-B226-D357913135AD}"/>
 										</Reference>
 										<Reference Name="OutputBus">
 											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
@@ -141,7 +148,7 @@
 										<MusicCue Name="Exit Cue" ID="{D21A86A0-49BF-4DF2-A1A7-51B95DB0B2B3}">
 											<PropertyList>
 												<Property Name="CueType" Type="int16" Value="1"/>
-												<Property Name="TimeMs" Type="Real64" Value="90000"/>
+												<Property Name="TimeMs" Type="Real64" Value="91988.4925201381"/>
 											</PropertyList>
 										</MusicCue>
 									</CueList>
@@ -630,6 +637,7 @@
 										<Value>1</Value>
 									</ValueList>
 								</Property>
+								<Property Name="OverrideEffect" Type="bool" Value="True"/>
 								<Property Name="UseMaxSoundPerInstance" Type="bool">
 									<ValueList>
 										<Value>True</Value>
@@ -644,6 +652,9 @@
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
+								</Reference>
+								<Reference Name="Effect0" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+									<ObjectRef Name="musiceq1" ID="{90BAA4AA-CA41-4584-BAF6-5CEEA3E0F369}" WorkUnitID="{DB5ADB83-997D-43F7-B226-D357913135AD}"/>
 								</Reference>
 								<Reference Name="OutputBus">
 									<ObjectRef Name="Music" ID="{8B3FDD90-9F59-41B0-831B-94D60F3FFC3C}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
@@ -745,6 +756,7 @@
 										<Value>1</Value>
 									</ValueList>
 								</Property>
+								<Property Name="OverrideEffect" Type="bool" Value="True"/>
 								<Property Name="UseMaxSoundPerInstance" Type="bool">
 									<ValueList>
 										<Value>True</Value>
@@ -759,6 +771,9 @@
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
+								</Reference>
+								<Reference Name="Effect0" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+									<ObjectRef Name="musiceq1" ID="{90BAA4AA-CA41-4584-BAF6-5CEEA3E0F369}" WorkUnitID="{DB5ADB83-997D-43F7-B226-D357913135AD}"/>
 								</Reference>
 								<Reference Name="OutputBus">
 									<ObjectRef Name="Music" ID="{8B3FDD90-9F59-41B0-831B-94D60F3FFC3C}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
@@ -1545,6 +1560,7 @@
 										<Value>1</Value>
 									</ValueList>
 								</Property>
+								<Property Name="OverrideEffect" Type="bool" Value="True"/>
 								<Property Name="UseMaxSoundPerInstance" Type="bool">
 									<ValueList>
 										<Value>True</Value>
@@ -1559,6 +1575,9 @@
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
+								</Reference>
+								<Reference Name="Effect0" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+									<ObjectRef Name="musiceq1" ID="{90BAA4AA-CA41-4584-BAF6-5CEEA3E0F369}" WorkUnitID="{DB5ADB83-997D-43F7-B226-D357913135AD}"/>
 								</Reference>
 								<Reference Name="OutputBus">
 									<ObjectRef Name="Music" ID="{8B3FDD90-9F59-41B0-831B-94D60F3FFC3C}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
@@ -2113,10 +2132,14 @@
 								<MusicSegment Name="Sacrifice Full" ID="{9CF617E8-775F-4738-8B76-00306DED2DB1}" ShortID="530055572">
 									<PropertyList>
 										<Property Name="EndPosition" Type="Real64" Value="137076.023391813"/>
+										<Property Name="OverrideEffect" Type="bool" Value="True"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
+										</Reference>
+										<Reference Name="Effect0" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+											<ObjectRef Name="musiceq1" ID="{90BAA4AA-CA41-4584-BAF6-5CEEA3E0F369}" WorkUnitID="{DB5ADB83-997D-43F7-B226-D357913135AD}"/>
 										</Reference>
 										<Reference Name="OutputBus">
 											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
@@ -2418,10 +2441,14 @@
 								<MusicSegment Name="Sacrifice P1" ID="{F1B872EA-D0A8-4F7E-8EB9-61FCC04AA851}" ShortID="705916356">
 									<PropertyList>
 										<Property Name="EndPosition" Type="Real64" Value="80000"/>
+										<Property Name="OverrideEffect" Type="bool" Value="True"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
+										</Reference>
+										<Reference Name="Effect0" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+											<ObjectRef Name="musiceq1" ID="{90BAA4AA-CA41-4584-BAF6-5CEEA3E0F369}" WorkUnitID="{DB5ADB83-997D-43F7-B226-D357913135AD}"/>
 										</Reference>
 										<Reference Name="OutputBus">
 											<ObjectRef Name="Music" ID="{8B3FDD90-9F59-41B0-831B-94D60F3FFC3C}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
@@ -2939,7 +2966,7 @@
 						</Property>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>-21</Value>
+								<Value>-9</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>

@@ -664,11 +664,7 @@
 											</CustomState>
 											<CustomState>
 												<StateRef Name="P2_FactoryViewpoint" ID="{EB070CD5-C2C2-46D1-9A5B-C15943D11787}"/>
-												<State Name="" ID="{8D262C7C-B802-4528-9E93-8DDDE954D0F6}" ShortID="206153821">
-													<PropertyList>
-														<Property Name="BusVolume" Type="Real64" Value="5"/>
-													</PropertyList>
-												</State>
+												<State Name="" ID="{8D262C7C-B802-4528-9E93-8DDDE954D0F6}" ShortID="206153821"/>
 											</CustomState>
 											<CustomState>
 												<StateRef Name="P6_EndLeave" ID="{E8ED1630-94B1-46FB-A5DC-E890F8746D73}"/>
@@ -1241,7 +1237,7 @@
 											<PropertyList>
 												<Property Name="BusVolume" Type="Real64">
 													<ValueList>
-														<Value>-12</Value>
+														<Value>-18</Value>
 													</ValueList>
 												</Property>
 												<Property Name="DivergenceCenter" Type="int32">
@@ -1378,6 +1374,19 @@
 											<DuckingParam>
 												<Volume>-6</Volume>
 												<FadeInTime>4</FadeInTime>
+												<FadeOutTime>1</FadeOutTime>
+												<FadeCurve>FadeLinear</FadeCurve>
+											</DuckingParam>
+										</DuckItem>
+									</DuckingList>
+								</Bus>
+								<Bus Name="Special" ID="{C102F2E8-E835-49F9-BC0F-9CDF22925062}">
+									<DuckingList>
+										<DuckItem>
+											<BusRef Name="Music" ID="{8B3FDD90-9F59-41B0-831B-94D60F3FFC3C}"/>
+											<DuckingParam>
+												<Volume>-6</Volume>
+												<FadeInTime>1</FadeInTime>
 												<FadeOutTime>1</FadeOutTime>
 												<FadeCurve>FadeLinear</FadeCurve>
 											</DuckingParam>

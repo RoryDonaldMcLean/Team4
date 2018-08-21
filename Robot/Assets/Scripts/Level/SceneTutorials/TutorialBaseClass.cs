@@ -8,6 +8,7 @@ public class TutorialBaseClass : MonoBehaviour
     protected GameObject entranceWall;
     protected GameObject exitWall;
     protected List<GameObject> lightSources;
+    protected List<GameObject> lightObjects;
     protected List<GameObject> destroyableWalls;
     protected string tutorialIdentifier;
     protected GameObject tutorialPrompt;
@@ -69,6 +70,7 @@ public class TutorialBaseClass : MonoBehaviour
     private void SpecficPuzzleSetup(string parentTag)
     {
         List<GameObject> puzzleObjects = InitialiseGenericPuzzleElements(parentTag);
+
         switch (parentTag)
         {
             case "LightDoors":
@@ -83,6 +85,9 @@ public class TutorialBaseClass : MonoBehaviour
                 break;
             case "DestroyableWalls":
                 destroyableWalls = puzzleObjects;
+                break;
+            case "LightObjects":
+                lightObjects = puzzleObjects;
                 break;
         }
     }
@@ -103,6 +108,7 @@ public class TutorialBaseClass : MonoBehaviour
         SpecficPuzzleSetup("LightDoors");
         SpecficPuzzleSetup("LightSources");
         SpecficPuzzleSetup("DestroyableWalls");
+        SpecficPuzzleSetup("LightObjects");
 
         SpecialWallsSetup();
 
@@ -132,10 +138,21 @@ public class TutorialBaseClass : MonoBehaviour
         TextPromptTutorial();
     }
 
+    private void LightObjectsDisablePickup()
+    {
+        foreach(GameObject lightObject in lightObjects)
+        {
+            lightObject.tag = "Untagged";
+        }
+        GameObject.FindGameObjectWithTag("Player1").GetComponentInChildren<PickupAndDropdown_Trigger>().DropObject();
+        GameObject.FindGameObjectWithTag("Player2").GetComponentInChildren<PickupAndDropdown_Trigger>().DropObject();
+    }
+
     private void ExitTutorial()
     {
         TurnOffLights();     
         ToggleExitControl();
+        LightObjectsDisablePickup();
         Destroy(this);
     }
 

@@ -24,12 +24,11 @@ Shader "Custom/Robots_BaseShader"
         _EmissionMap ("EmissionMap", 2D) = "black" {}
 
     }
-    SubShader 
-	{
-        Tags 
-		{
+    SubShader {
+		LOD 100
+        Tags {
             "RenderType"="Opaque"
-        }
+			}
 
 		//X ray Pass  
 		Pass
@@ -83,6 +82,7 @@ Shader "Custom/Robots_BaseShader"
 		Pass 
 		{
 			NAME "OUTLINE"
+			Blend SrcAlpha OneMinusSrcAlpha
 			Cull Front   
 			ZWrite On
 			ZTest LEqual
@@ -108,7 +108,7 @@ Shader "Custom/Robots_BaseShader"
 				normal.z = -0.5;
 
 				#if _PICKUPDETECTED_ON
-					pos = pos + float4(normalize(normal), 0) * _Outline;
+				pos = pos + float4(normalize(normal), 0) * _Outline;
 				#endif
 				
 				o.pos = mul(UNITY_MATRIX_P, pos);
@@ -118,7 +118,11 @@ Shader "Custom/Robots_BaseShader"
 
 			fixed4 frag(v2f i) : SV_Target
 			{
-				return _OutlineColor;
+				fixed4 col = _OutlineColor;
+				#if !_PICKUPDETECTED_ON
+				col.a = 0;
+				#endif
+				return col;
 			}
 
 			#pragma vertex vert  

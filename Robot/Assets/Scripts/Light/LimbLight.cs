@@ -19,7 +19,7 @@ public class LimbLight : MonoBehaviour
     //is needed.
     void Start()
     {
-        limbJointSetup();
+        LimbJointSetup();
     }
 
     //A check that looks at the limb object and checks to make
@@ -53,7 +53,7 @@ public class LimbLight : MonoBehaviour
 
         if (GameObject.FindGameObjectWithTag(playerTag).GetComponent<SCR_TradeLimb>().LimbLightGiveLimb(boxLimbType, limbJoint))
         {
-            limbJointSetup();
+            LimbJointSetup();
             limbOwner = playerTag;
         }
     }
@@ -79,7 +79,7 @@ public class LimbLight : MonoBehaviour
     {
         if (GameObject.FindGameObjectWithTag(playerTag).GetComponent<SCR_TradeLimb>().LimbLightTakeLimb(limbJoint))
         {
-            limbJointSetup();
+            LimbJointSetup();
             limbOwner = "Reset";
         }
     }
@@ -94,7 +94,7 @@ public class LimbLight : MonoBehaviour
 
     //Finds the hinge/limb object and sets up the box to use the correct
     //response to what ever is attached. 
-    private void limbJointSetup()
+    private void LimbJointSetup()
     {
         limbJoint = this.transform.GetChild(this.transform.childCount - 1).gameObject;
         LimbOnMode();

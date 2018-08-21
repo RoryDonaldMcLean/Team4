@@ -18,7 +18,7 @@ public class LightRedirect : MonoBehaviour
     void OnTriggerEnter(Collider lightBeam)
     {
         //can remove this if statement i think
-        if((!lightBeam.transform.IsChildOf(this.transform)) && (lightBeam.gameObject.layer != LayerMask.NameToLayer("BeamLayer")))
+        if ((!lightBeam.transform.IsChildOf(this.transform)) && (lightBeam.gameObject.layer != LayerMask.NameToLayer("BeamLayer")))
         {
             if (splineCurve == null)
             {
@@ -41,8 +41,7 @@ public class LightRedirect : MonoBehaviour
         Transform exitingLightObject = lightBeam.transform.parent.parent;
         if ((splineCurve != null)&&(connectedBeam)&&(ParentLightBeam(ref exitingLightObject)))
         {
-            DestroyBeam();
-            connectedBeam = false;
+            ExitBeamExecution();
         }
     }
 
@@ -50,8 +49,7 @@ public class LightRedirect : MonoBehaviour
     {
         if ((splineCurve != null)&&(connectedBeam)&&(ParentLightBeam(ref exitingLightObject)))
         {
-            DestroyBeam();
-            connectedBeam = false;
+            ExitBeamExecution();
         }
     }
 
@@ -59,9 +57,51 @@ public class LightRedirect : MonoBehaviour
     {
         if ((splineCurve != null)&&(connectedBeam))
         {
-            DestroyBeam();
-            connectedBeam = false;
+            ExitBeamExecution();
         }
+    }
+
+    private void ExitBeamExecution()
+    {
+        DestroyBeam();
+        connectedBeam = false;
+        StartCoroutine(CheckForNeighboor());
+    }
+
+    private IEnumerator CheckForNeighboor()
+    {
+        yield return new WaitUntil(()=>splineCurve==null);
+        CheckDirectionForLightBeam();
+    }
+
+    //Raycasts around the object, looking for any nearby objects.
+    //If found, processes the lightbeam found, connected it to
+    //the limb object.
+    private void CheckDirectionForLightBeam()
+    {
+        RaycastHit hit;
+        float nearDistance = 3.0f;
+
+        if (RayCast(this.transform.forward, nearDistance, out hit))
+        {
+            AkSoundEngine.SetState("Drone_Modulator", "Hit_Switch");
+            TriggerEnterFunction(hit.collider);
+        }
+    }
+
+    //A very specfic raycast looking for lightbeams only, around the object, 
+    //at the correct height for the lightbeam.
+    private bool RayCast(Vector3 direction, float length, out RaycastHit hit)
+    {
+        int layerMask = 1 << LayerMask.NameToLayer("LightBeam");
+        Vector3 offsetPos = Vector3.Scale(direction, this.GetComponent<Transform>().localScale);
+
+        Vector3 raycastStartLocation = this.transform.position;
+        raycastStartLocation -= offsetPos * 3.0f;
+        raycastStartLocation.y = 3.49f;
+
+        Debug.DrawRay(raycastStartLocation, direction, Color.red, length);
+        return Physics.BoxCast(raycastStartLocation, this.GetComponent<Transform>().localScale, direction, out hit, Quaternion.identity, length, layerMask);
     }
 
     private bool ParentLightBeam(ref Transform exitingLightObject)

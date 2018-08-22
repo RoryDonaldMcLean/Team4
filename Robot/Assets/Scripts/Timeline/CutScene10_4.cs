@@ -9,7 +9,6 @@ public class CutScene10_4 : MonoBehaviour {
     private bool p1Back = false, p2Back = false;
     private GameObject BlackFade;
     private Animator anim;
-
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Player1" && FindObjectOfType<CutScene10_3>().BothEnter())
@@ -39,6 +38,7 @@ public class CutScene10_4 : MonoBehaviour {
             CancelInvoke();
             Invoke("Fadeing", 1.0f);
             Invoke("Fading", 3.0f);
+			EndingCheck.ending = Ending.NoOneDestroyed; 
         }
     }
 

@@ -70,6 +70,7 @@ public class CutScene10_2 : BaseCutScene
         Invoke("End", 3.0f);
         GameObject.FindObjectOfType<SCR_CameraFollow>().enabled = false;
         //SceneManager.LoadScene("Transition");
+		EndingCheck.ending = Ending.PlayerDestroyed;
     }
 
     private void StopAnim()

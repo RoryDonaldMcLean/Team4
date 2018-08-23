@@ -165,7 +165,7 @@ public class Tutorial : MonoBehaviour
 
 	void OnTriggerEnter(Collider col)
 	{
-		//Debug.Log ("you are hitting " + col);
+		Debug.Log ("you are hitting " + col);
 		if ((col.transform.name.Contains ("LeftArm"))
 		    || (col.transform.name.Contains ("RightArm")))
 		{
@@ -1418,6 +1418,159 @@ public class Tutorial : MonoBehaviour
 
 			}
 		}
+		else if (col.gameObject.name.Contains ("Cube"))
+		{
+			Debug.Log ("hit control panel");
+			if (ControllerUsed == true)
+			{
+				if (playerNum == 0)
+				{
+					//startTimer = true;
+					UITutorial.SetActive (true);
+					UIButtons [0].SetActive (true);
+					if (this.GetComponentInParent<InControlMovement> ().UsingPlayStation == true)
+					{
+						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_UseControlPanel_Triangle_PS") as Sprite;
+					} else
+					{
+						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_UseControlPanel_Y_XBOX") as Sprite;
+					}
+					UIButtons [0].GetComponent<Image> ().preserveAspect = true;
+					UIButtons [1].SetActive (false);
+					UIButtons [3].SetActive (false);
+					UIButtons [4].SetActive (false);
+				}
+
+				if (playerNum == 1)
+				{
+					//startTimer = true;
+					UITutorial2.SetActive (true);
+					UIButtons2 [0].SetActive (true);
+					if (this.GetComponentInParent<InControlMovement> ().UsingPlayStation == true)
+					{
+						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_UseControlPanel_Triangle_PS") as Sprite;
+					} else
+					{
+						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_UseControlPanel_Y_XBOX") as Sprite;
+					}
+					UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
+					UIButtons2 [1].SetActive (false);
+					UIButtons2 [3].SetActive (false);
+					UIButtons2 [4].SetActive (false);
+				}
+			} 
+			else
+			{
+				if (playerNum == 0)
+				{
+					Debug.Log ("hello there");
+					//startTimer = true;
+					UITutorial.SetActive (true);
+					UIButtons [0].SetActive (true);
+					UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/UITutorialBox_Red") as Sprite;
+					UIButtons [0].GetComponent<Image> ().preserveAspect = true;
+
+					UIButtons [1].SetActive (true);
+					//test to see if i can display the keyboard controls
+					keyboardButtonPlayer1.GetComponent<Text> ().text = "Press: " + GameManager.Instance.playerSetting.currentButton [11].ToString ();
+					UIButtons [2].GetComponent<Text> ().text = "Activate Device";
+					UIButtons [3].SetActive (false);
+					UIButtons [4].SetActive (false);
+				}
+
+				if (playerNum == 1)
+				{
+					UITutorial2.SetActive (true);
+					UIButtons2 [0].SetActive (true);
+					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/UITutorialBox_Blue") as Sprite;
+					UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
+
+					UIButtons2 [1].SetActive (true);
+					//test to see if i can display the keyboard controls
+
+					KeyboardButtonPlayer2.GetComponent<Text> ().text = "Press: " + GameManager.Instance.playerSetting.currentButton [24].ToString ();
+					UIButtons2 [2].GetComponent<Text> ().text = "Activate Device";
+					UIButtons2 [3].SetActive (false);
+					UIButtons2 [4].SetActive (false);
+				}
+			}
+		}
+		else if (col.gameObject.name.Contains ("TubeMachine_Geo"))
+		{
+			Debug.Log ("hit the tube");
+			if (ControllerUsed == true)
+			{
+				if (playerNum == 0)
+				{
+					//startTimer = true;
+					UITutorial.SetActive (true);
+					UIButtons [0].SetActive (true);
+					if (this.GetComponentInParent<InControlMovement> ().UsingPlayStation == true)
+					{
+						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_EnterSoulMachine_Triangle_PS") as Sprite;
+					} else
+					{
+						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_EnterSoulMachine_Y_XBOX") as Sprite;
+					}
+					UIButtons [0].GetComponent<Image> ().preserveAspect = true;
+					UIButtons [1].SetActive (false);
+					UIButtons [3].SetActive (false);
+					UIButtons [4].SetActive (false);
+				}
+
+				if (playerNum == 1)
+				{
+					//startTimer = true;
+					UITutorial2.SetActive (true);
+					UIButtons2 [0].SetActive (true);
+					if (this.GetComponentInParent<InControlMovement> ().UsingPlayStation == true)
+					{
+						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_EnterSoulMachine_Triangle_PS") as Sprite;
+					} else
+					{
+						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_EnterSoulMachine_Y_XBOX") as Sprite;
+					}
+					UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
+					UIButtons2 [1].SetActive (false);
+					UIButtons2 [3].SetActive (false);
+					UIButtons2 [4].SetActive (false);
+				}
+			}
+			else
+			{
+				if (playerNum == 0)
+				{
+					//startTimer = true;
+					UITutorial.SetActive (true);
+					UIButtons [0].SetActive (true);
+					UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/UITutorialBox_Red") as Sprite;
+					UIButtons [0].GetComponent<Image> ().preserveAspect = true;
+
+					UIButtons [1].SetActive (true);
+					//test to see if i can display the keyboard controls
+					keyboardButtonPlayer1.GetComponent<Text> ().text = "Press: " + GameManager.Instance.playerSetting.currentButton [11].ToString ();
+					UIButtons [2].GetComponent<Text> ().text = "Enter Device";
+					UIButtons [3].SetActive (false);
+					UIButtons [4].SetActive (false);
+				}
+
+				if (playerNum == 1)
+				{
+					UITutorial2.SetActive (true);
+					UIButtons2 [0].SetActive (true);
+					UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/White/UITutorialBox_Blue") as Sprite;
+					UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;
+
+					UIButtons2 [1].SetActive (true);
+					//test to see if i can display the keyboard controls
+
+					KeyboardButtonPlayer2.GetComponent<Text> ().text = "Press: " + GameManager.Instance.playerSetting.currentButton [24].ToString ();
+					UIButtons2 [2].GetComponent<Text> ().text = "Enter Device";
+					UIButtons2 [3].SetActive (false);
+					UIButtons2 [4].SetActive (false);
+				}
+			}
+		}
 
 
 	}
@@ -1602,6 +1755,8 @@ public class Tutorial : MonoBehaviour
 				}
 
 			}
+
+
 		}
 
 		if (col.transform.name.Contains ("LimbLight(ARM_MOVE)"))
@@ -1768,6 +1923,8 @@ public class Tutorial : MonoBehaviour
 			}
 		}
 
+
+
 	}
 
 	void OnTriggerExit(Collider col)
@@ -1905,6 +2062,28 @@ public class Tutorial : MonoBehaviour
 				PlayerTwoToggleUI ();
 			}
 		} else if (col.transform.name.Contains ("Switch"))
+		{
+			if (playerNum == 0)
+			{
+				PlayerOneToggleUI ();
+			}
+
+			if (playerNum == 1)
+			{
+				PlayerTwoToggleUI ();
+			}
+		} else if (col.transform.name.Contains ("TubeMachine_Geo"))
+		{
+			if (playerNum == 0)
+			{
+				PlayerOneToggleUI ();
+			}
+
+			if (playerNum == 1)
+			{
+				PlayerTwoToggleUI ();
+			}
+		} else if (col.transform.name.Contains ("Cube"))
 		{
 			if (playerNum == 0)
 			{

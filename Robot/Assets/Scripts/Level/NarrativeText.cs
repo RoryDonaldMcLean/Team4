@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using InControl;
 
 public class NarrativeText : MonoBehaviour 
 {
@@ -21,9 +22,15 @@ public class NarrativeText : MonoBehaviour
 
 	GameObject CreditsCanvas;
 
+	int playerNum;
+	bool ControllerUsed;
+	bool movementEnabled = false;
+
 	void Start()
 	{
 		//DontDestroyOnLoad (this.gameObject);
+		RemoveMovement("Player1");
+		RemoveMovement ("Player2");
 
 		m_scene = SceneManager.GetActiveScene ();
 		levelController = GameObject.FindGameObjectWithTag ("GameController"); 
@@ -37,7 +44,6 @@ public class NarrativeText : MonoBehaviour
 
 		if (levelController != null)
 		{
-			Debug.Log ("ye");
 			if (levelController.GetComponent<LevelController> ().currentLevel == 0)
 			{
 				narrativeText = new string[] {"Starting up boot up sequence for Sol-Unit-36/111 \n" +
@@ -249,8 +255,21 @@ public class NarrativeText : MonoBehaviour
 		textBox.gameObject.SetActive (false);
 	}
 
+
+
 	void Update()
 	{
+		var inputDevice = (InputManager.Devices.Count > playerNum) ? InputManager.Devices [playerNum] : null;
+		if (inputDevice == null)
+		{
+			//Debug.Log ("no controllers plugged in");
+			ControllerUsed = false;
+		} 
+		else
+		{
+			ControllerUsed = true;
+		}
+
 		if (TextDone == true)
 		{
 			
@@ -267,13 +286,43 @@ public class NarrativeText : MonoBehaviour
 				CreditsCanvas.SetActive (true);
 			}
 
+			if (movementEnabled == false)
+			{
+				AddMovement ("Player1");
+				AddMovement ("Player2");
+				movementEnabled = true;
+			}
+
+
 		}
 
 		//skips the text. Need to add for controllers
-		if (Input.anyKeyDown)
+		if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [11]) ||
+		    Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [24]))
 		{
 			StartCoroutine (GetRidOfText ());
 			TextDone = true;
+		} else if (ControllerUsed == true && inputDevice.Action4.WasPressed)
+		{
+			StartCoroutine (GetRidOfText ());
+			TextDone = true;
+		}
+	}
+
+
+	private void RemoveMovement(string playerTag)
+	{
+		if (GameObject.FindGameObjectWithTag (playerTag) != null)
+		{
+			GameObject.FindGameObjectWithTag(playerTag).GetComponent<InControlMovement>().enabled = false;
+		}
+	}
+
+	private void AddMovement(string playerTag)
+	{
+		if (GameObject.FindGameObjectWithTag (playerTag) != null)
+		{
+			GameObject.FindGameObjectWithTag (playerTag).GetComponent<InControlMovement> ().enabled = true;
 		}
 	}
 

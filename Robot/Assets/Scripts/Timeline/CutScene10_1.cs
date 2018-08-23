@@ -18,7 +18,7 @@ public class CutScene10_1 : BaseCutScene {
 
     private void GoInside(Collision other, string tag, ref GameObject insidePlr, InputDevice device)
     {
-        int btnIndex = tag == "Player1" ? 9 : 22;
+        int btnIndex = tag == "Player1" ? 11 : 24;
         GameObject player = tag == "Player1" ? p1 : p2;
         if (other.gameObject.tag == tag && !insidePlr)
         {
@@ -26,7 +26,7 @@ public class CutScene10_1 : BaseCutScene {
             {
                 GoInside(player);
             }
-            else if (device != null && device.Action2)
+            else if (device != null && device.Action4)
             {
                 GoInside(player);
             }

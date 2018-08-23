@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using InControl;
 
 public class NarrativeText : MonoBehaviour 
 {
@@ -22,21 +21,16 @@ public class NarrativeText : MonoBehaviour
 
 	GameObject CreditsCanvas;
 
-	int playerNum;
-	bool ControllerUsed;
-	bool movementEnabled = false;
-
 	void Start()
 	{
 		//DontDestroyOnLoad (this.gameObject);
-		RemoveMovement("Player1");
-		RemoveMovement ("Player2");
 
 		m_scene = SceneManager.GetActiveScene ();
 		levelController = GameObject.FindGameObjectWithTag ("GameController"); 
 		CreditsCanvas = GameObject.Find ("Canvas");
+        AkSoundEngine.PostEvent("Key", gameObject);
 
-		if (CreditsCanvas != null)
+        if (CreditsCanvas != null)
 		{
 			CreditsCanvas.SetActive (false);
 		}
@@ -44,9 +38,12 @@ public class NarrativeText : MonoBehaviour
 
 		if (levelController != null)
 		{
+			Debug.Log ("ye");
 			if (levelController.GetComponent<LevelController> ().currentLevel == 0)
 			{
-				narrativeText = new string[] {"Starting up boot up sequence for Sol-Unit-36/111 \n" +
+                AkSoundEngine.SetState("Environment", "Startup");
+
+                narrativeText = new string[] {"Starting up boot up sequence for Sol-Unit-36/111 \n" +
 					" \n" +
 					"Booting.... \n" +
 					"Boot up successful \n" +
@@ -74,7 +71,9 @@ public class NarrativeText : MonoBehaviour
 				};
 			} else if (levelController.GetComponent<LevelController> ().currentLevel == 1)
 			{
-				narrativeText = new string[] {
+                AkSoundEngine.SetState("Environment", "Startup");
+
+                narrativeText = new string[] {
 					"Mani: Sector 916-Sub115 clear of crates \n" +
 					"Sol: Moving to Sector 917. Continue prime directive.... \n" +
 					" \n" +
@@ -95,7 +94,9 @@ public class NarrativeText : MonoBehaviour
 				};
 			} else if (levelController.GetComponent<LevelController> ().currentLevel == 2)
 			{
-				narrativeText = new string[] {
+                AkSoundEngine.SetState("Environment", "Startup");
+
+                narrativeText = new string[] {
 					"Sol: Substation sector 916/9991 clear: Checking Unit 36/111 efficiency.... Calculating.... \n" +
 					"Sol: Efficiency at 75%, cannot continue prime directive: \n" +
 					"Sol: Sub directive: Find replacement parts....Searching.... \n" +
@@ -121,7 +122,9 @@ public class NarrativeText : MonoBehaviour
 				};
 			} else if (levelController.GetComponent<LevelController> ().currentLevel == 3)
 			{
-				narrativeText = new string[] {
+                AkSoundEngine.SetState("Environment", "Startup");
+
+                narrativeText = new string[] {
 					"Sol: Distance to sector 915/3.... 200KM. Calculating chance of Hardware failure.... \n" +
 					"Sol: 27%....28% increased probability of Hardware failure. Increasing at a rate of 0.33% every 1/24 planetary cycle \n" +
 					"Mani: Estimated time to destination 216 hours. Probability of Hardware failure during travel 96%.... \n" +
@@ -141,7 +144,9 @@ public class NarrativeText : MonoBehaviour
 				};
 			} else if (levelController.GetComponent<LevelController> ().currentLevel == 4)
 			{
-				narrativeText = new string[] {
+                AkSoundEngine.SetState("Environment", "Startup");
+
+                narrativeText = new string[] {
 					"Mani: Estimated time to reach destination is 16 hours. Probability of success at 2% to achieve quaternary directive \n" +
 					"Sol: The probability of survival increased by 98% if only one of us completes the process.... \n" +
 					".... \n" +
@@ -163,7 +168,9 @@ public class NarrativeText : MonoBehaviour
 			//sacrifice
 			if(m_scene.name == "End" && EndingCheck.ending == Ending.PlayerDestroyed)
 			{
-				narrativeText = new string[] {
+                AkSoundEngine.SetState("Environment", "Startup");
+
+                narrativeText = new string[] {
 					"....Quaternary directive successful. Estimated time until complete system shutdown.... \n" +
 					"2-96-14792-58329 hours.... Accurate calculation until system failure cannot be carried out.... \n" +
 					"Searching for new directive.... \n" +
@@ -192,7 +199,9 @@ public class NarrativeText : MonoBehaviour
 			}//walk away
 			else if(m_scene.name == "End" && EndingCheck.ending == Ending.NoOneDestroyed)
 			{
-				narrativeText = new string[] 
+                AkSoundEngine.SetState("Environment", "Startup");
+
+                narrativeText = new string[] 
 				{
 					"Mani: Quaternary directive failure....correction: abandoned.... \n" +
 					"Sol: Calculating time until complete system shutdown: 720 hours \n" +
@@ -253,23 +262,35 @@ public class NarrativeText : MonoBehaviour
 	{
 		yield return new WaitForSeconds (2.0f);
 		textBox.gameObject.SetActive (false);
-	}
 
-
+        if (levelController.GetComponent<LevelController>().currentLevel == 0)
+        {
+            AkSoundEngine.SetState("Environment", "P1_Intro");
+        }
+        if (levelController.GetComponent<LevelController>().currentLevel == 1)
+        {
+            AkSoundEngine.SetState("Environment", "P1_IntroViewpoint");
+        }
+        if (levelController.GetComponent<LevelController>().currentLevel == 2)
+        {
+            AkSoundEngine.SetState("Environment", "P2_FactoryViewpoint");
+        }
+        if (levelController.GetComponent<LevelController>().currentLevel == 3)
+        {
+            AkSoundEngine.SetState("Environment", "P3_ConstructionScenery");
+        }
+        if (levelController.GetComponent<LevelController>().currentLevel == 4)
+        {
+            AkSoundEngine.SetState("Environment", "P4_Clouds");
+        }
+        if (m_scene.name == "End" && EndingCheck.ending == Ending.PlayerDestroyed)
+        {
+            // AkSoundEngine.SetState("Environment", "Intro");
+        }
+    }
 
 	void Update()
 	{
-		var inputDevice = (InputManager.Devices.Count > playerNum) ? InputManager.Devices [playerNum] : null;
-		if (inputDevice == null)
-		{
-			//Debug.Log ("no controllers plugged in");
-			ControllerUsed = false;
-		} 
-		else
-		{
-			ControllerUsed = true;
-		}
-
 		if (TextDone == true)
 		{
 			
@@ -286,44 +307,16 @@ public class NarrativeText : MonoBehaviour
 				CreditsCanvas.SetActive (true);
 			}
 
-			if (movementEnabled == false)
-			{
-				AddMovement ("Player1");
-				AddMovement ("Player2");
-				movementEnabled = true;
-			}
-
-
 		}
 
 		//skips the text. Need to add for controllers
-		if (Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [11]) ||
-		    Input.GetKeyDown (GameManager.Instance.playerSetting.currentButton [24]))
+		if (Input.anyKeyDown && TextDone != true)
 		{
 			StartCoroutine (GetRidOfText ());
 			TextDone = true;
-		} else if (ControllerUsed == true && inputDevice.Action4.WasPressed)
-		{
-			StartCoroutine (GetRidOfText ());
-			TextDone = true;
-		}
-	}
+            AkSoundEngine.PostEvent("KeyDone", gameObject);
 
-
-	private void RemoveMovement(string playerTag)
-	{
-		if (GameObject.FindGameObjectWithTag (playerTag) != null)
-		{
-			GameObject.FindGameObjectWithTag(playerTag).GetComponent<InControlMovement>().enabled = false;
-		}
-	}
-
-	private void AddMovement(string playerTag)
-	{
-		if (GameObject.FindGameObjectWithTag (playerTag) != null)
-		{
-			GameObject.FindGameObjectWithTag (playerTag).GetComponent<InControlMovement> ().enabled = true;
-		}
-	}
+        }
+    }
 
 }

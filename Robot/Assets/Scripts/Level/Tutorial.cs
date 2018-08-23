@@ -35,9 +35,13 @@ public class Tutorial : MonoBehaviour
 	GameObject LeftArm, RightArm;
 	bool RightArmOn = true;
 
+	GameObject NarrativeCanvas;
+
 	// Use this for initialization
 	void Start () 
 	{
+		NarrativeCanvas = GameObject.Find ("CanvasNarrative");
+
 		LeftArm = GameObject.Find ("LeftArm");
 		RightArm = GameObject.Find ("RightArm");
 
@@ -120,7 +124,7 @@ public class Tutorial : MonoBehaviour
 
 	void InitialText()
 	{
-		if(levelCounter == 0)
+		if(levelCounter == 0 && NarrativeCanvas.GetComponent<NarrativeText>().TextDone == true)
 		{
 			if(UIText != null)
 			{

@@ -49,7 +49,7 @@ public class LightEmitter : MonoBehaviour
             else
             {
                 //turn off
-                AkSoundEngine.SetState("Drone", "None");
+                AkSoundEngine.SetState("Drone_Modulator", "Off");
             }
         }
     }

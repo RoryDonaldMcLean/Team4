@@ -23,9 +23,10 @@ public class NarrativeText : MonoBehaviour
 
 	void Start()
 	{
-		//DontDestroyOnLoad (this.gameObject);
+        //DontDestroyOnLoad (this.gameObject);
+        AkSoundEngine.PostEvent("Key", gameObject);
 
-		m_scene = SceneManager.GetActiveScene ();
+        m_scene = SceneManager.GetActiveScene ();
 		levelController = GameObject.FindGameObjectWithTag ("GameController"); 
 		CreditsCanvas = GameObject.Find ("Canvas");
 
@@ -40,7 +41,9 @@ public class NarrativeText : MonoBehaviour
 			Debug.Log ("ye");
 			if (levelController.GetComponent<LevelController> ().currentLevel == 0)
 			{
-				narrativeText = new string[] {"Starting up boot up sequence for Sol-Unit-36/111 \n" +
+                AkSoundEngine.SetState("Environment", "Startup");
+
+                narrativeText = new string[] {"Starting up boot up sequence for Sol-Unit-36/111 \n" +
 					" \n" +
 					"Booting.... \n" +
 					"Boot up successful \n" +
@@ -68,7 +71,9 @@ public class NarrativeText : MonoBehaviour
 				};
 			} else if (levelController.GetComponent<LevelController> ().currentLevel == 1)
 			{
-				narrativeText = new string[] {
+                AkSoundEngine.SetState("Environment", "Startup");
+
+                narrativeText = new string[] {
 					"Mani: Sector 916-Sub115 clear of crates \n" +
 					"Sol: Moving to Sector 917. Continue prime directive.... \n" +
 					" \n" +
@@ -89,7 +94,9 @@ public class NarrativeText : MonoBehaviour
 				};
 			} else if (levelController.GetComponent<LevelController> ().currentLevel == 2)
 			{
-				narrativeText = new string[] {
+                AkSoundEngine.SetState("Environment", "Startup");
+
+                narrativeText = new string[] {
 					"Sol: Substation sector 916/9991 clear: Checking Unit 36/111 efficiency.... Calculating.... \n" +
 					"Sol: Efficiency at 75%, cannot continue prime directive: \n" +
 					"Sol: Sub directive: Find replacement parts....Searching.... \n" +
@@ -115,7 +122,9 @@ public class NarrativeText : MonoBehaviour
 				};
 			} else if (levelController.GetComponent<LevelController> ().currentLevel == 3)
 			{
-				narrativeText = new string[] {
+                AkSoundEngine.SetState("Environment", "Startup");
+
+                narrativeText = new string[] {
 					"Sol: Distance to sector 915/3.... 200KM. Calculating chance of Hardware failure.... \n" +
 					"Sol: 27%....28% increased probability of Hardware failure. Increasing at a rate of 0.33% every 1/24 planetary cycle \n" +
 					"Mani: Estimated time to destination 216 hours. Probability of Hardware failure during travel 96%.... \n" +
@@ -135,7 +144,9 @@ public class NarrativeText : MonoBehaviour
 				};
 			} else if (levelController.GetComponent<LevelController> ().currentLevel == 4)
 			{
-				narrativeText = new string[] {
+                AkSoundEngine.SetState("Environment", "Startup");
+
+                narrativeText = new string[] {
 					"Mani: Estimated time to reach destination is 16 hours. Probability of success at 2% to achieve quaternary directive \n" +
 					"Sol: The probability of survival increased by 98% if only one of us completes the process.... \n" +
 					".... \n" +
@@ -186,6 +197,7 @@ public class NarrativeText : MonoBehaviour
 			}//walk away
 			else if(m_scene.name == "End" && EndingCheck.ending == Ending.NoOneDestroyed)
 			{
+
 				narrativeText = new string[] 
 				{
 					"Mani: Quaternary directive failure....correction: abandoned.... \n" +
@@ -222,8 +234,9 @@ public class NarrativeText : MonoBehaviour
 		{
 			currentlyDisplayingText = 0;
 			Debug.Log ("text is done");
-		}
-		StartCoroutine (AnimateText ());
+
+        }
+        StartCoroutine (AnimateText ());
 	}
 
 
@@ -236,10 +249,11 @@ public class NarrativeText : MonoBehaviour
 		{
 			textBox.text = narrativeText [currentlyDisplayingText].Substring (0, i);
 			yield return new WaitForSeconds (0.03f);
+           // AkSoundEngine.PostEvent("Key", gameObject);
 
 
-		}
-		TextDone = true;
+        }
+        TextDone = true;
 
 	}
 
@@ -247,7 +261,33 @@ public class NarrativeText : MonoBehaviour
 	{
 		yield return new WaitForSeconds (2.0f);
 		textBox.gameObject.SetActive (false);
-	}
+
+
+        if (levelController.GetComponent<LevelController>().currentLevel == 0)
+        {
+            AkSoundEngine.SetState("Environment", "P1_Intro");
+        }
+        if (levelController.GetComponent<LevelController>().currentLevel == 1)
+        {
+            AkSoundEngine.SetState("Environment", "P1_IntroViewpoint");
+        }
+        if (levelController.GetComponent<LevelController>().currentLevel == 2)
+        {
+            AkSoundEngine.SetState("Environment", "P2_FactoryViewpoint");
+        }
+        if (levelController.GetComponent<LevelController>().currentLevel == 3)
+        {
+            AkSoundEngine.SetState("Environment", "P3_ConstructionScenery");
+        }
+        if (levelController.GetComponent<LevelController>().currentLevel == 4)
+        {
+            AkSoundEngine.SetState("Environment", "P4_Clouds");
+        }
+        if (m_scene.name == "End" && EndingCheck.ending == Ending.PlayerDestroyed)
+        {
+           // AkSoundEngine.SetState("Environment", "Intro");
+        }
+    }
 
 	void Update()
 	{
@@ -255,7 +295,8 @@ public class NarrativeText : MonoBehaviour
 		{
 			
 			StartCoroutine (GetRidOfText ());
-			if (this.GetComponentInChildren<Image>().color.a > 0)
+
+            if (this.GetComponentInChildren<Image>().color.a > 0)
 				this.GetComponentInChildren<Image>().color = new Color(this.GetComponentInChildren<Image>().color.r, this.GetComponentInChildren<Image>().color.g,
 					this.GetComponentInChildren<Image>().color.b, this.GetComponentInChildren<Image>().color.a - 0.01f);
 
@@ -270,11 +311,15 @@ public class NarrativeText : MonoBehaviour
 		}
 
 		//skips the text. Need to add for controllers
-		if (Input.anyKeyDown)
+		if (Input.anyKeyDown && TextDone != true)
 		{
 			StartCoroutine (GetRidOfText ());
 			TextDone = true;
-		}
-	}
+            AkSoundEngine.PostEvent("KeyDone", gameObject);
+
+        }
+
+
+    }
 
 }

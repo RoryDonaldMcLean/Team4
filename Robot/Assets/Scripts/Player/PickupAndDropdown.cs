@@ -137,12 +137,14 @@ public class PickupAndDropdown : MonoBehaviour
 					if ((int)pickedUpGameObject.transform.parent.right.x == 0) 
 					{
 						temp.z = this.transform.position.z;
-					} 
-					else 
+
+                    }
+                    else 
 					{
 						temp.x = this.transform.position.x;
-					}
-					pickedUpGameObject.transform.position = temp;
+
+                    }
+                    pickedUpGameObject.transform.position = temp;
 
 					if ((Input.GetKeyDown(GameManager.Instance.playerSetting.currentButton[9])
                     && isBlue == GameManager.Instance.whichAndroid.player1ControlBlue
@@ -152,8 +154,9 @@ public class PickupAndDropdown : MonoBehaviour
                     {
 						Debug.Log("dropped on click");
 						LimitDrop();
-					}
-				} 
+
+                    }
+                } 
 				else if (pickedUpGameObject.transform.name.Contains("RotateBox"))
 				{
                     //float speed = 200.0f;
@@ -170,6 +173,7 @@ public class PickupAndDropdown : MonoBehaviour
                     float rightrot = right ? 1.0f : 0.0f;
 
                     pickedUpGameObject.transform.rotation = Quaternion.Euler(eulerAng.x, eulerAng.y + leftrot + rightrot, eulerAng.z);
+                   
 
 
                     if ((Input.GetKeyDown(GameManager.Instance.playerSetting.currentButton[9])
@@ -180,8 +184,9 @@ public class PickupAndDropdown : MonoBehaviour
                     {
 						RotateDrop();
                         this.GetComponent<InControlMovement>().enabled = true;
-					}
-				}
+
+                    }
+                }
 				else
 				{
 					//if (alpha <= 1.0f)

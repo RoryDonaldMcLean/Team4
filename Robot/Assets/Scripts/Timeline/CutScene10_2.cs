@@ -29,9 +29,10 @@ public class CutScene10_2 : BaseCutScene
         var inputDevice2 = (InputManager.Devices.Count > 1) ? InputManager.Devices[1] : null;
         if (otherPlayer)
         {
+			int btnIndex = otherPlayer.tag == "Player1" ? 24 : 11;
             controlPlayer = otherPlayer.tag == "Player1" ? p2 : p1;
 
-            int btnIndex = otherPlayer.tag == "Player1" ? 22 : 9;
+           
 
             var device = otherPlayer.tag == "Player1" ? inputDevice2 : inputDevice1;
             PressButton(other, btnIndex, device);
@@ -47,7 +48,7 @@ public class CutScene10_2 : BaseCutScene
                 PressButton();
                 
             }
-            else if(device != null && device.Action2)
+            else if(device != null && device.Action4)
             {
                 PressButton();
             }

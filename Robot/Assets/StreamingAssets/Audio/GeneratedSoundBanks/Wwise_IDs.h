@@ -35,8 +35,6 @@ namespace AK
         static const AkUniqueID GATENOTEFINISH = 2947944241U;
         static const AkUniqueID IDLE = 1874288895U;
         static const AkUniqueID INSECTS = 3833343604U;
-        static const AkUniqueID KEY = 1183067778U;
-        static const AkUniqueID KEYDONE = 15098362U;
         static const AkUniqueID LIGHT_HITS_CRYSTAL = 3427421355U;
         static const AkUniqueID LIGHTBUZZ = 1863820488U;
         static const AkUniqueID MACHINE_CHARGE = 2356988103U;
@@ -51,8 +49,6 @@ namespace AK
         static const AkUniqueID SWITCH = 3202316517U;
         static const AkUniqueID TARPFLAP = 1728682787U;
         static const AkUniqueID THECORE = 1875437039U;
-        static const AkUniqueID TURN = 3137665780U;
-        static const AkUniqueID TURN_STOP = 2405679923U;
     } // namespace EVENTS
 
     namespace STATES
@@ -92,7 +88,6 @@ namespace AK
                 static const AkUniqueID COMPLETE = 2631133988U;
                 static const AkUniqueID HIT_SWITCH = 190644483U;
                 static const AkUniqueID HIT_WALL = 4103990255U;
-                static const AkUniqueID OFF = 930712164U;
                 static const AkUniqueID REFLECTOR = 2858403387U;
                 static const AkUniqueID SPLITTER = 1318750168U;
                 static const AkUniqueID START = 1281810935U;
@@ -123,7 +118,6 @@ namespace AK
                 static const AkUniqueID P6_ACHOICE = 2101370086U;
                 static const AkUniqueID P6_ENDLEAVE = 3100461366U;
                 static const AkUniqueID P6_ENDSACRIFICE = 2050591928U;
-                static const AkUniqueID STARTUP = 2530218128U;
             } // namespace STATE
         } // namespace ENVIRONMENT
 

@@ -681,34 +681,6 @@
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="Turn" ID="{2E9029C7-3421-4CD0-8346-B95B04EC5A08}">
-							<ChildrenList>
-								<Action Name="" ID="{95248354-7B92-4581-9F83-834BD25D5BA6}" ShortID="922728803">
-									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="1"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="TurnNode" ID="{88BA8EDC-E47A-4808-8D7D-78387A68AAEC}" WorkUnitID="{6BAE9174-7CEB-4131-99B7-F2EC621355E0}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="Turn_Stop" ID="{8B833DBC-EC16-487C-9138-25EA70696D24}">
-							<ChildrenList>
-								<Action Name="" ID="{1EA437D3-766C-4622-9BF8-0D1D425EFD90}" ShortID="282442235">
-									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="2"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="TurnNode" ID="{88BA8EDC-E47A-4808-8D7D-78387A68AAEC}" WorkUnitID="{6BAE9174-7CEB-4131-99B7-F2EC621355E0}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Emitters" ID="{F6C50FC6-7A72-41C2-8063-B743EC6BEB1D}" ShortID="550013825">
@@ -838,35 +810,6 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="menu select" ID="{A41D2688-1D17-4028-92BF-4420ABB8FC10}" WorkUnitID="{6BAE9174-7CEB-4131-99B7-F2EC621355E0}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="Key" ID="{01A7F3B9-610F-4BF4-876A-1B4BD9E2D719}">
-							<ChildrenList>
-								<Action Name="" ID="{C543CF3C-5D4F-4CE6-AEC6-B2BCE33463BB}" ShortID="786502245">
-									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="1"/>
-										<Property Name="Probability" Type="Real64" Value="75"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Keys" ID="{094AC8F4-26EA-4BA1-A435-9403FC679641}" WorkUnitID="{6BAE9174-7CEB-4131-99B7-F2EC621355E0}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="KeyDone" ID="{EFB01741-EA28-499F-82E9-E157C8C2CCDE}">
-							<ChildrenList>
-								<Action Name="" ID="{38A10EEC-70AF-47F4-84CB-C66B5AA2C752}" ShortID="509752746">
-									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="1"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="KeyDone" ID="{C6F1C10A-3C41-4ECB-9C0B-A66DD21C9334}" WorkUnitID="{6BAE9174-7CEB-4131-99B7-F2EC621355E0}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>

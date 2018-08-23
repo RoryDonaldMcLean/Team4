@@ -203,7 +203,6 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
         {            
             if (pickUpState)
             {
-
                 RotateDrop();
                 this.transform.parent.GetComponentInChildren<InControlMovement>().enabled = true;
             }
@@ -243,15 +242,12 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
 
     private void ToggleRotateState()
     {
-
         this.transform.parent.GetComponentInChildren<InControlMovement>().enabled = rotateGeneric;
         rotateGeneric = !rotateGeneric;
     }
 
     private void CleanupRotateState()
     {
-
-       // AkSoundEngine.PostEvent("Turn_Stop", gameObject);
         pickedUpGameObject = null; //empty the pick up object
         Destroy(pickupLocation);
         AkSoundEngine.PostEvent("Place_Crystal", gameObject);
@@ -261,19 +257,17 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
     private void RotationExecution(ref InputDevice device)
     {
         AnimStop();
+
         this.transform.parent.GetComponentInParent<Rigidbody>().velocity = Vector3.zero;
         Vector3 eulerAng = pickedUpGameObject.GetComponent<Transform>().rotation.eulerAngles;
-        
 
         if (device == null)
         {
-
             bool left = RotationControl(1, 14);
             bool right = RotationControl(3, 16);
 
             float leftrot = left ? -1.0f : 0.0f;
             float rightrot = right ? 1.0f : 0.0f;
-          
 
             pickedUpGameObject.transform.rotation = Quaternion.Euler(eulerAng.x, eulerAng.y + leftrot + rightrot, eulerAng.z);
         }
@@ -285,7 +279,6 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
 
     private bool RotationControl(int player1BtnIndex, int player2BtnIndex)
     {
-
         return (Input.GetKey(GameManager.Instance.playerSetting.currentButton[player1BtnIndex]) && isBlue == GameManager.Instance.whichAndroid.player1ControlBlue)
                  || (Input.GetKey(GameManager.Instance.playerSetting.currentButton[player2BtnIndex]) && isBlue != GameManager.Instance.whichAndroid.player1ControlBlue);
     }

@@ -963,10 +963,6 @@
 												<State Name="" ID="{F134EA4C-1028-463B-9B0F-B5DAB45B5988}" ShortID="1005207415"/>
 											</CustomState>
 											<CustomState>
-												<StateRef Name="Startup" ID="{C56A9784-D8F9-4B0A-933C-FF682388D608}"/>
-												<State Name="" ID="{E7C7AE83-9431-4946-B8AE-59F4018E0B9F}" ShortID="945931430"/>
-											</CustomState>
-											<CustomState>
 												<StateRef Name="Empty" ID="{C1FFFDEC-FC6D-4B54-9D54-1DB3342ADAC8}"/>
 												<State Name="" ID="{04852F45-BA0D-46F0-BA47-F946AD4CD68F}" ShortID="1014814362"/>
 											</CustomState>
@@ -1046,7 +1042,7 @@
 												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-20</Value>
+														<Value>-18</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -1820,7 +1816,7 @@
 														<Property Name="UseGameAuxSends" Type="bool" Value="True"/>
 														<Property Name="Volume" Type="Real64">
 															<ValueList>
-																<Value>-13</Value>
+																<Value>-10</Value>
 															</ValueList>
 														</Property>
 													</PropertyList>
@@ -2603,7 +2599,7 @@
 														<Property Name="UseGameAuxSends" Type="bool" Value="True"/>
 														<Property Name="Volume" Type="Real64">
 															<ValueList>
-																<Value>-12</Value>
+																<Value>-10</Value>
 															</ValueList>
 														</Property>
 													</PropertyList>
@@ -4624,90 +4620,6 @@
 										<ActiveSource Name="Door_Open" ID="{CA5A5AE9-9263-47C7-8EE1-3D3FBD648984}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<RandomSequenceContainer Name="TurnNode" ID="{88BA8EDC-E47A-4808-8D7D-78387A68AAEC}" ShortID="839597821">
-									<PropertyList>
-										<Property Name="OverrideEffect" Type="bool" Value="True"/>
-										<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
-										<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
-										<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="0.5"/>
-										<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-14</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
-										</Reference>
-										<Reference Name="Effect0" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
-											<ObjectRef Name="New_Wwise_Parametric_EQ_25" ID="{1190653A-9928-4396-8307-C426E42B6859}" WorkUnitID="{DB5ADB83-997D-43F7-B226-D357913135AD}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<Sound Name="TurnCube1" ID="{F329FEDD-B9A2-467A-BBA1-36F2940E040E}" ShortID="39806987">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="TurnCube1" ID="{5E1F24D9-1962-4A30-ADD7-12F946270DC0}" ShortID="1009450821">
-													<Language>SFX</Language>
-													<AudioFile>TurnCube1.wav</AudioFile>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="TurnCube1" ID="{5E1F24D9-1962-4A30-ADD7-12F946270DC0}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="TurnCube2" ID="{817E4762-0DCA-4889-99EE-2A822C7243D7}" ShortID="614162164">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="TurnCube2" ID="{10C2D4E6-A481-4D15-B6A8-8B3F972DB78C}" ShortID="151004634">
-													<Language>SFX</Language>
-													<AudioFile>TurnCube2.wav</AudioFile>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="TurnCube2" ID="{10C2D4E6-A481-4D15-B6A8-8B3F972DB78C}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="TurnCube3" ID="{815F2800-7D69-4287-9151-26A49E0C735F}" ShortID="283105891">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="TurnCube3" ID="{E39DCA54-25D9-49A9-B4CC-0EE48B8F031A}" ShortID="1040805758">
-													<Language>SFX</Language>
-													<AudioFile>TurnCube3.wav</AudioFile>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="TurnCube3" ID="{E39DCA54-25D9-49A9-B4CC-0EE48B8F031A}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-									</ChildrenList>
-								</RandomSequenceContainer>
 							</ChildrenList>
 						</ActorMixer>
 						<ActorMixer Name="Emitters" ID="{8B672896-7E7B-47E7-99B3-91A5D79900B1}" ShortID="420492628">
@@ -4928,10 +4840,6 @@
 											<CustomState>
 												<StateRef Name="P4_Clouds" ID="{B92ABBFE-ED7C-4AE0-A739-CF81428935A0}"/>
 												<State Name="" ID="{2D96FC3A-40FF-425A-8BFF-CA9DCB301AA6}" ShortID="398278619"/>
-											</CustomState>
-											<CustomState>
-												<StateRef Name="Startup" ID="{C56A9784-D8F9-4B0A-933C-FF682388D608}"/>
-												<State Name="" ID="{5C200034-10AD-402B-BB64-836EF02C319B}" ShortID="690741195"/>
 											</CustomState>
 											<CustomState>
 												<StateRef Name="Empty" ID="{C1FFFDEC-FC6D-4B54-9D54-1DB3342ADAC8}"/>
@@ -5246,10 +5154,6 @@
 												<State Name="" ID="{822A9FCB-248D-4030-B0F5-653E035F97BA}" ShortID="643587190"/>
 											</CustomState>
 											<CustomState>
-												<StateRef Name="Startup" ID="{C56A9784-D8F9-4B0A-933C-FF682388D608}"/>
-												<State Name="" ID="{92E41F49-D505-427B-81B2-FA7BBD96A186}" ShortID="912900262"/>
-											</CustomState>
-											<CustomState>
 												<StateRef Name="Empty" ID="{C1FFFDEC-FC6D-4B54-9D54-1DB3342ADAC8}"/>
 												<State Name="" ID="{AFFAA525-9A32-4AAF-B3B8-F67D9AB5DF94}" ShortID="477558560">
 													<PropertyList>
@@ -5379,10 +5283,6 @@
 										<State Name="" ID="{FF969C5F-529C-4A24-B67F-8C57965D35DE}" ShortID="833484715"/>
 									</CustomState>
 									<CustomState>
-										<StateRef Name="Startup" ID="{C56A9784-D8F9-4B0A-933C-FF682388D608}"/>
-										<State Name="" ID="{C300C827-F3DA-4165-B43D-DEE1C72FCCD8}" ShortID="910117964"/>
-									</CustomState>
-									<CustomState>
 										<StateRef Name="Empty" ID="{C1FFFDEC-FC6D-4B54-9D54-1DB3342ADAC8}"/>
 										<State Name="" ID="{99A08FC4-2EF2-4143-86D3-EE47FA3A7E9A}" ShortID="38265305"/>
 									</CustomState>
@@ -5409,10 +5309,6 @@
 									<CustomState>
 										<StateRef Name="Credits" ID="{07794BAC-6A4D-4EDF-9F27-404ACF53D536}"/>
 										<State Name="" ID="{26A3A6D3-2995-47FC-9911-00BCB6432B2D}" ShortID="571163878"/>
-									</CustomState>
-									<CustomState>
-										<StateRef Name="Off" ID="{A7BBD674-4222-4F16-9B72-229DA033C5E7}"/>
-										<State Name="" ID="{88829901-B254-4DA0-B05F-B445430E1529}" ShortID="625295692"/>
 									</CustomState>
 								</CustomStateList>
 							</StateInfo>
@@ -5746,10 +5642,6 @@ Air currents change during the hours of the day and months of the year.</Comment
 													<CustomState>
 														<StateRef Name="P4_Clouds" ID="{B92ABBFE-ED7C-4AE0-A739-CF81428935A0}"/>
 														<State Name="" ID="{5B7F035E-FAE8-4B9B-8A27-3E282E6D55FC}" ShortID="136425700"/>
-													</CustomState>
-													<CustomState>
-														<StateRef Name="Startup" ID="{C56A9784-D8F9-4B0A-933C-FF682388D608}"/>
-														<State Name="" ID="{0B49B34E-E774-4F1A-90FB-3245F7827C6D}" ShortID="706983585"/>
 													</CustomState>
 													<CustomState>
 														<StateRef Name="Empty" ID="{C1FFFDEC-FC6D-4B54-9D54-1DB3342ADAC8}"/>
@@ -6280,7 +6172,7 @@ Air currents change during the hours of the day and foliage changes during  the 
 												<State Name="" ID="{A6DD188F-2048-45A7-BA0B-EC5767744B3F}" ShortID="211268061">
 													<PropertyList>
 														<Property Name="Highpass" Type="int16" Value="21"/>
-														<Property Name="Volume" Type="Real64" Value="-34"/>
+														<Property Name="Volume" Type="Real64" Value="-26"/>
 													</PropertyList>
 												</State>
 											</CustomState>
@@ -6327,7 +6219,7 @@ Air currents change during the hours of the day and foliage changes during  the 
 												<State Name="" ID="{C22AD0E4-E318-4583-9979-EDFE0834B8DF}" ShortID="712776087">
 													<PropertyList>
 														<Property Name="Highpass" Type="int16" Value="17"/>
-														<Property Name="Volume" Type="Real64" Value="-20"/>
+														<Property Name="Volume" Type="Real64" Value="-12"/>
 													</PropertyList>
 												</State>
 											</CustomState>
@@ -6389,10 +6281,6 @@ Air currents change during the hours of the day and foliage changes during  the 
 														<Property Name="Volume" Type="Real64" Value="-23"/>
 													</PropertyList>
 												</State>
-											</CustomState>
-											<CustomState>
-												<StateRef Name="Startup" ID="{C56A9784-D8F9-4B0A-933C-FF682388D608}"/>
-												<State Name="" ID="{56C6A115-8DC6-4AEE-823F-6C80F76985AC}" ShortID="880635601"/>
 											</CustomState>
 											<CustomState>
 												<StateRef Name="Empty" ID="{C1FFFDEC-FC6D-4B54-9D54-1DB3342ADAC8}"/>
@@ -6681,10 +6569,6 @@ Air currents change during the hours of the day and foliage changes during  the 
 														</State>
 													</CustomState>
 													<CustomState>
-														<StateRef Name="Startup" ID="{C56A9784-D8F9-4B0A-933C-FF682388D608}"/>
-														<State Name="" ID="{1C05F4E6-AD32-44FD-8642-AE67386FA11C}" ShortID="496834495"/>
-													</CustomState>
-													<CustomState>
 														<StateRef Name="Empty" ID="{C1FFFDEC-FC6D-4B54-9D54-1DB3342ADAC8}"/>
 														<State Name="" ID="{4F2D809D-337B-47AA-AFE7-160CEE826E06}" ShortID="185121552"/>
 													</CustomState>
@@ -6890,10 +6774,6 @@ Air currents change during the hours of the day and foliage changes during  the 
 														<State Name="" ID="{FD3FDB64-F9B3-4949-B4D0-7E08CAE0B049}" ShortID="264282724"/>
 													</CustomState>
 													<CustomState>
-														<StateRef Name="Startup" ID="{C56A9784-D8F9-4B0A-933C-FF682388D608}"/>
-														<State Name="" ID="{8EDE89AA-8B4E-4AAC-942D-5AF74F2A7B73}" ShortID="1049640140"/>
-													</CustomState>
-													<CustomState>
 														<StateRef Name="Empty" ID="{C1FFFDEC-FC6D-4B54-9D54-1DB3342ADAC8}"/>
 														<State Name="" ID="{1F59C491-4BCD-48DD-8084-16F307D6943B}" ShortID="90265448"/>
 													</CustomState>
@@ -6964,11 +6844,7 @@ Air currents change during the hours of the day and foliage changes during  the 
 											</CustomState>
 											<CustomState>
 												<StateRef Name="Start" ID="{D1DB9805-02B1-44BF-A049-F23022B18534}"/>
-												<State Name="" ID="{7701B5FB-70C7-43A2-8669-48DFE68A075D}" ShortID="1046484894">
-													<PropertyList>
-														<Property Name="Volume" Type="Real64" Value="-11"/>
-													</PropertyList>
-												</State>
+												<State Name="" ID="{7701B5FB-70C7-43A2-8669-48DFE68A075D}" ShortID="1046484894"/>
 											</CustomState>
 											<CustomState>
 												<StateRef Name="P3_ConstructionStorm" ID="{0D1A02F3-9577-4504-8C6C-58D99D7925E6}"/>
@@ -6978,7 +6854,7 @@ Air currents change during the hours of the day and foliage changes during  the 
 												<StateRef Name="P1_IntroViewpoint" ID="{A0830815-1BB2-456C-BC25-BF32D2547E4E}"/>
 												<State Name="" ID="{39D1EB39-ED95-49C6-970F-4938BB5567E4}" ShortID="418511641">
 													<PropertyList>
-														<Property Name="Volume" Type="Real64" Value="-7"/>
+														<Property Name="Volume" Type="Real64" Value="-4"/>
 													</PropertyList>
 												</State>
 											</CustomState>
@@ -7048,10 +6924,6 @@ Air currents change during the hours of the day and foliage changes during  the 
 												</State>
 											</CustomState>
 											<CustomState>
-												<StateRef Name="Startup" ID="{C56A9784-D8F9-4B0A-933C-FF682388D608}"/>
-												<State Name="" ID="{FF0EAF8B-C743-4FAC-A885-E430C5E22DBA}" ShortID="974278068"/>
-											</CustomState>
-											<CustomState>
 												<StateRef Name="Empty" ID="{C1FFFDEC-FC6D-4B54-9D54-1DB3342ADAC8}"/>
 												<State Name="" ID="{568318BE-7928-4373-A60A-ADAE16BCF7ED}" ShortID="35310299"/>
 											</CustomState>
@@ -7078,10 +6950,6 @@ Air currents change during the hours of the day and foliage changes during  the 
 											<CustomState>
 												<StateRef Name="Credits" ID="{07794BAC-6A4D-4EDF-9F27-404ACF53D536}"/>
 												<State Name="" ID="{291C87C9-CF36-4433-A1E0-4914E8501FDB}" ShortID="942999953"/>
-											</CustomState>
-											<CustomState>
-												<StateRef Name="Off" ID="{A7BBD674-4222-4F16-9B72-229DA033C5E7}"/>
-												<State Name="" ID="{5B999191-DAE8-4201-A6E0-0DEB6EA348B9}" ShortID="426964044"/>
 											</CustomState>
 										</CustomStateList>
 									</StateInfo>
@@ -7155,12 +7023,6 @@ Air currents change during the hours of the day and foliage changes during  the 
 											</GroupingBehavior>
 										</GroupingBehaviorList>
 										<GroupingList>
-											<Grouping>
-												<SwitchRef Name="P1_IntroViewpoint" ID="{A0830815-1BB2-456C-BC25-BF32D2547E4E}"/>
-												<ItemList>
-													<ItemRef Name="Metal Amb" ID="{B6403DBA-7FDE-4E49-B0B2-B37B54378B81}"/>
-												</ItemList>
-											</Grouping>
 											<Grouping>
 												<SwitchRef Name="P3_ConstructionScenery" ID="{D01D8749-D570-4885-88A1-4E868784E367}"/>
 												<ItemList>
@@ -7871,233 +7733,6 @@ Air currents change during the hours of the day and foliage changes during  the 
 										<ActiveSource Name="394158__vacuumfan7072__uisound1" ID="{74408CA7-EADB-4ED9-850C-FB538343F41B}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<RandomSequenceContainer Name="Keys" ID="{094AC8F4-26EA-4BA1-A435-9403FC679641}" ShortID="274109838">
-									<PropertyList>
-										<Property Name="DivergenceCenter" Type="int32">
-											<ValueList>
-												<Value>100</Value>
-											</ValueList>
-										</Property>
-										<Property Name="EnablePanner" Type="bool" Value="True"/>
-										<Property Name="OverrideEffect" Type="bool" Value="True"/>
-										<Property Name="OverridePositioning" Type="bool" Value="True"/>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-24</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
-										</Reference>
-										<Reference Name="Effect0" PluginName="Wwise Matrix Reverb" CompanyID="0" PluginID="115" PluginType="3">
-											<ObjectRef Name="Small_Tiled_Room1" ID="{41EEE722-3009-4B3F-8820-F414623783E3}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<Sound Name="Key01" ID="{F7DBC101-529D-4818-BF93-0DFB29C8DE9A}" ShortID="699203708">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Key01" ID="{466A1CE1-FAD3-49D8-BACF-6E29A413A772}" ShortID="757981310">
-													<Language>SFX</Language>
-													<AudioFile>Key01.wav</AudioFile>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="Key01" ID="{466A1CE1-FAD3-49D8-BACF-6E29A413A772}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="Key02" ID="{EA4AF735-8D19-455F-87EF-69D1EAD37F8F}" ShortID="1019134985">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Key02" ID="{9EA4129D-B8E3-4FDB-8C83-C1472628CD12}" ShortID="813750258">
-													<Language>SFX</Language>
-													<AudioFile>Key02.wav</AudioFile>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="Key02" ID="{9EA4129D-B8E3-4FDB-8C83-C1472628CD12}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="Key03" ID="{E8B68C81-CCB4-4BC7-944A-8569AE0BDE76}" ShortID="772858162">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Key03" ID="{9B87D45F-C63B-4D4C-BA7E-AEB0D68C17BA}" ShortID="430117249">
-													<Language>SFX</Language>
-													<AudioFile>Key03.wav</AudioFile>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="Key03" ID="{9B87D45F-C63B-4D4C-BA7E-AEB0D68C17BA}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="Key04" ID="{B1C019A4-721F-435A-ABC7-C66DA36432BC}" ShortID="350394517">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Key04" ID="{A476DF0F-B2E5-4E0E-9F22-6CB63FE37368}" ShortID="193886036">
-													<Language>SFX</Language>
-													<AudioFile>Key04.wav</AudioFile>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="Key04" ID="{A476DF0F-B2E5-4E0E-9F22-6CB63FE37368}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="Key05" ID="{6BFDA35D-6198-4711-BB33-8FC4A7B2C4CA}" ShortID="895145298">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Key05" ID="{D0CBB7DA-ACA1-4336-9A59-3A4366E6CA3D}" ShortID="410555937">
-													<Language>SFX</Language>
-													<AudioFile>Key05.wav</AudioFile>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="Key05" ID="{D0CBB7DA-ACA1-4336-9A59-3A4366E6CA3D}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="Key06" ID="{95B6919B-32F3-456B-92EA-054652B4E75C}" ShortID="1040952548">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Key06" ID="{92840D0B-FA58-4672-8B59-FC4CB792F7B7}" ShortID="330032057">
-													<Language>SFX</Language>
-													<AudioFile>Key06.wav</AudioFile>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="Key06" ID="{92840D0B-FA58-4672-8B59-FC4CB792F7B7}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="Key07" ID="{CD81FA03-CC66-4DB0-AE79-9D0D2C44B8C3}" ShortID="283637057">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Key07" ID="{D42349EA-CF6A-4ED9-80F8-8D1729250E09}" ShortID="1071323952">
-													<Language>SFX</Language>
-													<AudioFile>Key07.wav</AudioFile>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="Key07" ID="{D42349EA-CF6A-4ED9-80F8-8D1729250E09}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-									</ChildrenList>
-									<PositioningInfo>
-										<Panner Name="" ID="{5A42F726-F554-455D-991D-F3777CF7D233}"/>
-									</PositioningInfo>
-								</RandomSequenceContainer>
-								<RandomSequenceContainer Name="KeyDone" ID="{C6F1C10A-3C41-4ECB-9C0B-A66DD21C9334}" ShortID="695896477">
-									<PropertyList>
-										<Property Name="OverrideEffect" Type="bool" Value="True"/>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-6</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
-										</Reference>
-										<Reference Name="Effect0" PluginName="Wwise Matrix Reverb" CompanyID="0" PluginID="115" PluginType="3">
-											<ObjectRef Name="Small_Tiled_Room1" ID="{41EEE722-3009-4B3F-8820-F414623783E3}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<Sound Name="KeyFinish01" ID="{47DC90E8-AFBB-46B4-BDAA-5B3950B407AF}" ShortID="386846594">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="KeyFinish01" ID="{A75E2690-5F6F-403D-96E0-19D5B27C63BF}" ShortID="512041029">
-													<Language>SFX</Language>
-													<AudioFile>KeyFinish01.wav</AudioFile>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="KeyFinish01" ID="{A75E2690-5F6F-403D-96E0-19D5B27C63BF}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="KeyFinish02" ID="{37D67FC0-AEE6-43D6-8D48-206981CB8D15}" ShortID="723517449">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{2653943A-432D-488E-9B26-028C9F2C6C6D}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="KeyFinish02" ID="{CBDA244C-1386-4189-8226-81EBEF6B64D3}" ShortID="299638083">
-													<Language>SFX</Language>
-													<AudioFile>KeyFinish02.wav</AudioFile>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="KeyFinish02" ID="{CBDA244C-1386-4189-8226-81EBEF6B64D3}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-									</ChildrenList>
-								</RandomSequenceContainer>
 							</ChildrenList>
 						</ActorMixer>
 					</ChildrenList>

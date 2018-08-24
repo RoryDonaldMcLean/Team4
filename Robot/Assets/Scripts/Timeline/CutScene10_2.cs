@@ -80,8 +80,8 @@ public class CutScene10_2 : BaseCutScene
         Destroy(otherPlayer);
         CancelInvoke();
         Invoke("StopAnim", 1.5f);
-        Invoke("Fading", 1.5f);
-        Invoke("End", 3.0f);
+        Invoke("Fading", 7.0f);
+        Invoke("End", 8.0f);
         GameObject.FindObjectOfType<SCR_CameraFollow>().enabled = false;
         //SceneManager.LoadScene("Transition");
 		EndingCheck.ending = Ending.PlayerDestroyed;

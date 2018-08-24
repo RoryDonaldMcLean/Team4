@@ -172,7 +172,7 @@ public class NarrativeText : MonoBehaviour
 			//sacrifice
 			if(m_scene.name == "End" && EndingCheck.ending == Ending.PlayerDestroyed)
 			{
-                AkSoundEngine.SetState("Environment", "Startup");
+                //AkSoundEngine.SetState("Environment", "Startup");
                 AkSoundEngine.PostEvent("Key", gameObject);
 
                 narrativeText = new string[] {
@@ -204,7 +204,7 @@ public class NarrativeText : MonoBehaviour
 			}//walk away
 			else if(m_scene.name == "End" && EndingCheck.ending == Ending.NoOneDestroyed)
 			{
-                AkSoundEngine.SetState("Environment", "Startup");
+                //AkSoundEngine.SetState("Environment", "Startup");
                 AkSoundEngine.PostEvent("Key", gameObject);
 
                 narrativeText = new string[] 
@@ -291,7 +291,12 @@ public class NarrativeText : MonoBehaviour
         }
         if (m_scene.name == "End" && EndingCheck.ending == Ending.PlayerDestroyed)
         {
-            // AkSoundEngine.SetState("Environment", "Intro");
+           AkSoundEngine.SetState("Environment", "P6_EndSacrifice");
+        }
+
+        if (m_scene.name == "End" && EndingCheck.ending == Ending.NoOneDestroyed)
+        {
+           AkSoundEngine.SetState("Environment", "P6_EndLeave");
         }
     }
 

@@ -2060,11 +2060,70 @@
 													<ClipList>
 														<MusicClip Name="Sacrifice P2 nonsacrifice" ID="{CDAD3205-058A-4935-9594-4F467290FC86}">
 															<PropertyList>
-																<Property Name="EndTrimOffset" Type="Real64" Value="30000"/>
+																<Property Name="EndTrimOffset" Type="Real64" Value="25000"/>
 																<Property Name="FadeInMode" Type="int16" Value="0"/>
-																<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																<Property Name="FadeOutDuration" Type="Real64" Value="3750"/>
 															</PropertyList>
 															<AudioSourceRef Name="Sacrifice P2 nonsacrifice" ID="{7F877246-1744-4FC6-A421-FA5B05C07222}"/>
+															<PropertyCurveList>
+																<PropertyCurve PropertyName="Highpass">
+																	<Curve Name="" ID="{64AAE4A7-9B73-447B-980B-C27E1AEE54FD}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="1"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>0</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>25</XPos>
+																				<YPos>0</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</PropertyCurve>
+																<PropertyCurve PropertyName="Lowpass">
+																	<Curve Name="" ID="{23A99EB0-F26A-4F9C-9A05-2EFBC1A925DB}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="1"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>0</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>25</XPos>
+																				<YPos>0</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</PropertyCurve>
+																<PropertyCurve PropertyName="Volume">
+																	<Curve Name="" ID="{BDA22AC2-D86A-445D-BF84-828F06C8CAA3}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="3"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>0</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>25</XPos>
+																				<YPos>0</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</PropertyCurve>
+															</PropertyCurveList>
 														</MusicClip>
 													</ClipList>
 												</MusicTrackSequence>
@@ -2076,7 +2135,7 @@
 										<MusicCue Name="Exit Cue" ID="{871894FC-67B1-49FC-82A0-DD5C56503BA7}">
 											<PropertyList>
 												<Property Name="CueType" Type="int16" Value="1"/>
-												<Property Name="TimeMs" Type="Real64" Value="30000"/>
+												<Property Name="TimeMs" Type="Real64" Value="25000"/>
 											</PropertyList>
 										</MusicCue>
 									</CueList>
@@ -3230,6 +3289,36 @@
 											</MusicFade>
 										</DestinationFadeIn>
 									</TransitionInfo>
+								</MusicTransition>
+								<MusicTransition Name="Transition" ID="{CB295166-8BC0-4975-B9B5-52D76FD40329}">
+									<PropertyList>
+										<Property Name="DestinationContextType" Type="int16" Value="2"/>
+										<Property Name="SourceContextType" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="DestinationContextObject">
+											<ObjectRef Name="Credits" ID="{CC402FB3-6A25-4E7B-B679-946C86B167FB}" WorkUnitID="{C54CF3E9-0E60-4A5A-AD10-EFD580D533AD}"/>
+										</Reference>
+										<Reference Name="SourceContextObject">
+											<ObjectRef Name="P6_Leave" ID="{AE85158A-AD92-4F85-822E-2BDEEF242EC9}" WorkUnitID="{C54CF3E9-0E60-4A5A-AD10-EFD580D533AD}"/>
+										</Reference>
+									</ReferenceList>
+									<TransitionInfo/>
+								</MusicTransition>
+								<MusicTransition Name="Transition" ID="{9522BD4C-30AD-4AC3-8882-61F04C2A2188}">
+									<PropertyList>
+										<Property Name="DestinationContextType" Type="int16" Value="2"/>
+										<Property Name="SourceContextType" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="DestinationContextObject">
+											<ObjectRef Name="Credits" ID="{CC402FB3-6A25-4E7B-B679-946C86B167FB}" WorkUnitID="{C54CF3E9-0E60-4A5A-AD10-EFD580D533AD}"/>
+										</Reference>
+										<Reference Name="SourceContextObject">
+											<ObjectRef Name="P6_Sacrifice" ID="{254A9C03-8FE9-4A69-A13A-31B9C527BC61}" WorkUnitID="{C54CF3E9-0E60-4A5A-AD10-EFD580D533AD}"/>
+										</Reference>
+									</ReferenceList>
+									<TransitionInfo/>
 								</MusicTransition>
 							</ChildrenList>
 							<TransitionInfo/>

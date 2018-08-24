@@ -14,6 +14,7 @@ public class FadeIn : MonoBehaviour
     void Start()
     {
 		NarrativeCanvas = GameObject.Find ("CanvasNarrative");
+        //AkSoundEngine.SetState("Environment", "Credits");
     }
 
     // Update is called once per frame

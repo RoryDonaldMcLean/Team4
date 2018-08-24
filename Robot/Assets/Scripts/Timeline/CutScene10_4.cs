@@ -37,9 +37,9 @@ public class CutScene10_4 : MonoBehaviour {
         {
 			Debug.Log ("just walk away...");
             //CancelInvoke();
-            Invoke("Fading", 1.0f);
+            Invoke("Fading", 2.0f);
             Invoke("End", 3.0f);
-			EndingCheck.ending = Ending.NoOneDestroyed; 
+			EndingCheck.ending = Ending.NoOneDestroyed;
         }
     }
 
@@ -47,6 +47,8 @@ public class CutScene10_4 : MonoBehaviour {
     {
         BlackFade = GameObject.Find("BlackFade");
         anim = BlackFade.GetComponent<Animator>();
+       // AkSoundEngine.SetState("Environment", "P6_EndLeave");
+
     }
 
     private void End()

@@ -269,21 +269,28 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
             float leftrot = left ? -1.0f : 0.0f;
             float rightrot = right ? 1.0f : 0.0f;
 
-            if (left || right) RotatingObjectAudio();
+            RotatingObjectAudio((left || right));
 
             pickedUpGameObject.transform.rotation = Quaternion.Euler(eulerAng.x, eulerAng.y + leftrot + rightrot, eulerAng.z);
         }
         else
         {
-            if (device.LeftStickX) RotatingObjectAudio();
+            RotatingObjectAudio(device.LeftStickX);
 
             pickedUpGameObject.transform.rotation = Quaternion.Euler(eulerAng.x, eulerAng.y + device.LeftStickX, eulerAng.z);
         }
     }
 
-    private void RotatingObjectAudio()
+    private void RotatingObjectAudio(bool toggleControl)
     {
-
+        if(toggleControl)
+        {
+            //play audio
+        }
+        else
+        {
+            //turn off audio
+        }
     }
 
     private bool RotationControl(int player1BtnIndex, int player2BtnIndex)

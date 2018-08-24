@@ -29,7 +29,6 @@ public class InControlMovement : MonoBehaviour
     private Vector2 input;
     private float currentAngle;
     private Vector3 EulerAngleVelocity;
-    private Transform cam;
     private Quaternion targetRotation;
 
 	public bool UsingPlayStation = false;
@@ -41,7 +40,6 @@ public class InControlMovement : MonoBehaviour
     {
         anim = this.GetComponent<Animator>();
         rb1 = GetComponent<Rigidbody>();
-		cam = Camera.main.transform;
         if(this.tag == "Player1")
         {
             playerNum = 0;

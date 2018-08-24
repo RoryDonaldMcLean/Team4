@@ -19,17 +19,11 @@ public class SCR_CameraFollow : MonoBehaviour
 	public bool followP1, followP2;
 	public bool leftPuzzle;
 
-	float timeTakenDuringLerp = 1.0f;
-	bool isLerping = false;
 	Vector3 startPosition;
 	Vector3 endPosition;
 
-	float timeStartedLerping;
-
 	//the time it takes for the rotation to happen.
 	float timeLeft = 2.0f;
-
-	private bool delay = false;
 
 	private int level = 0;
 
@@ -51,13 +45,8 @@ public class SCR_CameraFollow : MonoBehaviour
 			ChangeCameraPoints();
 		}
 
-		Invoke("DelayPuzzleLerp", 10.0f);
 	}
-
-	private void DelayPuzzleLerp()
-	{
-		delay = true;
-	}
+		
 
 	// Update is called once per frame
 	void Update () 
@@ -143,25 +132,6 @@ public class SCR_CameraFollow : MonoBehaviour
 			cam.transform.position = cameraDestination;
 	}
 
-
-
-	void FixedUpdate()
-	{
-		if (isLerping)
-		{
-			float timeSinceStarted = Time.time - timeStartedLerping;
-			float percentageComplete = timeSinceStarted / timeTakenDuringLerp;
-
-			cam.transform.position = Vector3.Lerp (startPosition, endPosition, percentageComplete);
-
-			if (percentageComplete >= 1.0f)
-			{
-				isLerping = false;
-			}
-		}
-        
-	}
-		
 
 	void ChangeCameraPoints()
 	{

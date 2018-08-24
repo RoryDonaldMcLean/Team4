@@ -18,22 +18,15 @@ public class Tutorial : MonoBehaviour
 
 	int levelCounter;
 
-	//float timeLeft = 4.0f;
-	//bool startTimer;
-
 	GameObject keyboardButtonPlayer1;
 	GameObject KeyboardButtonPlayer2;
 
 	int playerNum;
 	bool ControllerUsed;
-	bool tempBool = false;
 
 	public bool ChirpsTutorial;
 
 	bool UISwitch = false;
-
-	GameObject LeftArm, RightArm;
-	bool RightArmOn = true;
 
 	GameObject NarrativeCanvas;
 
@@ -41,9 +34,6 @@ public class Tutorial : MonoBehaviour
 	void Start () 
 	{
 		NarrativeCanvas = GameObject.Find ("CanvasNarrative");
-
-		LeftArm = GameObject.Find ("LeftArm");
-		RightArm = GameObject.Find ("RightArm");
 
 		playerNum = this.GetComponentInParent<InControlMovement> ().playerNum;
 		keyboardButtonPlayer1 = GameObject.FindGameObjectWithTag ("KeyBoardPlayer1");
@@ -108,7 +98,6 @@ public class Tutorial : MonoBehaviour
 		var inputDevice = (InputManager.Devices.Count > playerNum) ? InputManager.Devices [playerNum] : null;
 		if (inputDevice == null)
 		{
-			//Debug.Log ("no controllers plugged in");
 			ControllerUsed = false;
 		} 
 		else
@@ -146,13 +135,7 @@ public class Tutorial : MonoBehaviour
 		UIText.SetActive (false);
 		UISwitch = true;
 	}
-
-	IEnumerator TestBool(float waitTime)
-	{
-		yield return new WaitForSeconds (waitTime);
-
-		tempBool = true;
-	}
+		
 
 	IEnumerator DisplayText(float waitTime)
 	{
@@ -189,8 +172,7 @@ public class Tutorial : MonoBehaviour
 					{
 						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_PickLimb_B_XBOX") as Sprite;
 					}
-
-
+						
 					UIButtons [1].SetActive (false);
 					UIButtons [3].SetActive (false);
 					UIButtons [4].SetActive (false);
@@ -250,8 +232,6 @@ public class Tutorial : MonoBehaviour
 					UIButtons2 [3].SetActive (false);
 					UIButtons2 [4].SetActive (false);
 				}
-
-
 
 			}
 
@@ -490,7 +470,6 @@ public class Tutorial : MonoBehaviour
 						UIButtons [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_PickDropObject_Circle_PS") as Sprite;
 					} else
 					{
-						Debug.Log ("hehehehehehehe");
 						UIButtons2 [0].GetComponent<Image> ().sprite = Resources.Load<Sprite> ("Art/UI/TutorialCue/NewCues/Individual/White_PickDropObject_B_XBOX") as Sprite;
 					}
 					UIButtons2 [0].GetComponent<Image> ().preserveAspect = true;

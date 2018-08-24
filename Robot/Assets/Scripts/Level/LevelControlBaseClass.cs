@@ -66,7 +66,8 @@ public class LevelControlBaseClass : MonoBehaviour
             if (doors[0].SpawnWalkway == true)
             {
 				GameObject exit = GameObject.FindGameObjectWithTag("ExitDoor");
-				exit.SetActive(false);
+                //exit.SetActive(false);
+                SlideDoorOpen(exit);
                 if (!puzzleIdentifier.Contains("PuzzleFour"))
                 {
                     GameObject walkway = Instantiate(Resources.Load("Prefabs/PuzzleGenericItems/tempFloor")) as GameObject;
@@ -79,6 +80,12 @@ public class LevelControlBaseClass : MonoBehaviour
                 doors[0].Correct = false;
             }
         }
+    }
+
+    private void SlideDoorOpen(GameObject exit)
+    {
+        Debug.Log("PlayOpenDoorAnima");
+        exit.GetComponent<Animator>().Play("DoorOpen");
     }
 
     private void LimbBoxesReset()

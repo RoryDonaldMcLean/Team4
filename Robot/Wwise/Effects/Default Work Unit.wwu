@@ -378,10 +378,13 @@
 				<Effect Name="limbeq" ID="{5AAB97E9-55B9-4DEE-965F-34BC6DDEB88D}" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
 					<PropertyList>
 						<Property Name="FilterTypeBand1" Type="int32" Value="6"/>
+						<Property Name="FilterTypeBand3" Type="int32" Value="6"/>
 						<Property Name="FrequencyBand1" Type="Real32" Value="95"/>
 						<Property Name="FrequencyBand2" Type="Real32" Value="232"/>
+						<Property Name="FrequencyBand3" Type="Real32" Value="6096"/>
 						<Property Name="GainBand1" Type="Real32" Value="12"/>
 						<Property Name="GainBand2" Type="Real32" Value="-5.5"/>
+						<Property Name="GainBand3" Type="Real32" Value="-16"/>
 					</PropertyList>
 				</Effect>
 				<Effect Name="New_Wwise_Parametric_EQ_21" ID="{6D5B05D6-158B-403A-8326-641DB0997FFE}" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3"/>
@@ -435,6 +438,12 @@
 					</PropertyList>
 				</Effect>
 				<Effect Name="New_Wwise_Gain_01" ID="{9F21CBE6-DF41-4073-988D-D09AF2838BD8}" PluginName="Wwise Gain" CompanyID="0" PluginID="139" PluginType="3"/>
+				<Effect Name="New_Wwise_Parametric_EQ_27" ID="{C01A5A9D-9B9D-462C-BCCB-5B0C03034C33}" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+					<PropertyList>
+						<Property Name="FrequencyBand2" Type="Real32" Value="4947"/>
+						<Property Name="GainBand2" Type="Real32" Value="-1.5"/>
+					</PropertyList>
+				</Effect>
 			</ChildrenList>
 		</WorkUnit>
 	</Effects>

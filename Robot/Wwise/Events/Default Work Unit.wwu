@@ -653,6 +653,16 @@
 						</Event>
 						<Event Name="Machine_Charge" ID="{795EDFEA-4359-4EB3-A760-ABEF76756B5F}">
 							<ChildrenList>
+								<Action Name="" ID="{B66CB220-DE9F-4F33-BD73-1B4BD5CE1090}" ShortID="419179782">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Door_Open" ID="{B71A2F8E-975D-4D66-B442-7BEF759AB6FA}" WorkUnitID="{6BAE9174-7CEB-4131-99B7-F2EC621355E0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
 								<Action Name="" ID="{DEF6F513-A694-4A83-AE9C-FA889018E706}" ShortID="172621661">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="1"/>
@@ -666,16 +676,6 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="MACHINE_CHARGE" ID="{1E9581B3-C4DB-43A3-9E22-209E55464ACC}" WorkUnitID="{6BAE9174-7CEB-4131-99B7-F2EC621355E0}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-								<Action Name="" ID="{B66CB220-DE9F-4F33-BD73-1B4BD5CE1090}" ShortID="419179782">
-									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="1"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="entermachine" ID="{7C87D69A-F8E7-4ED6-AE8B-738B06751B38}" WorkUnitID="{6BAE9174-7CEB-4131-99B7-F2EC621355E0}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>

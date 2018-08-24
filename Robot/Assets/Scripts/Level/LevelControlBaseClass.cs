@@ -86,6 +86,7 @@ public class LevelControlBaseClass : MonoBehaviour
     {
         Debug.Log("PlayOpenDoorAnima");
         exit.GetComponent<Animator>().Play("DoorOpen");
+        AkSoundEngine.PostEvent("Door_Open", exit);
     }
 
     private void LimbBoxesReset()

@@ -35,9 +35,10 @@ public class CutScene10_4 : MonoBehaviour {
     {
         if(p1Back && p2Back)
         {
-            CancelInvoke();
-            Invoke("Fadeing", 1.0f);
-            Invoke("Fading", 3.0f);
+			Debug.Log ("just walk away...");
+            //CancelInvoke();
+            Invoke("Fading", 1.0f);
+            Invoke("End", 3.0f);
 			EndingCheck.ending = Ending.NoOneDestroyed; 
         }
     }

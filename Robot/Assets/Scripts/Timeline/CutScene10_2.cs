@@ -13,11 +13,14 @@ public class CutScene10_2 : BaseCutScene
 	private GameObject BlackFade;
 	private Animator anim;
 
+	//GameObject DeadRobot;
+
 	protected override void Start()
 	{
         base.Start();
 		BlackFade = GameObject.Find ("BlackFade");
 		anim = BlackFade.GetComponent<Animator> ();
+		//DeadRobot = Resources.Load<GameObject> ("Models/Dead/Red Robo Dead") as GameObject;
 	}
 
     protected override void OnCollisionStay(Collision other)
@@ -31,7 +34,7 @@ public class CutScene10_2 : BaseCutScene
         {
             controlPlayer = otherPlayer.tag == "Player1" ? p2 : p1;
 
-            int btnIndex = otherPlayer.tag == "Player1" ? 22 : 9;
+            int btnIndex = otherPlayer.tag == "Player1" ? 24 : 11;
 
             var device = otherPlayer.tag == "Player1" ? inputDevice2 : inputDevice1;
             PressButton(other, btnIndex, device);
@@ -60,7 +63,18 @@ public class CutScene10_2 : BaseCutScene
         AkSoundEngine.SetState("Environment", "P6_EndSacrifice");
         AkSoundEngine.PostEvent("Die", Tube);
         //AkSoundEngine.PostEvent("TheCore", Tube);
-
+		string whichPlayer = " ";
+		Debug.Log("here");
+		if (otherPlayer.tag == "Player1")
+		{
+			whichPlayer = "Red Robo Death new";
+		} else
+		{
+			whichPlayer = "Blue Robo Death new";
+		}
+		GameObject instance = Instantiate (Resources.Load ("Models/Dead/" + whichPlayer, typeof(GameObject))) as GameObject;
+		instance.transform.position = new Vector3 (10.4f, 0.6f, 111.64f);
+		instance.transform.localScale = new Vector3 (30.0f, 30.0f, 30.0f);
 
         controlPlayer.GetComponent<Animator>().SetBool("IsButtonPressed", true);
         Destroy(otherPlayer);

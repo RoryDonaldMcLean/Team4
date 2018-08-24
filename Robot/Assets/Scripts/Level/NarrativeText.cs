@@ -38,7 +38,6 @@ public class NarrativeText : MonoBehaviour
 
 		if (levelController != null)
 		{
-			Debug.Log ("ye");
 			if (levelController.GetComponent<LevelController> ().currentLevel == 0)
 			{
                 AkSoundEngine.SetState("Environment", "Startup");

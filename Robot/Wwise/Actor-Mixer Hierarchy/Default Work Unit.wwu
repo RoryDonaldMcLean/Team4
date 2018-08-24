@@ -4627,13 +4627,18 @@
 								<RandomSequenceContainer Name="TurnNode" ID="{88BA8EDC-E47A-4808-8D7D-78387A68AAEC}" ShortID="839597821">
 									<PropertyList>
 										<Property Name="OverrideEffect" Type="bool" Value="True"/>
+										<Property Name="Pitch" Type="int32">
+											<ValueList>
+												<Value>-450</Value>
+											</ValueList>
+										</Property>
 										<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
 										<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
 										<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="0.5"/>
 										<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-14</Value>
+												<Value>-25</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -4660,6 +4665,10 @@
 											</ReferenceList>
 											<ChildrenList>
 												<AudioFileSource Name="TurnCube1" ID="{5E1F24D9-1962-4A30-ADD7-12F946270DC0}" ShortID="1009450821">
+													<PropertyList>
+														<Property Name="FadeInDuration" Type="Real64" Value="5.44087844122024E-02"/>
+														<Property Name="TrimBegin" Type="Real64" Value="5.44087844122024E-02"/>
+													</PropertyList>
 													<Language>SFX</Language>
 													<AudioFile>TurnCube1.wav</AudioFile>
 												</AudioFileSource>
@@ -4679,6 +4688,10 @@
 											</ReferenceList>
 											<ChildrenList>
 												<AudioFileSource Name="TurnCube2" ID="{10C2D4E6-A481-4D15-B6A8-8B3F972DB78C}" ShortID="151004634">
+													<PropertyList>
+														<Property Name="FadeInDuration" Type="Real64" Value="5.58040364583333E-02"/>
+														<Property Name="TrimBegin" Type="Real64" Value="0.0837060546875"/>
+													</PropertyList>
 													<Language>SFX</Language>
 													<AudioFile>TurnCube2.wav</AudioFile>
 												</AudioFileSource>
@@ -4698,6 +4711,10 @@
 											</ReferenceList>
 											<ChildrenList>
 												<AudioFileSource Name="TurnCube3" ID="{E39DCA54-25D9-49A9-B4CC-0EE48B8F031A}" ShortID="1040805758">
+													<PropertyList>
+														<Property Name="FadeInDuration" Type="Real64" Value="0.0502236328125"/>
+														<Property Name="TrimBegin" Type="Real64" Value="7.81256510416667E-02"/>
+													</PropertyList>
 													<Language>SFX</Language>
 													<AudioFile>TurnCube3.wav</AudioFile>
 												</AudioFileSource>

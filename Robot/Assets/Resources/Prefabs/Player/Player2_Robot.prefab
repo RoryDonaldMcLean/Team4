@@ -584,6 +584,8 @@ GameObject:
   - component: {fileID: 114950402195677490}
   - component: {fileID: 114663872134595960}
   - component: {fileID: 114420123106716644}
+  - component: {fileID: 114477925643549542}
+  - component: {fileID: 114807088307956764}
   m_Layer: 14
   m_Name: Player2_Robot
   m_TagString: Player2
@@ -1790,7 +1792,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1518905239815366}
   m_LocalRotation: {x: 0.00000008146034, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 13.83, y: 0.22, z: -138.72}
+  m_LocalPosition: {x: 18.4, y: 0.2, z: -11.1}
   m_LocalScale: {x: 30, y: 30, z: 30}
   m_Children:
   - {fileID: 4371939008817836}
@@ -1822,7 +1824,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1332210348281718}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.001, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4965557723694448}
@@ -2038,8 +2040,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.06666002, y: 0.15395226, z: 0.066666}
-  m_Center: {x: 0, y: 0.07581347, z: 0}
+  m_Size: {x: 0.06666002, y: 0.13564597, z: 0.066666}
+  m_Center: {x: 0, y: 0.06666033, z: -1.5939498e-16}
 --- !u!65 &65519949236015244
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -2062,8 +2064,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.053526968, y: 0.16665737, z: 0.1}
-  m_Center: {x: -0.0018546999, y: 0.06610077, z: -0.001060774}
+  m_Size: {x: 0.053526968, y: 0.1, z: 0.1}
+  m_Center: {x: -0.0018546999, y: 0.06448306, z: -0.001060774}
 --- !u!82 &82218560761687046
 AudioSource:
   m_ObjectHideFlags: 1
@@ -2303,6 +2305,28 @@ MonoBehaviour:
   soundEmitterObject: {fileID: 0}
   transitionDuration: 0
   valueGuid: 5a3c3065c081ca4389bd27334f44e859
+--- !u!114 &114477925643549542
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1518905239815366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7999ea7310cf3db408b1eb3ad84d3f23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: 
+  useOtherObject: 0
+  actionOnEventType: 0
+  curveInterpolation: 4
+  enableActionOnEvent: 0
+  eventID: -1157301516
+  m_callbackData: {fileID: 0}
+  playingId: 0
+  soundEmitterObject: {fileID: 0}
+  transitionDuration: 0
+  valueGuid: c729902e2134d04c8346b95b04ec5a08
 --- !u!114 &114561570122012540
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2343,6 +2367,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ChirpsTutorial: 0
+--- !u!114 &114807088307956764
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1518905239815366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7999ea7310cf3db408b1eb3ad84d3f23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: 
+  useOtherObject: 0
+  actionOnEventType: 0
+  curveInterpolation: 4
+  enableActionOnEvent: 0
+  eventID: -1889287373
+  m_callbackData: {fileID: 0}
+  playingId: 0
+  soundEmitterObject: {fileID: 0}
+  transitionDuration: 0
+  valueGuid: bc3d838b16ec7c48913825ea70696d24
 --- !u!114 &114864607885872992
 MonoBehaviour:
   m_ObjectHideFlags: 1

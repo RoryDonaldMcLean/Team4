@@ -28,7 +28,6 @@ public class NarrativeText : MonoBehaviour
 		m_scene = SceneManager.GetActiveScene ();
 		levelController = GameObject.FindGameObjectWithTag ("GameController"); 
 		CreditsCanvas = GameObject.Find ("Canvas");
-        AkSoundEngine.PostEvent("Key", gameObject);
 
         if (CreditsCanvas != null)
 		{
@@ -41,6 +40,8 @@ public class NarrativeText : MonoBehaviour
 			if (levelController.GetComponent<LevelController> ().currentLevel == 0)
 			{
                 AkSoundEngine.SetState("Environment", "Startup");
+                AkSoundEngine.PostEvent("Key", gameObject);
+
 
                 narrativeText = new string[] {"Starting up boot up sequence for Sol-Unit-36/111 \n" +
 					" \n" +
@@ -71,6 +72,7 @@ public class NarrativeText : MonoBehaviour
 			} else if (levelController.GetComponent<LevelController> ().currentLevel == 1)
 			{
                 AkSoundEngine.SetState("Environment", "Startup");
+                AkSoundEngine.PostEvent("Key", gameObject);
 
                 narrativeText = new string[] {
 					"Mani: Sector 916-Sub115 clear of crates \n" +
@@ -94,6 +96,7 @@ public class NarrativeText : MonoBehaviour
 			} else if (levelController.GetComponent<LevelController> ().currentLevel == 2)
 			{
                 AkSoundEngine.SetState("Environment", "Startup");
+                AkSoundEngine.PostEvent("Key", gameObject);
 
                 narrativeText = new string[] {
 					"Sol: Substation sector 916/9991 clear: Checking Unit 36/111 efficiency.... Calculating.... \n" +
@@ -122,6 +125,7 @@ public class NarrativeText : MonoBehaviour
 			} else if (levelController.GetComponent<LevelController> ().currentLevel == 3)
 			{
                 AkSoundEngine.SetState("Environment", "Startup");
+                AkSoundEngine.PostEvent("Key", gameObject);
 
                 narrativeText = new string[] {
 					"Sol: Distance to sector 915/3.... 200KM. Calculating chance of Hardware failure.... \n" +
@@ -144,6 +148,7 @@ public class NarrativeText : MonoBehaviour
 			} else if (levelController.GetComponent<LevelController> ().currentLevel == 4)
 			{
                 AkSoundEngine.SetState("Environment", "Startup");
+                AkSoundEngine.PostEvent("Key", gameObject);
 
                 narrativeText = new string[] {
 					"Mani: Estimated time to reach destination is 16 hours. Probability of success at 2% to achieve quaternary directive \n" +
@@ -168,6 +173,7 @@ public class NarrativeText : MonoBehaviour
 			if(m_scene.name == "End" && EndingCheck.ending == Ending.PlayerDestroyed)
 			{
                 AkSoundEngine.SetState("Environment", "Startup");
+                AkSoundEngine.PostEvent("Key", gameObject);
 
                 narrativeText = new string[] {
 					"....Quaternary directive successful. Estimated time until complete system shutdown.... \n" +
@@ -199,6 +205,7 @@ public class NarrativeText : MonoBehaviour
 			else if(m_scene.name == "End" && EndingCheck.ending == Ending.NoOneDestroyed)
 			{
                 AkSoundEngine.SetState("Environment", "Startup");
+                AkSoundEngine.PostEvent("Key", gameObject);
 
                 narrativeText = new string[] 
 				{

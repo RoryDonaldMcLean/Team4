@@ -32,7 +32,6 @@ public class SCR_TradeLimb : MonoBehaviour
 
 	bool ControllersUsed;
 
-	bool ScriptedLoseLimb = false;
 
     #endregion
 
@@ -79,11 +78,7 @@ public class SCR_TradeLimb : MonoBehaviour
 		{
 			ProcessInputInControl (inputDevice);
 			ControllersUsed = true;
-			/*if (ScriptedLoseLimb == true)
-			{
-				inputDevice.Vibrate (100.0f, 100.0f);
-				ScriptedLoseLimb = false;
-			} */
+
 		}
 
 
@@ -859,7 +854,6 @@ public class SCR_TradeLimb : MonoBehaviour
 
                 /////
                 AkSoundEngine.PostEvent("Arm_Break", gameObject);
-				ScriptedLoseLimb = true;
             
                 Destroy(dropDownLims, 3f);
             }

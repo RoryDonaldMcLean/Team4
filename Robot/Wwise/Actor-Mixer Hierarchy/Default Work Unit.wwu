@@ -4600,6 +4600,11 @@
 								</Sound>
 								<Sound Name="entermachine" ID="{7C87D69A-F8E7-4ED6-AE8B-738B06751B38}" ShortID="267133949">
 									<PropertyList>
+										<Property Name="Inclusion" Type="bool">
+											<ValueList>
+												<Value>False</Value>
+											</ValueList>
+										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-12</Value>
@@ -4617,9 +4622,7 @@
 									<ChildrenList>
 										<AudioFileSource Name="Door_Open" ID="{CA5A5AE9-9263-47C7-8EE1-3D3FBD648984}" ShortID="98498055">
 											<PropertyList>
-												<Property Name="FadeInDuration" Type="Real64" Value="4.11564127604167E-02"/>
-												<Property Name="TrimBegin" Type="Real64" Value="2.2224462890625"/>
-												<Property Name="TrimEnd" Type="Real64" Value="3.2219591703869"/>
+												<Property Name="TrimEnd" Type="Real64" Value="2.93425967261904"/>
 											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Door_Open.wav</AudioFile>

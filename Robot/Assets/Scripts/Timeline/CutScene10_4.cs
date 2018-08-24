@@ -40,6 +40,8 @@ public class CutScene10_4 : MonoBehaviour {
             Invoke("Fading", 2.0f);
             Invoke("End", 3.0f);
 			EndingCheck.ending = Ending.NoOneDestroyed;
+            AkSoundEngine.SetState("Environment", "P6_EndLeave");
+
         }
     }
 

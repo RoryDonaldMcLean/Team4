@@ -272,32 +272,32 @@ public class NarrativeText : MonoBehaviour
         if (levelController.GetComponent<LevelController>().currentLevel == 0)
         {
             AkSoundEngine.SetState("Environment", "P1_Intro");
-        }
+        };
         if (levelController.GetComponent<LevelController>().currentLevel == 1)
         {
             AkSoundEngine.SetState("Environment", "P1_IntroViewpoint");
-        }
+        };
         if (levelController.GetComponent<LevelController>().currentLevel == 2)
         {
             AkSoundEngine.SetState("Environment", "P2_FactoryViewpoint");
-        }
+        };
         if (levelController.GetComponent<LevelController>().currentLevel == 3)
         {
             AkSoundEngine.SetState("Environment", "P3_ConstructionScenery");
-        }
+        };
         if (levelController.GetComponent<LevelController>().currentLevel == 4)
         {
-            AkSoundEngine.SetState("Environment", "P4_Clouds");
-        }
+           // AkSoundEngine.SetState("Environment", "P4_Clouds");
+        };
         if (m_scene.name == "End" && EndingCheck.ending == Ending.PlayerDestroyed)
         {
-           AkSoundEngine.SetState("Environment", "P6_EndSacrifice");
-        }
+           //AkSoundEngine.SetState("Environment", "P6_EndSacrifice");
+        };
 
         if (m_scene.name == "End" && EndingCheck.ending == Ending.NoOneDestroyed)
         {
-           AkSoundEngine.SetState("Environment", "P6_EndLeave");
-        }
+           //AkSoundEngine.SetState("Environment", "P6_EndLeave");
+        };
     }
 
 	void Update()

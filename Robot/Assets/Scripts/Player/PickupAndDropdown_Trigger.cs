@@ -286,10 +286,14 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
         if(toggleControl)
         {
             //play audio
+            AkSoundEngine.PostEvent("Turn", gameObject);
+
         }
         else
         {
             //turn off audio
+            AkSoundEngine.PostEvent("Turn_Stop", gameObject);
+
         }
     }
 

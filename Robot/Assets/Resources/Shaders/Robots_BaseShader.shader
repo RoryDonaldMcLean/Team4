@@ -6,7 +6,7 @@
 Shader "Custom/Robots_BaseShader" {
     Properties {
 		[Toggle]_Player("Is That a Player?", Range(0, 1)) = 0
-    	[Toggle]_PickUpDetected("PickUp", Range(0, 1)) = 0
+    	_PickUpDetected("PickUp", Range(0, 1)) = 0
 
 		_Outline("Outline", Range(0, 1)) = 0.1
 		_OutlineColor("OutlineColor", Color) = (1, 0, 0, 1)
@@ -40,6 +40,7 @@ Shader "Custom/Robots_BaseShader" {
 			#include "Lighting.cginc"  
 			#include "UnityCG.cginc"
 			fixed4 _XRayColor;
+			float _PickUpDetected;
 			struct v2f
 			{
 				float4 pos : SV_POSITION;
@@ -62,9 +63,10 @@ Shader "Custom/Robots_BaseShader" {
 				float3 viewDir = normalize(i.viewDir);
 				float rim = 1 - max(0, dot(normal, viewDir));
 				fixed4 finalCol = _XRayColor * rim;
-				#if !_PICKUPDETECTED_ON
+
+				if (_PickUpDetected <= 0)
 				finalCol.a = 0;
-				#endif
+
 				#if _PLAYER_ON
 				finalCol.a = 1;
 				#endif
@@ -73,7 +75,6 @@ Shader "Custom/Robots_BaseShader" {
 			#pragma vertex vert  
 			#pragma fragment frag  
 			#pragma shader_feature _PLAYER_ON
-			#pragma shader_feature _PICKUPDETECTED_ON
 			ENDCG
 		}
 
@@ -106,9 +107,8 @@ Shader "Custom/Robots_BaseShader" {
 				float3 normal = mul((float3x3)UNITY_MATRIX_IT_MV, v.normal);
 				normal.z = -0.5;
 
-				#if _PICKUPDETECTED_ON
+				if(_PickUpDetected > 0)
 					pos = pos + float4(normalize(normal), 0) * _Outline;
-				#endif
 				
 				o.pos = mul(UNITY_MATRIX_P, pos);
 				o.normal = v.normal;
@@ -118,18 +118,19 @@ Shader "Custom/Robots_BaseShader" {
 			fixed4 frag(v2f i) : SV_Target
 			{ 
 				fixed4 col = _OutlineColor;
-				#if !_PICKUPDETECTED_ON
+			if (_PickUpDetected <= 0)
+			{
 				col.a = 0;
 				col.r = 0;
 				col.g = 0;
 				col.b = 0;
-				#endif
+			}
+				//#endif
 				return col;
 			}
 
 			#pragma vertex vert  
 			#pragma fragment frag  
-			#pragma shader_feature _PICKUPDETECTED_ON
 			ENDCG
 		}
 

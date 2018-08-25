@@ -7996,7 +7996,7 @@ Air currents change during the hours of the day and foliage changes during  the 
 										<Property Name="OverridePositioning" Type="bool" Value="True"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-24</Value>
+												<Value>-6</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -8051,6 +8051,13 @@ Air currents change during the hours of the day and foliage changes during  the 
 											</ActiveSourceList>
 										</Sound>
 										<Sound Name="Key03" ID="{E8B68C81-CCB4-4BC7-944A-8569AE0BDE76}" ShortID="772858162">
+											<PropertyList>
+												<Property Name="Inclusion" Type="bool">
+													<ValueList>
+														<Value>False</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
@@ -8070,6 +8077,13 @@ Air currents change during the hours of the day and foliage changes during  the 
 											</ActiveSourceList>
 										</Sound>
 										<Sound Name="Key04" ID="{B1C019A4-721F-435A-ABC7-C66DA36432BC}" ShortID="350394517">
+											<PropertyList>
+												<Property Name="Inclusion" Type="bool">
+													<ValueList>
+														<Value>False</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
@@ -8089,6 +8103,13 @@ Air currents change during the hours of the day and foliage changes during  the 
 											</ActiveSourceList>
 										</Sound>
 										<Sound Name="Key05" ID="{6BFDA35D-6198-4711-BB33-8FC4A7B2C4CA}" ShortID="895145298">
+											<PropertyList>
+												<Property Name="Inclusion" Type="bool">
+													<ValueList>
+														<Value>False</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
@@ -8127,6 +8148,13 @@ Air currents change during the hours of the day and foliage changes during  the 
 											</ActiveSourceList>
 										</Sound>
 										<Sound Name="Key07" ID="{CD81FA03-CC66-4DB0-AE79-9D0D2C44B8C3}" ShortID="283637057">
+											<PropertyList>
+												<Property Name="Inclusion" Type="bool">
+													<ValueList>
+														<Value>False</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>
@@ -8152,6 +8180,11 @@ Air currents change during the hours of the day and foliage changes during  the 
 								</RandomSequenceContainer>
 								<RandomSequenceContainer Name="KeyDone" ID="{C6F1C10A-3C41-4ECB-9C0B-A66DD21C9334}" ShortID="695896477">
 									<PropertyList>
+										<Property Name="Lowpass" Type="int16">
+											<ValueList>
+												<Value>19</Value>
+											</ValueList>
+										</Property>
 										<Property Name="OverrideEffect" Type="bool" Value="True"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
@@ -8172,6 +8205,13 @@ Air currents change during the hours of the day and foliage changes during  the 
 									</ReferenceList>
 									<ChildrenList>
 										<Sound Name="KeyFinish01" ID="{47DC90E8-AFBB-46B4-BDAA-5B3950B407AF}" ShortID="386846594">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-3</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{05AF9F85-9533-4E9B-8204-0CDFD5ACC021}"/>

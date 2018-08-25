@@ -98,14 +98,8 @@ public class LightResize : MonoBehaviour
 
             if (puzzleObject != objectInfo.collider)
             {
-                //lightBarrier = false;
-                //Debug.Log("hitss");
                 CleanUpCollidedObject();
                 BeamResizeController();
-            }
-            else
-            {
-                //Debug.Log("question" + puzzleObject.name);
             }
         }
         else
@@ -113,12 +107,7 @@ public class LightResize : MonoBehaviour
             if (puzzleObject != objectInfo.collider)
             {
                 lightBarrier = false;
-                //Debug.Log("hit");
                 CleanUpCollidedObject();
-            }
-            else
-            {
-                //Debug.Log("Time");
             }
         }
     }
@@ -131,10 +120,9 @@ public class LightResize : MonoBehaviour
             if (RaycastBeam())
             {
                 distance = objectInfo.distance;
-                //Debug.Log("found" + contact);
+
                 if (lightBarrier)
                 {
-                    //Debug.Log("barrier");
                     LightBarrierLightControl();
                 }
                 else
@@ -143,7 +131,6 @@ public class LightResize : MonoBehaviour
                     {
                         if (contact)
                         {
-                            //Debug.Log("??");
                             CleanUpCollidedObject();
                         }
                         
@@ -153,12 +140,7 @@ public class LightResize : MonoBehaviour
             }
             else if(contact)
             {
-                Debug.Log("??");
                 CleanUpCollidedObject();
-            }
-            else
-            {
-                if(puzzleObject != null) Debug.Log("error");
             }
         }
 	}
@@ -170,18 +152,16 @@ public class LightResize : MonoBehaviour
             distance = 0;
             if (RaycastBeam())
             {
-                Collider test = puzzleObject;
+                Collider oldObject = puzzleObject;
                 distance = objectInfo.distance;
                 OnEnterObject();
-                if (test != puzzleObject)
+                if (oldObject != puzzleObject)
                 {
-                    Debug.Log("fix it");
-                    TriggerExitControl(test.transform);
+                    TriggerExitControl(oldObject.transform);
                 }
             }
             else 
-            {
-                Debug.Log("meh");            
+            {        
                 CleanUpCollidedObject();
             }
         }
@@ -284,15 +264,8 @@ public class LightResize : MonoBehaviour
             {
                 LightBeamSwitchOffControl();
             }
-            //else if(AwayFromBeam())
-            //{              
-            //    Debug.Log("away" + this.transform.root.name);
-
-            //    CleanUpCollidedObject();
-            //}
             else if(ShouldResizeBeam())
             {
-                Debug.Log("resize");
                 ResizeBeam();
             }
         }
@@ -306,12 +279,10 @@ public class LightResize : MonoBehaviour
         {
             if (endPoint < defaultBeamEndPoint)
             {
-                //contact = false;
                 ResizeLightRaycast();
             }
             else
             {
-                Debug.Log("errorCity");
                 CleanUpCollidedObject();
             }
         }
@@ -321,10 +292,7 @@ public class LightResize : MonoBehaviour
     {
         if (!finished)
         {
-            //if (lineBem.IsBeamAlive())
-            {
-                ObjectExitBeamAreaResponse();
-            }
+            ObjectExitBeamAreaResponse();
 
             lineBeam.ToggleBeam();
             lineBeam.ToggleBeam();
@@ -344,10 +312,6 @@ public class LightResize : MonoBehaviour
             TriggerExitControl(puzzleObject.transform);
             puzzleObject = null;
         }
-        else
-        {
-            //Debug.Log("issue");
-        }
     }
 
     private void LightBeamSwitchOffControl()
@@ -360,7 +324,6 @@ public class LightResize : MonoBehaviour
     {       
         contact = false;
         TriggerConnectedObjectsExit();
-		//RaycastControl();
     }
 
     private void CreateNewBody()
@@ -421,10 +384,6 @@ public class LightResize : MonoBehaviour
             BeamResize(ref endPointObject, ref collidedObject);
             AkSoundEngine.PostEvent("Light_Hits_Crystal", gameObject);
         }
-        else
-        {
-            Debug.Log("here");
-        }
     }
 
     private IEnumerator CheckIfBeamEntersFurthur(RaycastHit hit)
@@ -457,12 +416,8 @@ public class LightResize : MonoBehaviour
 
         CalculateNewBeam(ref endPointBeam);
 
-        //finds the width of the possible collision, using the real scale of and size of the objects being collided with. Used to ascertain if the beam is no longer in range. (in order to stop checking)
-        //colliderWidth = WidthCalculate();
-
         CheckForPrevCollidedObject();
 
-        //CancelInvoke("DefaultLightRaycast");
         StopCoroutine(RaycastOnRepeat());
         StopAllCoroutines();
 
@@ -533,9 +488,7 @@ public class LightResize : MonoBehaviour
         float endPointObjectValue = (Vector3.Dot(endPointBeam.position, this.transform.forward));
         float objectPos = Vector3.Dot(pos, this.transform.forward);
 
-        //return (!Mathf.Approximately(endPointObjectValue, objectPos));
         return (MyApprox(ref endPointObjectValue, ref objectPos));
-        //return (endPointBeam.position != pos);
     }
 
     private bool MyApprox(ref float a, ref float b)

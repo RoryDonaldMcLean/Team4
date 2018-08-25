@@ -250,9 +250,6 @@ public class NarrativeText : MonoBehaviour
 
 	IEnumerator AnimateText()
 	{
-		Debug.Log (narrativeText.Length);
-		Debug.Log (narrativeText[currentlyDisplayingText].Length);
-
 		for (int i = 0; i < (narrativeText [currentlyDisplayingText].Length + 1); i++)
 		{
 			textBox.text = narrativeText [currentlyDisplayingText].Substring (0, i);

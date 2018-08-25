@@ -161,11 +161,8 @@ public class Tutorial : MonoBehaviour
 		UIText.GetComponent<Text> ().text = "Found operational arm. Directive; acquite arm.";
 	}
 
-
-
 	void OnTriggerEnter(Collider col)
 	{
-		Debug.Log ("you are hitting " + col);
 		if ((col.transform.name.Contains ("LeftArm"))
 		    || (col.transform.name.Contains ("RightArm")))
 		{

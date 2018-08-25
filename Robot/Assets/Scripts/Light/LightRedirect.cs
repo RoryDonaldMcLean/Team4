@@ -39,18 +39,12 @@ public class LightRedirect : MonoBehaviour
     void OnTriggerExit(Collider lightBeam)
     {
         Transform exitingLightObject = lightBeam.transform.parent.parent;
-        if ((splineCurve != null)&&(connectedBeam)&&(ParentLightBeam(ref exitingLightObject)))
-        {
-            ExitBeamExecution();
-        }
+        ExitBeamControl(ref exitingLightObject);
     }
 
     public void TriggerExitFunction(Transform exitingLightObject)
     {
-        if ((splineCurve != null)&&(connectedBeam)&&(ParentLightBeam(ref exitingLightObject)))
-        {
-            ExitBeamExecution();
-        }
+        ExitBeamControl(ref exitingLightObject);
     }
 
     public void TriggerExitFunction()
@@ -61,11 +55,19 @@ public class LightRedirect : MonoBehaviour
         }
     }
 
+    private void ExitBeamControl(ref Transform exitingLightObject)
+    {
+        if ((splineCurve != null) && (connectedBeam) && (ParentLightBeam(ref exitingLightObject)))
+        {
+            ExitBeamExecution();
+            StartCoroutine(CheckForNeighboor());
+        }
+    }
+
     private void ExitBeamExecution()
     {
         DestroyBeam();
         connectedBeam = false;
-        StartCoroutine(CheckForNeighboor());
     }
 
     private IEnumerator CheckForNeighboor()
@@ -85,7 +87,8 @@ public class LightRedirect : MonoBehaviour
         if (RayCast(this.transform.forward, nearDistance, out hit))
         {
             AkSoundEngine.SetState("Drone_Modulator", "Hit_Switch");
-            TriggerEnterFunction(hit.collider);
+            Transform parent = hit.transform.parent.parent;
+            if (!ParentLightBeam(ref parent)) TriggerEnterFunction(hit.collider);
         }
     }
 

@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class TutorialBaseClass : MonoBehaviour
 {
-    protected List<LightTrigger> lightTriggers;
+    public List<LightTrigger> lightTriggers;
     protected GameObject entranceWall;
     protected GameObject exitWall;
     protected List<GameObject> lightSources;
     protected List<GameObject> lightObjects;
-    protected List<GameObject> destroyableWalls;
+    public List<GameObject> destroyableWalls;
     protected string tutorialIdentifier;
     protected GameObject tutorialPrompt;
 
@@ -129,10 +129,20 @@ public class TutorialBaseClass : MonoBehaviour
             {
                 if (destroyableWalls.Count != 0)
                 {
-                    Destroy(destroyableWalls[i]);
+                    //Destroy(destroyableWalls[i]);
+                    destroyableWalls[i].GetComponentInChildren<Animator>().Play("DoorOpen");
+                   
                     destroyableWalls.RemoveAt(i);
+
+                    if (destroyableWalls.Count == 1)
+                    {
+                        destroyableWalls[0].GetComponentInChildren<Animator>().Play("DoorOpen");
+
+                        destroyableWalls.RemoveAt(0);
+                    }
                 }
                 lightTriggers.RemoveAt(i);
+                
                 break;
             }
         }
@@ -163,6 +173,7 @@ public class TutorialBaseClass : MonoBehaviour
         //bool wallState = exitWall.GetComponent<MeshRenderer>().enabled;
         //exitWall.GetComponent<MeshRenderer>().enabled = !wallState;
         //exitWall.GetComponent<BoxCollider>().isTrigger = wallState;
-        exitWall.GetComponentInChildren<Animator>().Play("DoorOpen");
+        if(exitWall)
+            exitWall.GetComponentInChildren<Animator>().Play("DoorOpen");
     }
 }

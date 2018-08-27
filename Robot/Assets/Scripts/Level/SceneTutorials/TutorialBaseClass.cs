@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class TutorialBaseClass : MonoBehaviour
 {
-    public List<LightTrigger> lightTriggers;
+    protected List<LightTrigger> lightTriggers;
     protected GameObject entranceWall;
     protected GameObject exitWall;
     protected List<GameObject> lightSources;
     protected List<GameObject> lightObjects;
-    public List<GameObject> destroyableWalls;
+    protected List<GameObject> destroyableWalls;
     protected string tutorialIdentifier;
     protected GameObject tutorialPrompt;
 

@@ -60,7 +60,7 @@ public class LevelControlBaseClass : MonoBehaviour
         }
 
         LevelSpecificUpdate();
-
+        
         if (doorStateOpen)
         {
             if (doors[0].SpawnWalkway == true)
@@ -70,10 +70,10 @@ public class LevelControlBaseClass : MonoBehaviour
                 SlideDoorOpen(exit);
                 if (!puzzleIdentifier.Contains("PuzzleFour"))
                 {
-                    GameObject walkway = Instantiate(Resources.Load("Prefabs/PuzzleGenericItems/tempFloor")) as GameObject;
-                    walkway.name = "tempFloor";
-                    walkway.transform.position = walkwayPosition;
-					walkway.transform.localScale = walkwayScale;
+                    //GameObject walkway = Instantiate(Resources.Load("Prefabs/PuzzleGenericItems/tempFloor")) as GameObject;
+                    //walkway.name = "tempFloor";
+                    //walkway.transform.position = walkwayPosition;
+					//walkway.transform.localScale = walkwayScale;
                 }
 
                 doors[0].SpawnWalkway = false;

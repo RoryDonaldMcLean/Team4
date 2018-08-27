@@ -85,6 +85,7 @@ public class LevelControlBaseClass : MonoBehaviour
     private void SlideDoorOpen(GameObject exit)
     {
         Debug.Log("PlayOpenDoorAnima");
+        Debug.Log(exit.name);
         exit.GetComponent<Animator>().Play("DoorOpen");
         AkSoundEngine.PostEvent("Door_Open", exit);
     }

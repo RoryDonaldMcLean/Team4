@@ -71,7 +71,7 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
         else if (holding)
         {
             ObjectHeld(true, null);
-            AkSoundEngine.PostEvent("Turn_Stop", gameObject);
+           // AkSoundEngine.PostEvent("Turn_Stop", gameObject);
 
         }
     }
@@ -253,6 +253,8 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
         pickedUpGameObject = null; //empty the pick up object
         Destroy(pickupLocation);
         AkSoundEngine.PostEvent("Place_Crystal", gameObject);
+        AkSoundEngine.PostEvent("Turn_Stop", gameObject);
+
         anim.SetBool("IsLifting", false);
     }
 
@@ -443,6 +445,8 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
         Destroy(pickupLocation);
 
         AkSoundEngine.PostEvent("Place_Crystal", gameObject);
+        AkSoundEngine.PostEvent("Turn_Stop", gameObject);
+
         anim.SetBool("IsLifting", false);
     }
 
@@ -456,6 +460,7 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
         Destroy(pickupLocation);
 
         AkSoundEngine.PostEvent("Place_Crystal", gameObject);
+        AkSoundEngine.PostEvent("Turn_Stop", gameObject);
         anim.SetBool("IsLifting", false);
     }
 

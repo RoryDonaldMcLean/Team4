@@ -30,7 +30,8 @@ public class TutorialBaseClass : MonoBehaviour
     private void SpecialWallsSetup()
     {
         entranceWall = GameObject.FindGameObjectWithTag("EntranceWall");
-        entranceWall.SetActive(false);
+        //entranceWall.SetActive(false);
+        entranceWall.GetComponentInChildren<Animator>().Play("DoorOpen");
 
         exitWall = GameObject.FindGameObjectWithTag("ExitWall");
     }
@@ -38,6 +39,7 @@ public class TutorialBaseClass : MonoBehaviour
     public void TurnOnEntranceWall()
     {
         entranceWall.SetActive(true);
+        entranceWall.GetComponentInChildren<Animator>().Play("Idle");
     }
 
     //Adds up all the objects in this level into their respective data containers
@@ -158,8 +160,9 @@ public class TutorialBaseClass : MonoBehaviour
 
     private void ToggleExitControl()
     {
-        bool wallState = exitWall.GetComponent<MeshRenderer>().enabled;
-        exitWall.GetComponent<MeshRenderer>().enabled = !wallState;
-        exitWall.GetComponent<BoxCollider>().isTrigger = wallState;
+        //bool wallState = exitWall.GetComponent<MeshRenderer>().enabled;
+        //exitWall.GetComponent<MeshRenderer>().enabled = !wallState;
+        //exitWall.GetComponent<BoxCollider>().isTrigger = wallState;
+        exitWall.GetComponentInChildren<Animator>().Play("DoorOpen");
     }
 }

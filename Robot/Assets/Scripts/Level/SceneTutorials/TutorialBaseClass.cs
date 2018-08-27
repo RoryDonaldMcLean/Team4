@@ -173,7 +173,10 @@ public class TutorialBaseClass : MonoBehaviour
         //bool wallState = exitWall.GetComponent<MeshRenderer>().enabled;
         //exitWall.GetComponent<MeshRenderer>().enabled = !wallState;
         //exitWall.GetComponent<BoxCollider>().isTrigger = wallState;
-        if(exitWall)
+        if (exitWall)
+        {
             exitWall.GetComponentInChildren<Animator>().Play("DoorOpen");
+            AkSoundEngine.PostEvent("Door_Open", gameObject);
+        }
     }
 }

@@ -71,6 +71,8 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
         else if (holding)
         {
             ObjectHeld(true, null);
+            AkSoundEngine.PostEvent("Turn_Stop", gameObject);
+
         }
     }
 

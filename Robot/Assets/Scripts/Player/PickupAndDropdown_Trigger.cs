@@ -430,6 +430,7 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
             }
             else if (hit.transform.name.Contains("Switch"))
             {
+                Debug.Log("Switch");
                 hit.transform.GetComponentInChildren<TimelinePlaybackManager>().PlayTimeline();
             }
 

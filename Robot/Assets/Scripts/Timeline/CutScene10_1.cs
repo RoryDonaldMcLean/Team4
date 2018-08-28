@@ -50,7 +50,7 @@ public class CutScene10_1 : BaseCutScene {
         Destroy(player.GetComponent<Rigidbody>());
         insidePlayer = player;
        // AkSoundEngine.SetState("Environment", "P6_EndSacrifice");
-       AkSoundEngine.PostEvent("Machine_Charge", gameObject);
+       AkSoundEngine.PostEvent("Tube_Door", gameObject);
        // AkSoundEngine.PostEvent("entermachine", gameObject);
     }
 

@@ -27,7 +27,7 @@
 				<Event Id="1854679430" Name="Chains_Light" ObjectPath="\Events\Default Work Unit\Emitters\Chains_Light"/>
 				<Event Id="167209695" Name="Chirp" ObjectPath="\Events\Default Work Unit\Robots\Chirp" MaxAttenuation="120.000000"/>
 				<Event Id="2034861142" Name="ChirpCombine" ObjectPath="\Events\Default Work Unit\Robots\ChirpCombine"/>
-				<Event Id="445985469" Name="Die" ObjectPath="\Events\Default Work Unit\Robots\Die"/>
+				<Event Id="445985469" Name="Die" ObjectPath="\Events\Default Work Unit\Robots\Die" MaxAttenuation="120.000000"/>
 				<Event Id="535830432" Name="Door_Open" ObjectPath="\Events\Default Work Unit\Objects\Door_Open" MaxAttenuation="120.000000"/>
 				<Event Id="2390748151" Name="DoorChirp" ObjectPath="\Events\Default Work Unit\Robots\DoorChirp" MaxAttenuation="120.000000"/>
 				<Event Id="4251213326" Name="FootstepP1" ObjectPath="\Events\Default Work Unit\Robots\FootstepP1" MaxAttenuation="120.000000"/>
@@ -53,6 +53,7 @@
 				<Event Id="3202316517" Name="Switch" ObjectPath="\Events\Default Work Unit\Objects\Switch" MaxAttenuation="120.000000"/>
 				<Event Id="1728682787" Name="TarpFlap" ObjectPath="\Events\Default Work Unit\Emitters\TarpFlap"/>
 				<Event Id="1875437039" Name="TheCore" ObjectPath="\Events\Default Work Unit\Emitters\TheCore"/>
+				<Event Id="1502135742" Name="Tube_Door" ObjectPath="\Events\Default Work Unit\Objects\Tube_Door" MaxAttenuation="120.000000"/>
 				<Event Id="3137665780" Name="Turn" ObjectPath="\Events\Default Work Unit\Objects\Turn" MaxAttenuation="120.000000"/>
 				<Event Id="2405679923" Name="Turn_Stop" ObjectPath="\Events\Default Work Unit\Objects\Turn_Stop" MaxAttenuation="0.000000"/>
 			</IncludedEvents>
@@ -124,6 +125,10 @@
 				<File Id="235748016" Language="SFX">
 					<ShortName>Tarp3.wav</ShortName>
 					<Path>SFX\Tarp3_38C05CA7.wem</Path>
+				</File>
+				<File Id="266717083" Language="SFX">
+					<ShortName>Door_Open.wav</ShortName>
+					<Path>SFX\Door_Open_79DA7AC8.wem</Path>
 				</File>
 				<File Id="269206818" Language="SFX">
 					<ShortName>Attach Arm.wav</ShortName>
@@ -475,7 +480,7 @@
 				</File>
 				<File Id="1009647933" Language="SFX">
 					<ShortName>MACHINE_CHARGE.wav</ShortName>
-					<Path>SFX\MACHINE_CHARGE_745A2C71.wem</Path>
+					<Path>SFX\MACHINE_CHARGE_601CF813.wem</Path>
 				</File>
 				<File Id="1011223190" Language="SFX">
 					<ShortName>LightHitCrystal.wav</ShortName>

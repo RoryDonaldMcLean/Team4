@@ -51,6 +51,7 @@ namespace AK
         static const AkUniqueID SWITCH = 3202316517U;
         static const AkUniqueID TARPFLAP = 1728682787U;
         static const AkUniqueID THECORE = 1875437039U;
+        static const AkUniqueID TUBE_DOOR = 1502135742U;
         static const AkUniqueID TURN = 3137665780U;
         static const AkUniqueID TURN_STOP = 2405679923U;
     } // namespace EVENTS

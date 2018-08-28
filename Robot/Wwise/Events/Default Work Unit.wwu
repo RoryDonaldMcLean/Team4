@@ -269,6 +269,7 @@
 								<Action Name="" ID="{9DFD4F99-7ED6-4548-9082-27A9ED9CF2D2}" ShortID="118774288">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="1"/>
+										<Property Name="Delay" Type="Real64" Value="1"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -280,6 +281,11 @@
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="1"/>
 										<Property Name="Delay" Type="Real64" Value="3.5"/>
+										<Property Name="Inclusion" Type="bool">
+											<ValueList>
+												<Value>False</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -705,6 +711,20 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="TurnNode" ID="{88BA8EDC-E47A-4808-8D7D-78387A68AAEC}" WorkUnitID="{6BAE9174-7CEB-4131-99B7-F2EC621355E0}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Tube_Door" ID="{6262CD8F-3788-4C54-9823-6BD041014C6F}">
+							<ChildrenList>
+								<Action Name="" ID="{03A70894-A5EF-4DA1-8E18-95346F2D19EA}" ShortID="44286082">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Door_Open_01" ID="{0755363A-F58C-4ED3-9F61-4589B511834D}" WorkUnitID="{6BAE9174-7CEB-4131-99B7-F2EC621355E0}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>

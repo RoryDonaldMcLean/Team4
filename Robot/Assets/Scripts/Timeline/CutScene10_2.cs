@@ -62,8 +62,10 @@ public class CutScene10_2 : BaseCutScene
         AkSoundEngine.PostEvent("Switch", gameObject);
         AkSoundEngine.SetState("Environment", "P6_EndSacrifice");
         AkSoundEngine.PostEvent("Die", Tube);
+        AkSoundEngine.PostEvent("Machine_Charge", Tube);
+
         //AkSoundEngine.PostEvent("TheCore", Tube);
-		string whichPlayer = " ";
+        string whichPlayer = " ";
 		Debug.Log("here");
 		if (otherPlayer.tag == "Player1")
 		{

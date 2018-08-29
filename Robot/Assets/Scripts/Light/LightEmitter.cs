@@ -61,7 +61,6 @@ public class LightEmitter : MonoBehaviour
         switchedOn = false;
         ToggleLight();
         canBeTurnedOff = false;
-       // AkSoundEngine.PostEvent("Drone_Stop", gameObject);
         AkSoundEngine.SetState("Environment", "Empty");
     }
 

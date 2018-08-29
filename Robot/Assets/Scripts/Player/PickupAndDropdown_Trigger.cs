@@ -419,7 +419,6 @@ public class PickupAndDropdown_Trigger : MonoBehaviour
             {
                 hit.transform.GetComponent<LightEmitter>().InteractWithEmitter();
                 hit.transform.GetComponent<LightEmitter>().switchedOn = !hit.transform.GetComponent<LightEmitter>().switchedOn;
-                Debug.Log("light emitter hit");
             }
             else if (hit.transform.name.Contains("RotateBox"))
             {

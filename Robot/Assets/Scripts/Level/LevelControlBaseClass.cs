@@ -195,7 +195,7 @@ public class LevelControlBaseClass : MonoBehaviour
             counter++;
         }
 
-        if(counter < 0) lightShowFinished = true;
+        if(counter >= 10) lightShowFinished = true;
         yield return null;
     }
 
